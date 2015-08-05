@@ -20,7 +20,7 @@ namespace DAL
         //    //
         //    // TODO: Add constructor logic here
         //    //
-        //}
+        //} 
 
         string ConnectionString = string.Empty;
 
