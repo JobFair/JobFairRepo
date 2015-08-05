@@ -9,6 +9,6 @@ namespace CommonUtil
 {
     public static class Utility
     {
-       //jyoti lawand kjd
+       //jyoti 
     }
 }
