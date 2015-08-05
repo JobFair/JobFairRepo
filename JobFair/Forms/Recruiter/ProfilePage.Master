@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ProfilePage.master.cs" Inherits="JobFair.Forms.Recruiter.ProfilePage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="../../Style.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            background-color: #66FF99;
+        }
+        .auto-style2 {
+            width: 400px;
+            height: 160px;
+        }
+        .auto-style3 {
+            width: 389px;
+        }
+        .auto-style4 {
+            width: 389px;
+            height: 179px;
+        }
+        .auto-style5 {
+            height: 179px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style4">
+                    <img class="auto-style2" src="../../Images/L1-whte.jpg" /></td>
+                <td class="auto-style5"></td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td>
+                    <asp:LinkButton ID="lbPostNewJob" runat="server">Post New Job</asp:LinkButton>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:LinkButton ID="lbManageJobs" runat="server">Manage Jobs</asp:LinkButton>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:LinkButton ID="lbManageResponse" runat="server">Manage Responses</asp:LinkButton>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
