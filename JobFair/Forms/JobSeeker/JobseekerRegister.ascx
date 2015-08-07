@@ -7,16 +7,14 @@
     </tr>
     <tr>
         <td >
-            <asp:Label ID="lblName" runat="server" Text="First Name"></asp:Label>
-        </td>
+            First Name</td>
         <td >
             <asp:TextBox ID="txtFirstname" runat="server"></asp:TextBox>
         </td>
         <td >
-            <asp:Label ID="lblName0" runat="server" Text="Last Name"></asp:Label>
-        </td>
+            Last Name</td>
         <td >
-            <asp:TextBox ID="txtLastname" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -25,20 +23,14 @@
         </td>
         <td colspan="2">
             <asp:TextBox ID="txtMailid" runat="server"></asp:TextBox>
-            <asp:Label ID="lblerrorMail" runat="server"></asp:Label>
         </td>
     </tr>
     <tr>
-        <td  colspan="2">Gender</td>
+        <td  colspan="2">&nbsp;</td>
         <td>
-            <asp:RadioButtonList ID="rdoGender" runat="server" RepeatDirection="Horizontal">
-                <asp:ListItem Value="1">Female</asp:ListItem>
-                <asp:ListItem Value="2">Male</asp:ListItem>
-            </asp:RadioButtonList>
-        </td>
+            &nbsp;</td>
         <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="rdoGender" ErrorMessage="Select your Gender"></asp:RequiredFieldValidator>
-        </td>
+            &nbsp;</td>
     </tr>
     <tr>
         <td  colspan="2">
@@ -50,6 +42,12 @@
     </tr>
     <tr>
         <td  colspan="2">
+            &nbsp;</td>
+        <td colspan="2">
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td  colspan="2">
             <asp:Label ID="City" runat="server" BackColor="White" EnableTheming="True" EnableViewState="False" Text="Current City"></asp:Label>
         </td>
         <td colspan="2">
@@ -58,8 +56,7 @@
     </tr>
     <tr>
         <td  colspan="2">
-            <asp:Label ID="Label2" runat="server" Text="Current Address"></asp:Label>
-        </td>
+            Address</td>
         <td colspan="2">
             <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine"></asp:TextBox>
         </td>
