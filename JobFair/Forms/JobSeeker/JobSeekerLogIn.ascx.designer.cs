@@ -13,22 +13,22 @@ namespace JobFair.Forms.JobSeeker {
     public partial class JobSeekerLogIn {
         
         /// <summary>
-        /// lblUserId control.
+        /// lblUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserId;
+        protected global::System.Web.UI.WebControls.Label lblUserName;
         
         /// <summary>
-        /// txtUserId control.
+        /// txtUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserId;
+        protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
         /// lblPassword control.
