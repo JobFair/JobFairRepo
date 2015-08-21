@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BAL;
+//using BAL;
 
 namespace JobFair.Forms.Recruiter
 {
@@ -17,8 +17,8 @@ namespace JobFair.Forms.Recruiter
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            CandidateBAL Cbal = new CandidateBAL();
-            Cbal.GetPasswordRecruiter(email);
+            //CandidateBAL Cbal = new CandidateBAL();
+            //Cbal.GetPasswordRecruiter(email);
 
         }
     }
