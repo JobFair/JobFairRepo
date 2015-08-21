@@ -76,6 +76,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AjaxControlToolkit.dll" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\EmploymentDetails.ascx" />
