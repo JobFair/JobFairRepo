@@ -17,7 +17,7 @@
     </head>
 <body style="background-color:#66FF99;>
     <form id="form1" runat="server">
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
     <div>
         
         <table >

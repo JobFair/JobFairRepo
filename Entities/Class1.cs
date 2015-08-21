@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAL
+namespace Entities
 {
-    class BALRegister
+    public class Class1
     {
-
     }
 }
