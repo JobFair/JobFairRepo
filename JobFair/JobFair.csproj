@@ -82,6 +82,7 @@
     <Content Include="Forms\Employeer\EmploymentDetails.ascx" />
     <Content Include="Forms\Employeer\SearchFormBasic.ascx" />
     <Content Include="Forms\JobSeeker\AdvanceSearch.ascx" />
+    <Content Include="Forms\JobSeeker\JobSeekerRegister.aspx" />
     <Content Include="Forms\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="Forms\Recruiter\ClientDetails.ascx" />
     <Content Include="Forms\Recruiter\ContactPerson.ascx" />
@@ -114,7 +115,6 @@
     <Content Include="Forms\JobSeeker\Feedback Us.aspx" />
     <Content Include="Forms\JobSeeker\ForgetPassword.ascx" />
     <Content Include="Forms\JobSeeker\JobSeekerLogIn.ascx" />
-    <Content Include="Forms\JobSeeker\JobseekerRegister.ascx" />
     <Content Include="Forms\JobSeeker\MoreCertifications.ascx" />
     <Content Include="Forms\JobSeeker\MoreWorkshops.ascx" />
     <Content Include="Forms\JobSeeker\PersonalDetails.ascx" />
@@ -214,12 +214,11 @@
     <Compile Include="Forms\JobSeeker\JobSeekerLogIn.ascx.designer.cs">
       <DependentUpon>JobSeekerLogIn.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobSeeker\JobseekerRegister.ascx.cs">
-      <DependentUpon>JobseekerRegister.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Forms\JobSeeker\JobSeekerRegister.aspx.cs">
+      <DependentUpon>JobSeekerRegister.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobSeeker\JobseekerRegister.ascx.designer.cs">
-      <DependentUpon>JobseekerRegister.ascx</DependentUpon>
+    <Compile Include="Forms\JobSeeker\JobSeekerRegister.aspx.designer.cs">
+      <DependentUpon>JobSeekerRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\MoreCertifications.ascx.cs">
       <DependentUpon>MoreCertifications.ascx</DependentUpon>
