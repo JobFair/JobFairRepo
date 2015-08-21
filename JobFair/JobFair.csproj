@@ -38,9 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=15.1.2.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\admin\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>.\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -91,7 +90,6 @@
     <Content Include="UserControls\Recruiter\DesiredCandidateProfileSearch.ascx" />
     <Content Include="UserControls\Recruiter\HeaderMenu.ascx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
-    <Content Include="UserControls\Recruiter\RecruiterForgetPwd.ascx" />
     <Content Include="Forms\Recruiter\RecruiterLogIn.aspx" />
     <Content Include="Forms\Recruiter\RecruiterRegistration.aspx" />
     <Content Include="Forms\Recruiter\ViewAllJobsDetails.aspx" />
@@ -110,9 +108,7 @@
     <Content Include="UserControls\JobSeeker\AffirmativeInfo.ascx" />
     <Content Include="UserControls\JobSeeker\ChangePassword.ascx" />
     <Content Include="UserControls\JobSeeker\ContactInformation.ascx" />
-    <Content Include="Forms\JobSeeker\default.aspx" />
     <Content Include="Forms\JobSeeker\Feedback Us.aspx" />
-    <Content Include="UserControls\JobSeeker\ForgetPassword.ascx" />
     <Content Include="UserControls\JobSeeker\JobSeekerLogIn.ascx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
@@ -146,26 +142,12 @@
       <DependentUpon>ContactInformation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\JobSeeker\default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\JobSeeker\default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\JobSeeker\Feedback Us.aspx.cs">
       <DependentUpon>Feedback Us.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\JobSeeker\Feedback Us.aspx.designer.cs">
       <DependentUpon>Feedback Us.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\ForgetPassword.ascx.cs">
-      <DependentUpon>ForgetPassword.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\ForgetPassword.ascx.designer.cs">
-      <DependentUpon>ForgetPassword.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\JobSeekerLogIn.ascx.cs">
       <DependentUpon>JobSeekerLogIn.ascx</DependentUpon>
@@ -263,13 +245,6 @@
     <Compile Include="Forms\Recruiter\ProfilePage.Master.designer.cs">
       <DependentUpon>ProfilePage.Master</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Recruiter\RecruiterForgetPwd.ascx.cs">
-      <DependentUpon>RecruiterForgetPwd.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\Recruiter\RecruiterForgetPwd.ascx.designer.cs">
-      <DependentUpon>RecruiterForgetPwd.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Recruiter\RecruiterHome.Master.cs">
       <DependentUpon>RecruiterHome.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,12 +277,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UserControls\Employer\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BAL\BAL.csproj">
-      <Project>{7596ca0a-210f-4d44-baaf-b808ecc15a3d}</Project>
-      <Name>BAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

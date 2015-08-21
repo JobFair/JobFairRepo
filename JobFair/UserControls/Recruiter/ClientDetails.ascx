@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ClientDetails.ascx.cs" Inherits="JobFair.Forms.Recruiter.ClientDetails" %>
 
 
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1"  %>
 
 <link href="../../Style.css" rel="stylesheet" />
 
