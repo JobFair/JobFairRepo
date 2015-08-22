@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1"   runat="server">
     <div>
     
         <table class="auto-style1">
@@ -47,7 +47,7 @@
             <tr>
                 <td >Gender</td>
                 <td>
-                    <asp:RadioButtonList ID="rblGender" runat="server" AutoPostBack="True" RepeatDirection="Horizontal">
+                    <asp:RadioButtonList ID="rblGender" runat="server"  RepeatDirection="Horizontal">
                         <asp:ListItem>Female</asp:ListItem>
                         <asp:ListItem>Male</asp:ListItem>
                     </asp:RadioButtonList>
@@ -111,7 +111,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <asp:Label ID="Label1" runat="server" Visible="false"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Visible="true"></asp:Label>
                 </td>
             </tr>
             

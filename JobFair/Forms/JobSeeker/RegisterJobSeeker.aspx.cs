@@ -28,6 +28,7 @@ namespace JobFair.Forms.JobSeeker
                 string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
 
                 ///Provide the min and max limit for the no
+                
                 rjsEnitity.UserId = Convert.ToString(randomNumber.Next(100, int.MaxValue));
                 rjsEnitity.FirstName = txtFirstName.Text.Trim();
                 rjsEnitity.LastName = txtLastName.Text.Trim();
@@ -44,7 +45,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     string extension = Path.GetExtension(FileUploadResume.PostedFile.FileName);
                     FileUploadResume.SaveAs(uploadFolder + rjsEnitity.UserId + extension);
-                    Label1.Text = "File uploaded successfully as: " + "Test" + extension;
+                    Label1.Text = "File uploaded successfully as: " + rjsEnitity.UserId + extension;
                 }
                 else
                 {
@@ -54,9 +55,9 @@ namespace JobFair.Forms.JobSeeker
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
 
                 int result = rjsBAL.RegisterNewJobSeekerBAL(rjsEnitity);
-                if (result > 1)
+                if (result >= 1)
                 {
-                    Response.Redirect("SearchJobs.aspx");
+                    Response.Redirect("Feedback Us.aspx");
                 }
             }
             catch (Exception ex)
