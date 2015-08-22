@@ -77,12 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
+    <Content Include="Forms\JobSeeker\RegisterJobSeeker.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\EmploymentDetails.ascx" />
     <Content Include="UserControls\JobSeeker\SearchFormBasic.ascx" />
     <Content Include="UserControls\JobSeeker\AdvanceSearch.ascx" />
-    <Content Include="Forms\JobSeeker\JobSeekerRegister.aspx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
     <Content Include="UserControls\Recruiter\ContactPerson.ascx" />
@@ -98,6 +98,7 @@
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
     <Content Include="Forms\Recruiter\ProfilePage.Master" />
     <Content Include="Forms\Employer\HomePage.Master" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,6 +122,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\JobSeeker\RegisterJobSeeker.aspx.cs">
+      <DependentUpon>RegisterJobSeeker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\RegisterJobSeeker.aspx.designer.cs">
+      <DependentUpon>RegisterJobSeeker.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
       <DependentUpon>AdvanceSearch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -156,13 +164,6 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\JobSeekerLogIn.ascx.designer.cs">
       <DependentUpon>JobSeekerLogIn.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\JobSeeker\JobSeekerRegister.aspx.cs">
-      <DependentUpon>JobSeekerRegister.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\JobSeeker\JobSeekerRegister.aspx.designer.cs">
-      <DependentUpon>JobSeekerRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\MoreCertifications.ascx.cs">
       <DependentUpon>MoreCertifications.ascx</DependentUpon>
@@ -275,9 +276,27 @@
       <DependentUpon>ViewAllJobsDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="UploadFiles\" />
     <Folder Include="UserControls\Employer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BAL\BAL.csproj">
+      <Project>{7596ca0a-210f-4d44-baaf-b808ecc15a3d}</Project>
+      <Name>BAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{4af13c7c-524f-46b4-ae17-2d544ee26621}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,19 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JobSeekerRegister.aspx.cs" Inherits="JobFair.Forms.JobSeeker.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterJobSeeker.aspx.cs" Inherits="JobFair.Forms.JobSeeker.RegisterJobSeeker" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-.label
-{
-    float:left;
-    display:block;
-    font-style:oblique;
-    color: green;
-}
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -80,7 +71,7 @@
             <tr>
                 <td >Confirm Password</td>
                 <td>
-                    <asp:TextBox ID="txtConfirmPassword" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="*" ForeColor="#FF3300" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword"></asp:CompareValidator>
                 </td>
             </tr>
