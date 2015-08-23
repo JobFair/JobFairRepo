@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ForgetPasswordEntity.cs" />
+    <Compile Include="LogInJobSeekerEnitity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerEntity.cs" />
   </ItemGroup>

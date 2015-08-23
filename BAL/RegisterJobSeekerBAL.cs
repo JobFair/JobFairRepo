@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using DAL;
+using System.Data.SqlClient;
 
 namespace BAL
 {
@@ -16,5 +17,16 @@ namespace BAL
             return rjsDAL.RegisterNewJobSeekerDAL(rjsEntity);
 
         }
+
+
+
+       public SqlDataReader JobSeekerLogIn(LogInJobSeekerEnitity logjsEntity)
+       {
+
+           RegisterJobSeekerDAL jsloginDAL = new RegisterJobSeekerDAL();
+           SqlDataReader rdr = jsloginDAL.JobSeekerLoginDAL(logjsEntity);
+           return rdr;
+           
+       }
     }
 }

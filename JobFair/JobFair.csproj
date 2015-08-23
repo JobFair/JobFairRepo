@@ -77,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
+    <Content Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx" />
+    <Content Include="Forms\JobSeeker\JobSeekerLogIn.aspx" />
     <Content Include="Forms\JobSeeker\RegisterJobSeeker.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
@@ -99,6 +101,7 @@
     <Content Include="Forms\Recruiter\ProfilePage.Master" />
     <Content Include="Forms\Employer\HomePage.Master" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -122,6 +125,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx.cs">
+      <DependentUpon>JobSeekerForgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx.designer.cs">
+      <DependentUpon>JobSeekerForgetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JobSeekerHome.Master.cs">
+      <DependentUpon>JobSeekerHome.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JobSeekerHome.Master.designer.cs">
+      <DependentUpon>JobSeekerHome.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JobSeekerLogIn.aspx.cs">
+      <DependentUpon>JobSeekerLogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JobSeekerLogIn.aspx.designer.cs">
+      <DependentUpon>JobSeekerLogIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeeker\RegisterJobSeeker.aspx.cs">
       <DependentUpon>RegisterJobSeeker.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,6 +316,10 @@
     <ProjectReference Include="..\BAL\BAL.csproj">
       <Project>{7596ca0a-210f-4d44-baaf-b808ecc15a3d}</Project>
       <Name>BAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonUtil\CommonUtil.csproj">
+      <Project>{8b683f96-6d4f-4b61-bd26-747d06a7f4f5}</Project>
+      <Name>CommonUtil</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{4af13c7c-524f-46b4-ae17-2d544ee26621}</Project>
