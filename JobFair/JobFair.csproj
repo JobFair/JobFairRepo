@@ -79,7 +79,7 @@
     <Content Include="AjaxControlToolkit.dll" />
     <Content Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerLogIn.aspx" />
-    <Content Include="Forms\JobSeeker\RegisterJobSeeker.aspx" />
+    <Content Include="Forms\JobSeeker\JobSeekerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\EmploymentDetails.ascx" />
@@ -146,12 +146,12 @@
     <Compile Include="Forms\JobSeeker\JobSeekerLogIn.aspx.designer.cs">
       <DependentUpon>JobSeekerLogIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobSeeker\RegisterJobSeeker.aspx.cs">
-      <DependentUpon>RegisterJobSeeker.aspx</DependentUpon>
+    <Compile Include="Forms\JobSeeker\JobSeekerRegister.aspx.cs">
+      <DependentUpon>JobSeekerRegister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\JobSeeker\RegisterJobSeeker.aspx.designer.cs">
-      <DependentUpon>RegisterJobSeeker.aspx</DependentUpon>
+    <Compile Include="Forms\JobSeeker\JobSeekerRegister.aspx.designer.cs">
+      <DependentUpon>JobSeekerRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
       <DependentUpon>AdvanceSearch.ascx</DependentUpon>

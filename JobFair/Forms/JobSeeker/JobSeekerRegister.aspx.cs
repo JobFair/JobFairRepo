@@ -10,7 +10,7 @@ using System.IO;
 
 namespace JobFair.Forms.JobSeeker
 {
-    public partial class RegisterJobSeeker : System.Web.UI.Page
+    public partial class JobSeekerRegister : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

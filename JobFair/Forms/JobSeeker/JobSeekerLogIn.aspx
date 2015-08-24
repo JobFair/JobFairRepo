@@ -29,8 +29,8 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:HyperLink ID="hlForgetPassword" NavigateUrl="~/Forms/JobSeeker/JobSeeker.aspx" runat="server">Forget Password?</asp:HyperLink>
-                <asp:HyperLink ID="hlNewRegister" NavigateUrl="~/Forms/JobSeeker/RegisterJobSeeker.aspx" runat="server">New User click here</asp:HyperLink>
+                <asp:HyperLink ID="hlForgetPassword" NavigateUrl="~/Forms/JobSeeker/JobSeekerForgetPassword.aspx" runat="server">Forget Password?</asp:HyperLink>
+                <asp:HyperLink ID="hlNewRegister" NavigateUrl="~/Forms/JobSeeker/JobSeekerRegister.aspx" runat="server">New User click here</asp:HyperLink>
             </td>
         </tr>
     </table>
