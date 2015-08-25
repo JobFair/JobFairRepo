@@ -3,15 +3,13 @@
 <div>
 <table>
     <tr>
-        <td colspan="2"><h1>Change Your Password</h1></tr></td>
+        <td colspan="2"><h1>Change Your Password</h1></td></tr>
         
     <tr>
         <td >
-            Enter Your User Name</td>
-        <td>
-            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUsername">*</asp:RequiredFieldValidator>
-        </td>
+            &nbsp;</td>
+        <td style="margin-left: 40px">
+            &nbsp;</td>
     </tr>
         
     <tr>

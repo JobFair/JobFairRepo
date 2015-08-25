@@ -25,6 +25,7 @@ namespace JobFair.Forms.JobSeeker
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
 
                 LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
+                HttpCookie user = new HttpCookie("userinfo");
 
                 logjsEntity.UserName = txtUserName.Text;
                 logjsEntity.Password = txtPassword.Text;
@@ -32,7 +33,8 @@ namespace JobFair.Forms.JobSeeker
 
                 if (rd.Read())
                 {
-
+                   user["username"]= txtUserName.Text;
+                   Response.Cookies.Add(user);
 
 
                     Response.Redirect("Feedback Us.aspx");

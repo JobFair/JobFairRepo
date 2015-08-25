@@ -5,7 +5,7 @@
     <div></div>
     <table>
         <tr>
-            <td colspan="2"><h1>LogIn</h1></td>
+            <td colspan="2"><h1>Login</h1></td>
         </tr>
         <tr>
             <td>User Name</td>
@@ -34,6 +34,7 @@
             <td>&nbsp;</td>
             <td>
                 <asp:HyperLink ID="hlForgetPassword" NavigateUrl="~/Forms/JobSeeker/JobSeekerForgetPassword.aspx" runat="server">Forget Password?</asp:HyperLink>
+                <br />
                 <asp:HyperLink ID="hlNewRegister" NavigateUrl="~/Forms/JobSeeker/JobSeekerRegister.aspx" runat="server">New User click here</asp:HyperLink>
             </td>
         </tr>

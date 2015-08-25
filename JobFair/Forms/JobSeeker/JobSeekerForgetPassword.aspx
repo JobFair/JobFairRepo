@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <table>
+    <table>
         <tr>
             <td colspan="2"><h1>Forget Password</h1></td>            
         </tr>
@@ -23,45 +23,4 @@
         </tr>
     </table>
 
-        <table >
-            <tr>
-                <td colspan="2"  ><strong><h1>FeedBack</h1></strong></td>
-                
-            </tr>
-            <tr>
-                <td >User Name</td>
-                <td>
-                    <asp:TextBox ID="txtUname" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td >Email Id</td>
-                <td>
-                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td >Feedback</td>
-                <td>
-                    <asp:TextBox ID="txtFeedback" runat="server" TextMode="MultiLine"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td >&nbsp;</td>
-                <td>
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
-                </td>
-            </tr>
-            <tr>
-                <td >&nbsp;</td>
-                <td>
-                    <asp:Label ID="lblMsg0" runat="server" Text=""></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td >&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-        
-</asp:Content>
+        </asp:Content>
