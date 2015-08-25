@@ -1,13 +1,26 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ChangePassword.ascx.cs" Inherits="JobFair.Forms.JobSeeker.ChangePassword" %>
 <link href="../../Style.css" rel="stylesheet" />
-
-<table >
+<div>
+<table>
+    <tr>
+        <td colspan="2"><h1>Change Your Password</h1></tr></td>
+        
+    <tr>
+        <td >
+            Enter Your User Name</td>
+        <td>
+            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUsername">*</asp:RequiredFieldValidator>
+        </td>
+    </tr>
+        
     <tr>
         <td >
             <asp:Label ID="lblOldpwd" runat="server" Text="Enter Your Old Password"></asp:Label>
         </td>
         <td>
             <asp:TextBox ID="txtOldpwd" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtOldpwd" ErrorMessage="Enter your old password correct">*</asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -16,6 +29,8 @@
         </td>
         <td>
             <asp:TextBox ID="txtNewpwd" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtNewpwd" ErrorMessage="Enter New Password">*</asp:RequiredFieldValidator>
+
         </td>
     </tr>
     <tr>
@@ -24,18 +39,23 @@
         </td>
         <td>
             <asp:TextBox ID="txtConpwd" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtNewpwd" ControlToValidate="txtConpwd" ErrorMessage="ReEnter Correct New Password">*</asp:CompareValidator>
         </td>
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;</td>
+        
     </tr>
     <tr>
         <td >&nbsp;</td>
         <td>
-            <asp:Button ID="btnOk" runat="server" Text="OK" />
+            <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnOk_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </td>
     </tr>
     <tr>
         <td >&nbsp;</td>
-        <td>&nbsp;</td>
+        <td><asp:Label ID="lblMsg" runat="server"></asp:Label></td>
     </tr>
 </table>
-
+    </div>

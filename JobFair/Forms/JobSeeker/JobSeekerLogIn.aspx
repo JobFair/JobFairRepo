@@ -20,6 +20,10 @@
             </td>
         </tr>
         <tr>
+            <td>&nbsp;</td>
+            <td><asp:CheckBox ID="cbRememberMe" runat="server" Text="Remember Me" /></td>
+        </tr>
+        <tr>
             <td colspan="2"></td>
         </tr>
         <tr>

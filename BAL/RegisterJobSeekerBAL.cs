@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Entities;
 using DAL;
 using System.Data.SqlClient;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace BAL
 {
@@ -27,6 +30,12 @@ namespace BAL
            SqlDataReader rdr = jsloginDAL.JobSeekerLoginDAL(logjsEntity);
            return rdr;
            
+       }
+
+       public int ChangePasswordBAL(ChangePasswordEnitity cpentity)
+       {
+           RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
+           return rjsDAL.ChangePasswordDAL(cpentity);
        }
     }
 }

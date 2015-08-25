@@ -23,7 +23,7 @@ namespace JobFair.Forms.JobSeeker
             {
 
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
-                
+
                 LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
 
                 logjsEntity.UserName = txtUserName.Text;
@@ -32,6 +32,9 @@ namespace JobFair.Forms.JobSeeker
 
                 if (rd.Read())
                 {
+
+
+
                     Response.Redirect("Feedback Us.aspx");
                 }
                 else
@@ -46,7 +49,7 @@ namespace JobFair.Forms.JobSeeker
             {
                 throw ex;
             }
-            
+
         }
     }
 }

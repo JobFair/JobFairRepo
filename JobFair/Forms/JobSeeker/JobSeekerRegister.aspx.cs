@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Entities;
 using BAL;
 using System.IO;
+using System.Web.Security;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -57,6 +58,7 @@ namespace JobFair.Forms.JobSeeker
                 int result = rjsBAL.RegisterNewJobSeekerBAL(rjsEnitity);
                 if (result >= 1)
                 {
+                    
                     Response.Redirect("Feedback Us.aspx");
                 }
             }
