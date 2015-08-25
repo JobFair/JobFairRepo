@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace JobFair.UserControls.JobSeeker
+namespace JobFair.Forms.JobSeeker
 {
-    public partial class PassportDetails : System.Web.UI.UserControl
+    public partial class EducationalDetailsJobSeeker : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

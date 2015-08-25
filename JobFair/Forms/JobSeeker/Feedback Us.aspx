@@ -1,8 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feedback Us.aspx.cs" Inherits="JobFair.Forms.JobSeeker.Feedback_Us" %>
 
+<%@ Register Src="~/UserControls/JobSeeker/PersonalDetails.ascx" TagPrefix="uc1" TagName="PersonalDetails" %>
 
 
-<%@ Register src="../../UserControls/JobSeeker/ChangePassword.ascx" tagname="ChangePassword" tagprefix="uc1" %>
+
+
+
+
 
 
 
@@ -17,14 +21,14 @@
     <form id="form1" runat="server">
     <div>
     
-        <uc1:ChangePassword ID="ChangePassword1" runat="server" />
-
+       
+        <uc1:PersonalDetails runat="server" ID="PersonalDetails" />
     
     </div>
 
         <table >
             <tr>
-                <td colspan="2"  ><strong><h1>FeedBack</h1></strong></td>
+                <td colspan="2"  ><h1>FeedBack</h1></td>
                 
             </tr>
             <tr>
@@ -62,6 +66,7 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
+
         
     </form>
 </body>

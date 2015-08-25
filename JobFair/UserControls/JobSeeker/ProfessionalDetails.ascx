@@ -141,7 +141,7 @@
 <hr />
 <table>
     <tr>
-        <td   colspan="2"><b style="font-style: italic; text-decoration: underline"><h1>Desired Job Details</h1></b></td>
+        <td   colspan="2"><h1>Desired Job Details</h1></td>
     </tr>
     <tr>
         <td >Job Post Looking for</td>
