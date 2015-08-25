@@ -83,6 +83,7 @@
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\EmploymentDetails.ascx" />
+    <Content Include="UserControls\JobSeeker\PassportDetails.ascx" />
     <Content Include="UserControls\JobSeeker\SearchFormBasic.ascx" />
     <Content Include="UserControls\JobSeeker\AdvanceSearch.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
@@ -188,6 +189,13 @@
     <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.cs">
       <DependentUpon>MoreWorkshops.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\PassportDetails.ascx.cs">
+      <DependentUpon>PassportDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\PassportDetails.ascx.designer.cs">
+      <DependentUpon>PassportDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.cs">
       <DependentUpon>PersonalDetails.ascx</DependentUpon>

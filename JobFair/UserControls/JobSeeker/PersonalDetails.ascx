@@ -31,8 +31,9 @@
             <asp:Label ID="Label11" runat="server" Text="State"></asp:Label>
         </td>
         <td  colspan="5">
-            <asp:DropDownList ID="ddlStatePresent" runat="server">
+            <asp:DropDownList ID="ddlStatePresent" runat="server" DataSourceID="SqlDataSource1" DataTextField="stateID" DataValueField="stateID">
             </asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString %>" SelectCommand="SELECT * FROM [StatesMaster]"></asp:SqlDataSource>
         </td>
     </tr>
     <tr>
@@ -40,7 +41,7 @@
             <asp:Label ID="Label12" runat="server" Text="City"></asp:Label>
         </td>
         <td  colspan="5">
-            <asp:DropDownList ID="ddlCityPresent" runat="server">
+            <asp:DropDownList ID="ddlCityPresent" runat="server" DataSourceID="SqlDataSource1" DataTextField="stateID" DataValueField="stateID">
             </asp:DropDownList>
         </td>
     </tr>
@@ -104,7 +105,7 @@
             <asp:Label ID="Label5" runat="server" Text="Gender"></asp:Label>
         </td>
         <td colspan="10">
-            <asp:RadioButtonList ID="RadioButtonList2" runat="server" RepeatDirection="Horizontal">
+            <asp:RadioButtonList ID="rdoblGender" runat="server" RepeatDirection="Horizontal">
                 <asp:ListItem>Female</asp:ListItem>
                 <asp:ListItem>Male</asp:ListItem>
             </asp:RadioButtonList>
@@ -115,7 +116,11 @@
             <asp:Label ID="Label6" runat="server" Text="Marital Status"></asp:Label>
         </td>
         <td colspan="10">
-            <asp:DropDownList ID="DropDownList4" runat="server">
+            <asp:DropDownList ID="ddlMaritalStatus" runat="server">
+                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem>Married</asp:ListItem>
+                <asp:ListItem>Unmarried</asp:ListItem>
+                <asp:ListItem>Widow</asp:ListItem>
             </asp:DropDownList>
         </td>
     </tr>
@@ -129,24 +134,6 @@
                     <asp:ListItem>Yes</asp:ListItem>
                     <asp:ListItem>No</asp:ListItem>
                 </asp:RadioButtonList>
-                <table>
-                    <tr>
-                        <td>
-                            <asp:Label ID="lblpass" runat="server" Text="Passport Number" Visible="false"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtPassportNo" runat="server" Visible="false"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="lblPassportValidity" runat="server" Text="Validity" Visible="false"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtValidity" runat="server" Visible="false"></asp:TextBox>
-                        </td>
-                    </tr>
-                </table>
             </ContentTemplate>
 
                         </asp:UpdatePanel></td>
@@ -231,7 +218,19 @@
         </td>
         <td colspan="10">
             <asp:DropDownList ID="DropDownList5" runat="server">
+                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem>Working</asp:ListItem>
+                <asp:ListItem>On Notice Period</asp:ListItem>
+                <asp:ListItem>Fresher</asp:ListItem>
             </asp:DropDownList>
+        </td>
+    </tr>
+    <tr>
+        <td >
+            &nbsp;</td>
+        <td colspan="10">
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </td>
     </tr>
 </table>

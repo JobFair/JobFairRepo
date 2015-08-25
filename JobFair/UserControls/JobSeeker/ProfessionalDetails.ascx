@@ -1,25 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProfessionalDetails.ascx.cs" Inherits="JobFair.Forms.JobSeeker.ProfessionalDetails" %>
 
-<style type="text/css">
-    
-    .auto-style1 {
-        width: 263px;
-    }
-    .auto-style2 {
-        width: 198px;
-    }
-    .auto-style3 {
-        width: 195px;
-    }
-    .auto-style4 {
-        width: 187px;
-    }
-    
-</style>
-
 <table>
     <tr>
-        <td   colspan="2" style="font-weight: 700; font-style: italic; text-decoration: underline">Current Job Details</td>
+        <td   colspan="2" style="font-weight: 700; font-style: italic; text-decoration: underline"><h1> Current Job Details</h1></td>
     </tr>
     <tr>
         <td >Resume Headline</td>
@@ -158,7 +141,7 @@
 <hr />
 <table>
     <tr>
-        <td   colspan="2"><b style="font-style: italic; text-decoration: underline">Desired Job Details</b></td>
+        <td   colspan="2"><b style="font-style: italic; text-decoration: underline"><h1>Desired Job Details</h1></b></td>
     </tr>
     <tr>
         <td >Job Post Looking for</td>
