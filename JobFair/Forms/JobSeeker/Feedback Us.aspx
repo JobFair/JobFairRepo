@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feedback Us.aspx.cs" Inherits="JobFair.Forms.JobSeeker.Feedback_Us" %>
 
-<%@ Register Src="~/UserControls/JobSeeker/PersonalDetails.ascx" TagPrefix="uc1" TagName="PersonalDetails" %>
 
 
 
@@ -22,7 +21,7 @@
     <div>
     
        
-        <uc1:PersonalDetails runat="server" ID="PersonalDetails" />
+        
     
     </div>
 
