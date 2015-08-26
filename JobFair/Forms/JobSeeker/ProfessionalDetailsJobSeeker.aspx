@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="ProfessionalDetailsJobSeeker.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ProfessionalDetailsJobSeeker" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            height: 26px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
@@ -23,13 +28,13 @@
         <tr>
             <td >Industry</td>
             <td >
-                <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name">
+                <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name" Width="129px">
                 </asp:DropDownList>
                 <br /></td>
         </tr>
         <tr>
-            <td >Department</td>
-            <td >
+            <td class="auto-style1" >Department</td>
+            <td class="auto-style1" >
                 <asp:DropDownList ID="ddlDepartment" runat="server">
                 </asp:DropDownList>
             </td>
@@ -37,7 +42,7 @@
         <tr>
             <td >Current Job Role</td>
             <td >
-                <asp:DropDownList ID="ddlCurrentJobRole" runat="server">
+                <asp:DropDownList ID="ddlCurrentJobRole" runat="server" Height="16px" Width="147px">
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem></asp:ListItem>
@@ -51,7 +56,7 @@
         <tr>
             <td >Primary Functional Role</td>
             <td >
-                <asp:DropDownList ID="ddlPrimRole" runat="server">
+                <asp:DropDownList ID="ddlPrimRole" runat="server" Width="138px">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -175,14 +180,14 @@
         <tr>
             <td >Notice Period</td>
             <td >
-                <asp:DropDownList ID="ddlNoticePeriod" runat="server">
+                <asp:DropDownList ID="ddlNoticePeriod" runat="server" Height="25px" Width="98px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Employment status</td>
             <td >
-                <asp:DropDownList ID="ddlEmployementStatus" runat="server">
+                <asp:DropDownList ID="ddlEmployementStatus" runat="server" Height="27px" Width="94px">
                 </asp:DropDownList>
             </td>
         </tr>

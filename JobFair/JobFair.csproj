@@ -77,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
-    <Content Include="Forms\JobSeeker\EducationalDetailsJobSeeker.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerLogIn.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerRegister.aspx" />
@@ -126,13 +125,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\JobSeeker\EducationalDetailsJobSeeker.aspx.cs">
-      <DependentUpon>EducationalDetailsJobSeeker.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\JobSeeker\EducationalDetailsJobSeeker.aspx.designer.cs">
-      <DependentUpon>EducationalDetailsJobSeeker.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx.cs">
       <DependentUpon>JobSeekerForgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
