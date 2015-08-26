@@ -31,22 +31,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtInstituteName;
         
         /// <summary>
-        /// DDLpassingYear control.
+        /// ddlPassingYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLpassingYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPassingYear;
         
         /// <summary>
-        /// DDLPG control.
+        /// ddlPG control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLPG;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPG;
         
         /// <summary>
         /// txtInstituteName1 control.
@@ -58,30 +58,30 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtInstituteName1;
         
         /// <summary>
-        /// DDLpassingyear1 control.
+        /// ddlPassingYear1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLpassingyear1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPassingYear1;
         
         /// <summary>
-        /// btnsubmiteducationdetails control.
+        /// btnSubmitEducationDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsubmiteducationdetails;
+        protected global::System.Web.UI.WebControls.Button btnSubmitEducationDetails;
         
         /// <summary>
-        /// btncanceleducationaldetails control.
+        /// btnCancelEducationalDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btncanceleducationaldetails;
+        protected global::System.Web.UI.WebControls.Button btnCancelEducationalDetails;
     }
 }

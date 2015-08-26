@@ -18,8 +18,17 @@ H1  {
 
 
     .auto-style1 {
-        width: 264px;
-    }
+            width: 463px;
+        }
+
+
+        .auto-style2 {
+            height: 18px;
+        }
+        .auto-style3 {
+            width: 463px;
+            height: 18px;
+        }
 
 
     </style>
@@ -48,14 +57,14 @@ H1  {
         <tr>
             <td >Year of passing</td>
             <td class="auto-style1">
-                <asp:DropDownList ID="DDLpassingYear" runat="server">
+                <asp:DropDownList ID="ddlPassingYear" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >PG Qualification</td>
             <td class="auto-style1">
-                <asp:DropDownList ID="DDLPG" runat="server">
+                <asp:DropDownList ID="ddlPG" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -68,16 +77,21 @@ H1  {
         <tr>
             <td >Year of passing</td>
             <td class="auto-style1">
-                <asp:DropDownList ID="DDLpassingyear1" runat="server">
+                <asp:DropDownList ID="ddlPassingYear1" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >&nbsp;</td>
             <td class="auto-style1">
-                <asp:Button ID="btnsubmiteducationdetails" runat="server" Text="Submit" />
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style2" ></td>
+            <td class="auto-style3">
+                <asp:Button ID="btnSubmitEducationDetails" runat="server" Text="Submit" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btncanceleducationaldetails" runat="server" Text="Cancel" />
+                <asp:Button ID="btnCancelEducationalDetails" runat="server" Text="Cancel" />
             </td>
         </tr>
     </table>

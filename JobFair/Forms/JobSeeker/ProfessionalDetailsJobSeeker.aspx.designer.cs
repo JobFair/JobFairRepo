@@ -40,31 +40,31 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtTill;
         
         /// <summary>
-        /// DDLindustry control.
+        /// ddlIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLindustry;
+        protected global::System.Web.UI.WebControls.DropDownList ddlIndustry;
         
         /// <summary>
-        /// DDLDepartment control.
+        /// ddlDepartment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLDepartment;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
         
         /// <summary>
-        /// DDLcurrentjobrole control.
+        /// ddlCurrentJobRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLcurrentjobrole;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCurrentJobRole;
         
         /// <summary>
         /// ddlPrimRole control.
@@ -76,22 +76,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlPrimRole;
         
         /// <summary>
-        /// txtjobdescription control.
+        /// txtJobdescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtjobdescription;
+        protected global::System.Web.UI.WebControls.TextBox txtJobdescription;
         
         /// <summary>
-        /// txttechnicalskill control.
+        /// txtTechnicalskill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttechnicalskill;
+        protected global::System.Web.UI.WebControls.TextBox txtTechnicalskill;
         
         /// <summary>
         /// ddlSecRole control.
@@ -211,22 +211,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtexpectedsalary;
         
         /// <summary>
-        /// DDLnoticeperiod control.
+        /// ddlNoticePeriod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLnoticeperiod;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNoticePeriod;
         
         /// <summary>
-        /// DDLEmploymentstatus control.
+        /// ddlEmployementStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLEmploymentstatus;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmployementStatus;
         
         /// <summary>
         /// CheckBoxList1 control.
@@ -256,22 +256,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtworkarea;
         
         /// <summary>
-        /// DDLpreferedstate control.
+        /// ddlPreferedState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLpreferedstate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPreferedState;
         
         /// <summary>
-        /// DDLpreferedjoblocation control.
+        /// ddlPreferedJobLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLpreferedjoblocation;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPreferedJobLocation;
         
         /// <summary>
         /// btnsave1 control.
@@ -283,12 +283,12 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnsave1;
         
         /// <summary>
-        /// btncancel1 control.
+        /// btnCancel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btncancel1;
+        protected global::System.Web.UI.WebControls.Button btnCancel1;
     }
 }
