@@ -17,6 +17,11 @@ H1  {
 }
 
 
+    .auto-style1 {
+        width: 264px;
+    }
+
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -29,42 +34,50 @@ H1  {
         </tr>
         <tr>
             <td >UG Qualification</td>
-            <td>
-                <asp:DropDownList ID="DropDownList5" runat="server">
+            <td class="auto-style1">
+                <asp:DropDownList ID="DDLUG" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Institude Name</td>
-            <td>
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <td class="auto-style1">
+                <asp:TextBox ID="txtInstituteName" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Year of passing</td>
-            <td>
-                <asp:DropDownList ID="DropDownList6" runat="server">
+            <td class="auto-style1">
+                <asp:DropDownList ID="DDLpassingYear" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >PG Qualification</td>
-            <td>
-                <asp:DropDownList ID="DropDownList7" runat="server">
+            <td class="auto-style1">
+                <asp:DropDownList ID="DDLPG" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Institute Name</td>
-            <td>
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <td class="auto-style1">
+                <asp:TextBox ID="txtInstituteName1" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Year of passing</td>
-            <td>
-                <asp:DropDownList ID="DropDownList8" runat="server">
+            <td class="auto-style1">
+                <asp:DropDownList ID="DDLpassingyear1" runat="server">
                 </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td >&nbsp;</td>
+            <td class="auto-style1">
+                <asp:Button ID="btnsubmiteducationdetails" runat="server" Text="Submit" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btncanceleducationaldetails" runat="server" Text="Cancel" />
             </td>
         </tr>
     </table>

@@ -23,21 +23,21 @@
         <tr>
             <td >Industry</td>
             <td >
-                <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name">
+                <asp:DropDownList ID="DDLindustry" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name">
                 </asp:DropDownList>
                 <br /></td>
         </tr>
         <tr>
             <td >Department</td>
             <td >
-                <asp:DropDownList ID="DropDownList4" runat="server">
+                <asp:DropDownList ID="DDLDepartment" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Current Job Role</td>
             <td >
-                <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:DropDownList ID="DDLcurrentjobrole" runat="server">
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem></asp:ListItem>
@@ -62,13 +62,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtjobdescription" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txttechnicalskill" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -88,13 +88,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtjobdescriptionrole" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txttechnicalskills1" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -113,7 +113,7 @@
         <tr>
             <td >Current Employer/Last Employer</td>
             <td >
-                <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtemployeer" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -136,6 +136,8 @@
             <td >&nbsp;</td>
             <td >
                 <asp:Button ID="btnSave" runat="server" Text="Save" />
+            &nbsp;
+                <asp:Button ID="btncancel" runat="server" Text=" Cancel" />
             </td>
         </tr>
     </table>
@@ -149,36 +151,38 @@
         <tr>
             <td >Job Post Looking for</td>
             <td >
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtjobpostlookingfor" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Relevant Experience</td>
-            <td >&nbsp;</td>
+            <td >
+                <asp:TextBox ID="txtreleventexp" runat="server"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td >Current Anual Salary(Yearly)</td>
             <td >
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtcurrentannualsalary" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Expected Anual Salary(Yearly)</td>
             <td >
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtexpectedsalary" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Notice Period</td>
             <td >
-                <asp:DropDownList ID="DropDownList2" runat="server">
+                <asp:DropDownList ID="DDLnoticeperiod" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Employment status</td>
             <td >
-                <asp:DropDownList ID="DropDownList3" runat="server">
+                <asp:DropDownList ID="DDLEmploymentstatus" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -193,26 +197,30 @@
         </tr>
         <tr>
             <td >Work Area</td>
-            <td >&nbsp;</td>
+            <td >
+                <asp:TextBox ID="txtworkarea" runat="server"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td >Prefered State</td>
             <td >
-                <asp:DropDownList ID="DropDownList7" runat="server">
+                <asp:DropDownList ID="DDLpreferedstate" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Prefered Job Location</td>
             <td >
-                <asp:DropDownList ID="DropDownList6" runat="server">
+                <asp:DropDownList ID="DDLpreferedjoblocation" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="Button2" runat="server" Text="Save" />
+                <asp:Button ID="btnsave1" runat="server" Text="Save" />
+            &nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btncancel1" runat="server" Text="Cancel" />
             </td>
         </tr>
     </table>

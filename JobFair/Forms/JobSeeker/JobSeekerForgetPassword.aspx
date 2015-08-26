@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="JobSeekerForgetPassword.aspx.cs" Inherits="JobFair.Forms.JobSeeker.JobSeeker" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+    .auto-style1 {
+        height: 30px;
+    }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
@@ -14,8 +19,10 @@
             <td colspan="2">&nbsp;</td>            
         </tr>
         <tr>
-            <td></td>
-            <td><asp:Button ID="Submit" Text="Submit" runat="server" OnClick="Submit_Click"/></td>
+            <td class="auto-style1"></td>
+            <td class="auto-style1"><asp:Button ID="Submit" Text="Submit" runat="server" OnClick="Submit_Click"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btncancel" runat="server" Text="Cancel" />
+            </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
