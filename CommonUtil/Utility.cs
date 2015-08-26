@@ -12,7 +12,11 @@ namespace CommonUtil
 {
     public static class Utility
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fpEntity"></param>
+        /// <returns></returns>
         
         public static DataSet ForgetPasswordJobSeeker(ForgetPasswordEntity fpEntity)
         {
