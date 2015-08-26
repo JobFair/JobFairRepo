@@ -1,15 +1,24 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JobSeekerRegister.aspx.cs" Inherits="JobFair.Forms.JobSeeker.JobSeekerRegister" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style>
+        .c {
+        color:gray;
+        }
+        
+    </style>
 </head>
+  
 <body>
     <form id="form1"   runat="server">
     <div>
-    
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <table class="auto-style1">
             <tr>
                 <td colspan="2">
@@ -19,28 +28,28 @@
             <tr>
                 <td>First Name</td>
                 <td>
-                    <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" TargetControlID="txtFirstName" WatermarkText="First Name" WatermarkCssClass="c"/>
                     <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="Enter your first name" ForeColor="#FF3300" ControlToValidate="txtFirstName">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td >Last Name</td>
                 <td>
-                    <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" TargetControlID="txtLastName" WatermarkText="Last Name" WatermarkCssClass="c" />
                     <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ErrorMessage="Enter your Last Name" ForeColor="#FF3300" ControlToValidate="txtLastName">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td >Email Id</td>
                 <td>
-                    <asp:TextBox ID="txtEmailId" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtEmailId" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" TargetControlID="txtEmailId" WatermarkText="Enter Your Email" WatermarkCssClass="c" />
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmailId" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="EmailId is not in correct format">*</asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
                 <td >Desired User Name</td>
                 <td>
-                    <asp:TextBox ID="txtDesiredUserName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDesiredUserName" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" TargetControlID="txtDesiredUserName" WatermarkText="User Name" WatermarkCssClass="c" />
                     <asp:RequiredFieldValidator ID="rfvDesiredUserName" runat="server" ErrorMessage="*" ForeColor="#FF3300" ControlToValidate="txtDesiredUserName"></asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -57,35 +66,35 @@
             <tr>
                 <td >Mobile No</td>
                 <td>
-                    <asp:TextBox ID="txtMobileNo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMobileNo" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server" TargetControlID="txtMobileNo" WatermarkText="Mobile Number" WatermarkCssClass="c" />
                     <asp:RequiredFieldValidator ID="rfvMobileNo" runat="server" ErrorMessage="Enter your mobile number" ForeColor="#FF3300" ControlToValidate="txtMobileNo">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td >Password</td>
                 <td>
-                    <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Enter your password" ForeColor="#FF3300" ControlToValidate="txtPassword">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td >Confirm Password</td>
                 <td>
-                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'"></asp:TextBox>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password does not match" ForeColor="#FF3300" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword">*</asp:CompareValidator>
                 </td>
             </tr>
             <tr>
                 <td >Current City</td>
                 <td>
-                    <asp:TextBox ID="txtCurrCity" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtCurrCity" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender8" runat="server" WatermarkText="Enter City" TargetControlID="txtCurrCity" WatermarkCssClass="c" />
                     <asp:RequiredFieldValidator ID="rfvCurrentCity" runat="server" ErrorMessage="Enter your city" ForeColor="#FF3300" ControlToValidate="txtCurrCity">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td >Current Address</td>
                 <td>
-                    <asp:TextBox ID="txtCurrAddress" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox ID="txtCurrAddress" runat="server" TextMode="MultiLine"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender9" runat="server"  WatermarkText="Address" TargetControlID="txtCurrAddress" WatermarkCssClass="c"/>
                     <asp:RequiredFieldValidator ID="rfvCurrentAddress" runat="server" ErrorMessage="Enter your address" ForeColor="#FF3300" ControlToValidate="txtCurrAddress">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
