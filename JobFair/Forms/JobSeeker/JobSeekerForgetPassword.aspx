@@ -20,8 +20,8 @@
         </tr>
         <tr>
             <td class="auto-style1"></td>
-            <td class="auto-style1"><asp:Button ID="Submit" Text="Submit" runat="server" OnClick="Submit_Click"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btncancel" runat="server" Text="Cancel" />
+            <td class="auto-style1"><asp:Button ID="btnSubmit" Text="Submit" runat="server" OnClick="Submit_Click"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
             </td>
         </tr>
         <tr>

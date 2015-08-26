@@ -23,21 +23,21 @@
         <tr>
             <td >Industry</td>
             <td >
-                <asp:DropDownList ID="DDLindustry" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name">
+                <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name">
                 </asp:DropDownList>
                 <br /></td>
         </tr>
         <tr>
             <td >Department</td>
             <td >
-                <asp:DropDownList ID="DDLDepartment" runat="server">
+                <asp:DropDownList ID="ddlDepartment" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Current Job Role</td>
             <td >
-                <asp:DropDownList ID="DDLcurrentjobrole" runat="server">
+                <asp:DropDownList ID="ddlCurrentJobRole" runat="server">
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem></asp:ListItem>
@@ -62,13 +62,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="txtjobdescription" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtJobdescription" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="txttechnicalskill" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtTechnicalskill" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -175,14 +175,14 @@
         <tr>
             <td >Notice Period</td>
             <td >
-                <asp:DropDownList ID="DDLnoticeperiod" runat="server">
+                <asp:DropDownList ID="ddlNoticePeriod" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Employment status</td>
             <td >
-                <asp:DropDownList ID="DDLEmploymentstatus" runat="server">
+                <asp:DropDownList ID="ddlEmployementStatus" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -204,14 +204,14 @@
         <tr>
             <td >Prefered State</td>
             <td >
-                <asp:DropDownList ID="DDLpreferedstate" runat="server">
+                <asp:DropDownList ID="ddlPreferedState" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Prefered Job Location</td>
             <td >
-                <asp:DropDownList ID="DDLpreferedjoblocation" runat="server">
+                <asp:DropDownList ID="ddlPreferedJobLocation" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -220,7 +220,7 @@
             <td >
                 <asp:Button ID="btnsave1" runat="server" Text="Save" />
             &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btncancel1" runat="server" Text="Cancel" />
+                <asp:Button ID="btnCancel1" runat="server" Text="Cancel" />
             </td>
         </tr>
     </table>
