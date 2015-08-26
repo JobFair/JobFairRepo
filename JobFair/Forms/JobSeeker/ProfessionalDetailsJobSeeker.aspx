@@ -62,13 +62,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="txtJobdescription" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtJobdescriptionPrimar" runat="server" OnTextChanged="txtJobdescription_TextChanged"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="txtTechnicalskill" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtTechnicalskillPrimary" runat="server" OnTextChanged="txtTechnicalskillPrimary_TextChanged"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -88,13 +88,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="txtjobdescriptionrole" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtjobdescriptionSec" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="txttechnicalskills1" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtTechnicalskillSec" runat="server" OnTextChanged="txttechnicalskills1_TextChanged"></asp:TextBox>
                         </td>
                     </tr>
                 </table>

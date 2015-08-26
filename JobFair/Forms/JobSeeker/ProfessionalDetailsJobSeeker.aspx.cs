@@ -18,5 +18,10 @@ namespace JobFair.Forms.JobSeeker
         {
 
         }
+
+        
+
+       
+        
     }
 }
