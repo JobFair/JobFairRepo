@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
-    public partial class EducationalDetailsJobSeeker : System.Web.UI.Page
+    public partial class EducationDetailsJobSeeker : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
