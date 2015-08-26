@@ -13,5 +13,10 @@ namespace JobFair.Forms.JobSeeker
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

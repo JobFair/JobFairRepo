@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="ProfessionalDetailsJobSeeker.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ProfessionalDetailsJobSeeker" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
+   
+    
+    <div>
+     <table id="TableCurrentJob" runat="server" >
         <tr>
             <td   colspan="2" style="font-weight: 700; font-style: italic; text-decoration: underline">
                 <h1>Current Job Details</h1>
@@ -11,13 +15,17 @@
         <tr>
             <td >Resume Headline</td>
             <td >
-                <asp:TextBox ID="txtResumeHead" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtResumeHeadline" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Total Experience</td>
             <td >From<asp:TextBox ID="txtFromdate" runat="server"></asp:TextBox>
+                <cc1:CalendarExtender ID="txtFromdate_CalendarExtender" runat="server" BehaviorID="txtFromdate_CalendarExtender" TargetControlID="txtFromdate">
+                </cc1:CalendarExtender>
             To<asp:TextBox ID="txtTill" runat="server"></asp:TextBox>
+                <cc1:CalendarExtender ID="txtTill_CalendarExtender" runat="server" BehaviorID="txtTill_CalendarExtender" TargetControlID="txtTill">
+                </cc1:CalendarExtender>
             </td>
         </tr>
         <tr>
@@ -37,21 +45,13 @@
         <tr>
             <td >Current Job Role</td>
             <td >
-                <asp:DropDownList ID="ddlCurrentJobRole" runat="server">
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                </asp:DropDownList>
+                <asp:TextBox ID="txtCurrentJobRole" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Primary Functional Role</td>
             <td >
-                <asp:DropDownList ID="ddlPrimRole" runat="server">
+                <asp:DropDownList ID="ddlPrimaryRole" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -135,14 +135,16 @@
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="btnSave" runat="server" Text="Save" />
+                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
             &nbsp;
                 <asp:Button ID="btncancel" runat="server" Text=" Cancel" />
             </td>
         </tr>
     </table>
+        </div>
     <hr />
-    <table>
+    <div>
+    <table id="TableDesiredJob" runat="server">
         <tr>
             <td   colspan="2">
                 <h1>Desired Job Details</h1>
@@ -151,13 +153,13 @@
         <tr>
             <td >Job Post Looking for</td>
             <td >
-                <asp:TextBox ID="txtjobpostlookingfor" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtJobPostLooking" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Relevant Experience</td>
             <td >
-                <asp:TextBox ID="txtreleventexp" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtReleventExp" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -224,4 +226,5 @@
             </td>
         </tr>
     </table>
+        </div>
 </asp:Content>
