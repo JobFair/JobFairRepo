@@ -21,6 +21,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                
 
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
 
