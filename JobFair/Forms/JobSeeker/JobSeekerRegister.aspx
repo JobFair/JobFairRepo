@@ -120,7 +120,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <asp:Label ID="Label1" runat="server" Visible="true"></asp:Label>
+                    <asp:Label ID="lblMessage" runat="server"></asp:Label>
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                 </td>
             </tr>
