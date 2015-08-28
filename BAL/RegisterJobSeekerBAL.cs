@@ -20,7 +20,7 @@ namespace BAL
 
         }
 
-
+      
 
         public SqlDataReader JobSeekerLogIn(LogInJobSeekerEnitity logjsEntity)
         {
@@ -30,11 +30,19 @@ namespace BAL
             return rdr;
 
         }
-
+      
         public int ChangePasswordBAL(ChangePasswordEnitity cpentity)
         {
             RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
             return rjsDAL.ChangePasswordDAL(cpentity);
+        }
+
+
+        public int ContactDetailsJobSeeker(ContactDetailsJobSeekerEntity Cdentity)
+        {
+            RegisterJobSeekerDAL cdsDAL = new RegisterJobSeekerDAL();
+            return cdsDAL.InsertContactInfo(Cdentity);
+   
         }
     }
 }

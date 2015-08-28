@@ -56,6 +56,7 @@ namespace JobFair.Forms.JobSeeker
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
 
                 int result = rjsBAL.RegisterNewJobSeekerBAL(rjsEnitity);
+               
                 if (result >= 1)
                 {
                     

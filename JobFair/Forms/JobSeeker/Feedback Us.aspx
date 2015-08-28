@@ -9,6 +9,18 @@
 
 
 
+<%@ Register src="../../UserControls/JobSeeker/ContactInformation.ascx" tagname="ContactInformation" tagprefix="uc1" %>
+<%@ Register src="../../UserControls/JobSeeker/ContactDetailsInsert.ascx" tagname="ContactDetailsInsert" tagprefix="uc2" %>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -64,9 +76,14 @@
             </tr>
             <tr>
                 <td >&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>
+                    <uc2:ContactDetailsInsert ID="ContactDetailsInsert1" runat="server" />
+                </td>
             </tr>
         </table>
+
+        
+        <br />
 
         
     </form>

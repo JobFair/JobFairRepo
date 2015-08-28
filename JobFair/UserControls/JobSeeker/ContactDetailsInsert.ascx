@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ContactInformation.ascx.cs" Inherits="JobSeeker_Forms_ContactInformation" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ContactDetailsInsert.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ContactDetailsInsert" %>
 <link href="../../Style.css" rel="stylesheet" />
 <table >
     <tr>
@@ -85,6 +85,7 @@
         </td>
         <td >
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="115px" />
+            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         </td>
     </tr>
 </table>

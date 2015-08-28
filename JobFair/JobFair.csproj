@@ -82,6 +82,7 @@
     <Content Include="Forms\JobSeeker\JobSeekerLogIn.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerRegister.aspx" />
     <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
+    <Content Include="UserControls\JobSeeker\ContactDetailsInsert.ascx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\EmploymentDetails.ascx" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\ChangePassword.ascx.designer.cs">
       <DependentUpon>ChangePassword.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\ContactDetailsInsert.ascx.cs">
+      <DependentUpon>ContactDetailsInsert.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\ContactDetailsInsert.ascx.designer.cs">
+      <DependentUpon>ContactDetailsInsert.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\ContactInformation.ascx.cs">
       <DependentUpon>ContactInformation.ascx</DependentUpon>
