@@ -81,10 +81,10 @@
     </tr>
     <tr>
         <td >
-            <asp:Button ID="btnSave" runat="server" OnClick="Button1_Click" Text="Save" Width="132px" />
+            <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="132px" />
         </td>
         <td >
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="115px" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="115px" OnClick="btnCancel_Click" />
             <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         </td>
     </tr>

@@ -141,6 +141,12 @@ namespace DAL
                 connection.Close();
             }
         }
+
+        /// <summary>
+        /// Fill Contact Details Of Job Seeker.
+        /// </summary>
+        /// <param name="Cdentity">Object for inserting data into database</param>
+        /// <returns></returns>
         public int InsertContactInfo(ContactDetailsJobSeekerEntity Cdentity)
         {
             connection.Open();

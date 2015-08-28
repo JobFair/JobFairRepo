@@ -39,5 +39,17 @@ namespace BAL
             RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
             return jobSeekerDAL.ChangePasswordDAL(changePasswordEntity);
         }
+
+
+        /// <summary>
+        /// Fill Contact Details of job seeker bal.
+        /// </summary>
+        /// <param name="cdEntity">The contact details entity</param>
+        /// <returns>System.Int32.</returns>
+        public int ContactDetailsJobSeeker(ContactDetailsJobSeekerEntity cdEntity)
+        {
+            RegisterJobSeekerDAL cdDAL = new RegisterJobSeekerDAL();
+            return cdDAL.InsertContactInfo(cdEntity);
+        }
     }
 }

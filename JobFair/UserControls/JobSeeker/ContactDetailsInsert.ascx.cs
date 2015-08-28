@@ -9,6 +9,9 @@ using Entities;
 
 namespace JobFair.UserControls.JobSeeker
 {
+    /// <summary>
+    /// Class ContactDetailsInsert.
+    /// </summary>
     public partial class ContactDetailsInsert : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -16,18 +19,20 @@ namespace JobFair.UserControls.JobSeeker
 
         }
         /// <summary>
-        /// 
+        /// Handles the Click event of the btnSubmit control.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void Button1_Click(object sender, EventArgs e)
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void btnSave_Click(object sender, EventArgs e)
         {
              try
         {
              
             RegisterJobSeekerBAL rejBAL = new RegisterJobSeekerBAL();
             ContactDetailsJobSeekerEntity cdEntity = new ContactDetailsJobSeekerEntity();
-            cdEntity.UserID = "1200132426";//static data used
+                 //set the value of ContactDetailsJobSeekerEntity
+
+            cdEntity.UserID = "1200132426";//static data used because session value not set
             cdEntity.AltMobileNo = txtAltNo.Text.Trim();
             cdEntity.LandLineNo = txtLandno.Text.Trim();
             cdEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();
@@ -54,6 +59,24 @@ namespace JobFair.UserControls.JobSeeker
         }
        
     }
+
+        /// <summary>
+        /// Handles the Click event of the btnCancel control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            //txtAltNo.Text = "";
+            //txtLandno.Text = "";
+            //txtWhatsappNo.Text = "";
+            //txtLinkedIn.Text = "";
+            //txtFacebook.Text = "";
+            //txtTwitter.Text = "";
+            //txtGTalk.Text = "";
+            //txtSkype.Text = "";
+            //txtGooglePlus.Text = "";
+        }
         
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Entities
 {
    public class ContactDetailsJobSeekerEntity
-    {
+   {//ContactDetailsJobSeekerEntity
         public string UserID { get; set; }
         public string AltMobileNo { get; set; }
         public string LandLineNo { get; set; }
