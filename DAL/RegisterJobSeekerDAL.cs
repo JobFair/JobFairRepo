@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Entities;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
-using Entities;
 
 namespace DAL
 {
     public class RegisterJobSeekerDAL
     {
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         /// <summary>
-        /// Register Jobseeker 
+        /// Register Jobseeker
         /// </summary>
         /// <param name="rjsEntity">Object for inserting data into database</param>
         /// <returns></returns>
@@ -25,43 +22,40 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-  new SqlParameter("@uid", rjsEntity.UserId),
-  new SqlParameter("@fname", rjsEntity.FirstName ), 
-  new SqlParameter("@lname", rjsEntity.LastName),
-  new SqlParameter("@emailId", rjsEntity.EmailId),
-  new SqlParameter("@gender", rjsEntity.Gender),
-  new SqlParameter("@desiredUserName", rjsEntity.DesiredUserName),
-  new SqlParameter("@mobNo", rjsEntity.MobileNo),
-  new SqlParameter("@currCity", rjsEntity.CurrentCity),
-  new SqlParameter("@address", rjsEntity.CurrentAddress),
-  new SqlParameter("@password",rjsEntity.Password),
-  new SqlParameter("@uploadresumepath", rjsEntity.UploadResumepath.ToString())
-  
-};
+                                              new SqlParameter("@uid", rjsEntity.UserId),
+                                              new SqlParameter("@fname", rjsEntity.FirstName ),
+                                              new SqlParameter("@lname", rjsEntity.LastName),
+                                              new SqlParameter("@emailId", rjsEntity.EmailId),
+                                              new SqlParameter("@gender", rjsEntity.Gender),
+                                              new SqlParameter("@desiredUserName", rjsEntity.DesiredUserName),
+                                              new SqlParameter("@mobNo", rjsEntity.MobileNo),
+                                              new SqlParameter("@currCity", rjsEntity.CurrentCity),
+                                              new SqlParameter("@address", rjsEntity.CurrentAddress),
+                                              new SqlParameter("@password",rjsEntity.Password),
+                                              new SqlParameter("@uploadresumepath", rjsEntity.UploadResumepath.ToString())
+                                            };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertJSRegister", sqlparams);
 
                 return result;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
                 connection.Close();
             }
-
         }
+
         /// <summary>
         /// Forget Password of job seeker
         /// </summary>
         /// <param name="fpEntity">To get parameters from database</param>
-        /// 
+        ///
         /// <returns></returns>
         public DataSet GetEmailDetailsDAL(ForgetPasswordEntity fpEntity)
         {
-
             connection.Open();
 
             try
@@ -81,11 +75,10 @@ namespace DAL
             }
             finally
             {
-
                 connection.Close();
-
             }
         }
+
         /// <summary>
         /// Login of jobseeker
         /// </summary>
@@ -93,7 +86,6 @@ namespace DAL
         /// <returns></returns>
         public SqlDataReader JobSeekerLoginDAL(LogInJobSeekerEnitity logjsEntity)
         {
-
             try
             {
                 connection.Open();
@@ -109,11 +101,10 @@ namespace DAL
             }
             finally
             {
-
                 //connection.Close();
-
             }
         }
+
         /// <summary>
         /// Changing Password of Jobseeker
         /// </summary>
@@ -121,12 +112,9 @@ namespace DAL
         /// <returns></returns>
         public int ChangePasswordDAL(ChangePasswordEnitity cpentity)
         {
-
             connection.Close();
             try
             {
-
-
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -146,15 +134,12 @@ namespace DAL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
                 connection.Close();
-
             }
-
         }
         public int InsertContactInfo(ContactDetailsJobSeekerEntity Cdentity)
         {

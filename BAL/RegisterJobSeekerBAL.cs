@@ -1,48 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL;
 using Entities;
-using DAL;
 using System.Data.SqlClient;
-using System.Data;
-
 
 namespace BAL
 {
     public class RegisterJobSeekerBAL
     {
-        public int RegisterNewJobSeekerBAL(RegisterJobSeekerEntity rjsEntity)
+        /// <summary>
+        /// Registers the new job seeker bal.
+        /// </summary>
+        /// <param name="jobSeekerEntity">The job seeker entity.</param>
+        /// <returns>System.Int32.</returns>
+        public int RegisterNewJobSeekerBAL(RegisterJobSeekerEntity jobSeekerEntity)
         {
-            RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
-            return rjsDAL.RegisterNewJobSeekerDAL(rjsEntity);
-
+            RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
+            return jobSeekerDAL.RegisterNewJobSeekerDAL(jobSeekerEntity);
         }
 
-      
-
-        public SqlDataReader JobSeekerLogIn(LogInJobSeekerEnitity logjsEntity)
+        /// <summary>
+        /// Jobs the seeker log in.
+        /// </summary>
+        /// <param name="loginEntity">The login entity.</param>
+        /// <returns>SqlDataReader.</returns>
+        public SqlDataReader JobSeekerLogIn(LogInJobSeekerEnitity loginEntity)
         {
-
-            RegisterJobSeekerDAL jsloginDAL = new RegisterJobSeekerDAL();
-            SqlDataReader rdr = jsloginDAL.JobSeekerLoginDAL(logjsEntity);
-            return rdr;
-
-        }
-      
-        public int ChangePasswordBAL(ChangePasswordEnitity cpentity)
-        {
-            RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
-            return rjsDAL.ChangePasswordDAL(cpentity);
+            RegisterJobSeekerDAL loginDAL = new RegisterJobSeekerDAL();
+            SqlDataReader dataReader = loginDAL.JobSeekerLoginDAL(loginEntity);
+            return dataReader;
         }
 
-
-        public int ContactDetailsJobSeeker(ContactDetailsJobSeekerEntity Cdentity)
+        /// <summary>
+        /// Changes the password bal.
+        /// </summary>
+        /// <param name="changePasswordEntity">The change password entity.</param>
+        /// <returns>System.Int32.</returns>
+        public int ChangePasswordBAL(ChangePasswordEnitity changePasswordEntity)
         {
-            RegisterJobSeekerDAL cdsDAL = new RegisterJobSeekerDAL();
-            return cdsDAL.InsertContactInfo(Cdentity);
-   
+            RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
+            return jobSeekerDAL.ChangePasswordDAL(changePasswordEntity);
         }
     }
 }
