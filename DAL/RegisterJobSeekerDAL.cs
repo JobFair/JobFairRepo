@@ -146,7 +146,11 @@ namespace DAL
             }
         }
 
-       
+       /// <summary>
+       /// Current Professional Details of job seeker
+       /// </summary>
+       /// <param name="curentity">To add parameters into database</param>
+       /// <returns>System.Int32</returns>
 
         public int CurrentProfessionalDetailsDAL(Current_DesiredJobDetailsEntity curentity)
         {
