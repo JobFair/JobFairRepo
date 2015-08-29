@@ -117,7 +117,6 @@
   <ItemGroup>
     <Content Include="UserControls\JobSeeker\AffirmativeInfo.ascx" />
     <Content Include="UserControls\JobSeeker\ChangePassword.ascx" />
-    <Content Include="UserControls\JobSeeker\ContactInformation.ascx" />
     <Content Include="Forms\JobSeeker\Feedback Us.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
@@ -205,10 +204,6 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\ContactDetailsInsert.ascx.designer.cs">
       <DependentUpon>ContactDetailsInsert.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\ContactInformation.ascx.cs">
-      <DependentUpon>ContactInformation.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\JobSeeker\Feedback Us.aspx.cs">
       <DependentUpon>Feedback Us.aspx</DependentUpon>
