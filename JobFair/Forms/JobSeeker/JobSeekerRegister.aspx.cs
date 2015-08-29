@@ -28,7 +28,7 @@ namespace JobFair.Forms.JobSeeker
                 string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
 
                 // Provide the min and max limit for the no
-                jobSeekerEntity.UserId = Convert.ToString(randomNumber.Next(100, int.MaxValue));
+                jobSeekerEntity.UserId = Convert.ToString(randomNumber.Next(50, int.MaxValue));
 
                 // Set value to job seeker entity
                 jobSeekerEntity.FirstName = txtFirstName.Text.Trim();

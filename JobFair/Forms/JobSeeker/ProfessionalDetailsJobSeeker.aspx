@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="ProfessionalDetailsJobSeeker.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ProfessionalDetailsJobSeeker" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            height: 23px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
@@ -26,20 +31,25 @@
             To<asp:TextBox ID="txtTill" runat="server"></asp:TextBox>
                 <cc1:CalendarExtender ID="txtTill_CalendarExtender" runat="server" BehaviorID="txtTill_CalendarExtender" TargetControlID="txtTill">
                 </cc1:CalendarExtender>
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                
+
             </td>
         </tr>
         <tr>
             <td >Industry</td>
             <td >
-                <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name">
+                <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource1" DataTextField="Industry_Name" DataValueField="Ind_ID">
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString4 %>" SelectCommand="SELECT * FROM [IndustryMaster]"></asp:SqlDataSource>
                 <br /></td>
         </tr>
         <tr>
             <td >Department</td>
             <td >
-                <asp:DropDownList ID="ddlDepartment" runat="server">
+                <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="SqlDataSource2" DataTextField="DepartmentName" DataValueField="DepartmentName" >
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString5 %>" SelectCommand="SELECT [DepartmentName] FROM [Departments]"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>
@@ -52,6 +62,8 @@
             <td >Primary Functional Role</td>
             <td >
                 <asp:DropDownList ID="ddlPrimaryRole" runat="server">
+                    <asp:ListItem>Development</asp:ListItem>
+                    <asp:ListItem>Testing</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -62,13 +74,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="txtJobdescription" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtJobdescriptionPrimar" runat="server" ></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="txtTechnicalskill" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtTechnicalskillPrimary" runat="server" ></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -78,6 +90,8 @@
             <td >Secondary Functional Roles</td>
             <td >
                 <asp:DropDownList ID="ddlSecRole" runat="server">
+                    <asp:ListItem>Testing</asp:ListItem>
+                    <asp:ListItem>Developement</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -88,13 +102,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="txtjobdescriptionrole" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtjobdescriptionSec" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="txttechnicalskills1" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtTechnicalskillSec" runat="server" ></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -107,13 +121,13 @@
             </td>
         </tr>
         <tr>
-            <td >&nbsp;</td>
-            <td >&nbsp;</td>
+            <td class="auto-style1" ></td>
+            <td class="auto-style1" ></td>
         </tr>
         <tr>
             <td >Current Employer/Last Employer</td>
             <td >
-                <asp:TextBox ID="txtemployeer" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtemployeer" runat="server" TextMode="MultiLine"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -138,6 +152,9 @@
                 <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
             &nbsp;
                 <asp:Button ID="btncancel" runat="server" Text=" Cancel" />
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+                <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
             </td>
         </tr>
     </table>

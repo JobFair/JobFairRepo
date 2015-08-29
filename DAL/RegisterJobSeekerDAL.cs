@@ -14,7 +14,7 @@ namespace DAL
         /// Register Jobseeker
         /// </summary>
         /// <param name="rjsEntity">Object for inserting data into database</param>
-        /// <returns></returns>
+        /// <returns>System.Int32</returns>
         public int RegisterNewJobSeekerDAL(RegisterJobSeekerEntity rjsEntity)
         {
             try
@@ -33,6 +33,7 @@ namespace DAL
                                               new SqlParameter("@address", rjsEntity.CurrentAddress),
                                               new SqlParameter("@password",rjsEntity.Password),
                                               new SqlParameter("@uploadresumepath", rjsEntity.UploadResumepath.ToString())
+                                              
                                             };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertJSRegister", sqlparams);
 
@@ -53,7 +54,7 @@ namespace DAL
         /// </summary>
         /// <param name="fpEntity">To get parameters from database</param>
         ///
-        /// <returns></returns>
+        /// <returns>DataSet</returns>
         public DataSet GetEmailDetailsDAL(ForgetPasswordEntity fpEntity)
         {
             connection.Open();
@@ -83,7 +84,7 @@ namespace DAL
         /// Login of jobseeker
         /// </summary>
         /// <param name="logjsEntity">To add parameters into database</param>
-        /// <returns></returns>
+        /// <returns>SqlDataReader</returns>
         public SqlDataReader JobSeekerLoginDAL(LogInJobSeekerEnitity logjsEntity)
         {
             try
@@ -91,7 +92,10 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
 
-                SqlParameter[] sqlparams = { new SqlParameter("@userName", logjsEntity.UserName), new SqlParameter("@password", logjsEntity.Password) };
+                SqlParameter[] sqlparams = { new SqlParameter("@userName", logjsEntity.UserName), 
+                                               new SqlParameter("@password", logjsEntity.Password)
+                                               
+                                           };
                 SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, "selectJobSeeker", sqlparams);
                 return dr;
             }
@@ -109,7 +113,7 @@ namespace DAL
         /// Changing Password of Jobseeker
         /// </summary>
         /// <param name="cpentity">To add parameters into database</param>
-        /// <returns></returns>
+        /// <returns>System.Int32</returns>
         public int ChangePasswordDAL(ChangePasswordEnitity cpentity)
         {
             connection.Close();
@@ -117,7 +121,7 @@ namespace DAL
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
+               
                 SqlParameter[] sparams = { new SqlParameter("@userName", cpentity.UserName), new SqlParameter("@newpassword", cpentity.NewPassword), new SqlParameter("@oldpassword", cpentity.OldPassword) };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "ChangePassword", sparams);
 
@@ -142,38 +146,44 @@ namespace DAL
             }
         }
 
-        /// <summary>
-        /// Fill Contact Details Of Job Seeker.
-        /// </summary>
-        /// <param name="Cdentity">Object for inserting data into database</param>
-        /// <returns></returns>
-        public int InsertContactInfo(ContactDetailsJobSeekerEntity Cdentity)
+       
+
+        public int CurrentProfessionalDetailsDAL(Current_DesiredJobDetailsEntity curentity)
         {
-            connection.Open();
             try
             {
+                connection.Open();
                 SqlCommand cmd = new SqlCommand();
-                SqlParameter[] sqlparams = {
-  new SqlParameter("@uId", Cdentity.UserID), 
-  new SqlParameter("@altMobNo",Cdentity.AltMobileNo ),
-  new SqlParameter("@landNo", Cdentity.LandLineNo),
-  new SqlParameter("@whatsappNo",Cdentity.WhatsAppNo ),
-  new SqlParameter("@linkedId", Cdentity.LinkedID),
-  new SqlParameter("@fbId",Cdentity.FacebookID ),
-  new SqlParameter("@twitterId",Cdentity.TwitterID ),
-  new SqlParameter("@Gtalk",Cdentity.GtalkID),
-  new SqlParameter("@skypeId",Cdentity.SkypeID),
-  new SqlParameter("@googleP",Cdentity.GooglePlus)
-  
-};
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "insertJSContactDetails", sqlparams);
+                SqlParameter[] sparams = { new SqlParameter("@userid",curentity.Userid),
+                                       new SqlParameter("@resumeheadline",curentity.ResumeHeadline),
+                                       new SqlParameter("@totalExp",curentity.TotalExperience),
+                                       new SqlParameter("@industry",curentity.Industry),
+                                       new SqlParameter("@department",curentity.Department),
+                                       new SqlParameter("@currentjobrole",curentity.CurrentJobRole),
+                                       new SqlParameter("@currentemployer",curentity.CurrentEmployer),
+                                       new SqlParameter("@primfunrole",curentity.PrimFunctionalRole),
+                                       new SqlParameter("@primjobdesrip",curentity.PrimJobDescrip),
+                                       new SqlParameter("@primtechskills",curentity.PrimTechSkills),
+                                       new SqlParameter("@secfunrole",curentity.SecFunctionalRole),
+                                       new SqlParameter("@secjobdescrip",curentity.SecJobDescrip),
+                                       new SqlParameter("@sectechskills",curentity.SecTechSkills),
+                                       new SqlParameter("@technicalskills",curentity.TechnicalSkills),
+                                       new SqlParameter("@reasonforjobchange",curentity.ReasonforJobChange),
+                                       new SqlParameter("@designation",curentity.Designation)};
+                int res = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertProfessionalCurrentDetails", sparams);
+                return res;
 
-                return result;
             }
-            catch
+            catch (Exception)
             {
+
                 throw;
             }
+            finally
+            {
+                connection.Close();
+            }
+           
         }
     }
 }
