@@ -39,5 +39,15 @@ namespace BAL
             RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
             return jobSeekerDAL.ChangePasswordDAL(changePasswordEntity);
         }
+        /// <summary>
+        /// Professional details of job seeker
+        /// </summary>
+        /// <param name="curentity">Professional Details entity</param>
+        /// <returns>System.Int32</returns>
+        public int CurrentProfessionalDetailsBAL(Current_DesiredJobDetailsEntity curentity)
+        {
+            RegisterJobSeekerDAL rjsDAL=new RegisterJobSeekerDAL();
+            return rjsDAL.CurrentProfessionalDetailsDAL(curentity);
+        }
     }
 }

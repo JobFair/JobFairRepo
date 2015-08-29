@@ -27,10 +27,10 @@ namespace JobFair.Forms.JobSeeker
 
                 ChangePasswordEnitity cpentity = new ChangePasswordEnitity();
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
-                HttpCookie user = Request.Cookies["userinfo"];
+               
                 cpentity.OldPassword = txtOldpwd.Text;
                 cpentity.NewPassword = txtNewpwd.Text;
-                cpentity.UserName = user["username"];
+                cpentity.UserName = Session["UserName"].ToString();
 
                 int result = rjsBAL.ChangePasswordBAL(cpentity);
 
