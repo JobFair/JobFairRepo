@@ -49,5 +49,13 @@ namespace BAL
             RegisterJobSeekerDAL rjsDAL=new RegisterJobSeekerDAL();
             return rjsDAL.CurrentProfessionalDetailsDAL(curentity);
         }
+
+        public int ContactDetailsJobSeeker(ContactDetailsJobSeekerEntity cdEntity)
+        {
+            RegisterJobSeekerDAL cdDAL = new RegisterJobSeekerDAL();
+            return cdDAL.ContactDetailsDAL(cdEntity);
+        }
+
+        
     }
 }

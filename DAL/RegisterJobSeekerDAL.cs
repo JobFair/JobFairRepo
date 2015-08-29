@@ -189,5 +189,39 @@ namespace DAL
             }
            
         }
+        public int ContactDetailsDAL(ContactDetailsJobSeekerEntity cdentity)
+        {
+                try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                SqlParameter[] sqlparams = {
+                                              new SqlParameter("@uId", cdentity.UserID),
+                                              new SqlParameter("@altMobNo",cdentity.AltMobileNo ),
+                                              new SqlParameter("@landNo", cdentity.LandLineNo),
+                                              new SqlParameter("@whatsappNo",cdentity.WhatsAppNo),
+                                              new SqlParameter("@linkedId", cdentity.LinkedID),
+                                              new SqlParameter("@fbId",cdentity.FacebookID),
+                                              new SqlParameter("@twitterId", cdentity.TwitterID),
+                                              new SqlParameter("@Gtalk",cdentity.GtalkID),
+                                              new SqlParameter("@skypeId", cdentity.SkypeID),
+                                              new SqlParameter("@googleP",cdentity.GooglePlus),
+                                             
+                                              
+                                            };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "insertJSContactDetails", sqlparams);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        }
     }
-}
