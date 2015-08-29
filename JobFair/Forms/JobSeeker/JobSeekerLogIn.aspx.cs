@@ -8,8 +8,6 @@ using BAL;
 using Entities;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.SessionState;
-
 namespace JobFair.Forms.JobSeeker
 {
     public partial class JobSeekerLogIn1 : System.Web.UI.Page
@@ -24,25 +22,25 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 
-
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
 
                 LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
-               
-               
-               
+                //HttpCookie user = new HttpCookie("userinfo");
+                //logjsEntity.userid = Label1.Text;
                 logjsEntity.UserName = txtUserName.Text;
                 logjsEntity.Password = txtPassword.Text;
                 SqlDataReader rd = rjsBAL.JobSeekerLogIn(logjsEntity);
-
+             
+               
                 if (rd.Read())
                 {
-                    Session["UserName"] = txtUserName.Text;
-                   
+                 //  user["username"]= txtUserName.Text;
+                   //Response.Cookies.Add(user);
+                    Label1.Text = rd[1].ToString();
+                    string a = Label1.Text;
+                    Session["userid"] = a;
                   
-
-
-                    Response.Redirect("Feedback Us.aspx");
+                    Response.Redirect("test1.aspx");
                 }
                 else
                 {
@@ -54,7 +52,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception ex)
             {
-                throw ex;
+                Label2.Text = ex.Message.ToString();
             }
 
         }
