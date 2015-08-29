@@ -24,14 +24,18 @@
             <td><asp:CheckBox ID="cbRememberMe" runat="server" Text="Remember Me" /></td>
         </tr>
         <tr>
-            <td colspan="2"></td>
+            <td colspan="2">
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            </td>
         </tr>
         <tr>
             <td></td>
             <td><asp:Button ID="btnLogIn" runat="server" Text="LogIn" OnClick="btnLogIn_Click" /><asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            </td>
             <td>
                 <asp:HyperLink ID="hlForgetPassword" NavigateUrl="~/Forms/JobSeeker/JobSeekerForgetPassword.aspx" runat="server">Forget Password?</asp:HyperLink>
                 <br />

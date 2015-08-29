@@ -82,6 +82,8 @@
     <Content Include="Forms\JobSeeker\JobSeekerLogIn.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerRegister.aspx" />
     <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
+    <Content Include="Forms\JobSeeker\test1.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="UserControls\JobSeeker\ContactDetailsInsert.ascx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
@@ -168,6 +170,16 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.designer.cs">
       <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\test1.aspx.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\test1.aspx.designer.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
       <DependentUpon>AdvanceSearch.ascx</DependentUpon>

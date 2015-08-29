@@ -66,7 +66,7 @@
             <tr>
                 <td >&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                 &nbsp;&nbsp;
                     <asp:Button ID="btnCancelfeedback" runat="server" Text="Cancel" />
                 </td>
