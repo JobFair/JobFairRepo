@@ -22,25 +22,23 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 
+
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
 
                 LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
-                //HttpCookie user = new HttpCookie("userinfo");
-                //logjsEntity.userid = Label1.Text;
+                HttpCookie user = new HttpCookie("userinfo");
+
                 logjsEntity.UserName = txtUserName.Text;
                 logjsEntity.Password = txtPassword.Text;
                 SqlDataReader rd = rjsBAL.JobSeekerLogIn(logjsEntity);
-             
-               
+
                 if (rd.Read())
                 {
-                 //  user["username"]= txtUserName.Text;
-                   //Response.Cookies.Add(user);
-                    Label1.Text = rd[1].ToString();
-                    string a = Label1.Text;
-                    Session["userid"] = a;
-                  
-                    Response.Redirect("test1.aspx");
+                   user["username"]= txtUserName.Text;
+                   Response.Cookies.Add(user);
+
+
+                    Response.Redirect("Feedback Us.aspx");
                 }
                 else
                 {
@@ -52,7 +50,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception ex)
             {
-                Label2.Text = ex.Message.ToString();
+                throw ex;
             }
 
         }
