@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using BAL;
 using Entities;
-using BAL;
+using System;
 using System.IO;
-using System.Web.Security;
 
 namespace JobFair.Forms.JobSeeker
 {
+    /// <summary>
+    /// Class JobSeekerRegister.
+    /// </summary>
     public partial class JobSeekerRegister : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
         /// <summary>
         /// 
@@ -23,47 +19,51 @@ namespace JobFair.Forms.JobSeeker
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
+        /// <summary>
+        /// Handles the Click event of the btnSubmit control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 Random randomNumber = new Random();
-                RegisterJobSeekerEntity rjsEnitity = new RegisterJobSeekerEntity();
+                RegisterJobSeekerEntity jobSeekerEntity = new RegisterJobSeekerEntity();
                 string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
 
-                ///Provide the min and max limit for the no
-                
-                rjsEnitity.UserId = Convert.ToString(randomNumber.Next(100, int.MaxValue));
-                rjsEnitity.FirstName = txtFirstName.Text.Trim();
-                rjsEnitity.LastName = txtLastName.Text.Trim();
-                rjsEnitity.EmailId = txtEmailId.Text.Trim();
-                rjsEnitity.DesiredUserName = txtDesiredUserName.Text.Trim();
-                rjsEnitity.Gender = rblGender.SelectedItem.Text;
-                rjsEnitity.MobileNo = txtMobileNo.Text.Trim();
-                rjsEnitity.Password = txtPassword.Text.Trim();
+                // Provide the min and max limit for the no
+                jobSeekerEntity.UserId = Convert.ToString(randomNumber.Next(50, int.MaxValue));
 
-                rjsEnitity.CurrentCity = txtCurrCity.Text.Trim();
-                rjsEnitity.CurrentAddress = txtCurrAddress.Text.Trim();
+                // Set value to job seeker entity
+                jobSeekerEntity.FirstName = txtFirstName.Text.Trim();
+                jobSeekerEntity.LastName = txtLastName.Text.Trim();
+                jobSeekerEntity.EmailId = txtEmailId.Text.Trim();
+                jobSeekerEntity.DesiredUserName = txtDesiredUserName.Text.Trim();
+                jobSeekerEntity.Gender = rblGender.SelectedItem.Text;
+                jobSeekerEntity.MobileNo = txtMobileNo.Text.Trim();
+                jobSeekerEntity.Password = txtPassword.Text.Trim();
+                jobSeekerEntity.CurrentCity = txtCurrCity.Text.Trim();
+                jobSeekerEntity.CurrentAddress = txtCurrAddress.Text.Trim();
                 string uploadFolder = Request.PhysicalApplicationPath + "UploadFiles\\";
+
+                // Check if fileupload control has a file.
                 if (FileUploadResume.HasFile)
                 {
                     string extension = Path.GetExtension(FileUploadResume.PostedFile.FileName);
-                    FileUploadResume.SaveAs(uploadFolder + rjsEnitity.UserId + extension);
-                    Label1.Text = "File uploaded successfully as: " + rjsEnitity.UserId + extension;
+                    FileUploadResume.SaveAs(uploadFolder + jobSeekerEntity.UserId + extension);
+                    lblMessage.Text = "File uploaded successfully as: " + jobSeekerEntity.UserId + extension;
                 }
                 else
                 {
-                    Label1.Text = "First select a file.";
+                    lblMessage.Text = "First select a file.";
                 }
-                rjsEnitity.UploadResumepath = uploadFolder.ToString();
-                RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
+                jobSeekerEntity.UploadResumepath = uploadFolder.ToString();
+                RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
 
-                int result = rjsBAL.RegisterNewJobSeekerBAL(rjsEnitity);
+                int result = jobSeekerBAL.RegisterNewJobSeekerBAL(jobSeekerEntity);
                 if (result >= 1)
                 {
-                    
                     Response.Redirect("Feedback Us.aspx");
                 }
             }

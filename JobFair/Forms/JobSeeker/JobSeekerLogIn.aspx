@@ -9,13 +9,13 @@
         </tr>
         <tr>
             <td>User Name</td>
-            <td><asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+            <td><asp:TextBox ID="txtUserName" runat="server" placeholder="User Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'User Name'"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td>Password</td>
-            <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+            <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
             </td>
         </tr>

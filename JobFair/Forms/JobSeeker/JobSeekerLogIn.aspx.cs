@@ -25,9 +25,9 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                
 
                 RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
-
                 LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
                 HttpCookie user = new HttpCookie("userinfo");
 

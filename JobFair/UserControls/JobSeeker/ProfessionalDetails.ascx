@@ -169,23 +169,28 @@
         <td >Notice Period</td>
         <td >
             <asp:DropDownList ID="DropDownList2" runat="server">
+                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem>1 Month</asp:ListItem>
+                <asp:ListItem>2 Month</asp:ListItem>
+                <asp:ListItem>15 Days</asp:ListItem>
+                <asp:ListItem>6 Months</asp:ListItem>
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
         <td >Employment status</td>
         <td >
-            <asp:DropDownList ID="DropDownList3" runat="server">
-            </asp:DropDownList>
-        </td>
+            &nbsp;</td>
     </tr>
     <tr>
         <td >Job Type</td>
         <td >
-            <asp:CheckBoxList ID="CheckBoxList1" runat="server">
-            </asp:CheckBoxList>
-            <asp:CheckBoxList ID="CheckBoxList2" runat="server">
-            </asp:CheckBoxList>
+            <asp:DropDownList ID="ddlJobType" runat="server">
+                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem>Permanent</asp:ListItem>
+                <asp:ListItem>Temporary</asp:ListItem>
+                <asp:ListItem>Freelancing</asp:ListItem>
+            </asp:DropDownList>
         </td>
     </tr>
     <tr>

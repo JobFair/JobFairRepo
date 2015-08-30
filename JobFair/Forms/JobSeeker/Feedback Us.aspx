@@ -1,5 +1,19 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feedback Us.aspx.cs" Inherits="JobFair.Forms.JobSeeker.Feedback_Us" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
+
+
+
+
+
+
+
+
+
+
+<%@ Register src="../../UserControls/JobSeeker/ContactDetailsInsert.ascx" tagname="ContactDetailsInsert" tagprefix="uc2" %>
+
 
 
 
@@ -18,6 +32,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+      
     <div>
     
        
@@ -64,9 +79,16 @@
             </tr>
             <tr>
                 <td >&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>
+                    <uc2:ContactDetailsInsert ID="ContactDetailsInsert1" runat="server" /></td>
             </tr>
         </table>
+
+        
+        
+
+        
+        <br />
 
         
     </form>
