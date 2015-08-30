@@ -154,7 +154,43 @@ namespace DAL
                 connection.Close();
 
             }
+        }
+
+
+
+
+
+
+        public int EducationDetailsDAL(EducationalDetailsEntity edEntity)
+        {
+            try
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+
+                SqlParameter[] sqlparams = {
+                   new SqlParameter("@UserID",edEntity.userID),
+                 new SqlParameter("@degreeType",edEntity.degreeType),
+                 new SqlParameter("@specialization",edEntity.specialization),
+               new SqlParameter("@instituteName",edEntity.instituteName),
+               new SqlParameter("@passingYearFrom",edEntity.passingYearFrom),
+               new SqlParameter("@passingYearTo",edEntity.passingYearTo),
+               new SqlParameter("@educationalType",edEntity.educationalType),
+               new SqlParameter("@status",edEntity.status)
+                                           };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertEducationalDetails", sqlparams);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+
+                throw ex;
+            }
 
         }
     }
-}
+    }
+

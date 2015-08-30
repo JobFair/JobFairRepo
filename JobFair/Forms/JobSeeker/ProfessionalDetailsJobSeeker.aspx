@@ -1,13 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="ProfessionalDetailsJobSeeker.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ProfessionalDetailsJobSeeker" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            height: 26px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
+   
+    
+    <div>
+     <table id="TableCurrentJob" runat="server" >
         <tr>
             <td   colspan="2" style="font-weight: 700; font-style: italic; text-decoration: underline">
                 <h1>Current Job Details</h1>
@@ -16,25 +15,29 @@
         <tr>
             <td >Resume Headline</td>
             <td >
-                <asp:TextBox ID="txtResumeHead" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtResumeHeadline" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Total Experience</td>
             <td >From<asp:TextBox ID="txtFromdate" runat="server"></asp:TextBox>
+                <cc1:CalendarExtender ID="txtFromdate_CalendarExtender" runat="server" BehaviorID="txtFromdate_CalendarExtender" TargetControlID="txtFromdate">
+                </cc1:CalendarExtender>
             To<asp:TextBox ID="txtTill" runat="server"></asp:TextBox>
+                <cc1:CalendarExtender ID="txtTill_CalendarExtender" runat="server" BehaviorID="txtTill_CalendarExtender" TargetControlID="txtTill">
+                </cc1:CalendarExtender>
             </td>
         </tr>
         <tr>
             <td >Industry</td>
             <td >
-                <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name" Width="129px">
+                <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource2" DataTextField="Industry_Name" DataValueField="Industry_Name">
                 </asp:DropDownList>
                 <br /></td>
         </tr>
         <tr>
-            <td class="auto-style1" >Department</td>
-            <td class="auto-style1" >
+            <td >Department</td>
+            <td >
                 <asp:DropDownList ID="ddlDepartment" runat="server">
                 </asp:DropDownList>
             </td>
@@ -42,21 +45,13 @@
         <tr>
             <td >Current Job Role</td>
             <td >
-                <asp:DropDownList ID="ddlCurrentJobRole" runat="server" Height="16px" Width="147px">
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem></asp:ListItem>
-                </asp:DropDownList>
+                <asp:TextBox ID="txtCurrentJobRole" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Primary Functional Role</td>
             <td >
-                <asp:DropDownList ID="ddlPrimRole" runat="server" Width="138px">
+                <asp:DropDownList ID="ddlPrimaryRole" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -140,14 +135,16 @@
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="btnSave" runat="server" Text="Save" />
+                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
             &nbsp;
                 <asp:Button ID="btncancel" runat="server" Text=" Cancel" />
             </td>
         </tr>
     </table>
+        </div>
     <hr />
-    <table>
+    <div>
+    <table id="TableDesiredJob" runat="server">
         <tr>
             <td   colspan="2">
                 <h1>Desired Job Details</h1>
@@ -156,13 +153,13 @@
         <tr>
             <td >Job Post Looking for</td>
             <td >
-                <asp:TextBox ID="txtjobpostlookingfor" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtJobPostLooking" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td >Relevant Experience</td>
             <td >
-                <asp:TextBox ID="txtreleventexp" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtReleventExp" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -180,14 +177,14 @@
         <tr>
             <td >Notice Period</td>
             <td >
-                <asp:DropDownList ID="ddlNoticePeriod" runat="server" Height="25px" Width="98px">
+                <asp:DropDownList ID="ddlNoticePeriod" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Employment status</td>
             <td >
-                <asp:DropDownList ID="ddlEmployementStatus" runat="server" Height="27px" Width="94px">
+                <asp:DropDownList ID="ddlEmployementStatus" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -229,4 +226,5 @@
             </td>
         </tr>
     </table>
+        </div>
 </asp:Content>

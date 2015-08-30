@@ -13,6 +13,9 @@ namespace BAL
 {
     public class RegisterJobSeekerBAL
     {
+
+
+       
         public int RegisterNewJobSeekerBAL(RegisterJobSeekerEntity rjsEntity)
         {
             RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
@@ -35,6 +38,23 @@ namespace BAL
         {
             RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
             return rjsDAL.ChangePasswordDAL(cpentity);
+        }
+
+       
+
+
+
+
+
+
+       
+
+
+
+        public int EducationDetailsBAL(EducationalDetailsEntity edEntity)
+        {
+           RegisterJobSeekerDAL rjsDAL=new RegisterJobSeekerDAL();
+           return rjsDAL.EducationDetailsDAL(edEntity);
         }
     }
 }

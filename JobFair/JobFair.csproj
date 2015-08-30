@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
+    <Content Include="Forms\JobSeeker\EducationalDetails.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerLogIn.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerRegister.aspx" />
@@ -125,6 +126,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\JobSeeker\EducationalDetails.aspx.cs">
+      <DependentUpon>EducationalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\EducationalDetails.aspx.designer.cs">
+      <DependentUpon>EducationalDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx.cs">
       <DependentUpon>JobSeekerForgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -342,6 +350,9 @@
           <DevelopmentServerPort>50068</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:50068/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>
+          </IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

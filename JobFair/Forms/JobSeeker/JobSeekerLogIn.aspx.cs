@@ -16,7 +16,11 @@ namespace JobFair.Forms.JobSeeker
         {
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
             try

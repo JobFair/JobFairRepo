@@ -13,13 +13,22 @@ namespace JobFair.Forms.JobSeeker {
     public partial class ProfessionalDetailsJobSeeker {
         
         /// <summary>
-        /// txtResumeHead control.
+        /// TableCurrentJob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtResumeHead;
+        protected global::System.Web.UI.HtmlControls.HtmlTable TableCurrentJob;
+        
+        /// <summary>
+        /// txtResumeHeadline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtResumeHeadline;
         
         /// <summary>
         /// txtFromdate control.
@@ -31,6 +40,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtFromdate;
         
         /// <summary>
+        /// txtFromdate_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtFromdate_CalendarExtender;
+        
+        /// <summary>
         /// txtTill control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTill;
+        
+        /// <summary>
+        /// txtTill_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtTill_CalendarExtender;
         
         /// <summary>
         /// ddlIndustry control.
@@ -58,22 +85,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
         
         /// <summary>
-        /// ddlCurrentJobRole control.
+        /// txtCurrentJobRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCurrentJobRole;
+        protected global::System.Web.UI.WebControls.TextBox txtCurrentJobRole;
         
         /// <summary>
-        /// ddlPrimRole control.
+        /// ddlPrimaryRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPrimRole;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPrimaryRole;
         
         /// <summary>
         /// txtJobdescription control.
@@ -175,22 +202,31 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btncancel;
         
         /// <summary>
-        /// txtjobpostlookingfor control.
+        /// TableDesiredJob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtjobpostlookingfor;
+        protected global::System.Web.UI.HtmlControls.HtmlTable TableDesiredJob;
         
         /// <summary>
-        /// txtreleventexp control.
+        /// txtJobPostLooking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtreleventexp;
+        protected global::System.Web.UI.WebControls.TextBox txtJobPostLooking;
+        
+        /// <summary>
+        /// txtReleventExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReleventExp;
         
         /// <summary>
         /// txtcurrentannualsalary control.
