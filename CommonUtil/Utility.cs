@@ -17,7 +17,7 @@ namespace CommonUtil
         /// <returns>DataSet.</returns>
         public static DataSet ForgetPasswordJobSeeker(ForgetPasswordEntity forgotPasswordEntity)
         {
-            RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
+            ForgetPasswordDAL jobSeekerDAL = new ForgetPasswordDAL();
             try
             {
                 return jobSeekerDAL.GetEmailDetailsDAL(forgotPasswordEntity);

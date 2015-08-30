@@ -14,6 +14,14 @@ namespace JobFair.Forms.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            BindDropDownState();
+            
+        }
+
+        private void BindDropDownState()
+        {
+            RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
+           
         }
         /// <summary>
         /// Handles the Click event of the btnSave control.
@@ -34,7 +42,7 @@ namespace JobFair.Forms.JobSeeker
                 int Month = ToYear.Month - FromYear.Month;
                 Label1.Text = Years + "Years-" + Month + "Months";
                 Current_DesiredJobDetailsEntity curentity = new Current_DesiredJobDetailsEntity();
-                RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
+                ProfessionalDetailsCurrentJSBAL rjsBAL = new ProfessionalDetailsCurrentJSBAL();
                 curentity.Userid = "1200132426";
                 curentity.ResumeHeadline = txtResumeHeadline.Text;
                 curentity.TotalExperience = (Years + '.' + Month);
@@ -69,6 +77,9 @@ namespace JobFair.Forms.JobSeeker
             }
 
         }
+
+       
+        
 
 
 

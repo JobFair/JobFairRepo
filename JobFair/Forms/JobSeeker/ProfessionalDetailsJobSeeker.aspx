@@ -41,7 +41,6 @@
             <td >
                 <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource1" DataTextField="Industry_Name" DataValueField="Ind_ID">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString4 %>" SelectCommand="SELECT * FROM [IndustryMaster]"></asp:SqlDataSource>
                 <br /></td>
         </tr>
         <tr>
@@ -49,7 +48,6 @@
             <td >
                 <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="SqlDataSource2" DataTextField="DepartmentName" DataValueField="DepartmentName" >
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString5 %>" SelectCommand="SELECT [DepartmentName] FROM [Departments]"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>
@@ -149,9 +147,9 @@
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+                <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSave_Click" />
             &nbsp;
-                <asp:Button ID="btncancel" runat="server" Text=" Cancel" />
+                <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
                 <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
@@ -195,29 +193,39 @@
             <td >Notice Period</td>
             <td >
                 <asp:DropDownList ID="ddlNoticePeriod" runat="server">
+                    <asp:ListItem>Select</asp:ListItem>
+                    <asp:ListItem>1 Months</asp:ListItem>
+                    <asp:ListItem>2 Months</asp:ListItem>
+                    <asp:ListItem>3 Months</asp:ListItem>
+                    <asp:ListItem>6 Months</asp:ListItem>
+                    <asp:ListItem>No</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Employment status</td>
             <td >
-                <asp:DropDownList ID="ddlEmployementStatus" runat="server">
-                </asp:DropDownList>
+                <asp:CheckBoxList ID="cblEmploymentStatus" runat="server">
+                    <asp:ListItem>Full Time</asp:ListItem>
+                    <asp:ListItem>Part Time</asp:ListItem>
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
             <td >Job Type</td>
             <td >
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server">
-                </asp:CheckBoxList>
-                <asp:CheckBoxList ID="CheckBoxList2" runat="server">
+                <asp:CheckBoxList ID="cblJobType" runat="server" >
+                    <asp:ListItem>Permanent</asp:ListItem>
+                    <asp:ListItem>Temporary</asp:ListItem>
+                    <asp:ListItem>Freelancing</asp:ListItem>
                 </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
             <td >Work Area</td>
             <td >
-                <asp:TextBox ID="txtworkarea" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtworkarea" runat="server" OnTextChanged="txtworkarea_TextChanged"></asp:TextBox>
+                <cc1:TextBoxWatermarkExtender ID="txtworkarea_TextBoxWatermarkExtender" runat="server" BehaviorID="txtworkarea_TextBoxWatermarkExtender" TargetControlID="txtworkarea" WatermarkText="e.g. Anywhere in south India" />
             </td>
         </tr>
         <tr>
@@ -237,9 +245,9 @@
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="btnsave1" runat="server" Text="Save" />
+                <asp:Button ID="btnsaveDesJob" runat="server" Text="Save" />
             &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnCancel1" runat="server" Text="Cancel" />
+                <asp:Button ID="btnCancelDesJob" runat="server" Text="Cancel" />
             </td>
         </tr>
     </table>
