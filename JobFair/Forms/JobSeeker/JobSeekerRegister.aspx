@@ -47,7 +47,7 @@
                 </td>
             </tr>
             <tr>
-                <td >Desired User Name</td>
+                <td >Desired User Id/Name</td>
                 <td>
                     <asp:TextBox ID="txtDesiredUserName" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" TargetControlID="txtDesiredUserName" WatermarkText="User Name" WatermarkCssClass="c" />
                     <asp:RequiredFieldValidator ID="rfvDesiredUserName" runat="server" ErrorMessage="*" ForeColor="#FF3300" ControlToValidate="txtDesiredUserName"></asp:RequiredFieldValidator>
@@ -106,9 +106,11 @@
                 </td>
             </tr>
             <tr>
-                <td >&nbsp;</td>
+                <td >Reference Mail Id<br />
+                    (If any)</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:TextBox ID="txtRefMailId" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td >&nbsp;</td>
@@ -121,7 +123,6 @@
                 <td></td>
                 <td>
                     <asp:Label ID="lblMessage" runat="server"></asp:Label>
-                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                 </td>
             </tr>
             
