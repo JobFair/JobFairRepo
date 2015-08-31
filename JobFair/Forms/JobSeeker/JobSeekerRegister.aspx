@@ -109,7 +109,7 @@
                 <td >Reference Mail Id<br />
                     (If any)</td>
                 <td>
-                    <asp:TextBox ID="txtRefMailId" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtRefMailId" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender10" runat="server"  WatermarkText="Reference Mail Id" TargetControlID="txtRefMailId" WatermarkCssClass="c"/>
                 </td>
             </tr>
             <tr>

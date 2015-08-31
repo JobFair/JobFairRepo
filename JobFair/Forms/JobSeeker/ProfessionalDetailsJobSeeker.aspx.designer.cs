@@ -31,6 +31,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtResumeHeadline;
         
         /// <summary>
+        /// TextBoxWatermarkExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender1;
+        
+        /// <summary>
         /// txtFromdate control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.CalendarExtender txtFromdate_CalendarExtender;
         
         /// <summary>
+        /// TextBoxWatermarkExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender2;
+        
+        /// <summary>
         /// txtTill control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender txtTill_CalendarExtender;
+        
+        /// <summary>
+        /// TextBoxWatermarkExtender3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender3;
         
         /// <summary>
         /// Label1 control.
@@ -103,6 +130,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtCurrentJobRole;
         
         /// <summary>
+        /// TextBoxWatermarkExtender4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender4;
+        
+        /// <summary>
         /// ddlPrimaryRole control.
         /// </summary>
         /// <remarks>
@@ -121,6 +157,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtJobdescriptionPrimar;
         
         /// <summary>
+        /// TextBoxWatermarkExtender5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender5;
+        
+        /// <summary>
         /// txtTechnicalskillPrimary control.
         /// </summary>
         /// <remarks>
@@ -128,6 +173,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTechnicalskillPrimary;
+        
+        /// <summary>
+        /// TextBoxWatermarkExtender6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender6;
         
         /// <summary>
         /// ddlSecRole control.
@@ -148,6 +202,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtjobdescriptionSec;
         
         /// <summary>
+        /// TextBoxWatermarkExtender7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender7;
+        
+        /// <summary>
         /// txtTechnicalskillSec control.
         /// </summary>
         /// <remarks>
@@ -155,6 +218,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTechnicalskillSec;
+        
+        /// <summary>
+        /// TextBoxWatermarkExtender8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender8;
         
         /// <summary>
         /// txtDesignation control.
@@ -166,6 +238,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtDesignation;
         
         /// <summary>
+        /// TextBoxWatermarkExtender9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender9;
+        
+        /// <summary>
         /// txtemployeer control.
         /// </summary>
         /// <remarks>
@@ -173,6 +254,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtemployeer;
+        
+        /// <summary>
+        /// TextBoxWatermarkExtender10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender10;
         
         /// <summary>
         /// txtReasonforJobchange control.
@@ -184,6 +274,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtReasonforJobchange;
         
         /// <summary>
+        /// TextBoxWatermarkExtender11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender11;
+        
+        /// <summary>
         /// txtTechSkills control.
         /// </summary>
         /// <remarks>
@@ -191,6 +290,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTechSkills;
+        
+        /// <summary>
+        /// TextBoxWatermarkExtender12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender12;
         
         /// <summary>
         /// btnSaveCurrentJob control.
@@ -247,6 +355,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtJobPostLooking;
         
         /// <summary>
+        /// TextBoxWatermarkExtender13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender13;
+        
+        /// <summary>
         /// txtReleventExp control.
         /// </summary>
         /// <remarks>
@@ -254,6 +371,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReleventExp;
+        
+        /// <summary>
+        /// TextBoxWatermarkExtender14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender14;
         
         /// <summary>
         /// txtcurrentannualsalary control.
@@ -265,6 +391,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtcurrentannualsalary;
         
         /// <summary>
+        /// TextBoxWatermarkExtender15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender15;
+        
+        /// <summary>
         /// txtexpectedsalary control.
         /// </summary>
         /// <remarks>
@@ -272,6 +407,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtexpectedsalary;
+        
+        /// <summary>
+        /// TextBoxWatermarkExtender16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender16;
         
         /// <summary>
         /// ddlNoticePeriod control.
@@ -310,13 +454,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtworkarea;
         
         /// <summary>
-        /// txtworkarea_TextBoxWatermarkExtender control.
+        /// TextBoxWatermarkExtender17 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender txtworkarea_TextBoxWatermarkExtender;
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender17;
         
         /// <summary>
         /// ddlPreferedState control.

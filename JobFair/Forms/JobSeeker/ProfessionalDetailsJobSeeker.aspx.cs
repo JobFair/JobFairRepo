@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entities;
 using BAL;
+using CommonUtil;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -14,13 +15,29 @@ namespace JobFair.Forms.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            BindDropDownState();
+            BindDropDownIndustry();
+            BindDropDownDepartment();
             
         }
 
-        private void BindDropDownState()
+        private void BindDropDownDepartment()
         {
-            RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
+            ddlDepartment.DataSource = Utility.GetDepartmentBAL();
+            ddlDepartment.DataTextField = "DepartmentName";
+            ddlDepartment.DataValueField = "DeptID";
+            ddlDepartment.DataBind();
+            ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        private void BindDropDownIndustry()
+        {
+
+            ddlIndustry.DataSource= Utility.GetIndustryBAL();
+            ddlIndustry.DataTextField = "Industry_Name";
+            ddlIndustry.DataValueField = "Ind_ID";
+            ddlIndustry.DataBind();
+            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+
            
         }
         /// <summary>

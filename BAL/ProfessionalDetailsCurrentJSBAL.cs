@@ -16,5 +16,8 @@ namespace BAL
             ProfessionalDetailsCurrentJSDAL rjsDAL = new ProfessionalDetailsCurrentJSDAL();
             return rjsDAL.CurrentProfessionalDetailsDAL(curentity);
         }
+
+
+       
     }
 }
