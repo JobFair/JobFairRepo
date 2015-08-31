@@ -81,6 +81,7 @@
     <Content Include="Forms\JobSeeker\JobSeekerForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerLogIn.aspx" />
     <Content Include="Forms\JobSeeker\JobSeekerRegister.aspx" />
+    <Content Include="Forms\JobSeeker\PersonalDetails.aspx" />
     <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="UserControls\JobSeeker\ContactDetailsInsert.ascx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
@@ -118,7 +119,6 @@
     <Content Include="Forms\JobSeeker\Feedback Us.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
-    <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
     <Content Include="Images\calendar-list.jpg" />
     <Content Include="Images\L1-whte.jpg" />
@@ -160,6 +160,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\JobSeekerRegister.aspx.designer.cs">
       <DependentUpon>JobSeekerRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\PersonalDetails.aspx.cs">
+      <DependentUpon>PersonalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\PersonalDetails.aspx.designer.cs">
+      <DependentUpon>PersonalDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.cs">
       <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
@@ -206,10 +213,6 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.cs">
       <DependentUpon>MoreWorkshops.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.cs">
-      <DependentUpon>PersonalDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\JobSeeker\ProfessionalDetails.ascx.cs">

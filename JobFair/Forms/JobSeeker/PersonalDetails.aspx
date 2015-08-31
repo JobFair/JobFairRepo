@@ -1,9 +1,16 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PersonalDetails.ascx.cs" Inherits="JobSeeker_Forms_PersonalDetails" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PersonalDetails.aspx.cs" Inherits="JobFair.Forms.JobSeeker.PersonalDetails" %>
 <link href="../../Style.css" rel="stylesheet" />
-    
+<!DOCTYPE html>
 
-<table >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <table >
         <tr>
             <td >&nbsp;</td>
             <td colspan="10">
@@ -19,7 +26,7 @@
             </td>
         </tr>
         <tr>
-            <td  rowspan="4">
+            <td  rowspan="6">
                 <asp:Label ID="lblPresentAdd" runat="server" Text="Present Address"></asp:Label>
             </td>
             <td  colspan="5">
@@ -31,21 +38,38 @@
         </tr>
         <tr>
             <td  colspan="5">
+                Country</td>
+
+            <td  colspan="5" rowspan="3">
+                <asp:UpdatePanel ID="pnlPresentAddress" runat="server">
+                    <ContentTemplate>
+                         <asp:DropDownList ID="ddlCountryPresent" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCountryPresent_SelectedIndexChanged">
+                </asp:DropDownList><br />
+                <asp:DropDownList ID="ddlStatePresent" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlStatePresent_SelectedIndexChanged">
+                </asp:DropDownList><br />
+                <asp:DropDownList ID="ddlCityPresent" runat="server">
+                </asp:DropDownList>
+
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+            </td>
+        </tr>
+        <tr>
+            <td  colspan="5">
                 <asp:Label ID="Label11" runat="server" Text="State"></asp:Label>
             </td>
-            <td  colspan="5">
-                <asp:DropDownList ID="ddlStatePresent" runat="server" DataSourceID="SqlDataSource1" DataTextField="stateID" DataValueField="stateID">
-                </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString %>" SelectCommand="SELECT * FROM [StatesMaster]"></asp:SqlDataSource>
-            </td>
+
         </tr>
         <tr>
             <td  colspan="5">
                 <asp:Label ID="Label12" runat="server" Text="City"></asp:Label>
             </td>
+        </tr>
+        <tr>
             <td  colspan="5">
-                <asp:DropDownList ID="ddlCityPresent" runat="server">
-                </asp:DropDownList>
+                Area</td>
+            <td  colspan="5">
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -57,7 +81,7 @@
             </td>
         </tr>
         <tr>
-            <td  rowspan="4">
+            <td  rowspan="6">
                 <asp:Label ID="Label3" runat="server" Text="Permanent Adrress"></asp:Label>
             </td>
             <td colspan="5">
@@ -68,21 +92,34 @@
             </td>
         </tr>
         <tr>
+            <td colspan="5">
+                Country</td>
+            <td class="auto-style6" colspan="5" rowspan="3">
+                <asp:UpdatePanel ID="pnlPermanentAddress" runat="server">
+                    <ContentTemplate>
+                        <asp:DropDownList ID="ddlCountryPerm" runat="server"  AutoPostBack="true" OnSelectedIndexChanged="ddlCountryPerm_SelectedIndexChanged"></asp:DropDownList><br />
+                <asp:DropDownList ID="ddlStatePerm" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatePerm_SelectedIndexChanged">
+                </asp:DropDownList><br />
+                <asp:DropDownList ID="ddlCityPerm" runat="server">
+                </asp:DropDownList></ContentTemplate>
+                    </asp:UpdatePanel>
+            </td>
+        </tr>
+        <tr>
             <td  colspan="5">
                 <asp:Label ID="Label15" runat="server" Text="State"></asp:Label>
-            </td>
-            <td  colspan="5">
-                <asp:DropDownList ID="ddlStatePerm" runat="server">
-                </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td colspan="5">
                 <asp:Label ID="Label16" runat="server" Text="City"></asp:Label>
             </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                Area</td>
             <td class="auto-style6" colspan="5">
-                <asp:DropDownList ID="ddlCityPerm" runat="server">
-                </asp:DropDownList>
+                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -132,7 +169,7 @@
             <td colspan="10">
                 <asp:UpdatePanel ID="pnlPassport" runat="server">
                     <ContentTemplate>
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True" RepeatDirection="Horizontal">
                             <asp:ListItem>Yes</asp:ListItem>
                             <asp:ListItem>No</asp:ListItem>
                         </asp:RadioButtonList>
@@ -184,6 +221,9 @@
             </td>
             <td colspan="2" >
                 <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem>Beginner</asp:ListItem>
+                    <asp:ListItem>Intermediate</asp:ListItem>
+                    <asp:ListItem>Expert</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td colspan="2">
@@ -202,6 +242,9 @@
             </td>
             <td colspan="2">
                 <asp:DropDownList ID="DropDownList2" runat="server">
+                    <asp:ListItem>Beginner</asp:ListItem>
+                    <asp:ListItem>Intermediate</asp:ListItem>
+                    <asp:ListItem>Expert</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td colspan="2">
@@ -220,6 +263,9 @@
             </td>
             <td colspan="2">
                 <asp:DropDownList ID="DropDownList3" runat="server">
+                    <asp:ListItem>Beginner</asp:ListItem>
+                    <asp:ListItem>Intermediate</asp:ListItem>
+                    <asp:ListItem>Expert</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td colspan="2">
@@ -253,6 +299,7 @@
             </td>
         </tr>
     </table>
-
-
-
+    </div>
+    </form>
+</body>
+</html>

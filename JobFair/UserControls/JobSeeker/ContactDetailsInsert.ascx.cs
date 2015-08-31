@@ -27,8 +27,8 @@ namespace JobFair.UserControls.JobSeeker
         {
              try
         {
-             
-            RegisterJobSeekerBAL rejBAL = new RegisterJobSeekerBAL();
+
+            ContactDetailsJSBAL cdBAL = new ContactDetailsJSBAL();
             ContactDetailsJobSeekerEntity cdEntity = new ContactDetailsJobSeekerEntity();
                  //set the value of ContactDetailsJobSeekerEntity
 
@@ -42,7 +42,7 @@ namespace JobFair.UserControls.JobSeeker
             cdEntity.GtalkID = txtGTalk.Text.Trim();
             cdEntity.SkypeID = txtSkype.Text.Trim();
             cdEntity.GooglePlus = txtGooglePlus.Text.Trim();
-            int result = rejBAL.ContactDetailsJobSeeker(cdEntity);
+            int result = cdBAL.ContactDetailsJobSeeker(cdEntity);
             if (result > 0)
             {
                 Response.Write("<script language='javascript'>alert('Contact Details Inserted')</script>");

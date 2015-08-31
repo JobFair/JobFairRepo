@@ -1,6 +1,7 @@
 ﻿using DAL;
 using Entities;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace BAL
 {
@@ -50,12 +51,17 @@ namespace BAL
             return rjsDAL.CurrentProfessionalDetailsDAL(curentity);
         }
 
-        public int ContactDetailsJobSeeker(ContactDetailsJobSeekerEntity cdEntity)
-        {
-            RegisterJobSeekerDAL cdDAL = new RegisterJobSeekerDAL();
-            return cdDAL.ContactDetailsDAL(cdEntity);
-        }
+       
 
-        
+       
+      
+
+       public DataSet LoadCityAll(CityEntity cityentity)
+       {
+           RegisterJobSeekerDAL cdDAL = new RegisterJobSeekerDAL();
+           return cdDAL.LoadCityAll(cityentity);
+       }
+
+      
     }
 }

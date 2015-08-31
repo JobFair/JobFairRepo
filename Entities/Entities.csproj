@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangePasswordEnitity.cs" />
+    <Compile Include="CityEntity.cs" />
     <Compile Include="ContactDetailsJobSeekerEntity.cs" />
     <Compile Include="Current-DesiredJobDetailsEntity.cs" />
     <Compile Include="ForgetPasswordEntity.cs" />

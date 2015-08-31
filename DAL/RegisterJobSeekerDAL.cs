@@ -189,29 +189,36 @@ namespace DAL
             }
            
         }
-        public int ContactDetailsDAL(ContactDetailsJobSeekerEntity cdentity)
+      
+
+  
+       
+
+        public DataSet LoadCityAll(CityEntity cityentity)
         {
-                try
+
+            // DataTable table = new DataTable();
+            //// SqlCommand cmd = new SqlCommand("select * from CityMaster where stateID="+stateID, connection);
+            //// cmd.Parameters.AddWithValue("@stateID",stateID);
+            // SqlDataAdapter da = new SqlDataAdapter(cmd);
+            // da.Fill(table);
+            // return table;
+
+
+
+            try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand();
-                SqlParameter[] sqlparams = {
-                                              new SqlParameter("@uId", cdentity.UserID),
-                                              new SqlParameter("@altMobNo",cdentity.AltMobileNo ),
-                                              new SqlParameter("@landNo", cdentity.LandLineNo),
-                                              new SqlParameter("@whatsappNo",cdentity.WhatsAppNo),
-                                              new SqlParameter("@linkedId", cdentity.LinkedID),
-                                              new SqlParameter("@fbId",cdentity.FacebookID),
-                                              new SqlParameter("@twitterId", cdentity.TwitterID),
-                                              new SqlParameter("@Gtalk",cdentity.GtalkID),
-                                              new SqlParameter("@skypeId", cdentity.SkypeID),
-                                              new SqlParameter("@googleP",cdentity.GooglePlus),
-                                             
-                                              
-                                            };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "insertJSContactDetails", sqlparams);
-
-                return result;
+                DataSet ds = new DataSet();
+                SqlCommand cmd = new SqlCommand("selectcity", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@cityID", cityentity.cityID);
+                cmd.Parameters.AddWithValue("@cityName", cityentity.cityName);
+                cmd.Parameters.AddWithValue("@stateID", cityentity.stateID);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds, "EmailDetails");
+                connection.Close();
+                return ds;
             }
             catch (Exception ex)
             {
@@ -219,9 +226,11 @@ namespace DAL
             }
             finally
             {
-                connection.Close();
+                //connection.Close();
             }
         }
-
+              
+            
+    
         }
     }
