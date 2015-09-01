@@ -15,6 +15,7 @@ namespace DAL
         /// </summary>
         /// <param name="cpentity">To add parameters into database</param>
         /// <returns>System.Int32</returns>
+        /// jyoti
         public int ChangePasswordDAL(ChangePasswordEnitity cpentity)
         {
             connection.Close();

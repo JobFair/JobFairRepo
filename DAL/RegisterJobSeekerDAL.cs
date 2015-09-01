@@ -15,6 +15,7 @@ namespace DAL
         /// </summary>
         /// <param name="rjsEntity">Object for inserting data into database</param>
         /// <returns>System.Int32</returns>
+        /// jyoti
         public int RegisterNewJobSeekerDAL(RegisterJobSeekerEntity rjsEntity)
         {
             try

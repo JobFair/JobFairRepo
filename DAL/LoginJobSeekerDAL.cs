@@ -19,6 +19,8 @@ namespace DAL
         /// </summary>
         /// <param name="logjsEntity">To add parameters into database</param>
         /// <returns>SqlDataReader</returns>
+        /// jyoti
+        /// 
         public SqlDataReader JobSeekerLoginDAL(LogInJobSeekerEnitity logjsEntity)
         {
             try

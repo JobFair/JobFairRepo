@@ -10,6 +10,7 @@ namespace BAL
         /// </summary>
         /// <param name="jobSeekerEntity">The job seeker entity.</param>
         /// <returns>System.Int32.</returns>
+        /// jyoti
         public int RegisterNewJobSeekerBAL(RegisterJobSeekerEntity jobSeekerEntity)
         {
             RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();

@@ -12,6 +12,7 @@ namespace BAL
         /// </summary>
         /// <param name="changePasswordEntity">The change password entity.</param>
         /// <returns>System.Int32.</returns>
+        /// Jyoti
         public int ChangePasswordBAL(ChangePasswordEnitity changePasswordEntity)
         {
             ChangePasswordJSDAL jobSeekerDAL = new ChangePasswordJSDAL();

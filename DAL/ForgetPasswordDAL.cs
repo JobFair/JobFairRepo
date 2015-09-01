@@ -16,6 +16,7 @@ namespace DAL
         /// <param name="fpEntity">To get parameters from database</param>
         ///
         /// <returns>DataSet</returns>
+        /// jyoti
         public DataSet GetEmailDetailsDAL(ForgetPasswordEntity fpEntity)
         {
             connection.Open();

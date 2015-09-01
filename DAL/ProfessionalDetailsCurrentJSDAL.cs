@@ -15,6 +15,7 @@ namespace DAL
         /// </summary>
         /// <param name="curentity">To add parameters into database</param>
         /// <returns>System.Int32</returns>
+        /// jyoti
 
         public int CurrentProfessionalDetailsDAL(Current_DesiredJobDetailsEntity curentity)
         {

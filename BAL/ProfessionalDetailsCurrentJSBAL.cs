@@ -11,6 +11,7 @@ namespace BAL
         /// </summary>
         /// <param name="curentity">Professional Details entity</param>
         /// <returns>System.Int32</returns>
+        /// jyoti
         public int CurrentProfessionalDetailsBAL(Current_DesiredJobDetailsEntity curentity)
         {
             ProfessionalDetailsCurrentJSDAL rjsDAL = new ProfessionalDetailsCurrentJSDAL();

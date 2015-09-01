@@ -16,6 +16,7 @@ namespace BAL
         /// </summary>
         /// <param name="loginEntity">The login entity.</param>
         /// <returns>SqlDataReader.</returns>
+        /// jyoti   
         public SqlDataReader JobSeekerLogIn(LogInJobSeekerEnitity loginEntity)
         {
             LoginJobSeekerDAL loginDAL = new LoginJobSeekerDAL();
