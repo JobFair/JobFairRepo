@@ -28,24 +28,23 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-               
+                Random randomNumber = new Random();
                 RegisterJobSeekerEntity jobSeekerEntity = new RegisterJobSeekerEntity();
                 string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
 
-               
-              
+                // Provide the min and max limit for the no
+                jobSeekerEntity.UserId = Convert.ToString(randomNumber.Next(50, int.MaxValue));
 
                 // Set value to job seeker entity
                 jobSeekerEntity.FirstName = txtFirstName.Text.Trim();
                 jobSeekerEntity.LastName = txtLastName.Text.Trim();
                 jobSeekerEntity.EmailId = txtEmailId.Text.Trim();
-                jobSeekerEntity.UserId = txtDesiredUserName.Text.Trim();
+                jobSeekerEntity.DesiredUserName = txtDesiredUserName.Text.Trim();
                 jobSeekerEntity.Gender = rblGender.SelectedItem.Text;
                 jobSeekerEntity.MobileNo = txtMobileNo.Text.Trim();
                 jobSeekerEntity.Password = txtPassword.Text.Trim();
                 jobSeekerEntity.CurrentCity = txtCurrCity.Text.Trim();
                 jobSeekerEntity.CurrentAddress = txtCurrAddress.Text.Trim();
-                jobSeekerEntity.RefEmailId = txtRefMailId.Text.Trim();
                 string uploadFolder = Request.PhysicalApplicationPath + "UploadFiles\\";
 
                 // Check if fileupload control has a file.
