@@ -5,11 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using System.Data;
+using Entities;
 
 namespace BAL
 {
    public class PersonalDetailsJSBAL
     {
+       /// <summary>
+       /// Jyoti
+       /// </summary>
+       /// <returns></returns>
        public DataTable LoadCountryAll()
        {
            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
@@ -25,6 +30,11 @@ namespace BAL
        {
            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
            return pdDAL.LoadCityAll(StateId);
+       }
+       public int PersonalDetailsInsert(PersonalDetailsJSEntity pdEntity)
+       {
+           PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+           return pdDAL.PersonalDetailsInsert(pdEntity);
        }
     }
 }

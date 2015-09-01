@@ -17,8 +17,6 @@ namespace JobFair.Forms.JobSeeker
             {
                 PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
                 ddlCountryPresent.DataSource = pdBAL.LoadCountryAll();
-                //ddlCountryPresent.Items.Clear();
-                //ddlCountryPresent.Items.Add("--Please Select country--");
                 ddlCountryPresent.DataTextField = "CountryName";
                 ddlCountryPresent.DataValueField = "CountryId";
                 ddlCountryPresent.DataBind();
@@ -76,6 +74,32 @@ namespace JobFair.Forms.JobSeeker
             ddlCityPerm.DataValueField = "cityID";
             ddlCityPerm.DataBind();
             ddlCityPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            
+            
+                PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
+                PersonalDetailsJSEntity pdEntity = new PersonalDetailsJSEntity();
+                pdEntity.userID = "";
+                pdEntity.PressentAddress = txtPresentAddress.Text;
+                pdEntity.PressentCountry = ddlCountryPresent.SelectedItem.Text;
+                pdEntity.PressentState = ddlStatePresent.SelectedItem.Text;
+                pdEntity.PressentCity = ddlCityPresent.SelectedItem.Text;
+                pdEntity.PresentArea = TextBox1.Text;
+                pdEntity.PresentPincode =Convert.ToInt32(txtPincodePresent.Text);
+                pdEntity.PermantAddress = txtAddressPerm.Text;
+                pdEntity.PermantCountry = ddlCountryPerm.SelectedItem.Text;
+                pdEntity.PermantState = ddlStatePerm.SelectedItem.Text;
+                pdEntity.PermantCity = ddlCityPerm.SelectedItem.Text;
+                pdEntity.PermantArea = TextBox2.Text;
+                pdEntity.PermantPincode = Convert.ToInt32(txtPincodePerm.Text);
+                pdEntity.DateOfBirth = Convert.ToDateTime(txtDOB.Text);
+                //pdEntity.Gender = RadioButtonList1.SelectedItem.Value.ToString();
+               
+               
+                
         }
 
         
