@@ -128,7 +128,6 @@
   <ItemGroup>
     <Compile Include="Forms\JobSeeker\EducationalDetails.aspx.cs">
       <DependentUpon>EducationalDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\JobSeeker\EducationalDetails.aspx.designer.cs">
       <DependentUpon>EducationalDetails.aspx</DependentUpon>
@@ -188,7 +187,6 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\ContactDetailsInsert.ascx.cs">
       <DependentUpon>ContactDetailsInsert.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\JobSeeker\ContactDetailsInsert.ascx.designer.cs">
       <DependentUpon>ContactDetailsInsert.ascx</DependentUpon>
@@ -214,7 +212,6 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\ProfessionalDetails.ascx.cs">
       <DependentUpon>ProfessionalDetails.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\JobSeeker\ProfessionalDetails.ascx.designer.cs">
       <DependentUpon>ProfessionalDetails.ascx</DependentUpon>
@@ -313,7 +310,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
