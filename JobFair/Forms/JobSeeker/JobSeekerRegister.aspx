@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JobSeekerRegister.aspx.cs" Inherits="JobFair.Forms.JobSeeker.JobSeekerRegister" %>
-
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajax" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
@@ -11,7 +11,38 @@
         .c {
         color:gray;
         }
-        
+        .VeryPoorStrength
+        {
+        background: Red;
+        color:White;
+        font-weight:bold;
+        }
+        .WeakStrength
+        {
+        background: Gray;
+        color:White;
+        font-weight:bold;
+        }
+        .AverageStrength
+        {
+        background: orange;
+        color:black;
+        font-weight:bold;
+        }
+        .GoodStrength
+
+        {
+        background: blue;
+        color:White;
+        font-weight:bold;
+        }
+        .ExcellentStrength
+
+        {
+        background: Green;
+        color:White;
+        font-weight:bold;
+        }
     </style>
 </head>
   
@@ -75,6 +106,14 @@
                 <td>
                     <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Enter your password" ForeColor="#FF3300" ControlToValidate="txtPassword">*</asp:RequiredFieldValidator>
+                </td>
+                <td>
+                     <ajax:PasswordStrength ID="pwdStrength" TargetControlID="txtPassword" StrengthIndicatorType="Text" PrefixText="Strength:" HelpStatusLabelID="lblhelp" 
+                        PreferredPasswordLength="8" MinimumNumericCharacters="1" MinimumSymbolCharacters="1" TextStrengthDescriptions="Very Poor;Weak;Average;Good;Excellent"
+                        TextStrengthDescriptionStyles="VeryPoorStrength;WeakStrength;AverageStrength;GoodStrength;ExcellentStrength" runat="server" />
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                <td>
+                    <asp:Label ID="lblhelp" runat="server"/>
                 </td>
             </tr>
             <tr>

@@ -22,16 +22,16 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                              new SqlParameter("@uid", rjsEntity.UserId),
+                                              new SqlParameter("@userid",rjsEntity.UserId),
                                               new SqlParameter("@fname", rjsEntity.FirstName ),
                                               new SqlParameter("@lname", rjsEntity.LastName),
                                               new SqlParameter("@emailId", rjsEntity.EmailId),
                                               new SqlParameter("@gender", rjsEntity.Gender),
-                                              new SqlParameter("@desiredUserName", rjsEntity.DesiredUserName),
                                               new SqlParameter("@mobNo", rjsEntity.MobileNo),
                                               new SqlParameter("@currCity", rjsEntity.CurrentCity),
                                               new SqlParameter("@address", rjsEntity.CurrentAddress),
                                               new SqlParameter("@password",rjsEntity.Password),
+                                              new SqlParameter("@refEmailId",rjsEntity.RefEmailId),
                                               new SqlParameter("@uploadresumepath", rjsEntity.UploadResumepath.ToString())
                                             };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertJSRegister", sqlparams);

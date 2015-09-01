@@ -235,7 +235,9 @@
         <tr>
             <td >Prefered Country</td>
             <td >
-                &nbsp;</td>
+                <asp:DropDownList ID="ddlCountry" runat="server">
+                </asp:DropDownList>
+            </td>
         </tr>
         <tr>
             <td >Prefered State</td>
