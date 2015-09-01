@@ -5,6 +5,9 @@
         .auto-style1 {
             height: 23px;
         }
+        .c {
+        color:gray;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -20,7 +23,7 @@
         <tr>
             <td >Resume Headline</td>
             <td >
-                <asp:TextBox ID="txtResumeHeadline" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtResumeHeadline" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server"  WatermarkText="Enter Resume Headline" TargetControlID="txtResumeHeadline" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
@@ -28,9 +31,11 @@
             <td >From<asp:TextBox ID="txtFromdate" runat="server"></asp:TextBox>
                 <cc1:CalendarExtender ID="txtFromdate_CalendarExtender" runat="server" BehaviorID="txtFromdate_CalendarExtender" TargetControlID="txtFromdate">
                 </cc1:CalendarExtender>
+                <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server"  WatermarkText="From Year" TargetControlID="txtFromdate" WatermarkCssClass="c"/>
             To<asp:TextBox ID="txtTill" runat="server"></asp:TextBox>
                 <cc1:CalendarExtender ID="txtTill_CalendarExtender" runat="server" BehaviorID="txtTill_CalendarExtender" TargetControlID="txtTill">
                 </cc1:CalendarExtender>
+                <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server"  WatermarkText="To Year" TargetControlID="txtTill" WatermarkCssClass="c"/>
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 
 
@@ -39,23 +44,21 @@
         <tr>
             <td >Industry</td>
             <td >
-                <asp:DropDownList ID="ddlIndustry" runat="server" DataSourceID="SqlDataSource1" DataTextField="Industry_Name" DataValueField="Ind_ID">
+                <asp:DropDownList ID="ddlIndustry" runat="server">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString4 %>" SelectCommand="SELECT * FROM [IndustryMaster]"></asp:SqlDataSource>
                 <br /></td>
         </tr>
         <tr>
             <td >Department</td>
             <td >
-                <asp:DropDownList ID="ddlDepartment" runat="server" DataSourceID="SqlDataSource2" DataTextField="DepartmentName" DataValueField="DepartmentName" >
+                <asp:DropDownList ID="ddlDepartment" runat="server">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString5 %>" SelectCommand="SELECT [DepartmentName] FROM [Departments]"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>
             <td >Current Job Role</td>
             <td >
-                <asp:TextBox ID="txtCurrentJobRole" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCurrentJobRole" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server"  WatermarkText="Enter Current Job Role" TargetControlID="txtCurrentJobRole" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
@@ -74,13 +77,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="txtJobdescriptionPrimar" runat="server" ></asp:TextBox>
+                            <asp:TextBox ID="txtJobdescriptionPrimar" runat="server" ></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server"  WatermarkText="Enter Job Description(Role)" TargetControlID="txtJobdescriptionPrimar" WatermarkCssClass="c"/>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="txtTechnicalskillPrimary" runat="server" ></asp:TextBox>
+                            <asp:TextBox ID="txtTechnicalskillPrimary" runat="server" ></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender6" runat="server"  WatermarkText="Enter Technical Skills" TargetControlID="txtTechnicalskillPrimary" WatermarkCssClass="c"/>
                         </td>
                     </tr>
                 </table>
@@ -102,13 +105,13 @@
                     <tr>
                         <td >Job Description(Role)</td>
                         <td>
-                            <asp:TextBox ID="txtjobdescriptionSec" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtjobdescriptionSec" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender7" runat="server"  WatermarkText="Enter Job Description(Role)" TargetControlID="txtjobdescriptionSec" WatermarkCssClass="c"/>
                         </td>
                     </tr>
                     <tr>
                         <td >Technical Skills</td>
                         <td>
-                            <asp:TextBox ID="txtTechnicalskillSec" runat="server" ></asp:TextBox>
+                            <asp:TextBox ID="txtTechnicalskillSec" runat="server" ></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender8" runat="server"  WatermarkText="Enter Technical Skills" TargetControlID="txtTechnicalskillSec" WatermarkCssClass="c"/>
                         </td>
                     </tr>
                 </table>
@@ -117,7 +120,7 @@
         <tr>
             <td >Designation</td>
             <td >
-                <asp:TextBox ID="txtDesignation" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDesignation" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender9" runat="server"  WatermarkText="Enter Designation" TargetControlID="txtDesignation" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
@@ -127,7 +130,7 @@
         <tr>
             <td >Current Employer/Last Employer</td>
             <td >
-                <asp:TextBox ID="txtemployeer" runat="server" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="txtemployeer" runat="server" TextMode="MultiLine" ToolTip="Please Enter Current Employer/Last Employer"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender10" runat="server"  WatermarkText="Enter Current Employer/Last Employer" TargetControlID="txtemployeer" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
@@ -137,21 +140,21 @@
         <tr>
             <td >Reason for Job change</td>
             <td >
-                <asp:TextBox ID="txtReasonforJobchange" runat="server" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="txtReasonforJobchange" runat="server" TextMode="MultiLine"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender11" runat="server"  WatermarkText="Enter Reason for Job change" TargetControlID="txtReasonforJobchange" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
             <td >Technical skills/Key Skills</td>
             <td >
-                <asp:TextBox ID="txtTechSkills" runat="server" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="txtTechSkills" runat="server" TextMode="MultiLine"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender12" runat="server"  WatermarkText="Enter Technical skills/Key Skills" TargetControlID="txtTechSkills" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+                <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSave_Click" />
             &nbsp;
-                <asp:Button ID="btncancel" runat="server" Text=" Cancel" />
+                <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
                 <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
@@ -170,54 +173,70 @@
         <tr>
             <td >Job Post Looking for</td>
             <td >
-                <asp:TextBox ID="txtJobPostLooking" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtJobPostLooking" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender13" runat="server"  WatermarkText="Enter Job Post Looking for" TargetControlID="txtJobPostLooking" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
             <td >Relevant Experience</td>
             <td >
-                <asp:TextBox ID="txtReleventExp" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtReleventExp" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender14" runat="server"  WatermarkText="Enter Relevant Experience" TargetControlID="txtReleventExp" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
             <td >Current Anual Salary(Yearly)</td>
             <td >
-                <asp:TextBox ID="txtcurrentannualsalary" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtcurrentannualsalary" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender15" runat="server"  WatermarkText="Enter Current Anual Salary(Yearly)" TargetControlID="txtcurrentannualsalary" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
             <td >Expected Anual Salary(Yearly)</td>
             <td >
-                <asp:TextBox ID="txtexpectedsalary" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtexpectedsalary" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender16" runat="server"  WatermarkText="Enter Expected Anual Salary(Yearly)" TargetControlID="txtexpectedsalary" WatermarkCssClass="c"/>
             </td>
         </tr>
         <tr>
             <td >Notice Period</td>
             <td >
                 <asp:DropDownList ID="ddlNoticePeriod" runat="server">
+                    <asp:ListItem>Select</asp:ListItem>
+                    <asp:ListItem>1 Months</asp:ListItem>
+                    <asp:ListItem>2 Months</asp:ListItem>
+                    <asp:ListItem>3 Months</asp:ListItem>
+                    <asp:ListItem>6 Months</asp:ListItem>
+                    <asp:ListItem>No</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >Employment status</td>
             <td >
-                <asp:DropDownList ID="ddlEmployementStatus" runat="server">
-                </asp:DropDownList>
+                <asp:CheckBoxList ID="cblEmploymentStatus" runat="server">
+                    <asp:ListItem>Full Time</asp:ListItem>
+                    <asp:ListItem>Part Time</asp:ListItem>
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
             <td >Job Type</td>
             <td >
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server">
-                </asp:CheckBoxList>
-                <asp:CheckBoxList ID="CheckBoxList2" runat="server">
+                <asp:CheckBoxList ID="cblJobType" runat="server" >
+                    <asp:ListItem>Permanent</asp:ListItem>
+                    <asp:ListItem>Temporary</asp:ListItem>
+                    <asp:ListItem>Freelancing</asp:ListItem>
                 </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
             <td >Work Area</td>
             <td >
-                <asp:TextBox ID="txtworkarea" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtworkarea" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender17" runat="server"  WatermarkText="Eg. South India etc." TargetControlID="txtworkarea" WatermarkCssClass="c"/>
+            </td>
+        </tr>
+        <tr>
+            <td >Prefered Country</td>
+            <td >
+                <asp:DropDownList ID="ddlCountry" runat="server">
+                </asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -237,9 +256,9 @@
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="btnsave1" runat="server" Text="Save" />
+                <asp:Button ID="btnsaveDesJob" runat="server" Text="Save" />
             &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnCancel1" runat="server" Text="Cancel" />
+                <asp:Button ID="btnCancelDesJob" runat="server" Text="Cancel" />
             </td>
         </tr>
     </table>

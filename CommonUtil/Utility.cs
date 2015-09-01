@@ -3,6 +3,7 @@ using Entities;
 using System;
 using System.Data;
 
+
 namespace CommonUtil
 {
     /// <summary>
@@ -26,6 +27,19 @@ namespace CommonUtil
             {
                 throw ex;
             }
+        }
+
+        public static DataTable GetIndustryBAL()
+        {
+            ProfessionalDetailsCurrentJSDAL pdcDAL = new ProfessionalDetailsCurrentJSDAL();
+            return pdcDAL.GetIndustryDAL();
+            
+        }
+
+        public static DataTable GetDepartmentBAL()
+        {
+            ProfessionalDetailsCurrentJSDAL pdDAL = new DAL.ProfessionalDetailsCurrentJSDAL();
+            return pdDAL.GetDepartmentDAL();
         }
     }
 }

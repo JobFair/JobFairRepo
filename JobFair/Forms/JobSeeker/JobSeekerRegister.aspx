@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JobSeekerRegister.aspx.cs" Inherits="JobFair.Forms.JobSeeker.JobSeekerRegister" %>
-
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajax" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
@@ -11,7 +11,38 @@
         .c {
         color:gray;
         }
-        
+        .VeryPoorStrength
+        {
+        background: Red;
+        color:White;
+        font-weight:bold;
+        }
+        .WeakStrength
+        {
+        background: Gray;
+        color:White;
+        font-weight:bold;
+        }
+        .AverageStrength
+        {
+        background: orange;
+        color:black;
+        font-weight:bold;
+        }
+        .GoodStrength
+
+        {
+        background: blue;
+        color:White;
+        font-weight:bold;
+        }
+        .ExcellentStrength
+
+        {
+        background: Green;
+        color:White;
+        font-weight:bold;
+        }
     </style>
 </head>
   
@@ -47,7 +78,7 @@
                 </td>
             </tr>
             <tr>
-                <td >Desired User Name</td>
+                <td >Desired User Id/Name</td>
                 <td>
                     <asp:TextBox ID="txtDesiredUserName" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" TargetControlID="txtDesiredUserName" WatermarkText="User Name" WatermarkCssClass="c" />
                     <asp:RequiredFieldValidator ID="rfvDesiredUserName" runat="server" ErrorMessage="*" ForeColor="#FF3300" ControlToValidate="txtDesiredUserName"></asp:RequiredFieldValidator>
@@ -75,6 +106,14 @@
                 <td>
                     <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Enter your password" ForeColor="#FF3300" ControlToValidate="txtPassword">*</asp:RequiredFieldValidator>
+                </td>
+                <td>
+                     <ajax:PasswordStrength ID="pwdStrength" TargetControlID="txtPassword" StrengthIndicatorType="Text" PrefixText="Strength:" HelpStatusLabelID="lblhelp" 
+                        PreferredPasswordLength="8" MinimumNumericCharacters="1" MinimumSymbolCharacters="1" TextStrengthDescriptions="Very Poor;Weak;Average;Good;Excellent"
+                        TextStrengthDescriptionStyles="VeryPoorStrength;WeakStrength;AverageStrength;GoodStrength;ExcellentStrength" runat="server" />
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                <td>
+                    <asp:Label ID="lblhelp" runat="server"/>
                 </td>
             </tr>
             <tr>
@@ -106,9 +145,11 @@
                 </td>
             </tr>
             <tr>
-                <td >&nbsp;</td>
+                <td >Reference Mail Id<br />
+                    (If any)</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:TextBox ID="txtRefMailId" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender10" runat="server"  WatermarkText="Reference Mail Id" TargetControlID="txtRefMailId" WatermarkCssClass="c"/>
+                </td>
             </tr>
             <tr>
                 <td >&nbsp;</td>
@@ -121,7 +162,6 @@
                 <td></td>
                 <td>
                     <asp:Label ID="lblMessage" runat="server"></asp:Label>
-                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                 </td>
             </tr>
             
