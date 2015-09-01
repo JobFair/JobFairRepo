@@ -42,7 +42,6 @@
     <Compile Include="ChangePasswordEnitity.cs" />
     <Compile Include="ContactDetailsJobSeekerEntity.cs" />
     <Compile Include="Current-DesiredJobDetailsEntity.cs" />
-    <Compile Include="EducationalDetailsEntity.cs" />
     <Compile Include="ForgetPasswordEntity.cs" />
     <Compile Include="LogInJobSeekerEnitity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

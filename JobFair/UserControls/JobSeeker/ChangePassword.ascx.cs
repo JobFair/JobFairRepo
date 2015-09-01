@@ -1,6 +1,14 @@
-﻿using BAL;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using Entities;
-using System;
+using BAL;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -8,15 +16,18 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void btnOk_Click(object sender, EventArgs e)
         {
             try
-            {
-                ChangePasswordEnitity cpentity = new ChangePasswordEnitity();
-                ChangePasswordJSBAL rjsBAL = new ChangePasswordJSBAL();
 
+            {
+
+                ChangePasswordEnitity cpentity = new ChangePasswordEnitity();
+                RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
+               
                 cpentity.OldPassword = txtOldpwd.Text;
                 cpentity.NewPassword = txtNewpwd.Text;
                 cpentity.UserName = Session["UserName"].ToString();
@@ -31,11 +42,16 @@ namespace JobFair.Forms.JobSeeker
                 {
                     lblMsg.Text = "Please check your filled details again";
                 }
+
             }
             catch (Exception)
             {
+
                 throw;
             }
+
+
         }
+
     }
 }

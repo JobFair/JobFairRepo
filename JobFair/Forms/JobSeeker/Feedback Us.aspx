@@ -12,30 +12,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<%@ Register src="../../UserControls/JobSeeker/ChangePassword.ascx" tagname="ChangePassword" tagprefix="uc1" %>
-
-
-
-
-
-
-
-
-
-
-
-
+<%@ Register src="../../UserControls/JobSeeker/ContactDetailsInsert.ascx" tagname="ContactDetailsInsert" tagprefix="uc2" %>
 
 
 
@@ -102,8 +79,8 @@
             </tr>
             <tr>
                 <td >&nbsp;</td>
-                <td></td>
-                    
+                <td>
+                    <uc2:ContactDetailsInsert ID="ContactDetailsInsert1" runat="server" /></td>
             </tr>
         </table>
 
