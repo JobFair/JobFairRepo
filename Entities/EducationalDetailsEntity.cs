@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class EducationalDetailsEntity
+    public  class EducationalDetailsEntity
     {
         public string userID { get; set; }
         public string degreeType { get; set; }
@@ -24,4 +24,3 @@ namespace Entities
 
     }
 }
-

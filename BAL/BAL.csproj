@@ -39,9 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangePasswordJSBAL.cs" />
-    <Compile Include="LoginJobSeekerBAL.cs" />
-    <Compile Include="ProfessionalDetailsCurrentJSBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />
   </ItemGroup>

@@ -1,19 +1,58 @@
-﻿using DAL;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Entities;
+using DAL;
+using System.Data.SqlClient;
+using System.Data;
+
 
 namespace BAL
 {
     public class RegisterJobSeekerBAL
     {
-        /// <summary>
-        /// Registers the new job seeker bal.
-        /// </summary>
-        /// <param name="jobSeekerEntity">The job seeker entity.</param>
-        /// <returns>System.Int32.</returns>
-        public int RegisterNewJobSeekerBAL(RegisterJobSeekerEntity jobSeekerEntity)
+
+
+       
+        public int RegisterNewJobSeekerBAL(RegisterJobSeekerEntity rjsEntity)
         {
-            RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
-            return jobSeekerDAL.RegisterNewJobSeekerDAL(jobSeekerEntity);
+            RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
+            return rjsDAL.RegisterNewJobSeekerDAL(rjsEntity);
+
         }
+
+
+
+        public SqlDataReader JobSeekerLogIn(LogInJobSeekerEnitity logjsEntity)
+        {
+
+            RegisterJobSeekerDAL jsloginDAL = new RegisterJobSeekerDAL();
+            SqlDataReader rdr = jsloginDAL.JobSeekerLoginDAL(logjsEntity);
+            return rdr;
+
+        }
+
+        public int ChangePasswordBAL(ChangePasswordEnitity cpentity)
+        {
+            RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
+            return rjsDAL.ChangePasswordDAL(cpentity);
+        }
+
+       
+
+
+
+
+
+
+        public int RegisterNewJobSeekerBAL(EducationalDetailsEntity edEntity)
+        {
+            RegisterJobSeekerDAL rjsDAL = new RegisterJobSeekerDAL();
+            return rjsDAL.RegisterNewJobSeekerDAL(edEntity);
+        }
+
+        
     }
 }
