@@ -77,8 +77,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
+    <Content Include="Forms\Common\ChangePassword.aspx" />
+    <Content Include="Forms\Common\ForgetPassword.aspx" />
+    <Content Include="Forms\JobSeeker\UserDetails.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
-    <Content Include="Forms\JobSeeker\ForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
     <Content Include="Forms\JobSeeker\PersonalDetails.aspx" />
@@ -110,7 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="UserControls\JobSeeker\AffirmativeInfo.ascx" />
-    <Content Include="UserControls\JobSeeker\ChangePassword.ascx" />
     <Content Include="Forms\JobSeeker\Feedback Us.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
@@ -120,11 +121,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\JobSeeker\ForgetPassword.aspx.cs">
+    <Compile Include="Forms\Common\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common\ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\JobSeeker\ForgetPassword.aspx.designer.cs">
+    <Compile Include="Forms\Common\ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\JobSeekerHome.Master.cs">
@@ -162,6 +170,13 @@
     <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.designer.cs">
       <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JobSeeker\UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
       <DependentUpon>AdvanceSearch.ascx</DependentUpon>
@@ -173,13 +188,6 @@
     <Compile Include="UserControls\JobSeeker\AffirmativeInfo.ascx.cs">
       <DependentUpon>AffirmativeInfo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\ChangePassword.ascx.cs">
-      <DependentUpon>ChangePassword.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\ChangePassword.ascx.designer.cs">
-      <DependentUpon>ChangePassword.ascx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\Feedback Us.aspx.cs">
       <DependentUpon>Feedback Us.aspx</DependentUpon>

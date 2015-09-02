@@ -1,6 +1,33 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ChangePassword.ascx.cs" Inherits="JobFair.Forms.JobSeeker.ChangePassword" %>
-<link href="../../Style.css" rel="stylesheet" />
-<div>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="JobFair.Forms.Common.ChangePassword" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+
+table {
+    background-color:lightgray;
+    color:black;
+    table-layout:auto;
+    background-color: #CCCCCC;
+    }
+H1  {
+	font-size : 16pt;
+	font-family : arial;
+	font-weight : bold;
+	font-style : normal;
+	color : Black;
+}
+
+
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
 <table>
     <tr>
         <td colspan="2"><h1>Change Your Password</h1></td></tr>
@@ -56,4 +83,8 @@
         <td><asp:Label ID="lblMsg" runat="server"></asp:Label></td>
     </tr>
 </table>
+    
     </div>
+    </form>
+</body>
+</html>

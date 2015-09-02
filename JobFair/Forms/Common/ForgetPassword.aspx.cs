@@ -11,14 +11,13 @@ using System.Net.Mail;
 using System.Net;
 using System.Data;
 
-namespace JobFair.Forms.JobSeeker
+namespace JobFair.Forms.Common
 {
-    public partial class JobSeeker : System.Web.UI.Page
+    public partial class ForgetPassword : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+                    }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
