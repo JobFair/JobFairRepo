@@ -24,7 +24,7 @@ namespace CommonUtil
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw ex; 
             }
         }
       
