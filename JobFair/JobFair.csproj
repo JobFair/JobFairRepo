@@ -77,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
-    <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\ForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
@@ -85,6 +84,7 @@
     <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\AdvanceSearch.ascx" />
+    <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
     <Content Include="UserControls\Recruiter\ContactPerson.ascx" />
@@ -187,6 +187,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\Feedback Us.aspx.designer.cs">
       <DependentUpon>Feedback Us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\EducationalDetails.ascx.cs">
+      <DependentUpon>EducationalDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\EducationalDetails.ascx.designer.cs">
+      <DependentUpon>EducationalDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\MoreCertifications.ascx.cs">
       <DependentUpon>MoreCertifications.ascx</DependentUpon>
