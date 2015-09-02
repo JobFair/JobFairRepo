@@ -162,6 +162,7 @@
     <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.designer.cs">
       <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
       <DependentUpon>AdvanceSearch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
