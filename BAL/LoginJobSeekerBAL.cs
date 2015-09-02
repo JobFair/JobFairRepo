@@ -3,26 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using Entities;
 using DAL;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BAL
 {
-    public class LoginJobSeekerBAL
+    public class LogInJobSeekerBAL
     {
-        /// <summary>
-        /// Jobs the seeker log in.
-        /// </summary>
-        /// <param name="loginEntity">The login entity.</param>
-        /// <returns>SqlDataReader.</returns>
-        /// jyoti   
-        public SqlDataReader JobSeekerLogIn(LogInJobSeekerEnitity loginEntity)
+        public System.Data.SqlClient.SqlDataReader JobSeekerLogIn(Entities.LogInJobSeekerEnitity logjsEntity)
         {
-            LoginJobSeekerDAL loginDAL = new LoginJobSeekerDAL();
-            SqlDataReader dataReader = loginDAL.JobSeekerLoginDAL(loginEntity);
+            LogInJobSeekerDAL loginDAL = new LogInJobSeekerDAL();
+            SqlDataReader dataReader = loginDAL.LoginJSDAL(logjsEntity);
             return dataReader;
         }
-
     }
 }

@@ -21,34 +21,34 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            try
+            //try
 
-            {
+            //{
 
-                ChangePasswordEnitity cpentity = new ChangePasswordEnitity();
-                RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
+            //    ChangePasswordEnitity cpentity = new ChangePasswordEnitity();
+            //    RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
                
-                cpentity.OldPassword = txtOldpwd.Text;
-                cpentity.NewPassword = txtNewpwd.Text;
-                cpentity.UserName = Session["UserName"].ToString();
+            //    cpentity.OldPassword = txtOldpwd.Text;
+            //    cpentity.NewPassword = txtNewpwd.Text;
+            //    cpentity.UserName = Session["UserName"].ToString();
 
-                int result = rjsBAL.ChangePasswordBAL(cpentity);
+            //    //int result = rjsBAL.ChangePasswordBAL(cpentity);
 
-                if (result > 0)
-                {
-                    lblMsg.Text = "Your password is changed";
-                }
-                else
-                {
-                    lblMsg.Text = "Please check your filled details again";
-                }
+            //    if (result > 0)
+            //    {
+            //        lblMsg.Text = "Your password is changed";
+            //    }
+            //    else
+            //    {
+            //        lblMsg.Text = "Please check your filled details again";
+            //    }
 
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
 
 
         }

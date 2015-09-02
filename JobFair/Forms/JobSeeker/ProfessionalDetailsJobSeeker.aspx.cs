@@ -22,7 +22,7 @@ namespace JobFair.Forms.JobSeeker
 
         private void BindDropDownDepartment()
         {
-            ddlDepartment.DataSource = Utility.GetDepartmentBAL();
+            //ddlDepartment.DataSource = Utility.GetDepartmentBAL();
             ddlDepartment.DataTextField = "DepartmentName";
             ddlDepartment.DataValueField = "DeptID";
             ddlDepartment.DataBind();
@@ -32,7 +32,7 @@ namespace JobFair.Forms.JobSeeker
         private void BindDropDownIndustry()
         {
 
-            ddlIndustry.DataSource= Utility.GetIndustryBAL();
+           // ddlIndustry.DataSource= Utility.GetIndustryBAL();
             ddlIndustry.DataTextField = "Industry_Name";
             ddlIndustry.DataValueField = "Ind_ID";
             ddlIndustry.DataBind();
@@ -59,7 +59,7 @@ namespace JobFair.Forms.JobSeeker
                 int Month = ToYear.Month - FromYear.Month;
                 Label1.Text = Years + "Years-" + Month + "Months";
                 Current_DesiredJobDetailsEntity curentity = new Current_DesiredJobDetailsEntity();
-                ProfessionalDetailsCurrentJSBAL rjsBAL = new ProfessionalDetailsCurrentJSBAL();
+                //ProfessionalDetailsCurrentJSBAL rjsBAL = new ProfessionalDetailsCurrentJSBAL();
                 curentity.Userid = "1200132426";
                 curentity.ResumeHeadline = txtResumeHeadline.Text;
                 curentity.TotalExperience = (Years + '.' + Month);
@@ -76,15 +76,15 @@ namespace JobFair.Forms.JobSeeker
                 curentity.ReasonforJobChange = txtReasonforJobchange.Text;
                 curentity.CurrentEmployer = txtemployeer.Text;
                 curentity.TechnicalSkills = txtTechSkills.Text;
-                int result = rjsBAL.CurrentProfessionalDetailsBAL(curentity);
-                if (result > 0)
-                {
-                    lblmsg.Text = "Your details saved successfully";
-                }
-                else
-                {
-                    lblmsg.Text = "Your details are not saved";
-                }
+                //int result = rjsBAL.CurrentProfessionalDetailsBAL(curentity);
+                //if (result > 0)
+                //{
+                //    lblmsg.Text = "Your details saved successfully";
+                //}
+                //else
+                //{
+                //    lblmsg.Text = "Your details are not saved";
+                //}
 
             }
             catch (Exception ex)

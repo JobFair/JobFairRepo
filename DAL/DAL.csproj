@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContactDetailsJSDAL.cs" />
+    <Compile Include="ForgetPasswordDAL.cs" />
+    <Compile Include="LogInJobSeekerDAL.cs" />
     <Compile Include="PersonalDetailsJSDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />

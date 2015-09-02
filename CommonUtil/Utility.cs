@@ -2,7 +2,6 @@
 using Entities;
 using System;
 using System.Data;
-using DAL;
 
 namespace CommonUtil
 {
@@ -18,7 +17,7 @@ namespace CommonUtil
         /// <returns>DataSet.</returns>
         public static DataSet ForgetPasswordJobSeeker(ForgetPasswordEntity forgotPasswordEntity)
         {
-            RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
+            ForgetPasswordDAL jobSeekerDAL = new ForgetPasswordDAL();
             try
             {
                 return jobSeekerDAL.GetEmailDetailsDAL(forgotPasswordEntity);
@@ -28,18 +27,6 @@ namespace CommonUtil
                 throw ex;
             }
         }
-
-        public static DataTable GetIndustryBAL()
-        {
-            ProfessionalDetailsCurrentJSDAL pdcDAL = new ProfessionalDetailsCurrentJSDAL();
-            return pdcDAL.GetIndustryDAL();
-            
-        }
-
-        public static DataTable GetDepartmentBAL()
-        {
-            ProfessionalDetailsCurrentJSDAL pdDAL = new DAL.ProfessionalDetailsCurrentJSDAL();
-            return pdDAL.GetDepartmentDAL();
-        }
+      
     }
 }

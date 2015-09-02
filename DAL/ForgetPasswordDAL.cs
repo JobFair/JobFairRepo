@@ -11,12 +11,10 @@ namespace DAL
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
-        /// Forget Password of job seeker
+        /// To get Forget Password
         /// </summary>
-        /// <param name="fpEntity">To get parameters from database</param>
-        ///
-        /// <returns>DataSet</returns>
-        /// jyoti
+        /// <param name="fpEntity">Object for getting password from database</param>
+        /// <returns>System.Data.DataSet</returns>
         public DataSet GetEmailDetailsDAL(ForgetPasswordEntity fpEntity)
         {
             connection.Open();
