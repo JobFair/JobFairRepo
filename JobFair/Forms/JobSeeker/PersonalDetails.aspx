@@ -294,7 +294,7 @@
         <tr>
             <td >&nbsp;</td>
             <td colspan="10">
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+                <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
             </td>
         </tr>

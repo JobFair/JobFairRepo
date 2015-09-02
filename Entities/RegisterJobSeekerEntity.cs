@@ -12,6 +12,7 @@
         public string Password { get; set; }
         public string CurrentCity { get; set; }
         public string CurrentAddress { get; set; }
+        public string RefEmailId { get; set; }
         public string UploadResumepath { get; set; }
     }
 }

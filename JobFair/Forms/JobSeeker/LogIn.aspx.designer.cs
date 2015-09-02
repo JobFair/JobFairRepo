@@ -10,7 +10,7 @@
 namespace JobFair.Forms.JobSeeker {
     
     
-    public partial class JobSeekerLogIn1 {
+    public partial class LogIn {
         
         /// <summary>
         /// txtUserName control.

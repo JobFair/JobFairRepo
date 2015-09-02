@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entities;
 using BAL;
+using CommonUtil;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -14,6 +15,30 @@ namespace JobFair.Forms.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            BindDropDownIndustry();
+            BindDropDownDepartment();
+            
+        }
+
+        private void BindDropDownDepartment()
+        {
+            //ddlDepartment.DataSource = Utility.GetDepartmentBAL();
+            ddlDepartment.DataTextField = "DepartmentName";
+            ddlDepartment.DataValueField = "DeptID";
+            ddlDepartment.DataBind();
+            ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        private void BindDropDownIndustry()
+        {
+
+           // ddlIndustry.DataSource= Utility.GetIndustryBAL();
+            ddlIndustry.DataTextField = "Industry_Name";
+            ddlIndustry.DataValueField = "Ind_ID";
+            ddlIndustry.DataBind();
+            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+
+           
         }
         /// <summary>
         /// Handles the Click event of the btnSave control.
@@ -34,7 +59,7 @@ namespace JobFair.Forms.JobSeeker
                 int Month = ToYear.Month - FromYear.Month;
                 Label1.Text = Years + "Years-" + Month + "Months";
                 Current_DesiredJobDetailsEntity curentity = new Current_DesiredJobDetailsEntity();
-                RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
+                //ProfessionalDetailsCurrentJSBAL rjsBAL = new ProfessionalDetailsCurrentJSBAL();
                 curentity.Userid = "1200132426";
                 curentity.ResumeHeadline = txtResumeHeadline.Text;
                 curentity.TotalExperience = (Years + '.' + Month);
@@ -51,15 +76,15 @@ namespace JobFair.Forms.JobSeeker
                 curentity.ReasonforJobChange = txtReasonforJobchange.Text;
                 curentity.CurrentEmployer = txtemployeer.Text;
                 curentity.TechnicalSkills = txtTechSkills.Text;
-                int result = rjsBAL.CurrentProfessionalDetailsBAL(curentity);
-                if (result > 0)
-                {
-                    lblmsg.Text = "Your details saved successfully";
-                }
-                else
-                {
-                    lblmsg.Text = "Your details are not saved";
-                }
+                //int result = rjsBAL.CurrentProfessionalDetailsBAL(curentity);
+                //if (result > 0)
+                //{
+                //    lblmsg.Text = "Your details saved successfully";
+                //}
+                //else
+                //{
+                //    lblmsg.Text = "Your details are not saved";
+                //}
 
             }
             catch (Exception ex)
@@ -69,6 +94,9 @@ namespace JobFair.Forms.JobSeeker
             }
 
         }
+
+       
+        
 
 
 

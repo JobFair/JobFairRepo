@@ -12,7 +12,7 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        }
+        }     
 
         /// <summary>
         /// Handles the Click event of the btnSubmit control.
