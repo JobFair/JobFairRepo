@@ -39,15 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangePasswordEnitity.cs" />
-    <Compile Include="CityEntity.cs" />
-    <Compile Include="ContactDetailsJobSeekerEntity.cs" />
-    <Compile Include="Current-DesiredJobDetailsEntity.cs" />
-    <Compile Include="ForgetPasswordEntity.cs" />
-    <Compile Include="LogInJobSeekerEnitity.cs" />
-    <Compile Include="PersonalDetailsJSEntity.cs" />
+    <Compile Include="Common\ChangePasswordEnitity.cs" />
+    <Compile Include="Common\CityEntity.cs" />
+    <Compile Include="JobSeeker\ContactDetailsEntity.cs" />
+    <Compile Include="JobSeeker\ProfessionalDetailsEntity.cs" />
+    <Compile Include="Common\ForgetPasswordEntity.cs" />
+    <Compile Include="Common\LogInEnitity.cs" />
+    <Compile Include="JobSeeker\PersonalDetailsJSEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterJobSeekerEntity.cs" />
+    <Compile Include="JobSeeker\RegisterEntity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Employer\" />
+    <Folder Include="Recruiter\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

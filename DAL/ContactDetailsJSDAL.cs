@@ -18,7 +18,7 @@ namespace DAL
         /// </summary>
         /// <param name="cdentity">Object for inserting data into database</param>
         /// <returns>System.Int32</returns>
-        public int ContactDetailsDAL(ContactDetailsJobSeekerEntity cdentity)
+        public int ContactDetailsDAL(ContactDetailsEntity cdentity)
         {
             try
             {

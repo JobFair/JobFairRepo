@@ -15,7 +15,7 @@ namespace DAL
         /// </summary>
         /// <param name="rjsEntity">Object for inserting data into database</param>
         /// <returns>System.Int32</returns>
-        public int RegisterNewJobSeekerDAL(RegisterJobSeekerEntity rjsEntity)
+        public int RegisterNewJobSeekerDAL(RegisterEntity rjsEntity)
         {
             try
             {

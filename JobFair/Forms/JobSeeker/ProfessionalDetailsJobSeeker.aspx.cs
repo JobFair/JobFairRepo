@@ -58,7 +58,7 @@ namespace JobFair.Forms.JobSeeker
                 int Years = ToYear.Year - FromYear.Year;
                 int Month = ToYear.Month - FromYear.Month;
                 Label1.Text = Years + "Years-" + Month + "Months";
-                Current_DesiredJobDetailsEntity curentity = new Current_DesiredJobDetailsEntity();
+                ProfessionalDetailsEntity curentity = new ProfessionalDetailsEntity();
                 //ProfessionalDetailsCurrentJSBAL rjsBAL = new ProfessionalDetailsCurrentJSBAL();
                 curentity.Userid = "1200132426";
                 curentity.ResumeHeadline = txtResumeHeadline.Text;

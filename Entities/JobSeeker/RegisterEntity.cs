@@ -1,6 +1,6 @@
 ﻿namespace Entities
 {
-    public class RegisterJobSeekerEntity
+    public class RegisterEntity
     {//RegisterJobSeekerEntity
         public string UserId { get; set; }
         public string FirstName { get; set; }

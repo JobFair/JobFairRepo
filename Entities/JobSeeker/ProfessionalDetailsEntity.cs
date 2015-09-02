@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Current_DesiredJobDetailsEntity
+    public class ProfessionalDetailsEntity
     {
         public string Userid { get; set; }
         public string ResumeHeadline  { get; set; }

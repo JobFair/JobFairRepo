@@ -24,7 +24,7 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 Random randomNumber = new Random();
-                RegisterJobSeekerEntity jobSeekerEntity = new RegisterJobSeekerEntity();
+                RegisterEntity jobSeekerEntity = new RegisterEntity();
                 string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
 
                 // Provide the min and max limit for the no
