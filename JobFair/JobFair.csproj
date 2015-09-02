@@ -79,12 +79,13 @@
     <Content Include="AjaxControlToolkit.dll" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
+    <Content Include="Forms\JobSeeker\UserDetails.aspx" />
+    <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
     <Content Include="Forms\JobSeeker\PersonalDetails.aspx" />
     <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
-    <Content Include="Forms\JobSeeker\UserDetails.aspx" />
     <Content Include="UserControls\JobSeeker\AdvanceSearch.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
@@ -176,6 +177,7 @@
     <Compile Include="Forms\JobSeeker\UserDetails.aspx.designer.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
       <DependentUpon>AdvanceSearch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
