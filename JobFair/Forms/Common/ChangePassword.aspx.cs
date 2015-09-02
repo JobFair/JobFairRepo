@@ -4,15 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Entities;
-using BAL;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
 
-namespace JobFair.Forms.JobSeeker
+namespace JobFair.Forms.Common
 {
-    public partial class ChangePassword : System.Web.UI.UserControl
+    public partial class ChangePassword : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +22,7 @@ namespace JobFair.Forms.JobSeeker
 
             //    ChangePasswordEnitity cpentity = new ChangePasswordEnitity();
             //    RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
-               
+
             //    cpentity.OldPassword = txtOldpwd.Text;
             //    cpentity.NewPassword = txtNewpwd.Text;
             //    cpentity.UserName = Session["UserName"].ToString();
@@ -49,9 +44,6 @@ namespace JobFair.Forms.JobSeeker
 
             //    throw;
             //}
-
-
         }
-
     }
 }
