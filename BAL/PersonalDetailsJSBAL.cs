@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using System.Data;
+using Entities;
 
 namespace BAL
 {
@@ -25,6 +26,11 @@ namespace BAL
        {
            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
            return pdDAL.LoadCityAll(StateId);
+       }
+       public int PersonalDetailsInsert(PersonalDetailsJSEntity pdEntity)
+       {
+           PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+           return pdDAL.PersonalDetailsInsert(pdEntity);
        }
     }
 }

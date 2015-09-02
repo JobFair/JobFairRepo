@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using Entities;
 
 namespace DAL
 {
@@ -20,7 +21,6 @@ namespace DAL
            SqlDataAdapter da = new SqlDataAdapter(cmd);
            da.Fill(table);
            return table;
-
 
        }
        public DataTable LoadStateAll(int CountryId)
@@ -40,5 +40,48 @@ namespace DAL
            return table;
        }
 
+       public int PersonalDetailsInsert(PersonalDetailsJSEntity pdEntity)
+       {
+           try
+           {
+           connection.Open();
+           SqlCommand cmd = new SqlCommand();
+           SqlParameter[] sqlparams = {
+                                              new SqlParameter("@userID",pdEntity.userID),
+                                              new SqlParameter("@PressentAddress",pdEntity.PressentAddress),
+                                              new SqlParameter("@PresentCountry",pdEntity.PressentCountry),
+                                              new SqlParameter("@PresentState",pdEntity.PressentState),
+                                              new SqlParameter("@PresentCity",pdEntity.PressentCity),
+                                              new SqlParameter("@PresentArea",pdEntity.PresentArea),
+                                              new SqlParameter("@PresentPincode",pdEntity.PresentPincode),
+                                              new SqlParameter("@PermantAddress",pdEntity.PermantAddress),
+                                              new SqlParameter("@PermantCountry",pdEntity.PermantCountry),
+                                              new SqlParameter("@PermantState",pdEntity.PermantState),
+                                              new SqlParameter("@PermantCity",pdEntity.PermantCity),
+                                              new SqlParameter("@PermantArea",pdEntity.PermantArea),
+                                              new SqlParameter("@PermantPincode",pdEntity.PermantPincode),
+                                              new SqlParameter("@DateOfBirth", pdEntity.DateOfBirth),
+                                              new SqlParameter("@Gender",pdEntity.Gender),
+                                              new SqlParameter("@MaritialStatus",pdEntity.MaritialStatus),
+                                              new SqlParameter("@PassportNumber", pdEntity.PassportNumber),
+                                              new SqlParameter("@PassportValidity",pdEntity.PassportValidity),
+                                              new SqlParameter("@Languages", pdEntity.Languages),
+                                              new SqlParameter("@WorkStatus", pdEntity.WorkStatus),
+                                              new SqlParameter("@Photo", pdEntity.Photo)
+                                              
+                                            };
+           int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertJSPersonalDetails", sqlparams);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+       }
     }
 }
