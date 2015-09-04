@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace DAL
 {
@@ -30,11 +31,13 @@ namespace DAL
                                               new SqlParameter("@mobNo", rjsEntity.MobileNo),
                                               new SqlParameter("@currCity", rjsEntity.CurrentCity),
                                               new SqlParameter("@address", rjsEntity.CurrentAddress),
-                                              new SqlParameter("@password",rjsEntity.Password),
-                                              new SqlParameter("@refEmailId",rjsEntity.RefEmailId),
-                                              new SqlParameter("@uploadresumepath", rjsEntity.UploadResumepath.ToString())
+                                              new SqlParameter("@uploadresumepath", rjsEntity.UploadResumepath.ToString()),
+                                              new SqlParameter("@refCandidatelId",rjsEntity.RefCandidateId),
+                                              new SqlParameter("@password",rjsEntity.Password)
+                                            
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertJSRegister", sqlparams);
+               
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertRegisterUser", sqlparams);
 
                 return result;
             }

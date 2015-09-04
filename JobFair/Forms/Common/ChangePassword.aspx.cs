@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Entities;
+using BAL;
+using CommonUtil;
 namespace JobFair.Forms.Common
 {
     public partial class ChangePassword : System.Web.UI.Page
@@ -16,34 +18,34 @@ namespace JobFair.Forms.Common
 
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            //try
+            try
+            {
 
-            //{
+                ChangePasswordEnitity cpentity = new ChangePasswordEnitity();
+                
 
-            //    ChangePasswordEnitity cpentity = new ChangePasswordEnitity();
-            //    RegisterJobSeekerBAL rjsBAL = new RegisterJobSeekerBAL();
+                cpentity.OldPassword = txtOldpwd.Text;
+                cpentity.NewPassword = txtNewpwd.Text;
+                //cpentity.UserId = Session["userid"].ToString();
+                cpentity.UserId = "sau";
 
-            //    cpentity.OldPassword = txtOldpwd.Text;
-            //    cpentity.NewPassword = txtNewpwd.Text;
-            //    cpentity.UserName = Session["UserName"].ToString();
+                //int result = rjsBAL.ChangePasswordBAL(cpentity);
+                int result = Utility.ChangePassword(cpentity);
+                if (result > 0)
+                {
+                    lblMsg.Text = "Your password is changed";
+                }
+                else
+                {
+                    lblMsg.Text = "Please check your filled details again";
+                }
 
-            //    //int result = rjsBAL.ChangePasswordBAL(cpentity);
+            }
+            catch (Exception)
+            {
 
-            //    if (result > 0)
-            //    {
-            //        lblMsg.Text = "Your password is changed";
-            //    }
-            //    else
-            //    {
-            //        lblMsg.Text = "Please check your filled details again";
-            //    }
-
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
+                throw;
+            }
         }
     }
 }

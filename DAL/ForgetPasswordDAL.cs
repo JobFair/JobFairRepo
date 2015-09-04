@@ -22,13 +22,16 @@ namespace DAL
             try
             {
                 DataSet ds = new DataSet();
-                SqlCommand cmd = new SqlCommand("ForgetPassword", connection);
+                SqlCommand cmd = new SqlCommand("sp_ForgetPassword",connection);
+               
+                //SqlParameter[] sparams={new SqlParameter("@emailid",fpEntity.EmailId)};
+                //SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, "sp_ForgetPassword", sparams);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@email", fpEntity.EmailId.ToString());
+                cmd.Parameters.AddWithValue("@emailid", fpEntity.EmailId.ToString());
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds, "EmailDetails");
-                connection.Close();
                 return ds;
+                
             }
             catch (Exception)
             {
