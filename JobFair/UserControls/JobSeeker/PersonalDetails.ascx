@@ -1,16 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PersonalDetails.aspx.cs" Inherits="JobFair.Forms.JobSeeker.PersonalDetails" %>
-<link href="../../Style.css" rel="stylesheet" />
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <table >
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PersonalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.PersonalDetails" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+<table >
         <tr>
             <td >&nbsp;</td>
             <td colspan="10">
@@ -69,7 +60,7 @@
             <td  colspan="5">
                 Area</td>
             <td  colspan="5">
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAreaPresent" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -119,7 +110,7 @@
             <td colspan="5">
                 Area</td>
             <td class="auto-style6" colspan="5">
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAreaPerm" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -135,7 +126,9 @@
                 <asp:Label ID="Label4" runat="server" Text="Date of Birth"></asp:Label>
             </td>
             <td colspan="10">
-                <asp:TextBox ID="txtDOB" runat="server" Visible="false"></asp:TextBox>
+                <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/calendar-list.jpg" Height="30px" Width="30px" />
+                <cc1:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtDOB" PopupButtonID="Image1" />
             </td>
         </tr>
         <tr>
@@ -143,10 +136,12 @@
                 <asp:Label ID="Label5" runat="server" Text="Gender"></asp:Label>
             </td>
             <td colspan="10">
-                <asp:RadioButtonList ID="rdoblGender" runat="server" RepeatDirection="Horizontal">
+                <%--<asp:RadioButtonList ID="rdoblGender" runat="server" RepeatDirection="Horizontal">
                     <asp:ListItem>Female</asp:ListItem>
                     <asp:ListItem>Male</asp:ListItem>
-                </asp:RadioButtonList>
+                </asp:RadioButtonList>--%>
+                <asp:RadioButton ID="rbtMale" runat="server" GroupName="gender" Text="Male" />
+                <asp:RadioButton ID="rbtFemale" runat="server" GroupName="gender" Text="Female" />
             </td>
         </tr>
         <tr>
@@ -169,10 +164,13 @@
             <td colspan="10">
                 <asp:UpdatePanel ID="pnlPassport" runat="server">
                     <ContentTemplate>
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True" RepeatDirection="Horizontal">
-                            <asp:ListItem>Yes</asp:ListItem>
-                            <asp:ListItem>No</asp:ListItem>
-                        </asp:RadioButtonList>
+                        <%--<asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True" RepeatDirection="Horizontal"  ValidationGroup="RadioButtonList1">
+                            <asp:ListItem Value="Yes">Yes</asp:ListItem>
+                            <asp:ListItem Value="No">No</asp:ListItem>
+                        </asp:RadioButtonList>--%>
+                        <asp:RadioButton ID="rbtPassportYes" runat="server" AutoPostBack="true" OnCheckedChanged="rbtPassportYes_CheckedChanged" Text="Yes" ValidationGroup="Passport" GroupName="Passport" />
+                        <asp:RadioButton ID="rbtPassportNo" runat="server" AutoPostBack="true" OnCheckedChanged="rbtPassportNo_CheckedChanged" Text="No" ValidationGroup="Passport" GroupName="Passport" />
+
                         <table>
                             <tr>
                                 <td>
@@ -195,95 +193,13 @@
                 </asp:UpdatePanel>
             </td>
         </tr>
-        <tr>
-            <td  rowspan="4">
-                <asp:Label ID="Label8" runat="server" Text="Languages Known "></asp:Label>
-            </td>
-            <td >
-                <asp:Label ID="Label18" runat="server" Text="Languages"></asp:Label>
-            </td>
-            <td colspan="2" >
-                <asp:Label ID="Label19" runat="server" Text="Proficiency"></asp:Label>
-            </td>
-            <td colspan="4" >
-                <asp:Label ID="Label20" runat="server" Text="Speak"></asp:Label>
-            </td>
-            <td colspan="2" >
-                <asp:Label ID="Label21" runat="server" Text="Read"></asp:Label>
-            </td>
-            <td >
-                <asp:Label ID="Label22" runat="server" Text="Write"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2"">
-                <asp:TextBox ID="txtLanguage1" runat="server"></asp:TextBox>
-            </td>
-            <td colspan="2" >
-                <asp:DropDownList ID="DropDownList1" runat="server">
-                    <asp:ListItem>Beginner</asp:ListItem>
-                    <asp:ListItem>Intermediate</asp:ListItem>
-                    <asp:ListItem>Expert</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox1" runat="server" />
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox4" runat="server" />
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox7" runat="server" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" >
-                <asp:TextBox ID="txtLanguage2" runat="server"></asp:TextBox>
-            </td>
-            <td colspan="2">
-                <asp:DropDownList ID="DropDownList2" runat="server">
-                    <asp:ListItem>Beginner</asp:ListItem>
-                    <asp:ListItem>Intermediate</asp:ListItem>
-                    <asp:ListItem>Expert</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox2" runat="server" />
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox5" runat="server" />
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox8" runat="server" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" class="auto-style8">
-                <asp:TextBox ID="Language3" runat="server"></asp:TextBox>
-            </td>
-            <td colspan="2">
-                <asp:DropDownList ID="DropDownList3" runat="server">
-                    <asp:ListItem>Beginner</asp:ListItem>
-                    <asp:ListItem>Intermediate</asp:ListItem>
-                    <asp:ListItem>Expert</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox3" runat="server" />
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox6" runat="server" />
-            </td>
-            <td colspan="2">
-                <asp:CheckBox ID="CheckBox9" runat="server" />
-            </td>
-        </tr>
+        
         <tr>
             <td >
-                <asp:Label ID="Label9" runat="server" Text="Update Work Status "></asp:Label>
+                <asp:Label ID="Label9" runat="server" Text="Update Work Status"></asp:Label>
             </td>
             <td colspan="10">
-                <asp:DropDownList ID="DropDownList5" runat="server">
+                <asp:DropDownList ID="ddlWorkStatus" runat="server">
                     <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Working</asp:ListItem>
                     <asp:ListItem>On Notice Period</asp:ListItem>
@@ -299,7 +215,3 @@
             </td>
         </tr>
     </table>
-    </div>
-    </form>
-</body>
-</html>

@@ -80,13 +80,14 @@
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
+    <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
-    <Content Include="Forms\JobSeeker\PersonalDetails.aspx" />
     <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\AdvanceSearch.ascx" />
+    <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
     <Content Include="UserControls\Recruiter\ContactPerson.ascx" />
@@ -112,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="UserControls\JobSeeker\AffirmativeInfo.ascx" />
-    <Content Include="Forms\JobSeeker\Feedback Us.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
     <Content Include="Images\calendar-list.jpg" />
@@ -156,13 +156,6 @@
     <Compile Include="Forms\JobSeeker\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobSeeker\PersonalDetails.aspx.cs">
-      <DependentUpon>PersonalDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\JobSeeker\PersonalDetails.aspx.designer.cs">
-      <DependentUpon>PersonalDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.cs">
       <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,12 +182,12 @@
       <DependentUpon>AffirmativeInfo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\JobSeeker\Feedback Us.aspx.cs">
-      <DependentUpon>Feedback Us.aspx</DependentUpon>
+    <Compile Include="UserControls\JobSeeker\ContactDetails.ascx.cs">
+      <DependentUpon>ContactDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\JobSeeker\Feedback Us.aspx.designer.cs">
-      <DependentUpon>Feedback Us.aspx</DependentUpon>
+    <Compile Include="UserControls\JobSeeker\ContactDetails.ascx.designer.cs">
+      <DependentUpon>ContactDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\MoreCertifications.ascx.cs">
       <DependentUpon>MoreCertifications.ascx</DependentUpon>
@@ -203,6 +196,13 @@
     <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.cs">
       <DependentUpon>MoreWorkshops.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.cs">
+      <DependentUpon>PersonalDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.designer.cs">
+      <DependentUpon>PersonalDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx.cs">
       <DependentUpon>AddNewRequirementOfClient.ascx</DependentUpon>
