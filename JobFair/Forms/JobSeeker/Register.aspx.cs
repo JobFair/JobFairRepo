@@ -39,24 +39,26 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.RefCandidateId = txtRefCandidateId.Text;
                 string uploadFolder = Request.PhysicalApplicationPath + "UploadFiles\\";
 
-                // Check if fileupload control has a file.
-                if (FileUploadResume.HasFile)
-                {
-                    string extension = Path.GetExtension(FileUploadResume.PostedFile.FileName);
-                    FileUploadResume.SaveAs(uploadFolder + jobSeekerEntity.UserId + extension);
-                    lblMessage.Text = "File uploaded successfully as: " + jobSeekerEntity.UserId + extension;
-                }
-                else
-                {
-                    lblMessage.Text = "First select a file.";
-                }
+                
+               
                 jobSeekerEntity.UploadResumepath = uploadFolder.ToString();
                 RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
 
-                int result = jobSeekerBAL.RegisterNewJobSeekerBAL(jobSeekerEntity);
-                if (result > 0)
+                string result = jobSeekerBAL.RegisterNewJobSeekerBAL(jobSeekerEntity);
+                if (result!=null)
                 {
-                    Response.Redirect("Feedback Us.aspx");
+                    // Check if fileupload control has a file.
+                    if (FileUploadResume.HasFile)
+                    {
+                        string extension = Path.GetExtension(FileUploadResume.PostedFile.FileName);
+                        FileUploadResume.SaveAs(uploadFolder + result.ToString() + extension);
+                        lblMessage.Text = "File uploaded successfully as: " + result.ToString() + extension;
+                    }
+                    else
+                    {
+                        lblMessage.Text = "First select a file.";
+                    }
+                    Response.Redirect("LogIn.aspx");
                 }
             }
             catch (Exception ex)
