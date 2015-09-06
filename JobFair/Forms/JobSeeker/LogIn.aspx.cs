@@ -2,7 +2,6 @@
 using Entities;
 using System;
 using System.Data.SqlClient;
-using System.Web;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -23,7 +22,6 @@ namespace JobFair.Forms.JobSeeker
             {
                 LogInJobSeekerBAL logIn = new LogInJobSeekerBAL();
                 LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
-                
 
                 logjsEntity.UserName = txtUserName.Text;
                 logjsEntity.Password = txtPassword.Text;
@@ -31,9 +29,7 @@ namespace JobFair.Forms.JobSeeker
 
                 if (rd.Read())
                 {
-                    Session["userid"] = txtUserName.Text;
-
-                    Response.Redirect("Feedback Us.aspx");
+                    Response.Redirect("UserDetails.aspx");
                 }
                 else
                 {
@@ -42,7 +38,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg.Text = ex.Message.ToString();
             }
         }
     }

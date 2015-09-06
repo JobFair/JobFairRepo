@@ -16,5 +16,6 @@
         public string CurrentAddress { get; set; }
         public string RefCandidateId { get; set; }
         public string UploadResumepath { get; set; }
+        public string Candidateid { get; set; }
     }
 }
