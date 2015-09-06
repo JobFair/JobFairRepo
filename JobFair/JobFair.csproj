@@ -307,6 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadFiles\" />
+    <Folder Include="UploadImages\" />
     <Folder Include="UserControls\Employer\" />
   </ItemGroup>
   <ItemGroup>

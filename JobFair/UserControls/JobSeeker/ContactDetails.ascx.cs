@@ -9,13 +9,20 @@ using Entities;
 
 namespace JobFair.UserControls.JobSeeker
 {
+    /// <summary>
+    /// Class ContactDetails
+    /// </summary>
     public partial class ContactDetails : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// Handles the Click event of the btnSave control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
