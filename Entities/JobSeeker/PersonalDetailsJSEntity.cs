@@ -8,6 +8,7 @@ namespace Entities
 {
   public class PersonalDetailsJSEntity
     {
+        //PersonalDetailsJSEntity
          public string candidateId { get; set; }
         public string presentAddress { get; set; }
         public string presentCountry { get; set; }
@@ -22,7 +23,7 @@ namespace Entities
         public string permantArea { get; set; }
         public int permantPincode { get; set; }
         public DateTime dateOfBirth { get; set; }
-        public int gender { get; set; }
+        public string gender { get; set; }
         public string maritialStatus { get; set; }
         public int passportNumber { get; set; }
         public DateTime passportValidity { get; set; }
