@@ -77,9 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
+    <Content Include="Css\Common.css" />
+    <Content Include="Css\Style.css" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
+    <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
@@ -87,6 +90,8 @@
     <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\AdvanceSearch.ascx" />
+    <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
+    <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
     <Content Include="UserControls\Recruiter\ContactPerson.ascx" />
@@ -113,8 +118,6 @@
   <ItemGroup>
     <Content Include="UserControls\JobSeeker\AffirmativeInfo.ascx" />
     <Content Include="Forms\JobSeeker\Feedback Us.aspx" />
-    <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
-    <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
     <Content Include="Images\calendar-list.jpg" />
     <Content Include="Images\L1-whte.jpg" />
     <Content Include="Style.css" />
@@ -196,13 +199,33 @@
     <Compile Include="Forms\JobSeeker\Feedback Us.aspx.designer.cs">
       <DependentUpon>Feedback Us.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\JobSeeker\DemoEducationalDetails.aspx.cs">
+      <DependentUpon>DemoEducationalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\DemoEducationalDetails.aspx.designer.cs">
+      <DependentUpon>DemoEducationalDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\EducationalDetails.ascx.cs">
+      <DependentUpon>EducationalDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\EducationalDetails.ascx.designer.cs">
+      <DependentUpon>EducationalDetails.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\JobSeeker\MoreCertifications.ascx.cs">
       <DependentUpon>MoreCertifications.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="UserControls\JobSeeker\MoreCertifications.ascx.designer.cs">
+      <DependentUpon>MoreCertifications.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.cs">
       <DependentUpon>MoreWorkshops.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.designer.cs">
+      <DependentUpon>MoreWorkshops.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx.cs">
       <DependentUpon>AddNewRequirementOfClient.ascx</DependentUpon>

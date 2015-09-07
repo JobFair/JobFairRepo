@@ -5,10 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class JobSeeker_Forms_MoreWorkshops : System.Web.UI.UserControl
+namespace JobFair.UserControls.JobSeeker
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class MoreWorkshops1 : System.Web.UI.UserControl
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

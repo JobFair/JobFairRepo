@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PersonalDetails.aspx.cs" Inherits="JobFair.Forms.JobSeeker.PersonalDetails" %>
+<%@ Register src="../../UserControls/JobSeeker/EducationalDetails.ascx" tagname="EducationalDetails" tagprefix="uc1" %>
 <link href="../../Style.css" rel="stylesheet" />
 <!DOCTYPE html>
 
@@ -296,6 +297,7 @@
             <td colspan="10">
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+               
             </td>
         </tr>
     </table>

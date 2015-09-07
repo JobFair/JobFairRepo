@@ -1,0 +1,57 @@
+﻿.label
+{
+    float:left;
+    display:block;
+    font-style:oblique;
+    color: green;
+}
+.button:hover {
+    padding:5px;
+  background-color: #dcdcdc;
+  border: 1px solid #666;
+  color:#000;
+  text-decoration:none;
+  -moz-border-radius:20px;
+  -webkit-border-radius:20px;
+  background: #dcdcdc url(icon.png) no-repeat scroll 5px center;
+  
+  
+
+}
+.hint {
+  position: absolute;
+  right: 407px;
+  width: 487px;
+  margin-top: -4px;
+  border: 1px solid #c93;
+  padding: 10px 12px;
+  background-color: #ffc;
+    top: 30px;
+    height: 49px;
+    margin-left: 22px;
+}
+.auto-style1 {
+        width: 99%;
+        margin-left: 34px;
+    }
+p.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	}
+.auto-style3 {
+        text-align: center;
+    }
+.auto-style5 {
+        width: 234px;
+    }
+.auto-style6 {
+        text-align: center;
+        font-style: italic;
+        font-size: large;
+        height: 76px;
+    }
