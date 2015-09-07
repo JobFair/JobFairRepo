@@ -7,307 +7,361 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.UserControls.JobSeeker {
+namespace JobFair.Forms.JobSeeker {
     
     
-    public partial class ProfessionalDetails {
+    public partial class jobSearch {
         
         /// <summary>
-        /// TableCurrentJob control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TableCurrentJob;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// txtResumeHeadline control.
+        /// lblFreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtResumeHeadline;
+        protected global::System.Web.UI.WebControls.LinkButton lblFreshness;
         
         /// <summary>
-        /// txtFromdate control.
+        /// PanelFreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFromdate;
+        protected global::System.Web.UI.WebControls.Panel PanelFreshness;
         
         /// <summary>
-        /// txtFromdate_CalendarExtender control.
+        /// cblFreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtFromdate_CalendarExtender;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblFreshness;
         
         /// <summary>
-        /// TextBoxWatermarkExtender2 control.
+        /// CPEfreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender2;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEfreshness;
         
         /// <summary>
-        /// txtTill control.
+        /// lblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTill;
+        protected global::System.Web.UI.WebControls.LinkButton lblLocation;
         
         /// <summary>
-        /// txtTill_CalendarExtender control.
+        /// PanelLoaction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtTill_CalendarExtender;
+        protected global::System.Web.UI.WebControls.Panel PanelLoaction;
         
         /// <summary>
-        /// TextBoxWatermarkExtender3 control.
+        /// cblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender3;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblLocation;
         
         /// <summary>
-        /// Label1 control.
+        /// CPELocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPELocation;
         
         /// <summary>
-        /// ddlIndustry control.
+        /// lblRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIndustry;
+        protected global::System.Web.UI.WebControls.LinkButton lblRole;
         
         /// <summary>
-        /// ddlDepartment control.
+        /// PanelRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
+        protected global::System.Web.UI.WebControls.Panel PanelRole;
         
         /// <summary>
-        /// txtCurrentJobRole control.
+        /// cblRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrentJobRole;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblRole;
         
         /// <summary>
-        /// TextBoxWatermarkExtender4 control.
+        /// CPERole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender4;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPERole;
         
         /// <summary>
-        /// ddlPrimaryRole control.
+        /// lblFunctionalArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPrimaryRole;
+        protected global::System.Web.UI.WebControls.LinkButton lblFunctionalArea;
         
         /// <summary>
-        /// txtJobdescriptionPrimar control.
+        /// PanelFunctArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtJobdescriptionPrimar;
+        protected global::System.Web.UI.WebControls.Panel PanelFunctArea;
         
         /// <summary>
-        /// txtTechnicalskillPrimary control.
+        /// cblFunctArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTechnicalskillPrimary;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblFunctArea;
         
         /// <summary>
-        /// ddlSecRole control.
+        /// CPEFunctArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecRole;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEFunctArea;
         
         /// <summary>
-        /// txtjobdescriptionSec control.
+        /// lblCompanyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtjobdescriptionSec;
+        protected global::System.Web.UI.WebControls.LinkButton lblCompanyLevel;
         
         /// <summary>
-        /// txtTechnicalskillSec control.
+        /// PanelCompanyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTechnicalskillSec;
+        protected global::System.Web.UI.WebControls.Panel PanelCompanyLevel;
         
         /// <summary>
-        /// txtDesignation control.
+        /// cblCompanyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDesignation;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblCompanyLevel;
         
         /// <summary>
-        /// txtemployeer control.
+        /// CPECompnyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtemployeer;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPECompnyLevel;
         
         /// <summary>
-        /// txtReasonforJobchange control.
+        /// lblIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReasonforJobchange;
+        protected global::System.Web.UI.WebControls.LinkButton lblIndustry;
         
         /// <summary>
-        /// txtTechSkills control.
+        /// PanelIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTechSkills;
+        protected global::System.Web.UI.WebControls.Panel PanelIndustry;
         
         /// <summary>
-        /// btnSaveCurrentJob control.
+        /// cblIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveCurrentJob;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblIndustry;
         
         /// <summary>
-        /// btncancelCurrentJob control.
+        /// CPEIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btncancelCurrentJob;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEIndustry;
         
         /// <summary>
-        /// lblmsg control.
+        /// lblSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg;
+        protected global::System.Web.UI.WebControls.LinkButton lblSalary;
         
         /// <summary>
-        /// TableDesiredJob control.
+        /// PanelSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TableDesiredJob;
+        protected global::System.Web.UI.WebControls.Panel PanelSalary;
         
         /// <summary>
-        /// txtJobPostLooking control.
+        /// cblSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtJobPostLooking;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblSalary;
         
         /// <summary>
-        /// txtReleventExp control.
+        /// CPESalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReleventExp;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPESalary;
         
         /// <summary>
-        /// txtcurrentannualsalary control.
+        /// lblEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcurrentannualsalary;
+        protected global::System.Web.UI.WebControls.LinkButton lblEducation;
         
         /// <summary>
-        /// txtexpectedsalary control.
+        /// PanelEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtexpectedsalary;
+        protected global::System.Web.UI.WebControls.Panel PanelEducation;
         
         /// <summary>
-        /// ddlNoticePeriod control.
+        /// cblEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNoticePeriod;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblEducation;
         
         /// <summary>
-        /// cblEmploymentStatus control.
+        /// CPEEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblEmploymentStatus;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEEducation;
+        
+        /// <summary>
+        /// lblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblStatus;
+        
+        /// <summary>
+        /// PanelStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelStatus;
+        
+        /// <summary>
+        /// cblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cblStatus;
+        
+        /// <summary>
+        /// CPEStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEStatus;
+        
+        /// <summary>
+        /// lblJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblJobType;
+        
+        /// <summary>
+        /// PanelJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelJobType;
         
         /// <summary>
         /// cblJobType control.
@@ -319,48 +373,30 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.CheckBoxList cblJobType;
         
         /// <summary>
-        /// txtworkarea control.
+        /// CPEJobType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtworkarea;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEJobType;
         
         /// <summary>
-        /// ddlPreferedState control.
+        /// allJobs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPreferedState;
+        protected global::System.Web.UI.WebControls.LinkButton allJobs;
         
         /// <summary>
-        /// ddlPreferedJobLocation control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPreferedJobLocation;
-        
-        /// <summary>
-        /// btnsaveDesJob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsaveDesJob;
-        
-        /// <summary>
-        /// btnCancelDesJob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelDesJob;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

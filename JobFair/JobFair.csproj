@@ -79,6 +79,7 @@
     <Content Include="AjaxControlToolkit.dll" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
+    <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
     <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="Forms\Common\ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\jobSearch.aspx.cs">
+      <DependentUpon>jobSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\jobSearch.aspx.designer.cs">
+      <DependentUpon>jobSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\JobSeekerHome.Master.cs">
       <DependentUpon>JobSeekerHome.Master</DependentUpon>
