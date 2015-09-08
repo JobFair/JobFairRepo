@@ -70,10 +70,10 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">
+            <td class="auto-style3">
                 <asp:Label ID="lblJobType" runat="server" Text="Job Type"></asp:Label>
             </td>
-            <td>
+            <td class="auto-style4">
                 <asp:DropDownList ID="ddlJobtype" runat="server">
                 </asp:DropDownList>
             </td>
@@ -124,7 +124,7 @@
 
             </asp:Repeater>
     </table>
-
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     
 
 </asp:Content>
@@ -135,6 +135,13 @@
         }
         .auto-style2 {
             width: 326px;
+        }
+        .auto-style3 {
+            width: 326px;
+            height: 37px;
+        }
+        .auto-style4 {
+            height: 37px;
         }
     </style>
 </asp:Content>
