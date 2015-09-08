@@ -124,8 +124,7 @@
 
             </asp:Repeater>
     </table>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    
+        
 
 </asp:Content>
 <asp:Content ID="Content3" runat="server" contentplaceholderid="head">
