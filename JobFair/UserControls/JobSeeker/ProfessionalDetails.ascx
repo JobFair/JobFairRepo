@@ -38,7 +38,7 @@
         <tr>
             <td >Department</td>
             <td >
-                <asp:DropDownList ID="ddlDepartment" runat="server">
+                <asp:DropDownList ID="ddlDepartment" runat="server" DataTextField="DepartmentName" DataValueField="DepartmentId">
                 </asp:DropDownList>
             </td>
         </tr>
