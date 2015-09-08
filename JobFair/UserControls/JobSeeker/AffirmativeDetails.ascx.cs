@@ -38,34 +38,34 @@ namespace JobFair.UserControls.JobSeeker
             AffirmativeDetailsEntity adEntity = new AffirmativeDetailsEntity();
             AffirmativeDetailsJSBAL adBAL = new AffirmativeDetailsJSBAL();
             //set the value of AffirmativeDetailsJSEntity
-            adEntity.candidateId = "JS00001";//static data used because session value not set
-            adEntity.language = txtLanguageFirst.Text;
-            adEntity.proficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
-            adEntity.read = Convert.ToByte(chkReadFirst.Checked);
-            adEntity.write = Convert.ToByte(chkWriteFirst.Checked);
-            adEntity.speak = Convert.ToByte(chkSpeakFirst.Checked);
-            adEntity.physicallyChallenged = string.Empty;
+            adEntity.CandidateId = "JS00001";//static data used because session value not set
+            adEntity.Language = txtLanguageFirst.Text;
+            adEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
+            adEntity.Read = Convert.ToByte(chkReadFirst.Checked);
+            adEntity.Write = Convert.ToByte(chkWriteFirst.Checked);
+            adEntity.Speak = Convert.ToByte(chkSpeakFirst.Checked);
+            adEntity.PhysicallyChallenged = string.Empty;
             if (rbtYes.Checked)
             {
-                adEntity.physicallyChallenged = "Yes";    
+                adEntity.PhysicallyChallenged = "Yes";    
             }
             else
             {
-                adEntity.physicallyChallenged = "No";
+                adEntity.PhysicallyChallenged = "No";
             }
-            adEntity.description = txtDescription.Text;
-            adEntity.sports = txtSports.Text;
-            adEntity.sportsDescription = txtSportsDescription.Text;
-            adEntity.usaPermit = string.Empty;
+            adEntity.Description = txtDescription.Text;
+            adEntity.Sports = txtSports.Text;
+            adEntity.SportsDescription = txtSportsDescription.Text;
+            adEntity.USAPermit = string.Empty;
             if (rbtYesUSA.Checked)
             {
-                adEntity.usaPermit = "Yes";
+                adEntity.USAPermit = "Yes";
             }
             else
             {
-                adEntity.usaPermit = "No";
+                adEntity.USAPermit = "No";
             }
-            adEntity.otherPermits = txtOtherPermit.Text;
+            adEntity.OtherPermits = txtOtherPermit.Text;
             int result = adBAL.AffirmativeDetailsBAL(adEntity);
             if (result > 0)
             {
