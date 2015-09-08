@@ -42,6 +42,7 @@
     <Compile Include="Common\ChangePasswordEnitity.cs" />
     <Compile Include="Common\CityEntity.cs" />
     <Compile Include="JobSeeker\ContactDetailsEntity.cs" />
+    <Compile Include="JobSeeker\CurrentDesiredJobEntity.cs" />
     <Compile Include="JobSeeker\ProfessionalDetailsEntity.cs" />
     <Compile Include="Common\ForgetPasswordEntity.cs" />
     <Compile Include="Common\LogInEnitity.cs" />
