@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace DAL
 {
@@ -19,11 +20,20 @@ namespace DAL
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand();
-
-                SqlParameter[] sqlparams = { new SqlParameter("@userid", logjsEntity.UserName), new SqlParameter("@password", logjsEntity.Password) };
-                SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, "sp_Login", sqlparams);
-                return dr;
+                SqlCommand cmd = new SqlCommand("sp_Login", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@userid", logjsEntity.UserName);
+                cmd.Parameters.AddWithValue("@password", logjsEntity.Password);
+                //cmd.Parameters.Add("@candidateid", SqlDbType.VarChar, 500);
+                //cmd.Parameters["@candidateid"].Direction = ParameterDirection.Output;
+                //string candidate = cmd.Parameters["@candidateid"].Value.ToString();
+                SqlDataReader dr = cmd.ExecuteReader();
+                
+                //SqlParameter[] sqlparams = { new SqlParameter("@userid", logjsEntity.UserName), new SqlParameter("@password", logjsEntity.Password) };
+                //SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, "sp_Login", sqlparams);
+            
+                    return dr;
+               
             }
             catch (Exception ex)
             {
@@ -31,7 +41,7 @@ namespace DAL
             }
             finally
             {
-                connection.Close();
+                //connection.Close();
             }
         }
     }

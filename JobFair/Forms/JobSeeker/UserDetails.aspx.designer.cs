@@ -31,15 +31,6 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel1;
         
         /// <summary>
-        /// AffirmativeInfo1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::JobSeeker_Forms_AffirmativeInfo AffirmativeInfo1;
-        
-        /// <summary>
         /// TabPanel2 control.
         /// </summary>
         /// <remarks>
@@ -49,12 +40,12 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel2;
         
         /// <summary>
-        /// EducationalDetails1 control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-       
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
     }
 }
