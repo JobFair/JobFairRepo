@@ -39,9 +39,9 @@
             <asp:Label ID="lblDuration" runat="server" Text="Duration"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="txtFormDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtFormDate" TargetControlID="txtFormDate" />
+            <asp:TextBox ID="txtFormDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtFormDate" TargetControlID="txtFormDate" Format="dd/MM/yyyy" />
 &nbsp; To&nbsp;&nbsp;
-            <asp:TextBox ID="txtToDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtToDate" TargetControlID="txtToDate" />
+            <asp:TextBox ID="txtToDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtToDate" TargetControlID="txtToDate" Format="dd/MM/yyyy"/>
         </td>
     </tr>
     <tr>

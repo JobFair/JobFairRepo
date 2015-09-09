@@ -29,23 +29,29 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DateTime toDate = Convert.ToDateTime(txtToDate.Text);
-                DateTime formDate = Convert.ToDateTime(txtFormDate.Text);
-                TimeSpan objTimeSpan = toDate - formDate;
+                //DateTime toDate = Convert.ToDateTime(txtToDate.Text);
+                //DateTime formDate = Convert.ToDateTime(txtFormDate.Text);
+                //TimeSpan objTimeSpan = toDate - formDate;
                
                  TimeSpan i = new TimeSpan(0, 0, 0);
-    DateTime startDate = Convert.ToDateTime(this.txtToDate.Text.Trim(), new CultureInfo("en-Gb"));
-    DateTime endDate = Convert.ToDateTime(this.txtFormDate.Text.Trim(), new CultureInfo("en-Gb"));
+                 DateTime startDate = Convert.ToDateTime(this.txtFormDate.Text.Trim(), new CultureInfo("en-Gb"));
+    DateTime endDate = Convert.ToDateTime(this.txtToDate.Text.Trim(), new CultureInfo("en-Gb"));
     i += endDate.Subtract(startDate);
     int days = i.Days;
-   
+
+    //DateTime dt1 = Convert.ToDateTime(Textbox1.text);
+    //DateTime dt1 = Convert.ToDateTime(Textbox1.text);
+    //TimeSpan ts = dt.subtract(dt1);
+    //int NoOfDays = dt.Days;
+    //textbox3.text = NoOfDays;
 
                 AddProjectDetailsBAL pdBAL = new AddProjectDetailsBAL();
                 AddProjectDetailsEntity pdEntity = new AddProjectDetailsEntity();
                 pdEntity.CandidateId = "JS00001";
                 pdEntity.CompanyName = txtCompanyName.Text;
+                pdEntity.ClientName = txtClientName.Text;
                 pdEntity.ProjectTitle = txtProjectTitle.Text;
-                pdEntity.Duration=days;
+                pdEntity.Duration=days.ToString();
                 pdEntity.ProjectLocation=txtProjectLocation.Text;
                  pdEntity.EmployeeType = string.Empty;
                     if (rbtFulTime.Checked)
