@@ -44,14 +44,14 @@
         <tr>
             <td >Industry</td>
             <td >
-                <asp:DropDownList ID="ddlIndustry" runat="server">
+                <asp:DropDownList ID="ddlIndustry" runat="server" >
                 </asp:DropDownList>
                 <br /></td>
         </tr>
         <tr>
             <td >Department</td>
             <td >
-                <asp:DropDownList ID="ddlDepartment" runat="server">
+                <asp:DropDownList ID="ddlDepartment" runat="server" DataTextField="DepartmentName" DataValueField="DepartmentId">
                 </asp:DropDownList>
             </td>
         </tr>

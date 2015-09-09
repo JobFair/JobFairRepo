@@ -202,6 +202,20 @@
     <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.designer.cs">
       <DependentUpon>AddProjectDetails.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
+      <DependentUpon>AdvanceSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.designer.cs">
+      <DependentUpon>AdvanceSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.cs">
+      <DependentUpon>AffirmativeDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.designer.cs">
+      <DependentUpon>AffirmativeDetails.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\JobSeeker\ContactDetails.ascx.cs">
       <DependentUpon>ContactDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
