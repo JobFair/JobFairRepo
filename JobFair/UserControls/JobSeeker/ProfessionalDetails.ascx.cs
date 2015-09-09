@@ -8,16 +8,28 @@ using Entities.JobSeeker;
 using BAL;
 using CommonUtil;
 
-namespace JobFair.Forms.JobSeeker
+namespace JobFair.UserControls.JobSeeker
 {
-    public partial class ProfessionalDetailsJobSeeker : System.Web.UI.Page
+    public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
             BindDropDownIndustry();
             BindDropDownDepartment();
+            BindDropDownCountry();
             
+        }
+
+       
+
+        private void BindDropDownCountry()
+        {
+            ddlCountry.DataSource = Utility.GetCountryBAL();
+            ddlCountry.DataTextField = "CountryName";
+            ddlCountry.DataValueField = "CountryId";
+            ddlCountry.DataBind();
+            ddlCountry.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void BindDropDownDepartment()
@@ -32,13 +44,13 @@ namespace JobFair.Forms.JobSeeker
         private void BindDropDownIndustry()
         {
 
-            ddlIndustry.DataSource= Utility.GetIndustryBAL();
+            ddlIndustry.DataSource = Utility.GetIndustryBAL();
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
             ddlIndustry.DataBind();
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
 
-           
+
         }
         /// <summary>
         /// Handles the Click event of the btnSave control.
@@ -61,9 +73,9 @@ namespace JobFair.Forms.JobSeeker
                 CurrentDesiredJobEntity curentity = new CurrentDesiredJobEntity();
                 CurrentDesiredJobBAL curjobBAL = new CurrentDesiredJobBAL();
                 //ProfessionalDetailsCurrentJSBAL rjsBAL = new ProfessionalDetailsCurrentJSBAL();
-                curentity.Candidateid = "JS9";
+                curentity.Candidateid = "JS00001";
                 curentity.ResumeHeadline = txtResumeHeadline.Text;
-                curentity.TotalExperience = "oio" ;
+                curentity.TotalExperience =Years+"."+Month;
                 curentity.Industry = ddlIndustry.SelectedIndex;
                 curentity.Department = ddlDepartment.SelectedIndex;
                 curentity.CurrentJobRole = txtCurrentJobRole.Text;
@@ -96,12 +108,9 @@ namespace JobFair.Forms.JobSeeker
 
         }
 
-       
-        
+        protected void btnsaveDesJob_Click(object sender, EventArgs e)
+        {
 
-
-
-
-
+        }
     }
 }
