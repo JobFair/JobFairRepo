@@ -50,5 +50,25 @@ namespace CommonUtil
             CurrentDesiredJobDAL cdjDAL = new CurrentDesiredJobDAL();
             return cdjDAL.GetIndustryDAL();
         }
+
+        public static DataTable GetCountryBAL()
+        {
+            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+            return pdDAL.LoadCountryAll();
+        }
+
+        public static DataTable GetStateBAL(int countryid)
+        {
+            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+            return pdDAL.LoadStateAll(countryid);
+          
+        }
+        public static DataTable GetCityBAL(int stateid)
+        {
+            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+            return pdDAL.LoadCityAll(stateid);
+
+
+        }
     }
 }

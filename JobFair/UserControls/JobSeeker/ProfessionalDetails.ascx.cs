@@ -17,7 +17,19 @@ namespace JobFair.UserControls.JobSeeker
 
             BindDropDownIndustry();
             BindDropDownDepartment();
+            BindDropDownCountry();
+            
+        }
 
+       
+
+        private void BindDropDownCountry()
+        {
+            ddlCountry.DataSource = Utility.GetCountryBAL();
+            ddlCountry.DataTextField = "CountryName";
+            ddlCountry.DataValueField = "CountryId";
+            ddlCountry.DataBind();
+            ddlCountry.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void BindDropDownDepartment()
@@ -93,6 +105,11 @@ namespace JobFair.UserControls.JobSeeker
 
                 throw ex;
             }
+
+        }
+
+        protected void btnsaveDesJob_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -220,26 +220,28 @@
         <tr>
             <td >Prefered Country</td>
             <td >
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td >Prefered State</td>
-            <td >
-                <asp:DropDownList ID="ddlPreferedState" runat="server">
+                <asp:DropDownList ID="ddlCountry" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td >Prefered Job Location</td>
+            <td >Prefered State</td>
             <td >
-                <asp:DropDownList ID="ddlPreferedJobLocation" runat="server">
+                <asp:DropDownList ID="ddlState" runat="server">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td >Prefered City</td>
+            <td >
+                <asp:DropDownList ID="ddlCity" runat="server" Width="69px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="btnsaveDesJob" runat="server" Text="Save" />
+                <asp:Button ID="btnsaveDesJob" runat="server" Text="Save" OnClick="btnsaveDesJob_Click" />
             &nbsp;&nbsp;&nbsp;
                 <asp:Button ID="btnCancelDesJob" runat="server" Text="Cancel" />
             </td>
