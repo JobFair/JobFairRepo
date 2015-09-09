@@ -79,16 +79,16 @@
     <Content Include="AjaxControlToolkit.dll" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
+    <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
+    <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
-    <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
     <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
-    <Content Include="UserControls\JobSeeker\AdvanceSearch.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
@@ -137,6 +137,18 @@
     <Compile Include="Forms\Common\ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JobSeeker\AdvanceSearch.aspx.cs">
+      <DependentUpon>AdvanceSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\AdvanceSearch.aspx.designer.cs">
+      <DependentUpon>AdvanceSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeeker\jobSearch.aspx.cs">
       <DependentUpon>jobSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,20 +192,6 @@
       <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
-    <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">
-      <DependentUpon>AddProjectDetails.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.designer.cs">
-      <DependentUpon>AddProjectDetails.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
-      <DependentUpon>AdvanceSearch.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.designer.cs">
-      <DependentUpon>AdvanceSearch.ascx</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\JobSeeker\ContactDetails.ascx.cs">
       <DependentUpon>ContactDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
