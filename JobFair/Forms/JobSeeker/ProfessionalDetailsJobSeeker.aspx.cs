@@ -63,7 +63,7 @@ namespace JobFair.Forms.JobSeeker
                 //ProfessionalDetailsCurrentJSBAL rjsBAL = new ProfessionalDetailsCurrentJSBAL();
                 curentity.Candidateid = "JS9";
                 curentity.ResumeHeadline = txtResumeHeadline.Text;
-                curentity.TotalExperience = (Years + '.' + Month);
+            //  curentity.TotalExperience = (Years + '.' + Month);
                 curentity.Industry = ddlIndustry.SelectedIndex;
                 curentity.Department = ddlDepartment.SelectedIndex;
                 curentity.CurrentJobRole = txtCurrentJobRole.Text;
@@ -93,6 +93,11 @@ namespace JobFair.Forms.JobSeeker
 
                 throw ex;
             }
+
+        }
+
+        protected void btnsaveDesJob_Click(object sender, EventArgs e)
+        {
 
         }
 

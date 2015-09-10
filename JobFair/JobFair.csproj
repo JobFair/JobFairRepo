@@ -80,10 +80,9 @@
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
-    <Content Include="Forms\JobSeeker\FeedbackJookseeker.aspx" />
+    <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
-    <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
@@ -145,12 +144,12 @@
     <Compile Include="Forms\JobSeeker\AdvanceSearch.aspx.designer.cs">
       <DependentUpon>AdvanceSearch.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobSeeker\FeedbackJookseeker.aspx.cs">
-      <DependentUpon>FeedbackJookseeker.aspx</DependentUpon>
+    <Compile Include="Forms\JobSeeker\Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\JobSeeker\FeedbackJookseeker.aspx.designer.cs">
-      <DependentUpon>FeedbackJookseeker.aspx</DependentUpon>
+    <Compile Include="Forms\JobSeeker\Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\jobSearch.aspx.cs">
       <DependentUpon>jobSearch.aspx</DependentUpon>
@@ -195,27 +194,6 @@
       <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
-    <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">
-      <DependentUpon>AddProjectDetails.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.designer.cs">
-      <DependentUpon>AddProjectDetails.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.cs">
-      <DependentUpon>AdvanceSearch.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\AdvanceSearch.ascx.designer.cs">
-      <DependentUpon>AdvanceSearch.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.cs">
-      <DependentUpon>AffirmativeDetails.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.designer.cs">
-      <DependentUpon>AffirmativeDetails.ascx</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\JobSeeker\ContactDetails.ascx.cs">
       <DependentUpon>ContactDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
