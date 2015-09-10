@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FeedbackJookseeker.aspx.cs" Inherits="JobFair.Forms.JobSeeker.FeedbackJookseeker" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feedback.aspx.cs" Inherits="JobFair.Forms.JobSeeker.FeedbackJookseeker" %>
 
 <!DOCTYPE html>
 
