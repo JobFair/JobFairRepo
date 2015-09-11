@@ -39,9 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddProjectDetailsBAL.cs" />
-    <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ContactDetailsJSBAL.cs" />
+    <Compile Include="FeedbackJSBAL.cs" />
     <Compile Include="LogInJobSeekerBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
