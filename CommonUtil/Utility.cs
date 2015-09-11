@@ -11,10 +11,10 @@ namespace CommonUtil
     public static class Utility
     {
         /// <summary>
-        /// Forgets the password job seeker.
+        /// Forget password
         /// </summary>
         /// <param name="forgotPasswordEntity">The forgot password entity.</param>
-        /// <returns>DataSet.</returns>
+        /// <returns>System.Data.DataSet.</returns>
         public static DataSet ForgetPasswordJobSeeker(ForgetPasswordEntity forgotPasswordEntity)
         {
             ForgetPasswordDAL jobSeekerDAL = new ForgetPasswordDAL();
@@ -24,9 +24,19 @@ namespace CommonUtil
             }
             catch (Exception ex)
             {
-                throw ex; 
+                throw ex;
             }
         }
-      
+
+        /// <summary>
+        /// Change password
+        /// </summary>
+        /// <param name="cpentity">The change password entity</param>
+        /// <returns>System.Int32</returns>
+        public static int ChangePassword(ChangePasswordEnitity cpentity)
+        {
+            ChangePasswordDAL cpDAL = new ChangePasswordDAL();
+            return cpDAL.ChangePasswordDALMethod(cpentity);
+        }
     }
 }

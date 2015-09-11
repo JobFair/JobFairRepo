@@ -76,16 +76,16 @@ namespace JobFair.UserControls.JobSeeker
                 btnHSCAdd.Visible = false;
         }
 
-        protected void cbCertification_CheckedChanged(object sender, EventArgs e)
-        {
-           // divCertification.Visible = true;
-           // pnlCollapsableCertification.Visible = true;
-        }
+        //protected void cbCertification_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    divCertification.Visible = true;
+        //    pnlCollapsableCertification.Visible = true;
+        //}
 
-        protected void cbWorkshop_CheckedChanged(object sender, EventArgs e)
-        {
-           // divWorkshop.Visible = true;
-           // pnlCollapsableWorkshop.Visible = true;
-        }
+        //protected void cbWorkshop_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    divWorkshop.Visible = true;
+        //    pnlCollapsableWorkshop.Visible = true;
+        //}
     }
 }

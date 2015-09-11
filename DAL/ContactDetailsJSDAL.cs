@@ -25,18 +25,18 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                              new SqlParameter("@uId", cdentity.UserID),
+                                              new SqlParameter("@candidateId",cdentity.CandidateId),
                                               new SqlParameter("@altMobNo",cdentity.AltMobileNo ),
-                                              new SqlParameter("@landNo", cdentity.LandLineNo),
+                                              new SqlParameter("@landLineNo", cdentity.LandLineNo),
                                               new SqlParameter("@whatsappNo",cdentity.WhatsAppNo),
-                                              new SqlParameter("@linkedId", cdentity.LinkedID),
-                                              new SqlParameter("@fbId",cdentity.FacebookID),
-                                              new SqlParameter("@twitterId", cdentity.TwitterID),
-                                              new SqlParameter("@Gtalk",cdentity.GtalkID),
-                                              new SqlParameter("@skypeId", cdentity.SkypeID),
+                                              new SqlParameter("@linkedId", cdentity.LinkedId),
+                                              new SqlParameter("@facebookId",cdentity.FacebookId),
+                                              new SqlParameter("@twitterId", cdentity.TwitterId),
+                                              new SqlParameter("@gtalkId",cdentity.GtalkId),
+                                              new SqlParameter("@skypeId", cdentity.SkypeId),
                                               new SqlParameter("@googleP",cdentity.GooglePlus)  
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "insertJSContactDetails", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertContactDetails", sqlparams);
 
                 return result;
             }

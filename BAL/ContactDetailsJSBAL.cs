@@ -13,9 +13,9 @@ namespace BAL
         /// <summary>
         /// Contact Details of job seeker
         /// </summary>
-        /// <param name="cdEntity">ContactDetailsJobSeekerEntity</param>
+        /// <param name="cdEntity">ContactDetailsEntity</param>
         /// <returns>System.Int32</returns>
-        public int ContactDetailsJobSeeker(ContactDetailsEntity cdEntity)
+        public int ContactDetailsBAL(ContactDetailsEntity cdEntity)
         {
            ContactDetailsJSDAL cdDAL=new ContactDetailsJSDAL();
            return cdDAL.ContactDetailsDAL(cdEntity); 
