@@ -32,7 +32,7 @@ namespace DAL
             {
                 connection.Close();
             }
-         
+
         }
     }
 }
