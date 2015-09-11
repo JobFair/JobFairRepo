@@ -86,7 +86,6 @@
     <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
-    <Content Include="Forms\JobSeeker\UserDetails.aspx" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
