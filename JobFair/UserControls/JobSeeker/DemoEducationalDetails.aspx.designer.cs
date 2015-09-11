@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.JobSeeker {
+namespace JobFair.UserControls.JobSeeker {
     
     
-    public partial class Feedback {
+    public partial class DemoEducationalDetails {
         
         /// <summary>
         /// form1 control.
@@ -22,48 +22,39 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtName control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// ddlSubject control.
+        /// EducationalDetails1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSubject;
+        protected global::JobFair.UserControls.JobSeeker.EducationalDetails EducationalDetails1;
         
         /// <summary>
-        /// txtMessage control.
+        /// MoreCertifications1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMessage;
+        protected global::JobFair.UserControls.JobSeeker.MoreCertifications1 MoreCertifications1;
         
         /// <summary>
-        /// btnSubmit control.
+        /// MoreWorkshops1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// lblResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResult;
+        protected global::JobFair.UserControls.JobSeeker.MoreWorkshops1 MoreWorkshops1;
     }
 }
