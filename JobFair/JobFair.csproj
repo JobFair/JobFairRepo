@@ -82,14 +82,13 @@
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
+    <Content Include="Forms\JobSeeker\UserDetails.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
-    <Content Include="Forms\JobSeeker\UserDetails.aspx" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
-    <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
@@ -178,12 +177,12 @@
     <Compile Include="Forms\JobSeeker\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.cs">
-      <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
+    <Compile Include="Forms\JobSeeker\UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.designer.cs">
-      <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
+    <Compile Include="Forms\JobSeeker\UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
