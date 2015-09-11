@@ -39,17 +39,17 @@ namespace CommonUtil
             return cpDAL.ChangePasswordDALMethod(cpentity);
         }
 
-        //public static DataTable GetDepartmentBAL()
-        //{
-        //    CurrentDesiredJobDAL cdjDAL=new CurrentDesiredJobDAL();
-        //    return cdjDAL.GetDepartmentDAL();
-        //}
+        public static DataTable GetDepartmentBAL()
+        {
+            CurrentDesiredJobDAL cdjDAL=new CurrentDesiredJobDAL();
+            return cdjDAL.GetDepartmentDAL();
+        }
 
-        //public static DataTable GetIndustryBAL()
-        //{
-        //    CurrentDesiredJobDAL cdjDAL = new CurrentDesiredJobDAL();
-        //    return cdjDAL.GetIndustryDAL();
-        //}
+        public static DataTable GetIndustryBAL()
+        {
+            CurrentDesiredJobDAL cdjDAL = new CurrentDesiredJobDAL();
+            return cdjDAL.GetIndustryDAL();
+        }
 
         public static DataTable GetCountryBAL()
         {

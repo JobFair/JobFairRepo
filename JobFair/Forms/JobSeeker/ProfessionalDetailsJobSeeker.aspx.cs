@@ -22,21 +22,21 @@ namespace JobFair.Forms.JobSeeker
 
         private void BindDropDownDepartment()
         {
-            //ddlDepartment.DataSource = Utility.GetDepartmentBAL();
-            //ddlDepartment.DataTextField = "DepartmentName";
-            //ddlDepartment.DataValueField = "DepartmentId";
-            //ddlDepartment.DataBind();
-            //ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
+            ddlDepartment.DataSource = Utility.GetDepartmentBAL();
+            ddlDepartment.DataTextField = "DepartmentName";
+            ddlDepartment.DataValueField = "DepartmentId";
+            ddlDepartment.DataBind();
+            ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void BindDropDownIndustry()
         {
 
-            //ddlIndustry.DataSource= Utility.GetIndustryBAL();
-            //ddlIndustry.DataTextField = "IndustryName";
-            //ddlIndustry.DataValueField = "IndustryId";
-            //ddlIndustry.DataBind();
-            //ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+            ddlIndustry.DataSource= Utility.GetIndustryBAL();
+            ddlIndustry.DataTextField = "IndustryName";
+            ddlIndustry.DataValueField = "IndustryId";
+            ddlIndustry.DataBind();
+            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
 
            
         }
