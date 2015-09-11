@@ -9,17 +9,17 @@ namespace Entities.JobSeeker
    public class AffirmativeDetailsEntity
     {
        //AffirmativeDetailsEntity
-        public string candidateId { get; set; }
-        public string language { get; set; }
-        public string proficiencyLevel { get; set; }
-        public byte read { get; set; }
-        public byte write { get; set; }
-        public byte speak { get; set; }
-        public string physicallyChallenged { get; set; }
-        public string description { get; set; }
-        public string sports { get; set; }
-        public string sportsDescription { get; set; }
-        public string usaPermit { get; set; }
-        public string otherPermits { get; set; }
+        public string CandidateId { get; set; }
+        public string Language { get; set; }
+        public string ProficiencyLevel { get; set; }
+        public byte Read { get; set; }
+        public byte Write { get; set; }
+        public byte Speak { get; set; }
+        public string PhysicallyChallenged { get; set; }
+        public string Description { get; set; }
+        public string Sports { get; set; }
+        public string SportsDescription { get; set; }
+        public string USAPermit { get; set; }
+        public string OtherPermits { get; set; }
     }
 }

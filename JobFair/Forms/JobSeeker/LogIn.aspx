@@ -24,7 +24,9 @@
             <td><asp:CheckBox ID="cbRememberMe" runat="server" Text="Remember Me" /></td>
         </tr>
         <tr>
-            <td colspan="2"></td>
+            <td colspan="2">
+                <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td></td>
