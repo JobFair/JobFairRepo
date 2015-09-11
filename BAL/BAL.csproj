@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContactDetailsJSBAL.cs" />
-    <Compile Include="CurrentDesiredJobBAL.cs" />
+    <Compile Include="FeedbackJSBAL.cs" />
     <Compile Include="LogInJobSeekerBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

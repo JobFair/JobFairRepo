@@ -44,14 +44,14 @@
         <tr>
             <td >Industry</td>
             <td >
-                <asp:DropDownList ID="ddlIndustry" runat="server">
+                <asp:DropDownList ID="ddlIndustry" runat="server" >
                 </asp:DropDownList>
                 <br /></td>
         </tr>
         <tr>
             <td >Department</td>
             <td >
-                <asp:DropDownList ID="ddlDepartment" runat="server">
+                <asp:DropDownList ID="ddlDepartment" runat="server" DataTextField="DepartmentName" DataValueField="DepartmentId">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -254,7 +254,7 @@
         <tr>
             <td >&nbsp;</td>
             <td >
-                <asp:Button ID="btnsaveDesJob" runat="server" Text="Save" />
+                <asp:Button ID="btnsaveDesJob" runat="server" Text="Save" OnClick="btnsaveDesJob_Click" />
             &nbsp;&nbsp;&nbsp;
                 <asp:Button ID="btnCancelDesJob" runat="server" Text="Cancel" />
             </td>

@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AffirmativeDetailsJSDAL.cs" />
     <Compile Include="ChangePasswordDAL.cs" />
     <Compile Include="ContactDetailsJSDAL.cs" />
     <Compile Include="CurrentDesiredJobDAL.cs" />
+    <Compile Include="FeedbackJSDAL.cs" />
     <Compile Include="ForgetPasswordDAL.cs" />
     <Compile Include="LogInJobSeekerDAL.cs" />
     <Compile Include="PersonalDetailsJSDAL.cs" />
