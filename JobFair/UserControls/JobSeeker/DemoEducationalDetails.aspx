@@ -1,9 +1,9 @@
 ﻿   <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DemoEducationalDetails.aspx.cs" Inherits="JobFair.UserControls.JobSeeker.DemoEducationalDetails" %>
 
 
-<%@ Register src="EducationalDetails.ascx" tagname="EducationalDetails" tagprefix="uc1" %>
-<%@ Register src="MoreCertifications.ascx" tagname="MoreCertifications" tagprefix="uc2" %>
-<%@ Register src="MoreWorkshops.ascx" tagname="MoreWorkshops" tagprefix="uc3" %>
+<%@ Register src="~/UserControls/JobSeeker/EducationalDetails.ascx" tagname="EducationalDetails" tagprefix="uc1" %>
+<%@ Register src="~/UserControls/JobSeeker/MoreCertifications.ascx" tagname="MoreCertifications" tagprefix="uc2" %>
+<%@ Register src="~/UserControls/JobSeeker/MoreWorkshops.ascx" tagname="MoreWorkshops" tagprefix="uc3" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +15,7 @@
             width: 377px;
         }
         .auto-style11 {
-            width: 382px;
+            width: 500px;
         }
     </style>
 </head>
@@ -25,12 +25,12 @@
        <div>
               <uc1:EducationalDetails ID="EducationalDetails1" runat="server" />    
        </div>
-       <table>
+       <table style="background-color: #C0C0C0"">
         <tr>
-            <td>
+            <td class="auto-style11">
                 <uc2:MoreCertifications ID="MoreCertifications1" runat="server" />
             </td>
-            <td>
+            <td class="auto-style11">
                 <uc3:MoreWorkshops ID="MoreWorkshops1" runat="server" />
             </td>
         </tr>
