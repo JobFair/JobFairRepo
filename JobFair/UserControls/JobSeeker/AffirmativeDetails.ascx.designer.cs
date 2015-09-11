@@ -10,285 +10,330 @@
 namespace JobFair.UserControls.JobSeeker {
     
     
-    public partial class ContactDetails {
+    public partial class AffirmativeDetails {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// lblKnownLanguages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.Label lblKnownLanguages;
         
         /// <summary>
-        /// lblaltmob control.
+        /// lblLanguages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblaltmob;
+        protected global::System.Web.UI.WebControls.Label lblLanguages;
         
         /// <summary>
-        /// txtAltNo control.
+        /// lblProficincy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAltNo;
+        protected global::System.Web.UI.WebControls.Label lblProficincy;
         
         /// <summary>
-        /// TextBoxWatermarkExtender1 control.
+        /// lblRead control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender1;
+        protected global::System.Web.UI.WebControls.Label lblRead;
         
         /// <summary>
-        /// lblLandno control.
+        /// lblWrite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLandno;
+        protected global::System.Web.UI.WebControls.Label lblWrite;
         
         /// <summary>
-        /// txtLandno control.
+        /// lblSpeak control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLandno;
+        protected global::System.Web.UI.WebControls.Label lblSpeak;
         
         /// <summary>
-        /// TextBoxWatermarkExtender2 control.
+        /// txtLanguageFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender2;
+        protected global::System.Web.UI.WebControls.TextBox txtLanguageFirst;
         
         /// <summary>
-        /// lblWhatapp control.
+        /// ddlProficiencyFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWhatapp;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProficiencyFirst;
         
         /// <summary>
-        /// txtWhatsappNo control.
+        /// chkReadFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWhatsappNo;
+        protected global::System.Web.UI.WebControls.CheckBox chkReadFirst;
         
         /// <summary>
-        /// TextBoxWatermarkExtender3 control.
+        /// chkWriteFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender3;
+        protected global::System.Web.UI.WebControls.CheckBox chkWriteFirst;
         
         /// <summary>
-        /// lblLinkedIn control.
+        /// chkSpeakFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLinkedIn;
+        protected global::System.Web.UI.WebControls.CheckBox chkSpeakFirst;
         
         /// <summary>
-        /// txtLinkedIn control.
+        /// txtLanguageSecond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLinkedIn;
+        protected global::System.Web.UI.WebControls.TextBox txtLanguageSecond;
         
         /// <summary>
-        /// TextBoxWatermarkExtender4 control.
+        /// ddlProficiencySecond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender4;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProficiencySecond;
         
         /// <summary>
-        /// lblFacebook control.
+        /// chkReadSecond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFacebook;
+        protected global::System.Web.UI.WebControls.CheckBox chkReadSecond;
         
         /// <summary>
-        /// txtFacebook control.
+        /// chkWriteSecond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFacebook;
+        protected global::System.Web.UI.WebControls.CheckBox chkWriteSecond;
         
         /// <summary>
-        /// TextBoxWatermarkExtender5 control.
+        /// chkSpeakSecond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender5;
+        protected global::System.Web.UI.WebControls.CheckBox chkSpeakSecond;
         
         /// <summary>
-        /// lblTwitter control.
+        /// txtLanguageThird control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTwitter;
+        protected global::System.Web.UI.WebControls.TextBox txtLanguageThird;
         
         /// <summary>
-        /// txtTwitter control.
+        /// ddlProficiencyThird control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTwitter;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProficiencyThird;
         
         /// <summary>
-        /// TextBoxWatermarkExtender6 control.
+        /// chkReadThird control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender6;
+        protected global::System.Web.UI.WebControls.CheckBox chkReadThird;
         
         /// <summary>
-        /// lblGTalk control.
+        /// chkWriteThird control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGTalk;
+        protected global::System.Web.UI.WebControls.CheckBox chkWriteThird;
         
         /// <summary>
-        /// txtGTalk control.
+        /// chkSpeakThird control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGTalk;
+        protected global::System.Web.UI.WebControls.CheckBox chkSpeakThird;
         
         /// <summary>
-        /// TextBoxWatermarkExtender7 control.
+        /// lblPhysicallyChallenged control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender7;
+        protected global::System.Web.UI.WebControls.Label lblPhysicallyChallenged;
         
         /// <summary>
-        /// lblSkype control.
+        /// rbtYes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSkype;
+        protected global::System.Web.UI.WebControls.RadioButton rbtYes;
         
         /// <summary>
-        /// txtSkype control.
+        /// rbtNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSkype;
+        protected global::System.Web.UI.WebControls.RadioButton rbtNo;
         
         /// <summary>
-        /// TextBoxWatermarkExtender8 control.
+        /// lblDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender8;
+        protected global::System.Web.UI.WebControls.Label lblDescription;
         
         /// <summary>
-        /// lblGooglePlus control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGooglePlus;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
-        /// txtGooglePlus control.
+        /// lblSports control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGooglePlus;
+        protected global::System.Web.UI.WebControls.Label lblSports;
         
         /// <summary>
-        /// TextBoxWatermarkExtender9 control.
+        /// txtSports control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender9;
+        protected global::System.Web.UI.WebControls.TextBox txtSports;
         
         /// <summary>
-        /// btnSave control.
+        /// lblSportsDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Label lblSportsDescription;
         
         /// <summary>
-        /// btnCancel control.
+        /// txtSportsDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.TextBox txtSportsDescription;
         
         /// <summary>
-        /// Label2 control.
+        /// lblUSAPermit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblUSAPermit;
+        
+        /// <summary>
+        /// rbtYesUSA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbtYesUSA;
+        
+        /// <summary>
+        /// rbtNOUSA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbtNOUSA;
+        
+        /// <summary>
+        /// lblOtherPermit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOtherPermit;
+        
+        /// <summary>
+        /// txtOtherPermit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOtherPermit;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

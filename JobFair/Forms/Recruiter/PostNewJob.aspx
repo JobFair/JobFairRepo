@@ -8,7 +8,9 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <table class="auto-style6">
         <tr>
             <td colspan="2">
@@ -18,7 +20,7 @@
         <tr>
             <td class="auto-style7">Job Title/Designation</td>
             <td>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtJobtitle" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -28,7 +30,7 @@
         Please Select…
                 </div>
                 <asp:Panel ID="pnlCustomers" runat="server" CssClass="MultipleSelectionDDL" Height="49px" Width="85px">
-                    <asp:CheckBoxList ID="cblCustomerList" runat="server" onclick="readCheckBoxList()" Width="75px" >
+                    <asp:CheckBoxList ID="chkCustomerList" runat="server" onclick="readCheckBoxList()" Width="110px" Height="40px" >
                         <asp:ListItem>Pune</asp:ListItem>
                         <asp:ListItem>Mumbai</asp:ListItem>
                     </asp:CheckBoxList>
@@ -50,14 +52,14 @@
         <tr>
             <td class="auto-style7">Industry</td>
             <td>
-                <asp:DropDownList ID="ddlIndustry" runat="server">
+                <asp:DropDownList ID="ddlIndustry" runat="server" Height="19px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td class="auto-style7">Department</td>
             <td>
-                <asp:DropDownList ID="ddlDept" runat="server">
+                <asp:DropDownList ID="ddlDepartment" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -96,7 +98,7 @@
         <tr>
             <td class="auto-style7">Gender</td>
             <td>
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
+                <asp:CheckBoxList ID="chkGender" runat="server">
                     <asp:ListItem>Male</asp:ListItem>
                     <asp:ListItem>Female</asp:ListItem>
                 </asp:CheckBoxList>
@@ -104,24 +106,26 @@
         </tr>
         <tr>
             <td class="auto-style7">Offered Anual Salary</td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:TextBox ID="txtAnnualSalary" TextMode="MultiLine" runat="server"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td class="auto-style7">Other Salary Details</td>
             <td>
-                <asp:TextBox ID="txtSalaryDetails" TextMode="MultiLine" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtOtherSalary" TextMode="MultiLine" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style7">Number of Vacancies</td>
             <td>
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtVacancies" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style7">&nbsp;</td>
             <td>
-                <asp:Button ID="btnPostJob" runat="server" Text="Post Job" />
+                <asp:Button ID="btnPostJob" runat="server" Text="Post Job" OnClick="btnPostJob_Click" />
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
             </td>
         </tr>

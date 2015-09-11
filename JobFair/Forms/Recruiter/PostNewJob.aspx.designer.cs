@@ -13,13 +13,22 @@ namespace JobFair.Forms.Recruiter {
     public partial class PostNewJob1 {
         
         /// <summary>
-        /// TextBox1 control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// txtJobtitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtJobtitle;
         
         /// <summary>
         /// divDDL control.
@@ -40,13 +49,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Panel pnlCustomers;
         
         /// <summary>
-        /// cblCustomerList control.
+        /// chkCustomerList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblCustomerList;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkCustomerList;
         
         /// <summary>
         /// ddlCompanyLevel control.
@@ -67,13 +76,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.DropDownList ddlIndustry;
         
         /// <summary>
-        /// ddlDept control.
+        /// ddlDepartment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDept;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
         
         /// <summary>
         /// ddlFunArea control.
@@ -130,31 +139,40 @@ namespace JobFair.Forms.Recruiter {
         protected global::AjaxControlToolkit.CalendarExtender txtWorkExp_CalendarExtender;
         
         /// <summary>
-        /// CheckBoxList1 control.
+        /// chkGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkGender;
         
         /// <summary>
-        /// txtSalaryDetails control.
+        /// txtAnnualSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSalaryDetails;
+        protected global::System.Web.UI.WebControls.TextBox txtAnnualSalary;
         
         /// <summary>
-        /// TextBox3 control.
+        /// txtOtherSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtOtherSalary;
+        
+        /// <summary>
+        /// txtVacancies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtVacancies;
         
         /// <summary>
         /// btnPostJob control.
