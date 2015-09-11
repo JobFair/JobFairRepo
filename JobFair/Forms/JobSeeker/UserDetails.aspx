@@ -13,7 +13,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <br />
-    <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="2">
+    <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1">
         <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="TabPanel1">                       
             <ContentTemplate>
                 <updatepanel>
@@ -26,7 +26,6 @@
             <ContentTemplate>
                 <updatepanel>
 <uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" />
-
 </updatepanel>
             </ContentTemplate>
         </cc1:TabPanel>
