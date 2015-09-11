@@ -14,7 +14,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="80%">
+    <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" Width="80%">
         <cc1:TabPanel runat="server" HeaderText="Contact Details" ID="TabPanelContactdetails" Width="80%">
            
             <ContentTemplate>

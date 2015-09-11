@@ -23,13 +23,16 @@ namespace JobFair.Forms.JobSeeker
                 LogInJobSeekerBAL logIn = new LogInJobSeekerBAL();
                 LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
 
+
                 logjsEntity.UserName = txtUserName.Text;
                 logjsEntity.Password = txtPassword.Text;
                 SqlDataReader rd = logIn.JobSeekerLogIn(logjsEntity);
 
                 if (rd.Read())
                 {
-                    Response.Redirect("UserDetails.aspx");
+                    TextBox1.Text = rd["CandidateId"].ToString();
+                    Session["candidateId"] = TextBox1.Text;
+                    Response.Redirect("WebForm1.aspx");
                 }
                 else
                 {

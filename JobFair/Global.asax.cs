@@ -17,7 +17,7 @@ namespace JobFair
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["userid"] = "undefined";
+            Session["candidateId"] = "undefined";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
