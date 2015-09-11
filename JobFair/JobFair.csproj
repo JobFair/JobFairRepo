@@ -77,22 +77,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
+    <Content Include="Css\Common.css" />
+    <Content Include="Css\Style.css" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
+    <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
+    <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
-    <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
+    <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
@@ -180,12 +184,6 @@
     <Compile Include="Forms\JobSeeker\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.cs">
-      <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.designer.cs">
-      <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\JobSeeker\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -194,6 +192,18 @@
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
+    <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">
+      <DependentUpon>AddProjectDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.designer.cs">
+      <DependentUpon>AddProjectDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.cs">
+      <DependentUpon>AffirmativeDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.designer.cs">
+      <DependentUpon>AffirmativeDetails.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\JobSeeker\ContactDetails.ascx.cs">
       <DependentUpon>ContactDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -225,6 +235,12 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.designer.cs">
       <DependentUpon>MoreWorkshops.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.cs">
+      <DependentUpon>PersonalDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.designer.cs">
+      <DependentUpon>PersonalDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\ProfessionalDetails.ascx.cs">
       <DependentUpon>ProfessionalDetails.ascx</DependentUpon>
