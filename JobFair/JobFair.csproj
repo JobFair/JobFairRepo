@@ -82,6 +82,8 @@
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
+    <Content Include="UploadImages\download.jpg" />
+    <Content Include="UploadImages\sa.jpg" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
@@ -110,6 +112,7 @@
     <Content Include="Forms\Recruiter\ProfilePage.Master" />
     <Content Include="Forms\Employer\HomePage.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
