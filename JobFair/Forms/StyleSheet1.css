@@ -1,0 +1,13 @@
+﻿.wrapper {
+  width: 800px;
+} 
+
+.left {
+  float: left;
+  width: 200px;
+}
+
+.right {
+  float: right;
+  width: 600px;
+}

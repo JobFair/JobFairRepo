@@ -7,37 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.JobSeeker {
+namespace JobFair.UserControls.JobSeeker {
     
     
-    public partial class JobSeekerRegister {
+    public partial class ContactDetails {
         
         /// <summary>
-        /// form1 control.
+        /// lblaltmob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblaltmob;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// txtAltNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// txtFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtAltNo;
         
         /// <summary>
         /// TextBoxWatermarkExtender1 control.
@@ -49,22 +40,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender1;
         
         /// <summary>
-        /// rfvFirstName control.
+        /// lblLandno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstName;
+        protected global::System.Web.UI.WebControls.Label lblLandno;
         
         /// <summary>
-        /// txtLastName control.
+        /// txtLandno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtLandno;
         
         /// <summary>
         /// TextBoxWatermarkExtender2 control.
@@ -76,22 +67,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender2;
         
         /// <summary>
-        /// rfvLastName control.
+        /// lblWhatapp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLastName;
+        protected global::System.Web.UI.WebControls.Label lblWhatapp;
         
         /// <summary>
-        /// txtEmailId control.
+        /// txtWhatsappNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailId;
+        protected global::System.Web.UI.WebControls.TextBox txtWhatsappNo;
         
         /// <summary>
         /// TextBoxWatermarkExtender3 control.
@@ -103,22 +94,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender3;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// lblLinkedIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.Label lblLinkedIn;
         
         /// <summary>
-        /// txtDesiredUserName control.
+        /// txtLinkedIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDesiredUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtLinkedIn;
         
         /// <summary>
         /// TextBoxWatermarkExtender4 control.
@@ -130,40 +121,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender4;
         
         /// <summary>
-        /// rfvDesiredUserName control.
+        /// lblFacebook control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDesiredUserName;
+        protected global::System.Web.UI.WebControls.Label lblFacebook;
         
         /// <summary>
-        /// rblGender control.
+        /// txtFacebook control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblGender;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// txtMobileNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMobileNo;
+        protected global::System.Web.UI.WebControls.TextBox txtFacebook;
         
         /// <summary>
         /// TextBoxWatermarkExtender5 control.
@@ -175,58 +148,76 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender5;
         
         /// <summary>
-        /// rfvMobileNo control.
+        /// lblTwitter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMobileNo;
+        protected global::System.Web.UI.WebControls.Label lblTwitter;
         
         /// <summary>
-        /// txtPassword control.
+        /// txtTwitter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtTwitter;
         
         /// <summary>
-        /// rfvPassword control.
+        /// TextBoxWatermarkExtender6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender6;
         
         /// <summary>
-        /// txtConfirmPassword control.
+        /// lblGTalk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.Label lblGTalk;
         
         /// <summary>
-        /// CompareValidator1 control.
+        /// txtGTalk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.TextBox txtGTalk;
         
         /// <summary>
-        /// txtCurrCity control.
+        /// TextBoxWatermarkExtender7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrCity;
+        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender7;
+        
+        /// <summary>
+        /// lblSkype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSkype;
+        
+        /// <summary>
+        /// txtSkype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSkype;
         
         /// <summary>
         /// TextBoxWatermarkExtender8 control.
@@ -238,22 +229,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender8;
         
         /// <summary>
-        /// rfvCurrentCity control.
+        /// lblGooglePlus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCurrentCity;
+        protected global::System.Web.UI.WebControls.Label lblGooglePlus;
         
         /// <summary>
-        /// txtCurrAddress control.
+        /// txtGooglePlus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtGooglePlus;
         
         /// <summary>
         /// TextBoxWatermarkExtender9 control.
@@ -265,58 +256,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender9;
         
         /// <summary>
-        /// rfvCurrentAddress control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCurrentAddress;
-        
-        /// <summary>
-        /// FileUploadResume control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUploadResume;
-        
-        /// <summary>
-        /// rfvUploadResume control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUploadResume;
-        
-        /// <summary>
-        /// txtRefCandidateId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRefCandidateId;
-        
-        /// <summary>
-        /// TextBoxWatermarkExtender10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender10;
-        
-        /// <summary>
-        /// btnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
         /// btnCancel control.
@@ -328,12 +274,12 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// lblMessage control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Label Label2;
     }
 }

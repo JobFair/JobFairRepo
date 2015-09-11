@@ -7,81 +7,108 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.JobSeeker {
+namespace JobFair.UserControls.JobSeeker {
     
     
-    public partial class UserDetails {
+    public partial class MoreCertifications1 {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// Label29 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.Label Label29;
         
         /// <summary>
-        /// TabContainer1 control.
+        /// UpdatePanel9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabContainer TabContainer1;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel9;
         
         /// <summary>
-        /// TabPanelContactdetails control.
+        /// ddlCertification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel TabPanelContactdetails;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCertification;
         
         /// <summary>
-        /// ContactDetails1 control.
+        /// TxtCertificationAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.ContactDetails ContactDetails1;
+        protected global::System.Web.UI.WebControls.TextBox TxtCertificationAdd;
         
         /// <summary>
-        /// TabPanelPersonalDetails control.
+        /// btnCertificationAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel TabPanelPersonalDetails;
+        protected global::System.Web.UI.WebControls.Button btnCertificationAdd;
         
         /// <summary>
-        /// PersonalDetails1 control.
+        /// Label30 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.PersonalDetails PersonalDetails1;
+        protected global::System.Web.UI.WebControls.Label Label30;
         
         /// <summary>
-        /// TabPanelProfDetails control.
+        /// txtCertificationInstitute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel TabPanelProfDetails;
+        protected global::System.Web.UI.WebControls.TextBox txtCertificationInstitute;
         
         /// <summary>
-        /// ProfessionalDetails1 control.
+        /// Label31 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.ProfessionalDetails ProfessionalDetails1;
+        protected global::System.Web.UI.WebControls.Label Label31;
+        
+        /// <summary>
+        /// txtCertificationYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCertificationYear;
+        
+        /// <summary>
+        /// Label32 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label32;
+        
+        /// <summary>
+        /// txtCertificationGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCertificationGrade;
     }
 }

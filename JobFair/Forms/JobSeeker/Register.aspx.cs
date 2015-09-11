@@ -12,7 +12,7 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        }     
+        }
 
         /// <summary>
         /// Handles the Click event of the btnSubmit control.
@@ -23,48 +23,47 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                Random randomNumber = new Random();
                 RegisterEntity jobSeekerEntity = new RegisterEntity();
                 string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
-
-                // Provide the min and max limit for the no
-                jobSeekerEntity.UserId = Convert.ToString(randomNumber.Next(50, int.MaxValue));
 
                 // Set value to job seeker entity
                 jobSeekerEntity.FirstName = txtFirstName.Text.Trim();
                 jobSeekerEntity.LastName = txtLastName.Text.Trim();
                 jobSeekerEntity.EmailId = txtEmailId.Text.Trim();
-                jobSeekerEntity.DesiredUserName = txtDesiredUserName.Text.Trim();
+                jobSeekerEntity.UserId = txtDesiredUserName.Text.Trim();
                 jobSeekerEntity.Gender = rblGender.SelectedItem.Text;
                 jobSeekerEntity.MobileNo = txtMobileNo.Text.Trim();
                 jobSeekerEntity.Password = txtPassword.Text.Trim();
                 jobSeekerEntity.CurrentCity = txtCurrCity.Text.Trim();
                 jobSeekerEntity.CurrentAddress = txtCurrAddress.Text.Trim();
+                jobSeekerEntity.RefCandidateId = txtRefCandidateId.Text;
                 string uploadFolder = Request.PhysicalApplicationPath + "UploadFiles\\";
 
-                // Check if fileupload control has a file.
-                if (FileUploadResume.HasFile)
-                {
-                    string extension = Path.GetExtension(FileUploadResume.PostedFile.FileName);
-                    FileUploadResume.SaveAs(uploadFolder + jobSeekerEntity.UserId + extension);
-                    lblMessage.Text = "File uploaded successfully as: " + jobSeekerEntity.UserId + extension;
-                }
-                else
-                {
-                    lblMessage.Text = "First select a file.";
-                }
+                
+               
                 jobSeekerEntity.UploadResumepath = uploadFolder.ToString();
                 RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
 
-                int result = jobSeekerBAL.RegisterNewJobSeekerBAL(jobSeekerEntity);
-                if (result >= 1)
+                string result = jobSeekerBAL.RegisterNewJobSeekerBAL(jobSeekerEntity);
+                if (result!=null)
                 {
-                    Response.Redirect("Feedback Us.aspx");
+                    // Check if fileupload control has a file.
+                    if (FileUploadResume.HasFile)
+                    {
+                        string extension = Path.GetExtension(FileUploadResume.PostedFile.FileName);
+                        FileUploadResume.SaveAs(uploadFolder + result.ToString() + extension);
+                        lblMessage.Text = "File uploaded successfully as: " + result.ToString() + extension;
+                    }
+                    else
+                    {
+                        lblMessage.Text = "First select a file.";
+                    }
+                    Response.Redirect("LogIn.aspx");
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblMessage.Text = ex.Message.ToString();
             }
         }
     }

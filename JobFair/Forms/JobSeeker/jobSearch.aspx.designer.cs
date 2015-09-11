@@ -10,16 +10,7 @@
 namespace JobFair.Forms.JobSeeker {
     
     
-    public partial class JobSeekerRegister {
-        
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    public partial class jobSearch {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -31,309 +22,381 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// txtFirstName control.
+        /// lblFreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.LinkButton lblFreshness;
         
         /// <summary>
-        /// TextBoxWatermarkExtender1 control.
+        /// PanelFreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender1;
+        protected global::System.Web.UI.WebControls.Panel PanelFreshness;
         
         /// <summary>
-        /// rfvFirstName control.
+        /// cblFreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstName;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblFreshness;
         
         /// <summary>
-        /// txtLastName control.
+        /// CPEfreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEfreshness;
         
         /// <summary>
-        /// TextBoxWatermarkExtender2 control.
+        /// lblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender2;
+        protected global::System.Web.UI.WebControls.LinkButton lblLocation;
         
         /// <summary>
-        /// rfvLastName control.
+        /// PanelLoaction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLastName;
+        protected global::System.Web.UI.WebControls.Panel PanelLoaction;
         
         /// <summary>
-        /// txtEmailId control.
+        /// cblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailId;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblLocation;
         
         /// <summary>
-        /// TextBoxWatermarkExtender3 control.
+        /// CPELocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender3;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPELocation;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// lblRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.LinkButton lblRole;
         
         /// <summary>
-        /// txtDesiredUserName control.
+        /// PanelRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDesiredUserName;
+        protected global::System.Web.UI.WebControls.Panel PanelRole;
         
         /// <summary>
-        /// TextBoxWatermarkExtender4 control.
+        /// cblRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender4;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblRole;
         
         /// <summary>
-        /// rfvDesiredUserName control.
+        /// CPERole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDesiredUserName;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPERole;
         
         /// <summary>
-        /// rblGender control.
+        /// lblFunctionalArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblGender;
+        protected global::System.Web.UI.WebControls.LinkButton lblFunctionalArea;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// PanelFunctArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Panel PanelFunctArea;
         
         /// <summary>
-        /// txtMobileNo control.
+        /// cblFunctArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMobileNo;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblFunctArea;
         
         /// <summary>
-        /// TextBoxWatermarkExtender5 control.
+        /// CPEFunctArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender5;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEFunctArea;
         
         /// <summary>
-        /// rfvMobileNo control.
+        /// lblCompanyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMobileNo;
+        protected global::System.Web.UI.WebControls.LinkButton lblCompanyLevel;
         
         /// <summary>
-        /// txtPassword control.
+        /// PanelCompanyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Panel PanelCompanyLevel;
         
         /// <summary>
-        /// rfvPassword control.
+        /// cblCompanyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblCompanyLevel;
         
         /// <summary>
-        /// txtConfirmPassword control.
+        /// CPECompnyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPECompnyLevel;
         
         /// <summary>
-        /// CompareValidator1 control.
+        /// lblIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.LinkButton lblIndustry;
         
         /// <summary>
-        /// txtCurrCity control.
+        /// PanelIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrCity;
+        protected global::System.Web.UI.WebControls.Panel PanelIndustry;
         
         /// <summary>
-        /// TextBoxWatermarkExtender8 control.
+        /// cblIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender8;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblIndustry;
         
         /// <summary>
-        /// rfvCurrentCity control.
+        /// CPEIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCurrentCity;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEIndustry;
         
         /// <summary>
-        /// txtCurrAddress control.
+        /// lblSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrAddress;
+        protected global::System.Web.UI.WebControls.LinkButton lblSalary;
         
         /// <summary>
-        /// TextBoxWatermarkExtender9 control.
+        /// PanelSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender9;
+        protected global::System.Web.UI.WebControls.Panel PanelSalary;
         
         /// <summary>
-        /// rfvCurrentAddress control.
+        /// cblSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCurrentAddress;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblSalary;
         
         /// <summary>
-        /// FileUploadResume control.
+        /// CPESalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUploadResume;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPESalary;
         
         /// <summary>
-        /// rfvUploadResume control.
+        /// lblEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUploadResume;
+        protected global::System.Web.UI.WebControls.LinkButton lblEducation;
         
         /// <summary>
-        /// txtRefCandidateId control.
+        /// PanelEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRefCandidateId;
+        protected global::System.Web.UI.WebControls.Panel PanelEducation;
         
         /// <summary>
-        /// TextBoxWatermarkExtender10 control.
+        /// cblEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender10;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblEducation;
         
         /// <summary>
-        /// btnSubmit control.
+        /// CPEEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEEducation;
         
         /// <summary>
-        /// btnCancel control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.LinkButton lblStatus;
         
         /// <summary>
-        /// lblMessage control.
+        /// PanelStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Panel PanelStatus;
+        
+        /// <summary>
+        /// cblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cblStatus;
+        
+        /// <summary>
+        /// CPEStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEStatus;
+        
+        /// <summary>
+        /// lblJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblJobType;
+        
+        /// <summary>
+        /// PanelJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelJobType;
+        
+        /// <summary>
+        /// cblJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cblJobType;
+        
+        /// <summary>
+        /// CPEJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CPEJobType;
+        
+        /// <summary>
+        /// allJobs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton allJobs;
+        
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }
