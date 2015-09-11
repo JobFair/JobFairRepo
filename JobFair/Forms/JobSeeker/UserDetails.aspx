@@ -1,42 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="UserDetails.aspx.cs" Inherits="JobFair.Forms.JobSeeker.UserDetails" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Src="~/UserControls/JobSeeker/ContactDetails.ascx" TagPrefix="uc1" TagName="ContactDetails" %>
+<%@ Register Src="~/UserControls/JobSeeker/ProfessionalDetails.ascx" TagPrefix="uc1" TagName="ProfessionalDetails" %>
 
 
-<%@ Register src="../../UserControls/JobSeeker/PersonalDetails.ascx" tagname="PersonalDetails" tagprefix="uc1" %>
-<%@ Register src="../../UserControls/JobSeeker/ContactDetails.ascx" tagname="ContactDetails" tagprefix="uc2" %>
 
 
-<%@ Register src="../../UserControls/JobSeeker/ProfessionalDetails.ascx" tagname="ProfessionalDetails" tagprefix="uc3" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" Width="80%">
-        <cc1:TabPanel runat="server" HeaderText="Contact Details" ID="TabPanelContactdetails" Width="80%">
-           
+    <br />
+    <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="2">
+        <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="TabPanel1">                       
             <ContentTemplate>
-                <uc2:ContactDetails ID="ContactDetails1" runat="server" >
-                    
-                </uc2:ContactDetails>
-            </ContentTemplate>
-           
-        </cc1:TabPanel>
-        
-        <cc1:TabPanel ID="TabPanelPersonalDetails" runat="server" HeaderText="Personal Details">
-            <ContentTemplate>
-                <uc1:PersonalDetails ID="PersonalDetails1" runat="server" />
+                <updatepanel>
+<uc1:ContactDetails runat="server" id="ContactDetails" />
+
+</updatepanel>
             </ContentTemplate>
         </cc1:TabPanel>
-    <cc1:TabPanel ID="TabPanelProfDetails" runat="server" HeaderText="Professional Details">
-        <ContentTemplate>
-            
-            <uc3:ProfessionalDetails ID="ProfessionalDetails1" runat="server" />
-            
-        </ContentTemplate>
-    </cc1:TabPanel>    
+        <cc1:TabPanel ID="TabPanel2" runat="server" HeaderText="TabPanel2">
+            <ContentTemplate>
+                <updatepanel>
+<uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" />
+
+</updatepanel>
+            </ContentTemplate>
+        </cc1:TabPanel>
+        <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="TabPanel3">
+        </cc1:TabPanel>
+        <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="TabPanel4">
+        </cc1:TabPanel>
+        <cc1:TabPanel ID="TabPanel5" runat="server" HeaderText="TabPanel5">
+        </cc1:TabPanel>
     </cc1:TabContainer>
-    
-    </asp:Content>
+</asp:Content>

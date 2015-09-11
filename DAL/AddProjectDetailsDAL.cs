@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Entities.JobSeeker;
 using System.Data.SqlClient;
 using System.Configuration;
-using Entities.JobSeeker;
 
 namespace DAL
 {
    public class AddProjectDetailsDAL
     {
-       private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
        public DataTable LoadRole()
        {
            DataTable table = new DataTable();
@@ -49,5 +49,6 @@ namespace DAL
                throw;
            }
        }
+    
     }
 }
