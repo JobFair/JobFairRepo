@@ -16,5 +16,12 @@ namespace BAL
             return cdjDAL.CurrentProfessionalDetailsDAL(curentity);
             
         }
+
+        public int DesiredJobDetailsBAL(CurrentDesiredJobEntity cdjEntity)
+        {
+            CurrentDesiredJobDAL cdjDAL = new CurrentDesiredJobDAL();
+            return cdjDAL.DesiredJobDetailsDAL(cdjEntity);
+            
+        }
     }
 }

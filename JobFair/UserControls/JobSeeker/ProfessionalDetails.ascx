@@ -142,7 +142,7 @@
                 <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSave_Click" />
             &nbsp;
                 <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
-                <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblmsgsave" runat="server" Text="Label"></asp:Label>
             </td>
         </tr>
     </table>
@@ -218,25 +218,33 @@
             </td>
         </tr>
         <tr>
-            <td >Prefered Country</td>
+            <td >Prefered Country<br />
+                Prefered State<br />
+                Prefered City</td>
             <td >
-                <asp:DropDownList ID="ddlCountry" runat="server">
-                </asp:DropDownList>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <asp:DropDownList ID="ddlCountry" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        <br />
+                        <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlState_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        <br />
+                        <asp:DropDownList ID="ddlCity" runat="server" Width="69px">
+                        </asp:DropDownList>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </td>
         </tr>
         <tr>
-            <td >Prefered State</td>
+            <td >&nbsp;</td>
             <td >
-                <asp:DropDownList ID="ddlState" runat="server">
-                </asp:DropDownList>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
-            <td >Prefered City</td>
+            <td >&nbsp;</td>
             <td >
-                <asp:DropDownList ID="ddlCity" runat="server" Width="69px">
-                </asp:DropDownList>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td >&nbsp;</td>
@@ -244,6 +252,12 @@
                 <asp:Button ID="btnsaveDesJob" runat="server" Text="Save" OnClick="btnsaveDesJob_Click" />
             &nbsp;&nbsp;&nbsp;
                 <asp:Button ID="btnCancelDesJob" runat="server" Text="Cancel" />
+            </td>
+        </tr>
+        <tr>
+            <td >&nbsp;</td>
+            <td >
+                <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
             </td>
         </tr>
     </table>
