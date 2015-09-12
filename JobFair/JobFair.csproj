@@ -89,7 +89,6 @@
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
-    <Content Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx" />
     <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
@@ -179,12 +178,6 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.cs">
-      <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\JobSeeker\ProfessionalDetailsJobSeeker.aspx.designer.cs">
-      <DependentUpon>ProfessionalDetailsJobSeeker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
