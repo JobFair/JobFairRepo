@@ -9,10 +9,6 @@ namespace DAL
  public   class FunctionalAreaDal
     {
      private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-     /// <summary>
-     /// 
-     /// </summary>
-     /// <returns></returns>
      public DataTable GetFunctionalDAL()
      {
          connection.Open();
