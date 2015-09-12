@@ -73,7 +73,7 @@ namespace CommonUtil
 
         public static DataTable GetFunctionalAreaBAL()
         {
-            FunctionalAreaDal JobDAL = new FunctionalAreaDal();
+            FunctionalAreaDAL JobDAL = new FunctionalAreaDAL();
             return JobDAL.GetFunctionalDAL();
 
         }
