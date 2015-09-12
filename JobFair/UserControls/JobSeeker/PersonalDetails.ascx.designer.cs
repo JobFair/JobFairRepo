@@ -7,495 +7,441 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.JobSeeker {
+namespace JobFair.UserControls.JobSeeker {
     
     
-    public partial class ProfessionalDetailsJobSeeker {
+    public partial class PersonalDetails {
         
         /// <summary>
-        /// TableCurrentJob control.
+        /// lblPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TableCurrentJob;
+        protected global::System.Web.UI.WebControls.Label lblPhoto;
         
         /// <summary>
-        /// txtResumeHeadline control.
+        /// FileUploadPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtResumeHeadline;
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadPhoto;
         
         /// <summary>
-        /// TextBoxWatermarkExtender1 control.
+        /// lblPresentAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender1;
+        protected global::System.Web.UI.WebControls.Label lblPresentAdd;
         
         /// <summary>
-        /// txtFromdate control.
+        /// lblAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFromdate;
+        protected global::System.Web.UI.WebControls.Label lblAddress;
         
         /// <summary>
-        /// txtFromdate_CalendarExtender control.
+        /// txtPresentAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtFromdate_CalendarExtender;
+        protected global::System.Web.UI.WebControls.TextBox txtPresentAddress;
         
         /// <summary>
-        /// TextBoxWatermarkExtender2 control.
+        /// pnlPresentAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender2;
+        protected global::System.Web.UI.UpdatePanel pnlPresentAddress;
         
         /// <summary>
-        /// txtTill control.
+        /// ddlCountryPresent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTill;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCountryPresent;
         
         /// <summary>
-        /// txtTill_CalendarExtender control.
+        /// ddlStatePresent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtTill_CalendarExtender;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatePresent;
         
         /// <summary>
-        /// TextBoxWatermarkExtender3 control.
+        /// ddlCityPresent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCityPresent;
         
         /// <summary>
-        /// Label1 control.
+        /// lblState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblState;
         
         /// <summary>
-        /// ddlIndustry control.
+        /// lblCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIndustry;
+        protected global::System.Web.UI.WebControls.Label lblCity;
         
         /// <summary>
-        /// ddlDepartment control.
+        /// txtAreaPresent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
+        protected global::System.Web.UI.WebControls.TextBox txtAreaPresent;
         
         /// <summary>
-        /// txtCurrentJobRole control.
+        /// lblPinCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurrentJobRole;
+        protected global::System.Web.UI.WebControls.Label lblPinCode;
         
         /// <summary>
-        /// TextBoxWatermarkExtender4 control.
+        /// txtPincodePresent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender4;
+        protected global::System.Web.UI.WebControls.TextBox txtPincodePresent;
         
         /// <summary>
-        /// ddlPrimaryRole control.
+        /// lblPermAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPrimaryRole;
+        protected global::System.Web.UI.WebControls.Label lblPermAddress;
         
         /// <summary>
-        /// txtJobdescriptionPrimar control.
+        /// lblAddressPerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtJobdescriptionPrimar;
+        protected global::System.Web.UI.WebControls.Label lblAddressPerm;
         
         /// <summary>
-        /// TextBoxWatermarkExtender5 control.
+        /// txtAddressPerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender5;
+        protected global::System.Web.UI.WebControls.TextBox txtAddressPerm;
         
         /// <summary>
-        /// txtTechnicalskillPrimary control.
+        /// pnlPermanentAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTechnicalskillPrimary;
+        protected global::System.Web.UI.UpdatePanel pnlPermanentAddress;
         
         /// <summary>
-        /// TextBoxWatermarkExtender6 control.
+        /// ddlCountryPerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender6;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCountryPerm;
         
         /// <summary>
-        /// ddlSecRole control.
+        /// ddlStatePerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecRole;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatePerm;
         
         /// <summary>
-        /// txtjobdescriptionSec control.
+        /// ddlCityPerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtjobdescriptionSec;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCityPerm;
         
         /// <summary>
-        /// TextBoxWatermarkExtender7 control.
+        /// lblStatePerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender7;
+        protected global::System.Web.UI.WebControls.Label lblStatePerm;
         
         /// <summary>
-        /// txtTechnicalskillSec control.
+        /// lblCityPerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTechnicalskillSec;
+        protected global::System.Web.UI.WebControls.Label lblCityPerm;
         
         /// <summary>
-        /// TextBoxWatermarkExtender8 control.
+        /// txtAreaPerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender8;
+        protected global::System.Web.UI.WebControls.TextBox txtAreaPerm;
         
         /// <summary>
-        /// txtDesignation control.
+        /// lblPincodePerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDesignation;
+        protected global::System.Web.UI.WebControls.Label lblPincodePerm;
         
         /// <summary>
-        /// TextBoxWatermarkExtender9 control.
+        /// txtPincodePerm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender9;
+        protected global::System.Web.UI.WebControls.TextBox txtPincodePerm;
         
         /// <summary>
-        /// txtemployeer control.
+        /// lblDateOfBirth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtemployeer;
+        protected global::System.Web.UI.WebControls.Label lblDateOfBirth;
         
         /// <summary>
-        /// TextBoxWatermarkExtender10 control.
+        /// txtDOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender10;
+        protected global::System.Web.UI.WebControls.TextBox txtDOB;
         
         /// <summary>
-        /// txtReasonforJobchange control.
+        /// CalendarExtender1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReasonforJobchange;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
         
         /// <summary>
-        /// TextBoxWatermarkExtender11 control.
+        /// lblGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender11;
+        protected global::System.Web.UI.WebControls.Label lblGender;
         
         /// <summary>
-        /// txtTechSkills control.
+        /// rbtMale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTechSkills;
+        protected global::System.Web.UI.WebControls.RadioButton rbtMale;
         
         /// <summary>
-        /// TextBoxWatermarkExtender12 control.
+        /// rbtFemale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender12;
+        protected global::System.Web.UI.WebControls.RadioButton rbtFemale;
         
         /// <summary>
-        /// btnSaveCurrentJob control.
+        /// lblMaritalStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveCurrentJob;
+        protected global::System.Web.UI.WebControls.Label lblMaritalStatus;
         
         /// <summary>
-        /// btncancelCurrentJob control.
+        /// ddlMaritalStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btncancelCurrentJob;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMaritalStatus;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// lblPassport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.Label lblPassport;
         
         /// <summary>
-        /// lblmsg control.
+        /// pnlPassport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg;
+        protected global::System.Web.UI.UpdatePanel pnlPassport;
         
         /// <summary>
-        /// TableDesiredJob control.
+        /// rbtPassportYes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TableDesiredJob;
+        protected global::System.Web.UI.WebControls.RadioButton rbtPassportYes;
         
         /// <summary>
-        /// txtJobPostLooking control.
+        /// rbtPassportNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtJobPostLooking;
+        protected global::System.Web.UI.WebControls.RadioButton rbtPassportNo;
         
         /// <summary>
-        /// TextBoxWatermarkExtender13 control.
+        /// lblpass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender13;
+        protected global::System.Web.UI.WebControls.Label lblpass;
         
         /// <summary>
-        /// txtReleventExp control.
+        /// txtPassportNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReleventExp;
+        protected global::System.Web.UI.WebControls.TextBox txtPassportNo;
         
         /// <summary>
-        /// TextBoxWatermarkExtender14 control.
+        /// lblPassportValidity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender14;
+        protected global::System.Web.UI.WebControls.Label lblPassportValidity;
         
         /// <summary>
-        /// txtcurrentannualsalary control.
+        /// txtValidity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcurrentannualsalary;
+        protected global::System.Web.UI.WebControls.TextBox txtValidity;
         
         /// <summary>
-        /// TextBoxWatermarkExtender15 control.
+        /// CalendarExtender2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender15;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
         
         /// <summary>
-        /// txtexpectedsalary control.
+        /// lblUpdateWorkStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtexpectedsalary;
+        protected global::System.Web.UI.WebControls.Label lblUpdateWorkStatus;
         
         /// <summary>
-        /// TextBoxWatermarkExtender16 control.
+        /// ddlWorkStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender16;
+        protected global::System.Web.UI.WebControls.DropDownList ddlWorkStatus;
         
         /// <summary>
-        /// ddlNoticePeriod control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNoticePeriod;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// cblEmploymentStatus control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblEmploymentStatus;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// cblJobType control.
+        /// Label18 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblJobType;
-        
-        /// <summary>
-        /// txtworkarea control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtworkarea;
-        
-        /// <summary>
-        /// TextBoxWatermarkExtender17 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender17;
-        
-        /// <summary>
-        /// ddlPreferedState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPreferedState;
-        
-        /// <summary>
-        /// ddlPreferedJobLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPreferedJobLocation;
-        
-        /// <summary>
-        /// btnsaveDesJob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsaveDesJob;
-        
-        /// <summary>
-        /// btnCancelDesJob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelDesJob;
+        protected global::System.Web.UI.WebControls.Label Label18;
     }
 }

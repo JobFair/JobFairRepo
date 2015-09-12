@@ -41,11 +41,13 @@
   <ItemGroup>
     <Compile Include="Common\ChangePasswordEnitity.cs" />
     <Compile Include="Common\CityEntity.cs" />
+    <Compile Include="JobSeeker\AddProjectDetailsEntity.cs" />
     <Compile Include="JobSeeker\AffirmativeDetailsEntity.cs" />
     <Compile Include="JobSeeker\ContactDetailsEntity.cs" />
     <Compile Include="JobSeeker\CurrentDesiredJobEntity.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="JobSeeker\EducationalDetailsEntity.cs" />
     <Compile Include="JobSeeker\FeedbackEntity.cs" />
     <Compile Include="JobSeeker\ProfessionalDetailsEntity.cs" />
     <Compile Include="Common\ForgetPasswordEntity.cs" />
