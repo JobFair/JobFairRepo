@@ -8,13 +8,13 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace JobFair.Forms.JobSeeker
 {
-    public partial class AdvanceSearch : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
+	public partial class AdvanceSearch : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
             if (!Page.IsPostBack)
             {
                 FillIndustryCheckBoxList();
@@ -97,13 +97,8 @@ namespace JobFair.Forms.JobSeeker
 
         }
 
-        protected void btnsearch_Click(object sender, EventArgs e)
-        {
-
-        }
         protected void lnks_Click(object sender, EventArgs e)
         {
-
             DataTable dt = new DataTable();
             dt.Columns.Add("JobType", typeof(string));
 
@@ -115,53 +110,9 @@ namespace JobFair.Forms.JobSeeker
             //bind data source here
             GridView1.DataSource = dt;
             GridView1.DataBind();
+
         }
-        //private void BindGrid()
-        //{
-        //    string constr = ConfigurationManager.ConnectionStrings["JobPortalCon"].ConnectionString;
-        //    string query = "Select Freshers  from JS_AdvanceSerach";
 
-        //    string condition = string.Empty;
-        //    foreach (ListItem item in chkFreshers.Items)
-        //    {
-        //        condition += item.Selected ? string.Format("'{0}',", item.Value) : string.Empty;
-        //    }
 
-        //    if (!string.IsNullOrEmpty(condition))
-        //    {
-        //        condition = string.Format(" WHERE  IN ({0})", condition.Substring(0, condition.Length - 1));
-        //    }
-
-        //    using (SqlConnection con = new SqlConnection(constr))
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand(query + condition))
-        //        {
-        //            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-        //            {
-        //                cmd.Connection = con;
-        //                using (DataTable dt = new DataTable())
-        //                {
-        //                    sda.Fill(dt);
-        //                    GridView2.DataSource = dt;
-        //                    GridView2.DataBind();
-        //                }
-        //            }
-        //        }
-        //    }
-        
-        
-        //}
-        //protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
-        //{
-        //    GridView2.PageIndex = e.NewPageIndex;
-        //    // this.BindGrid();
-        //}
-
-        //protected void cblFreshness_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    GridView2.DataBind();
-        //}
-   
-    }
-
+	}
 }

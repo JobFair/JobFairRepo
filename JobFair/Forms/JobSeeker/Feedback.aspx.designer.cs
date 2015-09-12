@@ -10,7 +10,7 @@
 namespace JobFair.Forms.JobSeeker {
     
     
-    public partial class FeedbackJookseeker {
+    public partial class Feedback {
         
         /// <summary>
         /// form1 control.
