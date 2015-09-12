@@ -47,6 +47,7 @@
     <Compile Include="CurrentDesiredJobDAL.cs" />
     <Compile Include="FeedbackJSDAL.cs" />
     <Compile Include="ForgetPasswordDAL.cs" />
+    <Compile Include="FunctionalAreaDal.cs" />
     <Compile Include="LogInJobSeekerDAL.cs" />
     <Compile Include="PersonalDetailsJSDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
