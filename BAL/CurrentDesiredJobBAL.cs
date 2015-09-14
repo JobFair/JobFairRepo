@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL;
 using Entities.JobSeeker;
-using DAL;
 
 namespace BAL
 {
@@ -14,14 +9,12 @@ namespace BAL
         {
             CurrentDesiredJobDAL cdjDAL = new CurrentDesiredJobDAL();
             return cdjDAL.CurrentProfessionalDetailsDAL(curentity);
-            
         }
 
         public int DesiredJobDetailsBAL(CurrentDesiredJobEntity cdjEntity)
         {
             CurrentDesiredJobDAL cdjDAL = new CurrentDesiredJobDAL();
             return cdjDAL.DesiredJobDetailsDAL(cdjEntity);
-            
         }
     }
 }

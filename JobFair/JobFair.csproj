@@ -85,6 +85,7 @@
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
+    <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
@@ -106,14 +107,11 @@
     <Content Include="UserControls\Recruiter\DesiredCandidateProfileSearch.ascx" />
     <Content Include="UserControls\Recruiter\HeaderMenu.ascx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
-    <Content Include="Forms\Recruiter\RecruiterLogIn.aspx" />
-    <Content Include="Forms\Recruiter\RecruiterRegistration.aspx" />
     <Content Include="Forms\Recruiter\ViewAllJobsDetails.aspx" />
     <Content Include="packages.config" />
-    <Content Include="Forms\Recruiter\RecruiterHome.Master" />
-    <Content Include="Forms\Recruiter\ProfilePage.Master" />
     <Content Include="Forms\Employer\HomePage.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
+    <Content Include="Forms\Recruiter\RecruiterHome.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -125,6 +123,7 @@
     <Content Include="Images\calendar-list.jpg" />
     <Content Include="Images\L1-whte.jpg" />
     <Content Include="Style.css" />
+    <Content Include="UserControls\Recruiter\RecruiterRegistration.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +196,20 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\RecruiterHome.Master.cs">
+      <DependentUpon>RecruiterHome.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\RecruiterHome.Master.designer.cs">
+      <DependentUpon>RecruiterHome.Master</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">
@@ -315,34 +328,6 @@
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Recruiter\ProfilePage.Master.cs">
-      <DependentUpon>ProfilePage.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\ProfilePage.Master.designer.cs">
-      <DependentUpon>ProfilePage.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterHome.Master.cs">
-      <DependentUpon>RecruiterHome.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterHome.Master.designer.cs">
-      <DependentUpon>RecruiterHome.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.cs">
-      <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.designer.cs">
-      <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.cs">
-      <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.designer.cs">
-      <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Recruiter\ViewAllJobsDetails.aspx.cs">
       <DependentUpon>ViewAllJobsDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,6 +336,13 @@
       <DependentUpon>ViewAllJobsDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Recruiter\RecruiterRegistration.ascx.cs">
+      <DependentUpon>RecruiterRegistration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\RecruiterRegistration.ascx.designer.cs">
+      <DependentUpon>RecruiterRegistration.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadFiles\" />

@@ -49,8 +49,13 @@
     <Compile Include="PersonalDetailsJSBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />
+    <Compile Include="RegisterRecruiterBAL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonUtil\CommonUtil.csproj">
+      <Project>{8b683f96-6d4f-4b61-bd26-747d06a7f4f5}</Project>
+      <Name>CommonUtil</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{16884040-49d8-4052-9658-85141d4f8e0c}</Project>
       <Name>DAL</Name>

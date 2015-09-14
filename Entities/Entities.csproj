@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JobSeeker\RegisterEntity.cs" />
     <Compile Include="Recruiter\AddJobPostEntity.cs" />
+    <Compile Include="Recruiter\RegisterRecruiterEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Employer\" />
