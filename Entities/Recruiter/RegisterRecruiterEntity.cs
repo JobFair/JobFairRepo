@@ -8,6 +8,7 @@ namespace Entities.Recruiter
 {
     public class RegisterRecruiterEntity
     {
+        public string Recruiterid { get; set; }
         public string FullName { get; set; }
         public string Company { get; set; }
         public string MobileNo { get; set; }
