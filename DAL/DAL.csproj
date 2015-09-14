@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddJobPostDAL.cs" />
     <Compile Include="AddProjectDetailsDAL.cs" />
     <Compile Include="AffirmativeDetailsJSDAL.cs" />
     <Compile Include="ChangePasswordDAL.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="PersonalDetailsJSDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />
+    <Compile Include="RegisterRecruiterDAL.cs" />
     <Compile Include="SqlHelper.cs" />
   </ItemGroup>
   <ItemGroup>

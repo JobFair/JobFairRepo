@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddJobPostBAL.cs" />
     <Compile Include="AddProjectDetailsBAL.cs" />
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ContactDetailsJSBAL.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="PersonalDetailsJSBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />
+    <Compile Include="RegisterRecruiterBAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonUtil\CommonUtil.csproj">

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
+using Entities.Recruiter;
+using BAL;
+using CommonUtil;
 using System.Data;
-using System.Configuration;
+using System.Data.SqlClient;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -15,12 +17,52 @@ namespace JobFair.Forms.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            //GetDataFromSession();
             if (!Page.IsPostBack)
             {
                 FillIndustryCheckBoxList();
                 FillcityCheckBoxList();
+                BindDropDownIndustry();
+                BindDropDownDepartment();
+                BindDropDownFunctionalArea();
+                BindRepeaterData();
             }
+
         }
+        //private void GetDataFromSession()
+        //{
+        //    lblJobPost.Text = Session["JobPost"].ToString();
+
+        //}
+        private void BindDropDownIndustry()
+        {
+
+            ddlIndustry.DataSource = Utility.GetIndustryBAL();
+            ddlIndustry.DataTextField = "IndustryName";
+            ddlIndustry.DataValueField = "IndustryId";
+            ddlIndustry.DataBind();
+            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+
+
+        }
+        private void BindDropDownDepartment()
+        {
+            ddlDepartment.DataSource = Utility.GetDepartmentBAL();
+            ddlDepartment.DataTextField = "DepartmentName";
+            ddlDepartment.DataValueField = "DepartmentId";
+            ddlDepartment.DataBind();
+            ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        private void BindDropDownFunctionalArea()
+        {
+            ddlFunArea.DataSource = Utility.GetFunctionalAreaBAL();
+            ddlFunArea.DataTextField = "FunctionalArea";
+            ddlFunArea.DataBind();
+            ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
+
+        }
+
+
         private void FillIndustryCheckBoxList()
         {
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
@@ -49,6 +91,18 @@ namespace JobFair.Forms.JobSeeker
             con.Close();
 
         }
+        protected void BindRepeaterData()
+        {
+            SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from RS_JobPost", con);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            Repeater1.DataSource = ds;
+            Repeater1.DataBind();
+            con.Close();
+        }
 
         protected void btnsearch_Click(object sender, EventArgs e)
         {
@@ -66,11 +120,27 @@ namespace JobFair.Forms.JobSeeker
             dt.Rows.Add("Link 4");
 
             //bind data source here
-          GridView1.DataSource  = dt;
+            GridView1.DataSource = dt;
             GridView1.DataBind();
         }
-   
-    }
-       
-}
 
+        protected void btnsend_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM RS_JobPost", new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123"));
+
+            cmd.Connection.Open();
+            Repeater1.DataSource = cmd.ExecuteReader();
+            Repeater1.DataBind();
+            if (Repeater1.Items.Count > 0)
+            {
+                lblTotalCount.Text = Repeater1.Items.Count.ToString();
+            }
+            cmd.Connection.Close();
+            cmd.Connection.Dispose();
+
+
+        }
+
+    }
+
+}
