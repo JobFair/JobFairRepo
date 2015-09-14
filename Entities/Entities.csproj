@@ -55,10 +55,10 @@
     <Compile Include="JobSeeker\PersonalDetailsJSEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JobSeeker\RegisterEntity.cs" />
+    <Compile Include="Recruiter\AddJobPostEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Employer\" />
-    <Folder Include="Recruiter\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
