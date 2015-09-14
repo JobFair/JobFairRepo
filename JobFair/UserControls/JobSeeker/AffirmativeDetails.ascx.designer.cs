@@ -67,13 +67,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblSpeak;
         
         /// <summary>
-        /// txtLanguageFirst control.
+        /// ddlLanguageFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLanguageFirst;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanguageFirst;
         
         /// <summary>
         /// ddlProficiencyFirst control.
@@ -112,13 +112,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.CheckBox chkSpeakFirst;
         
         /// <summary>
-        /// txtLanguageSecond control.
+        /// ddlLanguageSecond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLanguageSecond;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanguageSecond;
         
         /// <summary>
         /// ddlProficiencySecond control.
@@ -157,13 +157,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.CheckBox chkSpeakSecond;
         
         /// <summary>
-        /// txtLanguageThird control.
+        /// ddlLanguageThird control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLanguageThird;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanguageThird;
         
         /// <summary>
         /// ddlProficiencyThird control.

@@ -2,6 +2,9 @@
 using Entities;
 using System;
 using System.Data;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CommonUtil
 {
@@ -51,24 +54,22 @@ namespace CommonUtil
             return cdjDAL.GetIndustryDAL();
         }
 
-        public static DataTable GetCountryBAL()
+        public static DataSet GetCountry()
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
             return pdDAL.LoadCountryAll();
         }
 
-        public static DataTable GetStateBAL(int countryid)
+        public static DataTable GetState(int countryid)
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
             return pdDAL.LoadStateAll(countryid);
           
         }
-        public static DataTable GetCityBAL(int stateid)
+        public static DataTable GetCity(int stateid)
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
             return pdDAL.LoadCityAll(stateid);
-
-
         }
 
         public static DataTable GetFunctionalAreaBAL()
@@ -77,6 +78,7 @@ namespace CommonUtil
             return JobDAL.GetFunctionalDAL();
 
         }
+       
     }
 
 }

@@ -22,12 +22,12 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ContactDetails control.
+        /// AffirmativeDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.ContactDetails ContactDetails;
+        protected global::JobFair.UserControls.JobSeeker.AffirmativeDetails AffirmativeDetails;
     }
 }

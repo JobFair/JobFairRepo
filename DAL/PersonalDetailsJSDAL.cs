@@ -15,13 +15,18 @@ namespace DAL
     {
        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
      
-       public DataTable LoadCountryAll()
+       public DataSet LoadCountryAll()
        {
-           DataTable table = new DataTable();
-           SqlCommand cmd = new SqlCommand("select * from Country", connection);
-           SqlDataAdapter da = new SqlDataAdapter(cmd);
-           da.Fill(table);
-           return table;
+
+           DataSet ds = new DataSet();
+           //SqlCommand cmd = new SqlCommand("select * from Country", connection);
+           //SqlDataAdapter da = new SqlDataAdapter(cmd);
+           //da.Fill(ds);
+           //return ds;
+           //string query = "SELECT * FROM Country";
+           //DataSet ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, query);
+           DataSet result = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Country");
+          return ds; 
 
        }
        public DataTable LoadStateAll(int CountryId)

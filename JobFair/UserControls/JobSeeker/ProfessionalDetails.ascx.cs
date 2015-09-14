@@ -25,7 +25,7 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDropDownCountry()
         {
-            ddlCountry.DataSource = Utility.GetCountryBAL();
+            ddlCountry.DataSource = Utility.GetCountry();
             ddlCountry.DataTextField = "CountryName";
             ddlCountry.DataValueField = "CountryId";
             ddlCountry.DataBind();

@@ -49,6 +49,7 @@
     </Compile>
     <Compile Include="JobSeeker\EducationalDetailsEntity.cs" />
     <Compile Include="JobSeeker\FeedbackEntity.cs" />
+    <Compile Include="JobSeeker\LanguageEntity.cs" />
     <Compile Include="JobSeeker\ProfessionalDetailsEntity.cs" />
     <Compile Include="Common\ForgetPasswordEntity.cs" />
     <Compile Include="Common\LogInEnitity.cs" />

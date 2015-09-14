@@ -26,6 +26,9 @@ namespace JobFair.UserControls.JobSeeker
                 ddlCountryPresent.DataBind();
                 ddlCountryPresent.Items.Insert(0, new ListItem("--Select--", "0"));
 
+            
+     
+
                 ddlCountryPerm.DataSource = pdBAL.LoadCountryAll();
                 ddlCountryPerm.DataTextField = "CountryName";
                 ddlCountryPerm.DataValueField = "CountryId";
