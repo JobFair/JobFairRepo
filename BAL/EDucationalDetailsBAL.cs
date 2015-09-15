@@ -10,13 +10,11 @@ namespace BAL
 {
    public class EducationalDetailsBAL
     {
-       public class EducationalDetailsBAL
-       {
-           public int EducationalDetailsBAL(EducationalDetailsEntity adEntity)
+           public string SaveEducationalDetailsBAL(EducationalDetailsEntity adEntity)
            {
                EducationalDetailsDAL adDAL = new EducationalDetailsDAL();
-               return adDAL.CreateXML(adEntity);
+              return adDAL.CreateXML(adEntity);
            }
        }
     }
-}
+
