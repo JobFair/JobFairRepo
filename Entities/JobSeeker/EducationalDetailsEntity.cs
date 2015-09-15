@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities.JobSeeker
 {
-    class EducationalDetailsEntity
+    public class EducationalDetailsEntity
     {
         //EducationalDetails JobSeekerEntity
         public string CandidateId { get; set; }
