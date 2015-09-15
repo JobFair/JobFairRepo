@@ -34,7 +34,11 @@ namespace JobFair.UserControls.JobSeeker
                 lblDescription.Visible = false;
             }
         }
-
+        /// <summary>
+        /// Handles the Click event of the btnSave control.
+        /// </summary>
+        /// <param name="sender">The source of the event</param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             AffirmativeDetailsEntity adEntity = new AffirmativeDetailsEntity();
