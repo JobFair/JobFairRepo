@@ -27,11 +27,11 @@ namespace BAL
        /// </summary>
         /// <param name="languageEntity">LanguageEntity</param>
         /// <returns>System.Int32</returns>
-        //public int LanguageDetailsBAL(LanguageEntity languageEntity)
-        //{
-        //    AffirmativeDetailsJSDAL adBAL = new AffirmativeDetailsJSDAL();
-        //    return adBAL.LanguageDetailsDAL(languageEntity);
-        //}
+        public int LanguageDetailsBAL(LanguageEntity languageEntity)
+        {
+            AffirmativeDetailsJSDAL adBAL = new AffirmativeDetailsJSDAL();
+            return adBAL.LanguageDetailsDAL(languageEntity);
+        }
 
        /// <summary>
        /// Load Languages

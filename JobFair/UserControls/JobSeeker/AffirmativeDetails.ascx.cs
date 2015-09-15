@@ -42,6 +42,7 @@ namespace JobFair.UserControls.JobSeeker
             LanguageEntity languageEntity = new LanguageEntity();
             //set the value of AffirmativeDetailsJSEntity and LanguageEntity
             adEntity.CandidateId = "JS00001";//static data used because session value not set
+            languageEntity.CandidateId = "JS00001";
             languageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
             languageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
             languageEntity.Read = Convert.ToBoolean(chkReadFirst.Checked);
@@ -70,10 +71,10 @@ namespace JobFair.UserControls.JobSeeker
                 adEntity.USAPermit = "No";
             }
             adEntity.OtherPermits = txtOtherPermit.Text;
-           // int success = adBAL.LanguageDetailsBAL(languageEntity);
+            int success = adBAL.LanguageDetailsBAL(languageEntity);
             int result = adBAL.AffirmaiveDetailsBAL(adEntity);
             
-            if (result > 0)
+            if (result > 0 && success > 0)
             {
                 Response.Write("<script language='javascript'>alert('Affirmative Details Inserted')</script>");
             }

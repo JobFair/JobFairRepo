@@ -8,6 +8,7 @@ namespace Entities.JobSeeker
 {
    public class AddProjectDetailsEntity
     {
+       //AddProjectDetailsEntity
         public string CandidateId { get; set; }
         public string CompanyName { get; set; }
         public string ProjectTitle { get; set; }

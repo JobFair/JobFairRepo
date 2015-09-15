@@ -57,19 +57,19 @@ namespace CommonUtil
         public static DataSet GetCountry()
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.LoadCountryAll();
+            return pdDAL.GetCountry();
         }
 
         public static DataTable GetState(int countryid)
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.LoadStateAll(countryid);
+            return pdDAL.GetState(countryid);
           
         }
         public static DataTable GetCity(int stateid)
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.LoadCityAll(stateid);
+            return pdDAL.GetCity(stateid);
         }
 
         public static DataTable GetFunctionalAreaBAL()

@@ -15,7 +15,7 @@ namespace DAL
     {
        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
      
-       public DataSet LoadCountryAll()
+       public DataSet GetCountry()
        {
 
            DataSet ds = new DataSet();
@@ -29,7 +29,7 @@ namespace DAL
           return ds; 
 
        }
-       public DataTable LoadStateAll(int CountryId)
+       public DataTable GetState(int CountryId)
        {
            DataTable table = new DataTable();
            SqlCommand cmd = new SqlCommand("select * from State where CountryId="+CountryId,connection);
@@ -37,7 +37,7 @@ namespace DAL
            da.Fill(table);
            return table;
        }
-       public DataTable LoadCityAll(int StateId)
+       public DataTable GetCity(int StateId)
        {
            DataTable table = new DataTable();
            SqlCommand cmd = new SqlCommand("select * from City where StateId="+StateId,connection);

@@ -21,15 +21,15 @@ namespace DAL
         /// <summary>
         /// method for converting the object to XML.
         /// </summary>
-        /// <param name="languageEntity"></param>
+        /// <param name="languageDetails"></param>
         /// <returns></returns>
-        private string CreateXML(LanguageEntity languageEntity)
+        private string CreateXML(LanguageEntity languageDetails)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            XmlSerializer xmlSerializer = new XmlSerializer(languageEntity.GetType());
+            XmlSerializer xmlSerializer = new XmlSerializer(languageDetails.GetType());
             using (MemoryStream xmlStream = new MemoryStream())
             {
-                xmlSerializer.Serialize(xmlStream, languageEntity);
+                xmlSerializer.Serialize(xmlStream, languageDetails);
                 xmlStream.Position = 0;
                 xmlDoc.Load(xmlStream);
                 return xmlDoc.InnerXml;
@@ -37,26 +37,24 @@ namespace DAL
         }
 
         /// <summary>
-        /// Insert LanguageDetails
+        /// Insert languageDetails
         /// </summary>
-        /// <param name="languageEntity">Object for inserting data into database</param>
+        /// <param name="languageDetails">Object for inserting data into database</param>
         /// <returns></returns>
-        //public int LanguageDetailsDAL(LanguageEntity languageEntity)
-        //{
+        public int LanguageDetailsDAL(LanguageEntity language)
+        {
 
-        //    connection.Open();
-        //    SqlCommand cmd = new SqlCommand();
-        //    SqlParameter[] sqlparams ={
-        //                                   new SqlParameter("@candidateId",languageEntity.CandidateId),
-        //                                   new SqlParameter("@languageId",languageEntity.LanguageId),
-        //                                  new SqlParameter("@proficiencyLevel",languageEntity.ProficiencyLevel),
-        //                                  new SqlParameter("@read",languageEntity.Read),
-        //                                  new SqlParameter("@write",languageEntity.Write),
-        //                                  new SqlParameter("@speak",languageEntity.Speak),
-        //                                  };
-        //   int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_InsertLanguageDetails", sqlparams);
-        //    return result;
-        //}
+            connection.Open();
+            SqlCommand cmd = new SqlCommand();
+
+            // Get xml string data from object
+            string languageDetails = CreateXML(language);
+
+            SqlParameter[] sqlparams ={new SqlParameter("@languageDetails",languageDetails)};
+
+            int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertLanguageDetails", sqlparams);
+            return result;
+        }
         
         /// <summary>
         /// Load the Languages

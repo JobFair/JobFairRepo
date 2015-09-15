@@ -17,54 +17,52 @@ namespace DAL
             try
             {
                 connection.Open();
-               // SqlCommand cmd = new SqlCommand();
+                // SqlCommand cmd = new SqlCommand();
                 SqlCommand cmd = new SqlCommand("sp_RE_InsertRegisterDetails", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@recrName", rrentity.FullName);
-                cmd.Parameters.AddWithValue("@company", rrentity.Company);
-                cmd.Parameters.AddWithValue("@mobNo", rrentity.MobileNo);
-                cmd.Parameters.AddWithValue("@oficialEmailid", rrentity.OficialEmailId);
-                cmd.Parameters.AddWithValue("@city", rrentity.City);
-                cmd.Parameters.AddWithValue("@password", rrentity.Password);
-                cmd.Parameters.AddWithValue("@photoPath", rrentity.PhotoPath);
-                cmd.Parameters.Add("@setrecruiterid", SqlDbType.VarChar, 500);
-                cmd.Parameters["@setrecruiterid"].Direction = ParameterDirection.Output;
-                int result = cmd.ExecuteNonQuery();
-                string recId = cmd.Parameters["@setrecruiterid"].Value.ToString();
-                if (result > 0)
-                {
-                    if (recId != null)
-                    {
-                        return recId;
-                    }
-                }
-                return null;
+                //cmd.Parameters.AddWithValue("@recrName", rrentity.FullName);
+                //cmd.Parameters.AddWithValue("@company", rrentity.Company);
+                //cmd.Parameters.AddWithValue("@mobNo", rrentity.MobileNo);
+                //cmd.Parameters.AddWithValue("@oficialEmailid", rrentity.OficialEmailId);
+                //cmd.Parameters.AddWithValue("@city", rrentity.City);
+                //cmd.Parameters.AddWithValue("@password", rrentity.Password);
+                //cmd.Parameters.AddWithValue("@photoPath", rrentity.PhotoPath);
+                //cmd.Parameters.Add("@setrecruiterid", SqlDbType.VarChar, 500);
+                //cmd.Parameters["@setrecruiterid"].Direction = ParameterDirection.Output;
+                //int result = cmd.ExecuteNonQuery();
+                //string recId = cmd.Parameters["@setrecruiterid"].Value.ToString();
+                //if (result > 0)
+                //{
+                //    if (recId != null)
+                //    {
+                //        return recId;
+                //    }
+                //}
+                //return null;
 
 
 
                 ///code to check
 
-                //SqlParameter[] sparams ={new SqlParameter("@recrName",rrentity.FullName),
-                //                   new SqlParameter("@company",rrentity.Company),
-                //                   new SqlParameter("@mobNo",rrentity.MobileNo),
-                //                   new SqlParameter("@oficialEmailid",rrentity.OficialEmailId),
-                //                   new SqlParameter("@city",rrentity.City),
-                //                   new SqlParameter("@password",rrentity.Password),
-                //                   new SqlParameter("@photoPath",rrentity.PhotoPath),
-                //                   new SqlParameter("@setrecruiterid",SqlDbType.VarChar,500,ParameterDirection.Output,true,0,0,"RecruiterID",DataRowVersion.Current,null)
-                //                        };
-               
-                //int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertRegisterDetails", sparams);
-                //string id =  ???? ;
-                //if (result > 0)
-                //{
-                //    return id;
-                //}
-                //else
-                //{
-                //    return null;
-                //}
+                SqlParameter[] param = new SqlParameter[7];
+                param[0] = new SqlParameter("@recrName", rrentity.FullName);
+                param[1] = new SqlParameter("@company", rrentity.Company);
+                param[2] = new SqlParameter("@mobNo", rrentity.MobileNo);
+                param[3] = new SqlParameter("@oficialEmailid", rrentity.OficialEmailId);
+                param[4] = new SqlParameter("@city", rrentity.City);
+                param[5] = new SqlParameter("@password", rrentity.Password);
+                param[6] = new SqlParameter("@photoPath", rrentity.PhotoPath);
+                param[7] = new SqlParameter("@setrecruiterid", SqlDbType.VarChar);
+                param[7].Direction = ParameterDirection.Output;
 
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertRegisterDetails", param);
+                string recruiterID = Convert.ToString(param[7].Value);
+                
+                if (string.IsNullOrEmpty(recruiterID))
+                {
+                    return null;
+                }
+                return recruiterID;
             }
             catch (Exception ex)
             {
@@ -74,8 +72,8 @@ namespace DAL
             {
                 connection.Close();
             }
-            
-            
+
+
         }
     }
 }

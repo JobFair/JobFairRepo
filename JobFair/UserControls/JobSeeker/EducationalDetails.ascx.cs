@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Xml;
+using System.Data.SqlClient;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -76,16 +79,41 @@ namespace JobFair.UserControls.JobSeeker
                 btnHSCAdd.Visible = false;
         }
 
-        //protected void cbCertification_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    divCertification.Visible = true;
-        //    pnlCollapsableCertification.Visible = true;
-        //}
+        protected void BtnSubmit_Click(object sender, EventArgs e)
+        {
 
-        //protected void cbWorkshop_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    divWorkshop.Visible = true;
-        //    pnlCollapsableWorkshop.Visible = true;
-        //}
+            //XmlTextReader xmlreader = new XmlTextReader(Server.MapPath("D:/Project/JobFair/DAL/EducationalDetailsDAL.xml"));
+            //DataSet ds = new DataSet();
+            //ds.ReadXml(xmlreader);
+            //xmlreader.Close();
+            //if (ds.Tables.Count != 0)
+            //{
+            //    using (SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123"))
+            //    {
+            //        con.Open();
+            //        SqlCommand cmd = new SqlCommand("prc_readxmldata", con);
+            //        cmd.CommandType = CommandType.StoredProcedure;
+            //        cmd.Parameters.Add("@XMLdata", SqlDbType.Xml).Value = ds.GetXml();
+            //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //        DataSet ds1 = new DataSet();
+            //        da.Fill(ds1);
+            //       // gvDetails.DataSource = ds1;
+            //       // gvDetails.DataBind();
+            //        con.Close();
+            //    }
+            //}
+        }
+
+        protected void cbCertification_CheckedChanged(object sender, EventArgs e)
+        {
+            divCertification.Visible = true;
+            pnlCollapsableCert.Visible = true;
+        }
+
+        protected void cbWorkshop_CheckedChanged(object sender, EventArgs e)
+        {
+            divWorkshop.Visible = true;
+            pnlCollapsableWork.Visible = true;
+        }
     }
 }

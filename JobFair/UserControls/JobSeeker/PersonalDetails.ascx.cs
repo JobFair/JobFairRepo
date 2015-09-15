@@ -20,7 +20,7 @@ namespace JobFair.UserControls.JobSeeker
             if (!IsPostBack)
             {
                 PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
-                ddlCountryPresent.DataSource = pdBAL.LoadCountryAll();
+                ddlCountryPresent.DataSource = pdBAL.GetCountry();
                 ddlCountryPresent.DataTextField = "CountryName";
                 ddlCountryPresent.DataValueField = "CountryId";
                 ddlCountryPresent.DataBind();
@@ -29,7 +29,7 @@ namespace JobFair.UserControls.JobSeeker
             
      
 
-                ddlCountryPerm.DataSource = pdBAL.LoadCountryAll();
+                ddlCountryPerm.DataSource = pdBAL.GetCountry();
                 ddlCountryPerm.DataTextField = "CountryName";
                 ddlCountryPerm.DataValueField = "CountryId";
                 ddlCountryPerm.DataBind();
@@ -143,7 +143,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
             int CountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
-            ddlStatePresent.DataSource = pdBAL.LoadStateAll(CountryId);
+            ddlStatePresent.DataSource = pdBAL.GetState(CountryId);
             ddlStatePresent.DataTextField = "StateName";
             ddlStatePresent.DataValueField = "StateId";
             ddlStatePresent.DataBind();
@@ -158,7 +158,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
             int StateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
-            ddlCityPresent.DataSource = pdBAL.LoadCityAll(StateId);
+            ddlCityPresent.DataSource = pdBAL.GetCity(StateId);
             ddlCityPresent.DataTextField = "cityName";
             ddlCityPresent.DataValueField = "cityID";
             ddlCityPresent.DataBind();
@@ -174,7 +174,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
             int CountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
-            ddlStatePerm.DataSource = pdBAL.LoadStateAll(CountryId);
+            ddlStatePerm.DataSource = pdBAL.GetState(CountryId);
             ddlStatePerm.DataTextField = "StateName";
             ddlStatePerm.DataValueField = "StateId";
             ddlStatePerm.DataBind();
@@ -189,7 +189,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
             int StateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
-            ddlCityPerm.DataSource = pdBAL.LoadCityAll(StateId);
+            ddlCityPerm.DataSource = pdBAL.GetCity(StateId);
             ddlCityPerm.DataTextField = "cityName";
             ddlCityPerm.DataValueField = "cityID";
             ddlCityPerm.DataBind();
