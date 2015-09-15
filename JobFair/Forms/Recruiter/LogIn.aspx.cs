@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.Recruiter
 {
-    public partial class RecruiterRegistration1 : System.Web.UI.Page
+    public partial class LogIn : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

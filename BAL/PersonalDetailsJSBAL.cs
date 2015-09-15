@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using System.Data;
 using Entities;
+using CommonUtil;
 
 namespace BAL
 {
@@ -15,11 +16,12 @@ namespace BAL
         ///   Load Country bal.
        /// </summary>
        /// <returns></returns>
-       public DataTable LoadCountryAll()
+       public DataSet LoadCountryAll()
        {
-           PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-           return pdDAL.LoadCountryAll();
-
+          return Utility.GetCountry();
+           
+           //PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+           //return pdDAL.LoadCountryAll();
        }
        /// <summary>
        /// Load State bal

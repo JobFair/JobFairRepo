@@ -309,7 +309,6 @@
     </Compile>
     <Compile Include="Forms\Recruiter\ProfilePage.Master.cs">
       <DependentUpon>ProfilePage.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Recruiter\ProfilePage.Master.designer.cs">
       <DependentUpon>ProfilePage.Master</DependentUpon>
@@ -323,14 +322,12 @@
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.cs">
       <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.designer.cs">
       <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.cs">
       <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.designer.cs">
       <DependentUpon>RecruiterRegistration.aspx</DependentUpon>

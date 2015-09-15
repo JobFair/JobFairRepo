@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="txtLanguageFirst" runat="server"></asp:TextBox>
+                <asp:DropDownList ID="ddlLanguageFirst" runat="server"></asp:DropDownList>
             </td>
             <td>
                 <asp:DropDownList ID="ddlProficiencyFirst" runat="server">
@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="txtLanguageSecond" runat="server"></asp:TextBox>
+                <asp:DropDownList ID="ddlLanguageSecond" runat="server"></asp:DropDownList>
             </td>
             <td>
                 <asp:DropDownList ID="ddlProficiencySecond" runat="server">
@@ -65,7 +65,7 @@
         </tr>
         <tr>
            <td>
-                <asp:TextBox ID="txtLanguageThird" runat="server"></asp:TextBox>
+               <asp:DropDownList ID="ddlLanguageThird" runat="server"></asp:DropDownList>
             </td>
             <td>
                 <asp:DropDownList ID="ddlProficiencyThird" runat="server">

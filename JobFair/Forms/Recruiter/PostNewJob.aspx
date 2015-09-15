@@ -26,16 +26,14 @@
         <tr>
             <td class="auto-style7">Job Locations</td>
             <td>
-                <div id="divDDL" class="divDDL" runat="server">
-        Please Select…
-                </div>
-                <asp:Panel ID="pnlCustomers" runat="server" CssClass="MultipleSelectionDDL" Height="49px" Width="85px">
-                    <asp:CheckBoxList ID="chkCustomerList" runat="server" onclick="readCheckBoxList()" Width="110px" Height="40px" >
-                        <asp:ListItem>Pune</asp:ListItem>
-                        <asp:ListItem>Mumbai</asp:ListItem>
-                    </asp:CheckBoxList>
-                </asp:Panel>
+                <asp:TextBox ID="txtJobLocation" runat="server"></asp:TextBox>
                 <br /></td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Job Locations Area</td>
+            <td>
+                <asp:TextBox ID="txtJobLocationArea" runat="server"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td class="auto-style7">Company Level</td>
@@ -85,7 +83,7 @@
         <tr>
             <td class="auto-style7">Keywords/Skillsets Technical</td>
             <td>
-                <asp:TextBox ID="txtKeyTechnical" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtKeyTechnical" runat="server" Height="22px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -98,10 +96,9 @@
         <tr>
             <td class="auto-style7">Gender</td>
             <td>
-                <asp:CheckBoxList ID="chkGender" runat="server">
-                    <asp:ListItem>Male</asp:ListItem>
-                    <asp:ListItem>Female</asp:ListItem>
-                </asp:CheckBoxList>
+                <asp:RadioButton ID="rdbmale" runat="server" Text="Male" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:RadioButton ID="rdbFemale" runat="server" Text="Female" />
             </td>
         </tr>
         <tr>
@@ -127,6 +124,8 @@
             <td>
                 <asp:Button ID="btnPostJob" runat="server" Text="Post Job" OnClick="btnPostJob_Click" />
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            &nbsp;
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </td>
         </tr>
     </table>

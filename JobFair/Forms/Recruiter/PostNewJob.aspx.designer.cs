@@ -31,31 +31,22 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.TextBox txtJobtitle;
         
         /// <summary>
-        /// divDDL control.
+        /// txtJobLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDDL;
+        protected global::System.Web.UI.WebControls.TextBox txtJobLocation;
         
         /// <summary>
-        /// pnlCustomers control.
+        /// txtJobLocationArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCustomers;
-        
-        /// <summary>
-        /// chkCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkCustomerList;
+        protected global::System.Web.UI.WebControls.TextBox txtJobLocationArea;
         
         /// <summary>
         /// ddlCompanyLevel control.
@@ -139,13 +130,22 @@ namespace JobFair.Forms.Recruiter {
         protected global::AjaxControlToolkit.CalendarExtender txtWorkExp_CalendarExtender;
         
         /// <summary>
-        /// chkGender control.
+        /// rdbmale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkGender;
+        protected global::System.Web.UI.WebControls.RadioButton rdbmale;
+        
+        /// <summary>
+        /// rdbFemale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbFemale;
         
         /// <summary>
         /// txtAnnualSalary control.
@@ -191,5 +191,14 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

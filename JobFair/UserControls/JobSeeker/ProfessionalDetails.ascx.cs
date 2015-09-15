@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Entities.JobSeeker;
-using BAL;
+﻿using BAL;
 using CommonUtil;
+using Entities.JobSeeker;
+using System;
+using System.Web.UI.WebControls;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -14,18 +10,17 @@ namespace JobFair.UserControls.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            BindDropDownIndustry();
-            BindDropDownDepartment();
-            BindDropDownCountry();
-            
+            if (!IsPostBack)
+            {
+                BindDropDownIndustry();
+                BindDropDownDepartment();
+                BindDropDownCountry();
+            }
         }
-
-       
 
         private void BindDropDownCountry()
         {
-            ddlCountry.DataSource = Utility.GetCountryBAL();
+            ddlCountry.DataSource = Utility.GetCountry();
             ddlCountry.DataTextField = "CountryName";
             ddlCountry.DataValueField = "CountryId";
             ddlCountry.DataBind();
@@ -43,15 +38,13 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDropDownIndustry()
         {
-
             ddlIndustry.DataSource = Utility.GetIndustryBAL();
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
             ddlIndustry.DataBind();
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
-
-
         }
+
         /// <summary>
         /// Handles the Click event of the btnSave control.
         /// </summary>
@@ -61,22 +54,22 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                //calculting total experience     
+                //calculting total experience
                 DateTime FromYear = Convert.ToDateTime(txtFromdate.Text);
                 DateTime ToYear = Convert.ToDateTime(txtTill.Text);
-                //Creating object of TimeSpan Class  
+                //Creating object of TimeSpan Class
                 TimeSpan objTimeSpan = ToYear - FromYear;
-                //years  
+                //years
                 int Years = ToYear.Year - FromYear.Year;
                 int Month = ToYear.Month - FromYear.Month;
                 Label1.Text = Years + "Years-" + Month + "Months";
                 CurrentDesiredJobEntity curentity = new CurrentDesiredJobEntity();
                 CurrentDesiredJobBAL curjobBAL = new CurrentDesiredJobBAL();
-                //ProfessionalDetailsCurrentJSBAL rjsBAL = new ProfessionalDetailsCurrentJSBAL();
+
                 curentity.Candidateid = "JS00001";
                 curentity.ResumeHeadline = txtResumeHeadline.Text;
                 curentity.TotalExperience = Years + "." + Month;
-                curentity.Industry = ddlIndustry.SelectedIndex;
+                curentity.Industry = Convert.ToInt32(ddlIndustry.SelectedItem.Value);
                 curentity.Department = ddlDepartment.SelectedIndex;
                 curentity.CurrentJobRole = txtCurrentJobRole.Text;
                 curentity.PrimFunctionalRole = ddlPrimaryRole.SelectedItem.Text;
@@ -92,25 +85,80 @@ namespace JobFair.UserControls.JobSeeker
                 int result = curjobBAL.CurrentProfessionalDetailsBAL(curentity);
                 if (result > 0)
                 {
-                    lblmsg.Text = "Your details saved successfully";
+                    lblmsgsave.Text = "Your current professional  details saved successfully";
                 }
                 else
                 {
-                    lblmsg.Text = "Your details are not saved";
+                    lblmsgsave.Text = "Your current professional  details are not saved";
                 }
-
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
         }
 
+        /// <summary>
+        /// Desired job details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnsaveDesJob_Click(object sender, EventArgs e)
         {
+            try
+            {
+                CurrentDesiredJobBAL cdjBAL = new CurrentDesiredJobBAL();
+                CurrentDesiredJobEntity cdjEntity = new CurrentDesiredJobEntity();
+                cdjEntity.Candidateid = "JS00001";
+                cdjEntity.JobPostLooking = txtJobPostLooking.Text;
+                cdjEntity.RelevantExp = txtReleventExp.Text;
+                cdjEntity.CurrentAnualSal = Convert.ToDouble(txtcurrentannualsalary.Text);
+                cdjEntity.ExpectedAnualSal = Convert.ToDouble(txtexpectedsalary.Text);
+                cdjEntity.NoticePeriod = ddlNoticePeriod.SelectedItem.Text;
+                cdjEntity.EmploymentStatus = cblEmploymentStatus.SelectedItem.Text;
+                cdjEntity.JobType = cblJobType.SelectedItem.Text;
+                cdjEntity.WorkArea = txtworkarea.Text;
+                cdjEntity.PreferredCountry = ddlCountry.SelectedItem.Value;
+                cdjEntity.PreferredState = ddlState.SelectedItem.Value;
+                cdjEntity.PreferredCity = ddlCountry.SelectedItem.Value;
+                int result = cdjBAL.DesiredJobDetailsBAL(cdjEntity);
+                if (result > 0)
+                {
+                    lblmsg.Text = "Your desired job details saved successfully";
+                }
+                else
+                {
+                    lblmsg.Text = "Your details not saved successfully";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
+
+            ddlState.DataSource = Utility.GetState(CountryId);
+            
+            ddlState.DataTextField = "StateName";
+            ddlState.DataValueField = "StateId";
+            ddlState.DataBind();
+            ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int StateId = Convert.ToInt32(ddlState.SelectedValue);
+
+            ddlCity.DataSource = Utility.GetCity(StateId);
+
+            ddlCity.DataTextField = "cityName";
+            ddlCity.DataValueField = "cityID";
+            ddlCity.DataBind();
+            ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
     }
 }

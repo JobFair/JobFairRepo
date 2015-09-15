@@ -25,7 +25,9 @@
         <cc1:TabPanel ID="TabPanel2" runat="server" HeaderText="TabPanel2">
             <ContentTemplate>
                 <updatepanel>
-<uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" />
+<uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" >
+</uc1:ProfessionalDetails>
+
 </updatepanel>
             </ContentTemplate>
         </cc1:TabPanel>
