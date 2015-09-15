@@ -136,7 +136,11 @@ namespace JobFair.UserControls.JobSeeker
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Jyoti
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             int CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
