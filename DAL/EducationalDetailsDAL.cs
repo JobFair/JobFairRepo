@@ -11,6 +11,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
+
 namespace DAL
 {
     public class EducationalDetailsDAL
@@ -32,7 +33,7 @@ namespace DAL
 
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
-        public int EducationalDetailsDAL(EducationalDetailsEntity adEntity)
+        public int SaveEducationalDetailsDAL(EducationalDetailsEntity adEntity)
         {
             try
             {

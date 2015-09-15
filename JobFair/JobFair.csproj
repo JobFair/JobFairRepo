@@ -114,7 +114,6 @@
     <Content Include="Forms\Recruiter\ViewAllJobsDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
-    <Content Include="Forms\Recruiter\ProfilePage.Master" />
     <Content Include="Forms\Employer\HomePage.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
     <None Include="Web.Debug.config">
@@ -317,12 +316,6 @@
     </Compile>
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\ProfilePage.Master.cs">
-      <DependentUpon>ProfilePage.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\ProfilePage.Master.designer.cs">
-      <DependentUpon>ProfilePage.Master</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterHome.Master.cs">
       <DependentUpon>RecruiterHome.Master</DependentUpon>
