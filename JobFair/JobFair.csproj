@@ -85,6 +85,7 @@
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
+    <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
@@ -106,7 +107,9 @@
     <Content Include="UserControls\Recruiter\DesiredCandidateProfileSearch.ascx" />
     <Content Include="UserControls\Recruiter\HeaderMenu.ascx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
-    <Content Include="Forms\Recruiter\RecruiterLogIn.aspx" />
+    <Content Include="Forms\Recruiter\RecruiterLogIn.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Forms\Recruiter\RecruiterRegistration.aspx" />
     <Content Include="Forms\Recruiter\ViewAllJobsDetails.aspx" />
     <Content Include="packages.config" />
@@ -124,6 +127,8 @@
   <ItemGroup>
     <Content Include="Images\calendar-list.jpg" />
     <Content Include="Images\L1-whte.jpg" />
+    <Content Include="UserControls\Recruiter\RecruiterForgetPwd.ascx" />
+    <Content Include="UserControls\Recruiter\RecruiterRegistration.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +194,12 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">
@@ -322,9 +333,11 @@
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.cs">
       <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.designer.cs">
       <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.cs">
       <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
@@ -340,6 +353,18 @@
       <DependentUpon>ViewAllJobsDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Recruiter\RecruiterForgetPwd.ascx.cs">
+      <DependentUpon>RecruiterForgetPwd.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\RecruiterForgetPwd.ascx.designer.cs">
+      <DependentUpon>RecruiterForgetPwd.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\RecruiterRegistration.ascx.cs">
+      <DependentUpon>RecruiterRegistration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\RecruiterRegistration.ascx.designer.cs">
+      <DependentUpon>RecruiterRegistration.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadFiles\" />
