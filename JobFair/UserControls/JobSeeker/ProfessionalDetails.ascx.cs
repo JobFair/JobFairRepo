@@ -136,6 +136,7 @@ namespace JobFair.UserControls.JobSeeker
                 throw ex;
             }
         }
+
         /// <summary>
         /// Jyoti
         /// </summary>

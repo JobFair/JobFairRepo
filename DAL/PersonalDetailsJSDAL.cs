@@ -15,7 +15,7 @@ namespace DAL
     {
        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
      
-       public DataSet LoadCountryAll()
+       public DataSet GetCountryDAL()
        {
 
            DataSet ds = new DataSet();

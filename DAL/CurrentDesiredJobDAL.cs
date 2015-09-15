@@ -9,8 +9,12 @@ namespace DAL
     public class CurrentDesiredJobDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-
-        public int CurrentProfessionalDetailsDAL(CurrentDesiredJobEntity curentity)
+        /// <summary>
+        /// Job Seekers current professional details DAL
+        /// </summary>
+        /// <param name="curentity">Current job details entity</param>
+        /// <returns></returns>
+        public int SaveCurrentProfessionalDetailsDAL(CurrentDesiredJobEntity curentity)
         {
             try
             {

@@ -5,6 +5,10 @@ using System.Data;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using DAL;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace CommonUtil
 {
@@ -13,6 +17,8 @@ namespace CommonUtil
     /// </summary>
     public static class Utility
     {
+       
+
         /// <summary>
         /// Forget password
         /// </summary>
@@ -57,8 +63,8 @@ namespace CommonUtil
         public static DataSet GetCountry()
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.LoadCountryAll();
-        }
+            return pdDAL.GetCountryDAL();
+         }
 
         public static DataTable GetState(int countryid)
         {
