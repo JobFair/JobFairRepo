@@ -70,7 +70,7 @@ namespace JobFair.UserControls.JobSeeker
                 adEntity.USAPermit = "No";
             }
             adEntity.OtherPermits = txtOtherPermit.Text;
-            int success = adBAL.LanguageDetailsBAL(languageEntity);
+           // int success = adBAL.LanguageDetailsBAL(languageEntity);
             int result = adBAL.AffirmaiveDetailsBAL(adEntity);
             
             if (result > 0)

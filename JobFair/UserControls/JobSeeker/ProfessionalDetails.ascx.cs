@@ -141,8 +141,8 @@ namespace JobFair.UserControls.JobSeeker
         {
             int CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
 
-            ddlState.DataSource = Utility.GetState(CountryId);
-            
+            ddlState.DataSource = Utility.GetStateBAL(CountryId);
+
             ddlState.DataTextField = "StateName";
             ddlState.DataValueField = "StateId";
             ddlState.DataBind();
@@ -153,7 +153,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             int StateId = Convert.ToInt32(ddlState.SelectedValue);
 
-            ddlCity.DataSource = Utility.GetCity(StateId);
+            ddlCity.DataSource = Utility.GetCityBAL(StateId);
 
             ddlCity.DataTextField = "cityName";
             ddlCity.DataValueField = "cityID";

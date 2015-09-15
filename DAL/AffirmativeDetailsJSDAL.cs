@@ -21,15 +21,15 @@ namespace DAL
         /// <summary>
         /// method for converting the object to XML.
         /// </summary>
-        /// <param name="languageDetails"></param>
+        /// <param name="languageEntity"></param>
         /// <returns></returns>
-        private string CreateXML(LanguageEntity languageDetails)
+        private string CreateXML(LanguageEntity languageEntity)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            XmlSerializer xmlSerializer = new XmlSerializer(languageDetails.GetType());
+            XmlSerializer xmlSerializer = new XmlSerializer(languageEntity.GetType());
             using (MemoryStream xmlStream = new MemoryStream())
             {
-                xmlSerializer.Serialize(xmlStream, languageDetails);
+                xmlSerializer.Serialize(xmlStream, languageEntity);
                 xmlStream.Position = 0;
                 xmlDoc.Load(xmlStream);
                 return xmlDoc.InnerXml;
@@ -37,24 +37,26 @@ namespace DAL
         }
 
         /// <summary>
-        /// Insert languageDetails
+        /// Insert LanguageDetails
         /// </summary>
-        /// <param name="languageDetails">Object for inserting data into database</param>
+        /// <param name="languageEntity">Object for inserting data into database</param>
         /// <returns></returns>
-        public int LanguageDetailsDAL(LanguageEntity language)
-        {
+        //public int LanguageDetailsDAL(LanguageEntity languageEntity)
+        //{
 
-            connection.Open();
-            SqlCommand cmd = new SqlCommand();
-
-            // Get xml string data from object
-            string languageDetails = CreateXML(language);
-
-            SqlParameter[] sqlparams ={new SqlParameter("@languageDetails",languageDetails)};
-
-            int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_InsertLanguageDetails", sqlparams);
-            return result;
-        }
+        //    connection.Open();
+        //    SqlCommand cmd = new SqlCommand();
+        //    SqlParameter[] sqlparams ={
+        //                                   new SqlParameter("@candidateId",languageEntity.CandidateId),
+        //                                   new SqlParameter("@languageId",languageEntity.LanguageId),
+        //                                  new SqlParameter("@proficiencyLevel",languageEntity.ProficiencyLevel),
+        //                                  new SqlParameter("@read",languageEntity.Read),
+        //                                  new SqlParameter("@write",languageEntity.Write),
+        //                                  new SqlParameter("@speak",languageEntity.Speak),
+        //                                  };
+        //   int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_InsertLanguageDetails", sqlparams);
+        //    return result;
+        //}
         
         /// <summary>
         /// Load the Languages
