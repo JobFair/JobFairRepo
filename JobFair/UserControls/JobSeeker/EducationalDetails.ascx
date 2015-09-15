@@ -1,6 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EducationalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.EducationalDetails" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 
+<%@ Register src="~/UserControls/JobSeeker/MoreCertifications.ascx" tagname="MoreCertifications" tagprefix="uc2" %>
+<%@ Register src="~/UserControls/JobSeeker/MoreWorkshops.ascx" tagname="MoreWorkshops" tagprefix="uc3" %>
+
+
 <link href="../../Css/Style.css" rel="stylesheet" />
 <link href="../../Css/Common.css" rel="stylesheet" />
 <style type="text/css">
@@ -22,13 +26,7 @@
     #divSSC {
         width: 240px;
     }
-    .auto-style7 {
-        width: 410px;
-    }
-    .auto-style8 {
-        width: 467px;
-    }
-</style>
+    </style>
 
 <div id="divMain" runat="server" visible="true" style="background-color: #C0C0C0">
 
@@ -51,8 +49,8 @@
     <asp:CheckBox ID="cbPGD" runat="server" Text="  PG Diploma" OnCheckedChanged="cbPgd_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:CheckBox ID="cbMD" runat="server" Text="  Masters Degree" OnCheckedChanged="cbMD_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;<br />
     <asp:CheckBox ID="cbPHD" runat="server" Text="  Doctorate/ PHD Degree" OnCheckedChanged="cbPHD_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <%-- <asp:CheckBox ID="cbCertification" runat="server" Text="  Certifications" OnCheckedChanged="cbCertification_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:CheckBox ID="cdWorkshop" runat="server" Text="  Workshops" OnCheckedChanged="cbWorkshop_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;<br />--%>
+    <asp:CheckBox ID="cbCertification" runat="server" Text="  Certifications" OnCheckedChanged="cbCertification_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:CheckBox ID="cdWorkshop" runat="server" Text="  Workshops" OnCheckedChanged="cbWorkshop_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;<br />
 
 &nbsp;<br />
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -573,5 +571,48 @@ TextLabelID="lblMessage7"
 ExpandDirection="Vertical"
 TargetControlID="pnlCollapsablePHD"
 ScrollContents="false"></ajax:CollapsiblePanelExtender>
-      </div><br />
+      </div>
+    <br />
+    <br />
+    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" />
+    <br />
+    <br />
+
+  <table style="background-color: #C0C0C0"">
+        <tr>
+            <td class="auto-style11">
+                <div id="divCertification" runat="server" visible="true">
+                <asp:Panel ID="pnlCollapsableCert" runat="server" Height="0" Width="300px">
+                <uc2:MoreCertifications ID="MoreCertifications1" runat="server" />
+                </asp:Panel>
+                <ajax:CollapsiblePanelExtender ID="colPanelExtenderCert" runat="server"
+                CollapseControlID="cbCertification"
+                Collapsed="true"
+                ExpandControlID="cbCertification"
+                TextLabelID="lblMessage8"
+                ExpandDirection="Vertical"
+                TargetControlID="pnlCollapsableCert"
+                ScrollContents="false"></ajax:CollapsiblePanelExtender>
+                </div>
+            </td>
+            <td class="auto-style11">
+                <div id="divWorkshop" runat="server" visible="true">
+                <asp:Panel ID="pnlCollapsableWork" runat="server" Height="0" Width="300px">
+                <uc3:MoreWorkshops ID="MoreWorkshops1" runat="server" />
+                </asp:Panel>
+                <ajax:CollapsiblePanelExtender ID="colPanelExtenderWork" runat="server"
+                CollapseControlID="cdWorkshop"
+                Collapsed="true"
+                ExpandControlID="cdWorkshop"
+                TextLabelID="lblMessage9"
+                ExpandDirection="Vertical"
+                TargetControlID="pnlCollapsableWork"
+                ScrollContents="false"></ajax:CollapsiblePanelExtender>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+
     </div>

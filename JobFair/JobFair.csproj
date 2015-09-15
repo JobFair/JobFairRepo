@@ -124,7 +124,6 @@
   <ItemGroup>
     <Content Include="Images\calendar-list.jpg" />
     <Content Include="Images\L1-whte.jpg" />
-    <Content Include="Style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -194,12 +193,14 @@
     <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">
       <DependentUpon>AddProjectDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.designer.cs">
       <DependentUpon>AddProjectDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.cs">
       <DependentUpon>AffirmativeDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.designer.cs">
       <DependentUpon>AffirmativeDetails.ascx</DependentUpon>
@@ -238,6 +239,7 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.cs">
       <DependentUpon>PersonalDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.designer.cs">
       <DependentUpon>PersonalDetails.ascx</DependentUpon>

@@ -2,8 +2,6 @@
 
 
 <%@ Register src="~/UserControls/JobSeeker/EducationalDetails.ascx" tagname="EducationalDetails" tagprefix="uc1" %>
-<%@ Register src="~/UserControls/JobSeeker/MoreCertifications.ascx" tagname="MoreCertifications" tagprefix="uc2" %>
-<%@ Register src="~/UserControls/JobSeeker/MoreWorkshops.ascx" tagname="MoreWorkshops" tagprefix="uc3" %>
 
 <!DOCTYPE html>
 
@@ -25,16 +23,6 @@
        <div>
               <uc1:EducationalDetails ID="EducationalDetails1" runat="server" />    
        </div>
-       <table style="background-color: #C0C0C0"">
-        <tr>
-            <td class="auto-style11">
-                <uc2:MoreCertifications ID="MoreCertifications1" runat="server" />
-            </td>
-            <td class="auto-style11">
-                <uc3:MoreWorkshops ID="MoreWorkshops1" runat="server" />
-            </td>
-        </tr>
-    </table>
     </form>
 </body>
 </html>

@@ -43,6 +43,7 @@
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ContactDetailsJSBAL.cs" />
     <Compile Include="CurrentDesiredJobBAL.cs" />
+    <Compile Include="EducationalDetailsBAL.cs" />
     <Compile Include="FeedbackJSBAL.cs" />
     <Compile Include="LogInJobSeekerBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />
