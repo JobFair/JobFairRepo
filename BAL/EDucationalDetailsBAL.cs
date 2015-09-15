@@ -10,10 +10,15 @@ namespace BAL
 {
    public class EducationalDetailsBAL
     {
-           public string SaveEducationalDetailsBAL(EducationalDetailsEntity adEntity)
+            /// <summary>
+            /// Saving Educational Deatils JobSeeker.
+            /// </summary>
+            /// <param name="edEntity">The Educational Details entity.</param>
+            /// <returns>System.Int32.</returns>
+           public string SaveEducationalDetailsBAL(EducationalDetailsEntity edEntity)
            {
-               EducationalDetailsDAL adDAL = new EducationalDetailsDAL();
-              return adDAL.CreateXML(adEntity);
+               EducationalDetailsDAL edDAL = new EducationalDetailsDAL();
+               return edDAL.CreateXML(edEntity);
            }
        }
     }

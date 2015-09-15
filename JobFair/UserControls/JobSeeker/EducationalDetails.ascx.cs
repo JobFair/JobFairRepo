@@ -10,6 +10,9 @@ using System.Data.SqlClient;
 
 namespace JobFair.UserControls.JobSeeker
 {
+    /// <summary>
+    /// Class EducationalDetails.
+    /// </summary>
     public partial class EducationalDetails : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -97,8 +100,8 @@ namespace JobFair.UserControls.JobSeeker
             //        SqlDataAdapter da = new SqlDataAdapter(cmd);
             //        DataSet ds1 = new DataSet();
             //        da.Fill(ds1);
-            //       // gvDetails.DataSource = ds1;
-            //       // gvDetails.DataBind();
+            //        gvDetails.DataSource = ds1;
+            //        gvDetails.DataBind();
             //        con.Close();
             //    }
             //}
