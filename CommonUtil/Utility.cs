@@ -2,13 +2,6 @@
 using Entities;
 using System;
 using System.Data;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
-using DAL;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace CommonUtil
 {
@@ -17,8 +10,6 @@ namespace CommonUtil
     /// </summary>
     public static class Utility
     {
-        
-
         /// <summary>
         /// Forget password
         /// </summary>
@@ -48,22 +39,18 @@ namespace CommonUtil
             return cpDAL.ChangePasswordDALMethod(cpentity);
         }
 
-       
-
-       
-
         public static DataSet GetCountry()
         {
             LoadCommonDAL lcDAL = new LoadCommonDAL();
             return lcDAL.GetCountryDAL();
-         }
+        }
 
         public static DataSet GetState(int countryid)
         {
             LoadCommonDAL lcDAL = new LoadCommonDAL();
             return lcDAL.GetStateDAL(countryid);
-          
         }
+
         public static DataSet GetCity(int stateid)
         {
             LoadCommonDAL lcDAL = new LoadCommonDAL();
@@ -74,9 +61,7 @@ namespace CommonUtil
         {
             FunctionalAreaDAL JobDAL = new FunctionalAreaDAL();
             return JobDAL.GetFunctionalDAL();
-
         }
-
 
         public static System.Data.DataSet GetIndustry()
         {
@@ -90,8 +75,4 @@ namespace CommonUtil
             return lcDAL.GetDepartmentDAL();
         }
     }
-
 }
-
-
-
