@@ -17,7 +17,7 @@ namespace CommonUtil
     /// </summary>
     public static class Utility
     {
-       
+        
 
         /// <summary>
         /// Forget password
@@ -48,34 +48,26 @@ namespace CommonUtil
             return cpDAL.ChangePasswordDALMethod(cpentity);
         }
 
-        public static DataTable GetDepartmentBAL()
-        {
-            CurrentDesiredJobDAL cdjDAL=new CurrentDesiredJobDAL();
-            return cdjDAL.GetDepartmentDAL();
-        }
+       
 
-        public static DataTable GetIndustryBAL()
-        {
-            CurrentDesiredJobDAL cdjDAL = new CurrentDesiredJobDAL();
-            return cdjDAL.GetIndustryDAL();
-        }
+       
 
         public static DataSet GetCountry()
         {
-            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.GetCountryDAL();
+            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            return lcDAL.GetCountryDAL();
          }
 
-        public static DataTable GetState(int countryid)
+        public static DataSet GetState(int countryid)
         {
-            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.LoadStateAll(countryid);
+            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            return lcDAL.GetStateDAL(countryid);
           
         }
-        public static DataTable GetCity(int stateid)
+        public static DataSet GetCity(int stateid)
         {
-            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.LoadCityAll(stateid);
+            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            return lcDAL.GetCityDAL(stateid);
         }
 
         public static DataTable GetFunctionalAreaBAL()
@@ -84,7 +76,19 @@ namespace CommonUtil
             return JobDAL.GetFunctionalDAL();
 
         }
-       
+
+
+        public static System.Data.DataSet GetIndustry()
+        {
+            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            return lcDAL.GetIndustryDAL();
+        }
+
+        public static System.Data.DataSet GetDepartment()
+        {
+            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            return lcDAL.GetDepartmentDAL();
+        }
     }
 
 }

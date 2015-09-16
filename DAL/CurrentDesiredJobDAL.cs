@@ -9,6 +9,7 @@ namespace DAL
     public class CurrentDesiredJobDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         /// <summary>
         /// Job Seekers current professional details DAL
         /// </summary>
@@ -49,26 +50,6 @@ namespace DAL
             {
                 connection.Close();
             }
-        }
-
-        public DataTable GetDepartmentDAL()
-        {
-            connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from Departments", connection);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-
-        public DataTable GetIndustryDAL()
-        {
-            connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from Industry", connection);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
         }
 
         public int DesiredJobDetailsDAL(CurrentDesiredJobEntity cdjEntity)

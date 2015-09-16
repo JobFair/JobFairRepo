@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Entities.Recruiter;
-using BAL;
-using CommonUtil;
+﻿using CommonUtil;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class jobSearch : System.Web.UI.Page
     {
+        private DataSet ds = new DataSet();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
             //GetDataFromSession();
             if (!Page.IsPostBack)
             {
@@ -27,8 +23,8 @@ namespace JobFair.Forms.JobSeeker
                 BindDropDownFunctionalArea();
                 BindRepeaterData();
             }
-
         }
+
         //private void GetDataFromSession()
         //{
         //    lblJobPost.Text = Session["JobPost"].ToString();
@@ -36,32 +32,31 @@ namespace JobFair.Forms.JobSeeker
         //}
         private void BindDropDownIndustry()
         {
-
-            ddlIndustry.DataSource = Utility.GetIndustryBAL();
+            ds = Utility.GetIndustry();
+            ddlIndustry.DataSource = ds;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
             ddlIndustry.DataBind();
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
-
-
         }
+
         private void BindDropDownDepartment()
         {
-            ddlDepartment.DataSource = Utility.GetDepartmentBAL();
+            ds = Utility.GetDepartment();
+            ddlDepartment.DataSource = ds;
             ddlDepartment.DataTextField = "DepartmentName";
             ddlDepartment.DataValueField = "DepartmentId";
             ddlDepartment.DataBind();
             ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
         private void BindDropDownFunctionalArea()
         {
             ddlFunArea.DataSource = Utility.GetFunctionalAreaBAL();
             ddlFunArea.DataTextField = "FunctionalArea";
             ddlFunArea.DataBind();
             ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
-
         }
-
 
         private void FillIndustryCheckBoxList()
         {
@@ -76,9 +71,9 @@ namespace JobFair.Forms.JobSeeker
             cblIndustry.DataBind();
             con.Close();
         }
+
         private void FillcityCheckBoxList()
         {
-
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
             con.Open();
             SqlCommand Cmd = new SqlCommand("Select * from City", con);
@@ -89,8 +84,8 @@ namespace JobFair.Forms.JobSeeker
             cblLocation.DataTextField = "CityName";
             cblLocation.DataBind();
             con.Close();
-
         }
+
         protected void BindRepeaterData()
         {
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
@@ -106,11 +101,10 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-
         }
+
         protected void lnks_Click(object sender, EventArgs e)
         {
-
             DataTable dt = new DataTable();
             dt.Columns.Add("JobType", typeof(string));
 
@@ -137,10 +131,6 @@ namespace JobFair.Forms.JobSeeker
             }
             cmd.Connection.Close();
             cmd.Connection.Dispose();
-
-
         }
-
     }
-
 }
