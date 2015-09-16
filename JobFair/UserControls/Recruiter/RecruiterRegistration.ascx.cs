@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using BAL;
 using Entities.Recruiter;
-using BAL;
+using System;
 using System.IO;
 
 namespace JobFair.UserControls.Recruiter
@@ -14,46 +9,48 @@ namespace JobFair.UserControls.Recruiter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
+        /// <summary>
+        /// Save New Recruiter's Details
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/>instance containing the event data.</param>
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             try
-            {           
-            RegisterRecruiterEntity rrentity = new RegisterRecruiterEntity();
-            RegisterRecruiterBAL rrBAL = new RegisterRecruiterBAL();
-            rrentity.FullName = txtFullName.Text.Trim();
-            rrentity.Company = txtCompany.Text.Trim();
-            rrentity.MobileNo = txtMobNo.Text.Trim();
-            rrentity.OficialEmailId = txtOffEmailid.Text.Trim();
-            rrentity.Password = txtPassword.Text.Trim();
-            rrentity.City = txtCity.Text.Trim();
-            //get path of photos
-            string path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + this.FileUploadRecruiterPhoto.FileName;
-            string uploadphoto = Request.PhysicalApplicationPath + "Images\\";
-            rrentity.PhotoPath = uploadphoto.ToString();
-            string result= rrBAL.NewRecruiterBAL(rrentity);
-            if (result != null)
             {
-                if (FileUploadRecruiterPhoto.HasFile)
+                RegisterRecruiterEntity rrentity = new RegisterRecruiterEntity();
+                RegisterRecruiterBAL rrBAL = new RegisterRecruiterBAL();
+                rrentity.FullName = txtFullName.Text.Trim();
+                rrentity.Company = txtCompany.Text.Trim();
+                rrentity.MobileNo = txtMobNo.Text.Trim();
+                rrentity.OficialEmailId = txtOffEmailid.Text.Trim();
+                rrentity.Password = txtPassword.Text.Trim();
+                rrentity.City = txtCity.Text.Trim();
+                //get path of photos
+                string path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + this.FileUploadRecruiterPhoto.FileName;
+                string uploadphoto = Request.PhysicalApplicationPath + "Images\\";
+                rrentity.PhotoPath = uploadphoto.ToString();
+                string result = rrBAL.SaveNewRecruiterBAL(rrentity);
+                if (result != null)
                 {
-                    string extension = Path.GetExtension(FileUploadRecruiterPhoto.PostedFile.FileName);
-                    FileUploadRecruiterPhoto.SaveAs(uploadphoto + result.ToString() + extension);
+                    if (FileUploadRecruiterPhoto.HasFile)
+                    {
+                        string extension = Path.GetExtension(FileUploadRecruiterPhoto.PostedFile.FileName);
+                        FileUploadRecruiterPhoto.SaveAs(uploadphoto + result.ToString() + extension);
+                    }
+                    Label1.Text = "Welcome. Registerd successfully";
                 }
-                Label1.Text = "Welcome. Registerd successfully";
-            }
-            else
-            {
-                Label1.Text = "Not registerd";
-            }
+                else
+                {
+                    Label1.Text = "Not registerd";
+                }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
         }
     }
 }

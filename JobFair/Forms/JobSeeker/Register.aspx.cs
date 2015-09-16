@@ -39,13 +39,11 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.RefCandidateId = txtRefCandidateId.Text;
                 string uploadFolder = Request.PhysicalApplicationPath + "UploadFiles\\";
 
-                
-               
                 jobSeekerEntity.UploadResumepath = uploadFolder.ToString();
                 RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
 
-                string result = jobSeekerBAL.RegisterNewJobSeekerBAL(jobSeekerEntity);
-                if (result!=null)
+                string result = jobSeekerBAL.SaveRegisterNewJobSeekerBAL(jobSeekerEntity);
+                if (result != null)
                 {
                     // Check if fileupload control has a file.
                     if (FileUploadResume.HasFile)

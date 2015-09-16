@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL;
+﻿using DAL;
 
 namespace BAL
 {
     public class RegisterRecruiterBAL
     {
-
-        public string NewRecruiterBAL(Entities.Recruiter.RegisterRecruiterEntity rrentity)
+        /// <summary>
+        /// Register the new Recruiter BAL
+        /// </summary>
+        /// <param name="rrentity">The recruiter enitity </param>
+        /// <returns>System.String</returns>
+        public string SaveNewRecruiterBAL(Entities.Recruiter.RegisterRecruiterEntity rrentity)
         {
             RegisterRecruiterDAL rrDAL = new RegisterRecruiterDAL();
-            return rrDAL.NewRecruiterDAL(rrentity);
-           
+            return rrDAL.SaveNewRecruiterDAL(rrentity);
         }
     }
 }

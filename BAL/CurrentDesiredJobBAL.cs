@@ -8,7 +8,7 @@ namespace BAL
         public int CurrentProfessionalDetailsBAL(CurrentDesiredJobEntity curentity)
         {
             CurrentDesiredJobDAL cdjDAL = new CurrentDesiredJobDAL();
-            return cdjDAL.CurrentProfessionalDetailsDAL(curentity);
+            return cdjDAL.SaveCurrentProfessionalDetailsDAL(curentity);
         }
 
         public int DesiredJobDetailsBAL(CurrentDesiredJobEntity cdjEntity)

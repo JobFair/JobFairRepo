@@ -12,10 +12,10 @@ namespace BAL
         /// </summary>
         /// <param name="jobSeekerEntity">The job seeker entity.</param>
         /// <returns>System.Int32.</returns>
-        public string RegisterNewJobSeekerBAL(RegisterEntity jobSeekerEntity)
+        public string SaveRegisterNewJobSeekerBAL(RegisterEntity jobSeekerEntity)
         {
             RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
-            return jobSeekerDAL.RegisterNewJobSeekerDAL(jobSeekerEntity);
+            return jobSeekerDAL.SaveRegisterNewJobSeekerDAL(jobSeekerEntity);
         }
 
        
