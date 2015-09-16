@@ -5,8 +5,8 @@ using System.Data;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using DAL;
-using System.Data;
+
+
 using System.Data.SqlClient;
 using System.Configuration;
 
