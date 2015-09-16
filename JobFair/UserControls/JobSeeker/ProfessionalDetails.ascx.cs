@@ -9,6 +9,7 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
+        CurrentDesiredJobBAL cdjBAL = new CurrentDesiredJobBAL();
         private DataSet ds = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -23,7 +24,9 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDropDownCountry()
         {
-            ds = Utility.GetCountry();
+            
+
+            ds = cdjBAL.GetCountry();
             ddlCountry.DataSource = ds;
             ddlCountry.DataTextField = "CountryName";
             ddlCountry.DataValueField = "CountryId";
@@ -33,7 +36,7 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDropDownDepartment()
         {
-            ds = Utility.GetDepartment();
+            ds = cdjBAL.GetDepartment();
 
             ddlDepartment.DataSource = ds;
             ddlDepartment.DataTextField = "DepartmentName";
@@ -44,7 +47,7 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDropDownIndustry()
         {
-            ds = Utility.GetIndustry();
+            ds = cdjBAL.GetIndustry();
             ddlIndustry.DataSource = ds;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
@@ -153,7 +156,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             int CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
             DataSet ds = new DataSet();
-            ds = Utility.GetState(CountryId);
+            ds = cdjBAL.GetState(CountryId);
             ddlState.DataSource = ds;
 
             ddlState.DataTextField = "StateName";
@@ -166,7 +169,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             int StateId = Convert.ToInt32(ddlState.SelectedValue);
             DataSet ds = new DataSet();
-            ds = Utility.GetCity(StateId);
+            ds = cdjBAL.GetCity(StateId);
             ddlCity.DataSource = ds;
 
             ddlCity.DataTextField = "cityName";
