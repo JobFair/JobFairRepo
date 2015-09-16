@@ -22,25 +22,26 @@ namespace BAL
             return adDAL.AffirmativeDetailsDAL(adEntity);
         }
 
-       /// <summary>
-       /// Language Details 
-       /// </summary>
+        /// <summary>
+        /// Language Details 
+        /// </summary>
         /// <param name="languageEntity">LanguageEntity</param>
         /// <returns>System.Int32</returns>
-        //public int LanguageDetailsBAL(LanguageEntity languageEntity)
-        //{
-        //    AffirmativeDetailsJSDAL adBAL = new AffirmativeDetailsJSDAL();
-        //    return adBAL.LanguageDetailsDAL(languageEntity);
-        //}
+        public int LanguageDetailsBAL(LanguageEntity languageEntity)
+        {
+            AffirmativeDetailsJSDAL adBAL = new AffirmativeDetailsJSDAL();
+            return adBAL.LanguageDetailsDAL(languageEntity);
+        }
 
-       /// <summary>
-       /// Load Languages
-       /// </summary>
-       /// <returns></returns>
-       public DataTable GetLanguageBAL()
+        /// <summary>
+        /// Load Languages
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetLanguageBAL()
         {
             AffirmativeDetailsJSDAL adBAL = new AffirmativeDetailsJSDAL();
             return adBAL.GetLanguage();
-       }
+        }
+
     }
 }
