@@ -13,6 +13,7 @@ namespace DAL
         {
             try
             {
+                connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sparms = new SqlParameter[3];
                 sparms[0] = new SqlParameter("@emailid", lnEntity.UserName);

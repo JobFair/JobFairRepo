@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using BAL;
 using Entities;
-using BAL;
-using System.Data;
-using System.Data.SqlClient;
+using System;
 
 namespace JobFair.Forms.Recruiter
 {
@@ -15,19 +8,30 @@ namespace JobFair.Forms.Recruiter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            LogInEnitity lnEntity = new LogInEnitity();
-            LoginBAL liBAL = new LoginBAL();
-            lnEntity.UserName = txtLoginid.Text.Trim();
-            lnEntity.Password = txtPassword.Text.Trim();
-            string recruiterid = liBAL.RecruiterLoginBAL(lnEntity);
-            if (string.IsNullOrEmpty(recruiterid))
+            try
             {
-                Session["RecruiterId"] = recruiterid.ToString();
+                LogInEnitity lnEntity = new LogInEnitity();
+                LoginBAL liBAL = new LoginBAL();
+                lnEntity.UserName = txtLoginid.Text.Trim();
+                lnEntity.Password = txtPassword.Text.Trim();
+                string recruiterid = liBAL.RecruiterLoginBAL(lnEntity);
+                if (string.IsNullOrEmpty(recruiterid))
+                {
+                    Session["RecruiterId"] = recruiterid.ToString();
+                    Response.Redirect("PostNewJob.aspx");
+                }
+                else
+                {
+                    Label1.Text = "Login id or password is wrong";
+                }
+            }
+            catch (Exception ex)
+            {
+                Label1.Text=ex.Message.ToString();
             }
         }
     }

@@ -27,7 +27,9 @@
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                </td>
                 <td><asp:HyperLink ID="hlForgetPassword" runat="server" NavigateUrl="~/Forms/Common/ForgetPassword.aspx">Forget Password?</asp:HyperLink></td>
             </tr>
         </table>
