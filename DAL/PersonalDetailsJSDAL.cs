@@ -1,64 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Entities;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
-using Entities;
-using System.IO;
 
 namespace DAL
 {
-   public class PersonalDetailsJSDAL
+    public class PersonalDetailsJSDAL
     {
-       private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-     
-       public DataSet GetCountry()
-       {
+        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
-           DataSet ds = new DataSet();
-           //SqlCommand cmd = new SqlCommand("select * from Country", connection);
-           //SqlDataAdapter da = new SqlDataAdapter(cmd);
-           //da.Fill(ds);
-           //return ds;
-           //string query = "SELECT * FROM Country";
-           //DataSet ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, query);
-           DataSet result = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Country");
-          return ds; 
+        /// <summary>
+        /// Pesonal Details of job seeker
+        /// </summary>
+        /// <param name="pdEntity">Object for inserting data into database</param>
+        /// <returns>System.Int32</returns>
+        public int PersonalDetailsInsert(PersonalDetailsJSEntity pdEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
 
-       }
-       public DataTable GetState(int CountryId)
-       {
-           DataTable table = new DataTable();
-           SqlCommand cmd = new SqlCommand("select * from State where CountryId="+CountryId,connection);
-           SqlDataAdapter da = new SqlDataAdapter(cmd);
-           da.Fill(table);
-           return table;
-       }
-       public DataTable GetCity(int StateId)
-       {
-           DataTable table = new DataTable();
-           SqlCommand cmd = new SqlCommand("select * from City where StateId="+StateId,connection);
-           SqlDataAdapter da = new SqlDataAdapter(cmd);
-           da.Fill(table);
-           return table;
-       }
-
-       /// <summary>
-       /// Pesonal Details of job seeker
-       /// </summary>
-       /// <param name="pdEntity">Object for inserting data into database</param>
-       /// <returns>System.Int32</returns>
-       public int PersonalDetailsInsert(PersonalDetailsJSEntity pdEntity)
-       {
-           try
-           {
-           connection.Open();
-           SqlCommand cmd = new SqlCommand();
-          
-           SqlParameter[] sqlparams = {
+                SqlParameter[] sqlparams = {
                                               new SqlParameter("@candidateId",pdEntity.candidateId),
                                               new SqlParameter("@pressentAddress",pdEntity.presentAddress),
                                               new SqlParameter("@presentCountry",pdEntity.presentCountry),
@@ -79,9 +43,8 @@ namespace DAL
                                               new SqlParameter("@passportValidity",pdEntity.passportValidity.Date),
                                               new SqlParameter("@workStatus", pdEntity.workStatus),
                                               new SqlParameter("@photo", "~/UploadImages/"+pdEntity.photo)
-                                              
                                             };
-           int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertPersonalDetails", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertPersonalDetails", sqlparams);
 
                 return result;
             }
@@ -93,6 +56,6 @@ namespace DAL
             {
                 connection.Close();
             }
-       }
+        }
     }
 }

@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using BAL;
+﻿using BAL;
 using Entities;
+using System;
+using System.Data;
 using System.IO;
+using System.Web.UI.WebControls;
 
 namespace JobFair.UserControls.JobSeeker
 {
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
+        private DataSet ds = new DataSet();
+        private PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
+
         /// <summary>
         /// Class PersonalDetails
         /// </summary>
@@ -19,24 +19,22 @@ namespace JobFair.UserControls.JobSeeker
         {
             if (!IsPostBack)
             {
-                PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
-                ddlCountryPresent.DataSource = pdBAL.GetCountry();
+                ds = pdBAL.GetCountry();
+                ddlCountryPresent.DataSource = ds;
                 ddlCountryPresent.DataTextField = "CountryName";
                 ddlCountryPresent.DataValueField = "CountryId";
                 ddlCountryPresent.DataBind();
                 ddlCountryPresent.Items.Insert(0, new ListItem("--Select--", "0"));
 
-            
-     
-
-                ddlCountryPerm.DataSource = pdBAL.GetCountry();
+                ds = pdBAL.GetCountry();
+                ddlCountryPerm.DataSource = ds;
                 ddlCountryPerm.DataTextField = "CountryName";
                 ddlCountryPerm.DataValueField = "CountryId";
                 ddlCountryPerm.DataBind();
                 ddlCountryPerm.Items.Insert(0, new ListItem("--Select--", "0"));
-
             }
         }
+
         /// <summary>
         /// Handles the Click event of the btnSubmit control.
         /// </summary>
@@ -44,7 +42,7 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-             bool validated = false;
+            bool validated = false;
             try
             {
                 PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
@@ -74,7 +72,6 @@ namespace JobFair.UserControls.JobSeeker
                     {
                         pdEntity.photo = Path.GetFileName(FileUploadPhoto.PostedFile.FileName);
                         FileUploadPhoto.SaveAs(Server.MapPath("~/UploadImages/" + pdEntity.photo));
-
                     }
 
                     // Check if radio button check.
@@ -105,7 +102,6 @@ namespace JobFair.UserControls.JobSeeker
                 else
                 {
                     //Error message to user
-
                 }
             }
             catch (Exception ex)
@@ -113,6 +109,7 @@ namespace JobFair.UserControls.JobSeeker
                 Label18.Text = ex.Message.ToString();
             }
         }
+
         /// <summary>
         /// For Chake Validation
         /// </summary>
@@ -134,6 +131,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             return validated;
         }
+
         /// <summary>
         /// Handles the SelectedIndexChanged event of the ddlCountryPresent control.
         /// </summary>
@@ -141,14 +139,17 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void ddlCountryPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
             int CountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
-            ddlStatePresent.DataSource = pdBAL.GetState(CountryId);
+            DataSet ds = new DataSet();
+            ds = pdBAL.GetState(CountryId);
+            ddlStatePresent.DataSource = ds;
+
             ddlStatePresent.DataTextField = "StateName";
             ddlStatePresent.DataValueField = "StateId";
             ddlStatePresent.DataBind();
             ddlStatePresent.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
         /// <summary>
         /// Handles the SelectedIndexChanged event of the ddlStatePresent control.
         /// </summary>
@@ -156,9 +157,10 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void ddlStatePresent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
             int StateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
-            ddlCityPresent.DataSource = pdBAL.GetCity(StateId);
+            DataSet ds = new DataSet();
+            ds = pdBAL.GetCity(StateId);
+            ddlCityPresent.DataSource = ds;
             ddlCityPresent.DataTextField = "cityName";
             ddlCityPresent.DataValueField = "cityID";
             ddlCityPresent.DataBind();
@@ -172,14 +174,16 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void ddlCountryPerm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
             int CountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
-            ddlStatePerm.DataSource = pdBAL.GetState(CountryId);
+            DataSet ds = new DataSet();
+            ds = pdBAL.GetState(CountryId);
+            ddlStatePerm.DataSource = ds;
             ddlStatePerm.DataTextField = "StateName";
             ddlStatePerm.DataValueField = "StateId";
             ddlStatePerm.DataBind();
             ddlStatePerm.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
         /// <summary>
         ///  Handles the SelectedIndexChanged event of the ddlStatePerm control.
         /// </summary>
@@ -187,14 +191,16 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void ddlStatePerm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
             int StateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
-            ddlCityPerm.DataSource = pdBAL.GetCity(StateId);
+            DataSet ds = new DataSet();
+            ds = pdBAL.GetCity(StateId);
+            ddlCityPerm.DataSource = ds;
             ddlCityPerm.DataTextField = "cityName";
             ddlCityPerm.DataValueField = "cityID";
             ddlCityPerm.DataBind();
             ddlCityPerm.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
         /// <summary>
         ///  Handles the CheckedChanged event of the rbtPassportYes control.
         /// </summary>
@@ -207,6 +213,7 @@ namespace JobFair.UserControls.JobSeeker
             txtPassportNo.Visible = true;
             txtValidity.Visible = true;
         }
+
         /// <summary>
         ///  Handles the CheckedChanged event of the rbtPassportNo control.
         /// </summary>
