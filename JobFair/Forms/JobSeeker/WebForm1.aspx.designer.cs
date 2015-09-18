@@ -29,5 +29,14 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::JobFair.UserControls.JobSeeker.ProfessionalDetails ProfessionalDetails;
+        
+        /// <summary>
+        /// RecruiterRegistration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JobFair.UserControls.Recruiter.RecruiterRegistration RecruiterRegistration;
     }
 }

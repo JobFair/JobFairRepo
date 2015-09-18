@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="JobFair.Forms.JobSeeker.WebForm1" %>
 
 <%@ Register Src="~/UserControls/JobSeeker/ProfessionalDetails.ascx" TagPrefix="uc1" TagName="ProfessionalDetails" %>
+<%@ Register Src="~/UserControls/Recruiter/RecruiterRegistration.ascx" TagPrefix="uc1" TagName="RecruiterRegistration" %>
+
 
 
 
@@ -20,6 +22,7 @@
     <div>
        
         <uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" />
+        <uc1:RecruiterRegistration runat="server" ID="RecruiterRegistration" />
     </div>
     </form>
 </body>
