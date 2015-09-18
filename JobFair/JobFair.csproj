@@ -108,10 +108,6 @@
     <Content Include="UserControls\Recruiter\DesiredCandidateProfileSearch.ascx" />
     <Content Include="UserControls\Recruiter\HeaderMenu.ascx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
-    <Content Include="Forms\Recruiter\RecruiterLogIn.aspx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Forms\Recruiter\RecruiterRegistration.aspx" />
     <Content Include="Forms\Recruiter\ViewAllJobsDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
@@ -332,22 +328,6 @@
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterHome.Master.designer.cs">
       <DependentUpon>RecruiterHome.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.cs">
-      <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.designer.cs">
-      <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.cs">
-      <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.designer.cs">
-      <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\ViewAllJobsDetails.aspx.cs">
       <DependentUpon>ViewAllJobsDetails.aspx</DependentUpon>

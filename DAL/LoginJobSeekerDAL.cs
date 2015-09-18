@@ -15,7 +15,7 @@ namespace DAL
         /// </summary>
         /// <param name="logjsEntity">The login entity for checking data from database </param>
         /// <return>SqlDataReader </returns>
-        public SqlDataReader LoginJSDAL(Entities.LogInJobSeekerEnitity logjsEntity)
+        public SqlDataReader LoginJSDAL(Entities.LogInEnitity logjsEntity)
         {
             try
             {

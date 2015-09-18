@@ -20,13 +20,13 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                LogInJobSeekerBAL logIn = new LogInJobSeekerBAL();
-                LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
+                LoginBAL liBAL = new LoginBAL();
+                LogInEnitity logjsEntity = new LogInEnitity();
 
 
                 logjsEntity.UserName = txtUserName.Text;
                 logjsEntity.Password = txtPassword.Text;
-                SqlDataReader rd = logIn.JobSeekerLogIn(logjsEntity);
+                SqlDataReader rd = liBAL.JobSeekerLogIn(logjsEntity);
 
                 if (rd.Read())
                 {
