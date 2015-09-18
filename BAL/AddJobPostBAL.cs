@@ -16,6 +16,15 @@ namespace BAL
            AddJobPostDAL JPDAL = new AddJobPostDAL();
            return JPDAL.JobPostDAL(JPentity);
        }
-    }
+      
+
+
+
+       public int JPBAL(AddJobPostEntity JobPostentity)
+       {
+           UpdateJobPostDAL jpDAL = new UpdateJobPostDAL();
+           return jpDAL.UpdateRecord(JobPostentity);
+       }
+   }
 }
 

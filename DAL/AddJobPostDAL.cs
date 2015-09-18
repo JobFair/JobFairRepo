@@ -14,14 +14,38 @@ namespace DAL
     public class AddJobPostDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        //public DataTable LoadRole()
-        //{
-        //    DataTable table = new DataTable();
-        //    SqlCommand cmd = new SqlCommand("select * from RS_JobPost", connection);
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    da.Fill(table);
-        //    return table;
-        //}
+        public DataTable LoadRole()
+        {
+            DataTable table = new DataTable();
+            SqlCommand cmd = new SqlCommand("select * from RS_JobPost", connection);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(table);
+            return table;
+        }
+        public DataTable GetFunctionalDAL()
+        {
+            
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("select * from RS_FunctionalArea", connection);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            
+        }
+        public DataTable GetIndustryDAL()
+        {
+
+
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from Industry", connection);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+
+
+        }
         public int JobPostDAL(AddJobPostEntity JPentity)
         {
             try
@@ -40,11 +64,11 @@ namespace DAL
                                             new SqlParameter("@JobDescription",JPentity.JobDescription),
                                             new SqlParameter("@KeywordsRoles",JPentity.KeywordsRoles),
                                             new SqlParameter("@KeywordsTechnical",JPentity.KeywordsRoles),
-                                             new SqlParameter("@WorkExprience",JPentity.WorkExprience),
-                                               new SqlParameter("@Gender",JPentity.Gender),
-                                                 new SqlParameter("@OfferedAnnualSalary",JPentity.OfferedAnnualSalary),
-                                                   new SqlParameter("@OtherSalaryDetails",JPentity.OtherSalaryDetails),
-                                                     new SqlParameter("@NumberOfVacancies",JPentity.NumberOfVacancies),
+                                            new SqlParameter("@WorkExprience",JPentity.WorkExprience),
+                                            new SqlParameter("@Gender",JPentity.Gender),
+                                            new SqlParameter("@OfferedAnnualSalary",JPentity.OfferedAnnualSalary),
+                                            new SqlParameter("@OtherSalaryDetails",JPentity.OtherSalaryDetails),
+                                            new SqlParameter("@NumberOfVacancies",JPentity.NumberOfVacancies),
 
                                         };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RS_InsertJobPost", sqlparams);
@@ -57,6 +81,10 @@ namespace DAL
             }
         }
 
+
+
+
+       
     }
 
 }
