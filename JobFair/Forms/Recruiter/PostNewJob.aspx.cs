@@ -16,7 +16,7 @@ namespace JobFair.Forms.Recruiter
             BindDropDownIndustry();
             BindDropDownDepartment();
             BindDropDownFunctionalArea();
-           
+
 
 
         }
@@ -32,7 +32,7 @@ namespace JobFair.Forms.Recruiter
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
             ddlIndustry.DataBind();
-            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+           
 
 
         }
@@ -42,15 +42,15 @@ namespace JobFair.Forms.Recruiter
             ddlDepartment.DataTextField = "DepartmentName";
             ddlDepartment.DataValueField = "DepartmentId";
             ddlDepartment.DataBind();
-            ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
+           
         }
         private void BindDropDownFunctionalArea()
         {
             ddlFunArea.DataSource = Utility.GetFunctionalAreaBAL();
             ddlFunArea.DataTextField = "FunctionalArea";
             ddlFunArea.DataBind();
-            ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
-        
+            
+
         }
        
 
@@ -94,8 +94,49 @@ namespace JobFair.Forms.Recruiter
                 Label1.Text = ex.Message.ToString();
             }
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+               try
+          {
+              
+              AddJobPostBAL jobpostBAL = new AddJobPostBAL();
+              AddJobPostEntity  JobPostentity = new AddJobPostEntity();
+
+              JobPostentity.JobTitle = txtJobtitle.Text.Trim();
+              JobPostentity.JobLocationCity = txtJobLocation.Text.Trim();
+              JobPostentity.JobLocationArea = txtJobLocationArea.Text.Trim();
+              JobPostentity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
+              JobPostentity.Industry = ddlIndustry.SelectedItem.Text.Trim();
+              JobPostentity.Department = ddlDepartment.SelectedItem.Text.Trim();
+              JobPostentity.FunctionalArea = ddlFunArea.SelectedItem.Text.Trim();
+              JobPostentity.JobDescription = txtJobDescription.Text.Trim();
+              JobPostentity.KeywordsRoles = txtKeyRoles.Text.Trim();
+              JobPostentity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
+              JobPostentity.WorkExprience = txtWorkExp.Text.Trim();
+              JobPostentity.Gender = rdbmale.Text.Trim();
+              JobPostentity.OfferedAnnualSalary = txtAnnualSalary.Text.Trim();
+              JobPostentity.OtherSalaryDetails = txtOtherSalary.Text.Trim();
+              JobPostentity.NumberOfVacancies = txtVacancies.Text.Trim();
+              int result = jobpostBAL.JPBAL(JobPostentity);
+                if (result > 0)
+                {
+                    Response.Write("<script language='javascript'>alert('JobPost')</script>");
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Sorry')</script>");
+                }
+          }
+            catch (Exception ex)
+            {
+
+                Label1.Text = ex.Message.ToString();
+            }
+        }
+        }
     }
- }
+ 
 
        
     

@@ -73,9 +73,14 @@ namespace CommonUtil
 
         public static DataTable GetFunctionalAreaBAL()
         {
-            FunctionalAreaDAL JobDAL = new FunctionalAreaDAL();
+           AddJobPostDAL  JobDAL = new AddJobPostDAL();
             return JobDAL.GetFunctionalDAL();
 
+        }
+        public static DataTable GetJobIndustryBAL()
+        {
+            AddJobPostDAL jobDAL = new AddJobPostDAL();
+            return jobDAL.GetIndustryDAL();
         }
     }
 

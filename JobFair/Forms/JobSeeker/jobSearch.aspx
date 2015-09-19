@@ -6,7 +6,7 @@
     <div>
         <table style="width:100%">
             <tr>
-                <td style="width:20%;vertical-align:top">
+                <td style="vertical-align:top" class="auto-style1">
                     <fieldset>
                         <legend>Div 1</legend>
                         <div class="left">
@@ -150,7 +150,7 @@
                             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
                              <br />
                              </div>
-                        <div style="width:70%; height: 542px;">
+                        <div style="width:70%; height: 540px;">
         <fieldset>
         
     <table class="auto-style6">
@@ -350,3 +350,11 @@
 
           </asp:Repeater>
 </asp:Content>
+<asp:Content ID="Content1" runat="server" contentplaceholderid="head">
+    <style type="text/css">
+        .auto-style1 {
+            width: 11%;
+        }
+    </style>
+</asp:Content>
+
