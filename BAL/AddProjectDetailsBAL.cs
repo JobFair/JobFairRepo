@@ -11,11 +11,20 @@ namespace BAL
 {
    public class AddProjectDetailsBAL
     {
-        public DataTable LoadRole()
+       /// <summary>
+       /// Get fuctional role bal.
+       /// </summary>
+       /// <returns></returns>
+        public DataTable GetRole()
       {
           AddProjectDetailsDAL pdDAL = new AddProjectDetailsDAL();
-          return pdDAL.LoadRole();
+          return pdDAL.GetRole();
       }
+       /// <summary>
+        /// Add project details job seeker bal.
+       /// </summary>
+        /// <param name="pdEntity">AddProjectDetailsEntity</param>
+        /// <returns>System.Int32.</returns>
       public int ProjectDetailsBAL(AddProjectDetailsEntity pdEntity)
       {
           AddProjectDetailsDAL pdDAL = new AddProjectDetailsDAL();

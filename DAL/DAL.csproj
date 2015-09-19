@@ -49,10 +49,12 @@
     <Compile Include="FeedbackJSDAL.cs" />
     <Compile Include="ForgetPasswordDAL.cs" />
     <Compile Include="FunctionalAreaDAL.cs" />
+    <Compile Include="LiveProjectDetailsDAL.cs" />
     <Compile Include="LogInJobSeekerDAL.cs" />
     <Compile Include="PersonalDetailsJSDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />
+    <Compile Include="RegisterRecruiterDAL.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
   </ItemGroup>

@@ -7,27 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.JobSeeker {
+namespace JobFair.Forms.Recruiter {
     
     
-    public partial class WebForm1 {
+    public partial class LogIn {
         
         /// <summary>
-        /// form1 control.
+        /// RecruiterRegistration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// PersonalDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.PersonalDetails PersonalDetails;
+        protected global::JobFair.UserControls.Recruiter.RecruiterRegistration RecruiterRegistration;
     }
 }

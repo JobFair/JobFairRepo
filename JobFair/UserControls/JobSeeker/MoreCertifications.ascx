@@ -7,7 +7,7 @@
 </center>
 <table style="background-color: #C0C0C0">
     <tr>
-        <td > <asp:Label ID="Label29" runat="server" Text="Certificate"></asp:Label></td>
+        <td > <asp:Label ID="lblCert" runat="server" Text="Certificate"></asp:Label></td>
         <td>
             <asp:UpdatePanel ID="UpdatePanel9" runat="server">
                 <ContentTemplate>
@@ -24,23 +24,30 @@
         </td>
     </tr>
     <tr>
-        <td > <asp:Label ID="Label30" runat="server" Text="Institute"></asp:Label></td>
+        <td > <asp:Label ID="lblIns" runat="server" Text="Institute"></asp:Label></td>
         <td>
             <asp:TextBox ID="txtCertificationInstitute" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
-        <td > <asp:Label ID="Label31" runat="server" Text="Year of Completion"></asp:Label></td>
+        <td > <asp:Label ID="lblYOC" runat="server" Text="Year Of Completion"></asp:Label></td>
         <td>
             <asp:TextBox ID="txtCertificationYear" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
-        <td > <asp:Label ID="Label32" runat="server" Text="Grade"></asp:Label></td>
+        <td > <asp:Label ID="lblGrade" runat="server" Text="Grade"></asp:Label></td>
         <td>
             <asp:TextBox ID="txtCertificationGrade" runat="server"></asp:TextBox> 
         </td>
     </tr>
+    <tr>
+        <td>
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+        </td>
+        <td>
+            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add More" />
+        </td>
+    </tr>
     </table>
-
 

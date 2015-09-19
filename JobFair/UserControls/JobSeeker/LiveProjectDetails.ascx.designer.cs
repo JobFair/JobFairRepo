@@ -10,322 +10,268 @@
 namespace JobFair.UserControls.JobSeeker {
     
     
-    public partial class AffirmativeDetails {
+    public partial class LiveProjectDetails {
         
         /// <summary>
-        /// lblKnownLanguages control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblKnownLanguages;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// lblLanguages control.
+        /// lblCompanyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLanguages;
+        protected global::System.Web.UI.WebControls.Label lblCompanyName;
         
         /// <summary>
-        /// lblProficincy control.
+        /// txtCompanyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProficincy;
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyName;
         
         /// <summary>
-        /// lblRead control.
+        /// lblProjectTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRead;
+        protected global::System.Web.UI.WebControls.Label lblProjectTitle;
         
         /// <summary>
-        /// lblWrite control.
+        /// txtProjectTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWrite;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectTitle;
         
         /// <summary>
-        /// lblSpeak control.
+        /// lblRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSpeak;
+        protected global::System.Web.UI.WebControls.Label lblRole;
         
         /// <summary>
-        /// ddlLanguageFirst control.
+        /// ddlRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLanguageFirst;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
         
         /// <summary>
-        /// ddlProficiencyFirst control.
+        /// lblClientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProficiencyFirst;
+        protected global::System.Web.UI.WebControls.Label lblClientName;
         
         /// <summary>
-        /// chkReadFirst control.
+        /// txtClientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkReadFirst;
+        protected global::System.Web.UI.WebControls.TextBox txtClientName;
         
         /// <summary>
-        /// chkWriteFirst control.
+        /// lblLinkUrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkWriteFirst;
+        protected global::System.Web.UI.WebControls.Label lblLinkUrl;
         
         /// <summary>
-        /// chkSpeakFirst control.
+        /// txtLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkSpeakFirst;
+        protected global::System.Web.UI.WebControls.TextBox txtLink;
         
         /// <summary>
-        /// ddlLanguageSecond control.
+        /// lblDuration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLanguageSecond;
+        protected global::System.Web.UI.WebControls.Label lblDuration;
         
         /// <summary>
-        /// ddlProficiencySecond control.
+        /// txtFromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProficiencySecond;
+        protected global::System.Web.UI.WebControls.TextBox txtFromDate;
         
         /// <summary>
-        /// chkReadSecond control.
+        /// CalendarExtender1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkReadSecond;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
         
         /// <summary>
-        /// chkWriteSecond control.
+        /// txtTodate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkWriteSecond;
+        protected global::System.Web.UI.WebControls.TextBox txtTodate;
         
         /// <summary>
-        /// chkSpeakSecond control.
+        /// CalendarExtender2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkSpeakSecond;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
         
         /// <summary>
-        /// ddlLanguageThird control.
+        /// lblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLanguageThird;
+        protected global::System.Web.UI.WebControls.Label lblLocation;
         
         /// <summary>
-        /// ddlProficiencyThird control.
+        /// txtLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProficiencyThird;
+        protected global::System.Web.UI.WebControls.TextBox txtLocation;
         
         /// <summary>
-        /// chkReadThird control.
+        /// lblEmploymentType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkReadThird;
+        protected global::System.Web.UI.WebControls.Label lblEmploymentType;
         
         /// <summary>
-        /// chkWriteThird control.
+        /// rbtFullTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkWriteThird;
+        protected global::System.Web.UI.WebControls.RadioButton rbtFullTime;
         
         /// <summary>
-        /// chkSpeakThird control.
+        /// rbtPartTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkSpeakThird;
+        protected global::System.Web.UI.WebControls.RadioButton rbtPartTime;
         
         /// <summary>
-        /// lblPhysicallyChallenged control.
+        /// lblProjectDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhysicallyChallenged;
+        protected global::System.Web.UI.WebControls.Label lblProjectDetails;
         
         /// <summary>
-        /// rbtYes control.
+        /// txtProjectDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtYes;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectDetails;
         
         /// <summary>
-        /// rbtNo control.
+        /// lblResponsibility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtNo;
+        protected global::System.Web.UI.WebControls.Label lblResponsibility;
         
         /// <summary>
-        /// lblDescription control.
+        /// txtRolesAndResponsibility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtRolesAndResponsibility;
         
         /// <summary>
-        /// txtDescription control.
+        /// lblTeamSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.Label lblTeamSize;
         
         /// <summary>
-        /// lblSports control.
+        /// ddlTeamSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSports;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTeamSize;
         
         /// <summary>
-        /// txtSports control.
+        /// lblSkillUsed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSports;
+        protected global::System.Web.UI.WebControls.Label lblSkillUsed;
         
         /// <summary>
-        /// lblSportsDescription control.
+        /// txtSkillUsed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSportsDescription;
-        
-        /// <summary>
-        /// txtSportsDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSportsDescription;
-        
-        /// <summary>
-        /// lblUSAPermit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUSAPermit;
-        
-        /// <summary>
-        /// rbtYesUSA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtYesUSA;
-        
-        /// <summary>
-        /// rbtNOUSA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtNOUSA;
-        
-        /// <summary>
-        /// lblOtherPermit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOtherPermit;
-        
-        /// <summary>
-        /// txtOtherPermit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOtherPermit;
+        protected global::System.Web.UI.WebControls.TextBox txtSkillUsed;
         
         /// <summary>
         /// btnSubmit control.

@@ -1,56 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommonUtil;
 using DAL;
-using System.Data;
 using Entities;
+using System.Data;
 
 namespace BAL
 {
-   public class PersonalDetailsJSBAL
+    public class PersonalDetailsJSBAL
     {
-       /// <summary>
-        ///   Load Country bal.
-       /// </summary>
-       /// <returns></returns>
-       public DataTable LoadCountryAll()
-       {
-           PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-           return pdDAL.LoadCountryAll();
+        /// <summary>
+        ///  Personal Details of job seeker bal.
+        /// </summary>
+        /// <param name="pdEntity">The Personal Details entity.</param>
+        /// <returns>System.Int32</returns>
+        public int PersonalDetailsBAL(PersonalDetailsJSEntity pdEntity)
+        {
+            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+            return pdDAL.PersonalDetailsInsert(pdEntity);
+        }
 
-       }
-       /// <summary>
-       /// Load State bal
-       /// </summary>
-       /// <param name="CountryId"></param>
-       /// <returns></returns>
-       public DataTable LoadStateAll(int CountryId)
-       {
-           PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-           return pdDAL.LoadStateAll(CountryId);
-       }
-       /// <summary>
-       /// Load State bal
-       /// </summary>
-       /// <param name="StateId"></param>
-       /// <returns></returns>
-       public DataTable LoadCityAll(int StateId)
-       {
-           PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-           return pdDAL.LoadCityAll(StateId);
-       }
+        public DataSet GetCountry()
+        {
+            return Utility.GetCountry();
+        }
 
-       /// <summary>
-       ///  Personal Details of job seeker bal.
-       /// </summary>
-       /// <param name="pdEntity">The Personal Details entity.</param>
-       /// <returns>System.Int32</returns>
-       public int PersonalDetailsBAL(PersonalDetailsJSEntity pdEntity)
-       {
-           PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-           return pdDAL.PersonalDetailsInsert(pdEntity);
-       }
+        public DataSet GetState(int CountryId)
+        {
+            return Utility.GetState(CountryId);
+        }
+
+        public DataSet GetCity(int StateId)
+        {
+            return Utility.GetCity(StateId);
+        }
     }
 }

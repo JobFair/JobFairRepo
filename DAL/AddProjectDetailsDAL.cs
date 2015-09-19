@@ -13,7 +13,11 @@ namespace DAL
    public class AddProjectDetailsDAL
     {
          private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-       public DataTable LoadRole()
+      /// <summary>
+      /// Get the functional roles
+      /// </summary>
+      /// <returns></returns>
+       public DataTable GetRole()
        {
            DataTable table = new DataTable();
            SqlCommand cmd = new SqlCommand("select * from JS_Roles", connection);
@@ -21,6 +25,11 @@ namespace DAL
            da.Fill(table);
            return table;
        }
+       /// <summary>
+       /// Add Project Details
+       /// </summary>
+       /// <param name="pdEntity">Object for inserting data into database</param>
+       /// <returns>System.Int32</returns>
        public int ProjectDetailsDAL(AddProjectDetailsEntity pdEntity)
        {
            try

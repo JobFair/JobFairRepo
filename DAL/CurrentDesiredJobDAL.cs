@@ -10,7 +10,12 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
-        public int CurrentProfessionalDetailsDAL(CurrentDesiredJobEntity curentity)
+        /// <summary>
+        /// Job Seekers current professional details DAL
+        /// </summary>
+        /// <param name="curentity">Current job details entity</param>
+        /// <returns></returns>
+        public int SaveCurrentProfessionalDetailsDAL(CurrentDesiredJobEntity curentity)
         {
             try
             {
@@ -45,26 +50,6 @@ namespace DAL
             {
                 connection.Close();
             }
-        }
-
-        public DataTable GetDepartmentDAL()
-        {
-            connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from Departments", connection);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-
-        public DataTable GetIndustryDAL()
-        {
-            connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from Industry", connection);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
         }
 
         public int DesiredJobDetailsDAL(CurrentDesiredJobEntity cdjEntity)

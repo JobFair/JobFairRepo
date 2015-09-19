@@ -19,15 +19,10 @@
         <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-           
-           
-
-
             <table class="auto-style1">
                 <tr>
                     <td colspan="2">
                         <img alt="" class="auto-style2" src="../../Images/L1-whte.jpg" /></td>
-
                 </tr>
                 <tr>
                     <td>First Name</td>
@@ -129,11 +124,8 @@
                         <asp:Label ID="lblMessage" runat="server"></asp:Label>
                     </td>
                 </tr>
-
             </table>
-
         </div>
-
     </form>
 </body>
 </html>

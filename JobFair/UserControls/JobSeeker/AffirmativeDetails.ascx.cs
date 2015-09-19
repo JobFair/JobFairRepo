@@ -13,6 +13,15 @@ namespace JobFair.UserControls.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                AffirmativeDetailsJSBAL adBAL = new AffirmativeDetailsJSBAL();
+                ddlLanguageFirst.DataSource = adBAL.GetLanguageBAL();
+                ddlLanguageFirst.DataTextField = "LanguageName";
+                ddlLanguageFirst.DataValueField = "LanguageId";
+                ddlLanguageFirst.DataBind();
+                ddlLanguageFirst.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
             if (rbtYes.Checked)
             {
                 txtDescription.Visible = true;
@@ -24,28 +33,32 @@ namespace JobFair.UserControls.JobSeeker
                 lblDescription.Visible = false;
             }
         }
-
+        /// <summary>
+        /// Handles the Click event of the btnSave control.
+        /// </summary>
+        /// <param name="sender">The source of the event</param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             AffirmativeDetailsEntity adEntity = new AffirmativeDetailsEntity();
             AffirmativeDetailsJSBAL adBAL = new AffirmativeDetailsJSBAL();
-            //set the value of AffirmativeDetailsJSEntity
+            LanguageEntity languageEntity = new LanguageEntity();
+            //set the value of AffirmativeDetailsJSEntity and LanguageEntity
             adEntity.CandidateId = "JS00001";//static data used because session value not set
-            adEntity.Language = txtLanguageFirst.Text;
-            adEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
-            adEntity.Read = Convert.ToByte(chkReadFirst.Checked);
-            adEntity.Write = Convert.ToByte(chkWriteFirst.Checked);
-            adEntity.Speak = Convert.ToByte(chkSpeakFirst.Checked);
+            languageEntity.CandidateId = "JS00001";
+            languageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
+            languageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
+            languageEntity.Read = Convert.ToBoolean(chkReadFirst.Checked);
+            languageEntity.Write = Convert.ToBoolean(chkWriteFirst.Checked);
+            languageEntity.Speak = Convert.ToBoolean(chkSpeakFirst.Checked);
             adEntity.PhysicallyChallenged = string.Empty;
             if (rbtYes.Checked)
             {
                 adEntity.PhysicallyChallenged = "Yes";
-
             }
             else
             {
                 adEntity.PhysicallyChallenged = "No";
-
             }
 
             adEntity.Description = txtDescription.Text;
@@ -61,8 +74,10 @@ namespace JobFair.UserControls.JobSeeker
                 adEntity.USAPermit = "No";
             }
             adEntity.OtherPermits = txtOtherPermit.Text;
+            int success = adBAL.LanguageDetailsBAL(languageEntity);
             int result = adBAL.AffirmaiveDetailsBAL(adEntity);
-            if (result > 0)
+            
+            if (result > 0 && success > 0)
             {
                 Response.Write("<script language='javascript'>alert('Affirmative Details Inserted')</script>");
             }

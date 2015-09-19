@@ -2,12 +2,16 @@
 using CommonUtil;
 using Entities.JobSeeker;
 using System;
+using System.Data;
 using System.Web.UI.WebControls;
 
 namespace JobFair.UserControls.JobSeeker
 {
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
+        CurrentDesiredJobBAL cdjBAL = new CurrentDesiredJobBAL();
+        private DataSet ds = new DataSet();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,7 +24,10 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDropDownCountry()
         {
-            ddlCountry.DataSource = Utility.GetCountryBAL();
+            
+
+            ds = cdjBAL.GetCountry();
+            ddlCountry.DataSource = ds;
             ddlCountry.DataTextField = "CountryName";
             ddlCountry.DataValueField = "CountryId";
             ddlCountry.DataBind();
@@ -29,7 +36,9 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDropDownDepartment()
         {
-            ddlDepartment.DataSource = Utility.GetDepartmentBAL();
+            ds = cdjBAL.GetDepartment();
+
+            ddlDepartment.DataSource = ds;
             ddlDepartment.DataTextField = "DepartmentName";
             ddlDepartment.DataValueField = "DepartmentId";
             ddlDepartment.DataBind();
@@ -38,7 +47,8 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDropDownIndustry()
         {
-            ddlIndustry.DataSource = Utility.GetIndustryBAL();
+            ds = cdjBAL.GetIndustry();
+            ddlIndustry.DataSource = ds;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
             ddlIndustry.DataBind();
@@ -137,11 +147,17 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Jyoti
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             int CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
-
-            ddlState.DataSource = Utility.GetStateBAL(CountryId);
+            DataSet ds = new DataSet();
+            ds = cdjBAL.GetState(CountryId);
+            ddlState.DataSource = ds;
 
             ddlState.DataTextField = "StateName";
             ddlState.DataValueField = "StateId";
@@ -152,8 +168,9 @@ namespace JobFair.UserControls.JobSeeker
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             int StateId = Convert.ToInt32(ddlState.SelectedValue);
-
-            ddlCity.DataSource = Utility.GetCityBAL(StateId);
+            DataSet ds = new DataSet();
+            ds = cdjBAL.GetCity(StateId);
+            ddlCity.DataSource = ds;
 
             ddlCity.DataTextField = "cityName";
             ddlCity.DataValueField = "cityID";

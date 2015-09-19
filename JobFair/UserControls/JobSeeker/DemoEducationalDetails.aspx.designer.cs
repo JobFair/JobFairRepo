@@ -38,23 +38,5 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::JobFair.UserControls.JobSeeker.EducationalDetails EducationalDetails1;
-        
-        /// <summary>
-        /// MoreCertifications1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.MoreCertifications1 MoreCertifications1;
-        
-        /// <summary>
-        /// MoreWorkshops1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.MoreWorkshops1 MoreWorkshops1;
     }
 }
