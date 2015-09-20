@@ -1,5 +1,4 @@
 ﻿using BAL;
-using CommonUtil;
 using Entities.JobSeeker;
 using System;
 using System.Data;
@@ -9,7 +8,7 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
-        CurrentDesiredJobBAL cdjBAL = new CurrentDesiredJobBAL();
+        private CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
         private DataSet ds = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,11 +21,12 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Method for binding Dropdown with Country_table of database
+        /// </summary>
         private void BindDropDownCountry()
         {
-            
-
-            ds = cdjBAL.GetCountry();
+            ds = currentjobBAL.GetCountry();
             ddlCountry.DataSource = ds;
             ddlCountry.DataTextField = "CountryName";
             ddlCountry.DataValueField = "CountryId";
@@ -34,9 +34,13 @@ namespace JobFair.UserControls.JobSeeker
             ddlCountry.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        /// Method for binding Dropdown with Department_table of database
+        /// </summary>
+
         private void BindDropDownDepartment()
         {
-            ds = cdjBAL.GetDepartment();
+            ds = currentjobBAL.GetDepartment();
 
             ddlDepartment.DataSource = ds;
             ddlDepartment.DataTextField = "DepartmentName";
@@ -45,9 +49,12 @@ namespace JobFair.UserControls.JobSeeker
             ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        /// Method for binding DropDown with Industry_table of database
+        /// </summary>
         private void BindDropDownIndustry()
         {
-            ds = cdjBAL.GetIndustry();
+            ds = currentjobBAL.GetIndustry();
             ddlIndustry.DataSource = ds;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
@@ -56,7 +63,7 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        /// Handles the Click event of the btnSave control.
+        /// Handles the Click event of the btnSave control of current job details
         /// </summary>
         /// <param name="sender">The source of event</param>
         /// <param name="e">The <cref="EventArgs">instance containing event data</param>
@@ -73,26 +80,26 @@ namespace JobFair.UserControls.JobSeeker
                 int Years = ToYear.Year - FromYear.Year;
                 int Month = ToYear.Month - FromYear.Month;
                 Label1.Text = Years + "Years-" + Month + "Months";
-                CurrentDesiredJobEntity curentity = new CurrentDesiredJobEntity();
-                CurrentDesiredJobBAL curjobBAL = new CurrentDesiredJobBAL();
+                CurrentDesiredJobEntity currentJobEntity = new CurrentDesiredJobEntity();
+                CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
 
-                curentity.Candidateid = "JS00001";
-                curentity.ResumeHeadline = txtResumeHeadline.Text;
-                curentity.TotalExperience = Years + "." + Month;
-                curentity.Industry = Convert.ToInt32(ddlIndustry.SelectedItem.Value);
-                curentity.Department = ddlDepartment.SelectedIndex;
-                curentity.CurrentJobRole = txtCurrentJobRole.Text;
-                curentity.PrimFunctionalRole = ddlPrimaryRole.SelectedItem.Text;
-                curentity.PrimJobDescrip = txtJobdescriptionPrimar.Text;
-                curentity.PrimTechSkills = txtTechnicalskillPrimary.Text;
-                curentity.SecFunctionalRole = ddlSecRole.SelectedItem.Text;
-                curentity.SecJobDescrip = txtjobdescriptionSec.Text;
-                curentity.SecTechSkills = txtTechnicalskillSec.Text;
-                curentity.Designation = txtDesignation.Text;
-                curentity.ReasonforJobChange = txtReasonforJobchange.Text;
-                curentity.CurrentEmployer = txtemployeer.Text;
-                curentity.TechnicalSkills = txtTechSkills.Text;
-                int result = curjobBAL.CurrentProfessionalDetailsBAL(curentity);
+                currentJobEntity.Candidateid = "JS00001";
+                currentJobEntity.ResumeHeadline = txtResumeHeadline.Text;
+                currentJobEntity.TotalExperience = Years + "." + Month;
+                currentJobEntity.Industry = Convert.ToInt32(ddlIndustry.SelectedItem.Value);
+                currentJobEntity.Department = ddlDepartment.SelectedIndex;
+                currentJobEntity.CurrentJobRole = txtCurrentJobRole.Text;
+                currentJobEntity.PrimFunctionalRole = ddlPrimaryRole.SelectedItem.Text;
+                currentJobEntity.PrimJobDescrip = txtJobdescriptionPrimar.Text;
+                currentJobEntity.PrimTechSkills = txtTechnicalskillPrimary.Text;
+                currentJobEntity.SecFunctionalRole = ddlSecRole.SelectedItem.Text;
+                currentJobEntity.SecJobDescrip = txtjobdescriptionSec.Text;
+                currentJobEntity.SecTechSkills = txtTechnicalskillSec.Text;
+                currentJobEntity.Designation = txtDesignation.Text;
+                currentJobEntity.ReasonforJobChange = txtReasonforJobchange.Text;
+                currentJobEntity.CurrentEmployer = txtemployeer.Text;
+                currentJobEntity.TechnicalSkills = txtTechSkills.Text;
+                int result = currentjobBAL.CurrentProfessionalDetailsBAL(currentJobEntity);
                 if (result > 0)
                 {
                     lblmsgsave.Text = "Your current professional  details saved successfully";
@@ -109,10 +116,10 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        /// Desired job details
+        /// Handles the Click event of the btnsaveDesJob control of desired job details
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <cref="EventArgs">instance containing event data</param>
         protected void btnsaveDesJob_Click(object sender, EventArgs e)
         {
             try
@@ -148,15 +155,15 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        /// Jyoti
+        /// ddlCountry_SelectedIndexChanged() index of ddlCountry for selection of country
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <cref="EventArgs">instance containing event data</param>
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             int CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
             DataSet ds = new DataSet();
-            ds = cdjBAL.GetState(CountryId);
+            ds = currentjobBAL.GetState(CountryId);
             ddlState.DataSource = ds;
 
             ddlState.DataTextField = "StateName";
@@ -165,11 +172,16 @@ namespace JobFair.UserControls.JobSeeker
             ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        /// ddlState_SelectedIndexChanged() index of ddlState for selection of state
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <cref="EventArgs">instance containing event data</param>
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             int StateId = Convert.ToInt32(ddlState.SelectedValue);
             DataSet ds = new DataSet();
-            ds = cdjBAL.GetCity(StateId);
+            ds = currentjobBAL.GetCity(StateId);
             ddlCity.DataSource = ds;
 
             ddlCity.DataTextField = "cityName";

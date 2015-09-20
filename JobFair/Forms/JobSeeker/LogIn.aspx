@@ -25,8 +25,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:TextBox ID="TextBox1" runat="server" Visible="False"></asp:TextBox>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td></td>
@@ -37,7 +36,7 @@
                 <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
             </td>
             <td>
-                <asp:HyperLink ID="hlForgetPassword" NavigateUrl="~/Forms/JobSeeker/JobSeekerForgetPassword.aspx" runat="server">Forget Password?</asp:HyperLink>
+                <asp:HyperLink ID="hlForgetPassword" NavigateUrl="~/Forms/Common/ForgetPassword.aspx" runat="server">Forget Password?</asp:HyperLink>
                 <br />
                 <asp:HyperLink ID="hlNewRegister" NavigateUrl="~/Forms/JobSeeker/JobSeekerRegister.aspx" runat="server">New User click here</asp:HyperLink>
             </td>

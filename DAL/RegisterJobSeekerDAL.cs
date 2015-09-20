@@ -6,12 +6,15 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
+    /// <summary>
+    /// RegisterJobSeekerDAL class
+    /// </summary>
     public class RegisterJobSeekerDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
-        /// Register Jobseeker
+        /// Dal layer method to store new candidate data into jobseeker table in database
         /// </summary>
         /// <param name="rjsEntity">Object for inserting data into database</param>
         /// <returns>System.Int32</returns>
@@ -21,7 +24,7 @@ namespace DAL
             {
                 connection.Open();
 
-                SqlCommand cmd = new SqlCommand();
+                //Parameters to pass to the stored procedure
 
                 SqlParameter[] sparams = new SqlParameter[12];
                 sparams[0] = new SqlParameter("@userid", rjsEntity.UserId);
@@ -38,7 +41,7 @@ namespace DAL
                 sparams[11] = new SqlParameter("@Newcandidateid", SqlDbType.VarChar, 500);
                 sparams[11].Direction = ParameterDirection.Output;
 
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertRegisterUser", sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRegisterUser, sparams);
 
                 string candidateId = Convert.ToString(sparams[11].Value);
                 if (string.IsNullOrEmpty(candidateId))

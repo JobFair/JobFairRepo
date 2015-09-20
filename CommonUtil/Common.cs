@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace CommonUtil
 {
-    public class LoadCommonDAL
+    public class Common
     {
         private DataSet ds = new DataSet();
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
@@ -64,7 +64,10 @@ namespace CommonUtil
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Get Department
+        /// </summary>
+        /// <returns></returns>
         internal DataSet GetDepartmentDAL()
         {
             try
