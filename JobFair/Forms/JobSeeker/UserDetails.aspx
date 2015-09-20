@@ -18,22 +18,22 @@
             <ContentTemplate>
                 <updatepanel>
 <uc1:ContactDetails runat="server" id="ContactDetails" />
-
 </updatepanel>
             </ContentTemplate>
         </cc1:TabPanel>
         <cc1:TabPanel ID="TabPanel2" runat="server" HeaderText="TabPanel2">
             <ContentTemplate>
                 <updatepanel>
-<uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" >
-</uc1:ProfessionalDetails>
-
+<uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" ></uc1:ProfessionalDetails>
 </updatepanel>
             </ContentTemplate>
         </cc1:TabPanel>
         <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="TabPanel3">
         </cc1:TabPanel>
         <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="TabPanel4">
+            <ContentTemplate>
+                <asp:Label ID="lblsession" runat="server" Text="Label"></asp:Label>
+            </ContentTemplate>
         </cc1:TabPanel>
         <cc1:TabPanel ID="TabPanel5" runat="server" HeaderText="TabPanel5">
         </cc1:TabPanel>

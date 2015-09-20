@@ -9,29 +9,33 @@ namespace JobFair.Forms.Recruiter
         protected void Page_Load(object sender, EventArgs e)
         {
         }
-
+        /// <summary>
+        /// Handles the Click event of the btnLogin control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
                 LogInEnitity lnEntity = new LogInEnitity();
-                LoginBAL liBAL = new LoginBAL();
+                LoginBAL loginBAL = new LoginBAL();
                 lnEntity.UserName = txtLoginid.Text.Trim();
                 lnEntity.Password = txtPassword.Text.Trim();
-                string recruiterid = liBAL.RecruiterLoginBAL(lnEntity);
+                string recruiterid = loginBAL.RecruiterLoginBAL(lnEntity);
                 if (string.IsNullOrEmpty(recruiterid))
                 {
-                    Session["RecruiterId"] = recruiterid.ToString();
-                    Response.Redirect("PostNewJob.aspx");
+                    Label1.Text = "Login id or password is wrong";
                 }
                 else
                 {
-                    Label1.Text = "Login id or password is wrong";
+                    Session["RecruiterId"] = recruiterid;
+                    Response.Redirect("ViewAllJobsDetails.aspx");
                 }
             }
             catch (Exception ex)
             {
-                Label1.Text=ex.Message.ToString();
+                Label1.Text = ex.Message.ToString();
             }
         }
     }

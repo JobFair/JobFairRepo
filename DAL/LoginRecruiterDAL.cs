@@ -9,33 +9,39 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// Login for recruiter in DAL layer method is LoginRecruDAL()
+        /// </summary>
+        /// <param name="lnEntity">The login entity</param>
+        /// <returns>System.String</returns>
         public string LoginRecruDAL(Entities.LogInEnitity lnEntity)
         {
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand();
+                //Parameters to pass to the stored procedure
                 SqlParameter[] sparms = new SqlParameter[3];
                 sparms[0] = new SqlParameter("@emailid", lnEntity.UserName);
                 sparms[1] = new SqlParameter("@password", lnEntity.Password);
                 sparms[2] = new SqlParameter("@id", SqlDbType.VarChar, 500);
                 sparms[2].Direction = ParameterDirection.Output;
 
-                SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, "sp_LoginRecruiter", sparms);
+                SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure,Constants.sp_LoginRecruiter, sparms);
                 string recruiterId = Convert.ToString(sparms[2].Value);
 
                 if (string.IsNullOrEmpty(recruiterId))
                 {
-                    return recruiterId;
-                }
-                else
-                {
                     return null;
                 }
+                return recruiterId;
             }
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }
