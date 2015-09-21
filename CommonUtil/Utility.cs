@@ -70,24 +70,39 @@ namespace CommonUtil
             return lcDAL.GetCityDAL(stateid);
         }
 
-        public static DataTable GetFunctionalAreaBAL()
+        public static DataSet GetFunctionalAreaBAL()
         {
-            FunctionalAreaDAL JobDAL = new FunctionalAreaDAL();
-            return JobDAL.GetFunctionalDAL();
+            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            return lcDAL.GetFunctionalAreaDAL();
 
         }
 
 
-        public static System.Data.DataSet GetIndustry()
+        public static DataSet GetIndustry()
         {
             LoadCommonDAL lcDAL = new LoadCommonDAL();
             return lcDAL.GetIndustryDAL();
         }
 
-        public static System.Data.DataSet GetDepartment()
+        public static DataSet GetDepartment()
         {
             LoadCommonDAL lcDAL = new LoadCommonDAL();
             return lcDAL.GetDepartmentDAL();
+        }
+
+
+
+        public static DataSet GetIndustryBAL()
+        {
+            LoadCommonDAL LCDAL = new LoadCommonDAL();
+            return LCDAL.GetIndustryDAL();
+        }
+
+        public static DataSet GetDepartmentBAL()
+        {
+            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            return lcDAL.GetDepartmentDAL();
+
         }
     }
 
