@@ -4,12 +4,13 @@
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div>
-        <table style="width: 100%">
+        <table style="width:100%">
             <tr>
-                <td width="20%" style="vertical-align: top" class="auto-style1">
+                <td style="vertical-align:top" class="auto-style1">
                     <fieldset>
-                        <legend>Filter Jobs</legend>
-                        <div class="left" style="overflow: scroll; height: 350px">
+                        <legend>Div 1</legend>
+                        <div class="left">
+
                             <div>
                                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
@@ -30,6 +31,8 @@
                                 <cc1:CollapsiblePanelExtender ID="CPEfreshness" runat="server" TargetControlID="PanelFreshness" TextLabelID="lblFreshness" CollapseControlID="lblFreshness" ExpandControlID="lblFreshness" Collapsed="true" />
 
                             </div>
+
+
                             <br />
                             <div>
                                 <asp:LinkButton ID="lblLocation" runat="server" Text="By Location" CssClass="label"></asp:LinkButton>
@@ -98,6 +101,7 @@
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPESalary" runat="server" TargetControlID="PanelSalary" TextLabelID="lblSalary" CollapseControlID="lblSalary" ExpandControlID="lblSalary" Collapsed="true" />
                             </div>
+
                             <br />
                             <div>
                                 <asp:LinkButton ID="lblEducation" runat="server" Text="By Education " CssClass="label"></asp:LinkButton>
@@ -107,6 +111,7 @@
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPEEducation" runat="server" TargetControlID="PanelEducation" TextLabelID="lblEducation" CollapseControlID="lblEducation" ExpandControlID="lblEducation" Collapsed="true" />
                             </div>
+
                             <br />
                             <div>
                                 <asp:LinkButton ID="lblStatus" runat="server" Text="By Employment Status " CssClass="label"></asp:LinkButton>
@@ -134,280 +139,218 @@
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPEJobType" runat="server" TargetControlID="PanelJobType" TextLabelID="lblJobType" CollapseControlID="lblJobType" ExpandControlID="lblJobType" Collapsed="true" />
                             </div>
+
                         </div>
                     </fieldset>
                 </td>
                 <td width="80%" style="vertical-align: top">
                     <fieldset>
                         <div>
-                            <asp:LinkButton ID="allJobs" runat="server" Text="AllJobs" OnClick="lnks_Click"></asp:LinkButton>
-                            <br />
-                        </div>
-                        <div style="width: 100%; height: 300px; overflow: scroll; margin-bottom: 1px;">
-                            <table width="100%" align="left">
-                                <tr>
-                                    <td class="auto-style7">Job Title/Designation</td>
-                                    <td>
-                                        <asp:TextBox ID="txtJobtitle" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Job Locations</td>
-                                    <td>
-                                        <div id="divDDL" class="divDDL" runat="server">
-                                            Please Select…
-                                        </div>
-                                        <asp:Panel ID="pnlCustomers" runat="server" CssClass="MultipleSelectionDDL" Height="49px" Width="85px">
-                                            <asp:CheckBoxList ID="chkCustomerList" runat="server" Width="110px" Height="40px">
-                                                <asp:ListItem>Pune</asp:ListItem>
-                                                <asp:ListItem>Mumbai</asp:ListItem>
-                                            </asp:CheckBoxList>
-                                        </asp:Panel>
-                                        <br />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Company Level</td>
-                                    <td>
-                                        <asp:DropDownList ID="ddlCompanyLevel" runat="server" AutoPostBack="True">
-                                            <asp:ListItem>Select</asp:ListItem>
-                                            <asp:ListItem>Startup Company</asp:ListItem>
-                                            <asp:ListItem>Small Scale Company</asp:ListItem>
-                                            <asp:ListItem>Mid Level Company</asp:ListItem>
-                                            <asp:ListItem>MNC</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Industry</td>
-                                    <td>
-                                        <asp:DropDownList ID="ddlIndustry" runat="server" Height="19px">
-                                        </asp:DropDownList>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Department</td>
-                                    <td>
-                                        <asp:DropDownList ID="ddlDepartment" runat="server">
-                                        </asp:DropDownList>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Functional Area</td>
-                                    <td>
-                                        <asp:DropDownList ID="ddlFunArea" runat="server">
-                                        </asp:DropDownList>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Job Description</td>
-                                    <td>
-                                        <asp:TextBox ID="txtJobDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Keywords/Skillsets Roles</td>
-                                    <td>
-                                        <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Keywords/Skillsets Technical</td>
-                                    <td>
-                                        <asp:TextBox ID="txtKeyTechnical" runat="server" Height="22px"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Work Experience</td>
-                                    <td>
-                                        <asp:TextBox ID="txtWorkExp" runat="server"></asp:TextBox>
-                                        <cc1:CalendarExtender ID="txtWorkExp_CalendarExtender" runat="server" BehaviorID="txtWorkExp_CalendarExtender" TargetControlID="txtWorkExp"></cc1:CalendarExtender>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Gender</td>
-                                    <td>
-                                        <asp:CheckBoxList ID="chkGender" runat="server">
-                                            <asp:ListItem>Male</asp:ListItem>
-                                            <asp:ListItem>Female</asp:ListItem>
-                                        </asp:CheckBoxList>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Offered Anual Salary</td>
-                                    <td>
-                                        <asp:TextBox ID="txtAnnualSalary" TextMode="MultiLine" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Other Salary Details</td>
-                                    <td>
-                                        <asp:TextBox ID="txtOtherSalary" TextMode="MultiLine" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">Number of Vacancies</td>
-                                    <td>
-                                        <asp:TextBox ID="txtVacancies" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style7">&nbsp;</td>
-                                    <td>
-                                        <asp:Button ID="btnsend" runat="server" Text="Send" OnClick="btnsend_Click" />
-                                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
-                                        &nbsp;&nbsp;&nbsp;
+                        <asp:LinkButton ID="allJobs" runat="server" Text="AllJobs" OnClick="lnks_Click"></asp:LinkButton>
+                            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                             <br />
+                             </div>
+                        <div style="width:70%; height: 540px;">
+        <fieldset>
+        
+    <table class="auto-style6">
+       
+        <tr>
+            <td class="auto-style7">Job Title/Designation</td>
+            <td>
+                <asp:TextBox ID="txtJobtitle" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Job Locations</td>
+            <td>
+                <div id="divDDL" class="divDDL" runat="server">
+        Please Select…
+                </div>
+                <asp:Panel ID="pnlCustomers" runat="server" CssClass="MultipleSelectionDDL" Height="49px" Width="85px">
+                    <asp:CheckBoxList ID="chkCustomerList" runat="server" onclick="readCheckBoxList()" Width="110px" Height="40px" >
+                        <asp:ListItem>Pune</asp:ListItem>
+                        <asp:ListItem>Mumbai</asp:ListItem>
+                    </asp:CheckBoxList>
+                </asp:Panel>
+                <br /></td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Company Level</td>
+            <td>
+                <asp:DropDownList ID="ddlCompanyLevel" runat="server" AutoPostBack="True">
+                    <asp:ListItem>Select</asp:ListItem>
+                    <asp:ListItem>Startup Company</asp:ListItem>
+                    <asp:ListItem>Small Scale Company</asp:ListItem>
+                    <asp:ListItem>Mid Level Company</asp:ListItem>
+                    <asp:ListItem>MNC</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Industry</td>
+            <td>
+                <asp:DropDownList ID="ddlIndustry" runat="server" Height="19px">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Department</td>
+            <td>
+                <asp:DropDownList ID="ddlDepartment" runat="server">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Functional Area</td>
+            <td>
+                <asp:DropDownList ID="ddlFunArea" runat="server">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Job Description</td>
+            <td>
+                <asp:TextBox ID="txtJobDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Keywords/Skillsets Roles</td>
+            <td>
+                <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Keywords/Skillsets Technical</td>
+            <td>
+                <asp:TextBox ID="txtKeyTechnical" runat="server" Height="22px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Work Experience</td>
+            <td><asp:TextBox ID="txtWorkExp" runat="server"></asp:TextBox>
+                <cc1:CalendarExtender ID="txtWorkExp_CalendarExtender" runat="server" BehaviorID="txtWorkExp_CalendarExtender" TargetControlID="txtWorkExp">
+                </cc1:CalendarExtender>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Gender</td>
+            <td>
+                <asp:CheckBoxList ID="chkGender" runat="server">
+                    <asp:ListItem>Male</asp:ListItem>
+                    <asp:ListItem>Female</asp:ListItem>
+                </asp:CheckBoxList>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Offered Anual Salary</td>
+            <td>
+                <asp:TextBox ID="txtAnnualSalary" TextMode="MultiLine" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Other Salary Details</td>
+            <td>
+                <asp:TextBox ID="txtOtherSalary" TextMode="MultiLine" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Number of Vacancies</td>
+            <td>
+                <asp:TextBox ID="txtVacancies" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">&nbsp;</td>
+            <td>
+                <asp:Button ID="btnsend" runat="server" Text="Send" OnClick="btnsend_Click"/>
+                <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            &nbsp;&nbsp;&nbsp;
                             <asp:Label ID="lblTotalCount" runat="server" Text="TotalCount"></asp:Label>
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </div>
+            </td>
+        </tr>
+    </table> 
+    </div>
                     </fieldset>
                 </td>
             </tr>
         </table>
-    </div>
-    <div style="margin: 5px; width: 100%; height: 200px">
-        <table style="width: 100%">
-            <tr>
-                <td width="100%" align="left">
-                    <fieldset>
-                        <legend>Job Post Details</legend>
-                        <asp:Repeater ID="Repeater1" runat="server" Visible="false">
-                            <HeaderTemplate>
-                                <table>
-                                    <tr>
-                                        <th>JobTitle</th>
-                                        <th>JobLocationCity</th>
-                                        <th>JobLocationArea</th>
-                                        <th>CompanyLevel</th>
-                                        <th>Industry</th>
-                                        <th>Department</th>
-                                        <th>FunctionalArea</th>
-                                        <th>JobDescription</th>
-                                        <th>KeywordsRoles</th>
-                                        <th>KeywordsTechnical</th>
-                                        <th>WorkExprience</th>
-                                        <th>Gender</th>
-                                        <th>OfferedAnnualSalary</th>
-                                        <th>OtherSalaryDetails</th>
-                                        <th>NumberOfVacancies</th>
-                                    </tr>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <tr>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "JobTitle") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "JobLocationCity") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "JobLocationArea") %>
-                                    </td>
+       <asp:Repeater ID="Repeater1" runat="server" >
+           <HeaderTemplate>
+              <table>
+              <tr>
+                 <th>JobTitle</th>
+                 <th>JobLocationCity</th>
+                 <th>JobLocationArea</th>
+                <th>CompanyLevel</th>
+                 <th>Industry</th>
+                  <th>Department</th>
+                  <th>FunctionalArea</th>
+                  <th>JobDescription</th>
+                  <th>KeywordsRoles</th>
+                  <th>KeywordsTechnical</th>
+                  <th>WorkExprience</th>
+                  <th>Gender</th>
+                  <th>OfferedAnnualSalary</th>
+                  <th>OtherSalaryDetails</th>
+                   <th>NumberOfVacancies</th>
+              </tr>
+          </HeaderTemplate>
+           <ItemTemplate>
+               <tr>
+               <td> 
+                <%# DataBinder.Eval(Container.DataItem, "JobTitle") %>
+          </td>
+                <td> 
+                <%# DataBinder.Eval(Container.DataItem, "JobLocationCity") %>
+          </td>
+                     <td> 
+                <%# DataBinder.Eval(Container.DataItem, "JobLocationArea") %>
+          </td>
 
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "CompanyLevel") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "Industry") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "Department") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "FunctionalArea") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "JobDescription") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "KeywordsRoles") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "KeywordsTechnical") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "WorkExprience") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "Gender") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "OfferedAnnualSalary") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "OtherSalaryDetails") %>
-                                    </td>
-                                    <td>
-                                        <%# DataBinder.Eval(Container.DataItem, "NumberOfVacancies") %>
-                                    </td>
-                                </tr>
-
-                            </ItemTemplate>
-                        </asp:Repeater>
-                        <asp:GridView ID="gvJobDetails" runat="server" AutoGenerateSelectButton="false"
-                            AutoGenerateColumns="false" OnRowCommand="gvJobDetails_RowCommand">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Action">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="lnkSelect" runat="server" CommandName="SelectJob" CommandArgument='<%# Eval("JobId") %>'>Select</asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="JobId">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblJobId" runat="server" Text='<%# Eval("JobId") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="City">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblCity" runat="server" Text='<%# Eval("JobLocationCity") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Area">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblJobLocationArea" runat="server" Text='<%# Eval("JobLocationArea") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Industry">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblIndustry" runat="server" Text='<%# Eval("Industry") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="WorkExprience">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblWorkExprience" runat="server" Text='<%# Eval("WorkExprience") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="OfferedAnnualSalary">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblOfferedAnnualSalary" runat="server" Text='<%# Eval("OfferedAnnualSalary") %>'></asp:Label>
-                                    </ItemTemplate>
-
-                                </asp:TemplateField>
-                                 <asp:TemplateField HeaderText="OtherSalaryDetails">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblOtherSalaryDetails" runat="server" Text='<%# Eval("OtherSalaryDetails") %>'></asp:Label>
-                                    </ItemTemplate>
-
-                                </asp:TemplateField>
-                                 <asp:TemplateField HeaderText="Vacancies">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblNumberOfVacancies" runat="server" Text='<%# Eval("NumberOfVacancies") %>'></asp:Label>
-                                    </ItemTemplate>
-
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                    </fieldset>
+                     <td> 
+                <%# DataBinder.Eval(Container.DataItem, "CompanyLevel") %>
+          </td>
+                   <td> 
+                <%# DataBinder.Eval(Container.DataItem, "Industry") %>
+             </td> 
+               <td> 
+                <%# DataBinder.Eval(Container.DataItem, "Department") %>
                 </td>
-            </tr>
-        </table>
+                 <td> 
+                <%# DataBinder.Eval(Container.DataItem, "FunctionalArea") %>
+                  </td>
+                  <td> 
+                <%# DataBinder.Eval(Container.DataItem, "JobDescription") %>
+                   </td>
+                  <td> 
+                <%# DataBinder.Eval(Container.DataItem, "KeywordsRoles") %>
+                 </td>
+                  <td> 
+                <%# DataBinder.Eval(Container.DataItem, "KeywordsTechnical") %>
+                  </td>
+                 <td> 
+                <%# DataBinder.Eval(Container.DataItem, "WorkExprience") %>
+                </td>     
+                <td> 
+                <%# DataBinder.Eval(Container.DataItem, "Gender") %>
+                </td>
+                 <td> 
+                <%# DataBinder.Eval(Container.DataItem, "OfferedAnnualSalary") %>
+                 </td>
+                <td> 
+                <%# DataBinder.Eval(Container.DataItem, "OtherSalaryDetails") %>
+                  </td>
+                   <td> 
+                <%# DataBinder.Eval(Container.DataItem, "NumberOfVacancies") %>
+                 </td>
+                   </tr>
 
-    </div>
+           </ItemTemplate>
+
+          </asp:Repeater>
 </asp:Content>
-<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="head">
+<asp:Content ID="Content1" runat="server" contentplaceholderid="head">
     <style type="text/css">
         .auto-style1 {
             width: 11%;

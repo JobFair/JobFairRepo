@@ -90,7 +90,7 @@ namespace JobFair.Forms.JobSeeker
         {
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from RE_JobPost", con);
+            SqlCommand cmd = new SqlCommand("select * from RS_JobPost", con);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
@@ -113,62 +113,24 @@ namespace JobFair.Forms.JobSeeker
             dt.Rows.Add("Link 3");
             dt.Rows.Add("Link 4");
 
-
+            //bind data source here
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
         }
 
         protected void btnsend_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM RE_JobPost", new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123"));
+            SqlCommand cmd = new SqlCommand("SELECT * FROM RS_JobPost", new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123"));
 
             cmd.Connection.Open();
-            //Repeater1.DataSource = cmd.ExecuteReader();
-            //Repeater1.DataBind();
-
-            gvJobDetails.DataSource = cmd.ExecuteReader();
-            gvJobDetails.DataBind();
-
-            if (gvJobDetails.Rows.Count > 0)
+            Repeater1.DataSource = cmd.ExecuteReader();
+            Repeater1.DataBind();
+            if (Repeater1.Items.Count > 0)
             {
-                lblTotalCount.Text = gvJobDetails.Rows.Count.ToString();
+                lblTotalCount.Text = Repeater1.Items.Count.ToString();
             }
             cmd.Connection.Close();
             cmd.Connection.Dispose();
         }
-
-        protected void gvJobDetails_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            int JobId = 0;
-            try
-            {
-                if (e.CommandName.Equals("SelectJob"))
-                {
-                    JobId = Convert.ToInt32(e.CommandArgument);
-
-                    GridViewRow row = (GridViewRow)(((Control)e.CommandSource).NamingContainer);
-                    
-                    //Find Controls and bind corresponding values
-                    Label lblCity = (Label)row.FindControl("lblCity");
-                    Label lblJobLocationArea = (Label)row.FindControl("lblJobLocationArea");
-                     
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                //   throw;
-            }
-        }
-
-        //protected void gvJobDetails_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    txtJobtitle.Text = gvJobDetails.SelectedRow.Cells[2].Text;
-        //    txtJobDescription.Text = gvJobDetails.SelectedRow.Cells[9].Text;
-        //    txtKeyRoles.Text = gvJobDetails.SelectedRow.Cells[10].Text;
-        //    txtKeyTechnical.Text = gvJobDetails.SelectedRow.Cells[11].Text;
-        //    txtAnnualSalary.Text = gvJobDetails.SelectedRow.Cells[14].Text;
-        //    txtOtherSalary.Text = gvJobDetails.SelectedRow.Cells[15].Text;
-        //    txtVacancies.Text = gvJobDetails.SelectedRow.Cells[16].Text;
-        //}
     }
 }

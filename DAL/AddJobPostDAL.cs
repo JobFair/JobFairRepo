@@ -14,38 +14,38 @@ namespace DAL
     public class AddJobPostDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        //public DataTable LoadRole()
-        //{
-        //    DataTable table = new DataTable();
-        //    SqlCommand cmd = new SqlCommand("select * from RE_JobPost", connection);
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    da.Fill(table);
-        //    return table;
-        //}
-        //public DataTable GetFunctionalDAL()
-        //{
+        public DataTable LoadRole()
+        {
+            DataTable table = new DataTable();
+            SqlCommand cmd = new SqlCommand("select * from RS_JobPost", connection);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(table);
+            return table;
+        }
+        public DataTable GetFunctionalDAL()
+        {
             
-        //        connection.Open();
-        //        SqlCommand cmd = new SqlCommand("select * from RS_FunctionalArea", connection);
-        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //        DataTable dt = new DataTable();
-        //        da.Fill(dt);
-        //        return dt;
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("select * from RS_FunctionalArea", connection);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
             
-        //}
-        //public DataTable GetIndustryDAL()
-        //{
+        }
+        public DataTable GetIndustryDAL()
+        {
 
 
-        //    connection.Open();
-        //    SqlCommand cmd = new SqlCommand("select * from Industry", connection);
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    DataTable dt = new DataTable();
-        //    da.Fill(dt);
-        //    return dt;
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from Industry", connection);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
 
 
-        //}
+        }
         public int JobPostDAL(AddJobPostEntity JPentity)
         {
             try
@@ -71,7 +71,7 @@ namespace DAL
                                             new SqlParameter("@NumberOfVacancies",JPentity.NumberOfVacancies),
 
                                         };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertJobPost", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RS_InsertJobPost", sqlparams);
                 return result;
             }
             catch (Exception)

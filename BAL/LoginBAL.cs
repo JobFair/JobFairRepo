@@ -11,12 +11,12 @@ namespace BAL
         /// <summary>
         /// Login for jobseeker
         /// </summary>
-        /// <param name="logjsEntity">The login entity</param>
+        /// <param name="loginEntity">The login entity</param>
         /// <returns>System.String</returns>
-        public string JobSeekerLogIn(Entities.LogInEnitity logjsEntity)
+        public string JobSeekerLogIn(Entities.LoginEnitity loginEntity)
         {
             LogInJobSeekerDAL loginDAL = new LogInJobSeekerDAL();
-            return  loginDAL.LoginJSDAL(logjsEntity);
+            return  loginDAL.LoginJSDAL(loginEntity);
            
         }
         /// <summary>
@@ -24,7 +24,7 @@ namespace BAL
         /// </summary>
         /// <param name="lnEntity">The login entity</param>
         /// <returns>System.String</returns>
-        public string RecruiterLoginBAL(Entities.LogInEnitity lnEntity)
+        public string RecruiterLoginBAL(Entities.LoginEnitity lnEntity)
         {
             LoginRecruiterDAL loginDAL = new LoginRecruiterDAL();
             return loginDAL.LoginRecruDAL(lnEntity);

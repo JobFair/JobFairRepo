@@ -13,9 +13,9 @@ namespace Entities.Recruiter
         public string JobLocationCity { get; set; }
         public string JobLocationArea { get; set; }
         public string CompanyLevel { get; set; }
-        public Int32 Industry { get; set; }
-        public Int32 Department { get; set; }
-        public Int32 FunctionalArea { get; set; }
+        public string Industry { get; set; }
+        public string Department { get; set; }
+        public string FunctionalArea { get; set; }
         public string JobDescription { get; set; }
         public string KeywordsRoles { get; set; }
         public string KeywordsTechnical { get; set; }

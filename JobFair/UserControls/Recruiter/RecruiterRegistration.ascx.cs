@@ -20,19 +20,19 @@ namespace JobFair.UserControls.Recruiter
         {
             try
             {
-                RegisterRecruiterEntity rrentity = new RegisterRecruiterEntity();
-                RegisterRecruiterBAL rrBAL = new RegisterRecruiterBAL();
-                rrentity.FullName = txtFullName.Text.Trim();
-                rrentity.Company = txtCompany.Text.Trim();
-                rrentity.MobileNo = txtMobNo.Text.Trim();
-                rrentity.OficialEmailId = txtOffEmailid.Text.Trim();
-                rrentity.Password = txtPassword.Text.Trim();
-                rrentity.City = txtCity.Text.Trim();
+                RegisterRecruiterEntity registerRecruiterEntity = new RegisterRecruiterEntity();
+                RegisterRecruiterBAL registerRecruiterBAL = new RegisterRecruiterBAL();
+                registerRecruiterEntity.FullName = txtFullName.Text.Trim();
+                registerRecruiterEntity.Company = txtCompany.Text.Trim();
+                registerRecruiterEntity.MobileNo = txtMobNo.Text.Trim();
+                registerRecruiterEntity.OficialEmailId = txtOffEmailid.Text.Trim();
+                registerRecruiterEntity.Password = txtPassword.Text.Trim();
+                registerRecruiterEntity.City = txtCity.Text.Trim();
                 //get path of photos
                 string path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + this.FileUploadRecruiterPhoto.FileName;
                 string uploadphoto = Request.PhysicalApplicationPath + "Images\\";
-                rrentity.PhotoPath = uploadphoto.ToString();
-                string result = rrBAL.SaveNewRecruiterBAL(rrentity);
+                registerRecruiterEntity.PhotoPath = uploadphoto.ToString();
+                string result = registerRecruiterBAL.SaveNewRecruiterBAL(registerRecruiterEntity);
                 if (result != null)
                 {
                     if (FileUploadRecruiterPhoto.HasFile)
