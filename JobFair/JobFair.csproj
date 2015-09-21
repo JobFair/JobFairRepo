@@ -86,6 +86,7 @@
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
+    <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
@@ -107,7 +108,6 @@
     <Content Include="UserControls\Recruiter\CreateQuestionnaire.ascx" />
     <Content Include="UserControls\Recruiter\DesiredCandidateProfileSearch.ascx" />
     <Content Include="UserControls\Recruiter\HeaderMenu.ascx" />
-    <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\ViewAllJobsDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
@@ -204,6 +204,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\PostNewJob.aspx.cs">
+      <DependentUpon>PostNewJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
+      <DependentUpon>PostNewJob.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">
@@ -321,13 +328,6 @@
     </Compile>
     <Compile Include="UserControls\Recruiter\HeaderMenu.ascx.designer.cs">
       <DependentUpon>HeaderMenu.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\PostNewJob.aspx.cs">
-      <DependentUpon>PostNewJob.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
-      <DependentUpon>PostNewJob.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterHome.Master.cs">
       <DependentUpon>RecruiterHome.Master</DependentUpon>
