@@ -20,7 +20,7 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 LoginBAL liBAL = new LoginBAL();
-                LogInEnitity logjsEntity = new LogInEnitity();
+                LoginEnitity logjsEntity = new LoginEnitity();
 
                 logjsEntity.UserName = txtUserName.Text.Trim();
                 logjsEntity.Password = txtPassword.Text.Trim();
