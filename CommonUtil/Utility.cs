@@ -101,5 +101,14 @@ namespace CommonUtil
             Common lcDAL = new Common();
             return lcDAL.GetDepartmentDAL();
         }
+        /// <summary>
+        /// GetEducationalDegreeTypeDAL() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static System.Data.DataSet GetEducationalDegreeTypeDAL()
+        {
+            Common lcDAL = new Common();
+            return lcDAL.GetEducationalDegreeTypeDAL();
+        }
     }
 }
