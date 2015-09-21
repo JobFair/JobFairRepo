@@ -2,13 +2,6 @@
 using Entities;
 using System;
 using System.Data;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
-
-
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace CommonUtil
 {
@@ -17,10 +10,8 @@ namespace CommonUtil
     /// </summary>
     public static class Utility
     {
-        
-
         /// <summary>
-        /// Forget password
+        /// Forget password method in Utility class
         /// </summary>
         /// <param name="forgotPasswordEntity">The forgot password entity.</param>
         /// <returns>System.Data.DataSet.</returns>
@@ -38,75 +29,77 @@ namespace CommonUtil
         }
 
         /// <summary>
-        /// Change password
+        /// Change password method in Utility class
         /// </summary>
-        /// <param name="cpentity">The change password entity</param>
+        /// <param name="changepasswordEntity">The change password entity</param>
         /// <returns>System.Int32</returns>
-        public static int ChangePassword(ChangePasswordEnitity cpentity)
+        public static int ChangePassword(ChangePasswordEnitity changepasswordEntity)
         {
             ChangePasswordDAL cpDAL = new ChangePasswordDAL();
-            return cpDAL.ChangePasswordDALMethod(cpentity);
+            return cpDAL.ChangePasswordDALMethod(changepasswordEntity);
         }
 
-       
-
-       
+        /// <summary>
+        /// GetCountry() Method in Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
 
         public static DataSet GetCountry()
         {
-            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            Common lcDAL = new Common();
             return lcDAL.GetCountryDAL();
-         }
+        }
 
+        /// <summary>
+        /// GetState() method of Utility class
+        /// </summary>
+        /// <param name="countryid">Parameter to get state of desired country </param>
+        /// <returns>System.Data.DataSet</returns>
         public static DataSet GetState(int countryid)
         {
-            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            Common lcDAL = new Common();
             return lcDAL.GetStateDAL(countryid);
-          
         }
+
+        /// <summary>
+        /// GetCity() Method of Utility class
+        /// </summary>
+        /// <param name="stateid">Parameter to get city of desired state</param>
+        /// <returns>System.Data.DataSet</returns>
         public static DataSet GetCity(int stateid)
         {
-            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            Common lcDAL = new Common();
             return lcDAL.GetCityDAL(stateid);
         }
 
-        public static DataSet GetFunctionalAreaBAL()
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetFunctionalAreaBAL()
         {
-            LoadCommonDAL lcDAL = new LoadCommonDAL();
-            return lcDAL.GetFunctionalAreaDAL();
-
+            FunctionalAreaDAL JobDAL = new FunctionalAreaDAL();
+            return JobDAL.GetFunctionalDAL();
         }
 
-
-        public static DataSet GetIndustry()
+        /// <summary>
+        /// GetIndustry() Method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static System.Data.DataSet GetIndustry()
         {
-            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            Common lcDAL = new Common();
             return lcDAL.GetIndustryDAL();
         }
 
-        public static DataSet GetDepartment()
+        /// <summary>
+        /// GetDepartment() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static System.Data.DataSet GetDepartment()
         {
-            LoadCommonDAL lcDAL = new LoadCommonDAL();
+            Common lcDAL = new Common();
             return lcDAL.GetDepartmentDAL();
-        }
-
-
-
-        public static DataSet GetIndustryBAL()
-        {
-            LoadCommonDAL LCDAL = new LoadCommonDAL();
-            return LCDAL.GetIndustryDAL();
-        }
-
-        public static DataSet GetDepartmentBAL()
-        {
-            LoadCommonDAL lcDAL = new LoadCommonDAL();
-            return lcDAL.GetDepartmentDAL();
-
         }
     }
-
 }
-
-
-

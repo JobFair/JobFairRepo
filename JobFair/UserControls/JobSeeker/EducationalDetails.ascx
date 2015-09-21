@@ -99,7 +99,7 @@
             <asp:Label ID="lblSSCPercentage" runat="server" Text="Percentage" CssClass="label"></asp:Label>
         </td>
         <td>
-            <asp:TextBox ID="txtSSCPercentage" runat="server" AutoPostBack="True" OnTextChanged="txtSSCPercentage_TextChanged" Width="100px"></asp:TextBox>
+            <asp:TextBox ID="txtSSCPercentage" runat="server" AutoPostBack="True" Width="100px"></asp:TextBox>
         </td>
     </tr>
 </table> <hr style="width: 350px" />

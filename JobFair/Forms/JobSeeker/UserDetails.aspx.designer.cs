@@ -85,6 +85,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel4;
         
         /// <summary>
+        /// lblsession control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblsession;
+        
+        /// <summary>
         /// TabPanel5 control.
         /// </summary>
         /// <remarks>

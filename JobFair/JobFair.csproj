@@ -336,7 +336,6 @@
     <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.cs">
       <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterLogIn.aspx.designer.cs">
       <DependentUpon>RecruiterLogIn.aspx</DependentUpon>
@@ -344,7 +343,6 @@
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.cs">
       <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Recruiter\RecruiterRegistration.aspx.designer.cs">
       <DependentUpon>RecruiterRegistration.aspx</DependentUpon>

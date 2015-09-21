@@ -1,7 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProfessionalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ProfessionalDetails" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <div>
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <table id="TableCurrentJob" runat="server">
         <tr>
             <td colspan="2" style="font-weight: 700; font-style: italic; text-decoration: underline">

@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web;
+
 
 namespace DAL
 {
@@ -15,34 +15,34 @@ namespace DAL
         /// </summary>
         /// <param name="logjsEntity">The login entity for checking data from database </param>
         /// <return>SqlDataReader </returns>
-        public SqlDataReader LoginJSDAL(Entities.LogInJobSeekerEnitity logjsEntity)
+        public string LoginJSDAL(Entities.LogInEnitity logjsEntity)
         {
+            string candidateid = "";
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("sp_Login", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@userid", logjsEntity.UserName);
-                cmd.Parameters.AddWithValue("@password", logjsEntity.Password);
-                //cmd.Parameters.Add("@candidateid", SqlDbType.VarChar, 500);
-                //cmd.Parameters["@candidateid"].Direction = ParameterDirection.Output;
-                //string candidate = cmd.Parameters["@candidateid"].Value.ToString();
-                SqlDataReader dr = cmd.ExecuteReader();
-                
-                //SqlParameter[] sqlparams = { new SqlParameter("@userid", logjsEntity.UserName), new SqlParameter("@password", logjsEntity.Password) };
-                //SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, "sp_Login", sqlparams);
-            
-                    return dr;
-               
+                SqlCommand cmd = new SqlCommand();
+                SqlParameter[] sparams = new SqlParameter[3];
+                sparams[0] = new SqlParameter("@userid", logjsEntity.UserName);
+                sparams[1] = new SqlParameter("@password", logjsEntity.Password);
+                sparams[2] = new SqlParameter("@candidateid", SqlDbType.VarChar, 500);
+                sparams[2].Direction = ParameterDirection.Output;
+                SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, Constants.sp_Login, sparams);
+                candidateid = sparams[2].Value.ToString();
+                if (string.IsNullOrEmpty(candidateid))
+                {
+                    return null;
+                }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                throw ex;
+                //throw ex;
             }
             finally
             {
-                //connection.Close();
+                connection.Close();
             }
+            return candidateid;
         }
     }
 }

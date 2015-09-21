@@ -1,7 +1,6 @@
 ﻿using BAL;
 using Entities;
 using System;
-using System.Data.SqlClient;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -12,31 +11,28 @@ namespace JobFair.Forms.JobSeeker
         }
 
         /// <summary>
-        ///
+        /// Handles the Click event of the btnLogin control.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
             try
             {
-                LogInJobSeekerBAL logIn = new LogInJobSeekerBAL();
-                LogInJobSeekerEnitity logjsEntity = new LogInJobSeekerEnitity();
+                LoginBAL liBAL = new LoginBAL();
+                LogInEnitity logjsEntity = new LogInEnitity();
 
-
-                logjsEntity.UserName = txtUserName.Text;
-                logjsEntity.Password = txtPassword.Text;
-                SqlDataReader rd = logIn.JobSeekerLogIn(logjsEntity);
-
-                if (rd.Read())
+                logjsEntity.UserName = txtUserName.Text.Trim();
+                logjsEntity.Password = txtPassword.Text.Trim();
+                string candidateID = liBAL.JobSeekerLogIn(logjsEntity);
+                if (string.IsNullOrEmpty(candidateID))
                 {
-                    TextBox1.Text = rd["CandidateId"].ToString();
-                    Session["candidateId"] = TextBox1.Text;
-                    Response.Redirect("WebForm1.aspx");
+                    lblmsg.Text = "Wrong username or password";
                 }
                 else
                 {
-                    Response.Write("Wrong username or password");
+                    Session["Candidateid"] = candidateID.ToString();
+                    Response.Redirect("UserDetails.aspx");
                 }
             }
             catch (Exception ex)

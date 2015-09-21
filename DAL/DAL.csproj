@@ -44,12 +44,15 @@
     <Compile Include="AddProjectDetailsDAL.cs" />
     <Compile Include="AffirmativeDetailsJSDAL.cs" />
     <Compile Include="ChangePasswordDAL.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ContactDetailsJSDAL.cs" />
     <Compile Include="CurrentDesiredJobDAL.cs" />
+    <Compile Include="EducationalDetailsDAL.cs" />
     <Compile Include="FeedbackJSDAL.cs" />
     <Compile Include="ForgetPasswordDAL.cs" />
     <Compile Include="LiveProjectDetailsDAL.cs" />
     <Compile Include="LogInJobSeekerDAL.cs" />
+    <Compile Include="LoginRecruiterDAL.cs" />
     <Compile Include="PersonalDetailsJSDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />

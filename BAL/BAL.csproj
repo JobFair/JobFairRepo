@@ -44,9 +44,10 @@
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ContactDetailsJSBAL.cs" />
     <Compile Include="CurrentDesiredJobBAL.cs" />
+    <Compile Include="EducationalDetailsBAL.cs" />
     <Compile Include="FeedbackJSBAL.cs" />
     <Compile Include="LiveProjectDetailsBAL.cs" />
-    <Compile Include="LogInJobSeekerBAL.cs" />
+    <Compile Include="LoginBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />

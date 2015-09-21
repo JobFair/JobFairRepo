@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Xml;
 using System.Data.SqlClient;
+using BAL;
+using Entities.JobSeeker;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -17,16 +19,27 @@ namespace JobFair.UserControls.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //var allcheckbox = DemoEducationalDetails.Controls.OfType<CheckBox>();
+            //var chkbox = Page.Controls.OfType<CheckBox>().Where(c => c.Checked);
+            int cnt = 0;
 
-        }
-
-        protected void txtSSCPercentage_TextChanged(object sender, EventArgs e)
-        {
-            if (txtSSCYear.Text != "" && txtSSCBoard.Text != "" && txtSSCPercentage.Text != "")
+            foreach (Control ctl in this.Controls)
             {
-                divHSC.Visible = true;
+                if (ctl is CheckBox)
+                {
+                    cnt++;
+                }
             }
+        
         }
+
+        //protected void txtSSCPercentage_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (txtSSCYear.Text != "" && txtSSCBoard.Text != "" && txtSSCPercentage.Text != "")
+        //    {
+        //        divHSC.Visible = true;
+        //    }
+        //}
 
         protected void cbSSC_CheckedChanged(object sender, EventArgs e)
         {
@@ -84,6 +97,28 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
+
+            EducationalDetailsBAL educationalDetails = new EducationalDetailsBAL();
+            List<EducationalDetailsEntity> educationDetailsList = new List<EducationalDetailsEntity>();
+
+
+            // Foreach for all check boxes which is checked = true;
+
+
+            EducationalDetailsEntity educationDetailsEntities = new EducationalDetailsEntity();
+            educationDetailsEntities.CandidateId = "JS10";
+            educationDetailsEntities.DegreeId = ddlHQ.SelectedValue.Trim();
+            educationDetailsEntities.MediumOfEducation = txtSSCMedium.Text.Trim();
+            educationDetailsEntities.Status = rblSSCStat.SelectedValue.Trim();
+            educationDetailsEntities.YearOfCompletion = txtSSCYear.Text.Trim();
+            educationDetailsEntities.University = txtSSCBoard.Text.Trim();
+            educationDetailsEntities.Percantage = txtSSCPercentage.Text.Trim();
+
+            educationalDetails.SaveEducationalDetailsBAL(educationDetailsList);
+
+            educationDetailsList.Add(educationDetailsEntities);
+
+
 
             //XmlTextReader xmlreader = new XmlTextReader(Server.MapPath("D:/Project/JobFair/DAL/EducationalDetailsDAL.xml"));
             //DataSet ds = new DataSet();

@@ -6,40 +6,43 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
+    /// <summary>
+    /// CurrentDesiredJobDAL class
+    /// </summary>
     public class CurrentDesiredJobDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
-        /// Job Seekers current professional details DAL
+        /// Method in DAL layer for CurrentJobDetails
         /// </summary>
-        /// <param name="curentity">Current job details entity</param>
-        /// <returns></returns>
-        public int SaveCurrentProfessionalDetailsDAL(CurrentDesiredJobEntity curentity)
+        /// <param name="currentJobEntity">Current job details entity</param>
+        /// <returns>System.Int32</returns>
+        public int SaveCurrentProfessionalDetailsDAL(CurrentDesiredJobEntity currentJobEntity)
         {
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand();
 
-                SqlParameter[] sparams = { new SqlParameter("@candidateId",curentity.Candidateid),
-                                            new SqlParameter("@resumeheadline",curentity.ResumeHeadline),
-                                            new SqlParameter("@totalExp",curentity.TotalExperience),
-                                            new SqlParameter("@industryId",curentity.Industry),
-                                            new SqlParameter("@departmentId",curentity.Department),
-                                            new SqlParameter("@currentjobrole",curentity.CurrentJobRole),
-                                            new SqlParameter("@currentemployer",curentity.CurrentEmployer),
-                                            new SqlParameter("@primfunrole",curentity.PrimFunctionalRole),
-                                            new SqlParameter("@primjobdesrip",curentity.PrimJobDescrip),
-                                            new SqlParameter("@primtechskills",curentity.PrimTechSkills),
-                                            new SqlParameter("@secfunrole",curentity.SecFunctionalRole),
-                                            new SqlParameter("@secjobdescrip",curentity.SecJobDescrip),
-                                            new SqlParameter("@sectechskills",curentity.SecTechSkills),
-                                            new SqlParameter("@technicalskills",curentity.TechnicalSkills),
-                                            new SqlParameter("@reasonforjobchange",curentity.ReasonforJobChange),
-                                            new SqlParameter("@designation",curentity.Designation)};
+                //Parameters to pass to the stored procedure
+                SqlParameter[] sparams = { new SqlParameter("@candidateId",currentJobEntity.Candidateid),
+                                            new SqlParameter("@resumeheadline",currentJobEntity.ResumeHeadline),
+                                            new SqlParameter("@totalExp",currentJobEntity.TotalExperience),
+                                            new SqlParameter("@industryId",currentJobEntity.Industry),
+                                            new SqlParameter("@departmentId",currentJobEntity.Department),
+                                            new SqlParameter("@currentjobrole",currentJobEntity.CurrentJobRole),
+                                            new SqlParameter("@currentemployer",currentJobEntity.CurrentEmployer),
+                                            new SqlParameter("@primfunrole",currentJobEntity.PrimFunctionalRole),
+                                            new SqlParameter("@primjobdesrip",currentJobEntity.PrimJobDescrip),
+                                            new SqlParameter("@primtechskills",currentJobEntity.PrimTechSkills),
+                                            new SqlParameter("@secfunrole",currentJobEntity.SecFunctionalRole),
+                                            new SqlParameter("@secjobdescrip",currentJobEntity.SecJobDescrip),
+                                            new SqlParameter("@sectechskills",currentJobEntity.SecTechSkills),
+                                            new SqlParameter("@technicalskills",currentJobEntity.TechnicalSkills),
+                                            new SqlParameter("@reasonforjobchange",currentJobEntity.ReasonforJobChange),
+                                            new SqlParameter("@designation",currentJobEntity.Designation)};
 
-                int res = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertProfessionalDetails", sparams);
+                int res = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertProfessionalDetails, sparams);
                 return res;
             }
             catch (Exception ex)
@@ -52,25 +55,31 @@ namespace DAL
             }
         }
 
-        public int DesiredJobDetailsDAL(CurrentDesiredJobEntity cdjEntity)
+        /// <summary>
+        /// Method in DAL layer for DesiredJobDetails
+        /// </summary>
+        /// <param name="desiredjobEntity">Object of CurrentDesiredJobEntity class</param>
+        /// <returns>System.Int32</returns>
+        public int SaveDesiredJobDetailsDAL(CurrentDesiredJobEntity desiredjobEntity)
         {
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand();
-                SqlParameter[] sparams ={new SqlParameter("@candidateid",cdjEntity.Candidateid),
-                                      new SqlParameter("@jobpostlooking",cdjEntity.JobPostLooking),
-                                      new SqlParameter("@releventExp",cdjEntity.RelevantExp),
-                                      new SqlParameter("@currentanualSal",cdjEntity.CurrentAnualSal),
-                                      new SqlParameter("@expectedanualSal",cdjEntity.ExpectedAnualSal),
-                                      new SqlParameter("@noticeperiod",cdjEntity.NoticePeriod),
-                                      new SqlParameter("@employmentstatus",cdjEntity.EmploymentStatus),
-                                      new SqlParameter("@jobtype",cdjEntity.JobType),
-                                      new SqlParameter("@workarea",cdjEntity.WorkArea),
-                                      new SqlParameter("@preferrdCountry",cdjEntity.PreferredCountry),
-                                      new SqlParameter("@preferredstate",cdjEntity.PreferredState),
-                                      new SqlParameter("@preferredcity",cdjEntity.PreferredCity)};
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertDesiredJobDetails", sparams);
+
+                //Parameters to pass to the stored procedure
+                SqlParameter[] sparams ={new SqlParameter("@candidateid",desiredjobEntity.Candidateid),
+                                      new SqlParameter("@jobpostlooking",desiredjobEntity.JobPostLooking),
+                                      new SqlParameter("@releventExp",desiredjobEntity.RelevantExp),
+                                      new SqlParameter("@currentanualSal",desiredjobEntity.CurrentAnualSal),
+                                      new SqlParameter("@expectedanualSal",desiredjobEntity.ExpectedAnualSal),
+                                      new SqlParameter("@noticeperiod",desiredjobEntity.NoticePeriod),
+                                      new SqlParameter("@employmentstatus",desiredjobEntity.EmploymentStatus),
+                                      new SqlParameter("@jobtype",desiredjobEntity.JobType),
+                                      new SqlParameter("@workarea",desiredjobEntity.WorkArea),
+                                      new SqlParameter("@preferrdCountry",desiredjobEntity.PreferredCountry),
+                                      new SqlParameter("@preferredstate",desiredjobEntity.PreferredState),
+                                      new SqlParameter("@preferredcity",desiredjobEntity.PreferredCity)};
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertDesiredJobDetails, sparams);
                 return result;
             }
             catch (Exception)

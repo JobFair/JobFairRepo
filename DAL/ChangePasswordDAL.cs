@@ -11,7 +11,7 @@ using Entities;
 namespace DAL
 {
     /// <summary>
-    /// Change Password
+    /// ChangePasswordDAL class
     /// </summary>
     /// 
     public class ChangePasswordDAL
@@ -19,11 +19,11 @@ namespace DAL
 
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
         /// <summary>
-        /// 
+        /// Change password method from DAL layer
         /// </summary>
-        /// <param name="cpentity"></param>
-        /// <returns></returns>
-        public int ChangePasswordDALMethod(ChangePasswordEnitity cpentity)
+        /// <param name="changepasswordEntity">Object of ChangePasswordEnitity class </param>
+        /// <returns>System.Int32</returns>
+        public int ChangePasswordDALMethod(ChangePasswordEnitity changepasswordEntity)
         {
 
             try
@@ -31,11 +31,11 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                             new SqlParameter("@userId",cpentity.UserId),
-                                             new SqlParameter("@newPassword",cpentity.NewPassword),
-                                             new SqlParameter("@oldPassword",cpentity.OldPassword)
+                                             new SqlParameter("@userId",changepasswordEntity.UserId),
+                                             new SqlParameter("@newPassword",changepasswordEntity.NewPassword),
+                                             new SqlParameter("@oldPassword",changepasswordEntity.OldPassword)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_ChangePassword", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_ChangePassword, sqlparams);
 
                 return result;
             }
