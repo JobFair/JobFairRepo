@@ -108,12 +108,6 @@ namespace CommonUtil
                 throw ex;
             }
         }
-    }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
         internal DataSet GetLanguagesDAL()
         {
