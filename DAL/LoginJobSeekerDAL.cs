@@ -18,7 +18,7 @@ namespace DAL
         /// </summary>
         /// <param name="logjsEntity">The login entity for checking data from database </param>
         /// <return>SqlDataReader </returns>
-        public string LoginJSDAL(Entities.LogInEnitity logjsEntity)
+        public string LoginJSDAL(Entities.LoginEnitity logjsEntity)
         {
             string candidateid = "";
             try

@@ -18,11 +18,11 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-                LogInEnitity lnEntity = new LogInEnitity();
+                LoginEnitity loginEntity = new LoginEnitity();
                 LoginBAL loginBAL = new LoginBAL();
-                lnEntity.UserName = txtLoginid.Text.Trim();
-                lnEntity.Password = txtPassword.Text.Trim();
-                string recruiterid = loginBAL.RecruiterLoginBAL(lnEntity);
+                loginEntity.UserName = txtLoginid.Text.Trim();
+                loginEntity.Password = txtPassword.Text.Trim();
+                string recruiterid = loginBAL.RecruiterLoginBAL(loginEntity);
                 if (string.IsNullOrEmpty(recruiterid))
                 {
                     Label1.Text = "Login id or password is wrong";

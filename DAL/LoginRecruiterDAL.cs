@@ -15,17 +15,17 @@ namespace DAL
         /// <summary>
         /// Login for recruiter in DAL layer method is LoginRecruDAL()
         /// </summary>
-        /// <param name="lnEntity">The login entity</param>
+        /// <param name="loginEntity">The login entity</param>
         /// <returns>System.String</returns>
-        public string LoginRecruDAL(Entities.LogInEnitity lnEntity)
+        public string LoginRecruDAL(Entities.LoginEnitity loginEntity)
         {
             try
             {
                 connection.Open();
                 //Parameters to pass to the stored procedure
                 SqlParameter[] sparms = new SqlParameter[3];
-                sparms[0] = new SqlParameter("@emailid", lnEntity.UserName);
-                sparms[1] = new SqlParameter("@password", lnEntity.Password);
+                sparms[0] = new SqlParameter("@emailid", loginEntity.UserName);
+                sparms[1] = new SqlParameter("@password", loginEntity.Password);
                 sparms[2] = new SqlParameter("@id", SqlDbType.VarChar, 500);
                 sparms[2].Direction = ParameterDirection.Output;
 
