@@ -92,13 +92,13 @@ namespace CommonUtil
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
      
-        public static DataSet GetIndustryBAL()
+        public static DataSet GetIndustry()
         {
             Common lcDAL = new Common();
             return lcDAL.GetIndustryDAL();
         }
 
-        public static object GetDepartmentBAL()
+        public static DataSet GetDepartment()
         {
             Common lcDAL = new Common();
             return lcDAL.GetDepartmentDAL();
