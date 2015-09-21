@@ -52,7 +52,7 @@ namespace JobFair.Forms.JobSeeker
 
         private void BindDropDownFunctionalArea()
         {
-            ddlFunArea.DataSource = Utility.GetFunctionalAreaBAL();
+            //ddlFunArea.DataSource = Utility.GetFunctionalAreaBAL();
             ddlFunArea.DataTextField = "FunctionalArea";
             ddlFunArea.DataBind();
             ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));

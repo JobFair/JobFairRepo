@@ -86,6 +86,14 @@ namespace CommonUtil
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_FunctionalArea");
                 return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+}
         internal DataSet GetEducationalDegreeTypeDAL()
         {
             try
@@ -98,14 +106,6 @@ namespace CommonUtil
                 throw ex;
             }
         }
-    }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-
-}
     }
 }
 
