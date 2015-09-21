@@ -80,6 +80,12 @@ namespace CommonUtil
                 throw ex;
             }
         }
+        internal DataSet GetFunctionalAreaDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_FunctionalArea");
+                return ds;
         internal DataSet GetEducationalDegreeTypeDAL()
         {
             try
@@ -93,4 +99,13 @@ namespace CommonUtil
             }
         }
     }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
 }
+    }
+}
+

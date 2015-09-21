@@ -6,6 +6,9 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
+    /// <summary>
+    /// LogInJobSeekerDAL class
+    /// </summary>
     public class LogInJobSeekerDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
@@ -15,7 +18,7 @@ namespace DAL
         /// </summary>
         /// <param name="logjsEntity">The login entity for checking data from database </param>
         /// <return>SqlDataReader </returns>
-        public string LoginJSDAL(Entities.LogInEnitity logjsEntity)
+        public string LoginJSDAL(Entities.LoginEnitity logjsEntity)
         {
             string candidateid = "";
             try

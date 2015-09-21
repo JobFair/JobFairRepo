@@ -16,9 +16,9 @@ namespace DAL
         /// <summary>
         /// Dal layer method to store new candidate data into jobseeker table in database
         /// </summary>
-        /// <param name="rjsEntity">Object for inserting data into database</param>
-        /// <returns>System.Int32</returns>
-        public string SaveRegisterNewJobSeekerDAL(RegisterEntity rjsEntity)
+        /// <param name="registerEntity">Object for inserting data into database</param>
+        /// <returns>System.String</returns>
+        public string SaveRegisterNewJobSeekerDAL(RegisterEntity registerEntity)
         {
             try
             {
@@ -27,23 +27,23 @@ namespace DAL
                 //Parameters to pass to the stored procedure
 
                 SqlParameter[] sparams = new SqlParameter[12];
-                sparams[0] = new SqlParameter("@userid", rjsEntity.UserId);
-                sparams[1] = new SqlParameter("@fname", rjsEntity.FirstName);
-                sparams[2] = new SqlParameter("@lname", rjsEntity.LastName);
-                sparams[3] = new SqlParameter("@emailId", rjsEntity.EmailId);
-                sparams[4] = new SqlParameter("@gender", rjsEntity.Gender);
-                sparams[5] = new SqlParameter("@mobNo", rjsEntity.MobileNo);
-                sparams[6] = new SqlParameter("@currCity", rjsEntity.CurrentCity);
-                sparams[7] = new SqlParameter("@address", rjsEntity.CurrentAddress);
-                sparams[8] = new SqlParameter("@refCandidatelId", rjsEntity.RefCandidateId);
-                sparams[9] = new SqlParameter("@password", rjsEntity.Password);
-                sparams[10] = new SqlParameter("@uploadresumepath", rjsEntity.UploadResumepath.ToString());
-                sparams[11] = new SqlParameter("@Newcandidateid", SqlDbType.VarChar, 500);
-                sparams[11].Direction = ParameterDirection.Output;
+                 
+                sparams[0] = new SqlParameter("@fname", registerEntity.FirstName);
+                sparams[1] = new SqlParameter("@lname", registerEntity.LastName);
+                sparams[2] = new SqlParameter("@emailId", registerEntity.EmailId);
+                sparams[3] = new SqlParameter("@gender", registerEntity.Gender);
+                sparams[4] = new SqlParameter("@mobNo", registerEntity.MobileNo);
+                sparams[5] = new SqlParameter("@currCity", registerEntity.CurrentCity);
+                sparams[6] = new SqlParameter("@address", registerEntity.CurrentAddress);
+                sparams[7] = new SqlParameter("@refCandidatelId", registerEntity.RefCandidateId);
+                sparams[8] = new SqlParameter("@password", registerEntity.Password);
+                sparams[9] = new SqlParameter("@uploadresumepath", registerEntity.UploadResumepath.ToString());
+                sparams[10] = new SqlParameter("@Newcandidateid", SqlDbType.VarChar, 500);
+                sparams[10].Direction = ParameterDirection.Output;
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRegisterUser, sparams);
 
-                string candidateId = Convert.ToString(sparams[11].Value);
+                string candidateId = Convert.ToString(sparams[10].Value);
                 if (string.IsNullOrEmpty(candidateId))
                 {
                     return null;

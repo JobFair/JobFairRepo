@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/Recruiter/ProfilePage.Master" AutoEventWireup="true" CodeBehind="PostNewJob.aspx.cs" Inherits="JobFair.Forms.Recruiter.PostNewJob1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/Recruiter/RecruiterHome.Master" AutoEventWireup="true" CodeBehind="PostNewJob.aspx.cs" Inherits="JobFair.Forms.Recruiter.PostNewJob1" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -89,8 +89,8 @@
         <tr>
             <td class="auto-style7">Work Experience</td>
             <td><asp:TextBox ID="txtWorkExp" runat="server"></asp:TextBox>
-                <cc1:CalendarExtender ID="txtWorkExp_CalendarExtender" runat="server" BehaviorID="txtWorkExp_CalendarExtender" TargetControlID="txtWorkExp">
-                </cc1:CalendarExtender>
+                 <cc1:CalendarExtender ID="CalendarExtender1" TargetControlID="txtWorkExp" Format="dd/MM/yyyy" runat="server">
+</cc1:CalendarExtender> 
             </td>
         </tr>
         <tr>
@@ -120,8 +120,8 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
+            <td class="auto-style7">
+                <asp:Button ID="btnUpdate" runat="server" Text="Update" />
                 &nbsp;</td>
             <td>
                 <asp:Button ID="btnPostJob" runat="server" Text="Post Job" OnClick="btnPostJob_Click" />
