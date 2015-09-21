@@ -80,5 +80,20 @@ namespace CommonUtil
                 throw ex;
             }
         }
+        internal DataSet GetFunctionalAreaDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_FunctionalArea");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
     }
 }
+

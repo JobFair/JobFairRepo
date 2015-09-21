@@ -50,7 +50,6 @@
     <Compile Include="EducationalDetailsDAL.cs" />
     <Compile Include="FeedbackJSDAL.cs" />
     <Compile Include="ForgetPasswordDAL.cs" />
-    <Compile Include="FunctionalAreaDAL.cs" />
     <Compile Include="LiveProjectDetailsDAL.cs" />
     <Compile Include="LogInJobSeekerDAL.cs" />
     <Compile Include="LoginRecruiterDAL.cs" />

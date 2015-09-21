@@ -23,8 +23,9 @@ namespace DAL
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
+
                 SqlParameter[] sqlparams ={
-                                            
+                                            new SqlParameter("@jobId",JobPostentity.JobId),
                                             new SqlParameter("@JobTitle",JobPostentity.JobTitle),
                                             new SqlParameter("@JobLocationCity",JobPostentity.JobLocationCity),
                                             new SqlParameter("@JobLocationArea",JobPostentity.JobLocationArea),
