@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
+    /// <summary>
+    /// LoginRecruiterDAL class
+    /// </summary>
     public class LoginRecruiterDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
