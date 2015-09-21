@@ -76,27 +76,29 @@ namespace CommonUtil
         ///
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetFunctionalAreaBAL()
+        public static DataSet GetFunctionalAreaBAL()
         {
-            FunctionalAreaDAL JobDAL = new FunctionalAreaDAL();
-            return JobDAL.GetFunctionalDAL();
+            Common lcDAL = new Common();
+            return lcDAL.GetFunctionalAreaDAL();
         }
 
         /// <summary>
         /// GetIndustry() Method of Utility class
         /// </summary>
-        /// <returns>System.Data.DataSet</returns>
-        public static System.Data.DataSet GetIndustry()
-        {
-            Common lcDAL = new Common();
-            return lcDAL.GetIndustryDAL();
-        }
+        /// <returns>System.Data.DataSet</returns
 
         /// <summary>
         /// GetDepartment() method of Utility class
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
-        public static System.Data.DataSet GetDepartment()
+     
+        public static DataSet GetIndustryBAL()
+        {
+            Common lcDAL = new Common();
+            return lcDAL.GetIndustryDAL();
+        }
+
+        public static object GetDepartmentBAL()
         {
             Common lcDAL = new Common();
             return lcDAL.GetDepartmentDAL();
