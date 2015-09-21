@@ -64,6 +64,7 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get Department
         /// </summary>
@@ -80,6 +81,7 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         internal DataSet GetFunctionalAreaDAL()
         {
             try
@@ -107,5 +109,23 @@ namespace CommonUtil
             }
         }
     }
-}
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        internal DataSet GetLanguagesDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Language");
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+    }
+}

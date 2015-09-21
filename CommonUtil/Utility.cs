@@ -108,5 +108,11 @@ namespace CommonUtil
             Common lcDAL = new Common();
             return lcDAL.GetEducationalDegreeTypeDAL();
         }
+
+        public static DataSet GetLanguage()
+        {
+            Common lcDAL = new Common();
+            return lcDAL.GetLanguagesDAL();
+        }
     }
 }

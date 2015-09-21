@@ -1,26 +1,33 @@
-﻿using Entities.JobSeeker;
+﻿using BAL;
+using Entities.JobSeeker;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Data;
 using System.Web.UI.WebControls;
-using BAL;
 
 namespace JobFair.UserControls.JobSeeker
 {
     public partial class AffirmativeDetails : System.Web.UI.UserControl
     {
+        private DataSet ds = new DataSet();
+        private AffirmativeDetailsJSBAL adBAL = new AffirmativeDetailsJSBAL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                AffirmativeDetailsJSBAL adBAL = new AffirmativeDetailsJSBAL();
-                ddlLanguageFirst.DataSource = adBAL.GetLanguageBAL();
+                ds = adBAL.GetLanguageBAL();
+                ddlLanguageFirst.DataSource = ds;
                 ddlLanguageFirst.DataTextField = "LanguageName";
                 ddlLanguageFirst.DataValueField = "LanguageId";
                 ddlLanguageFirst.DataBind();
                 ddlLanguageFirst.Items.Insert(0, new ListItem("--Select--", "0"));
+
+                ds = adBAL.GetLanguageBAL();
+                ddlLanguageSecond.DataSource = ds;
+                ddlLanguageSecond.DataTextField = "LanguageName";
+                ddlLanguageSecond.DataValueField = "LanguageId";
+                ddlLanguageSecond.DataBind();
+                ddlLanguageSecond.Items.Insert(0, new ListItem("--Select--", "0"));
             }
             if (rbtYes.Checked)
             {
@@ -33,6 +40,7 @@ namespace JobFair.UserControls.JobSeeker
                 lblDescription.Visible = false;
             }
         }
+
         /// <summary>
         /// Handles the Click event of the btnSave control.
         /// </summary>
@@ -48,7 +56,8 @@ namespace JobFair.UserControls.JobSeeker
             languageEntity.CandidateId = "JS00001";
             languageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
             languageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
-            languageEntity.Read = Convert.ToBoolean(chkReadFirst.Checked);
+            string str =Convert.ToString(chkReadFirst.Checked);
+            languageEntity.Read = bool.Parse(str);
             languageEntity.Write = Convert.ToBoolean(chkWriteFirst.Checked);
             languageEntity.Speak = Convert.ToBoolean(chkSpeakFirst.Checked);
             adEntity.PhysicallyChallenged = string.Empty;
@@ -76,7 +85,7 @@ namespace JobFair.UserControls.JobSeeker
             adEntity.OtherPermits = txtOtherPermit.Text;
             int success = adBAL.LanguageDetailsBAL(languageEntity);
             int result = adBAL.AffirmaiveDetailsBAL(adEntity);
-            
+
             if (result > 0 && success > 0)
             {
                 Response.Write("<script language='javascript'>alert('Affirmative Details Inserted')</script>");
