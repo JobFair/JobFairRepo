@@ -88,6 +88,18 @@ namespace CommonUtil
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_FunctionalArea");
                 return ds;
+        internal DataSet GetEducationalDegreeTypeDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_JS_InsertEducationDegreesType");
+                return ds;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
             }
             catch (Exception ex)
             {

@@ -72,11 +72,7 @@ namespace CommonUtil
             return lcDAL.GetCityDAL(stateid);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <returns></returns>
-        public static DataSet GetFunctionalAreaBAL()
+        public static System.Data.DataSet GetFunctionalArea()
         {
             Common lcDAL = new Common();
             return lcDAL.GetFunctionalAreaDAL();
@@ -87,21 +83,30 @@ namespace CommonUtil
         /// </summary>
         /// <returns>System.Data.DataSet</returns
 
-        /// <summary>
-        /// GetDepartment() method of Utility class
-        /// </summary>
-        /// <returns>System.Data.DataSet</returns>
-
-        public static DataSet GetIndustry()
+      
+     
+        public static System.Data.DataSet GetIndustry()
         {
             Common lcDAL = new Common();
             return lcDAL.GetIndustryDAL();
         }
-
-        public static DataSet GetDepartment()
+        /// <summary>
+        /// GetDepartment() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static System.Data.DataSet GetDepartment()
         {
             Common lcDAL = new Common();
             return lcDAL.GetDepartmentDAL();
+        }
+        /// <summary>
+        /// GetEducationalDegreeTypeDAL() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static System.Data.DataSet GetEducationalDegreeTypeDAL()
+        {
+            Common lcDAL = new Common();
+            return lcDAL.GetEducationalDegreeTypeDAL();
         }
 
         public static DataSet GetLanguage()

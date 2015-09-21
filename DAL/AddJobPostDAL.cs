@@ -53,7 +53,7 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams ={
-                                            
+                                            new SqlParameter("@JobId",JPentity.JobId),
                                             new SqlParameter("@JobTitle",JPentity.JobTitle),
                                             new SqlParameter("@JobLocationCity",JPentity.JobLocationCity),
                                             new SqlParameter("@JobLocationArea",JPentity.JobLocationArea),
@@ -71,7 +71,7 @@ namespace DAL
                                             new SqlParameter("@NumberOfVacancies",JPentity.NumberOfVacancies),
 
                                         };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RS_InsertJobPost", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertJobPost", sqlparams);
                 return result;
             }
             catch (Exception)
