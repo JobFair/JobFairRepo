@@ -91,7 +91,7 @@ namespace CommonUtil
         /// GetDepartment() method of Utility class
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
-     
+
         public static DataSet GetIndustry()
         {
             Common lcDAL = new Common();
@@ -102,6 +102,12 @@ namespace CommonUtil
         {
             Common lcDAL = new Common();
             return lcDAL.GetDepartmentDAL();
+        }
+
+        public static DataSet GetLanguage()
+        {
+            Common lcDAL = new Common();
+            return lcDAL.GetLanguagesDAL();
         }
     }
 }
