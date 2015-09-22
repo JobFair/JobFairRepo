@@ -18,7 +18,7 @@
                                 <asp:LinkButton ID="lblFreshness" runat="server" Text="By Freshness"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelFreshness" runat="server">
-                                    <asp:CheckBoxList ID="cblFreshness" runat="server">
+                                    <asp:CheckBoxList ID="chkFreshness" runat="server">
                                         <asp:ListItem>30 Days</asp:ListItem>
                                         <asp:ListItem>25 Days</asp:ListItem>
                                         <asp:ListItem>20 Days</asp:ListItem>
@@ -38,7 +38,7 @@
                                 <asp:LinkButton ID="lblLocation" runat="server" Text="By Location" CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelLoaction" runat="server">
-                                    <asp:CheckBoxList ID="cblLocation" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="chkLocation" runat="server"></asp:CheckBoxList>
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="PanelLoaction" TextLabelID="lblLocation" CollapseControlID="lblFreshness" ExpandControlID="lblLocation" Collapsed="true" />
                             </div>
@@ -47,7 +47,7 @@
                                 <asp:LinkButton ID="lblRole" runat="server" Text="Role" CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelRole" runat="server">
-                                    <asp:CheckBoxList ID="cblRole" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="chkRole" runat="server"></asp:CheckBoxList>
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPERole" runat="server" TargetControlID="PanelRole" TextLabelID="lblRole" CollapseControlID="lblRole" ExpandControlID="lblRole" Collapsed="true" />
                             </div>
@@ -56,7 +56,7 @@
                                 <asp:LinkButton ID="lblFunctionalArea" runat="server" Text="Functional Area " CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelFunctArea" runat="server">
-                                    <asp:CheckBoxList ID="cblFunctArea" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="chkFunctArea" runat="server"></asp:CheckBoxList>
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPEFunctArea" runat="server" TargetControlID="PanelFunctArea" TextLabelID="lblFunctionalArea" CollapseControlID="lblFunctionalArea" ExpandControlID="lblFunctionalArea" Collapsed="true" />
 
@@ -66,7 +66,7 @@
                                 <asp:LinkButton ID="lblCompanyLevel" runat="server" Text="Company Level " CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelCompanyLevel" runat="server">
-                                    <asp:CheckBoxList ID="cblCompanyLevel" runat="server">
+                                    <asp:CheckBoxList ID="chkCompanyLevel" runat="server">
                                         <asp:ListItem>Start Up Company</asp:ListItem>
                                         <asp:ListItem>Small Scale Company</asp:ListItem>
                                         <asp:ListItem>Mid Level Company</asp:ListItem>
@@ -80,7 +80,7 @@
                                 <asp:LinkButton ID="lblIndustry" runat="server" Text="Industry " CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelIndustry" runat="server">
-                                    <asp:CheckBoxList ID="cblIndustry" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="chkIndustry" runat="server"></asp:CheckBoxList>
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPEIndustry" runat="server" TargetControlID="PanelIndustry" TextLabelID="lblIndustry" CollapseControlID="lblIndustry" ExpandControlID="lblIndustry" Collapsed="true" />
                             </div>
@@ -89,7 +89,7 @@
                                 <asp:LinkButton ID="lblSalary" runat="server" Text="By Salary " CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelSalary" runat="server">
-                                    <asp:CheckBoxList ID="cblSalary" runat="server">
+                                    <asp:CheckBoxList ID="chkSalary" runat="server">
                                         <asp:ListItem>0-3 Lakhs</asp:ListItem>
                                         <asp:ListItem>3-6 Lakhs</asp:ListItem>
                                         <asp:ListItem>6-10 Lakhs</asp:ListItem>
@@ -107,7 +107,7 @@
                                 <asp:LinkButton ID="lblEducation" runat="server" Text="By Education " CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelEducation" runat="server">
-                                    <asp:CheckBoxList ID="cblEducation" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="chkEducation" runat="server"></asp:CheckBoxList>
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPEEducation" runat="server" TargetControlID="PanelEducation" TextLabelID="lblEducation" CollapseControlID="lblEducation" ExpandControlID="lblEducation" Collapsed="true" />
                             </div>
@@ -117,7 +117,7 @@
                                 <asp:LinkButton ID="lblStatus" runat="server" Text="By Employment Status " CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelStatus" runat="server">
-                                    <asp:CheckBoxList ID="cblStatus" runat="server">
+                                    <asp:CheckBoxList ID="chkStatus" runat="server">
                                         <asp:ListItem>Full Time</asp:ListItem>
                                         <asp:ListItem>Part Time</asp:ListItem>
                                     </asp:CheckBoxList>
@@ -129,7 +129,7 @@
                                 <asp:LinkButton ID="lblJobType" runat="server" Text="Job Type " CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelJobType" runat="server">
-                                    <asp:CheckBoxList ID="cblJobType" runat="server">
+                                    <asp:CheckBoxList ID="chkJobType" runat="server">
                                         <asp:ListItem>Permanent</asp:ListItem>
                                         <asp:ListItem>Temporary</asp:ListItem>
                                         <asp:ListItem>Freelancing</asp:ListItem>
@@ -143,139 +143,20 @@
                         </div>
                     </fieldset>
                 </td>
+     
+        </div>
+
                 <td width="80%" style="vertical-align: top">
                     <fieldset>
-                        <div>
+                       <div>
                         <asp:LinkButton ID="allJobs" runat="server" Text="AllJobs" OnClick="lnks_Click"></asp:LinkButton>
                             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-                             <br />
+                            <br />
+                            
                              </div>
-                        <div style="width:70%; height: 540px;">
-        <fieldset>
-        
-    <table class="auto-style6">
-       
-        <tr>
-            <td class="auto-style7">Job Title/Designation</td>
-            <td>
-                <asp:TextBox ID="txtJobtitle" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Job Locations</td>
-            <td>
-                <div id="divDDL" class="divDDL" runat="server">
-        Please Select…
-                </div>
-                <asp:Panel ID="pnlCustomers" runat="server" CssClass="MultipleSelectionDDL" Height="49px" Width="85px">
-                    <asp:CheckBoxList ID="chkCustomerList" runat="server" onclick="readCheckBoxList()" Width="110px" Height="40px" >
-                        <asp:ListItem>Pune</asp:ListItem>
-                        <asp:ListItem>Mumbai</asp:ListItem>
-                    </asp:CheckBoxList>
-                </asp:Panel>
-                <br /></td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Company Level</td>
-            <td>
-                <asp:DropDownList ID="ddlCompanyLevel" runat="server" AutoPostBack="True">
-                    <asp:ListItem>Select</asp:ListItem>
-                    <asp:ListItem>Startup Company</asp:ListItem>
-                    <asp:ListItem>Small Scale Company</asp:ListItem>
-                    <asp:ListItem>Mid Level Company</asp:ListItem>
-                    <asp:ListItem>MNC</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Industry</td>
-            <td>
-                <asp:DropDownList ID="ddlIndustry" runat="server" Height="19px">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Department</td>
-            <td>
-                <asp:DropDownList ID="ddlDepartment" runat="server">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Functional Area</td>
-            <td>
-                <asp:DropDownList ID="ddlFunArea" runat="server">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Job Description</td>
-            <td>
-                <asp:TextBox ID="txtJobDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Keywords/Skillsets Roles</td>
-            <td>
-                <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Keywords/Skillsets Technical</td>
-            <td>
-                <asp:TextBox ID="txtKeyTechnical" runat="server" Height="22px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Work Experience</td>
-            <td><asp:TextBox ID="txtWorkExp" runat="server"></asp:TextBox>
-                <cc1:CalendarExtender ID="txtWorkExp_CalendarExtender" runat="server" BehaviorID="txtWorkExp_CalendarExtender" TargetControlID="txtWorkExp">
-                </cc1:CalendarExtender>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Gender</td>
-            <td>
-                <asp:CheckBoxList ID="chkGender" runat="server">
-                    <asp:ListItem>Male</asp:ListItem>
-                    <asp:ListItem>Female</asp:ListItem>
-                </asp:CheckBoxList>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Offered Anual Salary</td>
-            <td>
-                <asp:TextBox ID="txtAnnualSalary" TextMode="MultiLine" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Other Salary Details</td>
-            <td>
-                <asp:TextBox ID="txtOtherSalary" TextMode="MultiLine" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">Number of Vacancies</td>
-            <td>
-                <asp:TextBox ID="txtVacancies" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style7">&nbsp;</td>
-            <td>
-                <asp:Button ID="btnsend" runat="server" Text="Send" OnClick="btnsend_Click"/>
-                <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
-            &nbsp;&nbsp;&nbsp;
-                            <asp:Label ID="lblTotalCount" runat="server" Text="TotalCount"></asp:Label>
-            </td>
-        </tr>
-    </table> 
-    </div>
-                    </fieldset>
-                </td>
-            </tr>
-        </table>
-       <asp:Repeater ID="Repeater1" runat="server" >
+                           </fieldset>
+         
+       <asp:Repeater ID="Repeater1" runat="server"  onitemcommand="Repeater1_ItemCommand">
            <HeaderTemplate>
               <table>
               <tr>
@@ -297,8 +178,11 @@
               </tr>
           </HeaderTemplate>
            <ItemTemplate>
-               <tr>
-               <td> 
+     
+        <td >
+         <asp:CheckBox ID="chkDelete" runat="server" />
+        </td>
+ 
                 <%# DataBinder.Eval(Container.DataItem, "JobTitle") %>
           </td>
                 <td> 
@@ -311,44 +195,74 @@
                      <td> 
                 <%# DataBinder.Eval(Container.DataItem, "CompanyLevel") %>
           </td>
-                   <td> 
+           <td> 
                 <%# DataBinder.Eval(Container.DataItem, "Industry") %>
-             </td> 
+             </td>
                <td> 
                 <%# DataBinder.Eval(Container.DataItem, "Department") %>
                 </td>
                  <td> 
                 <%# DataBinder.Eval(Container.DataItem, "FunctionalArea") %>
-                  </td>
-                  <td> 
-                <%# DataBinder.Eval(Container.DataItem, "JobDescription") %>
-                   </td>
-                  <td> 
-                <%# DataBinder.Eval(Container.DataItem, "KeywordsRoles") %>
                  </td>
-                  <td> 
+                 <td> 
+                <%# DataBinder.Eval(Container.DataItem, "JobDescription") %>
+                 </td>
+                 <td> 
+                <%# DataBinder.Eval(Container.DataItem, "KeywordsRoles") %>
+                </td>
+                 <td> 
                 <%# DataBinder.Eval(Container.DataItem, "KeywordsTechnical") %>
-                  </td>
+                 </td>
                  <td> 
                 <%# DataBinder.Eval(Container.DataItem, "WorkExprience") %>
                 </td>     
                 <td> 
                 <%# DataBinder.Eval(Container.DataItem, "Gender") %>
                 </td>
-                 <td> 
+                <td> 
                 <%# DataBinder.Eval(Container.DataItem, "OfferedAnnualSalary") %>
-                 </td>
+                </td>
                 <td> 
                 <%# DataBinder.Eval(Container.DataItem, "OtherSalaryDetails") %>
                   </td>
-                   <td> 
+                 <td> 
                 <%# DataBinder.Eval(Container.DataItem, "NumberOfVacancies") %>
-                 </td>
-                   </tr>
+                      
+                       <asp:LinkButton ID="lnkedit" runat="server" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Edit">Edit</asp:LinkButton>
+                        <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Delete">Delete</asp:LinkButton>
+                      <asp:LinkButton ID="lnkUpdate" runat="server" Visible="false" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Update">Update</asp:LinkButton>
+                       <asp:LinkButton ID="lnkCancel" runat="server" Visible="false" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Cancel">Cancel</asp:LinkButton>
+                    </td>
+                </tr>
+            </ItemTemplate>
+            <FooterTemplate>
+                <tr>
+                    <td></td>
+                    <td> <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox></td>
 
-           </ItemTemplate>
+                    <td>
+                        <asp:LinkButton ID="LinkButton1" CommandName="Insert" runat="server">Insert</asp:LinkButton>
+                    </td>
+                </tr>
+                </table>
+            </FooterTemplate>
+           </asp:Repeater>
+                
 
-          </asp:Repeater>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="head">
     <style type="text/css">

@@ -40,13 +40,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelFreshness;
         
         /// <summary>
-        /// cblFreshness control.
+        /// chkFreshness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblFreshness;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkFreshness;
         
         /// <summary>
         /// CPEfreshness control.
@@ -76,13 +76,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelLoaction;
         
         /// <summary>
-        /// cblLocation control.
+        /// chkLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblLocation;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkLocation;
         
         /// <summary>
         /// CPELocation control.
@@ -112,13 +112,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelRole;
         
         /// <summary>
-        /// cblRole control.
+        /// chkRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblRole;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkRole;
         
         /// <summary>
         /// CPERole control.
@@ -148,13 +148,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelFunctArea;
         
         /// <summary>
-        /// cblFunctArea control.
+        /// chkFunctArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblFunctArea;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkFunctArea;
         
         /// <summary>
         /// CPEFunctArea control.
@@ -184,13 +184,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelCompanyLevel;
         
         /// <summary>
-        /// cblCompanyLevel control.
+        /// chkCompanyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblCompanyLevel;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkCompanyLevel;
         
         /// <summary>
         /// CPECompnyLevel control.
@@ -220,13 +220,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelIndustry;
         
         /// <summary>
-        /// cblIndustry control.
+        /// chkIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblIndustry;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkIndustry;
         
         /// <summary>
         /// CPEIndustry control.
@@ -256,13 +256,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelSalary;
         
         /// <summary>
-        /// cblSalary control.
+        /// chkSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblSalary;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkSalary;
         
         /// <summary>
         /// CPESalary control.
@@ -292,13 +292,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelEducation;
         
         /// <summary>
-        /// cblEducation control.
+        /// chkEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblEducation;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkEducation;
         
         /// <summary>
         /// CPEEducation control.
@@ -328,13 +328,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelStatus;
         
         /// <summary>
-        /// cblStatus control.
+        /// chkStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblStatus;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkStatus;
         
         /// <summary>
         /// CPEStatus control.
@@ -364,13 +364,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel PanelJobType;
         
         /// <summary>
-        /// cblJobType control.
+        /// chkJobType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblJobType;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkJobType;
         
         /// <summary>
         /// CPEJobType control.
@@ -398,186 +398,6 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
-        /// txtJobtitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtJobtitle;
-        
-        /// <summary>
-        /// divDDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDDL;
-        
-        /// <summary>
-        /// pnlCustomers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCustomers;
-        
-        /// <summary>
-        /// chkCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkCustomerList;
-        
-        /// <summary>
-        /// ddlCompanyLevel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCompanyLevel;
-        
-        /// <summary>
-        /// ddlIndustry control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIndustry;
-        
-        /// <summary>
-        /// ddlDepartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
-        
-        /// <summary>
-        /// ddlFunArea control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFunArea;
-        
-        /// <summary>
-        /// txtJobDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtJobDescription;
-        
-        /// <summary>
-        /// txtKeyRoles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKeyRoles;
-        
-        /// <summary>
-        /// txtKeyTechnical control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKeyTechnical;
-        
-        /// <summary>
-        /// txtWorkExp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWorkExp;
-        
-        /// <summary>
-        /// txtWorkExp_CalendarExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtWorkExp_CalendarExtender;
-        
-        /// <summary>
-        /// chkGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkGender;
-        
-        /// <summary>
-        /// txtAnnualSalary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnnualSalary;
-        
-        /// <summary>
-        /// txtOtherSalary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOtherSalary;
-        
-        /// <summary>
-        /// txtVacancies control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtVacancies;
-        
-        /// <summary>
-        /// btnsend control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsend;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
-        
-        /// <summary>
-        /// lblTotalCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalCount;
         
         /// <summary>
         /// Repeater1 control.

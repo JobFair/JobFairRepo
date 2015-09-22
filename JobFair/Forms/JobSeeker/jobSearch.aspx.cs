@@ -1,10 +1,9 @@
-﻿using CommonUtil;
+﻿using BAL;
+using Entities.JobSeeker;
 using System;
 using System.Data;
-using System.Data.SqlClient;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data.SqlClient;
 namespace JobFair.Forms.JobSeeker
 {
     public partial class jobSearch : System.Web.UI.Page
@@ -18,44 +17,8 @@ namespace JobFair.Forms.JobSeeker
             {
                 FillIndustryCheckBoxList();
                 FillcityCheckBoxList();
-                BindDropDownIndustry();
-                BindDropDownDepartment();
-                BindDropDownFunctionalArea();
                 BindRepeaterData();
             }
-        }
-
-        //private void GetDataFromSession()
-        //{
-        //    lblJobPost.Text = Session["JobPost"].ToString();
-
-        //}
-        private void BindDropDownIndustry()
-        {
-            ds = Utility.GetIndustry();
-            ddlIndustry.DataSource = ds;
-            ddlIndustry.DataTextField = "IndustryName";
-            ddlIndustry.DataValueField = "IndustryId";
-            ddlIndustry.DataBind();
-            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
-        }
-
-        private void BindDropDownDepartment()
-        {
-            ds = Utility.GetDepartment();
-            ddlDepartment.DataSource = ds;
-            ddlDepartment.DataTextField = "DepartmentName";
-            ddlDepartment.DataValueField = "DepartmentId";
-            ddlDepartment.DataBind();
-            ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
-        }
-
-        private void BindDropDownFunctionalArea()
-        {
-            //ddlFunArea.DataSource = Utility.GetFunctionalAreaBAL();
-            ddlFunArea.DataTextField = "FunctionalArea";
-            ddlFunArea.DataBind();
-            ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void FillIndustryCheckBoxList()
@@ -66,9 +29,10 @@ namespace JobFair.Forms.JobSeeker
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
-            cblIndustry.DataSource = dt;
-            cblIndustry.DataTextField = "IndustryName";
-            cblIndustry.DataBind();
+            chkIndustry.DataSource = dt;
+            chkIndustry.DataTextField = "IndustryName";
+            chkIndustry.DataValueField = "IndustryId";
+            chkIndustry.DataBind();
             con.Close();
         }
 
@@ -80,9 +44,10 @@ namespace JobFair.Forms.JobSeeker
             SqlDataAdapter adp = new SqlDataAdapter(Cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
-            cblLocation.DataSource = dt;
-            cblLocation.DataTextField = "CityName";
-            cblLocation.DataBind();
+            chkLocation.DataSource = dt;
+            chkLocation.DataTextField = "CityName";
+            chkLocation.DataValueField = "CityId";
+            chkLocation.DataBind();
             con.Close();
         }
 
@@ -90,7 +55,7 @@ namespace JobFair.Forms.JobSeeker
         {
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from RS_JobPost", con);
+            SqlCommand cmd = new SqlCommand("select * from RE_JobPost", con);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
@@ -118,19 +83,49 @@ namespace JobFair.Forms.JobSeeker
             GridView1.DataBind();
         }
 
-        protected void btnsend_Click(object sender, EventArgs e)
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM RS_JobPost", new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123"));
-
-            cmd.Connection.Open();
-            Repeater1.DataSource = cmd.ExecuteReader();
-            Repeater1.DataBind();
-            if (Repeater1.Items.Count > 0)
+            string id = Convert.ToString(e.CommandArgument);
+            switch (e.CommandName)
             {
-                lblTotalCount.Text = Repeater1.Items.Count.ToString();
+               
+                case ("Insert"):
+                    InsertRepeaterData(e);
+                    break;
             }
-            cmd.Connection.Close();
-            cmd.Connection.Dispose();
         }
+        private void InsertRepeaterData(RepeaterCommandEventArgs e)
+        {
+            TextBox JobTitle = (TextBox)e.Item.FindControl("TextBox1");
+            TextBox JobLocationCity = (TextBox)e.Item.FindControl("TextBox2");
+            TextBox JobLocationArea = (TextBox)e.Item.FindControl("TextBox3");
+            TextBox CompanyLevel = (TextBox)e.Item.FindControl("TextBox4");
+            TextBox Industry = (TextBox)e.Item.FindControl("TextBox5");
+            TextBox Department = (TextBox)e.Item.FindControl("TextBox6");
+            TextBox FunctionalArea = (TextBox)e.Item.FindControl("TextBox7");
+            TextBox JobDescription = (TextBox)e.Item.FindControl("TextBox8");
+            TextBox KeywordsRoles = (TextBox)e.Item.FindControl("TextBox9");
+            TextBox KeywordsTechnical = (TextBox)e.Item.FindControl("TextBox10");
+            TextBox WorkExprience = (TextBox)e.Item.FindControl("TextBox11");
+            TextBox Gender = (TextBox)e.Item.FindControl("TextBox12");
+            TextBox OfferedAnnualSalary = (TextBox)e.Item.FindControl("TextBox13");
+            TextBox OtherSalaryDetails = (TextBox)e.Item.FindControl("TextBox14");
+            TextBox NumberOfVacancies = (TextBox)e.Item.FindControl("TextBox15");
+            string str = "insert into students (s_name,s_age,s_course,s_marks) values('" + JobTitle.Text + "'," + JobLocationCity.Text + ",'" + JobLocationArea.Text + "'," + CompanyLevel.Text + " ,'" + Industry + "','" + Department + "','" + FunctionalArea + "','" + JobDescription + "','" + KeywordsRoles + "','" + KeywordsTechnical + "','" + WorkExprience + "','" + Gender + "','" + OfferedAnnualSalary + "','" + OtherSalaryDetails + "','" + NumberOfVacancies + "')";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
+                con.Open();
+                cmd.ExecuteNonQuery();
+                Response.Write("<script language='javascript'>alert('Contact Details Inserted')</script>");
+            }
+            catch (Exception )
+            {
+                Response.Write("<script language='javascript'>alert('Sorry')</script>");
+            }
+          
+        }
+
     }
 }
