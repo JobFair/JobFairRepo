@@ -85,7 +85,6 @@
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
-    <Content Include="Forms\Recruiter\ClientDetails.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\CreateQuestionary.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
@@ -200,13 +199,6 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\ClientDetails.aspx.cs">
-      <DependentUpon>ClientDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\ClientDetails.aspx.designer.cs">
-      <DependentUpon>ClientDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\ClientRequirements.aspx.cs">
       <DependentUpon>ClientRequirements.aspx</DependentUpon>
