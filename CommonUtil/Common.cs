@@ -100,7 +100,7 @@ namespace CommonUtil
         {
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_JS_InsertEducationDegreesType");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select * from JS_EducationDegreesType");
                 return ds;
             }
             catch(Exception ex)

@@ -46,8 +46,8 @@ namespace CommonUtil
 
         public static DataSet GetCountry()
         {
-            Common lcDAL = new Common();
-            return lcDAL.GetCountryDAL();
+            Common common = new Common();
+            return common.GetCountryDAL();
         }
 
         /// <summary>
@@ -57,8 +57,8 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetState(int countryid)
         {
-            Common lcDAL = new Common();
-            return lcDAL.GetStateDAL(countryid);
+            Common common = new Common();
+            return common.GetStateDAL(countryid);
         }
 
         /// <summary>
@@ -68,51 +68,48 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetCity(int stateid)
         {
-            Common lcDAL = new Common();
-            return lcDAL.GetCityDAL(stateid);
+            Common common = new Common();
+            return common.GetCityDAL(stateid);
         }
 
-        public static System.Data.DataSet GetFunctionalArea()
+        public static DataSet GetFunctionalArea()
         {
-            Common lcDAL = new Common();
-            return lcDAL.GetFunctionalAreaDAL();
+            Common common = new Common();
+            return common.GetFunctionalAreaDAL();
         }
 
         /// <summary>
-        /// GetIndustry() Method of Utility class
-        /// </summary>
-        /// <returns>System.Data.DataSet</returns
-
-      
-     
-        public static System.Data.DataSet GetIndustry()
-        {
-            Common lcDAL = new Common();
-            return lcDAL.GetIndustryDAL();
-        }
-        /// <summary>
-        /// GetDepartment() method of Utility class
+        /// Get Industries
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
-        public static System.Data.DataSet GetDepartment()
+        public static DataSet GetIndustry()
         {
-            Common lcDAL = new Common();
-            return lcDAL.GetDepartmentDAL();
+            Common common = new Common();
+            return common.GetIndustryDAL();
+        }
+        /// <summary>
+        /// Get Departments
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetDepartment()
+        {
+            Common common = new Common();
+            return common.GetDepartmentDAL();
         }
         /// <summary>
         /// GetEducationalDegreeTypeDAL() method of Utility class
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
-        public static System.Data.DataSet GetEducationalDegreeTypeDAL()
+        public static DataSet GetEducationalDegreeTypeDAL()
         {
-            Common lcDAL = new Common();
-            return lcDAL.GetEducationalDegreeTypeDAL();
+            Common common = new Common();
+            return common.GetEducationalDegreeTypeDAL();
         }
 
         public static DataSet GetLanguage()
         {
-            Common lcDAL = new Common();
-            return lcDAL.GetLanguagesDAL();
+            Common common = new Common();
+            return common.GetLanguagesDAL();
         }
     }
 }
