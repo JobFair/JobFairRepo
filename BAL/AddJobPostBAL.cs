@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿
+using CommonUtil;
 using DAL;
 using Entities.Recruiter;
 
@@ -16,14 +12,38 @@ namespace BAL
            AddJobPostDAL JPDAL = new AddJobPostDAL();
            return JPDAL.JobPostDAL(JPentity);
        }
+
+    
+       /// <summary>
+       /// Method to get State
+       /// </summary>
+       /// <param name="CountryId">Parameter of Country table to get State accordingly</param>
+       /// <returns>System.Data.DataSet</returns>
+   
       
+       //public int JPBAL(AddJobPostEntity JobPostentity)
+       //{
+       //    UpdateJobPostDAL jpDAL = new UpdateJobPostDAL();
+       //    return jpDAL.UpdateRecord(JobPostentity);
+       //}
 
 
 
-       public int JPBAL(AddJobPostEntity JobPostentity)
+
+       
+       public static object FunctionalArea()
        {
-           UpdateJobPostDAL jpDAL = new UpdateJobPostDAL();
-           return jpDAL.UpdateRecord(JobPostentity);
+           return Utility.GetFunctionalArea();
+       }
+
+       public static System.Data.DataSet GetDepartment()
+       {
+           return Utility.GetDepartment();
+       }
+
+       public static System.Data.DataSet GetIndustry()
+       {
+           return Utility.GetIndustry();
        }
    }
 }
