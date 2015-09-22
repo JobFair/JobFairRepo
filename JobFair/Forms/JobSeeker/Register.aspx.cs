@@ -30,7 +30,7 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.FirstName = txtFirstName.Text.Trim();
                 jobSeekerEntity.LastName = txtLastName.Text.Trim();
                 jobSeekerEntity.EmailId = txtEmailId.Text.Trim();
-                jobSeekerEntity.UserId = txtDesiredUserName.Text.Trim();
+              
                 jobSeekerEntity.Gender = rblGender.SelectedItem.Text;
                 jobSeekerEntity.MobileNo = txtMobileNo.Text.Trim();
                 jobSeekerEntity.Password = txtPassword.Text.Trim();

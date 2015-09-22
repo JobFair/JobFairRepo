@@ -46,13 +46,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Desired User Id/Name</td>
-                    <td>
-                        <asp:TextBox ID="txtDesiredUserName" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" TargetControlID="txtDesiredUserName" WatermarkText="User Name" WatermarkCssClass="c" />
-                        <asp:RequiredFieldValidator ID="rfvDesiredUserName" runat="server" ErrorMessage="*" ForeColor="#FF3300" ControlToValidate="txtDesiredUserName"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
                     <td>Gender</td>
                     <td>
                         <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
@@ -126,6 +119,7 @@
                 </tr>
             </table>
         </div>
+       
     </form>
 </body>
 </html>
