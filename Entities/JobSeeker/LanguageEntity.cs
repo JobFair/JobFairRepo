@@ -12,8 +12,8 @@ namespace Entities.JobSeeker
         public string CandidateId { get; set; }
         public int LanguageId { get; set; }
         public string ProficiencyLevel { get; set; }
-        public Boolean Read { get; set; }
-        public Boolean Write { get; set; }
-        public Boolean Speak { get; set; }
+        public bool Read { get; set; }
+        public bool Write { get; set; }
+        public bool Speak { get; set; }
     }
 }
