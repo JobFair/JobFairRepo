@@ -90,7 +90,7 @@
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
-    <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
+    <Content Include="UserControls\JobSeeker\ProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
@@ -237,12 +237,12 @@
       <DependentUpon>ViewProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
-    <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">
-      <DependentUpon>AddProjectDetails.ascx</DependentUpon>
+    <Compile Include="UserControls\JobSeeker\ProjectDetails.ascx.cs">
+      <DependentUpon>ProjectDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.designer.cs">
-      <DependentUpon>AddProjectDetails.ascx</DependentUpon>
+    <Compile Include="UserControls\JobSeeker\ProjectDetails.ascx.designer.cs">
+      <DependentUpon>ProjectDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\AffirmativeDetails.ascx.cs">
       <DependentUpon>AffirmativeDetails.ascx</DependentUpon>

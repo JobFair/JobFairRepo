@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities
 {
-  public class PersonalDetailsJSEntity
+    public class PersonalDetailsJSEntity
     {
         //PersonalDetailsJSEntity
-         public string candidateId { get; set; }
+        public string candidateId { get; set; }
         public string presentAddress { get; set; }
         public string presentCountry { get; set; }
         public string presentState { get; set; }
@@ -29,6 +25,5 @@ namespace Entities
         public DateTime passportValidity { get; set; }
         public string workStatus { get; set; }
         public string photo { get; set; }
-     
     }
 }

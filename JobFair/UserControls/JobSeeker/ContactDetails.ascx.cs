@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using BAL;
+﻿using BAL;
 using Entities;
+using System;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -16,8 +11,8 @@ namespace JobFair.UserControls.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
+
         /// <summary>
         /// Handles the Click event of the btnSave control.
         /// </summary>
@@ -27,22 +22,21 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-
-                ContactDetailsJSBAL cdBAL = new ContactDetailsJSBAL();
-                ContactDetailsEntity cdEntity = new ContactDetailsEntity();
+                ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
+                ContactDetailsEntity contactDetailsEntity = new ContactDetailsEntity();
                 //set the value of ContactDetailsJobSeekerEntity
 
-                cdEntity.CandidateId = "JS00001";//static data used because session value not set
-                cdEntity.AltMobileNo = txtAltNo.Text.Trim();
-                cdEntity.LandLineNo = txtLandno.Text.Trim();
-                cdEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();
-                cdEntity.LinkedId = txtLinkedIn.Text.Trim();
-                cdEntity.FacebookId = txtFacebook.Text.Trim();
-                cdEntity.TwitterId = txtTwitter.Text.Trim();
-                cdEntity.GtalkId = txtGTalk.Text.Trim();
-                cdEntity.SkypeId = txtSkype.Text.Trim();
-                cdEntity.GooglePlus = txtGooglePlus.Text.Trim();
-                int result = cdBAL.ContactDetailsBAL(cdEntity);
+                contactDetailsEntity.CandidateId = "JS00001";//static data used because session value not set
+                contactDetailsEntity.AltMobileNo = txtAltNo.Text.Trim();
+                contactDetailsEntity.LandLineNo = txtLandno.Text.Trim();
+                contactDetailsEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();
+                contactDetailsEntity.LinkedId = txtLinkedIn.Text.Trim();
+                contactDetailsEntity.FacebookId = txtFacebook.Text.Trim();
+                contactDetailsEntity.TwitterId = txtTwitter.Text.Trim();
+                contactDetailsEntity.GtalkId = txtGTalk.Text.Trim();
+                contactDetailsEntity.SkypeId = txtSkype.Text.Trim();
+                contactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
+                int result = contactDetailsBAL.SaveContactDetailsBAL(contactDetailsEntity);
                 if (result > 0)
                 {
                     Response.Write("<script language='javascript'>alert('Contact Details Inserted')</script>");
@@ -54,7 +48,6 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception ex)
             {
-
                 Label2.Text = ex.Message.ToString();
             }
         }

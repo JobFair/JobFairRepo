@@ -10,7 +10,7 @@ namespace JobFair.UserControls.JobSeeker
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
         private DataSet ds = new DataSet();
-        private PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
+        private PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
 
         /// <summary>
         /// Class PersonalDetails
@@ -19,14 +19,14 @@ namespace JobFair.UserControls.JobSeeker
         {
             if (!IsPostBack)
             {
-                ds = pdBAL.GetCountry();
+                ds = personalDetailsBAL.GetCountry();
                 ddlCountryPresent.DataSource = ds;
                 ddlCountryPresent.DataTextField = "CountryName";
                 ddlCountryPresent.DataValueField = "CountryId";
                 ddlCountryPresent.DataBind();
                 ddlCountryPresent.Items.Insert(0, new ListItem("--Select--", "0"));
 
-                ds = pdBAL.GetCountry();
+                ds = personalDetailsBAL.GetCountry();
                 ddlCountryPerm.DataSource = ds;
                 ddlCountryPerm.DataTextField = "CountryName";
                 ddlCountryPerm.DataValueField = "CountryId";
@@ -45,51 +45,50 @@ namespace JobFair.UserControls.JobSeeker
             bool validated = false;
             try
             {
-                PersonalDetailsJSBAL pdBAL = new PersonalDetailsJSBAL();
-                PersonalDetailsJSEntity pdEntity = new PersonalDetailsJSEntity();
+                PersonalDetailsJSEntity personalDetailsEntity = new PersonalDetailsJSEntity();
 
                 validated = ValidatePersonalDetails();
                 if (validated)
                 {
                     // Set value to PersonalDetails job seeker entity
-                    pdEntity.candidateId = "JS00001";//static data used because session value not set
-                    pdEntity.presentAddress = txtPresentAddress.Text;
-                    pdEntity.presentCountry = ddlCountryPresent.SelectedItem.Text;
-                    pdEntity.presentState = ddlStatePresent.SelectedItem.Text;
-                    pdEntity.presentCity = ddlCityPresent.SelectedItem.Text;
-                    pdEntity.presentArea = txtAreaPresent.Text;
-                    pdEntity.presentPincode = Convert.ToInt32(txtPincodePresent.Text);
-                    pdEntity.permantAddress = txtAddressPerm.Text;
-                    pdEntity.permantCountry = ddlCountryPerm.SelectedItem.Text;
-                    pdEntity.permantState = ddlStatePerm.SelectedItem.Text;
-                    pdEntity.permantCity = ddlCityPerm.SelectedItem.Text;
-                    pdEntity.permantArea = txtAreaPerm.Text;
-                    pdEntity.permantPincode = Convert.ToInt32(txtPincodePerm.Text);
-                    pdEntity.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
+                    personalDetailsEntity.candidateId = "JS00001";//static data used because session value not set
+                    personalDetailsEntity.presentAddress = txtPresentAddress.Text;
+                    personalDetailsEntity.presentCountry = ddlCountryPresent.SelectedItem.Text;
+                    personalDetailsEntity.presentState = ddlStatePresent.SelectedItem.Text;
+                    personalDetailsEntity.presentCity = ddlCityPresent.SelectedItem.Text;
+                    personalDetailsEntity.presentArea = txtAreaPresent.Text;
+                    personalDetailsEntity.presentPincode = Convert.ToInt32(txtPincodePresent.Text);
+                    personalDetailsEntity.permantAddress = txtAddressPerm.Text;
+                    personalDetailsEntity.permantCountry = ddlCountryPerm.SelectedItem.Text;
+                    personalDetailsEntity.permantState = ddlStatePerm.SelectedItem.Text;
+                    personalDetailsEntity.permantCity = ddlCityPerm.SelectedItem.Text;
+                    personalDetailsEntity.permantArea = txtAreaPerm.Text;
+                    personalDetailsEntity.permantPincode = Convert.ToInt32(txtPincodePerm.Text);
+                    personalDetailsEntity.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
 
                     // Check if fileupload control has a file.
                     if (FileUploadPhoto.PostedFile != null)
                     {
-                        pdEntity.photo = Path.GetFileName(FileUploadPhoto.PostedFile.FileName);
-                        FileUploadPhoto.SaveAs(Server.MapPath("~/UploadImages/" + pdEntity.photo));
+                        personalDetailsEntity.photo = Path.GetFileName(FileUploadPhoto.PostedFile.FileName);
+                        FileUploadPhoto.SaveAs(Server.MapPath("~/UploadImages/" + personalDetailsEntity.photo));
                     }
 
                     // Check if radio button check.
-                    pdEntity.gender = string.Empty;
+                    personalDetailsEntity.gender = string.Empty;
                     if (rbtMale.Checked)
                     {
-                        pdEntity.gender = "Male";
+                        personalDetailsEntity.gender = "Male";
                     }
                     else if (rbtFemale.Checked)
                     {
-                        pdEntity.gender = "Female";
+                        personalDetailsEntity.gender = "Female";
                     }
 
-                    pdEntity.passportNumber = Convert.ToInt32(txtPassportNo.Text);
-                    pdEntity.passportValidity = Convert.ToDateTime(txtValidity.Text);
-                    pdEntity.workStatus = ddlWorkStatus.SelectedItem.Text;
-                    pdEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
-                    int result = pdBAL.PersonalDetailsBAL(pdEntity);
+                    personalDetailsEntity.passportNumber = Convert.ToInt32(txtPassportNo.Text);
+                    personalDetailsEntity.passportValidity = Convert.ToDateTime(txtValidity.Text);
+                    personalDetailsEntity.workStatus = ddlWorkStatus.SelectedItem.Text;
+                    personalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
+                    int result = personalDetailsBAL.SavePersonalDetailsBAL(personalDetailsEntity);
                     if (result > 0)
                     {
                         Response.Write("<script language='javascript'>alert('Personal Details Inserted')</script>");
@@ -141,7 +140,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             int CountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
             DataSet ds = new DataSet();
-            ds = pdBAL.GetState(CountryId);
+            ds = personalDetailsBAL.GetState(CountryId);
             ddlStatePresent.DataSource = ds;
 
             ddlStatePresent.DataTextField = "StateName";
@@ -159,7 +158,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             int StateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
             DataSet ds = new DataSet();
-            ds = pdBAL.GetCity(StateId);
+            ds = personalDetailsBAL.GetCity(StateId);
             ddlCityPresent.DataSource = ds;
             ddlCityPresent.DataTextField = "cityName";
             ddlCityPresent.DataValueField = "cityID";
@@ -176,7 +175,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             int CountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
             DataSet ds = new DataSet();
-            ds = pdBAL.GetState(CountryId);
+            ds = personalDetailsBAL.GetState(CountryId);
             ddlStatePerm.DataSource = ds;
             ddlStatePerm.DataTextField = "StateName";
             ddlStatePerm.DataValueField = "StateId";
@@ -193,7 +192,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             int StateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
             DataSet ds = new DataSet();
-            ds = pdBAL.GetCity(StateId);
+            ds = personalDetailsBAL.GetCity(StateId);
             ddlCityPerm.DataSource = ds;
             ddlCityPerm.DataTextField = "cityName";
             ddlCityPerm.DataValueField = "cityID";

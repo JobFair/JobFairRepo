@@ -10,12 +10,12 @@ namespace BAL
         /// <summary>
         ///  Personal Details of job seeker bal.
         /// </summary>
-        /// <param name="pdEntity">The Personal Details entity.</param>
+        /// <param name="personalDetailsEntity">The Personal Details entity.</param>
         /// <returns>System.Int32</returns>
-        public int PersonalDetailsBAL(PersonalDetailsJSEntity pdEntity)
+        public int SavePersonalDetailsBAL(PersonalDetailsJSEntity personalDetailsEntity)
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.PersonalDetailsInsert(pdEntity);
+            return pdDAL.SavePersonalDetails(personalDetailsEntity);
         }
 
         public DataSet GetCountry()

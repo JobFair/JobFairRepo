@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Entities.JobSeeker;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
-using Entities.JobSeeker;
+using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
-
 
 namespace DAL
 {
@@ -41,28 +36,26 @@ namespace DAL
         /// </summary>
         /// <param name="languageDetails">Object for inserting data into database</param>
         /// <returns></returns>
-        public int LanguageDetailsDAL(LanguageEntity language)
+        public int SaveLanguageDetailsDAL(LanguageEntity languageEntity)
         {
-
             connection.Open();
             SqlCommand cmd = new SqlCommand();
 
             // Get xml string data from object
-            string languageDetails = CreateXML(language);
+            string languageDetails = CreateXML(languageEntity);
 
-            SqlParameter[] sqlparams ={new SqlParameter("@languageDetails",languageDetails)};
+            SqlParameter[] sqlparams = { new SqlParameter("@languageDetails", languageDetails) };
 
-            int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertLanguageDetails", sqlparams);
+            int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertLanguageDetails, sqlparams);
             return result;
         }
-        
-     
+
         /// <summary>
         /// Insert Affirmative Details
         /// </summary>
-        /// <param name="adEntity">Object for inserting data into database</param>
+        /// <param name="affirmativeDetailsEntity">Object for inserting data into database</param>
         /// <returns>System.Int32</returns>
-        public int AffirmativeDetailsDAL(AffirmativeDetailsEntity adEntity)
+        public int SaveAffirmativeDetailsDAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
         {
             int result;
             try
@@ -70,18 +63,16 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams ={
-                                          new SqlParameter("@candidateId",adEntity.CandidateId),
-                                          new SqlParameter("@physicallyChallenged",adEntity.PhysicallyChallenged),
-                                          new SqlParameter("@description",adEntity.Description),
-                                          new SqlParameter("@sports",adEntity.Sports),
-                                          new SqlParameter("@sportsDescription",adEntity.SportsDescription),
-                                          new SqlParameter("@usaPermit",adEntity.USAPermit),
-                                          new SqlParameter("@otherPermits",adEntity.OtherPermits),
+                                          new SqlParameter("@candidateId",affirmativeDetailsEntity.CandidateId),
+                                          new SqlParameter("@physicallyChallenged",affirmativeDetailsEntity.PhysicallyChallenged),
+                                          new SqlParameter("@description",affirmativeDetailsEntity.Description),
+                                          new SqlParameter("@sports",affirmativeDetailsEntity.Sports),
+                                          new SqlParameter("@sportsDescription",affirmativeDetailsEntity.SportsDescription),
+                                          new SqlParameter("@usaPermit",affirmativeDetailsEntity.USAPermit),
+                                          new SqlParameter("@otherPermits",affirmativeDetailsEntity.OtherPermits),
                                           };
-                 result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_OtherDetails", sqlparams);
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_OtherDetails, sqlparams);
                 return result;
-
-                
             }
             catch (Exception)
             {
@@ -93,5 +84,4 @@ namespace DAL
             }
         }
     }
-
 }

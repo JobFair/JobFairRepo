@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using DAL;
+﻿using DAL;
 using Entities.JobSeeker;
+using System.Data;
 
 namespace BAL
 {
-   public class LiveProjectDetailsBAL
+    public class LiveProjectDetailsBAL
     {
         public DataTable GetRole()
         {
-            LiveProjectDetailsDAL liveDAL = new LiveProjectDetailsDAL();
-            return liveDAL.GetRole();
+            LiveProjectDetailsDAL liveProjectDetailsDAL = new LiveProjectDetailsDAL();
+            return liveProjectDetailsDAL.GetRole();
         }
-        public int LiveProjectBAL(LiveProjectDetailsEntity liveEntity)
+
+        public int SaveLiveProjectBAL(LiveProjectDetailsEntity liveProjectDetailsEntity)
         {
-            LiveProjectDetailsDAL liveDAL = new LiveProjectDetailsDAL();
-            return liveDAL.LiveProjectDAL(liveEntity);
+            LiveProjectDetailsDAL liveProjectDAL = new LiveProjectDetailsDAL();
+            return liveProjectDAL.SaveLiveProjectDAL(liveProjectDetailsEntity);
         }
     }
 }

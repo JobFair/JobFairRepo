@@ -13,9 +13,9 @@ namespace DAL
         /// <summary>
         /// Pesonal Details of job seeker
         /// </summary>
-        /// <param name="pdEntity">Object for inserting data into database</param>
+        /// <param name="personalDetailsEntity">Object for inserting data into database</param>
         /// <returns>System.Int32</returns>
-        public int PersonalDetailsInsert(PersonalDetailsJSEntity pdEntity)
+        public int SavePersonalDetails(PersonalDetailsJSEntity personalDetailsEntity)
         {
             try
             {
@@ -23,28 +23,28 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 SqlParameter[] sqlparams = {
-                                              new SqlParameter("@candidateId",pdEntity.candidateId),
-                                              new SqlParameter("@pressentAddress",pdEntity.presentAddress),
-                                              new SqlParameter("@presentCountry",pdEntity.presentCountry),
-                                              new SqlParameter("@presentState",pdEntity.presentState),
-                                              new SqlParameter("@presentCity",pdEntity.presentCity),
-                                              new SqlParameter("@presentArea",pdEntity.presentArea),
-                                              new SqlParameter("@presentPincode",pdEntity.presentPincode),
-                                              new SqlParameter("@permantAddress",pdEntity.permantAddress),
-                                              new SqlParameter("@permantCountry",pdEntity.permantCountry),
-                                              new SqlParameter("@permantState",pdEntity.permantState),
-                                              new SqlParameter("@permantCity",pdEntity.permantCity),
-                                              new SqlParameter("@permantArea",pdEntity.permantArea),
-                                              new SqlParameter("@permantPincode",pdEntity.permantPincode),
-                                              new SqlParameter("@dateOfBirth", pdEntity.dateOfBirth.Date),
-                                              new SqlParameter("@gender",pdEntity.gender),
-                                              new SqlParameter("@maritialStatus",pdEntity.maritialStatus),
-                                              new SqlParameter("@passportNumber", pdEntity.passportNumber),
-                                              new SqlParameter("@passportValidity",pdEntity.passportValidity.Date),
-                                              new SqlParameter("@workStatus", pdEntity.workStatus),
-                                              new SqlParameter("@photo", "~/UploadImages/"+pdEntity.photo)
+                                              new SqlParameter("@candidateId",personalDetailsEntity.candidateId),
+                                              new SqlParameter("@pressentAddress",personalDetailsEntity.presentAddress),
+                                              new SqlParameter("@presentCountry",personalDetailsEntity.presentCountry),
+                                              new SqlParameter("@presentState",personalDetailsEntity.presentState),
+                                              new SqlParameter("@presentCity",personalDetailsEntity.presentCity),
+                                              new SqlParameter("@presentArea",personalDetailsEntity.presentArea),
+                                              new SqlParameter("@presentPincode",personalDetailsEntity.presentPincode),
+                                              new SqlParameter("@permantAddress",personalDetailsEntity.permantAddress),
+                                              new SqlParameter("@permantCountry",personalDetailsEntity.permantCountry),
+                                              new SqlParameter("@permantState",personalDetailsEntity.permantState),
+                                              new SqlParameter("@permantCity",personalDetailsEntity.permantCity),
+                                              new SqlParameter("@permantArea",personalDetailsEntity.permantArea),
+                                              new SqlParameter("@permantPincode",personalDetailsEntity.permantPincode),
+                                              new SqlParameter("@dateOfBirth", personalDetailsEntity.dateOfBirth.Date),
+                                              new SqlParameter("@gender",personalDetailsEntity.gender),
+                                              new SqlParameter("@maritialStatus",personalDetailsEntity.maritialStatus),
+                                              new SqlParameter("@passportNumber", personalDetailsEntity.passportNumber),
+                                              new SqlParameter("@passportValidity",personalDetailsEntity.passportValidity.Date),
+                                              new SqlParameter("@workStatus", personalDetailsEntity.workStatus),
+                                              new SqlParameter("@photo", "~/UploadImages/"+personalDetailsEntity.photo)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertPersonalDetails", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertPersonalDetails, sqlparams);
 
                 return result;
             }

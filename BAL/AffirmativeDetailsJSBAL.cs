@@ -10,12 +10,12 @@ namespace BAL
         /// <summary>
         /// Affirmative Details of job seeker
         /// </summary>
-        /// <param name="adEntity">AffirmativeDetailsEntity</param>
+        /// <param name="affirmativeDetailsEntity">AffirmativeDetailsEntity</param>
         /// <returns>System.Int32</returns>
-        public int AffirmaiveDetailsBAL(AffirmativeDetailsEntity adEntity)
+        public int SaveAffirmaiveDetailsBAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
         {
-            AffirmativeDetailsJSDAL adDAL = new AffirmativeDetailsJSDAL();
-            return adDAL.AffirmativeDetailsDAL(adEntity);
+            AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
+            return affirmativeDetailsDAL.SaveAffirmativeDetailsDAL(affirmativeDetailsEntity);
         }
 
         /// <summary>
@@ -23,10 +23,10 @@ namespace BAL
         /// </summary>
         /// <param name="languageEntity">LanguageEntity</param>
         /// <returns>System.Int32</returns>
-        public int LanguageDetailsBAL(LanguageEntity languageEntity)
+        public int SaveLanguageDetailsBAL(LanguageEntity languageEntity)
         {
-            AffirmativeDetailsJSDAL adBAL = new AffirmativeDetailsJSDAL();
-            return adBAL.LanguageDetailsDAL(languageEntity);
+            AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
+            return affirmativeDetailsBAL.SaveLanguageDetailsDAL(languageEntity);
         }
 
         /// <summary>

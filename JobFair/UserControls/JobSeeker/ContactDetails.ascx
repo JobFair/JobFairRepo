@@ -1,11 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ContactDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ContactDetails" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<style>
-    .class
-    {
-        color:gray;
-    }
-</style>
+
 <table >
     <tr>
         <td colspan="2">&nbsp;</td>
@@ -18,7 +13,7 @@
             <asp:Label ID="lblaltmob" runat="server" Text="Alternate Mobile No"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtAltNo" runat="server" ></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" WatermarkText="Alternate Number" TargetControlID="txtAltNo" WatermarkCssClass="class"  />
+            <asp:TextBox ID="txtAltNo" runat="server" ></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" WatermarkText="Alternate Number" TargetControlID="txtAltNo"  />
         </td>
     </tr>
     <tr>
@@ -26,7 +21,7 @@
             <asp:Label ID="lblLandno" runat="server" Text="Landline No"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtLandno" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" WatermarkText="Landline No" TargetControlID="txtLandno" WatermarkCssClass="class"/>
+            <asp:TextBox ID="txtLandno" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" WatermarkText="Landline No" TargetControlID="txtLandno" />
         </td>
     </tr>
     <tr>
@@ -34,7 +29,7 @@
             <asp:Label ID="lblWhatapp" runat="server" Text="Whats app No"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtWhatsappNo" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" WatermarkText="Whatsapp Number" TargetControlID="txtWhatsappNo" WatermarkCssClass="class" />
+            <asp:TextBox ID="txtWhatsappNo" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" WatermarkText="Whatsapp Number" TargetControlID="txtWhatsappNo"  />
         </td>
     </tr>
     <tr>
@@ -42,7 +37,7 @@
             <asp:Label ID="lblLinkedIn" runat="server" Text="LinkedIn Profile Link"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtLinkedIn" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" WatermarkText="LinkedIn ID" TargetControlID="txtLinkedIn" WatermarkCssClass="class"/>
+            <asp:TextBox ID="txtLinkedIn" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" WatermarkText="LinkedIn ID" TargetControlID="txtLinkedIn" />
         </td>
     </tr>
     <tr>
@@ -50,7 +45,7 @@
             <asp:Label ID="lblFacebook" runat="server" Text="Facebook Profile Link"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtFacebook" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server" WatermarkText="Facebook ID" TargetControlID="txtFacebook" WatermarkCssClass="class"/>
+            <asp:TextBox ID="txtFacebook" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server" WatermarkText="Facebook ID" TargetControlID="txtFacebook" />
         </td>
     </tr>
     <tr>
@@ -58,7 +53,7 @@
             <asp:Label ID="lblTwitter" runat="server" Text="Twitter Profile Link"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtTwitter" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender6" runat="server" WatermarkText="Twitter ID" TargetControlID="txtTwitter" WatermarkCssClass="class"/>
+            <asp:TextBox ID="txtTwitter" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender6" runat="server" WatermarkText="Twitter ID" TargetControlID="txtTwitter" />
         </td>
     </tr>
     <tr>
@@ -66,7 +61,7 @@
             <asp:Label ID="lblGTalk" runat="server" Text="GTalk Profile Id"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtGTalk" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender7" runat="server" WatermarkText="GTalk ID" TargetControlID="txtGTalk" WatermarkCssClass="class"/>
+            <asp:TextBox ID="txtGTalk" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender7" runat="server" WatermarkText="GTalk ID" TargetControlID="txtGTalk" />
         </td>
     </tr>
     <tr>
@@ -74,7 +69,7 @@
             <asp:Label ID="lblSkype" runat="server" Text="Skype Profile Id"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtSkype" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender8" runat="server" WatermarkText="Skype ID" TargetControlID="txtSkype" WatermarkCssClass="class" />
+            <asp:TextBox ID="txtSkype" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender8" runat="server" WatermarkText="Skype ID" TargetControlID="txtSkype"/>
         </td>
     </tr>
     <tr>
@@ -82,7 +77,7 @@
             <asp:Label ID="lblGooglePlus" runat="server" Text="Google+ Profile Link"></asp:Label>
         </td>
         <td >
-            <asp:TextBox ID="txtGooglePlus" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender9" runat="server" WatermarkText="GooglePlus ID" TargetControlID="txtGooglePlus" WatermarkCssClass="class" />
+            <asp:TextBox ID="txtGooglePlus" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender9" runat="server" WatermarkText="GooglePlus ID" TargetControlID="txtGooglePlus"  />
         </td>
     </tr>
     <tr>

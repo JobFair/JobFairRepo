@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.JobSeeker
+﻿namespace Entities.JobSeeker
 {
-   public class LanguageEntity
+    public class LanguageEntity
     {
         //LanguageEntity
         public string CandidateId { get; set; }

@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AffirmativeDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.AffirmativeDetails" %>
-<table class="auto-style4">
+<table >
     <tr>
         <td rowspan="4">
             <asp:Label ID="lblKnownLanguages" runat="server" Text="Languages Known"></asp:Label>
