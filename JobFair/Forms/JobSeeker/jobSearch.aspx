@@ -4,17 +4,15 @@
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div>
-        <table style="width:100%">
+        <table >
             <tr>
-                <td style="vertical-align:top" class="auto-style1">
+                <td >
                     <fieldset>
                         <legend>Div 1</legend>
                         <div class="left">
 
                             <div>
                                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
-
                                 <asp:LinkButton ID="lblFreshness" runat="server" Text="By Freshness"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelFreshness" runat="server">
@@ -35,7 +33,7 @@
 
                             <br />
                             <div>
-                                <asp:LinkButton ID="lblLocation" runat="server" Text="By Location" CssClass="label"></asp:LinkButton>
+                                <asp:LinkButton ID="lblLocation" runat="server" Text="By Location"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelLoaction" runat="server">
                                     <asp:CheckBoxList ID="chkLocation" runat="server"></asp:CheckBoxList>
@@ -53,7 +51,7 @@
                             </div>
                             <br />
                             <div>
-                                <asp:LinkButton ID="lblFunctionalArea" runat="server" Text="Functional Area " CssClass="label"></asp:LinkButton>
+                                <asp:LinkButton ID="lblFunctionalArea" runat="server" Text="Functional Area "></asp:LinkButton>
 
                                 <asp:Panel ID="PanelFunctArea" runat="server">
                                     <asp:CheckBoxList ID="chkFunctArea" runat="server"></asp:CheckBoxList>
@@ -63,7 +61,7 @@
                             </div>
                             <br />
                             <div>
-                                <asp:LinkButton ID="lblCompanyLevel" runat="server" Text="Company Level " CssClass="label"></asp:LinkButton>
+                                <asp:LinkButton ID="lblCompanyLevel" runat="server" Text="Company Level "></asp:LinkButton>
 
                                 <asp:Panel ID="PanelCompanyLevel" runat="server">
                                     <asp:CheckBoxList ID="chkCompanyLevel" runat="server">
@@ -77,7 +75,7 @@
                             </div>
                             <br />
                             <div>
-                                <asp:LinkButton ID="lblIndustry" runat="server" Text="Industry " CssClass="label"></asp:LinkButton>
+                                <asp:LinkButton ID="lblIndustry" runat="server" Text="Industry " ></asp:LinkButton>
 
                                 <asp:Panel ID="PanelIndustry" runat="server">
                                     <asp:CheckBoxList ID="chkIndustry" runat="server"></asp:CheckBoxList>
@@ -86,7 +84,7 @@
                             </div>
                             <br />
                             <div>
-                                <asp:LinkButton ID="lblSalary" runat="server" Text="By Salary " CssClass="label"></asp:LinkButton>
+                                <asp:LinkButton ID="lblSalary" runat="server" Text="By Salary "></asp:LinkButton>
 
                                 <asp:Panel ID="PanelSalary" runat="server">
                                     <asp:CheckBoxList ID="chkSalary" runat="server">
@@ -104,7 +102,7 @@
 
                             <br />
                             <div>
-                                <asp:LinkButton ID="lblEducation" runat="server" Text="By Education " CssClass="label"></asp:LinkButton>
+                                <asp:LinkButton ID="lblEducation" runat="server" Text="By Education "></asp:LinkButton>
 
                                 <asp:Panel ID="PanelEducation" runat="server">
                                     <asp:CheckBoxList ID="chkEducation" runat="server"></asp:CheckBoxList>
@@ -114,7 +112,7 @@
 
                             <br />
                             <div>
-                                <asp:LinkButton ID="lblStatus" runat="server" Text="By Employment Status " CssClass="label"></asp:LinkButton>
+                                <asp:LinkButton ID="lblStatus" runat="server" Text="By Employment Status"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelStatus" runat="server">
                                     <asp:CheckBoxList ID="chkStatus" runat="server">
@@ -126,7 +124,7 @@
                             </div>
                             <br />
                             <div>
-                                <asp:LinkButton ID="lblJobType" runat="server" Text="Job Type " CssClass="label"></asp:LinkButton>
+                                <asp:LinkButton ID="lblJobType" runat="server" Text="Job Type "></asp:LinkButton>
 
                                 <asp:Panel ID="PanelJobType" runat="server">
                                     <asp:CheckBoxList ID="chkJobType" runat="server">
@@ -147,16 +145,8 @@
         </div>
 
                 <td width="80%" style="vertical-align: top">
-                    <fieldset>
-                       <div>
-                        <asp:LinkButton ID="allJobs" runat="server" Text="AllJobs" OnClick="lnks_Click"></asp:LinkButton>
-                            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-                            <br />
-                            
-                             </div>
-                           </fieldset>
-         
-       <asp:Repeater ID="Repeater1" runat="server"  onitemcommand="Repeater1_ItemCommand">
+                    
+       <asp:Repeater ID="Repeater1" runat="server" >
            <HeaderTemplate>
               <table>
               <tr>
@@ -228,37 +218,11 @@
                  <td> 
                 <%# DataBinder.Eval(Container.DataItem, "NumberOfVacancies") %>
                       
-                       <asp:LinkButton ID="lnkedit" runat="server" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Edit">Edit</asp:LinkButton>
-                        <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Delete">Delete</asp:LinkButton>
-                      <asp:LinkButton ID="lnkUpdate" runat="server" Visible="false" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Update">Update</asp:LinkButton>
-                       <asp:LinkButton ID="lnkCancel" runat="server" Visible="false" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Cancel">Cancel</asp:LinkButton>
                     </td>
                 </tr>
             </ItemTemplate>
             <FooterTemplate>
-                <tr>
-                    <td></td>
-                    <td> <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox></td>
-                    <td> <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox></td>
-
-                    <td>
-                        <asp:LinkButton ID="LinkButton1" CommandName="Insert" runat="server">Insert</asp:LinkButton>
-                    </td>
-                </tr>
-                </table>
+              
             </FooterTemplate>
            </asp:Repeater>
                 

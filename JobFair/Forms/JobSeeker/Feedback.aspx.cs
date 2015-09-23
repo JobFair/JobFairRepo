@@ -20,19 +20,23 @@ namespace JobFair.Forms.JobSeeker
 		{
 
 		}
-
+        /// <summary>
+        /// save feedback data in database in click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, System.EventArgs e)
         {
             try
                 {
-                    FeedbackEntity fdentity = new FeedbackEntity();
-                    FeedbackJSBAL FeedbackBAL = new FeedbackJSBAL();
-                    fdentity.Name = txtName.Text.Trim();
-                    fdentity.Subject = ddlSubject.SelectedItem.Text;
-                    fdentity.Feedback = txtMessage.Text.Trim();
+                    FeedbackEntity  feedbackEntity= new FeedbackEntity();
+                    FeedbackBAL FeedbackBAL = new FeedbackBAL();
+                    feedbackEntity.Name = txtName.Text.Trim();
+                    feedbackEntity.Subject = ddlSubject.SelectedItem.Text;
+                    feedbackEntity.Feedback = txtMessage.Text.Trim();
 
-                    
-                    int result = FeedbackBAL.feedbackNewJobseekerBAL(fdentity);
+
+                    int result = FeedbackBAL.feedbackNewJobseekerBAL(feedbackEntity);
                     if (result > 0)
                     {
                         lblResult.Text = "Your details saved successfully";
