@@ -56,18 +56,7 @@ namespace DAL
             return result;
         }
         
-        /// <summary>
-        /// Load the Languages
-        /// </summary>
-        /// <returns></returns>
-        public DataTable GetLanguage()
-        {
-            DataTable table = new DataTable();
-            SqlCommand cmd = new SqlCommand("select * from Language", connection);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(table);
-            return table;
-        }
+     
         /// <summary>
         /// Insert Affirmative Details
         /// </summary>

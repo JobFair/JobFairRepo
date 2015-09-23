@@ -17,8 +17,26 @@ namespace JobFair.UserControls.JobSeeker
     /// </summary>
     public partial class EducationalDetails : System.Web.UI.UserControl
     {
+        private DataSet ds = new DataSet();
+        private EducationalDetailsBAL edBAL = new EducationalDetailsBAL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!IsPostBack)
+            {
+                ddlHQ.DataSource = edBAL.GetEducationalDegreeTypeBAL();
+                ddlHQ.DataValueField = "degreeId";
+                ddlHQ.DataTextField = "degreeType";
+                ddlHQ.DataBind();
+                ddlHQ.Items.Insert(0, new ListItem("--Select--", "0"));
+
+                chkList.DataSource = edBAL.GetEducationalDegreeTypeBAL();
+                chkList.DataValueField = "degreeId";
+                chkList.DataTextField = "degreeType";
+                chkList.DataBind();
+               
+            }
             //var allcheckbox = DemoEducationalDetails.Controls.OfType<CheckBox>();
             //var chkbox = Page.Controls.OfType<CheckBox>().Where(c => c.Checked);
             int cnt = 0;
@@ -33,56 +51,22 @@ namespace JobFair.UserControls.JobSeeker
         
         }
 
-        //protected void txtSSCPercentage_TextChanged(object sender, EventArgs e)
-        //{
-        //    if (txtSSCYear.Text != "" && txtSSCBoard.Text != "" && txtSSCPercentage.Text != "")
-        //    {
-        //        divHSC.Visible = true;
-        //    }
-        //}
-
-        protected void cbSSC_CheckedChanged(object sender, EventArgs e)
+        protected void chkList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            divSSC.Visible = true;
-            pnlCollapsableSSC.Visible = true;
+                //var chkList = sender as CheckBoxList;
+                //foreach (ListItem li in chkList.Items)
+                {
+                   if (chkList.Items[0].Selected)
+                  //  if(chkList.SelectedIndex == 1)
+                    {
+                        divSSC.Visible = true;
+                        pnlCollapsableSSC.Visible = true;
+                    }
+                   
+                     //   divSSC.Visible = false;
+                   // pnlCollapsableSSC.Visible = false;
+                }
         }
-
-        protected void cbHSC_CheckedChanged(object sender, EventArgs e)
-        {
-            divHSC.Visible = true;
-            pnlCollapsableHSC.Visible = true;
-        }
-
-        protected void cbDip_CheckedChanged(object sender, EventArgs e)
-        {
-            divDip.Visible = true;
-            pnlCollapsableDip.Visible = true;
-        }
-
-        protected void cbBD_CheckedChanged(object sender, EventArgs e)
-        {
-            divBD.Visible = true;
-            pnlCollapsableBD.Visible = true;
-        }
-
-        protected void cbPgd_CheckedChanged(object sender, EventArgs e)
-        {
-            divPgd.Visible = true;
-            pnlCollapsablePgd.Visible = true;
-        }
-
-        protected void cbMD_CheckedChanged(object sender, EventArgs e)
-        {
-            divMD.Visible = true;
-            pnlCollapsableMD.Visible = true;
-        }
-
-        protected void cbPHD_CheckedChanged(object sender, EventArgs e)
-        {
-             divPHD.Visible = true;
-             pnlCollapsablePHD.Visible = true;
-        }
-
         protected void ddlHSC_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlHSC.SelectedIndex == 4)
@@ -92,7 +76,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             else
                 txtHSCAdd.Visible = false;
-                btnHSCAdd.Visible = false;
+            btnHSCAdd.Visible = false;
         }
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
@@ -142,16 +126,16 @@ namespace JobFair.UserControls.JobSeeker
             //}
         }
 
-        protected void cbCertification_CheckedChanged(object sender, EventArgs e)
-        {
-            divCertification.Visible = true;
-            pnlCollapsableCert.Visible = true;
-        }
+        //protected void cbCertification_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    divCertification.Visible = true;
+        //    pnlCollapsableCert.Visible = true;
+        //}
 
-        protected void cbWorkshop_CheckedChanged(object sender, EventArgs e)
-        {
-            divWorkshop.Visible = true;
-            pnlCollapsableWork.Visible = true;
-        }
+        //protected void cbWorkshop_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    divWorkshop.Visible = true;
+        //    pnlCollapsableWork.Visible = true;
+        //}
     }
 }

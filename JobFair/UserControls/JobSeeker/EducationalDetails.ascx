@@ -31,30 +31,35 @@
 <div id="divMain" runat="server" visible="true" style="background-color: #C0C0C0">
 
 <h2>Highest Qualification&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlHQ" runat="server">
-        <asp:ListItem Value="0" Text="Select Your Highest Qualification"></asp:ListItem>
+       <%-- <asp:ListItem Value="0" Text="Select Your Highest Qualification"></asp:ListItem>
         <asp:ListItem Value="1" Text="Doctorate/ PHD Degree"></asp:ListItem>
         <asp:ListItem Value="2" Text="Masters Degree"></asp:ListItem>
         <asp:ListItem Value="3" Text="PG Diploma"></asp:ListItem>
         <asp:ListItem Value="4" Text="Bachelors Degree"></asp:ListItem>
         <asp:ListItem Value="5" Text="UG Diploma"></asp:ListItem>
         <asp:ListItem Value="6" Text="HSC / 12th"></asp:ListItem>
-        <asp:ListItem Value="7" Text="SSC / 10th"></asp:ListItem>
+        <asp:ListItem Value="7" Text="SSC / 10th"></asp:ListItem>--%>
     </asp:DropDownList>
     </h2>
     <p><asp:Label ID="lblInfo" runat="server" Text="Kindly select checkboxes for the Degrees you have completed*" ForeColor="Red"></asp:Label></p>
-    <asp:CheckBox ID="cbSSC" runat="server" Text="  SSC / 10th" OnCheckedChanged="cbSSC_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:CheckBox ID="cbHSC" runat="server" Text="  HSC / 12th" OnCheckedChanged="cbHSC_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-    <asp:CheckBox ID="cbDip" runat="server" Text="  UG Diploma" OnCheckedChanged="cbDip_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;<br />
-    <asp:CheckBox ID="cbBD" runat="server" Text="  Bachelors Degree" OnCheckedChanged="cbBD_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-    <asp:CheckBox ID="cbPGD" runat="server" Text="  PG Diploma" OnCheckedChanged="cbPgd_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:CheckBox ID="cbMD" runat="server" Text="  Masters Degree" OnCheckedChanged="cbMD_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;<br />
-    <asp:CheckBox ID="cbPHD" runat="server" Text="  Doctorate/ PHD Degree" OnCheckedChanged="cbPHD_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:CheckBox ID="cbCertification" runat="server" Text="  Certifications" OnCheckedChanged="cbCertification_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:CheckBox ID="cdWorkshop" runat="server" Text="  Workshops" OnCheckedChanged="cbWorkshop_CheckedChanged" AutoPostBack="True"/>&nbsp;&nbsp;&nbsp;<br />
+      <asp:CheckBoxList ID="chkList" runat="server" RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="chkList_SelectedIndexChanged">
+         <%-- <asp:ListItem runat="server" Text="  SSC / 10th" Value="1" AutoPostBack="True"></asp:ListItem>
+          <asp:ListItem runat="server" Text="  HSC / 12th" Value="2" AutoPostBack="True"></asp:ListItem>
+          <asp:ListItem runat="server" Text="  UG Diploma" Value="3" AutoPostBack="True"></asp:ListItem>
+          <asp:ListItem runat="server" Text="  Bachelors Degree" Value="4" AutoPostBack="True"></asp:ListItem>
+          <asp:ListItem runat="server" Text="  PG Diploma" Value="5" AutoPostBack="True"></asp:ListItem>
+          <asp:ListItem runat="server" Text="  Masters Degree" Value="6" AutoPostBack="True"></asp:ListItem>
+          <asp:ListItem runat="server" Text="  Doctorate/ PHD Degree" Value="7" AutoPostBack="True"></asp:ListItem>--%>
+          <asp:ListItem runat="server" Text="  Certifications" Value="8" AutoPostBack="True"></asp:ListItem>
+          <asp:ListItem runat="server" Text="  Workshops" Value="9" AutoPostBack="True"></asp:ListItem>
+    </asp:CheckBoxList>
 
 &nbsp;<br />
+    <br />
+    <br />
+    <br />
     &nbsp;&nbsp;&nbsp;&nbsp;
-<div id="divSSC" runat="server" visible="true">
+<div id="divSSC" runat="server" visible="false">
 <asp:Panel ID="pnlCollapsableSSC" runat="server" Height="0" Width="300px">
 <table class="auto-style1">
     <center><asp:Label ID="lblSSCHead" runat="server" Text="Enter SSC / 10th Details" CssClass="auto-style6"></asp:Label>
@@ -116,7 +121,7 @@ ScrollContents="false"></ajax:CollapsiblePanelExtender>
     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
-<div id="divHSC" runat="server" visible="true">
+<div id="divHSC" runat="server" visible="false">
 <asp:Panel ID="pnlCollapsableHSC" runat="server" Height="0" Width="300px">
 <table class="auto-style1">
     <center><asp:Label ID="lblHSCHead" runat="server" Text="Enter HSC / 12th Details" CssClass="auto-style6"></asp:Label></center>
@@ -191,7 +196,7 @@ TargetControlID="pnlCollapsableHSC"
 ScrollContents="false"></ajax:CollapsiblePanelExtender>
   </div><br />
 
-<div id="divDip" runat="server" visible="true">
+<div id="divDip" runat="server" visible="false">
 <asp:Panel ID="pnlCollapsableDip" runat="server" Height="0" Width="300px">
 
 <table class="auto-style1">
@@ -261,7 +266,7 @@ TargetControlID="pnlCollapsableDip"
 ScrollContents="false"></ajax:CollapsiblePanelExtender>
       </div><br />
     
-<div id="divBD" runat="server" visible="true">
+<div id="divBD" runat="server" visible="false">
 <asp:Panel ID="pnlCollapsableBD" runat="server" Height="0" Width="300px">
 
 <table class="auto-style1">
@@ -341,7 +346,7 @@ TargetControlID="pnlCollapsableBD"
 ScrollContents="false"></ajax:CollapsiblePanelExtender>
       </div><br />
 
-<div id="divPgd" runat="server" visible="true">
+<div id="divPgd" runat="server" visible="false">
 <asp:Panel ID="pnlCollapsablePgd" runat="server" Height="0" Width="300px">
 
 <table class="auto-style1">
@@ -413,7 +418,7 @@ TargetControlID="pnlCollapsablePgd"
 ScrollContents="false"></ajax:CollapsiblePanelExtender>
       </div><br />
 
-<div id="divMD" runat="server" visible="true">
+<div id="divMD" runat="server" visible="false">
 <asp:Panel ID="pnlCollapsableMD" runat="server" Height="0" Width="300px">
 
 <table class="auto-style1">
@@ -493,7 +498,7 @@ TargetControlID="pnlCollapsableMD"
 ScrollContents="false"></ajax:CollapsiblePanelExtender>
       </div><br />
 
-<div id="divPHD" runat="server" visible="true">
+<div id="divPHD" runat="server" visible="false">
 <asp:Panel ID="pnlCollapsablePHD" runat="server" Height="0" Width="300px">
 
 <table class="auto-style1">

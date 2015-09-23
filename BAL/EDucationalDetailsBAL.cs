@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities.JobSeeker;
 using DAL;
+using System.Data;
+using CommonUtil;
 
 namespace BAL
 {
@@ -20,6 +22,14 @@ namespace BAL
                EducationalDetailsDAL edDAL = new EducationalDetailsDAL();
                return edDAL.SaveEducationalDetailsDAL(edEntity);
 
+           }
+           /// <summary>
+           /// Load Educational Degree Type
+           /// </summary>
+           /// <returns></returns>
+           public DataSet GetEducationalDegreeTypeBAL()
+           {
+               return Utility.GetEducationalDegreeTypeDAL();
            }
        }
     }

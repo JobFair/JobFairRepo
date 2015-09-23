@@ -17,48 +17,8 @@ namespace JobFair.Forms.JobSeeker
             {
                 FillIndustryCheckBoxList();
                 FillcityCheckBoxList();
-                BindDropDownIndustry();
-                BindDropDownDepartment();
-                BindDropDownFunctionalArea();
                 BindRepeaterData();
             }
-        }
-
-        //private void GetDataFromSession()
-        //{
-        //    lblJobPost.Text = Session["JobPost"].ToString();
-
-        //}
-        private void BindDropDownIndustry()
-        {
-            ds = JobSearchBAL.GetIndustry();
-            ddlIndustry.DataSource = ds;
-            ddlIndustry.DataTextField = "IndustryName";
-            ddlIndustry.DataValueField = "IndustryId";
-            ddlIndustry.DataBind();
-            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
-        }
-
-      
-
-        private void BindDropDownDepartment()
-        {
-            ds = JobSearchBAL.GetDepartment();
-            ddlDepartment.DataSource = ds;
-            ddlDepartment.DataTextField = "DepartmentName";
-            ddlDepartment.DataValueField = "DepartmentId";
-            ddlDepartment.DataBind();
-            ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
-        }
-
-        private void BindDropDownFunctionalArea()
-        {
-            ds = JobSearchBAL.GetFunctionalArea();
-            ddlFunArea.DataSource = ds;
-            ddlFunArea.DataTextField = "FunctionalArea";
-            ddlFunArea.DataValueField = "AreaId";
-            ddlFunArea.DataBind();
-            ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void FillIndustryCheckBoxList()
@@ -132,7 +92,7 @@ namespace JobFair.Forms.JobSeeker
             Repeater1.DataBind();
             if (Repeater1.Items.Count > 0)
             {
-                lblTotalCount.Text = Repeater1.Items.Count.ToString();
+                //lblTotalCount.Text = Repeater1.Items.Count.ToString();
             }
             cmd.Connection.Close();
             cmd.Connection.Dispose();

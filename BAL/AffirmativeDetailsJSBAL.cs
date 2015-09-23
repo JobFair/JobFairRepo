@@ -1,15 +1,11 @@
-﻿using DAL;
+﻿using CommonUtil;
+using DAL;
 using Entities.JobSeeker;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 
 namespace BAL
 {
-   public class AffirmativeDetailsJSBAL
+    public class AffirmativeDetailsJSBAL
     {
         /// <summary>
         /// Affirmative Details of job seeker
@@ -23,7 +19,7 @@ namespace BAL
         }
 
         /// <summary>
-        /// Language Details 
+        /// Language Details
         /// </summary>
         /// <param name="languageEntity">LanguageEntity</param>
         /// <returns>System.Int32</returns>
@@ -37,11 +33,9 @@ namespace BAL
         /// Load Languages
         /// </summary>
         /// <returns></returns>
-        public DataTable GetLanguageBAL()
+        public DataSet GetLanguageBAL()
         {
-            AffirmativeDetailsJSDAL adBAL = new AffirmativeDetailsJSDAL();
-            return adBAL.GetLanguage();
+            return Utility.GetLanguage();
         }
-
     }
 }
