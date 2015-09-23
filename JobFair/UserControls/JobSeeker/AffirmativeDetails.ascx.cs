@@ -9,25 +9,33 @@ namespace JobFair.UserControls.JobSeeker
     public partial class AffirmativeDetails : System.Web.UI.UserControl
     {
         private DataSet ds = new DataSet();
-        private AffirmativeDetailsJSBAL adBAL = new AffirmativeDetailsJSBAL();
+        private AffirmativeDetailsJSBAL AffirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
+        private AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ds = adBAL.GetLanguageBAL();
+                ds = AffirmativeDetailsBAL.GetLanguageBAL();
                 ddlLanguageFirst.DataSource = ds;
                 ddlLanguageFirst.DataTextField = "LanguageName";
                 ddlLanguageFirst.DataValueField = "LanguageId";
                 ddlLanguageFirst.DataBind();
                 ddlLanguageFirst.Items.Insert(0, new ListItem("--Select--", "0"));
 
-                ds = adBAL.GetLanguageBAL();
+                ds = AffirmativeDetailsBAL.GetLanguageBAL();
                 ddlLanguageSecond.DataSource = ds;
                 ddlLanguageSecond.DataTextField = "LanguageName";
                 ddlLanguageSecond.DataValueField = "LanguageId";
                 ddlLanguageSecond.DataBind();
                 ddlLanguageSecond.Items.Insert(0, new ListItem("--Select--", "0"));
+
+                ds = AffirmativeDetailsBAL.GetLanguageBAL();
+                ddlLanguageThird.DataSource = ds;
+                ddlLanguageThird.DataTextField = "LanguageName";
+                ddlLanguageThird.DataValueField = "LanguageId";
+                ddlLanguageThird.DataBind();
+                ddlLanguageThird.Items.Insert(0, new ListItem("--Select--", "0"));
             }
             if (rbtYes.Checked)
             {
@@ -48,71 +56,145 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            AffirmativeDetailsEntity adEntity = new AffirmativeDetailsEntity();
-            AffirmativeDetailsJSBAL adBAL = new AffirmativeDetailsJSBAL();
-            LanguageEntity languageEntity = new LanguageEntity();
-            //set the value of AffirmativeDetailsJSEntity and LanguageEntity
-            adEntity.CandidateId = "JS00001";//static data used because session value not set
-            languageEntity.CandidateId = "JS00001";
-            languageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
-            languageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
+            //set the value of AffirmativeDetailsJSEntity
+            affirmativeDetailsEntity.CandidateId = "JS00001";//static data used because session value not set
+
+            //set the value of LanguageEntity for first language
+            LanguageEntity firstlanguageEntity = new LanguageEntity();
+            firstlanguageEntity.CandidateId = "JS00001";
+            firstlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
+            firstlanguageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
             int res = 0;
-            if(chkReadFirst.Checked)
+            if (chkReadFirst.Checked)
             {
                 res = 1;
-                languageEntity.Read =Convert.ToBoolean(res);
+                firstlanguageEntity.Read = Convert.ToBoolean(res);
             }
             else
             {
                 res = 0;
-                languageEntity.Read = Convert.ToBoolean(res);
+                firstlanguageEntity.Read = Convert.ToBoolean(res);
             }
 
             if (chkWriteFirst.Checked)
             {
-                languageEntity.Write = Convert.ToBoolean(1);
+                firstlanguageEntity.Write = Convert.ToBoolean(1);
             }
             else
             {
-                languageEntity.Write = Convert.ToBoolean(0);
+                firstlanguageEntity.Write = Convert.ToBoolean(0);
             }
 
             if (chkSpeakFirst.Checked)
             {
-                languageEntity.Speak = Convert.ToBoolean(1);
+                firstlanguageEntity.Speak = Convert.ToBoolean(1);
             }
             else
             {
-                languageEntity.Speak = Convert.ToBoolean(0);
+                firstlanguageEntity.Speak = Convert.ToBoolean(0);
             }
-           
-            adEntity.PhysicallyChallenged = string.Empty;
+
+            //set the value of LanguageEntity for second language
+            LanguageEntity secondlanguageEntity = new LanguageEntity();
+            secondlanguageEntity.CandidateId = "JS00001";
+            secondlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageSecond.SelectedValue);
+            secondlanguageEntity.ProficiencyLevel = ddlProficiencySecond.SelectedItem.Text;
+
+            if (chkReadSecond.Checked)
+            {
+                res = 1;
+                secondlanguageEntity.Read = Convert.ToBoolean(res);
+            }
+            else
+            {
+                res = 0;
+                secondlanguageEntity.Read = Convert.ToBoolean(res);
+            }
+
+            if (chkWriteSecond.Checked)
+            {
+                secondlanguageEntity.Write = Convert.ToBoolean(1);
+            }
+            else
+            {
+                secondlanguageEntity.Write = Convert.ToBoolean(0);
+            }
+
+            if (chkSpeakSecond.Checked)
+            {
+                secondlanguageEntity.Speak = Convert.ToBoolean(1);
+            }
+            else
+            {
+                secondlanguageEntity.Speak = Convert.ToBoolean(0);
+            }
+
+            //set the value of LanguageEntity for third language
+            LanguageEntity thirdlanguageEntity = new LanguageEntity();
+            thirdlanguageEntity.CandidateId = "JS00001";
+            thirdlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageThird.SelectedValue);
+            thirdlanguageEntity.ProficiencyLevel = ddlProficiencyThird.SelectedItem.Text;
+            thirdlanguageEntity.Read = chkReadThird.Checked;
+            thirdlanguageEntity.Write = chkWriteThird.Checked;
+            thirdlanguageEntity.Speak = chkSpeakThird.Checked;
+            //if (chkReadThird.Checked)
+            //{
+            //    res = 1;
+            //    thirdlanguageEntity.Read = Convert.ToBoolean(res);
+            //}
+            //else
+            //{
+            //    res = 0;
+            //    thirdlanguageEntity.Read = Convert.ToBoolean(res);
+            //}
+
+            //if (chkWriteThird.Checked)
+            //{
+            //    thirdlanguageEntity.Write = Convert.ToBoolean(1);
+            //}
+            //else
+            //{
+            //    thirdlanguageEntity.Write = Convert.ToBoolean(0);
+            //}
+
+            //if (chkSpeakThird.Checked)
+            //{
+            //    thirdlanguageEntity.Speak = Convert.ToBoolean(1);
+            //}
+            //else
+            //{
+            //    thirdlanguageEntity.Speak = Convert.ToBoolean(0);
+            //}
+
+            affirmativeDetailsEntity.PhysicallyChallenged = string.Empty;
             if (rbtYes.Checked)
             {
-                adEntity.PhysicallyChallenged = "Yes";
+                affirmativeDetailsEntity.PhysicallyChallenged = "Yes";
             }
             else
             {
-                adEntity.PhysicallyChallenged = "No";
+                affirmativeDetailsEntity.PhysicallyChallenged = "No";
             }
 
-            adEntity.Description = txtDescription.Text;
-            adEntity.Sports = txtSports.Text;
-            adEntity.SportsDescription = txtSportsDescription.Text;
-            adEntity.USAPermit = string.Empty;
+            affirmativeDetailsEntity.Description = txtDescription.Text;
+            affirmativeDetailsEntity.Sports = txtSports.Text;
+            affirmativeDetailsEntity.SportsDescription = txtSportsDescription.Text;
+            affirmativeDetailsEntity.USAPermit = string.Empty;
             if (rbtYesUSA.Checked)
             {
-                adEntity.USAPermit = "Yes";
+                affirmativeDetailsEntity.USAPermit = "Yes";
             }
             else
             {
-                adEntity.USAPermit = "No";
+                affirmativeDetailsEntity.USAPermit = "No";
             }
-            adEntity.OtherPermits = txtOtherPermit.Text;
-            int success = adBAL.LanguageDetailsBAL(languageEntity);
-            int result = adBAL.AffirmaiveDetailsBAL(adEntity);
+            affirmativeDetailsEntity.OtherPermits = txtOtherPermit.Text;
+            int success = AffirmativeDetailsBAL.SaveLanguageDetailsBAL(firstlanguageEntity);
+            int save = AffirmativeDetailsBAL.SaveLanguageDetailsBAL(secondlanguageEntity);
+            int insert = AffirmativeDetailsBAL.SaveLanguageDetailsBAL(thirdlanguageEntity);
+            int result = AffirmativeDetailsBAL.SaveAffirmaiveDetailsBAL(affirmativeDetailsEntity);
 
-            if (result > 0 && success > 0)
+            if (result > 0 && success > 0 && save > 0 && insert > 0)
             {
                 Response.Write("<script language='javascript'>alert('Affirmative Details Inserted')</script>");
             }

@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace JobFair.Forms.Recruiter
 {
     public partial class ViewProfile : System.Web.UI.Page
     {
+        public string name, companyName, mobNo, emailId, city, photo;
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             BindReapeter();
@@ -23,38 +19,19 @@ namespace JobFair.Forms.Recruiter
         {
             DataTable dt = new DataTable();
 
+            DataSet ds = new DataSet();
+            SqlDataAdapter sda = new SqlDataAdapter("select * from RE_RegisterDetails where RecruiterID='RE11'", connection);
 
-            SqlDataAdapter adp = new SqlDataAdapter("select * from RE_RegisterDetails where RecruiterID='RE10'",connection);
-            try
-            {
-                adp.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    Repeater1.DataSource = dt;
-                    Repeater1.DataBind();
+            ds = new DataSet();
+            sda.Fill(ds, "language");
+            name = ds.Tables["language"].Rows[0]["RecruiterfullName"].ToString();
+            companyName = ds.Tables["language"].Rows[0]["Company"].ToString();
+            mobNo = ds.Tables["language"].Rows[0]["MobileNumber"].ToString();
+            emailId = ds.Tables["language"].Rows[0]["OficialEmail_ID"].ToString();
+            city = ds.Tables["language"].Rows[0]["City"].ToString();
+            photo = ds.Tables["language"].Rows[0]["PhotoPath"].ToString() + "L1-whte"+".jpg";
 
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        if (!string.IsNullOrEmpty(Convert.ToString(dt.Rows[i]["PhotoPath"])))
-                        {
-                            Image img = (Image)Repeater1.Controls[i].FindControl("Image1");
-                            img.ImageUrl = Convert.ToString(dt.Rows[i]["PhotoPath"]);
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                //lblStatus.Text = "Book record could not be retrieved";
-                //lblStatus.ForeColor = System.Drawing.Color.Red;
-            }
-            finally
-            {
-                connection.Close();
-                dt.Clear();
-                dt.Dispose();
-                
-            }
+            Image1.ImageUrl = photo;
         }
     }
 }

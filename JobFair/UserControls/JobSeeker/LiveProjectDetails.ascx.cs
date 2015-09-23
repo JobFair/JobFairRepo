@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using BAL;
+﻿using BAL;
 using Entities.JobSeeker;
+using System;
 using System.Globalization;
+using System.Web.UI.WebControls;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -16,8 +12,8 @@ namespace JobFair.UserControls.JobSeeker
         {
             if (!IsPostBack)
             {
-                LiveProjectDetailsBAL liveBAL = new LiveProjectDetailsBAL();
-                ddlRole.DataSource = liveBAL.GetRole();
+                LiveProjectDetailsBAL liveProjectDtailsBAL = new LiveProjectDetailsBAL();
+                ddlRole.DataSource = liveProjectDtailsBAL.GetRole();
                 ddlRole.DataTextField = "roleName";
                 ddlRole.DataValueField = "roleId";
                 ddlRole.DataBind();
@@ -29,47 +25,46 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                LiveProjectDetailsBAL liveBAL = new LiveProjectDetailsBAL();
-                LiveProjectDetailsEntity liveEntity = new LiveProjectDetailsEntity();
-                 TimeSpan i = new TimeSpan(0, 0, 0);
-                 DateTime startDate = Convert.ToDateTime(this.txtFromDate.Text.Trim(), new CultureInfo("en-Gb"));
-                 DateTime endDate = Convert.ToDateTime(this.txtTodate.Text.Trim(), new CultureInfo("en-Gb"));
-                 i += endDate.Subtract(startDate);
-                 int days = i.Days;
-                 liveEntity.CandidateId = "JS00001";
-                 liveEntity.CompanyName = txtCompanyName.Text;
-                 liveEntity.ProjectTitle = txtProjectTitle.Text;
-                 liveEntity.roleId =Convert.ToInt32(ddlRole.SelectedValue);
-                 liveEntity.ClientName = txtClientName.Text;
-                 liveEntity.ProjectLink = txtLink.Text;
-                 liveEntity.Duration = days.ToString();
-                 liveEntity.ProjectLocation = txtLocation.Text;
-                 liveEntity.EmplymentType = string.Empty;
-                 if (rbtFullTime.Checked)
-                 {
-                     liveEntity.EmplymentType = "FullTime";
-                 }
-                 else if (rbtPartTime.Checked)
-                 {
-                     liveEntity.EmplymentType = "PartTime";
-                 }
-                 liveEntity.ProjectDetails = txtProjectDetails.Text;
-                 liveEntity.RolesResponsibility = txtRolesAndResponsibility.Text;
-                 liveEntity.TeamSize = ddlTeamSize.SelectedItem.Text;
-                 liveEntity.SkillUsed = txtSkillUsed.Text;
-                 int result = liveBAL.LiveProjectBAL(liveEntity);
-                 if (result > 0)
-                 {
-                     Response.Write("<script language='javascript'>alert('Done')</script>");
-                 }
-                 else
-                 {
-                     Response.Write("Sorry");
-                 }
+                LiveProjectDetailsBAL liveProjectDetailsBAL = new LiveProjectDetailsBAL();
+                LiveProjectDetailsEntity liveProjectDetailsEntity = new LiveProjectDetailsEntity();
+                TimeSpan i = new TimeSpan(0, 0, 0);
+                DateTime startDate = Convert.ToDateTime(this.txtFromDate.Text.Trim(), new CultureInfo("en-Gb"));
+                DateTime endDate = Convert.ToDateTime(this.txtTodate.Text.Trim(), new CultureInfo("en-Gb"));
+                i += endDate.Subtract(startDate);
+                int days = i.Days;
+                liveProjectDetailsEntity.CandidateId = "JS00001";
+                liveProjectDetailsEntity.CompanyName = txtCompanyName.Text;
+                liveProjectDetailsEntity.ProjectTitle = txtProjectTitle.Text;
+                liveProjectDetailsEntity.RoleId = Convert.ToInt32(ddlRole.SelectedValue);
+                liveProjectDetailsEntity.ClientName = txtClientName.Text;
+                liveProjectDetailsEntity.ProjectLink = txtLink.Text;
+                liveProjectDetailsEntity.Duration = days.ToString();
+                liveProjectDetailsEntity.ProjectLocation = txtLocation.Text;
+                liveProjectDetailsEntity.EmplymentType = string.Empty;
+                if (rbtFullTime.Checked)
+                {
+                    liveProjectDetailsEntity.EmplymentType = "FullTime";
+                }
+                else if (rbtPartTime.Checked)
+                {
+                    liveProjectDetailsEntity.EmplymentType = "PartTime";
+                }
+                liveProjectDetailsEntity.ProjectDetails = txtProjectDetails.Text;
+                liveProjectDetailsEntity.RolesResponsibility = txtRolesAndResponsibility.Text;
+                liveProjectDetailsEntity.TeamSize = ddlTeamSize.SelectedItem.Text;
+                liveProjectDetailsEntity.SkillUsed = txtSkillUsed.Text;
+                int result = liveProjectDetailsBAL.SaveLiveProjectBAL(liveProjectDetailsEntity);
+                if (result > 0)
+                {
+                    Response.Write("<script language='javascript'>alert('Done')</script>");
+                }
+                else
+                {
+                    Response.Write("Sorry");
+                }
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }

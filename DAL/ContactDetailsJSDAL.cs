@@ -1,42 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Entities;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
-using Entities;
 
 namespace DAL
 {
-   public class ContactDetailsJSDAL
+    public class ContactDetailsJSDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         /// <summary>
         /// Insert Contact Details
         /// </summary>
-        /// <param name="cdentity">Object for inserting data into database</param>
+        /// <param name="contactDetailsEntity">Object for inserting data into database</param>
         /// <returns>System.Int32</returns>
-        public int ContactDetailsDAL(ContactDetailsEntity cdentity)
+        public int SaveContactDetailsDAL(ContactDetailsEntity contactDetailsEntity)
         {
             try
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                              new SqlParameter("@candidateId",cdentity.CandidateId),
-                                              new SqlParameter("@altMobNo",cdentity.AltMobileNo ),
-                                              new SqlParameter("@landLineNo", cdentity.LandLineNo),
-                                              new SqlParameter("@whatsappNo",cdentity.WhatsAppNo),
-                                              new SqlParameter("@linkedId", cdentity.LinkedId),
-                                              new SqlParameter("@facebookId",cdentity.FacebookId),
-                                              new SqlParameter("@twitterId", cdentity.TwitterId),
-                                              new SqlParameter("@gtalkId",cdentity.GtalkId),
-                                              new SqlParameter("@skypeId", cdentity.SkypeId),
-                                              new SqlParameter("@googleP",cdentity.GooglePlus)  
+                                              new SqlParameter("@candidateId",contactDetailsEntity.CandidateId),
+                                              new SqlParameter("@altMobNo",contactDetailsEntity.AltMobileNo ),
+                                              new SqlParameter("@landLineNo", contactDetailsEntity.LandLineNo),
+                                              new SqlParameter("@whatsappNo",contactDetailsEntity.WhatsAppNo),
+                                              new SqlParameter("@linkedId", contactDetailsEntity.LinkedId),
+                                              new SqlParameter("@facebookId",contactDetailsEntity.FacebookId),
+                                              new SqlParameter("@twitterId", contactDetailsEntity.TwitterId),
+                                              new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
+                                              new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
+                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertContactDetails", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertContactDetails, sqlparams);
 
                 return result;
             }

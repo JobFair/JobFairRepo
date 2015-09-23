@@ -1,17 +1,9 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AddProjectDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.AddProjectDetails" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProjectDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.AddProjectDetails" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<style type="text/css">
-    .auto-style1 {
-        width: 57%;
-        height: 472px;
-    }
-    .auto-style2 {
-    }
-</style>
 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 <table class="auto-style1">
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblCompanyName" runat="server" Text="Company Name"></asp:Label>
         </td>
         <td>
@@ -19,7 +11,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblClientName" runat="server" Text="Client Name"></asp:Label>
         </td>
         <td>
@@ -27,7 +19,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblProjectTitle" runat="server" Text="Project Title"></asp:Label>
         </td>
         <td>
@@ -35,7 +27,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblDuration" runat="server" Text="Duration"></asp:Label>
         </td>
         <td>
@@ -45,7 +37,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblLocation" runat="server" Text="Project Location"></asp:Label>
         </td>
         <td>
@@ -53,7 +45,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblEmpType" runat="server" Text="Employment Type"></asp:Label>
         </td>
         <td>
@@ -62,7 +54,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td >
             <asp:Label ID="lblProjectDetails" runat="server" Text="Project Details"></asp:Label>
         </td>
         <td>
@@ -70,7 +62,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblRole" runat="server" Text="Role"></asp:Label>
         </td>
         <td>
@@ -79,7 +71,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblTeamSize" runat="server" Text="Team Size"></asp:Label>
         </td>
         <td>
@@ -108,7 +100,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td>
             <asp:Label ID="lblSkill" runat="server" Text="Skill Used"></asp:Label>
         </td>
         <td>
@@ -116,7 +108,7 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2" colspan="2">
+        <td>
             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Button" />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </td>

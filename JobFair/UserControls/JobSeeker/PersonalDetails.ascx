@@ -77,13 +77,13 @@
         <td colspan="5">
             <asp:Label ID="lblAddressPerm" runat="server" Text="Address"></asp:Label>
         </td>
-        <td class="auto-style6" colspan="5">
+        <td  colspan="5">
             <asp:TextBox ID="txtAddressPerm" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td colspan="5">Country</td>
-        <td class="auto-style6" colspan="5" rowspan="3">
+        <td  colspan="5" rowspan="3">
             <asp:UpdatePanel ID="pnlPermanentAddress" runat="server">
                 <ContentTemplate>
                     <asp:DropDownList ID="ddlCountryPerm" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCountryPerm_SelectedIndexChanged"></asp:DropDownList><br />

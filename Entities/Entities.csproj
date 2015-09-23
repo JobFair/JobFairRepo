@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Common\ChangePasswordEnitity.cs" />
     <Compile Include="Common\CityEntity.cs" />
-    <Compile Include="JobSeeker\AddProjectDetailsEntity.cs" />
+    <Compile Include="JobSeeker\ProjectDetailsEntity.cs" />
     <Compile Include="JobSeeker\AffirmativeDetailsEntity.cs" />
     <Compile Include="JobSeeker\ContactDetailsEntity.cs" />
     <Compile Include="JobSeeker\CurrentDesiredJobEntity.cs">

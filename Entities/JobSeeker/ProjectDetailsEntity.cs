@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.JobSeeker
+﻿namespace Entities.JobSeeker
 {
-   public class AddProjectDetailsEntity
+    public class ProjectDetailsEntity
     {
-       //AddProjectDetailsEntity
+        //AddProjectDetailsEntity
         public string CandidateId { get; set; }
         public string CompanyName { get; set; }
         public string ProjectTitle { get; set; }
