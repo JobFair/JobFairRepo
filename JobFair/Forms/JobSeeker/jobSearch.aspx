@@ -155,8 +155,8 @@
                             
                              </div>
                            </fieldset>
-                       
-       <asp:Repeater ID="Repeater1" runat="server" >
+         
+       <asp:Repeater ID="Repeater1" runat="server"  onitemcommand="Repeater1_ItemCommand">
            <HeaderTemplate>
               <table>
               <tr>
@@ -178,8 +178,11 @@
               </tr>
           </HeaderTemplate>
            <ItemTemplate>
-               <tr>
-               <td> 
+     
+        <td >
+         <asp:CheckBox ID="chkDelete" runat="server" />
+        </td>
+ 
                 <%# DataBinder.Eval(Container.DataItem, "JobTitle") %>
           </td>
                 <td> 
@@ -192,44 +195,74 @@
                      <td> 
                 <%# DataBinder.Eval(Container.DataItem, "CompanyLevel") %>
           </td>
-                   <td> 
+           <td> 
                 <%# DataBinder.Eval(Container.DataItem, "Industry") %>
-             </td> 
+             </td>
                <td> 
                 <%# DataBinder.Eval(Container.DataItem, "Department") %>
                 </td>
                  <td> 
                 <%# DataBinder.Eval(Container.DataItem, "FunctionalArea") %>
-                  </td>
-                  <td> 
-                <%# DataBinder.Eval(Container.DataItem, "JobDescription") %>
-                   </td>
-                  <td> 
-                <%# DataBinder.Eval(Container.DataItem, "KeywordsRoles") %>
                  </td>
-                  <td> 
+                 <td> 
+                <%# DataBinder.Eval(Container.DataItem, "JobDescription") %>
+                 </td>
+                 <td> 
+                <%# DataBinder.Eval(Container.DataItem, "KeywordsRoles") %>
+                </td>
+                 <td> 
                 <%# DataBinder.Eval(Container.DataItem, "KeywordsTechnical") %>
-                  </td>
+                 </td>
                  <td> 
                 <%# DataBinder.Eval(Container.DataItem, "WorkExprience") %>
                 </td>     
                 <td> 
                 <%# DataBinder.Eval(Container.DataItem, "Gender") %>
                 </td>
-                 <td> 
+                <td> 
                 <%# DataBinder.Eval(Container.DataItem, "OfferedAnnualSalary") %>
-                 </td>
+                </td>
                 <td> 
                 <%# DataBinder.Eval(Container.DataItem, "OtherSalaryDetails") %>
                   </td>
-                   <td> 
+                 <td> 
                 <%# DataBinder.Eval(Container.DataItem, "NumberOfVacancies") %>
-                 </td>
-                   </tr>
+                      
+                       <asp:LinkButton ID="lnkedit" runat="server" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Edit">Edit</asp:LinkButton>
+                        <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Delete">Delete</asp:LinkButton>
+                      <asp:LinkButton ID="lnkUpdate" runat="server" Visible="false" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Update">Update</asp:LinkButton>
+                       <asp:LinkButton ID="lnkCancel" runat="server" Visible="false" CommandArgument='<%#Eval("JobTitle") %>' CommandName="Cancel">Cancel</asp:LinkButton>
+                    </td>
+                </tr>
+            </ItemTemplate>
+            <FooterTemplate>
+                <tr>
+                    <td></td>
+                    <td> <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox></td>
+                    <td> <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox></td>
 
-           </ItemTemplate>
+                    <td>
+                        <asp:LinkButton ID="LinkButton1" CommandName="Insert" runat="server">Insert</asp:LinkButton>
+                    </td>
+                </tr>
+                </table>
+            </FooterTemplate>
+           </asp:Repeater>
+                
 
-          </asp:Repeater>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="head">
     <style type="text/css">
