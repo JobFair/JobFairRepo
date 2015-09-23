@@ -1,10 +1,9 @@
-﻿using CommonUtil;
+﻿using BAL;
+using Entities.JobSeeker;
 using System;
 using System.Data;
-using System.Data.SqlClient;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data.SqlClient;
 namespace JobFair.Forms.JobSeeker
 {
     public partial class jobSearch : System.Web.UI.Page
@@ -32,7 +31,7 @@ namespace JobFair.Forms.JobSeeker
         //}
         private void BindDropDownIndustry()
         {
-            ds = Utility.GetIndustry();
+            ds = JobSearchBAL.GetIndustry();
             ddlIndustry.DataSource = ds;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
@@ -40,9 +39,11 @@ namespace JobFair.Forms.JobSeeker
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+      
+
         private void BindDropDownDepartment()
         {
-            ds = Utility.GetDepartment();
+            ds = JobSearchBAL.GetDepartment();
             ddlDepartment.DataSource = ds;
             ddlDepartment.DataTextField = "DepartmentName";
             ddlDepartment.DataValueField = "DepartmentId";
@@ -52,8 +53,10 @@ namespace JobFair.Forms.JobSeeker
 
         private void BindDropDownFunctionalArea()
         {
-            ddlFunArea.DataSource = Utility.GetFunctionalAreaBAL();
+            ds = JobSearchBAL.GetFunctionalArea();
+            ddlFunArea.DataSource = ds;
             ddlFunArea.DataTextField = "FunctionalArea";
+            ddlFunArea.DataValueField = "AreaId";
             ddlFunArea.DataBind();
             ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
@@ -66,9 +69,10 @@ namespace JobFair.Forms.JobSeeker
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
-            cblIndustry.DataSource = dt;
-            cblIndustry.DataTextField = "IndustryName";
-            cblIndustry.DataBind();
+            chkIndustry.DataSource = dt;
+            chkIndustry.DataTextField = "IndustryName";
+            chkIndustry.DataValueField = "IndustryId";
+            chkIndustry.DataBind();
             con.Close();
         }
 
@@ -80,9 +84,10 @@ namespace JobFair.Forms.JobSeeker
             SqlDataAdapter adp = new SqlDataAdapter(Cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
-            cblLocation.DataSource = dt;
-            cblLocation.DataTextField = "CityName";
-            cblLocation.DataBind();
+            chkLocation.DataSource = dt;
+            chkLocation.DataTextField = "CityName";
+            chkLocation.DataValueField = "CityId";
+            chkLocation.DataBind();
             con.Close();
         }
 
@@ -90,7 +95,7 @@ namespace JobFair.Forms.JobSeeker
         {
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from RS_JobPost", con);
+            SqlCommand cmd = new SqlCommand("select * from RE_JobPost", con);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
