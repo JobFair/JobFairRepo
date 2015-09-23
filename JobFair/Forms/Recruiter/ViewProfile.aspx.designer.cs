@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.UserControls.JobSeeker {
+namespace JobFair.Forms.Recruiter {
     
     
-    public partial class DemoEducationalDetails {
+    public partial class ViewProfile {
         
         /// <summary>
         /// form1 control.
@@ -22,21 +22,12 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// Repeater1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// EducationalDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.EducationalDetails EducationalDetails;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
     }
 }

@@ -56,10 +56,36 @@ namespace JobFair.UserControls.JobSeeker
             languageEntity.CandidateId = "JS00001";
             languageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
             languageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
-            string str =Convert.ToString(chkReadFirst.Checked);
-            languageEntity.Read = bool.Parse(str);
-            languageEntity.Write = Convert.ToBoolean(chkWriteFirst.Checked);
-            languageEntity.Speak = Convert.ToBoolean(chkSpeakFirst.Checked);
+            int res = 0;
+            if(chkReadFirst.Checked)
+            {
+                res = 1;
+                languageEntity.Read =Convert.ToBoolean(res);
+            }
+            else
+            {
+                res = 0;
+                languageEntity.Read = Convert.ToBoolean(res);
+            }
+
+            if (chkWriteFirst.Checked)
+            {
+                languageEntity.Write = Convert.ToBoolean(1);
+            }
+            else
+            {
+                languageEntity.Write = Convert.ToBoolean(0);
+            }
+
+            if (chkSpeakFirst.Checked)
+            {
+                languageEntity.Speak = Convert.ToBoolean(1);
+            }
+            else
+            {
+                languageEntity.Speak = Convert.ToBoolean(0);
+            }
+           
             adEntity.PhysicallyChallenged = string.Empty;
             if (rbtYes.Checked)
             {

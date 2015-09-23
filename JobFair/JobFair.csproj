@@ -89,6 +89,7 @@
     <Content Include="Forms\Recruiter\CreateQuestionary.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
+    <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="UserControls\JobSeeker\AddProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ViewProfile.aspx.cs">
+      <DependentUpon>ViewProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ViewProfile.aspx.designer.cs">
+      <DependentUpon>ViewProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\AddProjectDetails.ascx.cs">

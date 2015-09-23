@@ -17,11 +17,10 @@ namespace BAL
             /// </summary>
             /// <param name="edEntity">The Educational Details entity.</param>
             /// <returns>System.Int32.</returns>
-           public int SaveEducationalDetailsBAL(List<EducationalDetailsEntity> edEntity)
+           public bool SaveEducationalDetailsBAL(List<EducationalDetailsEntity> edEntity)
            {
                EducationalDetailsDAL edDAL = new EducationalDetailsDAL();
                return edDAL.SaveEducationalDetailsDAL(edEntity);
-
            }
            /// <summary>
            /// Load Educational Degree Type
