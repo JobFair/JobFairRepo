@@ -52,6 +52,7 @@ namespace JobFair.UserControls.JobSeeker
                         sscDetails.CandidateId = "JS10";
                         sscDetails.DegreeId = item.Value;
                         sscDetails.MediumOfEducation = txtSSCMedium.Text.Trim();
+                        sscDetails.Specialization = "Null";
                         sscDetails.Status = rblSSCStat.SelectedValue.Trim();
                         sscDetails.YearOfCompletion = txtSSCYear.Text.Trim();
                         sscDetails.University = txtSSCBoard.Text.Trim();
