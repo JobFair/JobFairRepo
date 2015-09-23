@@ -11,67 +11,44 @@ using Entities.Recruiter;
 
 namespace DAL
 {
-    public class AddJobPostDAL
+    /// <summary>
+    /// jop post DAL
+    /// </summary>
+    public class NewJobPostDAL
     {
+        /// <summary>
+        /// Dal layer method to store new job post data into jobpost table in database
+        /// </summary>
+        /// <param name="jobpostEntity">Object for inserting data into database</param>
+        /// <returns>System.String</returns>
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        public DataTable LoadRole()
-        {
-            DataTable table = new DataTable();
-            SqlCommand cmd = new SqlCommand("select * from RS_JobPost", connection);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(table);
-            return table;
-        }
-        public DataTable GetFunctionalDAL()
-        {
-            
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("select * from RS_FunctionalArea", connection);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
-            
-        }
-        public DataTable GetIndustryDAL()
-        {
-
-
-            connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from Industry", connection);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-
-
-        }
-        public int JobPostDAL(AddJobPostEntity JPentity)
+        
+       
+        public int JobPostDAL(AddJobPostEntity jobpostEntity)
         {
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams ={
-                                            new SqlParameter("@JobId",JPentity.JobId),
-                                            new SqlParameter("@JobTitle",JPentity.JobTitle),
-                                            new SqlParameter("@JobLocationCity",JPentity.JobLocationCity),
-                                            new SqlParameter("@JobLocationArea",JPentity.JobLocationArea),
-                                            new SqlParameter("@CompanyLevel",JPentity.CompanyLevel),
-                                            new SqlParameter("@Industry",JPentity.Industry),
-                                            new SqlParameter("@Department",JPentity.Department),
-                                            new SqlParameter("@FunctionalArea",JPentity.FunctionalArea),
-                                            new SqlParameter("@JobDescription",JPentity.JobDescription),
-                                            new SqlParameter("@KeywordsRoles",JPentity.KeywordsRoles),
-                                            new SqlParameter("@KeywordsTechnical",JPentity.KeywordsRoles),
-                                            new SqlParameter("@WorkExprience",JPentity.WorkExprience),
-                                            new SqlParameter("@Gender",JPentity.Gender),
-                                            new SqlParameter("@OfferedAnnualSalary",JPentity.OfferedAnnualSalary),
-                                            new SqlParameter("@OtherSalaryDetails",JPentity.OtherSalaryDetails),
-                                            new SqlParameter("@NumberOfVacancies",JPentity.NumberOfVacancies),
+                                            new SqlParameter("@JobId",jobpostEntity.JobId),
+                                            new SqlParameter("@JobTitle",jobpostEntity.JobTitle),
+                                            new SqlParameter("@JobLocationCity",jobpostEntity.JobLocationCity),
+                                            new SqlParameter("@JobLocationArea",jobpostEntity.JobLocationArea),
+                                            new SqlParameter("@CompanyLevel",jobpostEntity.CompanyLevel),
+                                            new SqlParameter("@Industry",jobpostEntity.Industry),
+                                            new SqlParameter("@Department",jobpostEntity.Department),
+                                            new SqlParameter("@FunctionalArea",jobpostEntity.FunctionalArea),
+                                            new SqlParameter("@JobDescription",jobpostEntity.JobDescription),
+                                            new SqlParameter("@KeywordsRoles",jobpostEntity.KeywordsRoles),
+                                            new SqlParameter("@KeywordsTechnical",jobpostEntity.KeywordsRoles),
+                                            new SqlParameter("@WorkExprience",jobpostEntity.WorkExprience),
+                                            new SqlParameter("@Gender",jobpostEntity.Gender),
+                                            new SqlParameter("@OfferedAnnualSalary",jobpostEntity.OfferedAnnualSalary),
+                                            new SqlParameter("@OtherSalaryDetails",jobpostEntity.OtherSalaryDetails),
+                                            new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
 
                                         };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertJobPost", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
                 return result;
             }
             catch (Exception)

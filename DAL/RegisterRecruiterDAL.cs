@@ -32,7 +32,7 @@ namespace DAL
                 param[7] = new SqlParameter("@setrecruiterid", SqlDbType.VarChar, 500);
                 param[7].Direction = ParameterDirection.Output;
 
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertRegisterDetails", param);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure,Constants.sp_RE_InsertRegisterDetails , param);
                 string recruiterID = Convert.ToString(param[7].Value);
 
                 if (string.IsNullOrEmpty(recruiterID))

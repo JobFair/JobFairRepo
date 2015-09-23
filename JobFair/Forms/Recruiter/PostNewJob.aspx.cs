@@ -23,7 +23,7 @@ namespace JobFair.Forms.Recruiter
 
         private void BindDropDownIndustry()
         {
-            ds = AddJobPostBAL.GetIndustry();
+            ds = NewJobPostBAL.GetIndustry();
             ddlIndustry.DataSource = ds;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
@@ -36,7 +36,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindDropDownDepartment()
         {
-            ds = AddJobPostBAL.GetDepartment();
+            ds = NewJobPostBAL.GetDepartment();
             ddlDepartment.DataSource = ds;
             ddlDepartment.DataTextField = "DepartmentName";
             ddlDepartment.DataValueField = "DepartmentId";
@@ -46,7 +46,7 @@ namespace JobFair.Forms.Recruiter
 
         private void BindDropDownFunctionalArea()
         {
-            ddlFunArea.DataSource = AddJobPostBAL.FunctionalArea();
+            ddlFunArea.DataSource = NewJobPostBAL.FunctionalArea();
             ddlFunArea.DataTextField = "FunctionalArea";
             ddlFunArea.DataBind();
             ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
@@ -64,25 +64,25 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-                AddJobPostBAL JPBAL = new AddJobPostBAL();
-                AddJobPostEntity JPentity = new AddJobPostEntity();
-                JPentity.JobId = "1";
-                JPentity.JobTitle = txtJobtitle.Text.Trim();
-                JPentity.JobLocationCity = txtJobLocation.Text.Trim();
-                JPentity.JobLocationArea = txtJobLocationArea.Text.Trim();
-                JPentity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
-                JPentity.Industry = ddlIndustry.SelectedItem.Value;
-                JPentity.Department = ddlDepartment.SelectedItem.Value;
-                JPentity.FunctionalArea = ddlFunArea.SelectedItem.Value;
-                JPentity.JobDescription = txtJobDescription.Text.Trim();
-                JPentity.KeywordsRoles = txtKeyRoles.Text.Trim();
-                JPentity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
-                JPentity.WorkExprience = txtWorkExp.Text.Trim();
-                JPentity.Gender = rdbmale.Text.Trim();
-                JPentity.OfferedAnnualSalary = txtAnnualSalary.Text.Trim();
-                JPentity.OtherSalaryDetails = txtOtherSalary.Text.Trim();
-                JPentity.NumberOfVacancies = txtVacancies.Text.Trim();
-                int result = JPBAL.JobPostBAL(JPentity);
+                NewJobPostBAL addJobPostBAL = new NewJobPostBAL();
+                AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
+                addJobPostEntity.JobId = "1";
+                addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
+                addJobPostEntity.JobLocationCity = txtJobLocation.Text.Trim();
+                addJobPostEntity.JobLocationArea = txtJobLocationArea.Text.Trim();
+                addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
+                addJobPostEntity.Industry = ddlIndustry.SelectedItem.Value;
+                addJobPostEntity.Department = ddlDepartment.SelectedItem.Value;
+                addJobPostEntity.FunctionalArea = ddlFunArea.SelectedItem.Value;
+                addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
+                addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
+                addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
+                addJobPostEntity.WorkExprience = txtWorkExp.Text.Trim();
+                addJobPostEntity.Gender = rdbmale.Text.Trim();
+                addJobPostEntity.OfferedAnnualSalary = txtAnnualSalary.Text.Trim();
+                addJobPostEntity.OtherSalaryDetails = txtOtherSalary.Text.Trim();
+                addJobPostEntity.NumberOfVacancies = txtVacancies.Text.Trim();
+                int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
                 {
                     Response.Write("<script language='javascript'>alert('JobPost')</script>");

@@ -13,7 +13,7 @@ namespace DAL
         {
             { 
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from RS_FunctionalArea", connection);
+            SqlCommand cmd = new SqlCommand("select * from FunctionalArea", connection);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

@@ -26,14 +26,27 @@
     <tr>
         <td >Functional Area</td>
         <td>
-            <asp:TextBox ID="txtFunctionalArea" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="ddlFunctionalArea" runat="server">
+            </asp:DropDownList>
         </td>
     </tr>
     <tr>
-        <td >Location</td>
+        <td >Country<br />
+            State<br />
+            City</td>
         <td>
-            <asp:DropDownList ID="ddlLocation" runat="server">
-            </asp:DropDownList>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:DropDownList ID="ddlCountry" runat="server">
+                    </asp:DropDownList>
+                    <br />
+                    <asp:DropDownList ID="ddlState" runat="server">
+                    </asp:DropDownList>
+                    <br />
+                    <asp:DropDownList ID="ddlCity" runat="server">
+                    </asp:DropDownList>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </td>
     </tr>
     <tr>
@@ -92,12 +105,14 @@
     </tr>
     <tr>
         <td >Payment Terms</td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:TextBox ID="txtPaymentTerms" runat="server"></asp:TextBox>
+        </td>
     </tr>
     <tr>
         <td >&nbsp;</td>
         <td>
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </td>
     </tr>

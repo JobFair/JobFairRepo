@@ -9,19 +9,24 @@ namespace DAL
 {
     public class FeedbackJSDAL
     {
+        /// <summary>
+        /// Dal layer method to store  feedback data in database
+        /// </summary>
+        /// <param name="feedbackEntity">Object for inserting data into database</param>
+        /// <returns>System.String</returns>
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        public int FeedbackDAL(Entities.FeedbackEntity fdentity)
+        public int FeedbackDAL(Entities.FeedbackEntity feedbackEntity)
         {
             try
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                             new SqlParameter("@Name ",fdentity.Name),
-                                             new SqlParameter("@Subject",fdentity.Subject),
-                                             new SqlParameter("@Feedback ",fdentity.Feedback)
+                                             new SqlParameter("@Name ",feedbackEntity.Name),
+                                             new SqlParameter("@Subject",feedbackEntity.Subject),
+                                             new SqlParameter("@Feedback ",feedbackEntity.Feedback)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_insertfeedback", sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure,Constants.sp_JS_insertfeedback);
                 return result;
             }
             catch (Exception ex)
