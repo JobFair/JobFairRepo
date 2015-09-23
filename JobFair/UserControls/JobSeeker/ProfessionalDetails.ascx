@@ -3,7 +3,7 @@
 <div>
     <table id="TableCurrentJob" runat="server">
         <tr>
-            <td colspan="2" style="font-weight: 700; font-style: italic; text-decoration: underline">
+            <td colspan="2" >
                 <h1>Current Job Details</h1>
             </td>
         </tr>
