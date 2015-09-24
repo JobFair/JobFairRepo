@@ -1,6 +1,7 @@
 ﻿using BAL;
 using Entities.JobSeeker;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
 
@@ -8,34 +9,38 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class AffirmativeDetails : System.Web.UI.UserControl
     {
-        private DataSet ds = new DataSet();
         private AffirmativeDetailsJSBAL AffirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
         private AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
+        private int languageCount = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                DataSet ds = new DataSet();
                 ds = AffirmativeDetailsBAL.GetLanguageBAL();
-                ddlLanguageFirst.DataSource = ds;
-                ddlLanguageFirst.DataTextField = "LanguageName";
-                ddlLanguageFirst.DataValueField = "LanguageId";
-                ddlLanguageFirst.DataBind();
-                ddlLanguageFirst.Items.Insert(0, new ListItem("--Select--", "0"));
 
-                ds = AffirmativeDetailsBAL.GetLanguageBAL();
-                ddlLanguageSecond.DataSource = ds;
-                ddlLanguageSecond.DataTextField = "LanguageName";
-                ddlLanguageSecond.DataValueField = "LanguageId";
-                ddlLanguageSecond.DataBind();
-                ddlLanguageSecond.Items.Insert(0, new ListItem("--Select--", "0"));
+                if (ds != null)
+                {
+                    languageCount = ds.Tables[0].Rows.Count;
+                    ddlLanguageFirst.DataSource = ds;
+                    ddlLanguageFirst.DataTextField = "LanguageName";
+                    ddlLanguageFirst.DataValueField = "LanguageId";
+                    ddlLanguageFirst.DataBind();
+                    ddlLanguageFirst.Items.Insert(0, new ListItem("--Select--", "0"));
 
-                ds = AffirmativeDetailsBAL.GetLanguageBAL();
-                ddlLanguageThird.DataSource = ds;
-                ddlLanguageThird.DataTextField = "LanguageName";
-                ddlLanguageThird.DataValueField = "LanguageId";
-                ddlLanguageThird.DataBind();
-                ddlLanguageThird.Items.Insert(0, new ListItem("--Select--", "0"));
+                    ddlLanguageSecond.DataSource = ds;
+                    ddlLanguageSecond.DataTextField = "LanguageName";
+                    ddlLanguageSecond.DataValueField = "LanguageId";
+                    ddlLanguageSecond.DataBind();
+                    ddlLanguageSecond.Items.Insert(0, new ListItem("--Select--", "0"));
+
+                    ddlLanguageThird.DataSource = ds;
+                    ddlLanguageThird.DataTextField = "LanguageName";
+                    ddlLanguageThird.DataValueField = "LanguageId";
+                    ddlLanguageThird.DataBind();
+                    ddlLanguageThird.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             if (rbtYes.Checked)
             {
@@ -56,78 +61,34 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
+
             //set the value of AffirmativeDetailsJSEntity
             affirmativeDetailsEntity.CandidateId = "JS00001";//static data used because session value not set
 
-            //set the value of LanguageEntity for first language
+            // Set the value of LanguageEntity for first language
             LanguageEntity firstlanguageEntity = new LanguageEntity();
             firstlanguageEntity.CandidateId = "JS00001";
             firstlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
             firstlanguageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
-            int res = 0;
-            if (chkReadFirst.Checked)
-            {
-                res = 1;
-                firstlanguageEntity.Read = Convert.ToBoolean(res);
-            }
-            else
-            {
-                res = 0;
-                firstlanguageEntity.Read = Convert.ToBoolean(res);
-            }
+            firstlanguageEntity.Read = chkReadFirst.Checked;
+            firstlanguageEntity.Write = chkWriteFirst.Checked;
+            firstlanguageEntity.Speak = chkSpeakFirst.Checked;
 
-            if (chkWriteFirst.Checked)
-            {
-                firstlanguageEntity.Write = Convert.ToBoolean(1);
-            }
-            else
-            {
-                firstlanguageEntity.Write = Convert.ToBoolean(0);
-            }
-
-            if (chkSpeakFirst.Checked)
-            {
-                firstlanguageEntity.Speak = Convert.ToBoolean(1);
-            }
-            else
-            {
-                firstlanguageEntity.Speak = Convert.ToBoolean(0);
-            }
+            // Add language details into collection.
+            languageDetailsList.Add(firstlanguageEntity);
 
             //set the value of LanguageEntity for second language
             LanguageEntity secondlanguageEntity = new LanguageEntity();
             secondlanguageEntity.CandidateId = "JS00001";
             secondlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageSecond.SelectedValue);
             secondlanguageEntity.ProficiencyLevel = ddlProficiencySecond.SelectedItem.Text;
+            secondlanguageEntity.Read = chkReadSecond.Checked;
+            secondlanguageEntity.Write = chkWriteSecond.Checked;
+            secondlanguageEntity.Speak = chkSpeakSecond.Checked;
 
-            if (chkReadSecond.Checked)
-            {
-                res = 1;
-                secondlanguageEntity.Read = Convert.ToBoolean(res);
-            }
-            else
-            {
-                res = 0;
-                secondlanguageEntity.Read = Convert.ToBoolean(res);
-            }
-
-            if (chkWriteSecond.Checked)
-            {
-                secondlanguageEntity.Write = Convert.ToBoolean(1);
-            }
-            else
-            {
-                secondlanguageEntity.Write = Convert.ToBoolean(0);
-            }
-
-            if (chkSpeakSecond.Checked)
-            {
-                secondlanguageEntity.Speak = Convert.ToBoolean(1);
-            }
-            else
-            {
-                secondlanguageEntity.Speak = Convert.ToBoolean(0);
-            }
+            // Add language details into collection.
+            languageDetailsList.Add(secondlanguageEntity);
 
             //set the value of LanguageEntity for third language
             LanguageEntity thirdlanguageEntity = new LanguageEntity();
@@ -137,64 +98,33 @@ namespace JobFair.UserControls.JobSeeker
             thirdlanguageEntity.Read = chkReadThird.Checked;
             thirdlanguageEntity.Write = chkWriteThird.Checked;
             thirdlanguageEntity.Speak = chkSpeakThird.Checked;
-            //if (chkReadThird.Checked)
-            //{
-            //    res = 1;
-            //    thirdlanguageEntity.Read = Convert.ToBoolean(res);
-            //}
-            //else
-            //{
-            //    res = 0;
-            //    thirdlanguageEntity.Read = Convert.ToBoolean(res);
-            //}
 
-            //if (chkWriteThird.Checked)
-            //{
-            //    thirdlanguageEntity.Write = Convert.ToBoolean(1);
-            //}
-            //else
-            //{
-            //    thirdlanguageEntity.Write = Convert.ToBoolean(0);
-            //}
-
-            //if (chkSpeakThird.Checked)
-            //{
-            //    thirdlanguageEntity.Speak = Convert.ToBoolean(1);
-            //}
-            //else
-            //{
-            //    thirdlanguageEntity.Speak = Convert.ToBoolean(0);
-            //}
+            // Add language details into collection.
+            languageDetailsList.Add(thirdlanguageEntity);
 
             affirmativeDetailsEntity.PhysicallyChallenged = string.Empty;
             if (rbtYes.Checked)
-            {
                 affirmativeDetailsEntity.PhysicallyChallenged = "Yes";
-            }
             else
-            {
                 affirmativeDetailsEntity.PhysicallyChallenged = "No";
-            }
 
             affirmativeDetailsEntity.Description = txtDescription.Text;
             affirmativeDetailsEntity.Sports = txtSports.Text;
             affirmativeDetailsEntity.SportsDescription = txtSportsDescription.Text;
             affirmativeDetailsEntity.USAPermit = string.Empty;
             if (rbtYesUSA.Checked)
-            {
                 affirmativeDetailsEntity.USAPermit = "Yes";
-            }
             else
-            {
                 affirmativeDetailsEntity.USAPermit = "No";
-            }
-            affirmativeDetailsEntity.OtherPermits = txtOtherPermit.Text;
-            int success = AffirmativeDetailsBAL.SaveLanguageDetailsBAL(firstlanguageEntity);
-            int save = AffirmativeDetailsBAL.SaveLanguageDetailsBAL(secondlanguageEntity);
-            int insert = AffirmativeDetailsBAL.SaveLanguageDetailsBAL(thirdlanguageEntity);
-            int result = AffirmativeDetailsBAL.SaveAffirmaiveDetailsBAL(affirmativeDetailsEntity);
 
-            if (result > 0 && success > 0 && save > 0 && insert > 0)
+            affirmativeDetailsEntity.OtherPermits = txtOtherPermit.Text;
+
+            // Save language details
+            bool isLanguageSaved = AffirmativeDetailsBAL.SaveLanguageDetailsBAL(languageDetailsList);
+            // Save affermative Details.
+            bool isOtherDetailsSaved = AffirmativeDetailsBAL.SaveAffirmaiveDetailsBAL(affirmativeDetailsEntity);
+
+            if (isLanguageSaved == isOtherDetailsSaved)
             {
                 Response.Write("<script language='javascript'>alert('Affirmative Details Inserted')</script>");
             }

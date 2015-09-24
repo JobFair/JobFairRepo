@@ -1,6 +1,7 @@
 ﻿using CommonUtil;
 using DAL;
 using Entities.JobSeeker;
+using System.Collections.Generic;
 using System.Data;
 
 namespace BAL
@@ -12,7 +13,7 @@ namespace BAL
         /// </summary>
         /// <param name="affirmativeDetailsEntity">AffirmativeDetailsEntity</param>
         /// <returns>System.Int32</returns>
-        public int SaveAffirmaiveDetailsBAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
+        public bool SaveAffirmaiveDetailsBAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
         {
             AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
             return affirmativeDetailsDAL.SaveAffirmativeDetailsDAL(affirmativeDetailsEntity);
@@ -23,7 +24,7 @@ namespace BAL
         /// </summary>
         /// <param name="languageEntity">LanguageEntity</param>
         /// <returns>System.Int32</returns>
-        public int SaveLanguageDetailsBAL(LanguageEntity languageEntity)
+        public bool SaveLanguageDetailsBAL(List<LanguageEntity> languageEntity)
         {
             AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
             return affirmativeDetailsBAL.SaveLanguageDetailsDAL(languageEntity);
