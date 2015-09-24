@@ -39,13 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddJobPostBAL.cs" />
+    <Compile Include="AdvanceJobSearchBAL.cs" />
+    <Compile Include="NewJobPostBAL.cs" />
     <Compile Include="AddProjectDetailsBAL.cs" />
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ContactDetailsJSBAL.cs" />
     <Compile Include="CurrentDesiredJobBAL.cs" />
     <Compile Include="EducationalDetailsBAL.cs" />
-    <Compile Include="FeedbackJSBAL.cs" />
+    <Compile Include="FeedbackBAL.cs" />
     <Compile Include="JobSearchBAl.cs" />
     <Compile Include="LiveProjectDetailsBAL.cs" />
     <Compile Include="LoginBAL.cs" />

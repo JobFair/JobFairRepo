@@ -12,9 +12,8 @@
     <h2>Feedback Form</h2>
 <br />
 <table>
-    <!-- Name -->
     <tr>
-        <td align="center">
+        <td>
             Name:</td>
         <td>
             <asp:TextBox ID="txtName" 
@@ -22,10 +21,8 @@
                             Columns="50"></asp:TextBox>
         </td>
     </tr>
- 
-    <!-- Subject -->
     <tr>
-        <td align="center">
+        <td>
             Subject:
         </td>
         <td>
@@ -37,10 +34,8 @@
             </asp:DropDownList>
         </td>
     </tr>
- 
-    <!-- Message -->
     <tr>
-        <td align="center">
+        <td>
             Feedback:
         </td>
         <td>
@@ -51,18 +46,14 @@
                             TextMode="MultiLine"></asp:TextBox>
         </td>
     </tr>
- 
-    <!-- Submit -->
-    <tr align="center">
-        <td colspan="2">
+    <tr>
+        <td>
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" 
                 onclick="btnSubmit_Click" />
         </td>
     </tr>
-            
-    <!-- Results -->
-    <tr align="center">
-        <td colspan="2">
+    <tr>
+        <td>
             <asp:Label ID="lblResult" runat="server"></asp:Label>
         </td>
     </tr>
