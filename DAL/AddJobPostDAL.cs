@@ -10,7 +10,7 @@ using System.Configuration;
 using Entities.Recruiter;
 
 namespace DAL
-{
+{ 
     /// <summary>
     /// jop post
     /// </summary>
