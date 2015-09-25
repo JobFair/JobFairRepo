@@ -7,7 +7,8 @@
 
 <table  >
     <tr>
-        <td colspan="2"><h1>Client Details</h1></td>
+        <td colspan="2"><h1>
+            Client Details</h1></td>
         
     </tr>
     <tr>
@@ -17,18 +18,26 @@
         </td>
     </tr>
     <tr>
-        <td >Industry</td>
+        <td >Industry<br />
+            Functional Area</td>
         <td>
-            <asp:DropDownList ID="ddlIndustry" runat="server">
-            </asp:DropDownList>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <asp:DropDownList ID="ddlIndustry" runat="server" OnSelectedIndexChanged="ddlIndustry_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    <br />
+                    <asp:DropDownList ID="ddlFunctionalArea" runat="server"  AutoPostBack="True" >
+                    </asp:DropDownList>
+                    
+                    <asp:TextBox ID="txtAddfunctionalarea" runat="server" Visible="false" ></asp:TextBox><asp:Button ID="btnAdd" runat="server" Text="Add" Visible="false" OnClick="btnAdd_Click" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </td>
     </tr>
     <tr>
-        <td >Functional Area</td>
+        <td >&nbsp;</td>
         <td>
-            <asp:DropDownList ID="ddlFunctionalArea" runat="server">
-            </asp:DropDownList>
-        </td>
+            &nbsp;</td>
     </tr>
     <tr>
         <td >Country<br />
@@ -37,10 +46,10 @@
         <td>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:DropDownList ID="ddlCountry" runat="server">
+                    <asp:DropDownList ID="ddlCountry" runat="server" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="True">
                     </asp:DropDownList>
                     <br />
-                    <asp:DropDownList ID="ddlState" runat="server">
+                    <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
                     </asp:DropDownList>
                     <br />
                     <asp:DropDownList ID="ddlCity" runat="server">
@@ -60,7 +69,7 @@
     <tr>
         <td >Website</td>
         <td>
-            <asp:TextBox ID="txtWebsite" runat="server" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtWebsite" runat="server" ></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -78,18 +87,18 @@
     <tr>
         <td >Agreement Date</td>
         <td>
-            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-            <cc1:TextBoxWatermarkExtender ID="TextBox8_TextBoxWatermarkExtender" runat="server" BehaviorID="TextBox8_TextBoxWatermarkExtender" TargetControlID="TextBox8" WatermarkText="From Date">
+            <asp:TextBox ID="txtAgreementdate" runat="server"></asp:TextBox>
+            <cc1:TextBoxWatermarkExtender ID="txtAgreementdate_TextBoxWatermarkExtender" runat="server" BehaviorID="TextBox8_TextBoxWatermarkExtender" TargetControlID="txtAgreementdate" WatermarkText="From Date">
             </cc1:TextBoxWatermarkExtender>
-            <cc1:CalendarExtender ID="TextBox8_CalendarExtender" runat="server" BehaviorID="TextBox8_CalendarExtender" TargetControlID="TextBox8" />
+            <cc1:CalendarExtender ID="txtAgreementdate_CalendarExtender" runat="server" BehaviorID="TextBox8_CalendarExtender" TargetControlID="txtAgreementdate" />
         </td>
     </tr>
     <tr>
         <td >Due Date</td>
         <td>
-            <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
-            <cc1:CalendarExtender ID="TextBox9_CalendarExtender" runat="server" BehaviorID="TextBox9_CalendarExtender" TargetControlID="TextBox9" />
-            <cc1:TextBoxWatermarkExtender ID="TextBox9_TextBoxWatermarkExtender" runat="server" BehaviorID="TextBox9_TextBoxWatermarkExtender" TargetControlID="TextBox9" WatermarkText="Due Date">
+            <asp:TextBox ID="txtDueDate" runat="server"></asp:TextBox>
+            <cc1:CalendarExtender ID="txtDueDate_CalendarExtender" runat="server" BehaviorID="TextBox9_CalendarExtender" TargetControlID="txtDueDate" />
+            <cc1:TextBoxWatermarkExtender ID="txtDueDate_TextBoxWatermarkExtender" runat="server" BehaviorID="TextBox9_TextBoxWatermarkExtender" TargetControlID="txtDueDate" WatermarkText="Due Date">
             </cc1:TextBoxWatermarkExtender>
         </td>
     </tr>
@@ -112,8 +121,15 @@
     <tr>
         <td >&nbsp;</td>
         <td>
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            <%--<asp:Button ID="btnSubmit" runat="server" Text="Submit"  />--%>
+            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" Text="Submit" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+        </td>
+    </tr>
+    <tr>
+        <td >&nbsp;</td>
+        <td>
+            <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
         </td>
     </tr>
 </table>

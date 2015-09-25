@@ -49,7 +49,7 @@ namespace JobFair.UserControls.JobSeeker
                 {
                     case "SSC / 10th":
                         EducationalDetailsEntity sscDetails = new EducationalDetailsEntity();
-                        sscDetails.CandidateId = "JS10";
+                        sscDetails.CandidateId = "JS9";
                         sscDetails.DegreeId = item.Value;
                         sscDetails.MediumOfEducation = txtSSCMedium.Text.Trim();
                         sscDetails.Specialization = "Null";
@@ -63,7 +63,7 @@ namespace JobFair.UserControls.JobSeeker
 
                     case "HSC / 12th":
                         EducationalDetailsEntity hscDetails = new EducationalDetailsEntity();
-                        hscDetails.CandidateId = "JS10";
+                        hscDetails.CandidateId = "JS9";
                         hscDetails.DegreeId = item.Value;
                         hscDetails.MediumOfEducation = txtHSCMedium.Text.Trim();
                         hscDetails.Specialization = ddlHSC.SelectedValue.Trim();
@@ -77,7 +77,7 @@ namespace JobFair.UserControls.JobSeeker
 
                     case "UG Diploma":
                         EducationalDetailsEntity ugDiplomaDetails = new EducationalDetailsEntity();
-                        ugDiplomaDetails.CandidateId = "JS10";
+                        ugDiplomaDetails.CandidateId = "JS9";
                         ugDiplomaDetails.DegreeId = item.Value;
                         ugDiplomaDetails.MediumOfEducation = txtDipMedium.Text.Trim();
                         ugDiplomaDetails.Specialization = ddlDip.SelectedValue.Trim();
@@ -91,7 +91,7 @@ namespace JobFair.UserControls.JobSeeker
 
                     case "Bachelors Degree":
                         EducationalDetailsEntity bachelorDegreeDetails = new EducationalDetailsEntity();
-                        bachelorDegreeDetails.CandidateId = "JS10";
+                        bachelorDegreeDetails.CandidateId = "JS9";
                         bachelorDegreeDetails.DegreeId = item.Value;
                         bachelorDegreeDetails.MediumOfEducation = txtBDMedium.Text.Trim();
                         bachelorDegreeDetails.Status = rblBDStat.SelectedValue.Trim();
@@ -105,7 +105,7 @@ namespace JobFair.UserControls.JobSeeker
 
                     case "PG Diploma":
                         EducationalDetailsEntity pgDiplomaDetails = new EducationalDetailsEntity();
-                        pgDiplomaDetails.CandidateId = "JS10";
+                        pgDiplomaDetails.CandidateId = "JS9";
                         pgDiplomaDetails.DegreeId = item.Value;
                         pgDiplomaDetails.MediumOfEducation = txtPgdMedium.Text.Trim();
                         pgDiplomaDetails.Status = rblPgdStat.SelectedValue.Trim();
@@ -119,7 +119,7 @@ namespace JobFair.UserControls.JobSeeker
 
                     case "Masters Degree":
                         EducationalDetailsEntity masterDegreeDetails = new EducationalDetailsEntity();
-                        masterDegreeDetails.CandidateId = "JS10";
+                        masterDegreeDetails.CandidateId = "JS9";
                         masterDegreeDetails.DegreeId = item.Value;
                         masterDegreeDetails.MediumOfEducation = txtMDMedium.Text.Trim();
                         masterDegreeDetails.Specialization = ddlMD.SelectedValue.Trim();
@@ -133,7 +133,7 @@ namespace JobFair.UserControls.JobSeeker
 
                     case "Doctorate/ PHD Degree":
                         EducationalDetailsEntity phdDetails = new EducationalDetailsEntity();
-                        phdDetails.CandidateId = "JS10";
+                        phdDetails.CandidateId = "JS9";
                         phdDetails.DegreeId = item.Value;
                         phdDetails.MediumOfEducation = txtPHDMedium.Text.Trim();
                         phdDetails.Specialization = ddlPHD.SelectedValue.Trim();
