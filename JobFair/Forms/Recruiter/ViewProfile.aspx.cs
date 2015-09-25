@@ -12,13 +12,12 @@ namespace JobFair.Forms.Recruiter
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindReapeter();
+            Bind();
         }
 
-        private void BindReapeter()
+        private void Bind()
         {
-            DataTable dt = new DataTable();
-
+           
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter("select * from RE_RegisterDetails where RecruiterID='RE11'", connection);
 
