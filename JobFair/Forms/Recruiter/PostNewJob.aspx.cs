@@ -12,9 +12,12 @@ namespace JobFair.Forms.Recruiter
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            { 
             BindDropDownIndustry();
             BindDropDownDepartment();
             BindDropDownFunctionalArea();
+            }
         }
         /// <summary>
         /// Method for binding Dropdown with Industry_table of database
@@ -48,6 +51,7 @@ namespace JobFair.Forms.Recruiter
         {
             ddlFunArea.DataSource = NewJobPostBAL.FunctionalArea();
             ddlFunArea.DataTextField = "FunctionalArea";
+            ddlFunArea.DataValueField = "FunctionalAreaId";
             ddlFunArea.DataBind();
             ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
@@ -64,23 +68,34 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
+                //calculting total experience
+                DateTime FromYear = Convert.ToDateTime(txtFromdate.Text);
+                DateTime ToYear = Convert.ToDateTime(txtTill.Text);
+                //Creating object of TimeSpan Class
+                TimeSpan objTimeSpan = ToYear - FromYear;
+                //years
+                int Years = ToYear.Year - FromYear.Year;
+                int Month = ToYear.Month - FromYear.Month;
+                Label2.Text = Years + "Years-" + Month + "Months";
                 NewJobPostBAL addJobPostBAL = new NewJobPostBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
                 addJobPostEntity.JobId = "1";
+                addJobPostEntity.RecruiterID = "RE1";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
                 addJobPostEntity.JobLocationCity = txtJobLocation.Text.Trim();
                 addJobPostEntity.JobLocationArea = txtJobLocationArea.Text.Trim();
                 addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
-                addJobPostEntity.Industry = Convert.ToString(ddlIndustry.SelectedItem.Value);
-                addJobPostEntity.Department = Convert.ToString(ddlDepartment.SelectedItem.Value);
-                addJobPostEntity.FunctionalArea =Convert.ToString(ddlFunArea.SelectedItem.Value);
+                addJobPostEntity.IndustryId = Convert.ToInt32( ddlIndustry.SelectedValue);
+                addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
+                addJobPostEntity.FunctionalAreaId = Convert.ToInt32(ddlFunArea.SelectedValue);
                 addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
                 addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
                 addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
-                addJobPostEntity.WorkExprience = txtWorkExp.Text.Trim();
-                addJobPostEntity.Gender = rdbmale.Text.Trim();
-                addJobPostEntity.OfferedAnnualSalary = txtAnnualSalary.Text.Trim();
-                addJobPostEntity.OtherSalaryDetails = txtOtherSalary.Text.Trim();
+                addJobPostEntity.WorkExprience = Years + "." + Month;
+                addJobPostEntity.Gender = ddlgender.SelectedItem.Text.Trim();
+                addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
+                addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
+                addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
                 addJobPostEntity.NumberOfVacancies = txtVacancies.Text.Trim();
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
