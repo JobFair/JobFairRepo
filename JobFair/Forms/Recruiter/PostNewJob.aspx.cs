@@ -71,9 +71,9 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobLocationCity = txtJobLocation.Text.Trim();
                 addJobPostEntity.JobLocationArea = txtJobLocationArea.Text.Trim();
                 addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
-                addJobPostEntity.Industry = ddlIndustry.SelectedItem.Value;
-                addJobPostEntity.Department = ddlDepartment.SelectedItem.Value;
-                addJobPostEntity.FunctionalArea = ddlFunArea.SelectedItem.Value;
+                addJobPostEntity.Industry = Convert.ToString(ddlIndustry.SelectedItem.Value);
+                addJobPostEntity.Department = Convert.ToString(ddlDepartment.SelectedItem.Value);
+                addJobPostEntity.FunctionalArea =Convert.ToString(ddlFunArea.SelectedItem.Value);
                 addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
                 addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
                 addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();

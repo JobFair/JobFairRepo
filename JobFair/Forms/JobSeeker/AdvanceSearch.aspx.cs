@@ -1,5 +1,5 @@
 ﻿using BAL;
-using Entities.Recruiter;
+using Entities.JobSeeker;
 using System;
 using System.Data;
 using System.Web.UI.WebControls;
@@ -27,6 +27,16 @@ namespace JobFair.Forms.JobSeeker
             ddlIndustry.DataBind();
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
 
+        }
+
+        protected void btnsearch_Click(object sender, EventArgs e)
+        {
+            AdvanceSearchEntity JobSearchentity = new AdvanceSearchEntity();
+            AdvanceJobSearchBAL AdvancesearchBAL = new AdvanceJobSearchBAL();
+            JobSearchentity.KeySkill = txtkeyskill.Text.Trim();
+            JobSearchentity.Location = txtlocation.Text.Trim();
+            JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
+            
         }
     }
 }

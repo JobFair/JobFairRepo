@@ -6,7 +6,7 @@ namespace BAL
     public class AdvanceJobSearchBAL
     {
         /// <summary>
-        /// create method in Bal 
+        /// create method in BAL
         /// </summary>
         /// <returns></returns>
         public static object GetIndustry()

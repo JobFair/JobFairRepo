@@ -2,25 +2,18 @@
  <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp"%>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            width: 306px;
-        }
-    </style>
-</asp:Content>
+    
+ </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lbladvancesearch" runat="server" Text="AdvanceSearch" style="z-index: 1; left: 10px; top: 15px; position: absolute; text-align: center; font-size: large"></asp:Label>
+    <asp:Label ID="lbladvancesearch" runat="server" Text="AdvanceSearch"></asp:Label>
 
     &nbsp;
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <br />
-    <table class="auto-style1">
+    <table>
         <tr>
-            <td class="auto-style2">
+            <td>
                 <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill"></asp:Label>
             </td>
             <td>
@@ -28,7 +21,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">
+            <td>
                 <asp:Label ID="lbllocation" runat="server" Text="Location"></asp:Label>
             </td>
             <td>
@@ -36,7 +29,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">
+            <td>
                 <asp:Label ID="lblworkexprience" runat="server" Text="Work Exprience"></asp:Label>
             </td>
             <td><asp:TextBox ID="txtFromdate" runat="server"></asp:TextBox>
@@ -49,7 +42,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">
+            <td>
                 <asp:Label ID="lbsalary" runat="server" Text="Expected Salary"></asp:Label>
             </td>
             <td>
@@ -57,7 +50,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">
+            <td>
                 <asp:Label ID="lblindustry" runat="server" Text="Industry"></asp:Label>
             </td>
             <td>
@@ -66,7 +59,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">
+            <td>
                 <asp:Label ID="lbljobcategory" runat="server" Text="JobCategory"></asp:Label>
             </td>
             <td>
@@ -74,9 +67,9 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
+            <td>&nbsp;</td>
             <td>
-                <asp:Button ID="btnsearch" runat="server" Text="Search" />
+                <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Width="97px" />
             </td>
         </tr>
     </table>
