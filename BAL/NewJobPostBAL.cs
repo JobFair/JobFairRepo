@@ -8,7 +8,7 @@ namespace BAL
    public class NewJobPostBAL
    {
        /// <summary>
-       /// jobpost details
+       /// jobpost
        /// </summary>
        /// <param name="jobpostEntity"></param>
        /// <returns>System.Int32</returns>

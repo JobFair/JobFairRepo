@@ -12,7 +12,7 @@ using Entities.Recruiter;
 namespace DAL
 {
     /// <summary>
-    /// jop post DAL
+    /// jop post
     /// </summary>
     public class NewJobPostDAL
     {

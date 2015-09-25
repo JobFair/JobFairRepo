@@ -21,7 +21,7 @@
         <tr>
             <td>Job Title/Designation</td>
             <td>
-                <asp:TextBox ID="txtJobtitle" runat="server" TextMode="MultiLine" Width="301px"></asp:TextBox>
+                <asp:TextBox ID="txtJobtitle" runat="server" TextMode="MultiLine"></asp:TextBox>
             </td>
         </tr>
         <tr>

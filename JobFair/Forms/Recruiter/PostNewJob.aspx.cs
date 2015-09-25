@@ -19,6 +19,7 @@ namespace JobFair.Forms.Recruiter
             BindDropDownFunctionalArea();
             }
         }
+       
         /// <summary>
         /// Method for binding Dropdown with Industry_table of database
         /// </summary>

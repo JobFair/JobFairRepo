@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Recruiter
 {
+    /// <summary>
+    /// jobpostentity
+    /// </summary>
     public class AddJobPostEntity
     {
         public string JobId { get; set; }
