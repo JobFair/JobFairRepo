@@ -10,30 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <%-- <div>
-       <asp:Repeater ID="Repeater1" runat="server">
-
-                   <HeaderTemplate>
-                </HeaderTemplate>
-                 <ItemTemplate>
-                     <table>
-                         <tr>
-                             <td>
-                                 <%--<img src='<%# "~/images/" + Container.DataItem.ToString() %>' runat="server" />
-                                 <asp:Image ID="Image1" runat="server"  Height="100px" Width="100px" /><br />
-                             </td>
-
-                             <td>
-                                 <asp:Label ID="Label1" runat="server" Text='<%#Eval("RecruiterfullName")%>'></asp:Label><br />
-                               <asp:Label ID="Label2" runat="server" Text='<%#Eval("Company")%>'></asp:Label><br />
-                               <asp:Label ID="Label3" runat="server" Text='<%#Eval("MobileNumber")%>'></asp:Label><br />
-                               <asp:Label ID="Label4" runat="server" Text='<%#Eval("OficialEmail_ID")%>'></asp:Label><br />
-                            </td>
-                         </tr>
-                     </table>
-                 </ItemTemplate>
-            </asp:Repeater>
-    </div>--%>
+          
              <table >
            <tr>
              <asp:Image ID="Image1" runat="server"  Height="100px" Width="100px" ImageUrl="<%=photo %>" />

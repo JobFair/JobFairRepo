@@ -30,7 +30,6 @@ namespace JobFair.Forms.Recruiter
             emailId = ds.Tables["language"].Rows[0]["OficialEmail_ID"].ToString();
             city = ds.Tables["language"].Rows[0]["City"].ToString();
             photo = ds.Tables["language"].Rows[0]["PhotoPath"].ToString() + "L1-whte"+".jpg";
-
             Image1.ImageUrl = photo;
         }
     }
