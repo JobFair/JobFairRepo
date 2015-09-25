@@ -55,7 +55,7 @@ namespace DAL
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
