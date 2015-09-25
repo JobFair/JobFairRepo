@@ -47,7 +47,7 @@
     <Compile Include="CurrentDesiredJobBAL.cs" />
     <Compile Include="EducationalDetailsBAL.cs" />
     <Compile Include="FeedbackBAL.cs" />
-    <Compile Include="JobSearchBAl.cs" />
+    <Compile Include="JobSearchBAL.cs" />
     <Compile Include="LiveProjectDetailsBAL.cs" />
     <Compile Include="LoginBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />

@@ -81,7 +81,10 @@ namespace CommonUtil
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// functional area
+        /// </summary>
+        /// <returns></returns>
         internal DataSet GetFunctionalAreaDAL()
         {
             try

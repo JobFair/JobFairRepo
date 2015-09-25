@@ -6,22 +6,27 @@ using System.Threading.Tasks;
 
 namespace Entities.Recruiter
 {
+    /// <summary>
+    /// jobpostentity
+    /// </summary>
     public class AddJobPostEntity
     {
         public string JobId { get; set; }
+        public string RecruiterID { get; set; }
         public string JobTitle { get; set; }
         public string JobLocationCity { get; set; }
         public string JobLocationArea { get; set; }
         public string CompanyLevel { get; set; }
-        public string Industry { get; set; }
-        public string Department { get; set; }
-        public string FunctionalArea { get; set; }
+        public int IndustryId { get; set; }
+        public int DepartmentId { get; set; }
+        public int FunctionalAreaId { get; set; }
         public string JobDescription { get; set; }
         public string KeywordsRoles { get; set; }
         public string KeywordsTechnical { get; set; }
         public string WorkExprience { get; set; }
-        public string Gender { get; set; }
-        public string OfferedAnnualSalary { get; set; }
+        public string  Gender { get; set; }
+        public string OfferedAnnualSalaryMin { get; set; }
+        public string OfferedAnnualSalaryMax { get; set; }
         public string OtherSalaryDetails { get; set; }
         public string NumberOfVacancies { get; set; }
     }
