@@ -61,6 +61,7 @@
     <Compile Include="RegisterRecruiterDAL.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
+    <Compile Include="ViewProfileREDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
