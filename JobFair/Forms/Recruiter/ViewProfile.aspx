@@ -88,7 +88,7 @@
     <table style="background-color:#EBEFF0;border-top:1px dotted #df5015;border-bottom:1px solid #df5015; width:500px" >
     <tr>
     <td >Post By: <asp:Label ID="lblUser" runat="server" Font-Bold="true" Text='<%#Eval("NumberOfVacancies") %>'/></td>
-    <td >Created Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("OtherSalaryDetails") %>'/></td>
+    <td >Created Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate") %>'/></td>
     </tr>
     </table>
     </td>
@@ -101,7 +101,7 @@
     </table>
     </FooterTemplate>
              </asp:Repeater>
-             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:JobFairPortalConnectionString8 %>" SelectCommand="SELECT * FROM [RE_JobPost]"></asp:SqlDataSource>
+            
         </div>
     </form>
 </body>
