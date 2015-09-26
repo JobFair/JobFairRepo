@@ -99,7 +99,8 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
                 addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
                 addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
-                addJobPostEntity.PostedDate =Convert.ToDateTime( txtdate.Text);
+                addJobPostEntity.PostedDate = DateTime.Now;
+
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
                 {
