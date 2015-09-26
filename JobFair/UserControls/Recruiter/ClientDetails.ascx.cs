@@ -6,6 +6,9 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.Recruiter
 {
+    /// <summary>
+    /// User Control Client Details
+    /// </summary>
     public partial class ClientDetails : System.Web.UI.UserControl
     {
         private DataSet ds = new DataSet();
@@ -22,6 +25,9 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Method for binding DropDown with FunctionalArea_Table of Database
+        /// </summary>
         private void BindDropDownFunctionalArea()
         {
             ds = clientDetailsBAL.GetFunctionalArea();
@@ -32,6 +38,9 @@ namespace JobFair.Forms.Recruiter
             ddlFunctionalArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        /// Method for binding DropDown with Industry_table of database
+        /// </summary>
         private void BindDropDownIndustry()
         {
             ds = clientDetailsBAL.GetIndustry();
@@ -55,6 +64,11 @@ namespace JobFair.Forms.Recruiter
             ddlCountry.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             int stateId = Convert.ToInt32(ddlState.SelectedValue);
@@ -66,6 +80,11 @@ namespace JobFair.Forms.Recruiter
             ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             int countryId = Convert.ToInt32(ddlCountry.SelectedValue);
@@ -78,10 +97,20 @@ namespace JobFair.Forms.Recruiter
             ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click1(object sender, EventArgs e)
         {
             try
@@ -117,32 +146,31 @@ namespace JobFair.Forms.Recruiter
                 throw;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlFunctionalArea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // for (int i = 0; i = ddlFunctionalArea.Items.Count - 1;i++ )
-            // for (int i = 0; i = ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 1].Value; i++ )
-           
-            if (ddlFunctionalArea.SelectedItem.ToString() == "Other")
+            if (ddlFunctionalArea.SelectedItem.ToString() == "----Other----")
             {
                 txtAddfunctionalarea.Visible = true;
                 btnAdd.Visible = true;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            ddlFunctionalArea.Items.Add(new ListItem(txtAddress.Text, "Convert.ToInt32(ddlFunctionalArea.SelectedValue)+1"));
-        }
-
-        protected void ddlIndustry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ddlIndustry.SelectedItem.ToString() == "	Real Estate / Property")
-            {
-                txtAddfunctionalarea.Visible = true;
-                btnAdd.Visible = true;
- 
-            }
+            //Label1.Text = ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 2].Value;
+            //ddlFunctionalArea.Items.Insert(Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 2].Value), txtAddfunctionalarea.Text);
+            clientDetailsEntity.AddFunctionalArea = txtAddfunctionalarea.Text;
+            clientDetailsEntity.FunctionalAreaId = Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 1].Value) + 1;
+            clientDetailsBAL.AddFunctionalAreaBAL(clientDetailsEntity);
         }
     }
 }

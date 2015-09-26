@@ -23,10 +23,11 @@
         <td>
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
-                    <asp:DropDownList ID="ddlIndustry" runat="server" OnSelectedIndexChanged="ddlIndustry_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlIndustry" runat="server" >
                     </asp:DropDownList>
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     <br />
-                    <asp:DropDownList ID="ddlFunctionalArea" runat="server"  AutoPostBack="True" >
+                    <asp:DropDownList ID="ddlFunctionalArea" runat="server"  AutoPostBack="True" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlFunctionalArea_SelectedIndexChanged" >
                     </asp:DropDownList>
                     
                     <asp:TextBox ID="txtAddfunctionalarea" runat="server" Visible="false" ></asp:TextBox><asp:Button ID="btnAdd" runat="server" Text="Add" Visible="false" OnClick="btnAdd_Click" />
