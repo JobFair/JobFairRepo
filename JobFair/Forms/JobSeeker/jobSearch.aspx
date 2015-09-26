@@ -4,9 +4,9 @@
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div>
-        <table >
+       <table>
             <tr>
-                <td >
+                <td class="auto-style1" >
                     <fieldset>
                         <legend>Div 1</legend>
                         <div class="left">
@@ -126,7 +126,7 @@
                             <div>
                                 <asp:LinkButton ID="lblJobType" runat="server" Text="Job Type "></asp:LinkButton>
 
-                                <asp:Panel ID="PanelJobType" runat="server">
+                                <asp:Panel ID="PanelJobType" runat="server" Height="118px" Width="264px">
                                     <asp:CheckBoxList ID="chkJobType" runat="server">
                                         <asp:ListItem>Permanent</asp:ListItem>
                                         <asp:ListItem>Temporary</asp:ListItem>
@@ -137,17 +137,15 @@
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPEJobType" runat="server" TargetControlID="PanelJobType" TextLabelID="lblJobType" CollapseControlID="lblJobType" ExpandControlID="lblJobType" Collapsed="true" />
                             </div>
-
-                        </div>
+                            </div>
                     </fieldset>
                 </td>
-     
-        </div>
-
-                <td width="80%" style="vertical-align: top">     
-       <asp:Repeater ID="Repeater1" runat="server" >
-           <HeaderTemplate>
-           <table style="width:500px; border-collapse: collapse;" border="1">
+     </table>
+        </div>   
+        <td width="80%" style="vertical-align: top">     
+            <asp:Repeater ID="Repeater1" runat="server">
+                <HeaderTemplate>
+                 <table style="width:500px; border-collapse: collapse;" border="1">
             <tr style="background-color: #df5015; height: 30px;">
                  <th>JobTitle</th>
                  <th>JobLocationArea</th>
@@ -192,8 +190,10 @@
                 </tr>
         </table>
             </ItemTemplate>
-           </asp:Repeater>
+            </asp:Repeater>
                 
-                    
-</asp:Content>
+         </asp:Content>
+
+
+
 

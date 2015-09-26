@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BAL;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -16,10 +18,14 @@ namespace JobFair.Forms.JobSeeker
                 FillIndustryCheckBoxList();
                 FillcityCheckBoxList();
                 BindRepeaterData();
+
+
+               
             }
         }
 
         private void FillIndustryCheckBoxList()
+
         {
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
             con.Open();
@@ -53,31 +59,14 @@ namespace JobFair.Forms.JobSeeker
         {
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from RE_JobPost", con);
+            SqlCommand cmd = new SqlCommand("select  JobTitle,JobLocationCity,CompanyLevel,IndustryId,DepartmentId,FunctionalAreaId,JobDescription,WorkExprience,PostedDate from RE_JobPost", con);
+  
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
             Repeater1.DataSource = ds;
             Repeater1.DataBind();
             con.Close();
-        }
-
-        protected void btnsearch_Click(object sender, EventArgs e)
-        {
-        }
-
-        protected void lnks_Click(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("JobType", typeof(string));
-
-            dt.Rows.Add("Link 1");
-            dt.Rows.Add("Link 2");
-            dt.Rows.Add("Link 3");
-            dt.Rows.Add("Link 4");
-
-            //bind data source here
-           
         }
     }
 }
