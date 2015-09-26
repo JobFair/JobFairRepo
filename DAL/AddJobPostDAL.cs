@@ -30,7 +30,7 @@ namespace DAL
             {
                 connection.Open();
                 SqlParameter[] sqlparams ={
-                                            new SqlParameter("@JobId",jobpostEntity.JobId),
+                                           
                                             new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
                                             new SqlParameter("@JobTitle",jobpostEntity.JobTitle),
                                             new SqlParameter("@JobLocationCity",jobpostEntity.JobLocationCity),
@@ -48,6 +48,7 @@ namespace DAL
                                               new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),
                                             new SqlParameter("@OtherSalaryDetails",jobpostEntity.OtherSalaryDetails),
                                             new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
+                                            new  SqlParameter("@PostedDate",jobpostEntity.PostedDate)
 
                                         };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);

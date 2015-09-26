@@ -78,9 +78,10 @@ namespace JobFair.Forms.Recruiter
                 int Years = ToYear.Year - FromYear.Year;
                 int Month = ToYear.Month - FromYear.Month;
                 Label2.Text = Years + "Years-" + Month + "Months";
+              
                 NewJobPostBAL addJobPostBAL = new NewJobPostBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
-                addJobPostEntity.JobId = "1";
+              
                 addJobPostEntity.RecruiterID = "RE1";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
                 addJobPostEntity.JobLocationCity = txtJobLocation.Text.Trim();
@@ -97,7 +98,8 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
                 addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
-                addJobPostEntity.NumberOfVacancies = txtVacancies.Text.Trim();
+                addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
+                addJobPostEntity.PostedDate =Convert.ToDateTime( txtdate.Text);
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
                 {

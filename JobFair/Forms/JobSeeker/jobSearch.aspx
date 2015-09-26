@@ -144,95 +144,56 @@
      
         </div>
 
-                <td width="80%" style="vertical-align: top">
-                    
+                <td width="80%" style="vertical-align: top">     
        <asp:Repeater ID="Repeater1" runat="server" >
            <HeaderTemplate>
-              <table>
-              <tr>
+           <table style="width:500px; border-collapse: collapse;" border="1">
+            <tr style="background-color: #df5015; height: 30px;">
                  <th>JobTitle</th>
-                 <th>JobLocationCity</th>
                  <th>JobLocationArea</th>
                 <th>CompanyLevel</th>
-                 <th>Industry</th>
-                  <th>Department</th>
-                  <th>FunctionalArea</th>
+                 <th>IndustryId</th>
+                  <th>DepartmentId</th>
+                  <th>FunctionalAreaId</th>
                   <th>JobDescription</th>
-                  <th>KeywordsRoles</th>
-                  <th>KeywordsTechnical</th>
                   <th>WorkExprience</th>
-                  <th>Gender</th>
-                  <th>OfferedAnnualSalary</th>
-                  <th>OtherSalaryDetails</th>
-                   <th>NumberOfVacancies</th>
+                  <th>PostedDate</th>
               </tr>
           </HeaderTemplate>
            <ItemTemplate>
-     
-        <td >
-         <asp:CheckBox ID="chkDelete" runat="server" />
-        </td>
- 
-                <%# DataBinder.Eval(Container.DataItem, "JobTitle") %>
-          </td>
-                <td> 
-                <%# DataBinder.Eval(Container.DataItem, "JobLocationCity") %>
-          </td>
-                     <td> 
-                <%# DataBinder.Eval(Container.DataItem, "JobLocationArea") %>
-          </td>
-
-                     <td> 
-                <%# DataBinder.Eval(Container.DataItem, "CompanyLevel") %>
-          </td>
-           <td> 
-                <%# DataBinder.Eval(Container.DataItem, "Industry") %>
-             </td>
-               <td> 
-                <%# DataBinder.Eval(Container.DataItem, "Department") %>
-                </td>
-                 <td> 
-                <%# DataBinder.Eval(Container.DataItem, "FunctionalArea") %>
-                 </td>
-                 <td> 
-                <%# DataBinder.Eval(Container.DataItem, "JobDescription") %>
-                 </td>
-                 <td> 
-                <%# DataBinder.Eval(Container.DataItem, "KeywordsRoles") %>
-                </td>
-                 <td> 
-                <%# DataBinder.Eval(Container.DataItem, "KeywordsTechnical") %>
-                 </td>
-                 <td> 
-                <%# DataBinder.Eval(Container.DataItem, "WorkExprience") %>
-                </td>     
-                <td> 
-                <%# DataBinder.Eval(Container.DataItem, "Gender") %>
-                </td>
-                <td> 
-                <%# DataBinder.Eval(Container.DataItem, "OfferedAnnualSalary") %>
-                </td>
-                <td> 
-                <%# DataBinder.Eval(Container.DataItem, "OtherSalaryDetails") %>
-                  </td>
-                 <td> 
-                <%# DataBinder.Eval(Container.DataItem, "NumberOfVacancies") %>
-                      
-                    </td>
+   <tr style="height: 50px;">
+    <th>
+            <%# DataBinder.Eval(Container.DataItem,"JobTitle")%>
+          </th>
+       <th>
+            <%# DataBinder.Eval(Container.DataItem,"JobLocationCity")%>
+          </th>
+             <th > 
+                <%# DataBinder.Eval(Container.DataItem, "CompanyLevel")%>
+          </th>
+           <th> 
+              <%# DataBinder.Eval(Container.DataItem,"IndustryId")%>
+             </th>
+               <th> 
+                <%# DataBinder.Eval(Container.DataItem,"DepartmentId")%>
+                </th>
+                 <th> 
+                <%# DataBinder.Eval(Container.DataItem,"FunctionalAreaId")%>
+                 </th>
+                 <th> 
+                <%# DataBinder.Eval(Container.DataItem,"JobDescription")%>
+                 </th>
+                 <th> 
+                <%# DataBinder.Eval(Container.DataItem,"WorkExprience")%>
+                </th> 
+                <th> 
+                <%# DataBinder.Eval(Container.DataItem,"PostedDate")%>
+                </th>    
                 </tr>
+        </table>
             </ItemTemplate>
-            <FooterTemplate>
-              
-            </FooterTemplate>
            </asp:Repeater>
                 
-
-</asp:Content>
-<asp:Content ID="Content1" runat="server" contentplaceholderid="head">
-    <style type="text/css">
-        .auto-style1 {
-            width: 11%;
-        }
-    </style>
+                    s
 </asp:Content>
 

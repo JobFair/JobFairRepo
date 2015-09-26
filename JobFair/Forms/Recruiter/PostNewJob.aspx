@@ -2,11 +2,7 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
  
-    <style type="text/css">
-        .auto-style1 {
-            height: 33px;
-        }
-    </style>
+   
  
 </asp:Content>
 
@@ -157,6 +153,12 @@
             <td>
                 <asp:TextBox ID="txtVacancies" runat="server"></asp:TextBox>
             </td>
+        </tr>
+        <tr>
+            <td>Posted Date</td>
+                 <td><asp:TextBox ID="txtdate" runat="server" placeholder="Year"></asp:TextBox>
+                <cc1:CalendarExtender ID="txtdate_CalendarExtender1" runat="server" BehaviorID="txtdate_CalendarExtender" TargetControlID="txtdate" PopupButtonID="txtdate"></cc1:CalendarExtender>
+               </td>
         </tr>
         <tr>
             <td>
