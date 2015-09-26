@@ -61,6 +61,7 @@
     <Compile Include="Recruiter\AddJobPostEntity.cs" />
     <Compile Include="Recruiter\ClientDetailsEntity.cs" />
     <Compile Include="Recruiter\RegisterRecruiterEntity.cs" />
+    <Compile Include="Recruiter\ViewProfileEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Employer\" />

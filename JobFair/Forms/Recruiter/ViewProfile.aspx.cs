@@ -2,34 +2,28 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using BAL;
+using Entities.Recruiter;
+
 
 namespace JobFair.Forms.Recruiter
 {
     public partial class ViewProfile : System.Web.UI.Page
     {
-        public string name, companyName, mobNo, emailId, city, photo;
-        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            Bind();
-        }
-
-        private void Bind()
-        {
-           
             DataSet ds = new DataSet();
-            SqlDataAdapter sda = new SqlDataAdapter("select * from RE_RegisterDetails where RecruiterID='RE11'", connection);
-
-            ds = new DataSet();
-            sda.Fill(ds, "language");
-            name = ds.Tables["language"].Rows[0]["RecruiterfullName"].ToString();
-            companyName = ds.Tables["language"].Rows[0]["Company"].ToString();
-            mobNo = ds.Tables["language"].Rows[0]["MobileNumber"].ToString();
-            emailId = ds.Tables["language"].Rows[0]["OficialEmail_ID"].ToString();
-            city = ds.Tables["language"].Rows[0]["City"].ToString();
-            photo = ds.Tables["language"].Rows[0]["PhotoPath"].ToString() + "L1-whte"+".jpg";
-            Image1.ImageUrl = photo;
+            ViewProfileREBAL viewProfileBAL = new ViewProfileREBAL();
+            ViewProfileEntity viewProfileEntity = new ViewProfileEntity();
+             Label3.Text = viewProfileEntity.name;
+             Label4.Text = viewProfileEntity.companyName;
+            Label5.Text= viewProfileEntity.mobNo;
+            Label6.Text= viewProfileEntity.emailId;
+            Label7.Text= viewProfileEntity.city;
+           Image1.ImageUrl=  viewProfileEntity.photo;
+            viewProfileBAL.ViewProfile(viewProfileEntity);
         }
+
+       
     }
 }
