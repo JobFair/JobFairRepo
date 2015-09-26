@@ -30,7 +30,7 @@
     <br />
         <hr />
     <br />
-    <span style="VISIBILITY:hidden;display:none">
+    
     <asp:Panel ID="pnlCollapsableSSC" runat="server" Visible="False">
         <table style="margin-left: 10px">
             <asp:Label ID="lblSSCHead" runat="server" Text=" SSC / 10th Details" CssClass="label"></asp:Label>
@@ -82,10 +82,8 @@
         </table>
         <hr style="width: 350px" />
     </asp:Panel>
-    </span>
     <br />
 
-    <span style="VISIBILITY:hidden;display:none">
     <asp:Panel ID="pnlCollapsableHSC" runat="server" Visible="false">
         <table>
             <asp:Label ID="lblHSCHead" runat="server" Text=" HSC / 12th Details"  CssClass="label"></asp:Label>
@@ -153,10 +151,8 @@
         </table>
         <hr style="width: 350px" />
     </asp:Panel>
-    </span>
     <br />
 
-    <span style="VISIBILITY:hidden;display:none">
     <asp:Panel ID="pnlCollapsableDip" runat="server" Visible="false">
         <table>
             <asp:Label ID="lblDipHead" runat="server" Text=" UG Diploma Details" CssClass="label"></asp:Label>
@@ -219,10 +215,8 @@
         </table>
         <hr style="width: 350px" />
     </asp:Panel>
-    </span>
     <br />
 
-    <span style="VISIBILITY:hidden;display:none">
     <asp:Panel ID="pnlCollapsableBD" runat="server" Visible="false">
         <table>
             <asp:Label ID="lblBDHead" runat="server" Text="Bachelors Degree Details" CssClass="label"></asp:Label>
@@ -295,10 +289,8 @@
         </table>
         <hr style="width: 350px" />
     </asp:Panel>
-    </span>
     <br />
 
-    <span style="VISIBILITY:hidden;display:none">
     <asp:Panel ID="pnlCollapsablePgd" runat="server" Visible="false">
         <table>
             <asp:Label ID="lblPgdHead" runat="server" Text=" PG Diploma Details" CssClass="label" ></asp:Label>
@@ -362,11 +354,9 @@
             </tr>
         </table>
          <hr style="width: 350px;float:left" />
-    </asp:Panel>
-    </span>        
+    </asp:Panel>     
     <br />
    
-    <span style="VISIBILITY:hidden;display:none">
     <asp:Panel ID="pnlCollapsableMD" runat="server" Visible="false">
         <table>
             <asp:Label ID="lblMDHead" runat="server" Text=" Masters Degree Details" CssClass="label" ></asp:Label>
@@ -439,10 +429,8 @@
         </table>
         <hr style="width: 350px" />
     </asp:Panel>
-    </span>
     <br />
 
-    <span style="VISIBILITY:hidden;display:none">
     <asp:Panel ID="pnlCollapsablePHD" runat="server" Visible="false">
         <table>
             <asp:Label ID="lblPHPHead" runat="server" Text=" Doctorate/ PHD Degree Details" CssClass="label" ></asp:Label>
@@ -515,7 +503,6 @@
         </table>
         <hr style="width: 350px" />
     </asp:Panel>
-    </span>
     <br />
 </div>
 <div>
