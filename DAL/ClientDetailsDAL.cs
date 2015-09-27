@@ -5,10 +5,18 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
+    /// <summary>
+    /// Class ClientDetailsDAL
+    /// </summary>
     public class ClientDetailsDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// Method of class ClientDetailsDAL for saving ClientDetails in database
+        /// </summary>
+        /// <param name="clientdetailsEntity">Object of ClientDetailsEntity</param>
+        /// <returns>System.Int32</returns>
         public int SaveClientDetailsDAL(ClientDetailsEntity clientdetailsEntity)
         {
             try
@@ -30,8 +38,8 @@ namespace DAL
                 sparam[12] = new SqlParameter("@duedate", clientdetailsEntity.DueDate.Date);
                 sparam[13] = new SqlParameter("@paymentDetails", clientdetailsEntity.PaymentDetails);
                 sparam[14] = new SqlParameter("@paymentterms", clientdetailsEntity.PaymentTerms);
-               int result= SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertClientDetails",sparam);
-               return result;
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertClientDetails", sparam);
+                return result;
             }
             catch (System.Exception)
             {
@@ -39,8 +47,24 @@ namespace DAL
             }
         }
 
-
-
-       
+        /// <summary>
+        /// Method for adding Functional Details in database
+        /// </summary>
+        /// <param name="clientDetailsEntity">Object of ClientDetailsEntity</param>
+        public void AddFunctionalDal(ClientDetailsEntity clientDetailsEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlParameter[] sparams = new SqlParameter[2];
+                sparams[0] = new SqlParameter("@id", clientDetailsEntity.FunctionalAreaId);
+                sparams[1] = new SqlParameter("@FunctionalareaName", clientDetailsEntity.AddFunctionalArea);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertFunctionalArea", sparams);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -111,5 +111,7 @@ namespace CommonUtil
             Common common = new Common();
             return common.GetLanguagesDAL();
         }
+
+       
     }
 }
