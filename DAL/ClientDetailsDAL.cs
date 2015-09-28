@@ -23,6 +23,7 @@ namespace DAL
             {
                 connection.Open();
                 SqlParameter[] sparam = new SqlParameter[15];
+                //Add parameter for stored procedure
                 sparam[0] = new SqlParameter("@rercruiterid", "RE2");
                 sparam[1] = new SqlParameter("@clientName", clientdetailsEntity.ClientName);
                 sparam[2] = new SqlParameter("@industry", clientdetailsEntity.Industry);
@@ -51,14 +52,14 @@ namespace DAL
         /// Method for adding Functional Details in database
         /// </summary>
         /// <param name="clientDetailsEntity">Object of ClientDetailsEntity</param>
-        public void AddFunctionalDal(ClientDetailsEntity clientDetailsEntity)
+        public void AddFunctionalDAL(ClientDetailsEntity clientDetailsEntity)
         {
             try
             {
                 connection.Open();
-                SqlParameter[] sparams = new SqlParameter[2];
-                sparams[0] = new SqlParameter("@id", clientDetailsEntity.FunctionalAreaId);
-                sparams[1] = new SqlParameter("@FunctionalareaName", clientDetailsEntity.AddFunctionalArea);
+                SqlParameter[] sparams = new SqlParameter[1];
+                //Add parameter for stored procedure
+                sparams[0] = new SqlParameter("@FunctionalareaName", clientDetailsEntity.AddFunctionalArea);
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertFunctionalArea", sparams);
             }
             catch (System.Exception)

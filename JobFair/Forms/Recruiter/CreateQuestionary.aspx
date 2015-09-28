@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" Height="159px" Width="603px" OnActiveStepChanged="Wizard1_ActiveStepChanged" OnFinishButtonClick="Wizard1_FinishButtonClick">
+    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" Height="159px" Width="603px" >
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
                <table>
