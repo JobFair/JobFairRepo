@@ -10,7 +10,7 @@ namespace Entities.JobSeeker
     {
         //EducationalDetails JobSeekerEntity
         public string CandidateId { get; set; }
-        public string DegreeId { get; set; }
+        public int DegreeId { get; set; }
 
         public string MediumOfEducation { get; set; }
         public string Status { get; set; }

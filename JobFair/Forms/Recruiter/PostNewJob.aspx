@@ -2,8 +2,7 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
  
-   
- 
+  
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -171,4 +170,257 @@
             </td>
         </tr>
     </table>
+
+
+ <div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
+    <h2>Desired Candidate Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+
+       <table style="width: 358px">
+            <asp:Label ID="lblSSCHead" runat="server" Text="Specify SSC / 10th Qualification" CssClass="label"></asp:Label>
+             <tr>
+                <td>
+                    <asp:Label ID="lblSSCSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                </td>
+                 <td>
+                     <asp:LinkButton ID="lbSSC" runat="server">Remove All</asp:LinkButton>
+                 </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblSSCTag" runat="server" CssClass="label">Empty</asp:Label>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2">
+                    <asp:RadioButtonList ID="rblSSC" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                        <asp:ListItem>And</asp:ListItem>
+                        <asp:ListItem>Or</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+           </table>
+           <br />
+           <br />
+           <table style="width: 358px">
+           <asp:Label ID="lblHSCHead" runat="server" Text="Specify HSC / 12th Qualification" CssClass="label"></asp:Label>
+            <tr>
+                <td colspan="2">
+                    <asp:DropDownList ID="ddlHSC" runat="server" Height="16px" Width="346px">
+                        <asp:ListItem Value="0">Select</asp:ListItem>
+                        <asp:ListItem Value="1" Text="Arts"></asp:ListItem>
+                        <asp:ListItem Value="2" Text="Commerce"></asp:ListItem>
+                        <asp:ListItem Value="3" Text="Science"></asp:ListItem>
+                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
+                    </asp:DropDownList>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblHSCSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                     <asp:LinkButton ID="lbHSC" runat="server">Remove All</asp:LinkButton>
+                 </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblHSCTag" runat="server" CssClass="label">Empty</asp:Label>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2">
+                    <asp:RadioButtonList ID="rblHSC" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                        <asp:ListItem>And</asp:ListItem>
+                        <asp:ListItem>Or</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+            </table>
+            <br />
+           <br />
+           <table style="width: 358px">
+           <asp:Label ID="lblUGDHead" runat="server" Text="Specify UG Diploma Qualification" CssClass="label"></asp:Label>
+            <tr>
+                <td colspan="2">
+                    <asp:DropDownList ID="ddlUGD" runat="server" Height="16px" Width="346px">
+                        <asp:ListItem Value="0">Select</asp:ListItem>
+                        <asp:ListItem Value="1"></asp:ListItem>
+                        <asp:ListItem Value="2"></asp:ListItem>
+                        <asp:ListItem Value="3"></asp:ListItem>
+                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
+                    </asp:DropDownList>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblUGDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                     <asp:LinkButton ID="lbUGD" runat="server">Remove All</asp:LinkButton>
+                 </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblUGDTag" runat="server" CssClass="label">Empty</asp:Label>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2">
+                    <asp:RadioButtonList ID="rblUGD" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                        <asp:ListItem>And</asp:ListItem>
+                        <asp:ListItem>Or</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <table style="width: 358px">
+           <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification" CssClass="label"></asp:Label>
+            <tr>
+                <td colspan="2">
+                    <asp:DropDownList ID="ddlBD" runat="server" Height="16px" Width="346px">
+                        <asp:ListItem Value="0">Select</asp:ListItem>
+                        <asp:ListItem Value="1"></asp:ListItem>
+                        <asp:ListItem Value="2"></asp:ListItem>
+                        <asp:ListItem Value="3"></asp:ListItem>
+                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
+                    </asp:DropDownList>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblBDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                     <asp:LinkButton ID="lbBD" runat="server">Remove All</asp:LinkButton>
+                 </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblBDTag" runat="server" CssClass="label">Empty</asp:Label>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2">
+                    <asp:RadioButtonList ID="rblBD" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                        <asp:ListItem>And</asp:ListItem>
+                        <asp:ListItem>Or</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <table style="width: 358px">
+           <asp:Label ID="lblPGDHead" runat="server" Text="Specify PG Deploma Qualification" CssClass="label"></asp:Label>
+            <tr>
+                <td colspan="2">
+                    <asp:DropDownList ID="ddlPGD" runat="server" Height="16px" Width="346px">
+                        <asp:ListItem Value="0">Select</asp:ListItem>
+                        <asp:ListItem Value="1"></asp:ListItem>
+                        <asp:ListItem Value="2"></asp:ListItem>
+                        <asp:ListItem Value="3"></asp:ListItem>
+                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
+                    </asp:DropDownList>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblPGDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                     <asp:LinkButton ID="lbPGD" runat="server">Remove All</asp:LinkButton>
+                 </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblPGDTag" runat="server" CssClass="label">Empty</asp:Label>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2">
+                    <asp:RadioButtonList ID="rblPGD" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                        <asp:ListItem>And</asp:ListItem>
+                        <asp:ListItem>Or</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <table style="width: 358px">
+           <asp:Label ID="lblMDHead" runat="server" Text="Specify Master Degree Qualification" CssClass="label"></asp:Label>
+            <tr>
+                <td colspan="2">
+                    <asp:DropDownList ID="ddlMD" runat="server" Height="16px" Width="346px">
+                        <asp:ListItem Value="0">Select</asp:ListItem>
+                        <asp:ListItem Value="1"></asp:ListItem>
+                        <asp:ListItem Value="2"></asp:ListItem>
+                        <asp:ListItem Value="3"></asp:ListItem>
+                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
+                    </asp:DropDownList>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblMDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                     <asp:LinkButton ID="lbMD" runat="server">Remove All</asp:LinkButton>
+                 </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblMDTag" runat="server" CssClass="label">Empty</asp:Label>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2">
+                    <asp:RadioButtonList ID="rblMD" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                        <asp:ListItem>And</asp:ListItem>
+                        <asp:ListItem>Or</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <table style="width: 358px">
+           <asp:Label ID="lblPHDHead" runat="server" Text="Specify Doctorate / PHD Qualification" CssClass="label"></asp:Label>
+            <tr>
+                <td colspan="2">
+                    <asp:DropDownList ID="ddlPHD" runat="server" Height="16px" Width="346px">
+                        <asp:ListItem Value="0">Select</asp:ListItem>
+                        <asp:ListItem Value="1"></asp:ListItem>
+                        <asp:ListItem Value="2"></asp:ListItem>
+                        <asp:ListItem Value="3"></asp:ListItem>
+                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
+                    </asp:DropDownList>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblPHDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                     <asp:LinkButton ID="lbPHD" runat="server">Remove All</asp:LinkButton>
+                 </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblPHDTag" runat="server" CssClass="label">Empty</asp:Label>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2">
+                    <asp:RadioButtonList ID="rblPHDHead" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                        <asp:ListItem>And</asp:ListItem>
+                        <asp:ListItem>Or</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+        </table>
+   </div>
+ 
 </asp:Content>

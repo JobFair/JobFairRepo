@@ -97,7 +97,10 @@ namespace CommonUtil
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Get Education Degrees Type
+        /// </summary>
+        /// <returns></returns>
         internal DataSet GetEducationalDegreeTypeDAL()
         {
             try
@@ -121,6 +124,22 @@ namespace CommonUtil
             catch (Exception)
             {
                 throw;
+            }
+        }
+        /// <summary>
+        /// Get Client Name
+        /// </summary>
+        /// <returns></returns>
+        internal DataSet GetClientNameDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select ClientId,ClientName from RE_ClientDetails where RecruiterID='RE2' ");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

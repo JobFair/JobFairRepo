@@ -13,6 +13,15 @@ namespace JobFair.Forms.Recruiter {
     public partial class ClientRequirements {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// divMain control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblClientName;
         
         /// <summary>
-        /// txtClientName control.
+        /// ddlClientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClientName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlClientName;
         
         /// <summary>
         /// lblPosition control.
@@ -112,6 +121,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.TextBox txtDateOfReqSent;
         
         /// <summary>
+        /// txtDateOfReqSent_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtDateOfReqSent_CalendarExtender;
+        
+        /// <summary>
         /// lblDueDate control.
         /// </summary>
         /// <remarks>
@@ -128,6 +146,15 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDueDate;
+        
+        /// <summary>
+        /// txtDueDate_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtDueDate_CalendarExtender;
         
         /// <summary>
         /// lblNumberOfVacancy control.
@@ -164,5 +191,32 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblPositionClosed;
+        
+        /// <summary>
+        /// btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn;
+        
+        /// <summary>
+        /// divView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divView;
+        
+        /// <summary>
+        /// AddOfferedCandidates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JobFair.UserControls.Recruiter.ViewClientRequirements AddOfferedCandidates;
     }
 }
