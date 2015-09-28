@@ -15,7 +15,10 @@
         <table style="margin-left: 10px">
             <tr>
                 <td><asp:Label ID="lblClientName" runat="server" Text=" Client Name" CssClass="label"></asp:Label></td>
-                <td><asp:TextBox ID="txtClientName" runat="server" Width="100px"></asp:TextBox>            </td>
+                <td>
+                   <asp:DropDownList ID="ddlClientName" runat="server">
+                    </asp:DropDownList> 
+                </td>
             </tr>
         <tr>
             <td><asp:Label ID="lblPosition" runat="server" Text="Position" CssClass="label"></asp:Label></td>
@@ -47,7 +50,9 @@
                 <td><asp:TextBox ID="txtNumberOfVacancy" runat="server" Width="100px"></asp:TextBox></td>
             </tr>
             <tr>
-                <td><asp:Label ID="lblPositionClosed" runat="server" Text="Position Closed" CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblPositionClosed" runat="server" Text="Position Closed" CssClass="label"></asp:Label>
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 124px; top: 331px; position: absolute" Text="Button" />
+                </td>
                 <td>
                     <asp:RadioButtonList ID="rblPositionClosed" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
                     <asp:ListItem>Yes</asp:ListItem>

@@ -105,13 +105,23 @@ namespace CommonUtil
             Common common = new Common();
             return common.GetEducationalDegreeTypeDAL();
         }
-
+        /// <summary>
+        /// GetLanguage() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
         public static DataSet GetLanguage()
         {
             Common common = new Common();
             return common.GetLanguagesDAL();
         }
-
-       
+        /// <summary>
+        /// GetClientName() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetClientName()
+        {
+            Common common = new Common();
+            return common.GetClientNameDAL();
+        }
     }
 }
