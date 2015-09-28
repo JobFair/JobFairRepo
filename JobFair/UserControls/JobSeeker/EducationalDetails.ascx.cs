@@ -35,7 +35,11 @@ namespace JobFair.UserControls.JobSeeker
                 chkList.DataBind();
             }
         }
-
+        /// <summary>
+        /// Handles the Click event of the btnSubmit control.
+        /// </summary>
+        /// <param name="sender">The source of the event</param>
+        /// <param name="e"></param>
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             List<EducationalDetailsEntity> educationDetailsList = new List<EducationalDetailsEntity>();

@@ -354,7 +354,7 @@
             </tr>
         </table>
          <hr style="width: 350px;float:left" />
-    </asp:Panel>     
+    </asp:Panel>
     <br />
    
     <asp:Panel ID="pnlCollapsableMD" runat="server" Visible="false">

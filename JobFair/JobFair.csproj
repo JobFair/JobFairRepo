@@ -129,6 +129,7 @@
     <Content Include="Images\L1-whte.jpg" />
     <Content Include="UserControls\Recruiter\RecruiterForgetPwd.ascx" />
     <Content Include="UserControls\Recruiter\RecruiterRegistration.ascx" />
+    <Content Include="UserControls\Recruiter\AddOfferedCandidates.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -403,6 +404,13 @@
     </Compile>
     <Compile Include="UserControls\Recruiter\RecruiterRegistration.ascx.designer.cs">
       <DependentUpon>RecruiterRegistration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\AddOfferedCandidates.ascx.cs">
+      <DependentUpon>AddOfferedCandidates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\AddOfferedCandidates.ascx.designer.cs">
+      <DependentUpon>AddOfferedCandidates.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -25,8 +25,8 @@ namespace DAL
                 sparam[2] = new SqlParameter("@position", clientrequirementsEntity.Position);
                 sparam[3] = new SqlParameter("@jobDescription", clientrequirementsEntity.JobDescription);
                 sparam[4] = new SqlParameter("@gender", clientrequirementsEntity.Gender);
-                sparam[5] = new SqlParameter("@dateOfRequirementSent", clientrequirementsEntity.DateOfRequirementSent);
-                sparam[6] = new SqlParameter("@dueDate", clientrequirementsEntity.DueDate);
+                sparam[5] = new SqlParameter("@dateOfRequirementSent", clientrequirementsEntity.DateOfRequirementSent.Date);
+                sparam[6] = new SqlParameter("@dueDate", clientrequirementsEntity.DueDate.Date);
                 sparam[7] = new SqlParameter("@numberOfVacancies", clientrequirementsEntity.NumberOfVacancies);
                 sparam[8] = new SqlParameter("@positionClosed", clientrequirementsEntity.PositionClosed);
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertClientRequirement", sparam);
