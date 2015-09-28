@@ -17,17 +17,28 @@ namespace BAL
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
             return pdDAL.SavePersonalDetails(personalDetailsEntity);
         }
-
+        /// <summary>
+        /// Get Country
+        /// </summary>
+        /// <returns></returns>
         public DataSet GetCountry()
         {
             return Utility.GetCountry();
         }
-
+        /// <summary>
+        /// Get state
+        /// </summary>
+        /// <param name="CountryId"></param>
+        /// <returns></returns>
         public DataSet GetState(int CountryId)
         {
             return Utility.GetState(CountryId);
         }
-
+        /// <summary>
+        /// Get City
+        /// </summary>
+        /// <param name="StateId"></param>
+        /// <returns></returns>
         public DataSet GetCity(int StateId)
         {
             return Utility.GetCity(StateId);

@@ -5,22 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace JobFair.Forms.Recruiter
+namespace JobFair.Forms.Employer
 {
-    public partial class CreateQuestionary : System.Web.UI.Page
+    public partial class Site1 : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
- 
-            }
 
         }
-
-      
-
-        
-       
     }
 }

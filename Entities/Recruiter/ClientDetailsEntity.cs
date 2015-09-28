@@ -18,5 +18,8 @@ namespace Entities.Recruiter
         public DateTime DueDate { get; set; }
         public string PaymentDetails { get; set; }
         public string PaymentTerms { get; set; }
+
+        public string AddFunctionalArea { get; set; }
+       
     }
 }

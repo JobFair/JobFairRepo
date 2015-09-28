@@ -30,6 +30,7 @@
     <br />
         <hr />
     <br />
+    
     <asp:Panel ID="pnlCollapsableSSC" runat="server" Visible="False">
         <table style="margin-left: 10px">
             <asp:Label ID="lblSSCHead" runat="server" Text=" SSC / 10th Details" CssClass="label"></asp:Label>
@@ -353,7 +354,7 @@
             </tr>
         </table>
          <hr style="width: 350px;float:left" />
-    </asp:Panel>   
+    </asp:Panel>
     <br />
    
     <asp:Panel ID="pnlCollapsableMD" runat="server" Visible="false">

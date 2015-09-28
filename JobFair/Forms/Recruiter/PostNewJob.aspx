@@ -156,7 +156,6 @@
         <tr>
             <td>Posted Date</td>
                  <td><asp:TextBox ID="txtdate" runat="server" placeholder="Year"></asp:TextBox>
-                <cc1:CalendarExtender ID="txtdate_CalendarExtender1" runat="server" BehaviorID="txtdate_CalendarExtender" TargetControlID="txtdate" PopupButtonID="txtdate"></cc1:CalendarExtender>
                </td>
         </tr>
         <tr>

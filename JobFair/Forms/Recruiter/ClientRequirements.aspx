@@ -71,7 +71,7 @@
             </tr>
         </table>
     </div>
-     
+
        <div id="divView" runat="server">
            <UserControl:AddOfferedCandidates runat="server" ID="AddOfferedCandidates" />
        </div>

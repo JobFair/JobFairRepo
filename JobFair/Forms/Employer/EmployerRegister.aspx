@@ -1,4 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/Employeer/HomePage.Master" AutoEventWireup="true" CodeBehind="EmployerRegister.aspx.cs" Inherits="JobFair.Forms.Employeer.EmployeeRegister" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/Employer/HomePageEmployer.Master" AutoEventWireup="true" CodeBehind="EmployerRegister.aspx.cs" Inherits="JobFair.Forms.Employeer.EmployeeRegister" %>
+
+<%@ Register Src="~/UserControls/Recruiter/ClientDetails.ascx" TagPrefix="uc1" TagName="ClientDetails" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../../Style.css" rel="stylesheet" type="text/css" />
 </asp:Content>
@@ -62,6 +65,7 @@
                 <asp:Button ID="btnRegister" runat="server" Text="Button" />
                 <asp:HyperLink ID="hlForgetPassword" runat="server">Forget Password</asp:HyperLink>
             </td>
-        </tr>
+        <%--</tr>--%>
     </table>
+    <uc1:ClientDetails runat="server" ID="ClientDetails" />
 </asp:Content>
