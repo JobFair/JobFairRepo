@@ -19,5 +19,10 @@ namespace Entities.JobSeeker
         public string University { get; set; }
         public string Percantage { get; set; }
 
+        public string AddUnderGraduateDiplomaName { get; set; }
+        public string AddBachelorDegreeName { get; set; }
+        public string AddPostGraduateDiplomaName { get; set; }
+        public string AddMasterDegreeName { get; set; }
+        public string AddDoctorOfPhilosophyName { get; set; }
     }
 }

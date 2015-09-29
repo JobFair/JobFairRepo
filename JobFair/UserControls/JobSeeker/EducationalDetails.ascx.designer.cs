@@ -382,6 +382,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlDip;
         
         /// <summary>
+        /// txtDipAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDipAdd;
+        
+        /// <summary>
+        /// btnDipAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDipAdd;
+        
+        /// <summary>
         /// lblDipYear control.
         /// </summary>
         /// <remarks>
@@ -506,6 +524,24 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlBD;
+        
+        /// <summary>
+        /// txtBDAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBDAdd;
+        
+        /// <summary>
+        /// btnBDAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBDAdd;
         
         /// <summary>
         /// lblBDYear control.
@@ -634,6 +670,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlPgd;
         
         /// <summary>
+        /// txtPgdAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPgdAdd;
+        
+        /// <summary>
+        /// btnPgdAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPgdAdd;
+        
+        /// <summary>
         /// lblPgdYear control.
         /// </summary>
         /// <remarks>
@@ -760,6 +814,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlMD;
         
         /// <summary>
+        /// txtMDAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMDAdd;
+        
+        /// <summary>
+        /// btnMDAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMDAdd;
+        
+        /// <summary>
         /// lblMDYear control.
         /// </summary>
         /// <remarks>
@@ -884,6 +956,24 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPHD;
+        
+        /// <summary>
+        /// txtPHDAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPHDAdd;
+        
+        /// <summary>
+        /// btnPHDAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPHDAdd;
         
         /// <summary>
         /// lblPHDYear control.

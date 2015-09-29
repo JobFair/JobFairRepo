@@ -123,5 +123,50 @@ namespace CommonUtil
             Common common = new Common();
             return common.GetClientNameDAL();
         }
+        /// <summary>
+        /// GetUnderGraduateDiploma() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetUnderGraduateDiplomaDAL()
+        {
+            Common common = new Common();
+            return common.GetUnderGraduateDiplomaDAL();
+        }
+        /// <summary>
+        /// GetBachelorDegree() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetBachelorDegreeDAL()
+        {
+            Common common = new Common();
+            return common.GetBachelorDegreeDAL();
+        }
+        /// <summary>
+        /// GetPostGraduateDiploma() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetPostGraduateDiplomaDAL()
+        {
+            Common common = new Common();
+            return common.GetPostGraduateDiplomaDAL();
+        }
+        /// <summary>
+        /// GetMasterDegree() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetMasterDegreeDAL()
+        {
+            Common common = new Common();
+            return common.GetMasterDegreeDAL();
+        }
+        /// <summary>
+        /// GetDoctorOfPhilosophy() method of Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetDoctorOfPhilosophyDAL()
+        {
+            Common common = new Common();
+            return common.GetDoctorOfPhilosophyDAL();
+        }
     }
 }

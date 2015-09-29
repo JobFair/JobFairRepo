@@ -30,6 +30,91 @@ namespace BAL
            {
                return Utility.GetEducationalDegreeTypeDAL();
            }
+           /// <summary>
+           /// Load Under Graduate Diploma
+           /// </summary>
+           /// <returns></returns>
+           public DataSet GetUnderGraduateDiplomaBAL()
+           {
+               return Utility.GetUnderGraduateDiplomaDAL();
+           }
+           /// <summary>
+           /// Load Bachelor Degree
+           /// </summary>
+           /// <returns></returns>
+           public DataSet GetBachelorDegreeBAL()
+           {
+               return Utility.GetBachelorDegreeDAL();
+           }
+           /// <summary>
+           /// Load Post Graduate Diploma
+           /// </summary>
+           /// <returns></returns>
+           public DataSet GetPostGraduateDiplomaBAL()
+           {
+               return Utility.GetPostGraduateDiplomaDAL();
+           }
+           /// <summary>
+           /// Load Master Degree
+           /// </summary>
+           /// <returns></returns>
+           public DataSet GetMasterDegreeBAL()
+           {
+               return Utility.GetMasterDegreeDAL();
+           }
+           /// <summary>
+           /// Load Doctor Of Philosophy
+           /// </summary>
+           /// <returns></returns>
+           public DataSet GetDoctorOfPhilosophyBAL()
+           {
+               return Utility.GetDoctorOfPhilosophyDAL();
+           }
+           /// <summary>
+           /// To add functional area method in EducationalDetailsBAL class
+           /// </summary>
+           /// <param name="educationalDetailsEntity">Object of EducationalDetailsEntity </param>
+           public void AddUnderGraduateDiplomaBAL(Entities.JobSeeker.EducationalDetailsEntity educationalDetailsEntity)
+           {
+               EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
+               educationalDetailsDAL.AddUnderGraduateDiplomaDAL(educationalDetailsEntity);
+           }
+           /// <summary>
+           /// To add BachelorDegree method in EducationalDetailsBAL class
+           /// </summary>
+           /// <param name="educationalDetailsEntity">Object of EducationalDetailsEntity </param>
+           public void AddBachelorDegreeBAL(Entities.JobSeeker.EducationalDetailsEntity educationalDetailsEntity)
+           {
+               EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
+               educationalDetailsDAL.AddBachelorDegreeDAL(educationalDetailsEntity);
+           }
+           /// <summary>
+           /// To add PostGraduateDiploma method in EducationalDetailsBAL class
+           /// </summary>
+           /// <param name="educationalDetailsEntity">Object of EducationalDetailsEntity </param>
+           public void AddPostGraduateDiplomaBAL(Entities.JobSeeker.EducationalDetailsEntity educationalDetailsEntity)
+           {
+               EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
+               educationalDetailsDAL.AddPostGraduateDiplomaDAL(educationalDetailsEntity);
+           }
+           /// <summary>
+           /// To add MasterDegree method in EducationalDetailsBAL class
+           /// </summary>
+           /// <param name="educationalDetailsEntity">Object of EducationalDetailsEntity </param>
+           public void AddMasterDegreeBAL(Entities.JobSeeker.EducationalDetailsEntity educationalDetailsEntity)
+           {
+               EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
+               educationalDetailsDAL.AddMasterDegreeDAL(educationalDetailsEntity);
+           }
+           /// <summary>
+           /// To add DoctorOfPhilosophy method in EducationalDetailsBAL class
+           /// </summary>
+           /// <param name="educationalDetailsEntity">Object of EducationalDetailsEntity </param>
+           public void AddDoctorOfPhilosophyBAL(Entities.JobSeeker.EducationalDetailsEntity educationalDetailsEntity)
+           {
+               EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
+               educationalDetailsDAL.AddDoctorOfPhilosophyDAL(educationalDetailsEntity);
+           }
        }
     }
 

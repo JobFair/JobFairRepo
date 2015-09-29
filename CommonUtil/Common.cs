@@ -142,5 +142,85 @@ namespace CommonUtil
                 throw ex;
             }
         }
+        /// <summary>
+        /// Get Under Graduate Diploma Details
+        /// </summary>
+        /// <returns></returns>
+        internal DataSet GetUnderGraduateDiplomaDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_UnderGraduateDiploma");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Get Bachelor Degree Details
+        /// </summary>
+        /// <returns></returns>
+        internal DataSet GetBachelorDegreeDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_BachelorDegree");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Get Post Graduate Diploma Details
+        /// </summary>
+        /// <returns></returns>
+        internal DataSet GetPostGraduateDiplomaDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_PostGraduateDiploma");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Get Master Degree Details
+        /// </summary>
+        /// <returns></returns>
+        internal DataSet GetMasterDegreeDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_MasterDegree");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Get Doctor Of Philosophy Details
+        /// </summary>
+        /// <returns></returns>
+        internal DataSet GetDoctorOfPhilosophyDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_DoctorOfPhilosophy");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

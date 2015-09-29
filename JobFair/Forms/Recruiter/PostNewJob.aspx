@@ -155,7 +155,7 @@
         </tr>
         <tr>
             <td>Posted Date</td>
-                 <td><asp:TextBox ID="txtdate" runat="server" placeholder="Year"></asp:TextBox>
+                 <td><asp:TextBox ID="txtdate" runat="server"></asp:TextBox>
                </td>
         </tr>
         <tr>

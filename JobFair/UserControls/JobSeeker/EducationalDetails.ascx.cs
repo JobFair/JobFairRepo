@@ -33,6 +33,13 @@ namespace JobFair.UserControls.JobSeeker
                 chkList.DataValueField = "degreeId";
                 chkList.DataTextField = "degreeType";
                 chkList.DataBind();
+
+                BindDropDownUnderGraduateDiploma();
+                BindDropDownBachelorDegree();
+                BindDropDownPostGraduateDiploma();
+                BindDropDownMasterDegree();
+                BindDropDownDoctorOfPhilosophy();
+
             }
         }
         /// <summary>
@@ -223,6 +230,231 @@ namespace JobFair.UserControls.JobSeeker
                         break;
                 }
             }
+        }
+        /// <summary>
+        /// Method for binding DropDown with UnderGraduateDiploma_Table of Database
+        /// </summary>
+        private void BindDropDownUnderGraduateDiploma()
+        {
+            DataSet UnderGraduateDiplomaData = new DataSet();
+            educationalDetails = new EducationalDetailsBAL();
+            // Get Under Graduate Diploma details
+            UnderGraduateDiplomaData = educationalDetails.GetUnderGraduateDiplomaBAL();
+            ddlDip.DataSource = UnderGraduateDiplomaData;
+            ddlDip.DataValueField = "UGDID";
+            ddlDip.DataTextField = "UGDName";
+            ddlDip.DataBind();
+
+            ddlDip.Items.Insert(Convert.ToInt32(ddlDip.Items[ddlDip.Items.Count - 1].Value), new ListItem("----Other----", ""));
+            ddlDip.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        /// <summary>
+        /// Method for binding DropDown with BachelorDegree_Table of Database
+        /// </summary>
+        private void BindDropDownBachelorDegree()
+        {
+            DataSet BachelorDegreeData = new DataSet();
+            educationalDetails = new EducationalDetailsBAL();
+            // Get Bachelor Degree details
+            BachelorDegreeData = educationalDetails.GetBachelorDegreeBAL();
+            ddlBD.DataSource = BachelorDegreeData;
+            ddlBD.DataValueField = "BDId";
+            ddlBD.DataTextField = "BDName";
+            ddlBD.DataBind();
+
+            ddlBD.Items.Insert(Convert.ToInt32(ddlBD.Items[ddlBD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+            ddlBD.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        /// <summary>
+        /// Method for binding DropDown with PostGraduateDiploma_Table of Database
+        /// </summary>
+        private void BindDropDownPostGraduateDiploma()
+        {
+            DataSet PostGraduateDiplomaData = new DataSet();
+            educationalDetails = new EducationalDetailsBAL();
+            // Get Post Graduate Diploma details
+            PostGraduateDiplomaData = educationalDetails.GetPostGraduateDiplomaBAL();
+            ddlPgd.DataSource = PostGraduateDiplomaData;
+            ddlPgd.DataValueField = "PGDId";
+            ddlPgd.DataTextField = "PGDName";
+            ddlPgd.DataBind();
+
+            ddlPgd.Items.Insert(Convert.ToInt32(ddlPgd.Items[ddlPgd.Items.Count - 1].Value), new ListItem("----Other----", ""));
+            ddlPgd.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        /// <summary>
+        /// Method for binding DropDown with MasterDegree_Table of Database
+        /// </summary>
+        private void BindDropDownMasterDegree()
+        {
+            DataSet MasterDegreeData = new DataSet();
+            educationalDetails = new EducationalDetailsBAL();
+            // Get Master Degree details
+            MasterDegreeData = educationalDetails.GetMasterDegreeBAL();
+            ddlMD.DataSource = MasterDegreeData;
+            ddlMD.DataValueField = "MDId";
+            ddlMD.DataTextField = "MDName";
+            ddlMD.DataBind();
+
+            ddlMD.Items.Insert(Convert.ToInt32(ddlMD.Items[ddlMD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+            ddlMD.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        /// <summary>
+        /// Method for binding DropDown with DoctorOfPhilosophy_Table of Database
+        /// </summary>
+        private void BindDropDownDoctorOfPhilosophy()
+        {
+            DataSet DoctorOfPhilosophyData = new DataSet();
+            educationalDetails = new EducationalDetailsBAL();
+            // Get Doctor Of Philosophy details
+            DoctorOfPhilosophyData = educationalDetails.GetDoctorOfPhilosophyBAL();
+            ddlPHD.DataSource = DoctorOfPhilosophyData;
+            ddlPHD.DataValueField = "PHDId";
+            ddlPHD.DataTextField = "PHDName";
+            ddlPHD.DataBind();
+
+            ddlPHD.Items.Insert(Convert.ToInt32(ddlPHD.Items[ddlPHD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+            ddlPHD.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        /// <summary>
+        ///ddlDip_SelectedIndexChanged for checking the index of DropDown
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
+        protected void ddlDip_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Checking item of dropdown
+            if (ddlDip.SelectedItem.ToString() == "----Other----")
+            {
+                txtDipAdd.Visible = true;
+                btnDipAdd.Visible = true;
+            }
+        }
+        /// <summary>
+        ///ddlBD_SelectedIndexChanged for checking the index of DropDown
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
+        protected void ddlBD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Checking item of dropdown
+            if (ddlBD.SelectedItem.ToString() == "----Other----")
+            {
+                txtBDAdd.Visible = true;
+                btnBDAdd.Visible = true;
+            }
+        }
+        /// <summary>
+        ///ddlPgd_SelectedIndexChanged for checking the index of DropDown
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
+        protected void ddlPgd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Checking item of dropdown
+            if (ddlPgd.SelectedItem.ToString() == "----Other----")
+            {
+                txtPgdAdd.Visible = true;
+                btnPgdAdd.Visible = true;
+            }
+        }
+        /// <summary>
+        ///ddlMD_SelectedIndexChanged for checking the index of DropDown
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
+        protected void ddlMD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Checking item of dropdown
+            if (ddlMD.SelectedItem.ToString() == "----Other----")
+            {
+                txtMDAdd.Visible = true;
+                btnMDAdd.Visible = true;
+            }
+        }
+        /// <summary>
+        ///ddlPHD_SelectedIndexChanged for checking the index of DropDown
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
+        protected void ddlPHD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Checking item of dropdown
+            if (ddlPHD.SelectedItem.ToString() == "----Other----")
+            {
+                txtPHDAdd.Visible = true;
+                btnPHDAdd.Visible = true;
+            }
+        }
+        /// <summary>
+        ///Adding new Under Graduate Diploma in database
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">the<see cref="EventArgs"/>containing event data</param>
+        protected void btnDipAdd_Click(object sender, EventArgs e)
+        {
+            EducationalDetailsEntity educationalDetailsEntity = new EducationalDetailsEntity();
+            EducationalDetailsBAL educationalDetailsBAL = new EducationalDetailsBAL();
+            // Assign values to entity
+            educationalDetailsEntity.AddUnderGraduateDiplomaName = txtDipAdd.Text;
+            // Add data to the database 
+            educationalDetailsBAL.AddUnderGraduateDiplomaBAL(educationalDetailsEntity);
+        }
+        /// <summary>
+        ///Adding new Bachelor Degree in database
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">the<see cref="EventArgs"/>containing event data</param>
+        protected void btnBDAdd_Click(object sender, EventArgs e)
+        {
+            EducationalDetailsEntity educationalDetailsEntity = new EducationalDetailsEntity();
+            EducationalDetailsBAL educationalDetailsBAL = new EducationalDetailsBAL();
+            // Assign values to entity
+            educationalDetailsEntity.AddBachelorDegreeName = txtBDAdd.Text;
+            // Add data to the database 
+            educationalDetailsBAL.AddBachelorDegreeBAL(educationalDetailsEntity);
+        }
+        /// <summary>
+        ///Adding new Post Graduate Diploma in database
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">the<see cref="EventArgs"/>containing event data</param>
+        protected void btnPgdAdd_Click(object sender, EventArgs e)
+        {
+            EducationalDetailsEntity educationalDetailsEntity = new EducationalDetailsEntity();
+            EducationalDetailsBAL educationalDetailsBAL = new EducationalDetailsBAL();
+            // Assign values to entity
+            educationalDetailsEntity.AddPostGraduateDiplomaName = txtPgdAdd.Text;
+            // Add data to the database 
+            educationalDetailsBAL.AddPostGraduateDiplomaBAL(educationalDetailsEntity);
+        }
+        /// <summary>
+        ///Adding new Master Degree in database
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">the<see cref="EventArgs"/>containing event data</param>
+        protected void btnMDAdd_Click(object sender, EventArgs e)
+        {
+            EducationalDetailsEntity educationalDetailsEntity = new EducationalDetailsEntity();
+            EducationalDetailsBAL educationalDetailsBAL = new EducationalDetailsBAL();
+            // Assign values to entity
+            educationalDetailsEntity.AddMasterDegreeName = txtMDAdd.Text;
+            // Add data to the database 
+            educationalDetailsBAL.AddMasterDegreeBAL(educationalDetailsEntity);
+        }
+        /// <summary>
+        ///Adding new Doctor Of Philosophy in database
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">the<see cref="EventArgs"/>containing event data</param>
+        protected void btnPHDAdd_Click(object sender, EventArgs e)
+        {
+            EducationalDetailsEntity educationalDetailsEntity = new EducationalDetailsEntity();
+            EducationalDetailsBAL educationalDetailsBAL = new EducationalDetailsBAL();
+            // Assign values to entity
+            educationalDetailsEntity.AddDoctorOfPhilosophyName = txtPHDAdd.Text;
+            // Add data to the database 
+            educationalDetailsBAL.AddDoctorOfPhilosophyBAL(educationalDetailsEntity);
         }
     }
 }
