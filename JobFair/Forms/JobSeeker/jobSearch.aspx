@@ -3,6 +3,41 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+    <!DOCTYPE html>
+
+<script runat="server">
+    protected void chkFreshness_SelectedIndexChanged(object sender, System.EventArgs e)
+    {
+        Label1.Text = "You Selected:<br /><i>";
+        foreach (ListItem li in chkFreshness.Items)
+        {
+            if (li.Selected == true)
+            {
+                Label1.Text += li.Text + "<br />";
+            }
+        }
+        Label1.Text += "</i>";
+    }
+</script>
+    <script>
+        $('#checkbox_filter').click(function () { oTable.fnDraw(); });
+        /* Custom filtering function which will filter data in column four between two values */
+        $.fn.dataTableExt.afnFiltering.push(
+            function (oSettings, aData, iDataIndex) {
+
+                if ($('#starfilter').attr('checked')) {
+                    if ($('input', oTable.fnGetNodes(iDataIndex)).is(':checked')) {
+                        return true
+                    }
+                }
+                else {
+                    return true
+                }
+            }
+        );
+    </script>
+ 
+
     <div>
        <table>
             <tr>
@@ -16,7 +51,7 @@
                                 <asp:LinkButton ID="lblFreshness" runat="server" Text="By Freshness"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelFreshness" runat="server">
-                                    <asp:CheckBoxList ID="chkFreshness" runat="server">
+                                    <asp:CheckBoxList ID="chkFreshness" runat="server" AutoPostBack="True" OnSelectedIndexChanged="chkFreshness_SelectedIndexChanged">
                                         <asp:ListItem>30 Days</asp:ListItem>
                                         <asp:ListItem>25 Days</asp:ListItem>
                                         <asp:ListItem>20 Days</asp:ListItem>
@@ -25,7 +60,9 @@
                                         <asp:ListItem>7 Days</asp:ListItem>
                                         <asp:ListItem>1 Day</asp:ListItem>
                                     </asp:CheckBoxList>
+                                    <br />
                                 </asp:Panel>
+                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                                 <cc1:CollapsiblePanelExtender ID="CPEfreshness" runat="server" TargetControlID="PanelFreshness" TextLabelID="lblFreshness" CollapseControlID="lblFreshness" ExpandControlID="lblFreshness" Collapsed="true" />
 
                             </div>
@@ -36,7 +73,9 @@
                                 <asp:LinkButton ID="lblLocation" runat="server" Text="By Location"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelLoaction" runat="server">
-                                    <asp:CheckBoxList ID="chkLocation" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="chkLocation" runat="server" OnSelectedIndexChanged="chkLocation_SelectedIndexChanged"></asp:CheckBoxList>
+                                    <br />
+                                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="PanelLoaction" TextLabelID="lblLocation" CollapseControlID="lblFreshness" ExpandControlID="lblLocation" Collapsed="true" />
                             </div>
@@ -45,7 +84,10 @@
                                 <asp:LinkButton ID="lblRole" runat="server" Text="Role" CssClass="label"></asp:LinkButton>
 
                                 <asp:Panel ID="PanelRole" runat="server">
-                                    <asp:CheckBoxList ID="chkRole" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="chkRole" runat="server" OnSelectedIndexChanged="chkRole_SelectedIndexChanged"></asp:CheckBoxList>
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                                 </asp:Panel>
                                 <cc1:CollapsiblePanelExtender ID="CPERole" runat="server" TargetControlID="PanelRole" TextLabelID="lblRole" CollapseControlID="lblRole" ExpandControlID="lblRole" Collapsed="true" />
                             </div>
@@ -141,7 +183,8 @@
                     </fieldset>
                 </td>
      </table>
-        </div>   
+        </div>  
+     
         <td width="80%" style="vertical-align: top">     
             <asp:Repeater ID="Repeater1" runat="server">
                 <HeaderTemplate>

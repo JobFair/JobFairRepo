@@ -222,5 +222,48 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
+
+        internal DataSet GetRole()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, " Select * from JS_Roles ");
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+
+        internal DataSet GetLocation()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select * from LocationsMaster");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+
+        internal DataSet GetEducation()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select  * from JS_EducationDegreesType ");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
