@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <td><asp:Label ID="lblPositionClosed" runat="server" Text="Position Closed" CssClass="label"></asp:Label>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 124px; top: 331px; position: absolute" Text="Button" />
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 124px; top: 331px; position: absolute; height: 26px; width: 56px;" Text="Button" />
                 </td>
                 <td>
                     <asp:RadioButtonList ID="rblPositionClosed" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">

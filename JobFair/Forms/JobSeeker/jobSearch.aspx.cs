@@ -1,20 +1,27 @@
 ﻿using BAL;
+using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class jobSearch : System.Web.UI.Page
     {
-        private DataSet ds = new DataSet();
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
             //GetDataFromSession();
             if (!Page.IsPostBack)
             {
+
+
+               
+
                 FillIndustryCheckBoxList();
                 FillcityCheckBoxList();
                 BindRepeaterData();
@@ -44,7 +51,7 @@ namespace JobFair.Forms.JobSeeker
         {
             SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
             con.Open();
-            SqlCommand Cmd = new SqlCommand("Select * from City", con);
+            SqlCommand Cmd = new SqlCommand("Select * from City ", con);
             SqlDataAdapter adp = new SqlDataAdapter(Cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
