@@ -400,13 +400,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblUGDHead;
         
         /// <summary>
-        /// ddlUGD control.
+        /// DropDownCheckBoxes1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUGD;
+        protected global::Saplin.Controls.DropDownCheckBoxes DropDownCheckBoxes1;
         
         /// <summary>
         /// lblUGDSelect control.

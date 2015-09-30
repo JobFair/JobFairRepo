@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/Recruiter/RecruiterHome.Master" AutoEventWireup="true" CodeBehind="PostNewJob.aspx.cs" Inherits="JobFair.Forms.Recruiter.PostNewJob1" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
- 
-  
+<%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -241,13 +241,8 @@
            <asp:Label ID="lblUGDHead" runat="server" Text="Specify UG Diploma Qualification" CssClass="label"></asp:Label>
             <tr>
                 <td colspan="2">
-                    <asp:DropDownList ID="ddlUGD" runat="server" Height="16px" Width="346px">
-                        <asp:ListItem Value="0">Select</asp:ListItem>
-                        <asp:ListItem Value="1"></asp:ListItem>
-                        <asp:ListItem Value="2"></asp:ListItem>
-                        <asp:ListItem Value="3"></asp:ListItem>
-                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
-                    </asp:DropDownList>
+                   <asp:DropDownCheckBoxes ID="DropDownCheckBoxes1" runat="server" Width="180px" UseSelectAllNode = "false">
+                   </asp:DropDownCheckBoxes>
                  </td>
             </tr>
             <tr>
@@ -316,11 +311,7 @@
             <tr>
                 <td colspan="2">
                     <asp:DropDownList ID="ddlPGD" runat="server" Height="16px" Width="346px">
-                        <asp:ListItem Value="0">Select</asp:ListItem>
-                        <asp:ListItem Value="1"></asp:ListItem>
-                        <asp:ListItem Value="2"></asp:ListItem>
-                        <asp:ListItem Value="3"></asp:ListItem>
-                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
+                     
                     </asp:DropDownList>
                  </td>
             </tr>
@@ -421,5 +412,4 @@
             </tr>
         </table>
    </div>
- 
-</asp:Content>
+    </asp:Content>
