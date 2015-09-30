@@ -123,5 +123,26 @@ namespace CommonUtil
             Common common = new Common();
             return common.GetClientNameDAL();
         }
+        /// <summary>
+        /// GetRoles() method Of utility Class
+        /// </summary>
+        /// <returns>System.Data.Set</returns>
+        public static DataSet GetRoles()
+        {
+            Common common = new Common();
+            return common.GetRole();
+        }
+
+        public static DataSet GetLocation()
+        {
+            Common common = new Common();
+            return common.GetLocation();
+        }
+
+        public static DataSet GetEducation()
+        {
+            Common common = new Common();
+            return common.GetEducation();
+        }
     }
 }
