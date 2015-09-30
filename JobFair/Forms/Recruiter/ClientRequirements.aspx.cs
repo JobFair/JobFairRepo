@@ -1,7 +1,4 @@
-﻿using BAL;
-using Entities.JobSeeker;
-using System.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,9 +31,18 @@ namespace JobFair.Forms.Recruiter
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnSubmit(object sender, EventArgs e)
         {
-
+            ClientRequirementsEntitiy clientReq = new ClientRequirementsEntitiy();
+            clientReq.RecruiterID = "RE11";
+            clientReq.ClientId = 1;
+            clientReq.Position = txtPosition.Text.Trim();
+            clientReq.JobDescription = txtJobDescription.Text.Trim();
+            clientReq.Gender = rblGender.SelectedValue;
+            clientReq.DateOfRequirementSent = Convert.ToDateTime(txtDateOfReqSent.Text);
+            clientReq.DueDate = Convert.ToDateTime(txtDueDate.Text);
+            clientReq.NumberOfVacancies = Convert.ToInt32(txtNumberOfVacancy.Text.Trim());
+            clientReq.PositionClosed = Convert.ToBoolean(rblPositionClosed.SelectedValue);
         }
     }
 }

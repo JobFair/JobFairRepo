@@ -9,10 +9,15 @@ namespace DAL
     public class ViewProfileREDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        DataSet ds = new DataSet();
+        private DataSet ds = new DataSet();
+
+        /// <summary>
+        /// ViewProfile of recuiter
+        /// </summary>
+        /// <param name="viewProfileEntity">Object for selecting data into database</param>
+        /// <returns>System.Int32</returns>
         public DataSet ViewProfileDAL(ViewProfileEntity viewProfileEntity)
         {
-            
             try
             {
                 SqlDataAdapter sda = new SqlDataAdapter();
@@ -31,11 +36,16 @@ namespace DAL
 
             return ds;
         }
-        public DataSet GetCountryDAL()
+
+        /// <summary>
+        /// View Job Post of recruiter
+        /// </summary>
+        /// <returns></returns>
+        public DataSet ViewJobPostDAL()
         {
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Country");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_SelectViewJobPost");
                 return ds;
             }
             catch (Exception ex)

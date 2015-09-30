@@ -8,6 +8,8 @@
 <table  >
     <tr>
         <td colspan="2"><h1>
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
             Client Details</h1></td>
         
     </tr>
@@ -25,12 +27,12 @@
                 <ContentTemplate>
                     <asp:DropDownList ID="ddlIndustry" runat="server" >
                     </asp:DropDownList>
-                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     <br />
                     <asp:DropDownList ID="ddlFunctionalArea" runat="server"  AutoPostBack="True" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlFunctionalArea_SelectedIndexChanged" >
                     </asp:DropDownList>
                     
                     <asp:TextBox ID="txtAddfunctionalarea" runat="server" Visible="false" ></asp:TextBox><asp:Button ID="btnAdd" runat="server" Text="Add" Visible="false" OnClick="btnAdd_Click" />
+                    <asp:Label ID="lblmsg2" runat="server" Text="Label"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </td>

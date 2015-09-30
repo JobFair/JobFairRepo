@@ -35,6 +35,8 @@ namespace JobFair.Forms.Recruiter
             ddlFunctionalArea.DataValueField = "FunctionalAreaId";
             ddlFunctionalArea.DataTextField = "FunctionalArea";
             ddlFunctionalArea.DataBind();
+
+            ddlFunctionalArea.Items.Insert(Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 1].Value), new ListItem("----Other----", ""));
             ddlFunctionalArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
@@ -65,10 +67,10 @@ namespace JobFair.Forms.Recruiter
         }
 
         /// <summary>
-        ///
+        /// ddlState_SelectedIndexChanged for selection of city on basis of stateid
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The soure of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             int stateId = Convert.ToInt32(ddlState.SelectedValue);
@@ -81,10 +83,10 @@ namespace JobFair.Forms.Recruiter
         }
 
         /// <summary>
-        ///
+        ///ddlCountry_SelectedIndexChanged for selection of state on basis of Countryid
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The soure of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             int countryId = Convert.ToInt32(ddlCountry.SelectedValue);
@@ -92,7 +94,6 @@ namespace JobFair.Forms.Recruiter
             ddlState.DataSource = ds;
             ddlState.DataValueField = "StateId";
             ddlState.DataTextField = "StateName";
-
             ddlState.DataBind();
             ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
         }
@@ -100,23 +101,24 @@ namespace JobFair.Forms.Recruiter
         /// <summary>
         ///
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The soure of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
         }
 
         /// <summary>
-        ///
+        /// Saving the ClientDetails information by handling event btnSubmit_Click1
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The soure of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
         protected void btnSubmit_Click1(object sender, EventArgs e)
         {
             try
             {
                 ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
                 ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
+                // Assign values to the entities
                 clientDetailsEntity.ClientName = txtClientName.Text.Trim();
                 clientDetailsEntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
                 clientDetailsEntity.FunctionalArea = Convert.ToInt32(ddlFunctionalArea.SelectedValue);
@@ -131,6 +133,7 @@ namespace JobFair.Forms.Recruiter
                 clientDetailsEntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
                 clientDetailsEntity.PaymentDetails = chklistPaymentDetails.SelectedItem.Value;
                 clientDetailsEntity.PaymentTerms = txtPaymentTerms.Text.Trim();
+                //Saving data to the database
                 int result = clientDetailsBAL.SaveClientDetailsBAL(clientDetailsEntity);
                 if (result > 0)
                 {
@@ -146,31 +149,33 @@ namespace JobFair.Forms.Recruiter
                 throw;
             }
         }
+
         /// <summary>
-        /// 
+        ///ddlFunctionalArea_SelectedIndexChanged for checking the index of DropDown
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
         protected void ddlFunctionalArea_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Checking item of dropdown
             if (ddlFunctionalArea.SelectedItem.ToString() == "----Other----")
             {
                 txtAddfunctionalarea.Visible = true;
                 btnAdd.Visible = true;
             }
         }
+
         /// <summary>
-        /// 
+        ///Adding new Functional Area in database
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">the<see cref="EventArgs"/>containing event data</param>
         protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            //Label1.Text = ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 2].Value;
-            //ddlFunctionalArea.Items.Insert(Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 2].Value), txtAddfunctionalarea.Text);
+        { // Assign values to entity
             clientDetailsEntity.AddFunctionalArea = txtAddfunctionalarea.Text;
-            clientDetailsEntity.FunctionalAreaId = Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 1].Value) + 1;
+            // Add data to the database 
             clientDetailsBAL.AddFunctionalAreaBAL(clientDetailsEntity);
+            lblmsg2.Text = "Your data is added now";
         }
     }
 }

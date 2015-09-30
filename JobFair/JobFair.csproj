@@ -27,7 +27,7 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -81,10 +81,12 @@
     <Content Include="Css\Style.css" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
+    <Content Include="Forms\Employer\Register.aspx" />
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
-    <Content Include="Forms\JobSeeker\Webform1.aspx" />
+    <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
+    <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\Questionarie.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
@@ -98,7 +100,6 @@
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
-    <Content Include="Forms\Employer\EmployerRegister.aspx" />
     <Content Include="UserControls\JobSeeker\LiveProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
@@ -114,8 +115,8 @@
     <Content Include="Forms\Recruiter\ViewAllJobsDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
-    <Content Include="Forms\Employer\HomePage.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
+    <Content Include="Forms\Employer\HomePageEmployer.Master" />
     <Content Include="WebForm1.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -129,6 +130,7 @@
     <Content Include="Images\L1-whte.jpg" />
     <Content Include="UserControls\Recruiter\RecruiterForgetPwd.ascx" />
     <Content Include="UserControls\Recruiter\RecruiterRegistration.ascx" />
+    <Content Include="UserControls\Recruiter\AddOfferedCandidates.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +147,20 @@
     </Compile>
     <Compile Include="Forms\Common\ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employer\HomePageEmployer.Master.cs">
+      <DependentUpon>HomePageEmployer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employer\HomePageEmployer.Master.designer.cs">
+      <DependentUpon>HomePageEmployer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employer\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employer\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\AdvanceSearch.aspx.cs">
       <DependentUpon>AdvanceSearch.aspx</DependentUpon>
@@ -195,8 +211,15 @@
     <Compile Include="Forms\JobSeeker\UserDetails.aspx.designer.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobSeeker\Webform1.aspx.cs">
-      <DependentUpon>Webform1.aspx</DependentUpon>
+    <Compile Include="Forms\JobSeeker\ViewProfile.aspx.cs">
+      <DependentUpon>ViewProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ViewProfile.aspx.designer.cs">
+      <DependentUpon>ViewProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\JobSeeker\Webform1.aspx.designer.cs">
@@ -383,6 +406,13 @@
     <Compile Include="UserControls\Recruiter\RecruiterRegistration.ascx.designer.cs">
       <DependentUpon>RecruiterRegistration.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Recruiter\AddOfferedCandidates.ascx.cs">
+      <DependentUpon>AddOfferedCandidates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\AddOfferedCandidates.ascx.designer.cs">
+      <DependentUpon>AddOfferedCandidates.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -421,14 +451,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50068</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50068/</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>
-          </IISAppRootUrl>
+          <IISUrl>http://localhost:50061/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
