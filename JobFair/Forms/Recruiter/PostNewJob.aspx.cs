@@ -17,6 +17,11 @@ namespace JobFair.Forms.Recruiter
             BindDropDownIndustry();
             BindDropDownDepartment();
             BindDropDownFunctionalArea();
+            BindUnderGraduateDiploma();
+            BindPostGraduateDiploma();
+            BindMasterDegree();
+            BindDoctorOfPhilosophy();
+            BindBachelorDegree();
             }
         }
        
@@ -56,6 +61,47 @@ namespace JobFair.Forms.Recruiter
             ddlFunArea.DataBind();
             ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+        private void BindUnderGraduateDiploma()
+        {
+            ddlUGDiploma.DataSource = NewJobPostBAL.GetUnderGraduateDiplomaBAL();
+            ddlUGDiploma.DataTextField = "UGDName";
+            ddlUGDiploma.DataValueField = "UGDID";
+            ddlUGDiploma.DataBind();
+            ddlUGDiploma.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        private void BindPostGraduateDiploma()
+        {
+            ddlPGDiploma.DataSource = NewJobPostBAL.GetPostGraduateDiplomaBAL();
+            ddlPGDiploma.DataTextField = "PGDName";
+            ddlPGDiploma.DataValueField = "PGDId";
+            ddlPGDiploma.DataBind();
+            ddlPGDiploma.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        private void BindMasterDegree()
+        {
+            ddlMasterDegree.DataSource = NewJobPostBAL.GetMasterDegreeBAL();
+            ddlMasterDegree.DataTextField = "MDName";
+            ddlMasterDegree.DataValueField = "MDId";
+            ddlMasterDegree.DataBind();
+            ddlMasterDegree.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        private void BindDoctorOfPhilosophy()
+        {
+            ddlPHD.DataSource = NewJobPostBAL.GetDoctorOfPhilosophyBAL();
+            ddlPHD.DataTextField = "PHDName";
+            ddlPHD.DataValueField = "PHDId";
+            ddlPHD.DataBind();
+            ddlPHD.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        private void BindBachelorDegree()
+        {
+            ddlBachelorsDegree.DataSource = NewJobPostBAL.GetBachelorDegreeBAL();
+            ddlBachelorsDegree.DataTextField = "BDName";
+            ddlBachelorsDegree.DataValueField = "BDId";
+            ddlBachelorsDegree.DataBind();
+            ddlBachelorsDegree.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
         /// <summary>
         /// Method for binding Dropdown with functionalarea_table of database
         /// </summary>

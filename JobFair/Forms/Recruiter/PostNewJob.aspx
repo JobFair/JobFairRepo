@@ -174,11 +174,11 @@
  <div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
     <h2>Desired Candidate Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 
-       <table style="width: 358px">
-            <asp:Label ID="lblSSCHead" runat="server" Text="Specify SSC / 10th Qualification" CssClass="label"></asp:Label>
+       <table>
+            <asp:Label ID="lblSSCHead" runat="server" Text="Specify SSC / 10th Qualification"></asp:Label>
              <tr>
                 <td>
-                    <asp:Label ID="lblSSCSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblSSCSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                 </td>
                  <td>
                      <asp:LinkButton ID="lbSSC" runat="server">Remove All</asp:LinkButton>
@@ -186,12 +186,12 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Label ID="lblSSCTag" runat="server" CssClass="label">Empty</asp:Label>
+                    <asp:Label ID="lblSSCTag" runat="server">Empty</asp:Label>
                 </td>
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblSSC" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                    <asp:RadioButtonList ID="rblSSC" runat="server" RepeatDirection="Horizontal" >
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
@@ -201,21 +201,24 @@
            <br />
            <br />
            <table style="width: 358px">
-           <asp:Label ID="lblHSCHead" runat="server" Text="Specify HSC / 12th Qualification" CssClass="label"></asp:Label>
+           <asp:Label ID="lblHSCHead" runat="server" Text="Specify HSC / 12th Qualification" ></asp:Label>
             <tr>
                 <td colspan="2">
-                    <asp:DropDownList ID="ddlHSC" runat="server" Height="16px" Width="346px">
-                        <asp:ListItem Value="0">Select</asp:ListItem>
+                    <asp:DropDownCheckBoxes ID="DropDownCheckBoxes1" runat="server"  UseSelectAllNode = "false">
+    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+    <Items>
+        <asp:ListItem Value="0">Select</asp:ListItem>
                         <asp:ListItem Value="1" Text="Arts"></asp:ListItem>
                         <asp:ListItem Value="2" Text="Commerce"></asp:ListItem>
                         <asp:ListItem Value="3" Text="Science"></asp:ListItem>
                         <asp:ListItem Value="4" Text="Others"></asp:ListItem>
-                    </asp:DropDownList>
+    </Items>
+</asp:DropDownCheckBoxes>
                  </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblHSCSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblHSCSelect" runat="server" ></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbHSC" runat="server">Remove All</asp:LinkButton>
@@ -223,12 +226,12 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Label ID="lblHSCTag" runat="server" CssClass="label">Empty</asp:Label>
+                    <asp:Label ID="lblHSCTag" runat="server" >Empty</asp:Label>
                 </td>
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblHSC" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                    <asp:RadioButtonList ID="rblHSC" runat="server" RepeatDirection="Horizontal">
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
@@ -237,17 +240,18 @@
             </table>
             <br />
            <br />
-           <table style="width: 358px">
-           <asp:Label ID="lblUGDHead" runat="server" Text="Specify UG Diploma Qualification" CssClass="label"></asp:Label>
+           <table>
+           <asp:Label ID="lblUGDHead" runat="server" Text="Specify UG Diploma Qualification"></asp:Label>
             <tr>
                 <td colspan="2">
-                   <asp:DropDownCheckBoxes ID="DropDownCheckBoxes1" runat="server" Width="180px" UseSelectAllNode = "false">
+                   <asp:DropDownCheckBoxes ID="ddlUGDiploma" runat="server" UseSelectAllNode = "false" >
+                         <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                    </asp:DropDownCheckBoxes>
                  </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblUGDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblUGDSelect" runat="server"  ></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbUGD" runat="server">Remove All</asp:LinkButton>
@@ -255,12 +259,12 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Label ID="lblUGDTag" runat="server" CssClass="label">Empty</asp:Label>
+                    <asp:Label ID="lblUGDTag" runat="server">Empty</asp:Label>
                 </td>
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblUGD" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                    <asp:RadioButtonList ID="rblUGD" runat="server" RepeatDirection="Horizontal">
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
@@ -269,22 +273,18 @@
         </table>
         <br />
         <br />
-        <table style="width: 358px">
-           <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification" CssClass="label"></asp:Label>
+       <table>
+           <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification"></asp:Label>asp:Label>
             <tr>
                 <td colspan="2">
-                    <asp:DropDownList ID="ddlBD" runat="server" Height="16px" Width="346px">
-                        <asp:ListItem Value="0">Select</asp:ListItem>
-                        <asp:ListItem Value="1"></asp:ListItem>
-                        <asp:ListItem Value="2"></asp:ListItem>
-                        <asp:ListItem Value="3"></asp:ListItem>
-                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
-                    </asp:DropDownList>
+                     <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode = "false">
+                         <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                   </asp:DropDownCheckBoxes>
                  </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblBDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblBDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbBD" runat="server">Remove All</asp:LinkButton>
@@ -297,7 +297,7 @@
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblBD" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                    <asp:RadioButtonList ID="rblBD" runat="server" RepeatDirection="Horizontal">
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
@@ -306,18 +306,18 @@
         </table>
         <br />
         <br />
-        <table style="width: 358px">
-           <asp:Label ID="lblPGDHead" runat="server" Text="Specify PG Deploma Qualification" CssClass="label"></asp:Label>
+        <table>
+           <asp:Label ID="lblPGDHead" runat="server" Text="Specify PG Deploma Qualification"></asp:Label>
             <tr>
-                <td colspan="2">
-                    <asp:DropDownList ID="ddlPGD" runat="server" Height="16px" Width="346px">
-                     
-                    </asp:DropDownList>
+                <td>
+                   <asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode = "false" >
+                       <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                   </asp:DropDownCheckBoxes>
                  </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblPGDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblPGDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbPGD" runat="server">Remove All</asp:LinkButton>
@@ -325,12 +325,12 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Label ID="lblPGDTag" runat="server" CssClass="label">Empty</asp:Label>
+                    <asp:Label ID="lblPGDTag" runat="server">Empty</asp:Label>
                 </td>
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblPGD" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                    <asp:RadioButtonList ID="rblPGD" runat="server" RepeatDirection="Horizontal" >
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
@@ -339,22 +339,18 @@
         </table>
         <br />
         <br />
-        <table style="width: 358px">
-           <asp:Label ID="lblMDHead" runat="server" Text="Specify Master Degree Qualification" CssClass="label"></asp:Label>
+        <table >
+           <asp:Label ID="lblMDHead" runat="server" Text="Specify Master Degree Qualification" ></asp:Label>
             <tr>
                 <td colspan="2">
-                    <asp:DropDownList ID="ddlMD" runat="server" Height="16px" Width="346px">
-                        <asp:ListItem Value="0">Select</asp:ListItem>
-                        <asp:ListItem Value="1"></asp:ListItem>
-                        <asp:ListItem Value="2"></asp:ListItem>
-                        <asp:ListItem Value="3"></asp:ListItem>
-                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
-                    </asp:DropDownList>
+                     <asp:DropDownCheckBoxes ID="ddlMasterDegree" runat="server" UseSelectAllNode = "false">
+                         <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                   </asp:DropDownCheckBoxes>
                  </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblMDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblMDSelect" runat="server" Text="Selected Qualifications" ></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbMD" runat="server">Remove All</asp:LinkButton>
@@ -367,7 +363,7 @@
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblMD" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                    <asp:RadioButtonList ID="rblMD" runat="server" RepeatDirection="Horizontal">
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
@@ -376,22 +372,18 @@
         </table>
         <br />
         <br />
-        <table style="width: 358px">
-           <asp:Label ID="lblPHDHead" runat="server" Text="Specify Doctorate / PHD Qualification" CssClass="label"></asp:Label>
+        <table>
+           <asp:Label ID="lblPHDHead" runat="server" Text="Specify Doctorate / PHD Qualification"></asp:Label>
             <tr>
                 <td colspan="2">
-                    <asp:DropDownList ID="ddlPHD" runat="server" Height="16px" Width="346px">
-                        <asp:ListItem Value="0">Select</asp:ListItem>
-                        <asp:ListItem Value="1"></asp:ListItem>
-                        <asp:ListItem Value="2"></asp:ListItem>
-                        <asp:ListItem Value="3"></asp:ListItem>
-                        <asp:ListItem Value="4" Text="Others"></asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:DropDownCheckBoxes ID="ddlPHD" runat="server" UseSelectAllNode = "false">
+                        <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                   </asp:DropDownCheckBoxes> 
                  </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblPHDSelect" runat="server" Text="Selected Qualifications" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblPHDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbPHD" runat="server">Remove All</asp:LinkButton>
@@ -404,7 +396,7 @@
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblPHDHead" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
+                    <asp:RadioButtonList ID="rblPHDHead" runat="server" RepeatDirection="Horizontal">
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
