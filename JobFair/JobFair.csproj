@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
+    <Content Include="bin\DropDownCheckBoxes.dll" />
     <Content Include="Css\Common.css" />
     <Content Include="Css\Style.css" />
     <Content Include="Forms\Common\ChangePassword.aspx" />

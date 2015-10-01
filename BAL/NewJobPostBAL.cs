@@ -42,6 +42,27 @@ namespace BAL
        {
            return Utility.GetIndustry();
        }
+
+       public static System.Data.DataSet GetUnderGraduateDiplomaBAL()
+       {
+           return Utility.GetUnderGraduateDiplomaDAL();
+       }
+       public static System.Data.DataSet GetBachelorDegreeBAL()
+       {
+           return Utility.GetBachelorDegreeDAL();
+       }
+       public static System.Data.DataSet GetPostGraduateDiplomaBAL()
+       {
+           return Utility.GetPostGraduateDiplomaDAL();
+       }
+       public static System.Data.DataSet GetMasterDegreeBAL()
+       {
+           return Utility.GetMasterDegreeDAL();
+       }
+       public static System.Data.DataSet GetDoctorOfPhilosophyBAL()
+       {
+           return Utility.GetDoctorOfPhilosophyDAL();
+       }
    }
 }
 

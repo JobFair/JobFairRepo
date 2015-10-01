@@ -346,13 +346,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblHSCHead;
         
         /// <summary>
-        /// ddlHSC control.
+        /// DropDownCheckBoxes1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHSC;
+        protected global::Saplin.Controls.DropDownCheckBoxes DropDownCheckBoxes1;
         
         /// <summary>
         /// lblHSCSelect control.
@@ -400,13 +400,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblUGDHead;
         
         /// <summary>
-        /// DropDownCheckBoxes1 control.
+        /// ddlUGDiploma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes DropDownCheckBoxes1;
+        protected global::Saplin.Controls.DropDownCheckBoxes ddlUGDiploma;
         
         /// <summary>
         /// lblUGDSelect control.
@@ -454,13 +454,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblBDHead;
         
         /// <summary>
-        /// ddlBD control.
+        /// ddlBachelorsDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBD;
+        protected global::Saplin.Controls.DropDownCheckBoxes ddlBachelorsDegree;
         
         /// <summary>
         /// lblBDSelect control.
@@ -508,13 +508,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblPGDHead;
         
         /// <summary>
-        /// ddlPGD control.
+        /// ddlPGDiploma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPGD;
+        protected global::Saplin.Controls.DropDownCheckBoxes ddlPGDiploma;
         
         /// <summary>
         /// lblPGDSelect control.
@@ -562,13 +562,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblMDHead;
         
         /// <summary>
-        /// ddlMD control.
+        /// ddlMasterDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMD;
+        protected global::Saplin.Controls.DropDownCheckBoxes ddlMasterDegree;
         
         /// <summary>
         /// lblMDSelect control.
@@ -622,7 +622,7 @@ namespace JobFair.Forms.Recruiter {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPHD;
+        protected global::Saplin.Controls.DropDownCheckBoxes ddlPHD;
         
         /// <summary>
         /// lblPHDSelect control.
