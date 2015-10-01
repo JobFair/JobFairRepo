@@ -7,20 +7,25 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.Recruiter
 {
-    public partial class CreateQuestionary : System.Web.UI.Page
+    public partial class Questionrie : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
- 
-            }
 
         }
 
+        protected void Wizard1_NextButtonClick(object sender, WizardNavigationEventArgs e)
+        {
+            txtAnswer.Text = ddlquestiontype.SelectedItem.Text;
+
+            
+
+        }
+
+    
+       
       
 
-        
-       
+      
     }
 }

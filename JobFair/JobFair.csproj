@@ -92,9 +92,9 @@
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
-    <Content Include="Forms\Recruiter\Questionarie.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
+    <Content Include="Forms\Recruiter\Questionrie.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="UserControls\JobSeeker\ProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
@@ -236,13 +236,6 @@
     <Compile Include="Forms\Recruiter\ClientRequirements.aspx.designer.cs">
       <DependentUpon>ClientRequirements.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Recruiter\Questionarie.aspx.cs">
-      <DependentUpon>Questionarie.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\Questionarie.aspx.designer.cs">
-      <DependentUpon>Questionarie.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Recruiter\LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,6 +249,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\Questionrie.aspx.cs">
+      <DependentUpon>Questionrie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\Questionrie.aspx.designer.cs">
+      <DependentUpon>Questionrie.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\ViewProfile.aspx.cs">
       <DependentUpon>ViewProfile.aspx</DependentUpon>
