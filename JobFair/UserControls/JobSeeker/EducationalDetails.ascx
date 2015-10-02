@@ -499,7 +499,7 @@
     <table style="background-color: #C0C0C0">
         <tr>
             <td>
-                <div id="divCertification" runat="server" visible="false">
+               <%-- <div id="divCertification" runat="server" visible="true">--%>
                     <asp:Panel ID="pnlCollapsableCert" runat="server" Height="0" Width="300px">
                         <uc2:MoreCertifications ID="MoreCertifications1" runat="server" />
                     </asp:Panel>
@@ -511,10 +511,10 @@
                         ExpandDirection="Vertical"
                         TargetControlID="pnlCollapsableCert"
                         ScrollContents="false"></ajax:CollapsiblePanelExtender>
-                </div>
+               <%-- </div>--%>
             </td>
             <td>
-                <div id="divWorkshop" runat="server" visible="false">
+               <%-- <div id="divWorkshop" runat="server" visible="true">--%>
                     <asp:Panel ID="pnlCollapsableWork" runat="server" Height="0" Width="300px">
                         <uc3:MoreWorkshops ID="MoreWorkshops1" runat="server" />
                     </asp:Panel>
@@ -526,7 +526,7 @@
                         ExpandDirection="Vertical"
                         TargetControlID="pnlCollapsableWork"
                         ScrollContents="false"></ajax:CollapsiblePanelExtender>
-                </div>
+               <%-- </div>--%>
             </td>
         </tr>
     </table>

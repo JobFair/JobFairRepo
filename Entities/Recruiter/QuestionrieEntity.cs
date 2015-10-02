@@ -9,9 +9,10 @@ namespace Entities.Recruiter
  public class  QuestionrieEntity
 
     {
-
-     public string QuestionType { get; set; }
-     public string Question { get; set; }
+     public string  Question { get; set; }
      public string Answer { get; set; }
+     public string QuestionType { get; set; }
+    
+    
     }
 }
