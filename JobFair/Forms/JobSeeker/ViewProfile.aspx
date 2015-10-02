@@ -479,6 +479,57 @@
                 <tr>
                     <td>
 
+                        Graduation</td>
+                    <td>
+                        <asp:DropDownList ID="ddlGraduation" runat="server"></asp:DropDownList>                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Passing Year
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlPassingYearGraduate" runat="server"></asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Post Graduation
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlPostGraduation1" runat="server"></asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Passing Year
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlPassingYearPostGraduate1" runat="server"></asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        PG Diploma
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlPgDiploma" runat="server"></asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Passing Year
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlPGDiplomaPassingYear1" runat="server"></asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        UG Diploma
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlUGDiploma1" runat="server"></asp:DropDownList>
                     </td>
                 </tr>
             </table>

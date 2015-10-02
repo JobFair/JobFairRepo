@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using Entities.Recruiter;
+using BAL;
 
 namespace JobFair.Forms.Recruiter
 {
@@ -14,15 +18,26 @@ namespace JobFair.Forms.Recruiter
 
         }
 
-        protected void Wizard1_NextButtonClick(object sender, WizardNavigationEventArgs e)
+        protected void btnAdd_Click(object sender, EventArgs e)
         {
-            txtAnswer.Text = ddlquestiontype.SelectedItem.Text;
-
-            
-
+            txtquestion.Visible = true;
+            txtquestion.Enabled = true;
         }
 
-    
+        protected void btnAddAnswer_Click(object sender, EventArgs e)
+        {
+            txtanswer.Visible = true;
+            txtanswer.Enabled = true;
+        }
+
+        protected void Wizard1_FinishButtonClick(object sender, WizardNavigationEventArgs e)
+        {
+            //QuestionrieEntity questionrientity = new QuestionrieEntity();
+            //QuestionrieBAL questionrieBAL = new QuestionrieBAL();
+            //questionrientity.QuestionType = ;
+        }
+
+       
        
       
 

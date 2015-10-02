@@ -258,6 +258,7 @@
     <Compile Include="Forms\Recruiter\Questionrie.aspx.designer.cs">
       <DependentUpon>Questionrie.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Recruiter\QuestionrieBAL.cs" />
     <Compile Include="Forms\Recruiter\ViewProfile.aspx.cs">
       <DependentUpon>ViewProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

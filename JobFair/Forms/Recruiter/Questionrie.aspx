@@ -5,46 +5,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        #question {
+            width: 240px;
+        }
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="height: 630px; margin-bottom: 0px">
-        <asp:Wizard ID="Wizard1" runat="server" style="margin-right: 482px" Width="564px" ActiveStepIndex="1" OnNextButtonClick="Wizard1_NextButtonClick">
+        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" OnFinishButtonClick="Wizard1_FinishButtonClick">
             <WizardSteps>
                 <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
-                    <br />
-                    <asp:Label ID="lblquestion" runat="server" Text="Enter Question"></asp:Label>
-                    &nbsp;&nbsp;
-                    <asp:TextBox ID="txtquestion" runat="server" Width="306px"></asp:TextBox>
-                    <br />
-                    <br />
-                    <asp:Label ID="Label1" runat="server" Text="Choose Your Question Type"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                    <asp:DropDownList ID="ddlquestiontype" runat="server" style="height: 22px">
-                        <asp:ListItem> TextBox </asp:ListItem>
-                           <asp:ListItem> RediobButtonList </asp:ListItem>
-                           <asp:ListItem> CheckBoxList </asp:ListItem>
-                                 <asp:ListItem> ListMenu </asp:ListItem>
-                    </asp:DropDownList>
-                    <br />
-                    <br />
-                    <br />
-                </asp:WizardStep>
+                   <div "height: 630px; margin-bottom: 0px">
+                <table class="auto-style1">
+            <tr>
+                <td>
+                    <asp:Label ID="lblque" runat="server" Text="Enter Question"></asp:Label></td>
+                <td><div id="DivQuestion">
+                    <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click"/>
+                    <asp:TextBox ID="txtquestion" runat="server" Enabled="False" Visible="False"></asp:TextBox>
+                    </div></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblanswer" runat="server" Text="Enter Answer"></asp:Label>
+                </td>
+                 <td><div id="DivAnswer">
+                    <asp:Button ID="btnAddAnswer" runat="server" Text="AddAnswer" OnClick="btnAddAnswer_Click"/>
+                    <asp:TextBox ID="txtanswer" runat="server" Enabled="False" Visible="False"></asp:TextBox>
+                    </div></td>
+            </tr>
+                    <tr>
+                     <td><div id="DivQuestionType">
+                    <asp:Button ID="Button1" runat="server" Text="AddQuestionType" OnClick="btnAddAnswer_Click"/>
+                    <asp:TextBox ID="txtquestionType" runat="server" Enabled="False" Visible="False"></asp:TextBox>
+                    </div></td>
+            </tr>
+        </table>
+       
+    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:WizardStep>
                 <asp:WizardStep ID="WizardStep2" runat="server" Title="Step 2">
-                    <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
-                    &nbsp;&nbsp;&nbsp;
                     <br />
                     <br />
-                    <asp:CheckBoxList ID="CheckBoxList1" runat="server">
-                        <asp:ListItem> Yes</asp:ListItem>
-                         <asp:ListItem>No</asp:ListItem>
-                    </asp:CheckBoxList>
                     <br />
                     <br />
-                </asp:WizardStep>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:WizardStep>
             </WizardSteps>
         </asp:Wizard>
-    </div>
     </form>
 </body>
 </html>
