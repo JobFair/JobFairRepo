@@ -54,6 +54,7 @@
     <Compile Include="PersonalDetailsJSBAL.cs" />
     <Compile Include="ProjectDetailsBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionrieBAL.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />
     <Compile Include="RegisterRecruiterBAL.cs" />
     <Compile Include="ViewProfileREBAL.cs" />

@@ -1030,15 +1030,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtPHDPercentage;
         
         /// <summary>
-        /// divCertification control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCertification;
-        
-        /// <summary>
         /// pnlCollapsableCert control.
         /// </summary>
         /// <remarks>
@@ -1064,15 +1055,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CollapsiblePanelExtender colPanelExtenderCert;
-        
-        /// <summary>
-        /// divWorkshop control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divWorkshop;
         
         /// <summary>
         /// pnlCollapsableWork control.

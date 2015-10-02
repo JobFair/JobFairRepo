@@ -12,23 +12,22 @@ namespace JobFair.Forms.Recruiter
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            { 
-            BindDropDownIndustry();
-            BindDropDownDepartment();
-            BindDropDownFunctionalArea();
-            BindUnderGraduateDiploma();
-            BindPostGraduateDiploma();
-            BindMasterDegree();
-            BindDoctorOfPhilosophy();
-            BindBachelorDegree();
+            if (!IsPostBack)
+            {
+                BindDropDownIndustry();
+                BindDropDownDepartment();
+                BindDropDownFunctionalArea();
+                BindUnderGraduateDiploma();
+                BindPostGraduateDiploma();
+                BindMasterDegree();
+                BindDoctorOfPhilosophy();
+                BindBachelorDegree();
             }
         }
-       
+
         /// <summary>
         /// Method for binding Dropdown with Industry_table of database
         /// </summary>
-       
 
         private void BindDropDownIndustry()
         {
@@ -38,8 +37,8 @@ namespace JobFair.Forms.Recruiter
             ddlIndustry.DataValueField = "IndustryId";
             ddlIndustry.DataBind();
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
-            
         }
+
         /// <summary>
         /// Method for binding Dropdown with Department_table of database
         /// </summary>
@@ -53,6 +52,9 @@ namespace JobFair.Forms.Recruiter
             ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        /// Method for binding Dropdown with functionalarea_table of database
+        /// </summary>
         private void BindDropDownFunctionalArea()
         {
             ddlFunArea.DataSource = NewJobPostBAL.FunctionalArea();
@@ -61,6 +63,10 @@ namespace JobFair.Forms.Recruiter
             ddlFunArea.DataBind();
             ddlFunArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
+        /// <summary>
+        /// Binding dropdown with UnderGraduateDiploma
+        /// </summary>
         private void BindUnderGraduateDiploma()
         {
             ddlUGDiploma.DataSource = NewJobPostBAL.GetUnderGraduateDiplomaBAL();
@@ -69,6 +75,10 @@ namespace JobFair.Forms.Recruiter
             ddlUGDiploma.DataBind();
             ddlUGDiploma.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
+        /// <summary>
+        /// Binding dropdown with PostGraduateDiploma
+        /// </summary>
         private void BindPostGraduateDiploma()
         {
             ddlPGDiploma.DataSource = NewJobPostBAL.GetPostGraduateDiplomaBAL();
@@ -77,6 +87,10 @@ namespace JobFair.Forms.Recruiter
             ddlPGDiploma.DataBind();
             ddlPGDiploma.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
+        /// <summary>
+        /// Binding dropdown with MasterDegree
+        /// </summary>
         private void BindMasterDegree()
         {
             ddlMasterDegree.DataSource = NewJobPostBAL.GetMasterDegreeBAL();
@@ -85,6 +99,10 @@ namespace JobFair.Forms.Recruiter
             ddlMasterDegree.DataBind();
             ddlMasterDegree.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
+        /// <summary>
+        /// Binding dropdown with DoctorOfPhilosophy
+        /// </summary>
         private void BindDoctorOfPhilosophy()
         {
             ddlPHD.DataSource = NewJobPostBAL.GetDoctorOfPhilosophyBAL();
@@ -93,6 +111,10 @@ namespace JobFair.Forms.Recruiter
             ddlPHD.DataBind();
             ddlPHD.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
+        /// <summary>
+        /// Binding dropdown with BachelorDegree
+        /// </summary>
         private void BindBachelorDegree()
         {
             ddlBachelorsDegree.DataSource = NewJobPostBAL.GetBachelorDegreeBAL();
@@ -102,10 +124,6 @@ namespace JobFair.Forms.Recruiter
             ddlBachelorsDegree.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
-        /// <summary>
-        /// Method for binding Dropdown with functionalarea_table of database
-        /// </summary>
-        /// 
         /// <summary>
         /// Handles the Click event of the btnPostjob control of current job details
         /// </summary>
@@ -124,16 +142,16 @@ namespace JobFair.Forms.Recruiter
                 int Years = ToYear.Year - FromYear.Year;
                 int Month = ToYear.Month - FromYear.Month;
                 Label2.Text = Years + "Years-" + Month + "Months";
-              
+
                 NewJobPostBAL addJobPostBAL = new NewJobPostBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
-              
+
                 addJobPostEntity.RecruiterID = "RE1";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
                 addJobPostEntity.JobLocationCity = txtJobLocation.Text.Trim();
                 addJobPostEntity.JobLocationArea = txtJobLocationArea.Text.Trim();
                 addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
-                addJobPostEntity.IndustryId = Convert.ToInt32( ddlIndustry.SelectedValue);
+                addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
                 addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
                 addJobPostEntity.FunctionalAreaId = Convert.ToInt32(ddlFunArea.SelectedValue);
                 addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
@@ -162,7 +180,5 @@ namespace JobFair.Forms.Recruiter
                 Label1.Text = ex.Message.ToString();
             }
         }
-
-      
     }
 }

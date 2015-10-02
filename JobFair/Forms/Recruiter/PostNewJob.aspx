@@ -274,7 +274,7 @@
         <br />
         <br />
        <table>
-           <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification"></asp:Label>asp:Label>
+           <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification"></asp:Label>
             <tr>
                 <td colspan="2">
                      <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode = "false">
@@ -310,7 +310,7 @@
            <asp:Label ID="lblPGDHead" runat="server" Text="Specify PG Deploma Qualification"></asp:Label>
             <tr>
                 <td>
-                   <asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode = "false" >
+                   <asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode = "false"  >
                        <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                    </asp:DropDownCheckBoxes>
                  </td>
