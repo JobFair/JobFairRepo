@@ -110,6 +110,7 @@
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
     <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
+    <Content Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
     <Content Include="UserControls\Recruiter\ContactPerson.ascx" />
@@ -122,7 +123,6 @@
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
     <Content Include="Forms\Employer\HomePageEmployer.Master" />
-    <Content Include="WebForm1.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -333,6 +333,13 @@
     <Compile Include="UserControls\JobSeeker\ProfessionalDetails.ascx.designer.cs">
       <DependentUpon>ProfessionalDetails.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx.cs">
+      <DependentUpon>TechnicalSkillsDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx.designer.cs">
+      <DependentUpon>TechnicalSkillsDetails.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx.cs">
       <DependentUpon>AddNewRequirementOfClient.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -417,13 +424,6 @@
     </Compile>
     <Compile Include="UserControls\Recruiter\AddOfferedCandidates.ascx.designer.cs">
       <DependentUpon>AddOfferedCandidates.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
