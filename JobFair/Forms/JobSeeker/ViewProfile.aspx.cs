@@ -105,8 +105,71 @@ namespace JobFair.Forms.JobSeeker
             divLabelEmployer.Visible = true;
         }
 
+        protected void lbAddmoreProject1_Click(object sender, EventArgs e)
+        {
+
+            divTextBoxProjectDetails.Visible = true;
+            divLabelProjectDetails.Visible = false;
+        }
+
+        protected void btnUpdateEducation_Click(object sender, EventArgs e)
+        {
+            divLabelEducation.Visible = false;
+            divTextBoxEducation.Visible = true;
+        }
+
+        protected void btnAddEduaction_Click(object sender, EventArgs e)
+        {
+            divTextBoxEducation.Visible = false;
+            divLabelEducation.Visible = true;
+        }
+
+        protected void btnCancelEducation_Click(object sender, EventArgs e)
+        {
+            divTextBoxEducation.Visible = false;
+            divLabelEducation.Visible = true;   
+        }
+
+        protected void btnUpdateProject_Click(object sender, EventArgs e)
+        {
+            divLabelProjectDetails.Visible = false;
+            divTextBoxProjectDetails.Visible = true;
+        }
+
+        protected void btnAddProject_Click(object sender, EventArgs e)
+        {
+            divTextBoxProjectDetails.Visible = false;
+            divLabelProjectDetails.Visible = true;
+        }
+
+        protected void btnCancelProject_Click(object sender, EventArgs e)
+        {
+            divTextBoxProjectDetails.Visible = false;
+            divLabelProjectDetails.Visible = true;
+        }
+
+        protected void btnUpdateIndustry_Click(object sender, EventArgs e)
+        {
+            divLabelIndustry.Visible = false;
+            divTextBoxIndustry.Visible = true;
+        }
+
+        protected void btnAddIndustry_Click(object sender, EventArgs e)
+        {
+            divTextBoxIndustry.Visible = false;
+            divLabelIndustry.Visible = true;
+        }
+
+        protected void btnCancelIndustry_Click(object sender, EventArgs e)
+        {
+            divTextBoxIndustry.Visible = false;
+            divLabelIndustry.Visible = true;
+        }
+
+
        
-      
+            
+             
 
        
      
