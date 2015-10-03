@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using Entities.JobSeeker;
-using System.Data.SqlClient;
+﻿using Entities.Recruiter;
+using System;
 using System.Configuration;
-using Entities.Recruiter;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DAL
-{ 
+{
     /// <summary>
     /// jop post
     /// </summary>
@@ -22,15 +17,13 @@ namespace DAL
         /// <param name="jobpostEntity">Object for inserting data into database</param>
         /// <returns>System.String</returns>
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        
-       
+
         public int JobPostDAL(AddJobPostEntity jobpostEntity)
         {
             try
             {
                 connection.Open();
                 SqlParameter[] sqlparams ={
-                                           
                                             new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
                                             new SqlParameter("@JobTitle",jobpostEntity.JobTitle),
                                             new SqlParameter("@JobLocationCity",jobpostEntity.JobLocationCity),
@@ -49,22 +42,24 @@ namespace DAL
                                             new SqlParameter("@OtherSalaryDetails",jobpostEntity.OtherSalaryDetails),
                                             new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
                                             new  SqlParameter("@PostedDate",jobpostEntity.PostedDate)
-
                                         };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
                 return result;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
-
-
-
-       
+        /// <summary>
+        /// DAL for GetQuestions 
+        /// </summary>
+        /// <returns></returns>
+        public DataSet GetQuestionsDAL()
+        {
+            DataSet ds = new DataSet();
+            ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from RE_Questionrie");
+            return ds;
+        }
     }
-
 }

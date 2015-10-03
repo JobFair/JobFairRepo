@@ -1,6 +1,7 @@
 ﻿using CommonUtil;
 using DAL;
 using Entities.Recruiter;
+using System.Data;
 
 namespace BAL
 {
@@ -87,6 +88,16 @@ namespace BAL
         public static System.Data.DataSet GetDoctorOfPhilosophyBAL()
         {
             return Utility.GetDoctorOfPhilosophyDAL();
+        }
+
+        /// <summary>
+        /// BAL for GetQuestions
+        /// </summary>
+        /// <returns></returns>
+        public DataSet GetQuestionsBAL()
+        {
+            NewJobPostDAL newJobPostDAL = new NewJobPostDAL();
+            return newJobPostDAL.GetQuestionsDAL();
         }
     }
 }

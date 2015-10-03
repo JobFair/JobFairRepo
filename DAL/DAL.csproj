@@ -62,6 +62,7 @@
     <Compile Include="RegisterJobSeekerDAL.cs" />
     <Compile Include="RegisterRecruiterDAL.cs" />
     <Compile Include="SqlHelper.cs" />
+    <Compile Include="TechnicalSkillsDetailsDAL.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
     <Compile Include="ViewProfileREDAL.cs" />
   </ItemGroup>

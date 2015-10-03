@@ -57,6 +57,7 @@
     <Compile Include="QuestionrieBAL.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />
     <Compile Include="RegisterRecruiterBAL.cs" />
+    <Compile Include="TechnicalSkillsDetailsBAL.cs" />
     <Compile Include="ViewProfileREBAL.cs" />
   </ItemGroup>
   <ItemGroup>

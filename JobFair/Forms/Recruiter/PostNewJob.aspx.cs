@@ -22,6 +22,7 @@ namespace JobFair.Forms.Recruiter
                 BindMasterDegree();
                 BindDoctorOfPhilosophy();
                 BindBachelorDegree();
+                BindQuestions();
             }
         }
 
@@ -122,6 +123,19 @@ namespace JobFair.Forms.Recruiter
             ddlBachelorsDegree.DataValueField = "BDId";
             ddlBachelorsDegree.DataBind();
             ddlBachelorsDegree.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        /// <summary>
+        /// Binding dropdown with Questionaries
+        /// </summary>
+        private void BindQuestions()
+        {
+            NewJobPostBAL newJobPostBAL = new NewJobPostBAL();
+            ddlQuestionary.DataSource = newJobPostBAL.GetQuestionsBAL();
+            ddlQuestionary.DataTextField = "Question";
+            ddlQuestionary.DataValueField = "QuestionId";
+            ddlQuestionary.DataBind();
+            ddlQuestionary.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         /// <summary>
