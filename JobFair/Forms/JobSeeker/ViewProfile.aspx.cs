@@ -25,6 +25,8 @@ namespace JobFair.Forms.JobSeeker
               
                 lblEmailId.Text = viewProfileEntity.EmailId;
                 lblContact.Text = viewProfileEntity.MobileNumber;
+                lblResumeTitle.Text = viewProfileEntity.ResumeTitle;
+                lblSkills.Text = viewProfileEntity.Skills;
                 
             }
             
@@ -38,7 +40,12 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnAddResumeSkills_Click(object sender, EventArgs e)
         {
-            
+
+            if (txtResumeTitle.Text != viewProfileEntity.ResumeTitle)
+            {
+                viewProfileEntity.ResumeTitle = txtResumeTitle.Text;
+            }
+            int result = viewProfileJSBAL.ResumeDetailsBAL(viewProfileEntity);
             divLabelSkills.Visible = true;
             divTextSkills.Visible = false;
         }

@@ -21,6 +21,11 @@ namespace BAL
             return viewProfileJSDAL.ChangeConatctNoDAL(viewProfileEntity);
         }
 
-       
+
+
+        public int ResumeDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        {
+            return viewProfileJSDAL.ResumeDetailsDAL(viewProfileEntity);
+        }
     }
 }

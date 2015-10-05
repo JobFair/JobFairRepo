@@ -43,5 +43,14 @@ namespace DAL
             int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateContactDetails, sparams);
             return result;
         }
+
+        public int ResumeDetailsDAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        {
+            SqlParameter[] sparams = new SqlParameter[2];
+            sparams[0] = new SqlParameter("@id", "JS12");
+            int result=1;
+            return result;
+ 
+        }
     }
 }

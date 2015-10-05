@@ -15,5 +15,9 @@ namespace Entities.JobSeeker
         public string MobileNumber { get; set; }
 
         public string EmailId { get; set; }
+
+        public string ResumeTitle { get; set; }
+
+        public string Skills { get; set; }
     }
 }

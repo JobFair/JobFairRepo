@@ -481,7 +481,7 @@
                 </div>
                 <br />
                 <div id="divTextBoxEducation" runat="server" visible="false">
-                    <<%--table--%>>
+                    <table>
                         <tr>
                             <td colspan="2"><b>Educational Details</b></td>
                         </tr>
