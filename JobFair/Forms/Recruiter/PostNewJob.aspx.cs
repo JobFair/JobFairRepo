@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.Recruiter
 {
-    public partial class PostNewJob1 : System.Web.UI.Page
+    public partial class PostNewJob : System.Web.UI.Page
     {
         private DataSet ds = new DataSet();
 
@@ -192,6 +192,17 @@ namespace JobFair.Forms.Recruiter
             catch (Exception ex)
             {
                 Label1.Text = ex.Message.ToString();
+            }
+        }
+
+        protected void DropDownCheckBoxes1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListItem item in DropDownCheckBoxes1.Items)
+            {
+                if (item.Selected)
+                {
+                    lblHSCSelect.Text = item.Text;
+                }
             }
         }
     }
