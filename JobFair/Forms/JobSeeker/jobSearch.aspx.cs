@@ -1,4 +1,5 @@
 ﻿using BAL;
+using CommonUtil;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,7 +10,7 @@ namespace JobFair.Forms.JobSeeker
     public partial class jobSearch : System.Web.UI.Page
     {
         private DataSet ds = new DataSet();
-
+          private EducationalDetailsBAL educationalDetails = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             //GetDataFromSession();
@@ -63,8 +64,11 @@ namespace JobFair.Forms.JobSeeker
 
         private void FiilEducationCheckboxList()
         {
-            ds = JobSearchBAL.GetEducation();
-            chkEducation.DataSource = ds;
+            educationalDetails = new EducationalDetailsBAL();
+            DataSet degreeData = new DataSet();
+            // Get educational degree type details
+            degreeData = educationalDetails.GetEducationalDegreeTypeBAL();
+            chkEducation.DataSource = degreeData;
             chkEducation.DataTextField = "degreeType";
             chkEducation.DataValueField = "degreeId";
             chkEducation.DataBind();

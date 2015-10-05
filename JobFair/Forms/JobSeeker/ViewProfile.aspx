@@ -622,7 +622,7 @@
                             <asp:Button ID="btnCancelEducation" runat="server" Text="Cancel" OnClick="btnCancelEducation_Click" />
                         </td>
                     </tr>
-                    </%--table--%>
+                    <table>
                 </div>
             </div>
         </ContentTemplate>

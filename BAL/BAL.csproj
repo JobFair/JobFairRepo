@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="AdvanceJobSearchBAL.cs" />
     <Compile Include="ClientRequirementsBAL.cs" />
-    <Compile Include="NewJobPostBAL.cs" />
+    <Compile Include="PostNewJobBAL.cs" />
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ClientDetailsBAL.cs" />
     <Compile Include="ContactDetailsJSBAL.cs" />
