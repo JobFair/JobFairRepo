@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.Recruiter
 {
-    public partial class PostNewJob1 : System.Web.UI.Page
+    public partial class PostNewJob : System.Web.UI.Page
     {
         private DataSet ds = new DataSet();
 
@@ -32,7 +32,7 @@ namespace JobFair.Forms.Recruiter
 
         private void BindDropDownIndustry()
         {
-            ds = NewJobPostBAL.GetIndustry();
+            ds = PostNewJobBAL.GetIndustry();
             ddlIndustry.DataSource = ds;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
@@ -45,7 +45,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindDropDownDepartment()
         {
-            ds = NewJobPostBAL.GetDepartment();
+            ds = PostNewJobBAL.GetDepartment();
             ddlDepartment.DataSource = ds;
             ddlDepartment.DataTextField = "DepartmentName";
             ddlDepartment.DataValueField = "DepartmentId";
@@ -58,7 +58,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindDropDownFunctionalArea()
         {
-            ddlFunArea.DataSource = NewJobPostBAL.FunctionalArea();
+            ddlFunArea.DataSource = PostNewJobBAL.FunctionalArea();
             ddlFunArea.DataTextField = "FunctionalArea";
             ddlFunArea.DataValueField = "FunctionalAreaId";
             ddlFunArea.DataBind();
@@ -70,7 +70,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindUnderGraduateDiploma()
         {
-            ddlUGDiploma.DataSource = NewJobPostBAL.GetUnderGraduateDiplomaBAL();
+            ddlUGDiploma.DataSource = PostNewJobBAL.GetUnderGraduateDiplomaBAL();
             ddlUGDiploma.DataTextField = "UGDName";
             ddlUGDiploma.DataValueField = "UGDID";
             ddlUGDiploma.DataBind();
@@ -82,7 +82,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindPostGraduateDiploma()
         {
-            ddlPGDiploma.DataSource = NewJobPostBAL.GetPostGraduateDiplomaBAL();
+            ddlPGDiploma.DataSource = PostNewJobBAL.GetPostGraduateDiplomaBAL();
             ddlPGDiploma.DataTextField = "PGDName";
             ddlPGDiploma.DataValueField = "PGDId";
             ddlPGDiploma.DataBind();
@@ -94,7 +94,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindMasterDegree()
         {
-            ddlMasterDegree.DataSource = NewJobPostBAL.GetMasterDegreeBAL();
+            ddlMasterDegree.DataSource = PostNewJobBAL.GetMasterDegreeBAL();
             ddlMasterDegree.DataTextField = "MDName";
             ddlMasterDegree.DataValueField = "MDId";
             ddlMasterDegree.DataBind();
@@ -106,7 +106,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindDoctorOfPhilosophy()
         {
-            ddlPHD.DataSource = NewJobPostBAL.GetDoctorOfPhilosophyBAL();
+            ddlPHD.DataSource = PostNewJobBAL.GetDoctorOfPhilosophyBAL();
             ddlPHD.DataTextField = "PHDName";
             ddlPHD.DataValueField = "PHDId";
             ddlPHD.DataBind();
@@ -118,7 +118,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindBachelorDegree()
         {
-            ddlBachelorsDegree.DataSource = NewJobPostBAL.GetBachelorDegreeBAL();
+            ddlBachelorsDegree.DataSource = PostNewJobBAL.GetBachelorDegreeBAL();
             ddlBachelorsDegree.DataTextField = "BDName";
             ddlBachelorsDegree.DataValueField = "BDId";
             ddlBachelorsDegree.DataBind();
@@ -130,7 +130,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         private void BindQuestions()
         {
-            NewJobPostBAL newJobPostBAL = new NewJobPostBAL();
+            PostNewJobBAL newJobPostBAL = new PostNewJobBAL();
             ddlQuestionary.DataSource = newJobPostBAL.GetQuestionsBAL();
             ddlQuestionary.DataTextField = "Question";
             ddlQuestionary.DataValueField = "QuestionId";
@@ -157,7 +157,7 @@ namespace JobFair.Forms.Recruiter
                 int Month = ToYear.Month - FromYear.Month;
                 Label2.Text = Years + "Years-" + Month + "Months";
 
-                NewJobPostBAL addJobPostBAL = new NewJobPostBAL();
+                PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
 
                 addJobPostEntity.RecruiterID = "RE1";
@@ -192,6 +192,17 @@ namespace JobFair.Forms.Recruiter
             catch (Exception ex)
             {
                 Label1.Text = ex.Message.ToString();
+            }
+        }
+
+        protected void DropDownCheckBoxes1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListItem item in DropDownCheckBoxes1.Items)
+            {
+                if (item.Selected)
+                {
+                    lblHSCSelect.Text = item.Text;
+                }
             }
         }
     }

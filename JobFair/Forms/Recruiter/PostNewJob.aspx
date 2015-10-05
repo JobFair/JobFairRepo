@@ -1,14 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/Recruiter/RecruiterHome.Master" AutoEventWireup="true" CodeBehind="PostNewJob.aspx.cs" Inherits="JobFair.Forms.Recruiter.PostNewJob1" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="PostNewJob.aspx.cs" Inherits="JobFair.Forms.Recruiter.PostNewJob" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
-</asp:Content>
+<!DOCTYPE html>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <table>
-        <tr>
             <td>
                 <h1>Post New Job</h1>
             </td>
@@ -20,6 +25,9 @@
             </td>
         </tr>
         <tr>
+
+
+
             <td>Job Locations</td>
             <td>
                 <asp:TextBox ID="txtJobLocation" runat="server"></asp:TextBox>
@@ -102,7 +110,7 @@
                     <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Male</asp:ListItem>
                     <asp:ListItem>Female</asp:ListItem>
-                    <asp:ListItem>Both</asp:ListItem>
+                    <asp:ListItem>Both [Male/Female]</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -177,21 +185,13 @@
        <table>
             <asp:Label ID="lblSSCHead" runat="server" Text="Specify SSC / 10th Qualification"></asp:Label>
              <tr>
-                <td>
-                    <asp:Label ID="lblSSCSelect" runat="server" Text="Selected Qualifications"></asp:Label>
-                </td>
-                 <td>
-                     <asp:LinkButton ID="lbSSC" runat="server">Remove All</asp:LinkButton>
-                 </td>
-            </tr>
-            <tr>
                 <td colspan="2">
-                    <asp:Label ID="lblSSCTag" runat="server">Empty</asp:Label>
+                    <asp:Label ID="lblSSCTag" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblSSC" runat="server" RepeatDirection="Horizontal" >
+                    <asp:RadioButtonList ID="rblSSC" runat="server" RepeatDirection="Horizontal">
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
@@ -201,10 +201,11 @@
            <br />
            <br />
            <table style="width: 358px">
-           <asp:Label ID="lblHSCHead" runat="server" Text="Specify HSC / 12th Qualification" ></asp:Label>
+            <asp:Label ID="lblHSCHead" runat="server" Text="Specify HSC / 12th Qualification"></asp:Label>
             <tr>
+
                 <td colspan="2">
-                    <asp:DropDownCheckBoxes ID="DropDownCheckBoxes1" runat="server"  UseSelectAllNode = "false">
+                    <asp:DropDownCheckBoxes ID="DropDownCheckBoxes1" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="DropDownCheckBoxes1_SelectedIndexChanged" AutoPostBack="true">
     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
     <Items>
         <asp:ListItem Value="0">Select</asp:ListItem>
@@ -218,19 +219,15 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblHSCSelect" runat="server" ></asp:Label>
+                    <asp:Label ID="lblHSCSelect" runat="server"></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbHSC" runat="server">Remove All</asp:LinkButton>
                  </td>
             </tr>
+           
             <tr>
                 <td colspan="2">
-                    <asp:Label ID="lblHSCTag" runat="server" >Empty</asp:Label>
-                </td>
-            </tr>
-            <tr>
-            <td colspan="2">
                     <asp:RadioButtonList ID="rblHSC" runat="server" RepeatDirection="Horizontal">
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
@@ -244,14 +241,14 @@
            <asp:Label ID="lblUGDHead" runat="server" Text="Specify UG Diploma Qualification"></asp:Label>
             <tr>
                 <td colspan="2">
-                   <asp:DropDownCheckBoxes ID="ddlUGDiploma" runat="server" UseSelectAllNode = "false" >
+                    <asp:DropDownCheckBoxes ID="ddlUGDiploma" runat="server" UseSelectAllNode="false">
                          <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                    </asp:DropDownCheckBoxes>
                  </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblUGDSelect" runat="server"  ></asp:Label>
+                    <asp:Label ID="lblUGDSelect" runat="server"></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbUGD" runat="server">Remove All</asp:LinkButton>
@@ -277,7 +274,7 @@
            <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification"></asp:Label>
             <tr>
                 <td colspan="2">
-                     <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode = "false">
+                    <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode="false">
                          <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                    </asp:DropDownCheckBoxes>
                  </td>
@@ -310,7 +307,7 @@
            <asp:Label ID="lblPGDHead" runat="server" Text="Specify PG Deploma Qualification"></asp:Label>
             <tr>
                 <td>
-                   <asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode = "false"  >
+                    <asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode="false">
                        <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                    </asp:DropDownCheckBoxes>
                  </td>
@@ -330,7 +327,7 @@
             </tr>
             <tr>
             <td colspan="2">
-                    <asp:RadioButtonList ID="rblPGD" runat="server" RepeatDirection="Horizontal" >
+                    <asp:RadioButtonList ID="rblPGD" runat="server" RepeatDirection="Horizontal">
                         <asp:ListItem>And</asp:ListItem>
                         <asp:ListItem>Or</asp:ListItem>
                     </asp:RadioButtonList>
@@ -339,18 +336,18 @@
         </table>
         <br />
         <br />
-        <table >
-           <asp:Label ID="lblMDHead" runat="server" Text="Specify Master Degree Qualification" ></asp:Label>
+        <table>
+            <asp:Label ID="lblMDHead" runat="server" Text="Specify Master Degree Qualification"></asp:Label>
             <tr>
                 <td colspan="2">
-                     <asp:DropDownCheckBoxes ID="ddlMasterDegree" runat="server" UseSelectAllNode = "false">
+                    <asp:DropDownCheckBoxes ID="ddlMasterDegree" runat="server" UseSelectAllNode="false">
                          <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                    </asp:DropDownCheckBoxes>
                  </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblMDSelect" runat="server" Text="Selected Qualifications" ></asp:Label>
+                    <asp:Label ID="lblMDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                 </td>
                 <td>
                      <asp:LinkButton ID="lbMD" runat="server">Remove All</asp:LinkButton>
@@ -358,7 +355,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Label ID="lblMDTag" runat="server" CssClass="label">Empty</asp:Label>
+                    <asp:Label ID="lblMDTag" runat="server" CssClass="label"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -376,7 +373,7 @@
            <asp:Label ID="lblPHDHead" runat="server" Text="Specify Doctorate / PHD Qualification"></asp:Label>
             <tr>
                 <td colspan="2">
-                    <asp:DropDownCheckBoxes ID="ddlPHD" runat="server" UseSelectAllNode = "false">
+                    <asp:DropDownCheckBoxes ID="ddlPHD" runat="server" UseSelectAllNode="false">
                         <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                    </asp:DropDownCheckBoxes> 
                  </td>
@@ -406,5 +403,5 @@
    </div>
     <div>
         <asp:DropDownList ID="ddlQuestionary" runat="server"></asp:DropDownList>
-    </div>
-    </asp:Content>
+    </div></div></form>
+</body></html>

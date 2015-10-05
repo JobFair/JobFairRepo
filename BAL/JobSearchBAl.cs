@@ -35,9 +35,9 @@ namespace BAL
             return Utility.GetLocation();
         }
 
-        public static System.Data.DataSet GetEducation()
+        public static System.Data.DataSet GetEducationalDegreeType()
         {
-            return Utility.GetEducation();
+            return Utility.GetEducationalDegreeTypeDAL();
         }
     }
 }

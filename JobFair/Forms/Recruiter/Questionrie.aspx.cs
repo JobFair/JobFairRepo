@@ -9,6 +9,19 @@ namespace JobFair.Forms.Recruiter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindQuestions();
+        }
+        /// <summary>
+        /// Binding dropdown with Questionaries
+        /// </summary>
+        private void BindQuestions()
+        {
+            PostNewJobBAL newJobPostBAL = new PostNewJobBAL();
+            ddlQuestionary.DataSource = newJobPostBAL.GetQuestionsBAL();
+            ddlQuestionary.DataTextField = "Question";
+            ddlQuestionary.DataValueField = "QuestionId";
+            ddlQuestionary.DataBind();
+            ddlQuestionary.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

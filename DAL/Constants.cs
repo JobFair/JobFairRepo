@@ -47,7 +47,7 @@ namespace DAL
         public const string sp_Department = "sp_Department";
         public const string sp_JS_LiveProjectDetails = "sp_JS_LiveProjectDetails";
         public const string sp_RE_insertQuestionrie = "sp_RE_insertQuestionrie";
-       
+        public const string sp_JS_UpdateContactDetails = "sp_JS_UpdateContactDetails";
 
     }
 }

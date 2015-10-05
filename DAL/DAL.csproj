@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddJobPostDAL.cs" />
+    <Compile Include="PostNewJobDAL.cs" />
     <Compile Include="ClientRequirementsDAL.cs" />
     <Compile Include="ManageJobsDAL.cs" />
     <Compile Include="ProjectDetailsDAL.cs" />
@@ -65,6 +65,7 @@
     <Compile Include="SqlHelper.cs" />
     <Compile Include="TechnicalSkillsDetailsDAL.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
+    <Compile Include="ViewProfileJSDAL.cs" />
     <Compile Include="ViewProfileREDAL.cs" />
   </ItemGroup>
   <ItemGroup>
