@@ -94,6 +94,7 @@
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
+    <Content Include="Forms\Recruiter\ManageJobs.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
@@ -243,6 +244,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ManageJobs.aspx.cs">
+      <DependentUpon>ManageJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ManageJobs.aspx.designer.cs">
+      <DependentUpon>ManageJobs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>
