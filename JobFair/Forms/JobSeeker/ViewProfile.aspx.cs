@@ -4,13 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entities.JobSeeker;
+using System.Data;
+using BAL;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewProfile : System.Web.UI.Page
     {
+        ViewProfileEntity viewProfileEntity = new ViewProfileEntity();
+        ViewProfileJSBAL viewProfileJSBAL = new ViewProfileJSBAL();
+        DataSet ds = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                ds = viewProfileJSBAL.ViewProfileBAL(viewProfileEntity);
+                lblFirstName.Text = viewProfileEntity.FirstName;
+                lblLastName.Text = viewProfileEntity.LastName;
+              
+                lblEmailId.Text = viewProfileEntity.EmailId;
+                lblContact.Text = viewProfileEntity.MobileNumber;
+                
+            }
+            
         }
 
         protected void btnResumeskills_Click(object sender, EventArgs e)
@@ -21,6 +38,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnAddResumeSkills_Click(object sender, EventArgs e)
         {
+            
             divLabelSkills.Visible = true;
             divTextSkills.Visible = false;
         }
@@ -33,8 +51,16 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            lblContact.Visible = true;
-            divContact.Visible = false;
+            if (viewProfileEntity.MobileNumber != txtContact.Text.Trim())
+            {
+                viewProfileEntity.MobileNumber = txtContact.Text.Trim();
+            }
+            int result= viewProfileJSBAL.ChangeContactNoBAL(viewProfileEntity);
+            if (result > 0)
+            {
+                lblContact.Visible = true;
+                divContact.Visible = false;
+            }
         }
 
         protected void btnCancelResumeSkills_Click(object sender, EventArgs e)
