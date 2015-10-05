@@ -23,30 +23,38 @@
                 <td>Candidate Name
                 </td>
                 <td>
-                    <asp:Label ID="lblName" runat="server"></asp:Label>
+                    <asp:Label ID="lblFirstName" runat="server" Text='<%#Eval("FirstName") %>'></asp:Label>
+                    <asp:Label ID="lblLastName" runat="server" Text='<%#Eval("LastName") %>'></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td>EmailId
                 </td>
                 <td>
-                    <asp:Label ID="lblEmailId" runat="server"></asp:Label>
+                    <asp:Label ID="lblEmailId" runat="server" Text='<%#Eval("EmailId") %>'></asp:Label>
                 </td>
             </tr>
             <tr>
+           
+                
                 <td>Contact details
                 </td>
                 <td>
+                     <asp:UpdatePanel ID="upContactDetails" runat="server"><ContentTemplate>
                     <div id="divContact" runat="server" visible="false">
-                        <asp:TextBox ID="txtContact" runat="server">
+                        <asp:TextBox ID="txtContact" runat="server" CausesValidation="true" AutoPostBack="true" Text='<%#("MobileNo") %>'>
                         </asp:TextBox>
                         <asp:Button ID="btnOk" runat="server" Text="Ok" OnClick="btnOk_Click" />
                     </div>
-                    <asp:Label ID="lblContact" runat="server" Text="contact"></asp:Label>
+                    <asp:Label ID="lblContact" runat="server" Text='<%#("MobileNo") %>'></asp:Label>
 
                     <asp:LinkButton ID="lbEditContact" runat="server" OnClick="lbEditContact_Click">Edit</asp:LinkButton>
+                          </ContentTemplate></asp:UpdatePanel>
                 </td>
-            </tr>
+           
+                                                                 
+                </tr>
+            
             <tr>
                 <td>Education
                 </td>
@@ -614,7 +622,7 @@
                             <asp:Button ID="btnCancelEducation" runat="server" Text="Cancel" OnClick="btnCancelEducation_Click" />
                         </td>
                     </tr>
-                    </table>
+                    <table>
                 </div>
             </div>
         </ContentTemplate>
@@ -845,7 +853,7 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="upResume" runat="server">
         <ContentTemplate>
-            <div id="Resume" runat="server"></div>
+             <div id="Resume" runat="server"></div>
             <table>
                 <tr>
                     <td colspan="2">
@@ -868,6 +876,8 @@
                     </td>
                 </tr>
             </table>
+            </div>
+           
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
