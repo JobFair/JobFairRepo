@@ -4,13 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entities.JobSeeker;
+using System.Data;
+using BAL;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewProfile : System.Web.UI.Page
     {
+        ViewProfileEntity viewProfileEntity = new ViewProfileEntity();
+        ViewProfileJSBAL viewProfileJSBAL = new ViewProfileJSBAL();
+        DataSet ds = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblName.Text = viewProfileEntity.FirstName;
+            viewProfileJSBAL.ViewProfileBAL(viewProfileEntity);
         }
 
         protected void btnResumeskills_Click(object sender, EventArgs e)

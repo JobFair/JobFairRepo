@@ -5,7 +5,7 @@ using System.Data;
 
 namespace BAL
 {
-    public class NewJobPostBAL
+    public class PostNewJobBAL
     {
         /// <summary>
         /// jobpost

@@ -23,7 +23,7 @@
                 <td>Candidate Name
                 </td>
                 <td>
-                    <asp:Label ID="lblName" runat="server"></asp:Label>
+                    <asp:Label ID="lblName" runat="server" Text='<%#Eval("FirstName") %>'></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -845,7 +845,7 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="upResume" runat="server">
         <ContentTemplate>
-            <div id="Resume" runat="server"></div>
+             <div id="Resume" runat="server"></div>
             <table>
                 <tr>
                     <td colspan="2">
@@ -868,6 +868,8 @@
                     </td>
                 </tr>
             </table>
+            </div>
+           
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

@@ -1,14 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/Recruiter/RecruiterHome.Master" AutoEventWireup="true" CodeBehind="PostNewJob.aspx.cs" Inherits="JobFair.Forms.Recruiter.PostNewJob1" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="PostNewJob.aspx.cs" Inherits="JobFair.Forms.Recruiter.PostNewJob" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
-</asp:Content>
+<!DOCTYPE html>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <table>
-        <tr>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <table>
             <td>
                 <h1>Post New Job</h1>
             </td>
@@ -20,6 +25,9 @@
             </td>
         </tr>
         <tr>
+
+
+
             <td>Job Locations</td>
             <td>
                 <asp:TextBox ID="txtJobLocation" runat="server"></asp:TextBox>
@@ -102,7 +110,7 @@
                     <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Male</asp:ListItem>
                     <asp:ListItem>Female</asp:ListItem>
-                    <asp:ListItem>Both</asp:ListItem>
+                    <asp:ListItem>Both [Male/Female]</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -407,4 +415,7 @@
     <div>
         <asp:DropDownList ID="ddlQuestionary" runat="server"></asp:DropDownList>
     </div>
-    </asp:Content>
+ </div>
+  </form>
+    </body>
+    </html>

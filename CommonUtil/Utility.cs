@@ -183,11 +183,5 @@ namespace CommonUtil
             Common common = new Common();
             return common.GetLocation();
         }
-
-        public static DataSet GetEducation()
-        {
-            Common common = new Common();
-            return common.GetEducation();
-        }
     }
 }
