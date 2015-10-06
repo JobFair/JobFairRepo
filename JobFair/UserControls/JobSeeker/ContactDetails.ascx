@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ContactDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ContactDetails" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 <table >
     <tr>

@@ -1,0 +1,85 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ResumeFormating.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ResumeFormating" %>
+<style type="text/css">
+    .auto-style1 {
+        width: 100%;
+    }
+    .auto-style2 {
+        width: 283px;
+    }
+</style>
+
+<table class="auto-style1">
+    <tr>
+        <td class="auto-style2">
+            <asp:Label ID="lblObjective" runat="server" Text="Objective"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtObjective" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
+            <asp:Label ID="lblSummary" runat="server" Text="Profile Summary"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtSummary" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
+            <asp:Label ID="lblKeyArea" runat="server" Text="Key Result Area"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtKeyArea" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
+            <asp:Label ID="lblRolesAndResopnsibility" runat="server" Text="Roles And Responsibility"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtRoles" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
+            <asp:Label ID="lblCompanyName" runat="server" Text="Company Name"></asp:Label>
+        </td>
+        <td>
+            <asp:DropDownList ID="ddlCompanyName" runat="server">
+            </asp:DropDownList>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
+            <asp:Label ID="lblAwards" runat="server" Text="Awards And Recognition"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtAwards" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
+            <asp:Label ID="lblExtraActivities" runat="server" Text="Extra curricular/Social Activities"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtExtraActivities" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
+            <asp:Label ID="lblHobbies" runat="server" Text="Hobbies"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtHobbies" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
+            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
