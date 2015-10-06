@@ -225,5 +225,9 @@ namespace JobFair.UserControls.JobSeeker
             txtPassportNo.Visible = false;
             txtValidity.Visible = false;
         }
+
+        
+
+       
     }
 }

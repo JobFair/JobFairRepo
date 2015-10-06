@@ -97,7 +97,9 @@
     <Content Include="Forms\Recruiter\ManageJobs.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
+    <Content Include="Forms\Recruiter\searchrecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
+    <Content Include="NewFolder1\jquery-1.11.1.min %281%29.js" />
     <Content Include="UserControls\JobSeeker\ProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
@@ -112,6 +114,7 @@
     <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ResumeFormating.ascx" />
+    <Content Include="UserControls\JobSeeker\searchRecord.ascx" />
     <Content Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
@@ -267,6 +270,13 @@
     <Compile Include="Forms\Recruiter\Questionrie.aspx.designer.cs">
       <DependentUpon>Questionrie.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Recruiter\searchrecord.aspx.cs">
+      <DependentUpon>searchrecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\searchrecord.aspx.designer.cs">
+      <DependentUpon>searchrecord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Recruiter\ViewProfile.aspx.cs">
       <DependentUpon>ViewProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -348,6 +358,13 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\ResumeFormating.ascx.designer.cs">
       <DependentUpon>ResumeFormating.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\searchRecord.ascx.cs">
+      <DependentUpon>searchRecord.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\searchRecord.ascx.designer.cs">
+      <DependentUpon>searchRecord.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx.cs">
       <DependentUpon>TechnicalSkillsDetails.ascx</DependentUpon>
