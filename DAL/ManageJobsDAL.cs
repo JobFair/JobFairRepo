@@ -24,7 +24,7 @@ namespace DAL
         {
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_SelectViewJobPost");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_SelectManageJobs");
                 return ds;
             }
             catch (Exception ex)
