@@ -17,8 +17,17 @@ namespace JobFair.Forms.JobSeeker
         DataSet ds = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblName.Text = viewProfileEntity.FirstName;
-            viewProfileJSBAL.ViewProfileBAL(viewProfileEntity);
+            if (!IsPostBack)
+            {
+                ds = viewProfileJSBAL.ViewProfileBAL(viewProfileEntity);
+                lblFirstName.Text = viewProfileEntity.FirstName;
+                lblLastName.Text = viewProfileEntity.LastName;
+              
+                lblEmailId.Text = viewProfileEntity.EmailId;
+                lblContact.Text = viewProfileEntity.MobileNumber;
+                
+            }
+            
         }
 
         protected void btnResumeskills_Click(object sender, EventArgs e)
@@ -29,6 +38,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnAddResumeSkills_Click(object sender, EventArgs e)
         {
+            
             divLabelSkills.Visible = true;
             divTextSkills.Visible = false;
         }
@@ -41,8 +51,16 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            lblContact.Visible = true;
-            divContact.Visible = false;
+            if (viewProfileEntity.MobileNumber != txtContact.Text.Trim())
+            {
+                viewProfileEntity.MobileNumber = txtContact.Text.Trim();
+            }
+            int result= viewProfileJSBAL.ChangeContactNoBAL(viewProfileEntity);
+            if (result > 0)
+            {
+                lblContact.Visible = true;
+                divContact.Visible = false;
+            }
         }
 
         protected void btnCancelResumeSkills_Click(object sender, EventArgs e)

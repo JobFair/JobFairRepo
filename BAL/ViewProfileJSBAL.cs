@@ -4,15 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
-
+using System.Data;
 namespace BAL
 {
     public class ViewProfileJSBAL
     {
-        public void ViewProfileBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+        public DataSet ViewProfileBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {
-            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
-            viewProfileJSDAL.ViewProfileDAL(viewProfileEntity);
+           
+            return viewProfileJSDAL.ViewProfileDAL(viewProfileEntity);
         }
+
+        public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        {
+            return viewProfileJSDAL.ChangeConatctNoDAL(viewProfileEntity);
+        }
+
+       
     }
 }
