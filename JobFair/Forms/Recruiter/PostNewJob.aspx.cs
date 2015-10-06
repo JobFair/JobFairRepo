@@ -160,7 +160,7 @@ namespace JobFair.Forms.Recruiter
                 PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
 
-                addJobPostEntity.RecruiterID = "RE1";
+                addJobPostEntity.RecruiterID = "RE12";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
                 addJobPostEntity.JobLocationCity = txtJobLocation.Text.Trim();
                 addJobPostEntity.JobLocationArea = txtJobLocationArea.Text.Trim();
