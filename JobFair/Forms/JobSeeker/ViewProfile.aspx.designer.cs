@@ -31,13 +31,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// lblName control.
+        /// lblFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.Label lblFirstName;
+        
+        /// <summary>
+        /// lblLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLastName;
         
         /// <summary>
         /// lblEmailId control.
@@ -346,15 +355,6 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblName1;
         
         /// <summary>
-        /// lblCommunicationEmailId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCommunicationEmailId;
-        
-        /// <summary>
         /// lblLoginMailId control.
         /// </summary>
         /// <remarks>
@@ -364,13 +364,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblLoginMailId;
         
         /// <summary>
-        /// lblMobileNo control.
+        /// lblBirthDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMobileNo;
+        protected global::System.Web.UI.WebControls.Label lblBirthDate;
         
         /// <summary>
         /// lblAge control.
@@ -409,22 +409,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTextBoxPersonal;
         
         /// <summary>
-        /// txtName control.
+        /// txtFirstNamePersonalDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstNamePersonalDetails;
         
         /// <summary>
-        /// txtComEmailid control.
+        /// txtLastNamePersonalDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComEmailid;
+        protected global::System.Web.UI.WebControls.TextBox txtLastNamePersonalDetails;
         
         /// <summary>
         /// txtLoginmailId control.
@@ -436,22 +436,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtLoginmailId;
         
         /// <summary>
-        /// txtMobileNo control.
+        /// txtBirthdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMobileNo;
+        protected global::System.Web.UI.WebControls.TextBox txtBirthdate;
         
         /// <summary>
-        /// txtAgeDate control.
+        /// txtBirthdate_CalendarExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAgeDate;
+        protected global::AjaxControlToolkit.CalendarExtender txtBirthdate_CalendarExtender;
         
         /// <summary>
         /// txtAddress control.

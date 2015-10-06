@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities.JobSeeker
 {
@@ -19,5 +15,9 @@ namespace Entities.JobSeeker
         public string ResumeTitle { get; set; }
 
         public string Skills { get; set; }
+
+        public DateTime Birthdate { get; set; }
+
+        public string Address { get; set; }
     }
 }
