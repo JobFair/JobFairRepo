@@ -55,5 +55,18 @@ namespace DAL
             return result;
  
         }
+
+        public int ChangePersonalDetailsDAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        {
+            SqlParameter[] sparams=new SqlParameter[6];
+            sparams[0] = new SqlParameter("@id", "JS12");
+            sparams[1] = new SqlParameter("@firstName", viewProfileEntity.FirstName);
+            sparams[2] = new SqlParameter("@lastName", viewProfileEntity.LastName);
+            sparams[3] = new SqlParameter("@emailId", viewProfileEntity.EmailId);
+            sparams[4] = new SqlParameter("@dateOfBirth", viewProfileEntity.Birthdate.ToShortDateString());
+            sparams[5] = new SqlParameter("@address", viewProfileEntity.Address);
+            int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_UpdatePersonalDetails", sparams);
+            return result;
+        }
     }
 }
