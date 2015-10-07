@@ -2,6 +2,7 @@
 {
     public class ResumeFormatingEntity
     {
+        //ResumeFormatingEntity
         public string CandidateId { get; set; }
         public string Objective { get; set; }
         public string ProfileSummary { get; set; }

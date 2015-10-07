@@ -8,8 +8,13 @@ namespace DAL
 {
     public class ResumeFormatingDAL
     {
-        private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// Save resume formate
+        /// </summary>
+        /// <param name="resumeFomatingEntity">Object for inserting data into database</param>
+        /// <returns>System.Int32</returns>
         public int SaveResumeFormatateDAL(ResumeFormatingEntity resumeFomatingEntity)
         {
             try
@@ -23,6 +28,7 @@ namespace DAL
                                                 new SqlParameter("@keyResultArea",resumeFomatingEntity.KeyResultArea),
                                                 new SqlParameter("@rolesAndResponsiblity",resumeFomatingEntity.RolesAndResponsiblity),
                                                 new SqlParameter("@companyName",resumeFomatingEntity.CompanyName),
+                                                 new SqlParameter("@awards",resumeFomatingEntity.Awards),
                                                 new SqlParameter("@extraCircular",resumeFomatingEntity.ExtraCircular),
                                                 new SqlParameter("@hobbies",resumeFomatingEntity.Hobbies)
                                             };
@@ -39,6 +45,10 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Bind company name BAL
+        /// </summary>
+        /// <returns></returns>
         public DataSet BindCompanyDAL()
         {
             DataSet ds = new DataSet();
