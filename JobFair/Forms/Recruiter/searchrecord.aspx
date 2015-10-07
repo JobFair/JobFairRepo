@@ -29,7 +29,7 @@
                     <asp:Label ID="lblkeywords" runat="server" Text="Any Of The KeyWords"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtkeywords" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtkeywords" runat="server" OnTextChanged="txtkeywords_TextChanged" AutoPostBack="true"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -37,7 +37,7 @@
                     <asp:Label ID="lblkeywords1" runat="server" Text="All Of The KeyWords"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtallkeywords" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtallkeywords" runat="server" OnTextChanged="txtallkeywords_TextChanged" AutoPostBack="true"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -45,9 +45,9 @@
                     <asp:Label ID="lblkeywords2" runat="server" Text="Excluding Keywords"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtexcludingkeywords" runat="server" Height="22px"></asp:TextBox>
+                    <asp:TextBox ID="txtexcludingkeywords" runat="server" Height="22px" AutoPostBack="True" OnTextChanged="txtexcludingkeywords_TextChanged"></asp:TextBox>
                 &nbsp;&nbsp;
-                    <asp:Button ID="btnsearch" runat="server" OnClick="btnsearch_Click" Text="Search" />
+                    <asp:Button ID="btnsearch" runat="server" Text="Search" />
                 </td>
             </tr>
             <tr>
@@ -62,7 +62,7 @@
 &nbsp;<asp:RadioButton ID="rdbentireresume" runat="server" Text="Entire Resume" />
                 </td>
             </tr>
-    <asp:GridView ID="GridView1" runat="server">
+    <asp:GridView ID="GridView1" runat="server" >
     
     </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>

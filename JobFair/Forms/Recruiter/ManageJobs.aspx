@@ -55,20 +55,24 @@
                                 </tr>
                             </table>
                 <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; border-bottom: 1px solid #df5015; float:right; width:20%">
-                             <tr></tr>  
                              <tr>
                                   <td>
-                                     <asp:HyperLink ID="hyperlnkViewDeatils" runat="server">View Details</asp:HyperLink>
+                                      <asp:LinkButton ID="lnkBtnViewDeatils" runat="server" Text="View Details" PostBackUrl="~/Forms/Recruiter/LogIn.aspx"></asp:LinkButton>
                                  </td>
                              </tr>
                              <tr>
                                  <td>
-                                     <asp:HyperLink ID="hyperlnkEdit" runat="server">Edit/Modify</asp:HyperLink>
+                                     <asp:LinkButton ID="lnkBtnEdit" runat="server" Text="Edit/Modify" PostBackUrl="~/Forms/Recruiter/LogIn.aspx"></asp:LinkButton>
                                  </td>
                              </tr>
                              <tr>
                                  <td>
-                                     <asp:HyperLink ID="hyperlnkDelete" runat="server">Delete</asp:HyperLink>
+                                     <asp:LinkButton ID="lnkBtnDelete" runat="server" Text="Delete" PostBackUrl="~/Forms/Recruiter/LogIn.aspx"></asp:LinkButton>
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td>
+                                     <asp:LinkButton ID="lnkBtnRepost" runat="server" Text="Repost Job" OnClick="lnkBtnRepost_Click"></asp:LinkButton>
                                  </td>
                              </tr>
                  </table>

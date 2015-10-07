@@ -21,5 +21,14 @@ namespace BAL
         {
             return manageJobsDAL.ManageJobsDetetailsDAL();
         }
+
+        /// <summary>
+        /// For display Re-Post Job of recruiter
+        /// </summary>
+        /// <returns></returns>
+        public DataSet RePostJobBAL(int JobId)
+        {
+            return manageJobsDAL.RePostJobDAL(JobId);
+        }
     }
 }
