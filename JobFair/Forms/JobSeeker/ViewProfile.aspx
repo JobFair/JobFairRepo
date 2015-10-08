@@ -226,14 +226,14 @@
                             <td>Name
                             </td>
                             <td>
-                                <asp:TextBox ID="txtFirstNamePersonalDetails" runat="server"></asp:TextBox>
-                                <asp:TextBox ID="txtLastNamePersonalDetails" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFirstNamePersonalDetails"  CausesValidation="true" AutoPostBack="true" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtLastNamePersonalDetails" CausesValidation="true"  runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td>Login Mail Id</td>
                             <td>
-                                <asp:TextBox ID="txtLoginmailId" runat="server"></asp:TextBox></td>
+                                <asp:TextBox ID="txtLoginmailId" CausesValidation="true" runat="server"></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td>Birth Date</td>
@@ -246,7 +246,7 @@
                             <td>Address
                             </td>
                             <td>
-                                <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                <asp:TextBox ID="txtAddress" runat="server" CausesValidation="true" TextMode="MultiLine"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>

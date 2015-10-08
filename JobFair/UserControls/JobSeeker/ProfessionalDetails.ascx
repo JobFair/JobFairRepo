@@ -3,7 +3,7 @@
 <div>
     <table id="TableCurrentJob" runat="server">
         <tr>
-            <td colspan="2" >
+            <td colspan="2">
                 <h1>Current Job Details</h1>
             </td>
         </tr>
@@ -108,8 +108,50 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style1"></td>
-            <td class="auto-style1"></td>
+            <td>
+                
+                
+                </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+<asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience" OnClick="lbPastEmployer_Click"></asp:LinkButton>
+        <asp:UpdatePanel ID="upPastEmployer" runat="server">
+            <ContentTemplate>
+                
+                <div id="divPastEmployer" runat="server" visible="false">
+                    <table>
+                        <tr>
+                            <td>Last Company
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtLastCompany1" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Total Experience</td>
+                            <td>From
+                                <asp:TextBox ID="txtFromDate1" runat="server"></asp:TextBox>
+                                Till
+                                <asp:TextBox ID="txtTillDate2" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Designation
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtDesignation1" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            
+            </ContentTemplate>
+        </asp:UpdatePanel>
+       </td>
         </tr>
         <tr>
             <td>Current Employer/Last Employer</td>

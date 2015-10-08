@@ -12,7 +12,7 @@ namespace BAL
         ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
         public DataSet ViewProfileBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {
-           
+
             return viewProfileJSDAL.ViewProfileDAL(viewProfileEntity);
         }
 
@@ -27,5 +27,11 @@ namespace BAL
         {
             return viewProfileJSDAL.ResumeDetailsDAL(viewProfileEntity);
         }
+
+        public int ChangePersonalDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        {
+            return viewProfileJSDAL.ChangePersonalDetailsDAL(viewProfileEntity);
+        }
+
     }
 }
