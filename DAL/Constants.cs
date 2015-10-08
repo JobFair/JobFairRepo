@@ -48,6 +48,7 @@ namespace DAL
         public const string sp_JS_LiveProjectDetails = "sp_JS_LiveProjectDetails";
         public const string sp_RE_insertQuestionrie = "sp_RE_insertQuestionrie";
         public const string sp_JS_UpdateContactDetails = "sp_JS_UpdateContactDetails";
-
+        public const string sp_RE_SelectViewJobPost = "sp_RE_SelectViewJobPost";
+        public const string sp_JS_InsertResumeFormating = "sp_JS_InsertResumeFormating";
     }
 }

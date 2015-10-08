@@ -23,14 +23,15 @@
                 <td>Candidate Name
                 </td>
                 <td>
-                    <asp:Label ID="lblName" runat="server"></asp:Label>
+                    <asp:Label ID="lblFirstName" runat="server" Text='<%#Eval("FirstName") %>'></asp:Label>
+                    &nbsp;<asp:Label ID="lblLastName" runat="server" Text='<%#Eval("LastName") %>'></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td>EmailId
                 </td>
                 <td>
-                    <asp:Label ID="lblEmailId" runat="server"></asp:Label>
+                    <asp:Label ID="lblEmailId" runat="server" Text='<%#Eval("EmailId") %>'></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -38,11 +39,11 @@
                 </td>
                 <td>
                     <div id="divContact" runat="server" visible="false">
-                        <asp:TextBox ID="txtContact" runat="server">
+                        <asp:TextBox ID="txtContact" runat="server" CausesValidation="true" Text='<%#Eval("MobileNo") %>'>
                         </asp:TextBox>
                         <asp:Button ID="btnOk" runat="server" Text="Ok" OnClick="btnOk_Click" />
                     </div>
-                    <asp:Label ID="lblContact" runat="server" Text="contact"></asp:Label>
+                    <asp:Label ID="lblContact" runat="server" Text='<%#Eval("MobileNo") %>'></asp:Label>
 
                     <asp:LinkButton ID="lbEditContact" runat="server" OnClick="lbEditContact_Click">Edit</asp:LinkButton>
                 </td>
@@ -186,28 +187,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>EmailId for communication</td>
-                            <td>
-                                <asp:Label ID="lblCommunicationEmailId" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
                             <td>Login Mail Id</td>
                             <td>
                                 <asp:Label ID="lblLoginMailId" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>Mobile No
-                            </td>
+                            <td>Birth Date</td>
                             <td>
-                                <asp:Label ID="lblMobileNo" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Age
-                            </td>
-                            <td>
+                                <asp:Label ID="lblBirthDate" runat="server"></asp:Label>
+                                &nbsp;
                                 <asp:Label ID="lblAge" runat="server"></asp:Label>
                             </td>
                         </tr>
@@ -237,13 +226,9 @@
                             <td>Name
                             </td>
                             <td>
-                                <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFirstNamePersonalDetails" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtLastNamePersonalDetails" runat="server"></asp:TextBox>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>EmailId for communication</td>
-                            <td>
-                                <asp:TextBox ID="txtComEmailid" runat="server"></asp:TextBox></td>
                         </tr>
                         <tr>
                             <td>Login Mail Id</td>
@@ -251,17 +236,10 @@
                                 <asp:TextBox ID="txtLoginmailId" runat="server"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Mobile No
-                            </td>
+                            <td>Birth Date</td>
                             <td>
-                                <asp:TextBox ID="txtMobileNo" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Age
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtAgeDate" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtBirthdate" CausesValidation="true" runat="server"></asp:TextBox>
+                                <cc1:CalendarExtender ID="txtBirthdate_CalendarExtender" runat="server" BehaviorID="txtBirthdate_CalendarExtender" TargetControlID="txtBirthdate" />
                             </td>
                         </tr>
                         <tr>

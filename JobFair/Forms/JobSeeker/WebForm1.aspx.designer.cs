@@ -22,12 +22,12 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// TechnicalSkillsDetails control.
+        /// ResumeFormating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.TechnicalSkillsDetails TechnicalSkillsDetails;
+        protected global::JobFair.UserControls.JobSeeker.ResumeFormating ResumeFormating;
     }
 }

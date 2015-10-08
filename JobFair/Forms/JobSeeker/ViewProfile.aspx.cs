@@ -4,13 +4,62 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BAL;
+using Entities.JobSeeker;
+using System.Data;
+using System.IO;
+using System.Text;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewProfile : System.Web.UI.Page
     {
+        ViewProfileJSBAL viewProfileJSBAL = new ViewProfileJSBAL();
+        ViewProfileEntity viewProfileEntity = new ViewProfileEntity();
+        DataSet ds = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
+            viewProfileJSBAL.ViewProfileBAL(viewProfileEntity);
+            lblContact.Text = viewProfileEntity.MobileNumber;
+            lblFirstName.Text = viewProfileEntity.FirstName;
+            lblLastName.Text = viewProfileEntity.LastName;
+            lblEmailId.Text = viewProfileEntity.EmailId;
+            lblName1.Text = viewProfileEntity.FirstName + " " + viewProfileEntity.LastName;
+            lblLoginMailId.Text = viewProfileEntity.EmailId;
+            lblBirthDate.Text = viewProfileEntity.Birthdate.ToShortDateString();
+            int year = DateTime.Now.Year - viewProfileEntity.Birthdate.Year;
+            lblAge.Text = year.ToString() +" "+"Years";
+            lblAdress.Text = viewProfileEntity.Address;
+
+            // Please change the value of path which used to store the file.
+            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
+            this.FileUploadResume.SaveAs(path);
+            this.txtResume.Text = ShowContent(path);
+
+            
+           
+        }
+        public string ShowContent(string path)
+        {
+            string strInput = "";
+            string GetStream = "";
+
+            if (File.Exists(path))
+            {
+                StreamReader sr = new StreamReader(path, UnicodeEncoding.GetEncoding("UTF-8"));
+                strInput = sr.ReadLine();
+                while (strInput != null)
+                {
+                    GetStream += strInput;
+                    strInput = sr.ReadLine();
+                }
+                sr.Close();
+            }
+            else
+            {
+                Response.Write("file does not exist!");
+            }
+            return GetStream;
         }
 
         protected void btnResumeskills_Click(object sender, EventArgs e)
@@ -27,14 +76,32 @@ namespace JobFair.Forms.JobSeeker
 
         protected void lbEditContact_Click(object sender, EventArgs e)
         {
+            txtContact.Text = viewProfileEntity.MobileNumber;
             divContact.Visible = true;
             lblContact.Visible = false;
         }
 
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            lblContact.Visible = true;
-            divContact.Visible = false;
+           
+            
+            if (txtContact.Text != viewProfileEntity.MobileNumber)
+            {
+                viewProfileEntity.MobileNumber = txtContact.Text;
+                int result = viewProfileJSBAL.ChangeContactNoBAL(viewProfileEntity);
+                lblContact.Visible = true;
+                divContact.Visible = false;
+
+            }
+            else
+            {
+                lblContact.Visible = true;
+                divContact.Visible = false;
+            }         
+            
+           
+
+           
         }
 
         protected void btnCancelResumeSkills_Click(object sender, EventArgs e)
@@ -71,6 +138,12 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnAddPersonal_Click(object sender, EventArgs e)
         {
+            viewProfileJSBAL.ViewProfileBAL(viewProfileEntity);
+            txtFirstNamePersonalDetails.Text = viewProfileEntity.FirstName;
+                txtLastNamePersonalDetails.Text=viewProfileEntity.LastName;
+            txtLoginmailId.Text = viewProfileEntity.EmailId;
+            txtBirthdate.Text = viewProfileEntity.Birthdate.ToShortDateString();
+            txtAddress.Text = viewProfileEntity.Address;
             divTextBoxPersonal.Visible = false;
             divLabelPersonal.Visible = true;
         }
@@ -165,6 +238,8 @@ namespace JobFair.Forms.JobSeeker
             divTextBoxIndustry.Visible = false;
             divLabelIndustry.Visible = true;
         }
+
+       
 
 
        
