@@ -7,7 +7,7 @@ using System.Data;
 using Entities.Recruiter;
 using System.Data.SqlClient;
 using System.Configuration;
-using Entities.Recruiter;
+
 
 namespace DAL
 {

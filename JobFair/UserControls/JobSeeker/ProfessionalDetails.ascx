@@ -1,5 +1,17 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProfessionalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ProfessionalDetails" %>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#lbPastEmployer").click(function () {
+            $("#divPastEmployer").hide();
+        });
+    });
+
+   
+</script> 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <div>
     <table id="TableCurrentJob" runat="server">
         <tr>
@@ -117,11 +129,12 @@
         </tr>
         <tr>
             <td colspan="2">
-<asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience" OnClick="lbPastEmployer_Click"></asp:LinkButton>
+
         <asp:UpdatePanel ID="upPastEmployer" runat="server">
+
             <ContentTemplate>
-                
-                <div id="divPastEmployer" runat="server" visible="false">
+            <asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience" OnClientClick="function" ></asp:LinkButton>    
+                <div id="divPastEmployer" runat="server">
                     <table>
                         <tr>
                             <td>Last Company

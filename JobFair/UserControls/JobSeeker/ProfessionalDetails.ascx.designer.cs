@@ -193,15 +193,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtDesignation;
         
         /// <summary>
-        /// lbPastEmployer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbPastEmployer;
-        
-        /// <summary>
         /// upPastEmployer control.
         /// </summary>
         /// <remarks>
@@ -209,6 +200,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel upPastEmployer;
+        
+        /// <summary>
+        /// lbPastEmployer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbPastEmployer;
         
         /// <summary>
         /// divPastEmployer control.
