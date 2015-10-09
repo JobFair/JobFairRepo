@@ -53,15 +53,15 @@ namespace JobFair.UserControls.JobSeeker
                     // Set value to PersonalDetails job seeker entity
                     personalDetailsEntity.candidateId = "JS00001";//static data used because session value not set
                     personalDetailsEntity.presentAddress = txtPresentAddress.Text;
-                    personalDetailsEntity.presentCountry = ddlCountryPresent.SelectedItem.Text;
-                    personalDetailsEntity.presentState = ddlStatePresent.SelectedItem.Text;
-                    personalDetailsEntity.presentCity = ddlCityPresent.SelectedItem.Text;
+                    personalDetailsEntity.presentCountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
+                    personalDetailsEntity.presentStateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
+                    personalDetailsEntity.presentCityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
                     personalDetailsEntity.presentArea = txtAreaPresent.Text;
                     personalDetailsEntity.presentPincode = Convert.ToInt32(txtPincodePresent.Text);
                     personalDetailsEntity.permantAddress = txtAddressPerm.Text;
-                    personalDetailsEntity.permantCountry = ddlCountryPerm.SelectedItem.Text;
-                    personalDetailsEntity.permantState = ddlStatePerm.SelectedItem.Text;
-                    personalDetailsEntity.permantCity = ddlCityPerm.SelectedItem.Text;
+                    personalDetailsEntity.permantCountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
+                    personalDetailsEntity.permantStateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
+                    personalDetailsEntity.permantCityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
                     personalDetailsEntity.permantArea = txtAreaPerm.Text;
                     personalDetailsEntity.permantPincode = Convert.ToInt32(txtPincodePerm.Text);
                     personalDetailsEntity.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
@@ -225,9 +225,5 @@ namespace JobFair.UserControls.JobSeeker
             txtPassportNo.Visible = false;
             txtValidity.Visible = false;
         }
-
-        
-
-       
     }
 }

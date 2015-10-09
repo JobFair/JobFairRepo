@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PersonalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.PersonalDetails" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
 <table>
     <tr>
         <td>&nbsp;</td>
@@ -25,7 +25,6 @@
         </td>
         <td colspan="5">
             <asp:TextBox ID="txtPresentAddress" runat="server"></asp:TextBox>
-           
         </td>
     </tr>
     <tr>
@@ -40,7 +39,6 @@
                     </asp:DropDownList><br />
                     <asp:DropDownList ID="ddlCityPresent" runat="server">
                     </asp:DropDownList>
-
                 </ContentTemplate>
             </asp:UpdatePanel>
         </td>
@@ -49,7 +47,6 @@
         <td colspan="5">
             <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
         </td>
-
     </tr>
     <tr>
         <td colspan="5">
@@ -77,13 +74,13 @@
         <td colspan="5">
             <asp:Label ID="lblAddressPerm" runat="server" Text="Address"></asp:Label>
         </td>
-        <td  colspan="5">
+        <td colspan="5">
             <asp:TextBox ID="txtAddressPerm" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td colspan="5">Country</td>
-        <td  colspan="5" rowspan="3">
+        <td colspan="5" rowspan="3">
             <asp:UpdatePanel ID="pnlPermanentAddress" runat="server">
                 <ContentTemplate>
                     <asp:DropDownList ID="ddlCountryPerm" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCountryPerm_SelectedIndexChanged"></asp:DropDownList><br />
@@ -125,7 +122,7 @@
         </td>
         <td colspan="10">
             <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
-          
+
             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDOB" PopupButtonID="txtDOB" Format="yyyy/MM/dd" />
         </td>
     </tr>
@@ -183,7 +180,8 @@
                                 <asp:Label ID="lblPassportValidity" runat="server" Text="Validity" Visible="false"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtValidity" runat="server" Visible="false"></asp:TextBox> <cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtValidity" PopupButtonID="txtValidity" Format="yyyy/MM/dd" />
+                                <asp:TextBox ID="txtValidity" runat="server" Visible="false"></asp:TextBox>
+                                <cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtValidity" PopupButtonID="txtValidity" Format="yyyy/MM/dd" />
                             </td>
                         </tr>
                     </table>

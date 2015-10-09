@@ -13,5 +13,9 @@ namespace BAL
         {
             return Utility.GetIndustry();
         }
+        public static object GetFunctionalArea()
+        {
+            return Utility.GetFunctionalArea();
+        }
     }
 }

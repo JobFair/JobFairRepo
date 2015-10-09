@@ -12,13 +12,13 @@ namespace JobFair.Forms.JobSeeker
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindDropDownIndustry();
+            BindIndustry();
             
         }
         /// <summary>
         /// bind industry to dropdown and stored in database
         /// </summary>
-        private void BindDropDownIndustry()
+        private void BindIndustry()
         {
             ds = AdvanceJobSearchBAL.GetIndustry();
             ddlIndustry.DataSource = ds;
@@ -27,6 +27,15 @@ namespace JobFair.Forms.JobSeeker
             ddlIndustry.DataBind();
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
 
+        }
+        private void BindFunctionalArea()
+        {
+            ds = AdvanceJobSearchBAL.GetFunctionalArea();
+            ddlJobCategory.DataSource = ds;
+            ddlJobCategory.DataTextField = "FunctionalArea";
+            ddlJobCategory.DataValueField = "FunctionAreaId";
+            ddlJobCategory.DataBind();
+            ddlJobCategory.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         protected void btnsearch_Click(object sender, EventArgs e)
