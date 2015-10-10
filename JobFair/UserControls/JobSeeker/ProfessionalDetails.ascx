@@ -1,9 +1,21 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProfessionalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ProfessionalDetails" %>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#lbPastEmployer").click(function () {
+            $("#divPastEmployer").hide();
+        });
+    });
+
+   
+</script> 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <div>
     <table id="TableCurrentJob" runat="server">
         <tr>
-            <td colspan="2" >
+            <td colspan="2">
                 <h1>Current Job Details</h1>
             </td>
         </tr>
@@ -108,8 +120,51 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style1"></td>
-            <td class="auto-style1"></td>
+            <td>
+                
+                
+                </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+
+        <asp:UpdatePanel ID="upPastEmployer" runat="server">
+
+            <ContentTemplate>
+            <asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience" OnClientClick="function" ></asp:LinkButton>    
+                <div id="divPastEmployer" runat="server">
+                    <table>
+                        <tr>
+                            <td>Last Company
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtLastCompany1" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Total Experience</td>
+                            <td>From
+                                <asp:TextBox ID="txtFromDate1" runat="server"></asp:TextBox>
+                                Till
+                                <asp:TextBox ID="txtTillDate2" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Designation
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtDesignation1" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            
+            </ContentTemplate>
+        </asp:UpdatePanel>
+       </td>
         </tr>
         <tr>
             <td>Current Employer/Last Employer</td>

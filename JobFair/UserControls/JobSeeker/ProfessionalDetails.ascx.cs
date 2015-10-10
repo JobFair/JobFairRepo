@@ -189,5 +189,9 @@ namespace JobFair.UserControls.JobSeeker
             ddlCity.DataBind();
             ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
+
+       
+
+      
     }
 }

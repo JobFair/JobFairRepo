@@ -30,37 +30,42 @@ namespace JobFair.Forms.JobSeeker
             int year = DateTime.Now.Year - viewProfileEntity.Birthdate.Year;
             lblAge.Text = year.ToString() +" "+"Years";
             lblAdress.Text = viewProfileEntity.Address;
+            txtFirstNamePersonalDetails.Text = viewProfileEntity.FirstName;
+            txtLastNamePersonalDetails.Text = viewProfileEntity.LastName;
+            txtLoginmailId.Text = viewProfileEntity.EmailId;
+            txtBirthdate.Text = viewProfileEntity.Birthdate.ToShortDateString();
+            txtAddress.Text = viewProfileEntity.Address;
 
             // Please change the value of path which used to store the file.
-            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
-            this.FileUploadResume.SaveAs(path);
-            this.txtResume.Text = ShowContent(path);
+            ////string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
+            ////this.FileUploadResume.SaveAs(path);
+            ////this.txtResume.Text = ShowContent(path);
 
             
-           
+                    
         }
-        public string ShowContent(string path)
-        {
-            string strInput = "";
-            string GetStream = "";
+        //public string ShowContent(string path)
+        //{
+        //    string strInput = "";
+        //    string GetStream = "";
 
-            if (File.Exists(path))
-            {
-                StreamReader sr = new StreamReader(path, UnicodeEncoding.GetEncoding("UTF-8"));
-                strInput = sr.ReadLine();
-                while (strInput != null)
-                {
-                    GetStream += strInput;
-                    strInput = sr.ReadLine();
-                }
-                sr.Close();
-            }
-            else
-            {
-                Response.Write("file does not exist!");
-            }
-            return GetStream;
-        }
+        //    if (File.Exists(path))
+        //    {
+        //        StreamReader sr = new StreamReader(path, UnicodeEncoding.GetEncoding("UTF-8"));
+        //        strInput = sr.ReadLine();
+        //        while (strInput != null)
+        //        {
+        //            GetStream += strInput;
+        //            strInput = sr.ReadLine();
+        //        }
+        //        sr.Close();
+        //    }
+        //    else
+        //    {
+        //        Response.Write("file does not exist!");
+        //    }
+        //    return GetStream;
+        //}
 
         protected void btnResumeskills_Click(object sender, EventArgs e)
         {
@@ -138,12 +143,14 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnAddPersonal_Click(object sender, EventArgs e)
         {
-            viewProfileJSBAL.ViewProfileBAL(viewProfileEntity);
-            txtFirstNamePersonalDetails.Text = viewProfileEntity.FirstName;
-                txtLastNamePersonalDetails.Text=viewProfileEntity.LastName;
-            txtLoginmailId.Text = viewProfileEntity.EmailId;
-            txtBirthdate.Text = viewProfileEntity.Birthdate.ToShortDateString();
-            txtAddress.Text = viewProfileEntity.Address;
+            
+                viewProfileEntity.FirstName = txtFirstNamePersonalDetails.Text;
+                viewProfileEntity.LastName = txtLastNamePersonalDetails.Text;
+                viewProfileEntity.EmailId = txtLoginmailId.Text;
+                viewProfileEntity.Birthdate = Convert.ToDateTime(txtBirthdate.Text);
+                viewProfileEntity.Address = txtAddress.Text;
+          
+            int result= viewProfileJSBAL.ChangePersonalDetailsBAL(viewProfileEntity);
             divTextBoxPersonal.Visible = false;
             divLabelPersonal.Visible = true;
         }
