@@ -33,8 +33,9 @@
                         <asp:Label ID="lbllocation" runat="server" Text="Location"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtlocation" runat="server"></asp:TextBox>
-                    </td>
+                        <asp:DropDownCheckBoxes ID="ddlLocation" runat="server">
+                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                        </asp:DropDownCheckBoxes></td>
                 </tr>
                 <tr>
                     <td>
@@ -122,8 +123,24 @@
                         <asp:Label ID="lbljobcategory" runat="server" Text="JobCategory"></asp:Label>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlJobCategory" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlJobCategory" runat="server">
+                            
+                        </asp:DropDownList>
                     </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblJobType" runat="server" Text="Job Type"></asp:Label>
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblSortBy" runat="server" Text="Sort By"></asp:Label>
+                    </td>
+                    <td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
