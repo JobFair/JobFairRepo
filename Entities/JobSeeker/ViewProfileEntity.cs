@@ -19,5 +19,17 @@ namespace Entities.JobSeeker
         public DateTime Birthdate { get; set; }
 
         public string Address { get; set; }
+
+        public string CurrentEmployer { get; set; }
+
+        public string WorkExperience { get; set; }
+
+        public string DesignationCurrent { get; set; }
+
+        public string AnnualSalary { get; set; }
+
+        public string ExpectedSalary { get; set; }
+
+        public string CompanyType { get; set; }
     }
 }

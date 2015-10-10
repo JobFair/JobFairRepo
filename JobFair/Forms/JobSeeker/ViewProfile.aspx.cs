@@ -19,22 +19,17 @@ namespace JobFair.Forms.JobSeeker
         DataSet ds = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            viewProfileJSBAL.ViewProfileBAL(viewProfileEntity);
-            lblContact.Text = viewProfileEntity.MobileNumber;
-            lblFirstName.Text = viewProfileEntity.FirstName;
-            lblLastName.Text = viewProfileEntity.LastName;
-            lblEmailId.Text = viewProfileEntity.EmailId;
-            lblName1.Text = viewProfileEntity.FirstName + " " + viewProfileEntity.LastName;
-            lblLoginMailId.Text = viewProfileEntity.EmailId;
-            lblBirthDate.Text = viewProfileEntity.Birthdate.ToShortDateString();
-            int year = DateTime.Now.Year - viewProfileEntity.Birthdate.Year;
-            lblAge.Text = year.ToString() +" "+"Years";
-            lblAdress.Text = viewProfileEntity.Address;
-            txtFirstNamePersonalDetails.Text = viewProfileEntity.FirstName;
-            txtLastNamePersonalDetails.Text = viewProfileEntity.LastName;
-            txtLoginmailId.Text = viewProfileEntity.EmailId;
-            txtBirthdate.Text = viewProfileEntity.Birthdate.ToShortDateString();
-            txtAddress.Text = viewProfileEntity.Address;
+            JobseekerRegisterDetails();
+            JobSeekerPersonalDetails();
+            JobSeekerProfessionalDetails();
+          
+
+            //txtFirstNamePersonalDetails.Text = viewProfileEntity.FirstName;
+            //txtLastNamePersonalDetails.Text = viewProfileEntity.LastName;
+            //txtLoginmailId.Text = viewProfileEntity.EmailId;
+            //txtBirthdate.Text = viewProfileEntity.Birthdate.ToShortDateString();
+            //txtAddress.Text = viewProfileEntity.Address;
+            
 
             // Please change the value of path which used to store the file.
             ////string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
@@ -43,6 +38,40 @@ namespace JobFair.Forms.JobSeeker
 
             
                     
+        }
+
+       
+        private void JobSeekerProfessionalDetails()
+        {
+            viewProfileJSBAL.ProfessionalDetailsBAL(viewProfileEntity);
+            lblWorkexperience.Text = viewProfileEntity.WorkExperience;
+            lblCurrentEmployer.Text = viewProfileEntity.CurrentEmployer;
+            lblDesignationCurrent.Text = viewProfileEntity.DesignationCurrent;
+            lblCompanyType.Text = viewProfileEntity.CompanyType;
+            lblAnnualSalary.Text = viewProfileEntity.AnnualSalary;
+            lblExpectedSalary.Text = viewProfileEntity.ExpectedSalary;
+  
+        }
+
+        private void JobSeekerPersonalDetails()
+        {
+            viewProfileJSBAL.PersonalDetailsBAL(viewProfileEntity);
+            lblLoginMailId.Text = viewProfileEntity.EmailId;
+            lblName1.Text = viewProfileEntity.FirstName + " " + viewProfileEntity.LastName;
+            lblBirthDate.Text = viewProfileEntity.Birthdate.ToShortDateString();
+            int year = DateTime.Now.Year - viewProfileEntity.Birthdate.Year;
+            lblAge.Text = year.ToString() + " " + "Years";
+            lblAdress.Text = viewProfileEntity.Address;
+        }
+
+        private void JobseekerRegisterDetails()
+        {
+            viewProfileJSBAL.RegisterDetailsBAL(viewProfileEntity);
+            lblContact.Text = viewProfileEntity.MobileNumber;
+            lblFullName.Text = viewProfileEntity.FirstName + " " + viewProfileEntity.LastName;            
+            lblEmailId.Text = viewProfileEntity.EmailId;
+
+            
         }
         //public string ShowContent(string path)
         //{
@@ -137,8 +166,16 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnUpdatePersonal_Click(object sender, EventArgs e)
         {
+            txtFirstNamePersonalDetails.Text = viewProfileEntity.FirstName;
+            txtLastNamePersonalDetails.Text = viewProfileEntity.LastName;
+            txtLoginmailId.Text = viewProfileEntity.EmailId;
+            txtBirthdate.Text = viewProfileEntity.Birthdate.ToShortDateString();
+            txtAddress.Text = viewProfileEntity.Address;
             divLabelPersonal.Visible = false;
             divTextBoxPersonal.Visible = true;
+
+           
+            
         }
 
         protected void btnAddPersonal_Click(object sender, EventArgs e)
@@ -168,13 +205,24 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnUpdateEmployerDetails_Click(object sender, EventArgs e)
         {
+            txtExpectedAnualSalary.Text = viewProfileEntity.ExpectedSalary;
+            txtAnnualSalary.Text = viewProfileEntity.AnnualSalary;
+            txtCurrentEmployer.Text = viewProfileEntity.CurrentEmployer;
+            txtWorkExp.Text = viewProfileEntity.WorkExperience;
+            txtDesignationCurrent.Text = viewProfileEntity.DesignationCurrent;
             divLabelEmployer.Visible =false;
             divTextBoxEmployer.Visible = true;
         }
 
         protected void btnAddEmployerDetails_Click(object sender, EventArgs e)
         {
-           
+            viewProfileEntity.ExpectedSalary = txtExpectedAnualSalary.Text;
+            viewProfileEntity.AnnualSalary = txtAnnualSalary.Text;
+            viewProfileEntity.CurrentEmployer = txtCurrentEmployer.Text;
+            viewProfileEntity.WorkExperience = txtWorkExp.Text;
+            viewProfileEntity.DesignationCurrent = txtDesignationCurrent.Text;
+            viewProfileEntity.CompanyType = ddlCompanyType.SelectedItem.Value.ToString();
+            int result = viewProfileJSBAL.ChangeProfessionalDetailsBAL(viewProfileEntity);
             divTextBoxEmployer.Visible = false;
             divLabelEmployer.Visible = true;
             }
@@ -244,6 +292,36 @@ namespace JobFair.Forms.JobSeeker
         {
             divTextBoxIndustry.Visible = false;
             divLabelIndustry.Visible = true;
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
+            this.FileUploadResume.SaveAs(path);
+            this.txtResume.Text = ShowContent(path);
+        }
+
+        public string ShowContent(string path)
+        {
+            string strInput = "";
+            string GetStream = "";
+
+            if (File.Exists(path))
+            {
+                StreamReader sr = new StreamReader(path, UnicodeEncoding.GetEncoding("UTF-8"));
+                strInput = sr.ReadLine();
+                while (strInput != null)
+                {
+                    GetStream += strInput;
+                    strInput = sr.ReadLine();
+                }
+                sr.Close();
+            }
+            else
+            {
+                Response.Write("file does not exist!");
+            }
+            return GetStream;
         }
 
        
