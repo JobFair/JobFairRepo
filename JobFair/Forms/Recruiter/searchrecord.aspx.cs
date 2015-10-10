@@ -1,5 +1,4 @@
 ﻿using BAL;
-using Saplin.Controls;
 using System;
 using System.Configuration;
 using System.Data;
@@ -14,13 +13,46 @@ namespace JobFair.Forms.Recruiter
 
         protected void Page_Load(object sender, EventArgs e)
         {
+         
+
+
+            
+            if (!this.IsPostBack)
+            {
+                for (int i = 1950; i <= DateTime.Now.Year; i++)
+                {
+                    ddlyear.Items.Add(i.ToString());
+                }
+                for (int i = 1950; i <= DateTime.Now.AddYears(4).Year; i++)
+                {
+
+                    DropDownList1.Items.Add(i.ToString());
+                
+                }
+                for (int  i =1950 ; i <= DateTime.Now.Year; i++)
+                {
+                    ddlmaxyear.Items.Add(i.ToString());
+                }
+                for (int i = 1950; i < DateTime.Now.AddYears(4).Year; i++)
+                {
+                    ddlpassingyear.Items.Add(i.ToString());
+                }
+                ddlminage.Items.Add(new ListItem("", ""));
+                for (int i = 0; i <= 100; i++)
+                {
+                    ddlminage.Items.Add(new ListItem(i.ToString(),i.ToString()));
+                }
+             
+            }
             BindFunctionalArea();
             BindIndustryType();
             BindMasterDegree();
             BindUnderGraduateDiploma();
             BindMasterDegree();
         }
-
+       /// <summary>
+       /// Bind dropdownlist Under graduate diploma
+       /// </summary>
         private void BindUnderGraduateDiploma()
         {
             ddlugqualification.DataSource = SearchRecordBAL.GetUnderGraduateDiplomaBAL();
@@ -133,18 +165,45 @@ namespace JobFair.Forms.Recruiter
 
         protected void ddlindustrytype_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+      /// <summary>
+      /// code for submit category 
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
+        protected void Submit(object sender, EventArgs e)
+        {
+            string message = string.Empty;
+            foreach (ListItem item in ddlcategory.Items)
+            {
+                if (item.Selected)
+                {
+                    message += item.Text + " " + item.Value + "\\n";
+                }
+            }
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
+        }
+        // code for check checkbox select
+        protected void chksearchwomen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chksearchwomen.Checked == true)
+            {
+                CheckBox2.Checked = false;
+
+            }
+
 
         }
+        // code for check checkbox select
 
-        //protected void ddlfunctionalarea_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    foreach (ListItem item in ddlfunctionalarea.item)
-        //    {
-        //        if (item.Selected)
-        //        {
-        //            Label2.Text = item.Text;
+        protected void CheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBox2.Checked == true)
+            {
+                chksearchwomen.Checked = false;
+            
+            }
+        }
 
-        //        }
-        //    }
     }
 }
