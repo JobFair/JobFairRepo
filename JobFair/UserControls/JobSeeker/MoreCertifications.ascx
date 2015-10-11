@@ -38,7 +38,8 @@
     <tr>
         <td > <asp:Label ID="lblGrade" runat="server" Text="Grade"></asp:Label></td>
         <td>
-            <asp:TextBox ID="txtCertificationGrade" runat="server"></asp:TextBox> 
+            <asp:TextBox ID="txtCertificationGrade" runat="server"></asp:TextBox>
+            <br />
         </td>
     </tr>
     <tr>
@@ -46,7 +47,7 @@
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
         </td>
         <td>
-            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add More" />
+            <asp:Button ID="btnAdd" runat="server" Text="Add More" />
         </td>
     </tr>
     </table>
