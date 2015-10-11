@@ -4,12 +4,10 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#lbPastEmployer").click(function () {
-            $("#divPastEmployer").hide();
+            $("#divPastEmployer").append('<tr><td><input size=25 type="text" id="latbox" /></td></tr>')
         });
     });
-
-   
-</script> 
+</script>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <div>
@@ -120,51 +118,45 @@
             </td>
         </tr>
         <tr>
-            <td>
-                
-                
-                </td>
-            <td>
-                &nbsp;</td>
+            <td></td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
 
-        <asp:UpdatePanel ID="upPastEmployer" runat="server">
+                <asp:UpdatePanel ID="upPastEmployer" runat="server">
 
-            <ContentTemplate>
-            <asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience" OnClientClick="function" ></asp:LinkButton>    
-                <div id="divPastEmployer" runat="server">
-                    <table>
-                        <tr>
-                            <td>Last Company
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtLastCompany1" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Total Experience</td>
-                            <td>From
+                    <ContentTemplate>
+                        <asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience"></asp:LinkButton>
+                        <div id="divPastEmployer" runat="server">
+                            <table>
+                                <tr>
+                                    <td>Last Company
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="txtLastCompany1" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Total Experience</td>
+                                    <td>From
                                 <asp:TextBox ID="txtFromDate1" runat="server"></asp:TextBox>
-                                Till
+                                        Till
                                 <asp:TextBox ID="txtTillDate2" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Designation
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtDesignation1" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            
-            </ContentTemplate>
-        </asp:UpdatePanel>
-       </td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Designation
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="txtDesignation1" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </td>
         </tr>
         <tr>
             <td>Current Employer/Last Employer</td>
@@ -264,15 +256,27 @@
             </td>
         </tr>
         <tr>
+            <td>Company Type</td>
+            <td>
+                <asp:DropDownList ID="ddlCompanyType" runat="server">
+                    <asp:ListItem>Select</asp:ListItem>
+                    <asp:ListItem>Small</asp:ListItem>
+                    <asp:ListItem>Middle</asp:ListItem>
+                    <asp:ListItem>MNC</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
             <td>Work Area</td>
             <td>
                 <asp:TextBox ID="txtworkarea" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td>Prefered Country<br />
-                Prefered State<br />
-                Prefered City</td>
+            <td>Preferred Country<br />
+                Preferred State<br />
+                Preferred City<br />
+                Preferred Area</td>
             <td>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
@@ -283,6 +287,9 @@
                         </asp:DropDownList>
                         <br />
                         <asp:DropDownList ID="ddlCity" runat="server" Width="69px">
+                        </asp:DropDownList>
+                        <br />
+                        <asp:DropDownList ID="ddlArea" runat="server">
                         </asp:DropDownList>
                     </ContentTemplate>
                 </asp:UpdatePanel>

@@ -13,5 +13,13 @@ namespace BAL
         {
             return Utility.GetIndustry();
         }
+        public static object GetDepartment()
+        {
+            return Utility.GetDepartment();
+        }
+        //public static object GetCity()
+        //{
+        //    return Utility.GetCity();
+        //}
     }
 }

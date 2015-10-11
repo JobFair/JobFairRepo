@@ -6,16 +6,17 @@ namespace Entities
     {
         //PersonalDetailsJSEntity
         public string candidateId { get; set; }
+
         public string presentAddress { get; set; }
-        public string presentCountry { get; set; }
-        public string presentState { get; set; }
-        public string presentCity { get; set; }
+        public int presentCountryId { get; set; }
+        public int presentStateId { get; set; }
+        public int presentCityId { get; set; }
         public string presentArea { get; set; }
         public int presentPincode { get; set; }
         public string permantAddress { get; set; }
-        public string permantCountry { get; set; }
-        public string permantState { get; set; }
-        public string permantCity { get; set; }
+        public int permantCountryId { get; set; }
+        public int permantStateId { get; set; }
+        public int permantCityId { get; set; }
         public string permantArea { get; set; }
         public int permantPincode { get; set; }
         public DateTime dateOfBirth { get; set; }

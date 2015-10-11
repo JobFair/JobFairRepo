@@ -1,49 +1,115 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
+﻿using BAL;
+using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
-using System.Collections;
+using System.Web.UI.WebControls;
+
 namespace JobFair.Forms.Recruiter
 {
     public partial class searchrecord : System.Web.UI.Page
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+         
+
+
+            
+            if (!this.IsPostBack)
+            {
+                for (int i = 1950; i <= DateTime.Now.Year; i++)
+                {
+                    ddlyear.Items.Add(i.ToString());
+                }
+                for (int i = 1950; i <= DateTime.Now.AddYears(4).Year; i++)
+                {
+
+                    DropDownList1.Items.Add(i.ToString());
+                
+                }
+                for (int  i =1950 ; i <= DateTime.Now.Year; i++)
+                {
+                    ddlmaxyear.Items.Add(i.ToString());
+                }
+                for (int i = 1950; i < DateTime.Now.AddYears(4).Year; i++)
+                {
+                    ddlpassingyear.Items.Add(i.ToString());
+                }
+                ddlminage.Items.Add(new ListItem("", ""));
+                for (int i = 0; i <= 100; i++)
+                {
+                    ddlminage.Items.Add(new ListItem(i.ToString(),i.ToString()));
+                }
+             
+            }
+            BindFunctionalArea();
+            BindIndustryType();
+            BindMasterDegree();
+            BindUnderGraduateDiploma();
+            BindMasterDegree();
+        }
+       /// <summary>
+       /// Bind dropdownlist Under graduate diploma
+       /// </summary>
+        private void BindUnderGraduateDiploma()
+        {
+            ddlugqualification.DataSource = SearchRecordBAL.GetUnderGraduateDiplomaBAL();
+            ddlugqualification.DataTextField = "UGDName";
+            ddlugqualification.DataValueField = "UGDID";
+            ddlugqualification.DataBind();
+            ddlugqualification.Items.Insert(0, new ListItem("----select-----", "0"));
+        }
+
+        private void BindMasterDegree()
+        {
+            ddlpgqualification.DataSource = SearchRecordBAL.GetMasterDegreeBAL();
+            ddlpgqualification.DataTextField = "MDName";
+            ddlpgqualification.DataValueField = "MDId";
+            ddlpgqualification.DataBind();
+            ddlpgqualification.Items.Insert(0, new ListItem("--------select------", "0"));
+        }
+
+        private void BindIndustryType()
+        {
+            ddlindustrytype.DataSource = SearchRecordBAL.industrytype();
+            ddlindustrytype.DataTextField = "IndustryName";
+            ddlindustrytype.DataValueField = "IndustryId";
+            ddlindustrytype.DataBind();
+            ddlindustrytype.Items.Insert(0, new ListItem("---select----", "0"));
+        }
+
+        private void BindFunctionalArea()
+        {
+            ddlfunctionalarea.DataSource = SearchRecordBAL.Functionalarea();
+            ddlfunctionalarea.DataTextField = "FunctionalArea";
+            ddlfunctionalarea.DataValueField = "FunctionalAreaId";
+            ddlfunctionalarea.DataBind();
+            ddlfunctionalarea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         protected void txtkeywords_TextChanged(object sender, EventArgs e)
         {
-           
             connection.Open();
             DataSet ds = new DataSet();
-          
-            SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting  where [Objective] like '"+txtkeywords.Text+"%'", connection);
+
+            SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting  where [Objective] like '" + txtkeywords.Text + "%'", connection);
             string text = ((TextBox)sender).Text;
             da.Fill(ds);
-           
+
             if (ds.Tables[0].Rows.Count > 0)
             {
                 GridView1.DataSource = ds.Tables[0];
                 GridView1.DataBind();
                 Label1.Visible = false;
-
-            
             }
             else
             {
                 Label1.Visible = true;
-                Label1.Text ="No Record Found";
+                Label1.Text = "No Record Found";
                 connection.Close();
-            
             }
-
         }
 
         protected void txtallkeywords_TextChanged(object sender, EventArgs e)
@@ -62,7 +128,7 @@ namespace JobFair.Forms.Recruiter
             else
             {
                 Label1.Visible = true;
-                Label1.Text = "No Record Found";            
+                Label1.Text = "No Record Found";
             }
         }
 
@@ -78,19 +144,66 @@ namespace JobFair.Forms.Recruiter
                 GridView1.DataSource = ds.Tables[0];
                 GridView1.DataBind();
                 Label1.Visible = false;
-
-
-
             }
-            else 
-            
+            else
             {
                 Label1.Visible = true;
-                Label1.Text = "No Record Found";            
+                Label1.Text = "No Record Found";
+            }
+        }
+
+        protected void ddlfunctionalarea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListItem item in ddlfunctionalarea.Items)
+            {
+                if (item.Selected)
+                {
+                    Label2.Text = item.Text;
+                }
+            }
+        }
+
+        protected void ddlindustrytype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+      /// <summary>
+      /// code for submit category 
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
+        protected void Submit(object sender, EventArgs e)
+        {
+            string message = string.Empty;
+            foreach (ListItem item in ddlcategory.Items)
+            {
+                if (item.Selected)
+                {
+                    message += item.Text + " " + item.Value + "\\n";
+                }
+            }
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
+        }
+        // code for check checkbox select
+        protected void chksearchwomen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chksearchwomen.Checked == true)
+            {
+                CheckBox2.Checked = false;
+
+            }
+
+
+        }
+        // code for check checkbox select
+
+        protected void CheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBox2.Checked == true)
+            {
+                chksearchwomen.Checked = false;
             
             }
         }
-        
 
     }
 }

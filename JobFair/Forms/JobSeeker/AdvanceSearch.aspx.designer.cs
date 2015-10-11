@@ -13,6 +13,15 @@ namespace JobFair.Forms.JobSeeker {
     public partial class AdvanceSearch {
         
         /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
         /// lbladvancesearch control.
         /// </summary>
         /// <remarks>
@@ -58,13 +67,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lbllocation;
         
         /// <summary>
-        /// txtlocation control.
+        /// ddlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlocation;
+        protected global::Saplin.Controls.DropDownCheckBoxes ddlLocation;
         
         /// <summary>
         /// lblworkexprience control.
@@ -94,15 +103,6 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.CalendarExtender txtFromdate_CalendarExtender;
         
         /// <summary>
-        /// TextBoxWatermarkExtender2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender2;
-        
-        /// <summary>
         /// txtTill control.
         /// </summary>
         /// <remarks>
@@ -119,15 +119,6 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender txtTill_CalendarExtender;
-        
-        /// <summary>
-        /// TextBoxWatermarkExtender3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxWatermarkExtender3;
         
         /// <summary>
         /// Label1 control.
@@ -148,13 +139,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lbsalary;
         
         /// <summary>
-        /// txtexpectedsalary control.
+        /// ddlMinSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtexpectedsalary;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMinSalary;
+        
+        /// <summary>
+        /// ddlMaxSalary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMaxSalary;
         
         /// <summary>
         /// lblindustry control.
@@ -172,7 +172,7 @@ namespace JobFair.Forms.JobSeeker {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIndustry;
+        protected global::Saplin.Controls.DropDownCheckBoxes ddlIndustry;
         
         /// <summary>
         /// lbljobcategory control.
@@ -184,13 +184,31 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lbljobcategory;
         
         /// <summary>
-        /// txtjobcategory control.
+        /// ddlJobCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtjobcategory;
+        protected global::System.Web.UI.WebControls.DropDownList ddlJobCategory;
+        
+        /// <summary>
+        /// lblJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblJobType;
+        
+        /// <summary>
+        /// lblSortBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSortBy;
         
         /// <summary>
         /// btnsearch control.

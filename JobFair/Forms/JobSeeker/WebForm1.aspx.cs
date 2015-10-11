@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -12,8 +11,9 @@ namespace JobFair.Forms.JobSeeker
         string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId =Convert.ToString( Session["candidateId"]);
+            candidateId = Convert.ToString(Session["candidateId"]);
             Response.Write(candidateId);
         }
+     
     }
 }

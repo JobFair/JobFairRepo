@@ -1,19 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL;
 using System.Data;
-using DAL;
 
 namespace BAL
 {
-   public class TechnicalSkillsDetailsBAL
+    public class TechnicalSkillsDetailsBAL
     {
-       TechnicalSkillsDetailsDAL technicalSkillsDAL = new TechnicalSkillsDetailsDAL();
-       public DataSet TechnicalSkillsBAL()
-       {
-          return technicalSkillsDAL.TechnicalSkillDAL();
-       }
+        private TechnicalSkillsDetailsDAL technicalSkillsDAL = new TechnicalSkillsDetailsDAL();
+
+        public DataSet TechnicalSkillsLanguageBAL()
+        {
+            return technicalSkillsDAL.TechnicalSkillLanguageDAL();
+        }
+
+        public DataSet DatabaseBAL()
+        {
+            return technicalSkillsDAL.DatabaseDAL();
+        }
+
+        public DataSet SoftwaresBAL()
+        {
+            return technicalSkillsDAL.SoftwaresDAL();
+        }
+
+        public DataSet OperatingSystemBAL()
+        {
+            return technicalSkillsDAL.OperatingSystemDAL();
+        }
     }
 }

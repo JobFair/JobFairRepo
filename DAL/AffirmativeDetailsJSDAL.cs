@@ -28,7 +28,6 @@ namespace DAL
             {
                 xmlSerializer.Serialize(xmlStream, languageDetails);
                 xmlStream.Position = 0;
-
                 xmlDoc.Load(xmlStream);
                 return xmlDoc.InnerXml;
             }
