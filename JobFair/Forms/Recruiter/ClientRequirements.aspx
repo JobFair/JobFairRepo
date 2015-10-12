@@ -66,7 +66,7 @@
             </tr>
             <tr>
                 <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btn" runat="server" OnClick="btnSubmit" Text="Submit" />
+                    <asp:Button ID="btn" runat="server" OnClick="btnSubmit" Text="Submit" CssClass="button"/>
                 </td>
             </tr>
         </table>

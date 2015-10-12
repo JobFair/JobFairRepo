@@ -48,4 +48,13 @@
             <asp:TextBox ID="txtworkspGrade" runat="server"></asp:TextBox>
             <br />
         </td>
-    </tr></table>
+        </tr>
+          <tr>
+        <td>
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+        </td>
+        <td>
+            <asp:Button ID="btnAdd" runat="server" Text="Add More" />
+        </td>
+    </tr>
+    </table>

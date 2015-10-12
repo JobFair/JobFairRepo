@@ -36,8 +36,10 @@ namespace JobFair.UserControls.JobSeeker
 
                 BindDropDownUnderGraduateDiploma();
                 BindDropDownBachelorDegree();
+                BindDropDownDualBachelorDegree();
                 BindDropDownPostGraduateDiploma();
                 BindDropDownMasterDegree();
+                BindDropDownDualMasterDegree();
                 BindDropDownDoctorOfPhilosophy();
 
             }
@@ -112,6 +114,21 @@ namespace JobFair.UserControls.JobSeeker
                         bachelorDegreeDetails.Percantage = txtBDPercentage.Text.Trim();
                         // Add object to the education details collection
                         educationDetailsList.Add(bachelorDegreeDetails);
+                        // functionality for adding records for Dual Bachelore Degree
+                        if (pnlCollapsableDualBD.Visible == true)
+                        { 
+                            EducationalDetailsEntity dualBachelorDegreeDetails = new EducationalDetailsEntity();
+                            dualBachelorDegreeDetails.CandidateId = "JS9";
+                            dualBachelorDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
+                            dualBachelorDegreeDetails.MediumOfEducation = txtDualBDMedium.Text.Trim();
+                            dualBachelorDegreeDetails.Status = rblDualBDStat.SelectedValue.Trim();
+                            dualBachelorDegreeDetails.Specialization = ddlDualBD.SelectedValue.Trim();
+                            dualBachelorDegreeDetails.YearOfCompletion = txtDualBDYear.Text.Trim();
+                            dualBachelorDegreeDetails.University = txtDualBDUniversity.Text.Trim();
+                            dualBachelorDegreeDetails.Percantage = txtDualBDPercentage.Text.Trim();
+                            // Add object to the education details collection
+                            educationDetailsList.Add(dualBachelorDegreeDetails);
+                        }
                         break;
 
                     case "PG Diploma":
@@ -140,6 +157,21 @@ namespace JobFair.UserControls.JobSeeker
                         masterDegreeDetails.Percantage = txtMDPercentage.Text.Trim();
                         // Add object to the education details collection
                         educationDetailsList.Add(masterDegreeDetails);
+                        // functionality for adding records for Dual Master Degree
+                        if (pnlCollapsableDualMD.Visible == true)
+                        {
+                            EducationalDetailsEntity dualMasterDegreeDetails = new EducationalDetailsEntity();
+                            dualMasterDegreeDetails.CandidateId = "JS9";
+                            dualMasterDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
+                            dualMasterDegreeDetails.MediumOfEducation = txtDualMDMedium.Text.Trim();
+                            dualMasterDegreeDetails.Specialization = ddlDualMD.SelectedValue.Trim();
+                            dualMasterDegreeDetails.Status = rblDualMDStat.SelectedValue.Trim();
+                            dualMasterDegreeDetails.YearOfCompletion = txtDualMDYear.Text.Trim();
+                            dualMasterDegreeDetails.University = txtDualMDUniversity.Text.Trim();
+                            dualMasterDegreeDetails.Percantage = txtDualMDPercentage.Text.Trim();
+                            // Add object to the education details collection
+                            educationDetailsList.Add(dualMasterDegreeDetails);
+                        }
                         break;
 
                     case "Doctorate/ PHD Degree":
@@ -172,9 +204,13 @@ namespace JobFair.UserControls.JobSeeker
 
                 pnlCollapsableBD.Visible = false;
 
+                pnlCollapsableDualBD.Visible = false;
+
                 pnlCollapsablePgd.Visible = false;
 
                 pnlCollapsableMD.Visible = false;
+
+                pnlCollapsableDualMD.Visible = false;
 
                 pnlCollapsablePHD.Visible = false;
 
@@ -190,6 +226,7 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void btnGo_Click(object sender, EventArgs e)
         {
+            BtnSubmit.Visible = true;
             // Get only selected checkboxes list
             var selectedDegreeTypes = chkList.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             foreach (var item in selectedDegreeTypes)
@@ -266,6 +303,23 @@ namespace JobFair.UserControls.JobSeeker
             ddlBD.Items.Insert(0, new ListItem("--Select--", "0"));
         }
         /// <summary>
+        /// Method for binding DropDown with BachelorDegree_Table of Database
+        /// </summary>
+        private void BindDropDownDualBachelorDegree()
+        {
+            DataSet DualBachelorDegreeData = new DataSet();
+            educationalDetails = new EducationalDetailsBAL();
+            // Get Bachelor Degree details
+            DualBachelorDegreeData = educationalDetails.GetBachelorDegreeBAL();
+            ddlDualBD.DataSource = DualBachelorDegreeData;
+            ddlDualBD.DataValueField = "BDId";
+            ddlDualBD.DataTextField = "BDName";
+            ddlDualBD.DataBind();
+
+            ddlDualBD.Items.Insert(Convert.ToInt32(ddlDualBD.Items[ddlDualBD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+            ddlDualBD.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        /// <summary>
         /// Method for binding DropDown with PostGraduateDiploma_Table of Database
         /// </summary>
         private void BindDropDownPostGraduateDiploma()
@@ -298,6 +352,23 @@ namespace JobFair.UserControls.JobSeeker
 
             ddlMD.Items.Insert(Convert.ToInt32(ddlMD.Items[ddlMD.Items.Count - 1].Value), new ListItem("----Other----", ""));
             ddlMD.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        /// <summary>
+        /// Method for binding DropDown with MasterDegree_Table of Database
+        /// </summary>
+        private void BindDropDownDualMasterDegree()
+        {
+            DataSet DualMasterDegreeData = new DataSet();
+            educationalDetails = new EducationalDetailsBAL();
+            // Get Master Degree details
+            DualMasterDegreeData = educationalDetails.GetMasterDegreeBAL();
+            ddlDualMD.DataSource = DualMasterDegreeData;
+            ddlDualMD.DataValueField = "MDId";
+            ddlDualMD.DataTextField = "MDName";
+            ddlDualMD.DataBind();
+
+            ddlDualMD.Items.Insert(Convert.ToInt32(ddlDualMD.Items[ddlDualMD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+            ddlDualMD.Items.Insert(0, new ListItem("--Select--", "0"));
         }
         /// <summary>
         /// Method for binding DropDown with DoctorOfPhilosophy_Table of Database
@@ -343,6 +414,12 @@ namespace JobFair.UserControls.JobSeeker
                 txtBDAdd.Visible = true;
                 btnBDAdd.Visible = true;
             }
+            // Checking item of dropdown
+            if (ddlDualBD.SelectedItem.ToString() == "----Other----")
+            {
+                txtDualBDAdd.Visible = true;
+                btnDualBDAdd.Visible = true;
+            }
         }
         /// <summary>
         ///ddlPgd_SelectedIndexChanged for checking the index of DropDown
@@ -370,6 +447,12 @@ namespace JobFair.UserControls.JobSeeker
             {
                 txtMDAdd.Visible = true;
                 btnMDAdd.Visible = true;
+            }
+            // Checking item of dropdown
+            if (ddlDualMD.SelectedItem.ToString() == "----Other----")
+            {
+                txtDualMDAdd.Visible = true;
+                btnDualMDAdd.Visible = true;
             }
         }
         /// <summary>
@@ -456,5 +539,38 @@ namespace JobFair.UserControls.JobSeeker
             // Add data to the database 
             educationalDetailsBAL.AddDoctorOfPhilosophyBAL(educationalDetailsEntity);
         }
+
+     
+        static int cnt = 0;
+        protected void btnDualBD_Click(object sender, EventArgs e)
+        {
+            cnt++;
+            if (cnt % 2 != 0)
+            {
+                btnDualBD.Text = "Hide Dual Bachelors Degree Details";
+                pnlCollapsableDualBD.Visible = true;
+
+            }
+            if (cnt % 2 == 0)
+            {
+                btnDualBD.Text = "Add Dual Bachelors Degree Details";
+                pnlCollapsableDualBD.Visible = false;
+            }
+        }
+        protected void btnDualMD_Click(object sender, EventArgs e)
+        {
+            cnt++;
+            if (cnt % 2 != 0)
+            {
+                btnDualMD.Text = "Hide Dual Master Degree Details";
+                pnlCollapsableDualMD.Visible = true;
+
+            }
+            if (cnt % 2 == 0)
+            {
+                btnDualMD.Text = "Add Dual Master Degree Details";
+                pnlCollapsableDualMD.Visible = false;
+            }
+        }  
     }
 }
