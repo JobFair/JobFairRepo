@@ -35,6 +35,24 @@
         .auto-style9 {
             width: 23%;
         }
+        .auto-style10 {
+            width: 145px;
+            height: 23px;
+        }
+        .auto-style11 {
+            width: 145px;
+        }
+        .auto-style13 {
+            height: 23px;
+            width: 134px;
+        }
+        .auto-style14 {
+            height: 24px;
+            width: 134px;
+        }
+        .auto-style15 {
+            width: 134px;
+        }
     </style>
 </head>
 
@@ -42,7 +60,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <table>
+            <table style="width: 1273px">
                 <tr>
                     <td class="auto-style9">
                         <asp:Label ID="lblbasicdetails" runat="server" Style="font-weight: 700" Text="BasicDetails"></asp:Label>
@@ -51,9 +69,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:RadioButton ID="rdbbooleansearch" runat="server" Text="BooleanSearch" />
+                        <asp:RadioButton ID="rdbbooleansearch" runat="server" Text="BooleanSearch" GroupName="b" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:RadioButton ID="rdbkeywords" runat="server" Text="Keywords" />
+                    <asp:RadioButton ID="rdbkeywords" runat="server" Text="Keywords" GroupName="b" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -86,13 +104,13 @@
                 <tr>
                     <td colspan="2">
                         <asp:Label ID="lblsearch" runat="server" Text="Search In"></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:RadioButton ID="rdbresumetitle" runat="server" Text="ResumeTitle" />
-                        &nbsp;&nbsp;
-                    <asp:RadioButton ID="rdbkeyskills" runat="server" Text="Resume Title And KeySkill" />
-                        &nbsp;&nbsp;&nbsp;
-                    <asp:RadioButton ID="rdbsynopsis" runat="server" Text="Resume Synopsis" />
-                        &nbsp;<asp:RadioButton ID="rdbentireresume" runat="server" Text="Entire Resume" />
+                     
+                    <asp:RadioButton ID="rdbresumetitle" runat="server" Text="ResumeTitle" GroupName="R" />
+                      
+                    <asp:RadioButton ID="rdbkeyskills" runat="server" Text="Resume Title And KeySkill" GroupName="R" />
+                       
+                    <asp:RadioButton ID="rdbsynopsis" runat="server" Text="Resume Synopsis" GroupName="R" />
+                      <asp:RadioButton ID="rdbentireresume" runat="server" Text="Entire Resume" GroupName="R" />
                     </td>
                 </tr>
                 <asp:GridView ID="GridView1" runat="server">
@@ -101,29 +119,29 @@
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </table>
         </div>
-        -------------------------------------------------------------------------------------------------------------
+        ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         <div>
 
             <table class="auto-style2">
                 <tr>
-                    <td class="auto-style3">
+                    <td class="auto-style10">
                         <asp:Label ID="lblemploymentdetails" runat="server" Style="font-weight: 700" Text="EmploymentDetails"></asp:Label>
                     </td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style11">
                         <asp:Label ID="lblfunctionalarea" runat="server" Text="FunctionalArea"></asp:Label>
                     </td>
                     <td>&nbsp;<asp:DropDownCheckBoxes ID="ddlfunctionalarea" runat="server" OnSelectedIndexChanged="ddlfunctionalarea_SelectedIndexChanged">
                         <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                     </asp:DropDownCheckBoxes>
-                        &nbsp;<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style11">
                         <asp:Label ID="lblindystrytype" runat="server" Text="Industry Type"></asp:Label>
                     </td>
 
@@ -136,18 +154,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style11">
                         <asp:Label ID="lblemployers" runat="server" Text="Employers"></asp:Label>
                     </td>
                     <td>
                         <asp:TextBox ID="txtemployers" runat="server"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       
                         <asp:DropDownList ID="ddlemployer" runat="server">
                             <asp:ListItem>current employer</asp:ListItem>
                             <asp:ListItem>Previous employer</asp:ListItem>
                             <asp:ListItem>current/Previous</asp:ListItem>
                         </asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                     
                         <asp:DropDownList ID="ddlallwords" runat="server">
                             <asp:ListItem> All Words</asp:ListItem>
                             <asp:ListItem> Any Of the Words</asp:ListItem>
@@ -156,39 +174,39 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style11">
                         <asp:Label ID="lblexcludeemployers" runat="server" Text="Exclude Employers"></asp:Label>
                     </td>
                     <td>
                         <asp:TextBox ID="txtexcludeemployers" runat="server"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     
                         <asp:DropDownList ID="ddlemployer0" runat="server">
                             <asp:ListItem>current employer</asp:ListItem>
                             <asp:ListItem>Previous employer</asp:ListItem>
                             <asp:ListItem>current/Previous</asp:ListItem>
                         </asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   
                         <asp:DropDownList ID="ddlallwords0" runat="server">
                             <asp:ListItem> All Words</asp:ListItem>
                             <asp:ListItem> Any Of the Words</asp:ListItem>
                             <asp:ListItem> All Of The Pharse</asp:ListItem>
                         </asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;
+                   
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style11">
                         <asp:Label ID="lbldesignation" runat="server" Text="Designatin"></asp:Label>
                     </td>
                     <td>
                         <asp:TextBox ID="txtdesignation" runat="server"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                      
                         <asp:DropDownList ID="ddldesignation" runat="server">
                             <asp:ListItem>current employer</asp:ListItem>
                             <asp:ListItem>Previous employer</asp:ListItem>
                             <asp:ListItem>current/Previous</asp:ListItem>
                         </asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                     
                         <asp:DropDownList ID="ddlallwords1" runat="server">
                             <asp:ListItem> All Words</asp:ListItem>
                             <asp:ListItem> Any Of the Words</asp:ListItem>
@@ -197,7 +215,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td class="auto-style11">&nbsp;</td>
                     <td>
                         <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                     </td>
@@ -209,12 +227,12 @@
 
              <table class="auto-style2">
                  <tr>
-                     <td>
+                     <td class="auto-style15">
                          <asp:Label ID="lbleducationaldetails" runat="server" Text="Educational Details"></asp:Label></td>
                      <td>&nbsp;</td>
                  </tr>
                  <tr>
-                     <td>
+                     <td class="auto-style15">
                          <asp:Label ID="lblselecteducationaldetails" runat="server" Text="UGQualification"></asp:Label></td>
                      <td>
                          <asp:DropDownCheckBoxes ID="ddlugqualification" runat="server" style="top: 0px; left: 0px">
@@ -222,7 +240,7 @@
                          </asp:DropDownCheckBoxes></td>
                  </tr>
                  <tr>
-                     <td>
+                     <td class="auto-style15">
                          <asp:Label ID="lblBDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                      </td>
                      <td>
@@ -230,7 +248,7 @@
                      </td>
                  </tr>
                  <tr>
-                     <td class="auto-style3">
+                     <td class="auto-style13">
                          <asp:Label ID="lblinstitutename" runat="server" Text="InstituteName"></asp:Label></td>
                      <td class="auto-style3">
                          <asp:TextBox ID="txtInstitutename" runat="server"></asp:TextBox>
@@ -243,7 +261,7 @@
                      </td>
                  </tr>
                  <tr>
-                     <td class="auto-style3">
+                     <td class="auto-style13">
                          <asp:Label ID="lblYearOfpassing" runat="server" Text="YearOfPassing"></asp:Label>&nbsp;&nbsp; </td>
 
                      <td>
@@ -257,7 +275,7 @@
                      </td>
                  </tr>
                  <tr>
-                     <td class="auto-style3">&nbsp;</td>
+                     <td class="auto-style13">&nbsp;</td>
 
                      <td>
                          <asp:RadioButton ID="rdbAnd" runat="server" Text="And" />
@@ -266,7 +284,7 @@
                      </td>
                  </tr>
                  <tr>
-                     <td class="auto-style3">
+                     <td class="auto-style13">
                          <asp:Label ID="lblPGeducationaldetails" runat="server" Text="PGQualification"></asp:Label></td>
 
                      <td>
@@ -275,7 +293,7 @@
                          </asp:DropDownCheckBoxes>&nbsp;</td>
                  </tr>
                  <tr>
-                     <td class="auto-style4">
+                     <td class="auto-style14">
                          <asp:Label ID="lblpginstitutename" runat="server" Text="InstituteName"></asp:Label></td>
 
                      <td class="auto-style4">
@@ -287,7 +305,7 @@
                      </td>
                  </tr>
                  <tr>
-                     <td class="auto-style3">
+                     <td class="auto-style13">
                          <asp:Label ID="lblpgyearofpassing" runat="server" Text="YearOfPassing"></asp:Label></td>
 
                      <td>
@@ -300,7 +318,7 @@
                      </td>
                  </tr>
                  <tr>
-                     <td class="auto-style3">&nbsp;</td>
+                     <td class="auto-style13">&nbsp;</td>
 
                      <td>&nbsp;</td>
                  </tr>
@@ -341,20 +359,20 @@
                             <tr>
                                 <td>
                                     <asp:CheckBox ID="chksearchwomen" runat="server" OnCheckedChanged="chksearchwomen_CheckedChanged" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                                     <asp:Label ID="lblcandidate" runat="server" Text="search Women Candidate Only"></asp:Label>
                                 </td>
                                </tr>
                             <tr>
                                 <td>
                                     <asp:CheckBox ID="CheckBox2" runat="server" OnCheckedChanged="CheckBox2_CheckedChanged" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                                     <asp:Label ID="lblability" runat="server" Text="search  Candidate  With Special Ability Only"></asp:Label>
                                 </td>
                                </tr>
             </table>
         </div>
-        --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         <div>
 
             <table class="auto-style2">
@@ -418,7 +436,7 @@
             </table>
 
         </div>
-        ----------------------------------------------------------------------------------------------------------------------------------------------
+       -----------------------------------------------------------------------------------------------------------------------------------------------------
         <div>
 
             <table class="auto-style2">
@@ -439,21 +457,21 @@
                                     <asp:Label ID="lblcandidateseeking" runat="server" Text="Show andidate Seeking"></asp:Label>
                                 </td>
                     <td>&nbsp;
-                        <asp:RadioButton ID="rdbpermantjob" runat="server" Text="Permant Job" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:RadioButton ID="rdbtemproryjob" runat="server" Text="Temprory/Contract Job" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:RadioButton ID="rdbAny" runat="server" Text="Any" />
-&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                        <asp:RadioButton ID="rdbpermantjob" runat="server" Text="Permant Job" GroupName="p" OnCheckedChanged="rdbpermantjob_CheckedChanged" />
+                      
+                        <asp:RadioButton ID="rdbtemproryjob" runat="server" Text="Temprory/Contract Job" GroupName="p" />
+
+                        <asp:RadioButton ID="rdbAny" runat="server" Text="Any" GroupName="p" />
+ </td>
                 </tr>
                 <tr>
                     <td class="auto-style7">&nbsp;</td>
                     <td>
-                        <asp:RadioButton ID="rdbfulltimejob" runat="server" Text="FullTime Job" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:RadioButton ID="rdbparttime" runat="server" Text="PartTime Job" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:RadioButton ID="rdbany1" runat="server" Text="Any" />
+                        <asp:RadioButton ID="rdbfulltimejob" runat="server" Text="FullTime Job" GroupName="p" />
+
+                        <asp:RadioButton ID="rdbparttime" runat="server" Text="PartTime Job" GroupName="p" />
+
+                        <asp:RadioButton ID="rdbany1" runat="server" Text="Any" GroupName="p" />
                     </td>
                 </tr>
                 <tr>
@@ -488,7 +506,6 @@
                     </td>
                 </tr>
             </table>
-
         </div>
     </form>
 </body>

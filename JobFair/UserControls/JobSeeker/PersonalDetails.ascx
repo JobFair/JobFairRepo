@@ -147,8 +147,7 @@
             <asp:DropDownList ID="ddlMaritalStatus" runat="server">
                 <asp:ListItem>Select</asp:ListItem>
                 <asp:ListItem>Married</asp:ListItem>
-                <asp:ListItem>Unmarried</asp:ListItem>
-                <asp:ListItem>Widow</asp:ListItem>
+                <asp:ListItem>Single</asp:ListItem>
             </asp:DropDownList>
         </td>
     </tr>
