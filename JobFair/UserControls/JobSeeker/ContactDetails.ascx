@@ -27,7 +27,7 @@
     </tr>
     <tr>
         <td >
-            <asp:Label ID="lblWhatapp" runat="server" Text="Whats app No"></asp:Label>
+            <asp:Label ID="lblWhatapp" runat="server" Text="Whats App No"></asp:Label>
         </td>
         <td >
             <asp:TextBox ID="txtWhatsappNo" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" WatermarkText="Whatsapp Number" TargetControlID="txtWhatsappNo"  />

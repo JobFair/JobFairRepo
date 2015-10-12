@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Webform1.aspx.cs" Inherits="JobFair.Forms.JobSeeker.WebForm1" %>
 
+<%@ Register Src="~/UserControls/JobSeeker/ProfessionalDetails.ascx" TagPrefix="uc1" TagName="ProfessionalDetails" %>
+
+
 
 
 
@@ -19,7 +22,7 @@
        
        <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
-      
+       <uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" />
        
     </form>
 </body>

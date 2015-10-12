@@ -12,8 +12,7 @@
         <table>
             <tr>
                 <td>
-                    <asp:Image ID="imgCandidate" runat="server" />
-                   
+                    <asp:Image ID="imgCandidate" ImageUrl='<%#Eval("JS12","~/Images/{0}") %>' runat="server" />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                    
@@ -372,6 +371,7 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="txtDesignationCurrent" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -425,7 +425,7 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="txtDuration" runat="server"></asp:TextBox>
-                                            </td>
+                                                &nbsp;</td>
                                         </tr>
                                     </table>
                                 </div>
