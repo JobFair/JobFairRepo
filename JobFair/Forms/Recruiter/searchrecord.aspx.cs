@@ -205,5 +205,40 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        protected void rdbpermantjob_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbpermantjob.Checked == true)
+            {
+
+                rdbparttime.Checked = false; rdbfulltimejob.Checked = false; rdbAny.Checked = false;
+                rdbany1.Checked = false; rdbtemproryjob.Checked = false; 
+
+            }
+            if (rdbparttime.Checked == true)
+            {
+
+                rdbpermantjob.Checked = false; rdbany1.Checked = false; rdbAny.Checked = false;
+                rdbtemproryjob.Checked = false; rdbfulltimejob.Checked = false;
+
+            
+            }
+            if (rdbAny.Checked == true)
+            {
+                rdbany1.Checked = false; rdbpermantjob.Checked = false; rdbparttime.Checked = false;
+                rdbtemproryjob.Checked = false; rdbfulltimejob.Checked = false;
+            }
+            if (rdbany1.Checked == true)
+            {
+                rdbAny.Checked = false; rdbpermantjob.Checked = false; rdbparttime.Checked = false;
+                rdbfulltimejob.Checked = false; 
+
+            }
+            if (rdbfulltimejob.Checked == true)
+            {
+                rdbAny.Checked = false; rdbany1.Checked = false; rdbparttime.Checked = false;
+                rdbfulltimejob.Checked = false; rdbpermantjob.Checked = false;
+            }
+        }
+
     }
 }

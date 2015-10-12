@@ -22,8 +22,9 @@
                 <td>Candidate Name
                 </td>
                 <td>
-                    <asp:Label ID="lblFullName" runat="server"></asp:Label>
-                    &nbsp;</td>
+                    <asp:Label ID="lblFirstName" runat="server" Text='<%#Eval("FirstName") %>'></asp:Label>
+                    &nbsp;<asp:Label ID="lblLastName" runat="server" Text='<%#Eval("LastName") %>'></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>EmailId
@@ -301,14 +302,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Expected Salary</td>
-                            <td><asp:Label ID="lblExpectedSalary" runat="server"></asp:Label></td>
-                        </tr>
-                        <tr>
-                            <td>Company Type</td>
-                            <td><asp:Label ID="lblCompanyType" runat="server"></asp:Label></td>
-                        </tr>
-                        <tr>
                             <td>Last Employer
                             </td>
                             <td>
@@ -379,23 +372,6 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="txtAnnualSalary" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Expected Salary</td>
-                            <td>
-                                <asp:TextBox ID="txtExpectedAnualSalary" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Company Type</td>
-                            <td>
-                                <asp:DropDownList ID="ddlCompanyType" runat="server">
-                                    <asp:ListItem>Select</asp:ListItem>
-                                    <asp:ListItem>Small</asp:ListItem>
-                                    <asp:ListItem>Middle</asp:ListItem>
-                                    <asp:ListItem>MNC</asp:ListItem>
-                                </asp:DropDownList>
                             </td>
                         </tr>
                         <tr>
@@ -862,7 +838,6 @@
                     </td>
                     <td>
                         <asp:FileUpload ID="FileUploadResume" runat="server" />
-                        <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
                     </td>
                 </tr>
                 <tr>

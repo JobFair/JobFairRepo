@@ -8,6 +8,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 176px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,7 +26,7 @@
             <br />
             <table>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill"></asp:Label>
                     </td>
                     <td>
@@ -29,8 +34,17 @@
                     </td>
                 </tr>
                 <tr>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
+                    </td>
                     <td>
-                        <asp:Label ID="lbllocation" runat="server" Text="Location"></asp:Label>
+                        <asp:DropDownList ID="ddlCity" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblArea" runat="server" Text="Area"></asp:Label>
                     </td>
                     <td>
                         <asp:DropDownCheckBoxes ID="ddlLocation" runat="server">
@@ -38,7 +52,7 @@
                         </asp:DropDownCheckBoxes></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lblworkexprience" runat="server" Text="Work Exprience"></asp:Label>
                     </td>
                     <td>
@@ -53,7 +67,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lbsalary" runat="server" Text="Expected Salary"></asp:Label>
                     </td>
                     <td>
@@ -108,18 +122,18 @@
                         in Lakhs</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lblindustry" runat="server" Text="Industry"></asp:Label>
                     </td>
                     <td>
 
-                        <asp:DropDownCheckBoxes ID="ddlIndustry" runat="server" UseSelectAllNode="false">
+                        <asp:DropDownCheckBoxes ID="ddlIndustry" runat="server" UseSelectAllNode="false" style="top: 0px; left: 44px; width: 186px">
                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                         </asp:DropDownCheckBoxes>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lbljobcategory" runat="server" Text="JobCategory"></asp:Label>
                     </td>
                     <td>
@@ -129,26 +143,50 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <asp:Label ID="lblJobType" runat="server" Text="Job Type"></asp:Label>
+                    <td class="auto-style1">
+                        <span style="font-size: 11.0pt; line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: Calibri; mso-bidi-font-family: &quot;Times New Roman&quot;; background: silver; mso-highlight: silver; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">&nbsp;</span><asp:Label ID="Label2" runat="server" Text="Employement Status"></asp:Label>
                     </td>
                     <td>
-                        &nbsp;</td>
+                        <asp:CheckBox ID="chkFullTime" runat="server" Text="Full Time" />
+                        <asp:CheckBox ID="chkPartTime" runat="server" Text="Part Time" />
+                    </td>
                 </tr>
                 <tr>
-                    <td>
-                        <asp:Label ID="lblSortBy" runat="server" Text="Sort By"></asp:Label>
+                    <td class="auto-style1">
+                        <asp:Label ID="Label3" runat="server" Text="Job Type"></asp:Label>
                     </td>
                     <td>
-                        &nbsp;</td>
+                        <asp:CheckBox ID="chkPermanant" runat="server" Text="Permanant" />
+                        <asp:CheckBox ID="chkTemporary" runat="server" Text="Temporary" />
+                        <asp:CheckBox ID="chkFreelancing" runat="server" Text="Freelancing" />
+                    </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblJobType" runat="server" Text="Recruitment Type"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:CheckBox ID="chkInhouse" runat="server" Text="Inhouse" />
+                        <asp:CheckBox ID="chkClient" runat="server" Text="Client" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblSortBy" runat="server" Text="Job Freshness"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlJobFreshness" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">&nbsp;</td>
                     <td>
                         <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Width="97px" />
                     </td>
                 </tr>
             </table>
+            <asp:GridView ID="GridView1" runat="server" Visible="false"></asp:GridView>
         </div>
     </form>
 </body>

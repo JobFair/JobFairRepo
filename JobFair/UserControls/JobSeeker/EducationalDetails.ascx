@@ -24,15 +24,15 @@
                     <asp:ListItem runat="server" Text="  Workshops" Value="9" AutoPostBack="True"></asp:ListItem>--%>
                 </asp:CheckBoxList></td>
             <td style="padding-left: 25px;">
-                <asp:Button ID="btnGo" runat="server" Text="Go" OnClick="btnGo_Click" /></td>
+                <asp:Button ID="btnGo" runat="server" Text="Go" OnClick="btnGo_Click" CssClass="button"/></td>
         </tr>
     </table>
     <br />
         <hr />
     <br />
     
-    <asp:Panel ID="pnlCollapsableSSC" runat="server" Visible="False">
-        <table style="margin-left: 10px">
+    <asp:Panel ID="pnlCollapsableSSC" runat="server" Visible="False" CssClass="pnlCSS">
+        <table>
             <asp:Label ID="lblSSCHead" runat="server" Text=" SSC / 10th Details" CssClass="label"></asp:Label>
             <br />
             <br />
@@ -80,14 +80,12 @@
                 </td>
             </tr>
         </table>
-        <hr style="width: 350px" />
     </asp:Panel>
     <br />
 
-    <asp:Panel ID="pnlCollapsableHSC" runat="server" Visible="false">
+    <asp:Panel ID="pnlCollapsableHSC" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblHSCHead" runat="server" Text=" HSC / 12th Details"  CssClass="label"></asp:Label>
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -123,7 +121,7 @@
                         </asp:DropDownList>
                         <br />
                         <asp:TextBox ID="txtHSCAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
-                        <asp:Button ID="btnHSCAdd" runat="server" Text="Add" Visible="False" />
+                        <asp:Button ID="btnHSCAdd" runat="server" Text="Add" Visible="False" CssClass="button"/>
                     </td>
                 </tr>
                 <tr>
@@ -150,16 +148,13 @@
                         <asp:TextBox ID="txtHSCPercentage" runat="server" Width="100px"></asp:TextBox>
                     </td>
                 </tr>
-            </caption>
         </table>
-        <hr style="width: 350px" />
     </asp:Panel>
     <br />
 
-    <asp:Panel ID="pnlCollapsableDip" runat="server" Visible="false">
+    <asp:Panel ID="pnlCollapsableDip" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblDipHead" runat="server" Text=" UG Diploma Details" CssClass="label"></asp:Label>
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -190,7 +185,7 @@
                         </asp:DropDownList>
                         <br />
                         <asp:TextBox ID="txtDipAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
-                        <asp:Button ID="btnDipAdd" runat="server" OnClick="btnDipAdd_Click" Text="Add" Visible="False" />
+                        <asp:Button ID="btnDipAdd" runat="server" OnClick="btnDipAdd_Click" Text="Add" Visible="False" CssClass="button"/>
                     </td>
                 </tr>
                 <tr>
@@ -217,17 +212,13 @@
                         <asp:TextBox ID="txtDipPercentage" runat="server" Width="100px"></asp:TextBox>
                     </td>
                 </tr>
-            </caption>
         </table>
-        <hr style="width: 350px" />
     </asp:Panel>
     <br />
 
-    <asp:Panel ID="pnlCollapsableBD" runat="server" Visible="false">
+    <asp:Panel ID="pnlCollapsableBD" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblBDHead" runat="server" Text="Bachelors Degree Details" CssClass="label"></asp:Label>
-            
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -258,7 +249,7 @@
                         </asp:DropDownList>
                         <br />
                         <asp:TextBox ID="txtBDAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
-                        <asp:Button ID="btnBDAdd" runat="server" OnClick="btnBDAdd_Click" Text="Add" Visible="False" />
+                        <asp:Button ID="btnBDAdd" runat="server" OnClick="btnBDAdd_Click" Text="Add" Visible="False" CssClass="button"/>
                     </td>
                 </tr>
                 <tr>
@@ -285,17 +276,80 @@
                         <asp:TextBox ID="txtBDPercentage" runat="server" Width="100px"></asp:TextBox>
                     </td>
                 </tr>
-            </caption>
         </table>
-        <hr style="width: 350px" />
+        <asp:Button ID="btnDualBD" runat="server" Text="Add Dual Bachelors Degree Details" OnClick="btnDualBD_Click" CssClass="button"/>
     </asp:Panel>
     <br />
 
-    <asp:Panel ID="pnlCollapsablePgd" runat="server" Visible="false">
+
+     <asp:Panel ID="pnlCollapsableDualBD" runat="server" Visible="false" CssClass="pnlCSS">
+        <table>
+            <asp:Label ID="lblDualBDHead" runat="server" Text="Dual Bachelors Degree Details" CssClass="label"></asp:Label>
+                <br />
+                <br />
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualBDMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDualBDMedium" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualBDStat" runat="server" CssClass="label" Text="Status"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:RadioButtonList ID="rblDualBDStat" runat="server" CssClass="MultipleSelectionDDL" RepeatDirection="Horizontal" Width="100px">
+                            <asp:ListItem>Appeared</asp:ListItem>
+                            <asp:ListItem>Completed</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualBDSpecialization" runat="server" CssClass="label" Text="Specialization"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlDualBD" runat="server" AutoPostBack="True" Height="16px" OnSelectedIndexChanged="ddlBD_SelectedIndexChanged" Width="100px">
+                        </asp:DropDownList>
+                        <br />
+                        <asp:TextBox ID="txtDualBDAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
+                        <asp:Button ID="btnDualBDAdd" runat="server" OnClick="btnBDAdd_Click" Text="Add" Visible="False" CssClass="button"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualBDYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDualBDYear" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualBDUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDualBDUniversity" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualBDPercentage" runat="server" CssClass="label" Text="Percentage"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDualBDPercentage" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+        </table>
+    </asp:Panel>
+    <br />
+
+
+    <asp:Panel ID="pnlCollapsablePgd" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblPgdHead" runat="server" Text=" PG Diploma Details" CssClass="label" ></asp:Label>
-            
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -326,7 +380,7 @@
                         </asp:DropDownList>
                         <br />
                         <asp:TextBox ID="txtPgdAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
-                        <asp:Button ID="btnPgdAdd" runat="server" OnClick="btnPgdAdd_Click" Text="Add" Visible="False" />
+                        <asp:Button ID="btnPgdAdd" runat="server" OnClick="btnPgdAdd_Click" Text="Add" Visible="False" CssClass="button"/>
                     </td>
                 </tr>
                 <tr>
@@ -353,17 +407,13 @@
                         <asp:TextBox ID="txtPgdPercentage" runat="server" Width="100px"></asp:TextBox>
                     </td>
                 </tr>
-            </caption>
         </table>
-         <hr style="width: 350px;float:left" />
     </asp:Panel>
     <br />
    
-    <asp:Panel ID="pnlCollapsableMD" runat="server" Visible="false">
+    <asp:Panel ID="pnlCollapsableMD" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblMDHead" runat="server" Text=" Masters Degree Details" CssClass="label" ></asp:Label>
-            
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -394,7 +444,7 @@
                         </asp:DropDownList>
                         <br />
                         <asp:TextBox ID="txtMDAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
-                        <asp:Button ID="btnMDAdd" runat="server" OnClick="btnMDAdd_Click" Text="Add" Visible="False" />
+                        <asp:Button ID="btnMDAdd" runat="server" OnClick="btnMDAdd_Click" Text="Add" Visible="False" CssClass="button"/>
                     </td>
                 </tr>
                 <tr>
@@ -421,17 +471,80 @@
                         <asp:TextBox ID="txtMDPercentage" runat="server" Width="100px"></asp:TextBox>
                     </td>
                 </tr>
-            </caption>
         </table>
-        <hr style="width: 350px" />
+        <asp:Button ID="btnDualMD" runat="server" Text="Add Dual Masters Degree Details" OnClick="btnDualMD_Click" CssClass="button"/>
     </asp:Panel>
     <br />
 
-    <asp:Panel ID="pnlCollapsablePHD" runat="server" Visible="false">
+
+        <asp:Panel ID="pnlCollapsableDualMD" runat="server" Visible="false" CssClass="pnlCSS">
+        <table>
+            <asp:Label ID="lblDualMDHead" runat="server" Text=" Dual Masters Degree Details" CssClass="label" ></asp:Label>
+                <br />
+                <br />
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualMDMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDualMDMedium" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualMDStat" runat="server" CssClass="label" Text="Status"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:RadioButtonList ID="rblDualMDStat" runat="server" CssClass="MultipleSelectionDDL" RepeatDirection="Horizontal" Width="100px">
+                            <asp:ListItem>Appeared</asp:ListItem>
+                            <asp:ListItem>Completed</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualMDSpecialization" runat="server" CssClass="label" Text="Specialization"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlDualMD" runat="server" AutoPostBack="True" Height="16px" OnSelectedIndexChanged="ddlMD_SelectedIndexChanged" Width="100px">
+                        </asp:DropDownList>
+                        <br />
+                        <asp:TextBox ID="txtDualMDAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
+                        <asp:Button ID="btnDualMDAdd" runat="server" OnClick="btnMDAdd_Click" Text="Add" Visible="False" CssClass="button"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualMDYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDualMDYear" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualMDUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDualMDUniversity" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDualMDPercentage" runat="server" CssClass="label" Text="Percentage"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDualMDPercentage" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                </tr>
+        </table>
+    </asp:Panel>
+    <br />
+
+
+    <asp:Panel ID="pnlCollapsablePHD" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblPHPHead" runat="server" Text=" Doctorate/ PHD Degree Details" CssClass="label" ></asp:Label>
-            
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -462,7 +575,7 @@
                         </asp:DropDownList>
                         <br />
                         <asp:TextBox ID="txtPHDAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
-                        <asp:Button ID="btnPHDAdd" runat="server" OnClick="btnPHDAdd_Click" Text="Add" Visible="False" />
+                        <asp:Button ID="btnPHDAdd" runat="server" OnClick="btnPHDAdd_Click" Text="Add" Visible="False" CssClass="button"/>
                     </td>
                 </tr>
                 <tr>
@@ -489,48 +602,30 @@
                         <asp:TextBox ID="txtPHDPercentage" runat="server" Width="100px"></asp:TextBox>
                     </td>
                 </tr>
-            </caption>
         </table>
-        <hr style="width: 350px" />
     </asp:Panel>
     <br />
 </div>
-<div>
-    <table style="background-color: #C0C0C0">
+<div id="footer" runat="server" visible="true" Style="width:100%">
+   <%-- <table style="background-color: #C0C0C0">
         <tr>
             <td>
-               <%-- <div id="divCertification" runat="server" visible="true">--%>
-                    <asp:Panel ID="pnlCollapsableCert" runat="server" Height="0" Width="300px">
+                <div id="divCertification" runat="server" visible="true" Style="width:50%">
+                    <asp:Panel ID="pnlCollapsableCert" runat="server" CssClass="pnlCSS">
                         <uc2:MoreCertifications ID="MoreCertifications1" runat="server" />
                     </asp:Panel>
-                    <ajax:CollapsiblePanelExtender ID="colPanelExtenderCert" runat="server"
-                        CollapseControlID="cbCertification"
-                        Collapsed="true"
-                        ExpandControlID="cbCertification"
-                        TextLabelID="lblMessage8"
-                        ExpandDirection="Vertical"
-                        TargetControlID="pnlCollapsableCert"
-                        ScrollContents="false"></ajax:CollapsiblePanelExtender>
-               <%-- </div>--%>
+                </div>
             </td>
             <td>
-               <%-- <div id="divWorkshop" runat="server" visible="true">--%>
-                    <asp:Panel ID="pnlCollapsableWork" runat="server" Height="0" Width="300px">
+                <div id="divWorkshop" runat="server" visible="true" Style="width:50%">
+                    <asp:Panel ID="pnlCollapsableWork" runat="server" CssClass="pnlCSS">
                         <uc3:MoreWorkshops ID="MoreWorkshops1" runat="server" />
                     </asp:Panel>
-                    <ajax:CollapsiblePanelExtender ID="colPanelExtenderWork" runat="server"
-                        CollapseControlID="cdWorkshop"
-                        Collapsed="true"
-                        ExpandControlID="cdWorkshop"
-                        TextLabelID="lblMessage9"
-                        ExpandDirection="Vertical"
-                        TargetControlID="pnlCollapsableWork"
-                        ScrollContents="false"></ajax:CollapsiblePanelExtender>
-               <%-- </div>--%>
+                </div>
             </td>
         </tr>
-    </table>
-    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" />
+    </table>--%>
+    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" Visible="false" CssClass="button" />
     <br />
     <br />
     <div>
