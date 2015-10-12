@@ -86,7 +86,6 @@ namespace JobFair.UserControls.JobSeeker
 
                     personalDetailsEntity.passportNumber = Convert.ToInt32(txtPassportNo.Text);
                     personalDetailsEntity.passportValidity = Convert.ToDateTime(txtValidity.Text);
-                    personalDetailsEntity.workStatus = ddlWorkStatus.SelectedItem.Text;
                     personalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
                     int result = personalDetailsBAL.SavePersonalDetailsBAL(personalDetailsEntity);
                     if (result > 0)

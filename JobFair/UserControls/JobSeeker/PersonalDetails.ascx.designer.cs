@@ -400,24 +400,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
         
         /// <summary>
-        /// lblUpdateWorkStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdateWorkStatus;
-        
-        /// <summary>
-        /// ddlWorkStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlWorkStatus;
-        
-        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>
