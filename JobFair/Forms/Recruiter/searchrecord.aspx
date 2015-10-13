@@ -33,14 +33,14 @@
             height: 23px;
         }
         .auto-style9 {
-            width: 23%;
+            width: 46%;
         }
         .auto-style10 {
-            width: 145px;
+            width: 188px;
             height: 23px;
         }
         .auto-style11 {
-            width: 145px;
+            width: 188px;
         }
         .auto-style13 {
             height: 23px;
@@ -52,6 +52,34 @@
         }
         .auto-style15 {
             width: 134px;
+        }
+        .auto-style16 {
+            height: 26px;
+        }
+        .auto-style19 {
+            height: 26px;
+            width: 46%;
+        }
+        .auto-style20 {
+            height: 17px;
+            width: 46%;
+        }
+        .auto-style21 {
+            height: 17px;
+        }
+        .auto-style22 {
+            height: 12px;
+            width: 46%;
+        }
+        .auto-style23 {
+            height: 12px;
+        }
+        .auto-style24 {
+            height: 15px;
+            width: 46%;
+        }
+        .auto-style25 {
+            height: 15px;
         }
     </style>
 </head>
@@ -102,7 +130,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td class="auto-style9">
                         <asp:Label ID="lblsearch" runat="server" Text="Search In"></asp:Label>
                      
                     <asp:RadioButton ID="rdbresumetitle" runat="server" Text="ResumeTitle" GroupName="R" />
@@ -111,6 +139,196 @@
                        
                     <asp:RadioButton ID="rdbsynopsis" runat="server" Text="Resume Synopsis" GroupName="R" />
                       <asp:RadioButton ID="rdbentireresume" runat="server" Text="Entire Resume" GroupName="R" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style9">
+                        <asp:Label ID="lblworkstatus" runat="server" Text="Candidate Work Status"></asp:Label>
+                    </td>
+                    <td>
+            <asp:DropDownList ID="ddlWorkStatus0" runat="server">
+                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem>Working</asp:ListItem>
+                <asp:ListItem>On Notice Period</asp:ListItem>
+                <asp:ListItem>Fresher</asp:ListItem>
+            </asp:DropDownList>
+        &nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style9">
+                        <asp:Label ID="lblcandidatelocation" runat="server" Text="Candidate Current Location"></asp:Label>
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style9">
+                        <asp:RadioButton ID="rdbarea" runat="server" GroupName="A" Text="And" />
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style9">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblareacurrent" runat="server" Text="Area Of Current Location "></asp:Label>
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style20">
+                        <asp:Label ID="lblpreferedlocation" runat="server" Text="Candidate Prefered Location"></asp:Label>
+                    </td>
+                    <td class="auto-style21">
+                        </td>
+                </tr>
+                <tr>
+                    <td class="auto-style22">
+                        <asp:RadioButton ID="rdbor1" runat="server" GroupName="A" Text="OR" />
+                    </td>
+                    <td class="auto-style23">
+                        </td>
+                </tr>
+                <tr>
+                    <td class="auto-style24">
+                        <asp:Label ID="lblareaprefered" runat="server" Text="Area Of Prefered Location "></asp:Label>
+                    </td>
+                    <td class="auto-style25">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style19">
+                        <asp:Label ID="lblExprience" runat="server" Text="Exprience"></asp:Label>
+                    </td>
+                    <td class="auto-style16">
+                        &nbsp;<asp:DropDownList ID="ddlworkexpyear" runat="server">
+                            <asp:ListItem>---select----</asp:ListItem>
+                            <asp:ListItem>0</asp:ListItem>
+                            <asp:ListItem>1.2</asp:ListItem>
+                            <asp:ListItem>1.3</asp:ListItem>
+                            <asp:ListItem>1.5</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>2.2</asp:ListItem>
+                            <asp:ListItem>2.3</asp:ListItem>
+                            <asp:ListItem> 2.4</asp:ListItem>
+                            <asp:ListItem> 2.5</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>3.2</asp:ListItem>
+                            <asp:ListItem>3.3</asp:ListItem>
+                            <asp:ListItem> 3.5</asp:ListItem>
+                            <asp:ListItem> 4</asp:ListItem>
+                            <asp:ListItem> 4.2</asp:ListItem>
+                            <asp:ListItem> 4.3</asp:ListItem>
+                            <asp:ListItem>4.4</asp:ListItem>
+                            <asp:ListItem>4.5</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>5.2</asp:ListItem>
+                            <asp:ListItem>5.3</asp:ListItem>
+                            <asp:ListItem> 5.4</asp:ListItem>
+                            <asp:ListItem> 5.5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>6.2</asp:ListItem>
+                            <asp:ListItem>6.3</asp:ListItem>
+                            <asp:ListItem>6.4</asp:ListItem>
+                            <asp:ListItem> 6.5</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                        </asp:DropDownList>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style19">
+                        <asp:Label ID="lblannualsalary" runat="server" Text="Current Annual Salary"></asp:Label>
+                    </td>
+                    <td class="auto-style16">
+                        <asp:DropDownList ID="ddlworkexpyear0" runat="server">
+                            <asp:ListItem>---select----</asp:ListItem>
+                            <asp:ListItem>0</asp:ListItem>
+                            <asp:ListItem>1.2</asp:ListItem>
+                            <asp:ListItem>1.3</asp:ListItem>
+                            <asp:ListItem>1.5</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>2.2</asp:ListItem>
+                            <asp:ListItem>2.3</asp:ListItem>
+                            <asp:ListItem>2.4</asp:ListItem>
+                            <asp:ListItem>2.5</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>3.2</asp:ListItem>
+                            <asp:ListItem>3.3</asp:ListItem>
+                            <asp:ListItem>3.5</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>4.2</asp:ListItem>
+                            <asp:ListItem>4.3</asp:ListItem>
+                            <asp:ListItem>4.4</asp:ListItem>
+                            <asp:ListItem>4.5</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>5.2</asp:ListItem>
+                            <asp:ListItem>5.3</asp:ListItem>
+                            <asp:ListItem>5.4</asp:ListItem>
+                            <asp:ListItem>5.5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>6.2</asp:ListItem>
+                            <asp:ListItem>6.3</asp:ListItem>
+                            <asp:ListItem>6.4</asp:ListItem>
+                            <asp:ListItem>6.5</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style19">
+                        <asp:Label ID="lblexpectedannual" runat="server" Text="Expected Annual Salary"></asp:Label>
+                    </td>
+                    <td class="auto-style16">
+                        <asp:DropDownList ID="ddlworkexpyear1" runat="server">
+                            <asp:ListItem>---select----</asp:ListItem>
+                            <asp:ListItem>0</asp:ListItem>
+                            <asp:ListItem>1.2</asp:ListItem>
+                            <asp:ListItem>1.3</asp:ListItem>
+                            <asp:ListItem>1.5</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>2.2</asp:ListItem>
+                            <asp:ListItem>2.3</asp:ListItem>
+                            <asp:ListItem> 2.4</asp:ListItem>
+                            <asp:ListItem> 2.5</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>3.2</asp:ListItem>
+                            <asp:ListItem>3.3</asp:ListItem>
+                            <asp:ListItem> 3.5</asp:ListItem>
+                            <asp:ListItem> 4</asp:ListItem>
+                            <asp:ListItem> 4.2</asp:ListItem>
+                            <asp:ListItem> 4.3</asp:ListItem>
+                            <asp:ListItem>4.4</asp:ListItem>
+                            <asp:ListItem>4.5</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>5.2</asp:ListItem>
+                            <asp:ListItem>5.3</asp:ListItem>
+                            <asp:ListItem> 5.4</asp:ListItem>
+                            <asp:ListItem> 5.5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>6.2</asp:ListItem>
+                            <asp:ListItem>6.3</asp:ListItem>
+                            <asp:ListItem>6.4</asp:ListItem>
+                            <asp:ListItem> 6.5</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style19">
+                        <asp:Label ID="lblnoticeperiod0" runat="server" Text="Notice Period"></asp:Label>
+                    </td>
+                    <td class="auto-style16">
+                        <asp:DropDownList ID="ddlnoticeperiod" runat="server">
+                            <asp:ListItem>Any</asp:ListItem>
+                            <asp:ListItem>Currently Serving Notice Period</asp:ListItem>
+                            <asp:ListItem> 15 Days Or Less</asp:ListItem>
+                            <asp:ListItem> 1 Month</asp:ListItem>
+                            <asp:ListItem> 2 Months</asp:ListItem>
+                            <asp:ListItem> 3Moths</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <asp:GridView ID="GridView1" runat="server">
@@ -147,10 +365,43 @@
 
                     <td>
 
-                        <asp:DropDownCheckBoxes ID="ddlindustrytype" runat="server" OnSelectedIndexChanged="ddlindustrytype_SelectedIndexChanged">
+                        <asp:DropDownCheckBoxes ID="ddlindustrytype" runat="server" OnSelectedIndexChanged="ddlindustrytype_SelectedIndexChanged" style="top: 0px; left: 0px; height: 20px">
                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                         </asp:DropDownCheckBoxes>
-                        &nbsp;<asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                        &nbsp; <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style10">
+                        <asp:Label ID="lbldeparment" runat="server" Text="Department"></asp:Label>
+                    </td>
+
+                    <td class="auto-style3">
+
+                        <asp:DropDownList ID="ddldepartment" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style11">
+                        <asp:Label ID="lblroleskill" runat="server" Text="Keywords/Role Skill"></asp:Label>
+                    </td>
+
+                    <td>
+
+                        <asp:DropDownList ID="ddlroleskill" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style11">
+                        <asp:Label ID="lblkeywordstechnicalrole" runat="server" Text="Keywords/Role Technical"></asp:Label>
+                    </td>
+
+                    <td>
+
+                        <asp:DropDownList ID="ddlroletechnical" runat="server">
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
@@ -213,6 +464,16 @@
                             <asp:ListItem> All Of The Pharse</asp:ListItem>
                         </asp:DropDownList>
                     </td>
+                </tr>
+                <tr>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style11">&nbsp;</td>
@@ -479,13 +740,7 @@
                                     <asp:Label ID="lblnoticeperiod" runat="server" Text="Notice Period"></asp:Label>
                                 </td>
                     <td>
-                        <asp:DropDownList ID="ddlnoticeperiod" runat="server">
-                            <asp:ListItem>Any</asp:ListItem>
-                            <asp:ListItem>Currently Serving Notice Period</asp:ListItem>
-                            <asp:ListItem> 15 Days Or Less</asp:ListItem>
-                            <asp:ListItem> 1 Month</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style7">

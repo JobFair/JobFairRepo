@@ -197,7 +197,7 @@
                   <th>DepartmentId</th>
                   <th>FunctionalAreaId</th>
                   <th>JobDescription</th>
-                  <th>WorkExprience</th>
+                  <th>WorkExperience</th>
                   <th>PostedDate</th>
               </tr>
           </HeaderTemplate>
@@ -225,7 +225,7 @@
                 <%# DataBinder.Eval(Container.DataItem,"JobDescription")%>
                  </th>
                  <th> 
-                <%# DataBinder.Eval(Container.DataItem,"WorkExprience")%>
+                <%# DataBinder.Eval(Container.DataItem,"WorkExperience")%>
                 </th> 
                 <th> 
                 <%# DataBinder.Eval(Container.DataItem,"PostedDate")%>

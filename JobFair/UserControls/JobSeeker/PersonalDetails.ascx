@@ -1,6 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PersonalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.PersonalDetails" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
+<style type="text/css">
+    .auto-style1 {
+        height: 28px;
+    }
+</style>
+
 <table>
     <tr>
         <td>&nbsp;</td>
@@ -191,10 +197,10 @@
     </tr>
 
     <tr>
-        <td>
+        <td class="auto-style1">
             <asp:Label ID="lblUpdateWorkStatus" runat="server" Text="Update Work Status"></asp:Label>
         </td>
-        <td colspan="10">
+        <td colspan="10" class="auto-style1">
             <asp:DropDownList ID="ddlWorkStatus" runat="server">
                 <asp:ListItem>Select</asp:ListItem>
                 <asp:ListItem>Working</asp:ListItem>
