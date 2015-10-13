@@ -76,16 +76,16 @@ namespace JobFair.Forms.JobSeeker
 
         protected void BindRepeaterData()
         {
-            SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select  JobTitle,JobLocationCity,CompanyLevel,IndustryId,DepartmentId,FunctionalAreaId,JobDescription,WorkExprience,PostedDate from RE_JobPost", con);
+            //SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
+            //con.Open();
+            //SqlCommand cmd = new SqlCommand("select  JobTitle,JobLocationCity,CompanyLevel,IndustryId,DepartmentId,FunctionalAreaId,JobDescription,WorkExprience,PostedDate from RE_JobPost", con);
 
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(ds);
-            Repeater1.DataSource = ds;
-            Repeater1.DataBind();
-            con.Close();
+            //DataSet ds = new DataSet();
+            //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //da.Fill(ds);
+            //Repeater1.DataSource = ds;
+            //Repeater1.DataBind();
+            //con.Close();
         }
 
         protected void chkFreshness_SelectedIndexChanged(object sender, EventArgs e)
