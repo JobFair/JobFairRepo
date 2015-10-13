@@ -30,5 +30,15 @@ namespace BAL
         {
             return Utility.GetMasterDegreeDAL();
         }
+
+        public static object GetDepartment()
+        {
+            return Utility.GetDepartment();
+        }
+
+        public static object GetKeyroles()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

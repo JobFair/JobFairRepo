@@ -23,7 +23,7 @@ namespace Entities.Recruiter
         public string JobDescription { get; set; }
         public string KeywordsRoles { get; set; }
         public string KeywordsTechnical { get; set; }
-        public string WorkExprience { get; set; }
+        public string Workexperience { get; set; }
         public string  Gender { get; set; }
         public string OfferedAnnualSalaryMin { get; set; }
         public string OfferedAnnualSalaryMax { get; set; }
