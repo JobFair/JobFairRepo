@@ -24,7 +24,6 @@ namespace Entities
         public string maritialStatus { get; set; }
         public int passportNumber { get; set; }
         public DateTime passportValidity { get; set; }
-        public string workStatus { get; set; }
         public string photo { get; set; }
     }
 }

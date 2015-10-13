@@ -47,8 +47,8 @@ namespace JobFair.Forms.JobSeeker
             SqlDataAdapter sda = new SqlDataAdapter(query,connection);
             DataSet ds = new DataSet();
             sda.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            Repeater1.DataSource = ds;
+            Repeater1.DataBind();
         }
         private void BindCity()
         {
@@ -67,7 +67,7 @@ namespace JobFair.Forms.JobSeeker
            // JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
           
                 rep_bind();
-                GridView1.Visible = true;
+                Repeater1.Visible = true;
                 txtkeyskill.Text = "";
           
         }
