@@ -38,11 +38,23 @@
                 </tr>
                 <tr>
                     <td class="auto-style1">
-                        <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
+                        <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
                     </td>
-                    <td>
-                        <asp:DropDownList ID="ddlCity" runat="server">
+                    <td rowspan="2">
+                          <asp:UpdatePanel ID="pnlState" runat="server">
+                <ContentTemplate>
+                        <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
                         </asp:DropDownList>
+                     <br />
+                        <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
+                        </asp:DropDownList>  
+                </ContentTemplate>
+            </asp:UpdatePanel>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -203,72 +215,7 @@
                     </td>
                 </tr>
             </table>
-            <div >
-            <asp:Repeater ID="Repeater1" runat="server">
-                 
-                <HeaderTemplate>
-                   
-                    <table border="0">
-                        <tr style="font-size: large; font-weight: bold; margin-bottom:5px">
-                            <td colspan="2">
-                                <b>Job Post</b>
-                            </td>
-                        </tr>
-                </HeaderTemplate>
-                <ItemTemplate>
-                    <tr>
-                        <td>
-                            <table>
-                                <tr>
-                                    <td>Job Title:
-                                 <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" ForeColor="#09c" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    <asp:Label ID="Label1" runat="server" Text="Logos Solutions Pvt Limited"></asp:Label></td></tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="lblWorkExperience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <asp:Label ID="lblComment" runat="server" Text='<%#Eval("JobLocationCity") %>' />
-                        </td>
-                        <td>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Key Skills :
-                            <asp:Label ID="Label2" runat="server" Text='<%#Eval("KeywordsTechnical") %>' />
-                        </td>
-                        <td>
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table style="background-color:#f9f9f9; border-top: 1px dotted ; border-bottom: 1px solid; width: 500px">
-                                <tr>
-                                    <%--<td>Post By:
-                                        <asp:Label ID="lblUser" runat="server" Font-Bold="true" Text='<%#Eval("NumberOfVacancies") %>' /></td>--%>
-                                    <td>Created Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate") %>' /></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">&nbsp;</td>
-                    </tr>
-                </ItemTemplate>
-                <FooterTemplate>
-                    </table>
-                </FooterTemplate>
-                     
-            </asp:Repeater>
-                </div>
+         
         </div>
     </form>
 </body>

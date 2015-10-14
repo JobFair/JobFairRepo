@@ -1,6 +1,7 @@
 ﻿using BAL;
 using CommonUtil;
 using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
@@ -11,6 +12,9 @@ namespace JobFair.Forms.JobSeeker
     {
         private DataSet ds = new DataSet();
           private EducationalDetailsBAL educationalDetails = null;
+        public string s;
+                private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //GetDataFromSession();
@@ -23,8 +27,20 @@ namespace JobFair.Forms.JobSeeker
                 FiilEducationCheckboxList();
                 BindRepeaterData();
             }
+            s = Request.QueryString["keySkills"];
+            rep_bind();
+            Repeater1.Visible = true;
+          
         }
-
+        private void rep_bind()
+        {
+            string query = "select * from RE_JobPost where KeywordsTechnical like '" +s+ "%'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, connection);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            Repeater1.DataSource = ds;
+            Repeater1.DataBind();
+        }
         private void FillIndustryCheckBoxList()
 
         {

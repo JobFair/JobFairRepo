@@ -15,9 +15,12 @@ namespace JobFair.Forms.JobSeeker
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            { 
             BindIndustry();
             BindDepartment();
-            BindCity();
+            BindState();
+            }
         }
         /// <summary>
         /// bind industry to dropdown and stored in database
@@ -41,26 +44,17 @@ namespace JobFair.Forms.JobSeeker
             ddlJobCategory.DataBind();
             ddlJobCategory.Items.Insert(0, new ListItem("--Select--", "0"));
         }
-        private void rep_bind()
+        private void BindState()
         {
-            string query = "select * from RE_JobPost where KeywordsTechnical like '" + txtkeyskill.Text + "%' or JobLocationCity='"+ddlCity.SelectedItem.Text +"' or WorkExperience='"+ddlWorkExperience.SelectedItem.Text+"'";
-            SqlDataAdapter sda = new SqlDataAdapter(query,connection);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            Repeater1.DataSource = ds;
-            Repeater1.DataBind();
+            AdvanceJobSearchBAL advaceJobSearchBAL = new AdvanceJobSearchBAL();
+            ds = advaceJobSearchBAL.GetState();
+            ddlState.DataSource = ds;
+            ddlState.DataTextField = "StateName";
+            ddlState.DataValueField = "StateId";
+            ddlState.DataBind();
+            ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
         }
-        private void BindCity()
-        {
-            string query = "select * from City";
-            SqlDataAdapter sda = new SqlDataAdapter(query, connection);
-            DataSet ds1 = new DataSet();
-            sda.Fill(ds1);
-            ddlCity.DataSource = ds1;
-            ddlCity.DataTextField = "CityName";
-            ddlCity.DataValueField = "CityId";
-            ddlCity.DataBind();
-        }
+      
         protected void btnsearch_Click(object sender, EventArgs e)
         {
            // AdvanceSearchEntity JobSearchentity = new AdvanceSearchEntity();
@@ -68,12 +62,26 @@ namespace JobFair.Forms.JobSeeker
             //JobSearchentity.KeySkill = txtkeyskill.Text.Trim();
            // JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
           
-                rep_bind();
-                Repeater1.Visible = true;
-                txtkeyskill.Text = "";
+               
                 Response.Redirect("jobSearch.aspx?keySkills="+this.txtkeyskill.Text);
 
           
+        }
+
+        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int stateId =Convert.ToInt32(ddlState.SelectedValue);
+            ds = AdvanceJobSearchBAL.GetCity(stateId);
+            ddlCity.DataSource = ds;
+            ddlCity.DataTextField = "cityName";
+            ddlCity.DataValueField = "cityID";
+            ddlCity.DataBind();
+            ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
     }
 }

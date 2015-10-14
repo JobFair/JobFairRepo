@@ -1,6 +1,7 @@
 ﻿using CommonUtil;
 using DAL;
 using Entities.Recruiter;
+using System.Data;
 namespace BAL
 {
     public class AdvanceJobSearchBAL
@@ -17,9 +18,14 @@ namespace BAL
         {
             return Utility.GetFunctionalArea();
         }
-        //public static object GetCity()
-        //{
-        //    return Utility.GetCity();
-        //}
+        public static object GetCity(int StateId)
+        {
+            return Utility.GetCity(StateId);
+        }
+        public DataSet GetState()
+        {
+            AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
+            return advanceSearchDAL.GetStateDAL();
+        }
     }
 }
