@@ -147,15 +147,7 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-                //calculting total experience
-                DateTime FromYear = Convert.ToDateTime(txtFromdate.Text);
-                DateTime ToYear = Convert.ToDateTime(txtTill.Text);
-                //Creating object of TimeSpan Class
-                TimeSpan objTimeSpan = ToYear - FromYear;
-                //years
-                int Years = ToYear.Year - FromYear.Year;
-                int Month = ToYear.Month - FromYear.Month;
-                Label2.Text = Years + "Years-" + Month + "Months";
+               
 
                 PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
@@ -171,7 +163,7 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
                 addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
                 addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
-                addJobPostEntity.WorkExprience = Years + "." + Month;
+                addJobPostEntity.Workexperience = 
                 addJobPostEntity.Gender = ddlgender.SelectedItem.Text.Trim();
                 addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
@@ -205,5 +197,38 @@ namespace JobFair.Forms.Recruiter
                 }
             }
         }
+
+        protected void rdbcompanyname_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdbcompanyname.Checked)
+            {
+                txtaboutcompany.Visible = true;
+                lblcompanyname1.Visible = true;
+                lblclientoflogossolutios.Visible = false;
+            }
+            else
+            {
+                txtaboutcompany.Visible = false;
+            }
+        }
+
+        protected void rdbcompanyname1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbcompanyname1.Checked)
+            {
+                rdbcompanyname.Visible = false;
+                txtclient.Visible = true;
+                txtaboutcompany.Visible = false;
+                lblclientoflogossolutios.Visible = true;
+                lblcompanyname1.Visible = false;
+            }
+            else
+            {
+                txtclient.Visible = false;
+            
+            }
+        }
+
+    
     }
 }

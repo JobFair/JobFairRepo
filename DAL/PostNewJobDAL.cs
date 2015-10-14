@@ -35,7 +35,7 @@ namespace DAL
                                             new SqlParameter("@JobDescription",jobpostEntity.JobDescription),
                                             new SqlParameter("@KeywordsRoles",jobpostEntity.KeywordsRoles),
                                             new SqlParameter("@KeywordsTechnical",jobpostEntity.KeywordsRoles),
-                                            new SqlParameter("@WorkExprience",jobpostEntity.WorkExprience),
+                                            new SqlParameter("@Workexperience",jobpostEntity.Workexperience),
                                             new SqlParameter("@Gender",jobpostEntity.Gender),
                                             new SqlParameter("@OfferedAnnualSalaryMin",jobpostEntity.OfferedAnnualSalaryMin),
                                               new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),

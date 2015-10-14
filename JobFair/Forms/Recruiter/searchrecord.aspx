@@ -337,7 +337,7 @@
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </table>
         </div>
-        ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+         <hr style="border-width:initial"/>
         <div>
 
             <table class="auto-style2">
@@ -355,6 +355,14 @@
                         <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                     </asp:DropDownCheckBoxes>
                      <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                    &nbsp;
+                       
+                        <asp:DropDownList ID="ddlemployer1" runat="server">
+                            <asp:ListItem>current employer</asp:ListItem>
+                            <asp:ListItem>Previous employer</asp:ListItem>
+                            <asp:ListItem>current/Previous</asp:ListItem>
+                        </asp:DropDownList>
+                     
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -369,6 +377,14 @@
                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                         </asp:DropDownCheckBoxes>
                         &nbsp; <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                    &nbsp;
+                       
+                        <asp:DropDownList ID="ddlemployer2" runat="server">
+                            <asp:ListItem>current employer</asp:ListItem>
+                            <asp:ListItem>Previous employer</asp:ListItem>
+                            <asp:ListItem>current/Previous</asp:ListItem>
+                        </asp:DropDownList>
+                     
                     </td>
                 </tr>
                 <tr>
@@ -380,6 +396,14 @@
 
                         <asp:DropDownList ID="ddldepartment" runat="server">
                         </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       
+                        <asp:DropDownList ID="ddlemployer3" runat="server">
+                            <asp:ListItem>current employer</asp:ListItem>
+                            <asp:ListItem>Previous employer</asp:ListItem>
+                            <asp:ListItem>current/Previous</asp:ListItem>
+                        </asp:DropDownList>
+                     
                     </td>
                 </tr>
                 <tr>
@@ -389,8 +413,16 @@
 
                     <td>
 
-                        <asp:DropDownList ID="ddlroleskill" runat="server">
+                        &nbsp;
+                        <asp:TextBox ID="txtrollskill" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       
+                        <asp:DropDownList ID="ddlemployer4" runat="server">
+                            <asp:ListItem>current employer</asp:ListItem>
+                            <asp:ListItem>Previous employer</asp:ListItem>
+                            <asp:ListItem>current/Previous</asp:ListItem>
                         </asp:DropDownList>
+                     
                     </td>
                 </tr>
                 <tr>
@@ -402,6 +434,14 @@
 
                         <asp:DropDownList ID="ddlroletechnical" runat="server">
                         </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       
+                        <asp:DropDownList ID="ddlemployer5" runat="server">
+                            <asp:ListItem>current employer</asp:ListItem>
+                            <asp:ListItem>Previous employer</asp:ListItem>
+                            <asp:ListItem>current/Previous</asp:ListItem>
+                        </asp:DropDownList>
+                     
                     </td>
                 </tr>
                 <tr>
@@ -483,7 +523,7 @@
                 </tr>
             </table>
         </div>
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+         <hr style="border-width:initial"/>
          <div>
 
              <table class="auto-style2">
@@ -529,11 +569,7 @@
                          <asp:DropDownList ID="ddlyear" runat="server">
                              <asp:ListItem> --from--</asp:ListItem>
                          </asp:DropDownList>
-                         &nbsp; To
-                         <asp:DropDownList ID="DropDownList1" runat="server">
-                             <asp:ListItem> ---to---</asp:ListItem>
-                         </asp:DropDownList>
-                     </td>
+                       
                  </tr>
                  <tr>
                      <td class="auto-style13">&nbsp;</td>
@@ -573,9 +609,6 @@
                          <asp:DropDownList ID="ddlpassingyear" runat="server">
                              <asp:ListItem> --from--</asp:ListItem>
                          </asp:DropDownList>
-                         To<asp:DropDownList ID="ddlmaxyear" runat="server">
-                             <asp:ListItem> ---to---</asp:ListItem>
-                         </asp:DropDownList>
                      </td>
                  </tr>
                  <tr>
@@ -585,7 +618,7 @@
                  </tr>
              </table>
          </div>
-        -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        <hr style="border-width:initial"/>
         <div>
 
                         <table class="auto-style2">
@@ -633,7 +666,7 @@
                                </tr>
             </table>
         </div>
-  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        <hr style="border-width:initial"/>
         <div>
 
             <table class="auto-style2">
@@ -697,7 +730,7 @@
             </table>
 
         </div>
-       -----------------------------------------------------------------------------------------------------------------------------------------------------
+        <hr style="border-width:initial"/>
         <div>
 
             <table class="auto-style2">

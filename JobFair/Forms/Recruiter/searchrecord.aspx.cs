@@ -14,29 +14,15 @@ namespace JobFair.Forms.Recruiter
         protected void Page_Load(object sender, EventArgs e)
         {
          
-
-
-            
             if (!this.IsPostBack)
             {
                 for (int i = 1950; i <= DateTime.Now.Year; i++)
                 {
                     ddlyear.Items.Add(i.ToString());
                 }
-                for (int i = 1950; i <= DateTime.Now.AddYears(4).Year; i++)
-                {
-
-                    DropDownList1.Items.Add(i.ToString());
-
-                }
-                for (int i = 1950; i <= DateTime.Now.Year; i++)
-                {
-                    ddlmaxyear.Items.Add(i.ToString());
-                }
-                for (int i = 1950; i < DateTime.Now.AddYears(4).Year; i++)
-                {
-                    ddlpassingyear.Items.Add(i.ToString());
-                }
+              
+              
+              
                 ddlminage.Items.Add(new ListItem("", ""));
                 for (int i = 0; i <= 100; i++)
                 {

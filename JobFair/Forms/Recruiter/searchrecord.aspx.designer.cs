@@ -373,6 +373,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
+        /// ddlemployer1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlemployer1;
+        
+        /// <summary>
         /// lblindystrytype control.
         /// </summary>
         /// <remarks>
@@ -400,6 +409,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
+        /// ddlemployer2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlemployer2;
+        
+        /// <summary>
         /// lbldeparment control.
         /// </summary>
         /// <remarks>
@@ -418,6 +436,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.DropDownList ddldepartment;
         
         /// <summary>
+        /// ddlemployer3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlemployer3;
+        
+        /// <summary>
         /// lblroleskill control.
         /// </summary>
         /// <remarks>
@@ -427,13 +454,22 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblroleskill;
         
         /// <summary>
-        /// ddlroleskill control.
+        /// txtrollskill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlroleskill;
+        protected global::System.Web.UI.WebControls.TextBox txtrollskill;
+        
+        /// <summary>
+        /// ddlemployer4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlemployer4;
         
         /// <summary>
         /// lblkeywordstechnicalrole control.
@@ -452,6 +488,15 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlroletechnical;
+        
+        /// <summary>
+        /// ddlemployer5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlemployer5;
         
         /// <summary>
         /// lblemployers control.
@@ -661,15 +706,6 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.DropDownList ddlyear;
         
         /// <summary>
-        /// DropDownList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
-        /// <summary>
         /// rdbAnd control.
         /// </summary>
         /// <remarks>
@@ -749,15 +785,6 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlpassingyear;
-        
-        /// <summary>
-        /// ddlmaxyear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlmaxyear;
         
         /// <summary>
         /// lblaffirmative control.
