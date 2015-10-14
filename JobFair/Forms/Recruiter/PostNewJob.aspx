@@ -7,15 +7,49 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 25px;
-        }
-        .auto-style2 {
-            height: 24px;
-        }
-    </style>
+    <title>
+  
+    </title>
+ <script type="text/javascript" lang="javascript">
+   function onCalendarShown() {
+        var cal = $find("calendarSSC");
+       cal._switchMode("months", true);
+       if (cal._monthsBody) {
+           for (var i = 0; i < cal._monthsBody.rows.length; i++) {
+               var row = cal._monthsBody.rows[i];
+               for (var j = 0; j < row.cells.length; j++) {
+                   Sys.UI.DomEvent.addHandler(row.cells[j].firstChild, "click", call);
+               }
+           }
+       }
+   }
+
+   function onCalendarHidden() {
+        var cal = $find("calendarSSC");
+       if (cal._monthsBody) {
+           for (var i = 0; i < cal._monthsBody.rows.length; i++) {
+               var row = cal._monthsBody.rows[i];
+               for (var j = 0; j < row.cells.length; j++) {
+                   Sys.UI.DomEvent.removeHandler(row.cells[j].firstChild, "click", call);
+               }
+           }
+       }
+   }
+
+   function call(eventElement) {
+       var target = eventElement.target;
+       switch (target.mode) {
+           case "month":
+                var cal = $find("calendarSSC");
+               cal.set_selectedDate(target.date);
+               cal._blur.post(true);
+               cal.raiseDateSelectionChanged(); break;
+               break;
+       }
+   }
+</script>
+  
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -102,7 +136,7 @@
                 <tr>
                     <td>Work Experience</td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="ddlworkexprience" runat="server">
+                        <asp:DropDownList ID="ddlworkexprience" runat="server" Height="16px" Width="79px">
                             <asp:ListItem>0.5</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>1.5</asp:ListItem>
@@ -124,6 +158,7 @@
                             <asp:ListItem>9.5</asp:ListItem>
                             <asp:ListItem>10</asp:ListItem>
                         </asp:DropDownList>
+                    &nbsp;
                     </td>
                 </tr>
                 <tr>
@@ -207,19 +242,81 @@
                     <td>
                         <asp:TextBox ID="txtdate" runat="server"></asp:TextBox>
                     </td>
+                    <td>
+                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtdate" Format="d MM, yy" />
+                    </td>
                 </tr>
-                <tr>
+              
+                   <h2>Recruiter Type</h2>
+           
+                    <tr>
+                        <td class="auto-style1">
+                            <asp:Label ID="Label2" runat="server" Text="Recruitment Type"></asp:Label>
+                        </td>
+                        <td class="auto-style1">
+                            <asp:RadioButtonList ID="RadioButtonList1" runat="server"  OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged1" AutoPostBack="true">
+                               <asp:ListItem id="rdb1" runat="server" Text="In-House" Selected="True"></asp:ListItem>
+                                <asp:ListItem id="rdb2" runat="server" Text="Client"></asp:ListItem>
+                            </asp:RadioButtonList>
+                          </td>
+                        </tr>
+                 <tr>
+                        <td>
+                              &nbsp;</td>
+                        <td style="margin-left: 200px">
+                            <asp:TextBox ID="txtaboutcompany" runat="server" Width="506px"  Visible="false" TextMode="MultiLine" Height="183px" Text="Logos Solutions is one of the conglomerate companies in India.
+
+        Logos Corporate Solutions is the leading Recruitment and Placement Solution for IT -Non IT Companies.
+
+        Logos iTech Software Solutions is the IT Outsourcing Company specialized in Mobile Application Development, Publishing, Website Design, E-commerce Solutions and Product Development
+     
+
+ ">              Logos Solutions is one of the conglomerate companies in India.
+
+                  Logos Corporate Solutions is the leading Recruitment and Placement Solution for IT -Non IT Companies.
+
+                  Logos iTech Software Solutions is the IT Outsourcing Company specialized in Mobile Application Development, Publishing, Website Design, E-commerce Solutions and Product Development
+     
+
+ </asp:TextBox>
+                        </td>
+                     
+                        <td>
+                            <asp:TextBox ID="txtclient" runat="server" Visible="false"> </asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2">
+                              <asp:Label ID="lblcompanyclient" runat="server" Text="Company Name"></asp:Label>
+                        </td>
+                        <td class="auto-style2">
+                         
+                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions Pvt.Ltd" Visible="False" ></asp:Label>
+                         
+                            <br />
+                         
+                            <br />
+                            <br />
+                          <asp:Label ID="lblclientoflogossolutios" Text="Client Of Logos Solutions" runat="server"></asp:Label>
+                         
+                        </td>
+                    </tr>
+                   
+
+                  <tr>
                     <td>
                         <asp:Button ID="btnUpdate" runat="server" Text="Update" />
                     </td>
                     <td>
-                        <asp:Button ID="btnPostJob" runat="server" Text="Post Job" OnClick="btnPostJob_Click" />
+                        <asp:Button ID="btnPostJob" runat="server" Text="Post Job" OnClick="btnPostJob_Click" Width="77px" />
                         <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
                         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     </td>
                 </tr>
-            </table>
+                </table>
 
+        </div>
+             
             <div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
                 <h2>Desired Candidate Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 
@@ -455,68 +552,7 @@
                    </tr>
                  </table>
             </div>
-            <div>
-                <h2>Recruiter Type</h2>
-                <table>
-                    <tr>
-                        <td class="auto-style1">
-                            <asp:Label ID="lblcompanyname" runat="server" Text="Recruitment Type"></asp:Label>
-                        </td>
-                        <td class="auto-style1">
-                            <asp:RadioButton ID="rdbcompanyname" runat="server" Text="In-House" GroupName="A" OnCheckedChanged="rdbcompanyname_CheckedChanged" AutoPostBack="true" /> <asp:RadioButton ID="rdbcompanyname1" runat="server" Text="Client" group
-                                ="A" AutoPostBack="true" OnCheckedChanged="rdbcompanyname1_CheckedChanged"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                              &nbsp;</td>
-                        <td style="margin-left: 200px">
-                            <asp:TextBox ID="txtaboutcompany" runat="server" Width="506px"  Visible="false" TextMode="MultiLine" Height="183px" Text="Logos Solutions is one of the conglomerate companies in India.
-
-        Logos Corporate Solutions is the leading Recruitment and Placement Solution for IT -Non IT Companies.
-
-        Logos iTech Software Solutions is the IT Outsourcing Company specialized in Mobile Application Development, Publishing, Website Design, E-commerce Solutions and Product Development
-     
-
- ">Logos Solutions is one of the conglomerate companies in India.
-
-        Logos Corporate Solutions is the leading Recruitment and Placement Solution for IT -Non IT Companies.
-
-        Logos iTech Software Solutions is the IT Outsourcing Company specialized in Mobile Application Development, Publishing, Website Design, E-commerce Solutions and Product Development
-     
-
- </asp:TextBox>
-                        </td>
-                     
-                        <td>
-                            <asp:TextBox ID="txtclient" runat="server" Visible="false"> </asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">
-                              <asp:Label ID="lblcompanyclient" runat="server" Text="Company Name"></asp:Label>
-                        </td>
-                        <td class="auto-style2">
-                         
-                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions Pvt.Ltd" Visible="False" ></asp:Label>
-                         
-                            <br />
-                         
-                            <br />
-                            <br />
-                          <asp:Label ID="lblclientoflogossolutios" Text="Client Of Logos Solutions" runat="server"></asp:Label>
-                         
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                </table>
-              
-        </div>
+            
     </form>
 </body>
 </html>

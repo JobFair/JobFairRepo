@@ -26,10 +26,10 @@
             height: 21px;
         }
         .auto-style7 {
-            width: 180px;
+            width: 163px;
         }
         .auto-style8 {
-            width: 180px;
+            width: 163px;
             height: 23px;
         }
         .auto-style9 {
@@ -351,7 +351,7 @@
                     <td class="auto-style11">
                         <asp:Label ID="lblfunctionalarea" runat="server" Text="FunctionalArea"></asp:Label>
                     </td>
-                    <td>&nbsp;<asp:DropDownCheckBoxes ID="ddlfunctionalarea" runat="server" OnSelectedIndexChanged="ddlfunctionalarea_SelectedIndexChanged">
+                    <td>&nbsp;<asp:DropDownCheckBoxes ID="ddlfunctionalarea" runat="server" OnSelectedIndexChanged="ddlfunctionalarea_SelectedIndexChanged" style="top: -7px; left: -4px">
                         <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                     </asp:DropDownCheckBoxes>
                      <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>

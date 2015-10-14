@@ -147,8 +147,6 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-               
-
                 PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
 
@@ -163,13 +161,14 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
                 addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
                 addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
-                addJobPostEntity.Workexperience = 
+                addJobPostEntity.WorkExperience = ddlworkexprience.SelectedItem.Text.Trim();
                 addJobPostEntity.Gender = ddlgender.SelectedItem.Text.Trim();
                 addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
                 addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
                 addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
-                addJobPostEntity.PostedDate = DateTime.Now;
+                addJobPostEntity.PostedDate = Convert.ToDateTime(txtdate.Text);
+                addJobPostEntity.RecruitmentType = RadioButtonList1.SelectedItem.ToString();
 
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
@@ -198,37 +197,25 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
-        protected void rdbcompanyname_CheckedChanged(object sender, EventArgs e)
+      
+
+        protected void RadioButtonList1_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            if(rdbcompanyname.Checked)
+             if (rdb1.Selected)
             {
                 txtaboutcompany.Visible = true;
                 lblcompanyname1.Visible = true;
                 lblclientoflogossolutios.Visible = false;
-            }
-            else
-            {
-                txtaboutcompany.Visible = false;
-            }
-        }
-
-        protected void rdbcompanyname1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdbcompanyname1.Checked)
-            {
-                rdbcompanyname.Visible = false;
-                txtclient.Visible = true;
-                txtaboutcompany.Visible = false;
-                lblclientoflogossolutios.Visible = true;
-                lblcompanyname1.Visible = false;
-            }
-            else
-            {
                 txtclient.Visible = false;
-            
             }
+             else 
+             {
+                 txtaboutcompany.Visible = false;
+                 txtclient.Visible = true;
+                 txtaboutcompany.Visible = false;
+                 lblclientoflogossolutios.Visible = true;
+                 lblcompanyname1.Visible = false;
+             }
         }
-
-    
     }
 }
