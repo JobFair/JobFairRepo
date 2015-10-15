@@ -15,7 +15,7 @@ namespace CommonUtil
         {
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Country");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure,Constants.sp_Country);
                 return ds;
             }
             catch (Exception ex)
@@ -29,7 +29,7 @@ namespace CommonUtil
             try
             {
                 SqlParameter[] sparams = { new SqlParameter("@countryId", countryid) };
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_State", sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure,Constants.sp_State, sparams);
                 return ds;
             }
             catch (Exception ex)
@@ -43,12 +43,28 @@ namespace CommonUtil
             try
             {
                 SqlParameter[] sparams = { new SqlParameter("@stateId", stateid) };
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_City", sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_City, sparams);
                 return ds;
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        internal DataSet GetAreaDAL(int cityId)
+        {
+            try
+            {
+                SqlParameter[] sparams ={
+                                           new SqlParameter("@cityId",cityId)
+                                        };
+                ds = SqlHelper.ExecuteDataset(connection,CommandType.StoredProcedure,Constants.sp_Area,sparams);
+                return ds;
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 

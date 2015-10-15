@@ -12,7 +12,7 @@ namespace JobFair.Forms.JobSeeker
     {
         private DataSet ds = new DataSet();
           private EducationalDetailsBAL educationalDetails = null;
-        public string s;
+        public string s,city,state;
                 private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,6 +28,8 @@ namespace JobFair.Forms.JobSeeker
                 BindRepeaterData();
             }
             s = Request.QueryString["keySkills"];
+           city=Request.QueryString["city"];
+            state=Request.QueryString["state"];
             rep_bind();
             Repeater1.Visible = true;
           

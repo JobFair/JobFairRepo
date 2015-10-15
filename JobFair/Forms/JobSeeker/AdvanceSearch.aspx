@@ -40,15 +40,19 @@
                     <td class="auto-style1">
                         <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
                     </td>
-                    <td rowspan="2">
+                    <td rowspan="3">
                           <asp:UpdatePanel ID="pnlState" runat="server">
                 <ContentTemplate>
                         <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
                         </asp:DropDownList>
                      <br />
-                        <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="True">
                         </asp:DropDownList>  
-                </ContentTemplate>
+                <br />
+                        <asp:DropDownCheckBoxes ID="ddlLocation" runat="server">
+                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                        </asp:DropDownCheckBoxes>
+                    </ContentTemplate>
             </asp:UpdatePanel>
                     </td>
                 </tr>
@@ -61,10 +65,6 @@
                     <td class="auto-style1">
                         <asp:Label ID="lblArea" runat="server" Text="Area"></asp:Label>
                     </td>
-                    <td>
-                        <asp:DropDownCheckBoxes ID="ddlLocation" runat="server">
-                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                        </asp:DropDownCheckBoxes></td>
                 </tr>
                 <tr>
                     <td class="auto-style1">

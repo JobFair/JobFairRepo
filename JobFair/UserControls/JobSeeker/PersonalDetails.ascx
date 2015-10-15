@@ -30,14 +30,16 @@
     <tr>
         <td>Country</td>
 
-        <td rowspan="3">
+        <td rowspan="4">
             <asp:UpdatePanel ID="pnlPresentAddress" runat="server">
                 <ContentTemplate>
                     <asp:DropDownList ID="ddlCountryPresent" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCountryPresent_SelectedIndexChanged">
                     </asp:DropDownList><br />
                     <asp:DropDownList ID="ddlStatePresent" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlStatePresent_SelectedIndexChanged">
                     </asp:DropDownList><br />
-                    <asp:DropDownList ID="ddlCityPresent" runat="server">
+                    <asp:DropDownList ID="ddlCityPresent" runat="server" OnSelectedIndexChanged="ddlCityPresent_SelectedIndexChanged" AutoPostBack="True">
+                    </asp:DropDownList><br />
+                    <asp:DropDownList ID="ddlAreaPresent" runat="server">
                     </asp:DropDownList>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -55,9 +57,6 @@
     </tr>
     <tr>
         <td>Area</td>
-        <td>
-            <asp:TextBox ID="txtAreaPresent" runat="server"></asp:TextBox>
-        </td>
     </tr>
     <tr>
         <td>
@@ -80,13 +79,15 @@
     </tr>
     <tr>
         <td>Country</td>
-        <td rowspan="3">
+        <td rowspan="4">
             <asp:UpdatePanel ID="pnlPermanentAddress" runat="server">
                 <ContentTemplate>
                     <asp:DropDownList ID="ddlCountryPerm" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCountryPerm_SelectedIndexChanged"></asp:DropDownList><br />
                     <asp:DropDownList ID="ddlStatePerm" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatePerm_SelectedIndexChanged">
                     </asp:DropDownList><br />
-                    <asp:DropDownList ID="ddlCityPerm" runat="server">
+                    <asp:DropDownList ID="ddlCityPerm" runat="server" OnSelectedIndexChanged="ddlCityPerm_SelectedIndexChanged" AutoPostBack="True">
+                    </asp:DropDownList><br />
+                    <asp:DropDownList ID="ddlAreaPerm" runat="server">
                     </asp:DropDownList>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -104,9 +105,6 @@
     </tr>
     <tr>
         <td>Area</td>
-        <td class="auto-style6">
-            <asp:TextBox ID="txtAreaPerm" runat="server"></asp:TextBox>
-        </td>
     </tr>
     <tr>
         <td>

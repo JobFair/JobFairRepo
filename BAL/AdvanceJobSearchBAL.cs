@@ -22,6 +22,10 @@ namespace BAL
         {
             return Utility.GetCity(StateId);
         }
+        public static object GetArea(int cityId)
+        {
+            return Utility.GetArea(cityId);
+        }
         public DataSet GetState()
         {
             AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();

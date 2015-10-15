@@ -94,6 +94,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlCityPresent;
         
         /// <summary>
+        /// ddlAreaPresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAreaPresent;
+        
+        /// <summary>
         /// lblState control.
         /// </summary>
         /// <remarks>
@@ -110,15 +119,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCity;
-        
-        /// <summary>
-        /// txtAreaPresent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAreaPresent;
         
         /// <summary>
         /// lblPinCode control.
@@ -202,6 +202,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlCityPerm;
         
         /// <summary>
+        /// ddlAreaPerm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAreaPerm;
+        
+        /// <summary>
         /// lblStatePerm control.
         /// </summary>
         /// <remarks>
@@ -218,15 +227,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCityPerm;
-        
-        /// <summary>
-        /// txtAreaPerm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAreaPerm;
         
         /// <summary>
         /// lblPincodePerm control.
