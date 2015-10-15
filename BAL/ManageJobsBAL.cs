@@ -21,7 +21,14 @@ namespace BAL
         {
             return manageJobsDAL.ManageJobsDetetailsDAL();
         }
-
+        /// <summary>
+        /// For display posted perticular job details of recruiter
+        /// </summary>
+        /// <returns></returns>
+        public DataSet ViewJobsDetailsBAL(int JobId)
+        {
+            return manageJobsDAL.ViewJobsDetetailsDAL(JobId);
+        }
         /// <summary>
         /// For display Re-Post Job of recruiter
         /// </summary>
