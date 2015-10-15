@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AdvanceSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.AdvanceSearch" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
 <!DOCTYPE html>
 
@@ -9,8 +8,12 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            width: 176px;
+        .style1 {
+           clear: both;
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 5px;
         }
     </style>
 </head>
@@ -137,18 +140,18 @@
                         </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td >
                         <asp:Label ID="lblindustry" runat="server" Text="Industry"></asp:Label>
                     </td>
                     <td>
 
-                        <asp:DropDownCheckBoxes ID="ddlIndustry" runat="server" UseSelectAllNode="false" style="top: 0px; left: 0px; width: 186px">
+                        <asp:DropDownCheckBoxes ID="ddlIndustry" runat="server" UseSelectAllNode="false" style="top: 1px; left: 0px; width: 186px">
                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                         </asp:DropDownCheckBoxes>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td >
                         <asp:Label ID="lbljobcategory" runat="server" Text="JobCategory"></asp:Label>
                     </td>
                     <td>
@@ -157,7 +160,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="Label2" runat="server" Text="Employement Status"></asp:Label>
                     </td>
                     <td>
@@ -166,7 +169,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="Label3" runat="server" Text="Job Type"></asp:Label>
                     </td>
                     <td>
@@ -176,7 +179,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="lblJobType" runat="server" Text="Recruitment Type"></asp:Label>
                     </td>
                     <td>
@@ -185,7 +188,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="lblSortBy" runat="server" Text="Job Freshness"></asp:Label>
                     </td>
                     <td>
@@ -194,16 +197,19 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">&nbsp;</td>
+                    <td>&nbsp;</td>
                     <td>
                         <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Width="97px" />
                     </td>
                 </tr>
             </table>
+            <div >
             <asp:Repeater ID="Repeater1" runat="server">
+                 
                 <HeaderTemplate>
-                    <table style="width: 500px; border:medium">
-                        <tr style="font-size: large; font-weight: bold;">
+                   
+                    <table border="0">
+                        <tr style="font-size: large; font-weight: bold; margin-bottom:5px">
                             <td colspan="2">
                                 <b>Job Post</b>
                             </td>
@@ -212,36 +218,39 @@
                 <ItemTemplate>
                     <tr>
                         <td>
-                            <table style=" width: 500px; border:medium">
+                            <table>
                                 <tr>
                                     <td>Job Title:
-                                 <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" />
+                                 <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" ForeColor="#09c" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <asp:Label ID="Label1" runat="server" Text="Logos Solutions Pvt Limited"></asp:Label></tr>
+                                    <td>
+                                    <asp:Label ID="Label1" runat="server" Text="Logos Solutions Pvt Limited"></asp:Label></td></tr>
                             </table>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <asp:Label ID="lblWorkExperience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <asp:Label ID="lblComment" runat="server" Text='<%#Eval("JobLocationCity") %>' />
                         </td>
                         <td>
-                            <asp:Label ID="lblComment" runat="server" Text='<%#Eval("JobLocationCity") %>' />
+                            
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="Label4" runat="server" Text="Key Skills"></asp:Label>
-                        </td>
-                        <td>
+                            Key Skills :
                             <asp:Label ID="Label2" runat="server" Text='<%#Eval("KeywordsTechnical") %>' />
                         </td>
+                        <td>
+                            
+                        </td>
                     </tr>
                     <tr>
                         <td>
-                            <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; border-bottom: 1px solid #df5015; width: 500px">
+                            <table style="background-color:#f9f9f9; border-top: 1px dotted ; border-bottom: 1px solid; width: 500px">
                                 <tr>
                                     <%--<td>Post By:
                                         <asp:Label ID="lblUser" runat="server" Font-Bold="true" Text='<%#Eval("NumberOfVacancies") %>' /></td>--%>
@@ -257,7 +266,9 @@
                 <FooterTemplate>
                     </table>
                 </FooterTemplate>
+                     
             </asp:Repeater>
+                </div>
         </div>
     </form>
 </body>

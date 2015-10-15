@@ -152,7 +152,6 @@
                                 <cc1:CollapsiblePanelExtender ID="CPEEducation" runat="server" TargetControlID="PanelEducation" TextLabelID="lblEducation" CollapseControlID="lblEducation" ExpandControlID="lblEducation" Collapsed="true" />
                             </div>
 
-                            <br />
                             <div>
                                 <asp:LinkButton ID="lblStatus" runat="server" Text="By Employment Status"></asp:LinkButton>
 
@@ -186,55 +185,6 @@
         </div>  
      
         <td width="80%" style="vertical-align: top">     
-            <asp:Repeater ID="Repeater1" runat="server">
-                <HeaderTemplate>
-                 <table style="width:500px; border-collapse: collapse;" border="1">
-            <tr style="background-color: #df5015; height: 30px;">
-                 <th>JobTitle</th>
-                 <th>JobLocationArea</th>
-                <th>CompanyLevel</th>
-                 <th>IndustryId</th>
-                  <th>DepartmentId</th>
-                  <th>FunctionalAreaId</th>
-                  <th>JobDescription</th>
-                  <th>WorkExperience</th>
-                  <th>PostedDate</th>
-              </tr>
-          </HeaderTemplate>
-           <ItemTemplate>
-   <tr style="height: 50px;">
-    <th>
-            <%# DataBinder.Eval(Container.DataItem,"JobTitle")%>
-          </th>
-       <th>
-            <%# DataBinder.Eval(Container.DataItem,"JobLocationCity")%>
-          </th>
-             <th > 
-                <%# DataBinder.Eval(Container.DataItem, "CompanyLevel")%>
-          </th>
-           <th> 
-              <%# DataBinder.Eval(Container.DataItem,"IndustryId")%>
-             </th>
-               <th> 
-                <%# DataBinder.Eval(Container.DataItem,"DepartmentId")%>
-                </th>
-                 <th> 
-                <%# DataBinder.Eval(Container.DataItem,"FunctionalAreaId")%>
-                 </th>
-                 <th> 
-                <%# DataBinder.Eval(Container.DataItem,"JobDescription")%>
-                 </th>
-                 <th> 
-                <%# DataBinder.Eval(Container.DataItem,"WorkExperience")%>
-                </th> 
-                <th> 
-                <%# DataBinder.Eval(Container.DataItem,"PostedDate")%>
-                </th>    
-                </tr>
-        </table>
-            </ItemTemplate>
-            </asp:Repeater>
-                
          </asp:Content>
 
 

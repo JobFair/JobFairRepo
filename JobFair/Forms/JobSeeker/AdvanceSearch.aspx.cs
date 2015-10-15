@@ -43,7 +43,7 @@ namespace JobFair.Forms.JobSeeker
         }
         private void rep_bind()
         {
-            string query = "select * from RE_JobPost where KeywordsTechnical like '" + txtkeyskill.Text + "%'";
+            string query = "select * from RE_JobPost where KeywordsTechnical like '" + txtkeyskill.Text + "%' or JobLocationCity='"+ddlCity.SelectedItem.Text +"' or WorkExperience='"+ddlWorkExperience.SelectedItem.Text+"'";
             SqlDataAdapter sda = new SqlDataAdapter(query,connection);
             DataSet ds = new DataSet();
             sda.Fill(ds);
@@ -54,9 +54,11 @@ namespace JobFair.Forms.JobSeeker
         {
             string query = "select * from City";
             SqlDataAdapter sda = new SqlDataAdapter(query, connection);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            ddlCity.DataSource = ds;
+            DataSet ds1 = new DataSet();
+            sda.Fill(ds1);
+            ddlCity.DataSource = ds1;
+            ddlCity.DataTextField = "CityName";
+            ddlCity.DataValueField = "CityId";
             ddlCity.DataBind();
         }
         protected void btnsearch_Click(object sender, EventArgs e)
@@ -69,6 +71,8 @@ namespace JobFair.Forms.JobSeeker
                 rep_bind();
                 Repeater1.Visible = true;
                 txtkeyskill.Text = "";
+                Response.Redirect("jobSearch.aspx?keySkills="+this.txtkeyskill.Text);
+
           
         }
     }
