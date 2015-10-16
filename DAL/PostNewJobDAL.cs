@@ -35,13 +35,15 @@ namespace DAL
                                             new SqlParameter("@JobDescription",jobpostEntity.JobDescription),
                                             new SqlParameter("@KeywordsRoles",jobpostEntity.KeywordsRoles),
                                             new SqlParameter("@KeywordsTechnical",jobpostEntity.KeywordsRoles),
-                                            new SqlParameter("@WorkExprience",jobpostEntity.WorkExprience),
+                                            new SqlParameter("@Workexperience",jobpostEntity.WorkExperience),
                                             new SqlParameter("@Gender",jobpostEntity.Gender),
                                             new SqlParameter("@OfferedAnnualSalaryMin",jobpostEntity.OfferedAnnualSalaryMin),
                                               new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),
                                             new SqlParameter("@OtherSalaryDetails",jobpostEntity.OtherSalaryDetails),
                                             new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
-                                            new  SqlParameter("@PostedDate",jobpostEntity.PostedDate)
+                                            new  SqlParameter("@PostedDate",jobpostEntity.PostedDate),
+                                            new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType)
+                                          
                                         };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
                 return result;

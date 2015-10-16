@@ -147,16 +147,6 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-                //calculting total experience
-                DateTime FromYear = Convert.ToDateTime(txtFromdate.Text);
-                DateTime ToYear = Convert.ToDateTime(txtTill.Text);
-                //Creating object of TimeSpan Class
-                TimeSpan objTimeSpan = ToYear - FromYear;
-                //years
-                int Years = ToYear.Year - FromYear.Year;
-                int Month = ToYear.Month - FromYear.Month;
-                Label2.Text = Years + "Years-" + Month + "Months";
-
                 PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
 
@@ -171,13 +161,14 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
                 addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
                 addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
-                addJobPostEntity.WorkExprience = Years + "." + Month;
+                addJobPostEntity.WorkExperience = ddlworkexprience.SelectedItem.Text.Trim();
                 addJobPostEntity.Gender = ddlgender.SelectedItem.Text.Trim();
                 addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
                 addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
                 addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
-                addJobPostEntity.PostedDate = DateTime.Now;
+                addJobPostEntity.PostedDate = Convert.ToDateTime(txtdate.Text);
+                addJobPostEntity.RecruitmentType = RadioButtonList1.SelectedItem.ToString();
 
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
@@ -204,6 +195,27 @@ namespace JobFair.Forms.Recruiter
                     lblHSCSelect.Text = item.Text;
                 }
             }
+        }
+
+      
+
+        protected void RadioButtonList1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+             if (rdb1.Selected)
+            {
+                txtaboutcompany.Visible = true;
+                lblcompanyname1.Visible = true;
+                lblclientoflogossolutios.Visible = false;
+                txtclient.Visible = false;
+            }
+             else 
+             {
+                 txtaboutcompany.Visible = false;
+                 txtclient.Visible = true;
+                 txtaboutcompany.Visible = false;
+                 lblclientoflogossolutios.Visible = true;
+                 lblcompanyname1.Visible = false;
+             }
         }
     }
 }

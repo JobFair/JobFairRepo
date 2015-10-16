@@ -14,41 +14,44 @@ namespace JobFair.Forms.Recruiter
         protected void Page_Load(object sender, EventArgs e)
         {
          
-
-
-            
             if (!this.IsPostBack)
             {
                 for (int i = 1950; i <= DateTime.Now.Year; i++)
                 {
                     ddlyear.Items.Add(i.ToString());
                 }
-                for (int i = 1950; i <= DateTime.Now.AddYears(4).Year; i++)
-                {
-
-                    DropDownList1.Items.Add(i.ToString());
-                
-                }
-                for (int  i =1950 ; i <= DateTime.Now.Year; i++)
-                {
-                    ddlmaxyear.Items.Add(i.ToString());
-                }
-                for (int i = 1950; i < DateTime.Now.AddYears(4).Year; i++)
-                {
-                    ddlpassingyear.Items.Add(i.ToString());
-                }
+              
+              
+              
                 ddlminage.Items.Add(new ListItem("", ""));
                 for (int i = 0; i <= 100; i++)
                 {
-                    ddlminage.Items.Add(new ListItem(i.ToString(),i.ToString()));
+                    ddlminage.Items.Add(new ListItem(i.ToString(), i.ToString()));
                 }
              
+
             }
+            BindDepartment();
             BindFunctionalArea();
             BindIndustryType();
             BindMasterDegree();
             BindUnderGraduateDiploma();
             BindMasterDegree();
+            BindKeyRoles();
+        }
+
+        private void BindKeyRoles()
+        {
+            
+        }
+
+        private void BindDepartment()
+        {
+            ddldepartment.DataSource = SearchRecordBAL.GetDepartment();
+            ddldepartment.DataTextField = "DepartmentName";
+            ddldepartment.DataValueField = "DepartmentId";
+            ddldepartment.DataBind();
+            ddldepartment.Items.Insert(0, new ListItem("------select-------", "0"));
         }
        /// <summary>
        /// Bind dropdownlist Under graduate diploma
@@ -202,6 +205,41 @@ namespace JobFair.Forms.Recruiter
             {
                 chksearchwomen.Checked = false;
             
+            }
+        }
+
+        protected void rdbpermantjob_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbpermantjob.Checked == true)
+            {
+
+                rdbparttime.Checked = false; rdbfulltimejob.Checked = false; rdbAny.Checked = false;
+                rdbany1.Checked = false; rdbtemproryjob.Checked = false; 
+
+            }
+            if (rdbparttime.Checked == true)
+            {
+
+                rdbpermantjob.Checked = false; rdbany1.Checked = false; rdbAny.Checked = false;
+                rdbtemproryjob.Checked = false; rdbfulltimejob.Checked = false;
+
+            
+            }
+            if (rdbAny.Checked == true)
+            {
+                rdbany1.Checked = false; rdbpermantjob.Checked = false; rdbparttime.Checked = false;
+                rdbtemproryjob.Checked = false; rdbfulltimejob.Checked = false;
+            }
+            if (rdbany1.Checked == true)
+            {
+                rdbAny.Checked = false; rdbpermantjob.Checked = false; rdbparttime.Checked = false;
+                rdbfulltimejob.Checked = false; 
+
+            }
+            if (rdbfulltimejob.Checked == true)
+            {
+                rdbAny.Checked = false; rdbany1.Checked = false; rdbparttime.Checked = false;
+                rdbfulltimejob.Checked = false; rdbpermantjob.Checked = false;
             }
         }
 

@@ -3,6 +3,16 @@
 <table>
     <tr>
         <td>
+            <asp:Label ID="lblUserType" runat="server" Text="You are"></asp:Label>
+        </td>
+        <td>
+            <asp:RadioButton ID="rbtIntern" runat="server" GroupName="Type" Text="Intern" ValidationGroup="Type" />
+            <asp:RadioButton ID="rbtFreshar" runat="server" GroupName="Type" Text="Freshar" />
+            <asp:RadioButton ID="rbtExperience" runat="server" GroupName="Type" Text="Experience" />
+        </td>
+    </tr>
+    <tr>
+        <td>
             <asp:Label ID="lblObjective" runat="server" Text="Objective"></asp:Label>
         </td>
         <td>

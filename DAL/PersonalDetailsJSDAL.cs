@@ -41,7 +41,6 @@ namespace DAL
                                               new SqlParameter("@maritialStatus",personalDetailsEntity.maritialStatus),
                                               new SqlParameter("@passportNumber", personalDetailsEntity.passportNumber),
                                               new SqlParameter("@passportValidity",personalDetailsEntity.passportValidity.Date),
-                                              new SqlParameter("@workStatus", personalDetailsEntity.workStatus),
                                               new SqlParameter("@photo", "~/UploadImages/"+personalDetailsEntity.photo)
                                             };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertPersonalDetails, sqlparams);
