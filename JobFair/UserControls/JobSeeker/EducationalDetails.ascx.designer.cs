@@ -130,6 +130,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtSSCYear;
         
         /// <summary>
+        /// txtSSCYear_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtSSCYear_CalendarExtender;
+        
+        /// <summary>
         /// lblSSCBoard control.
         /// </summary>
         /// <remarks>
@@ -272,6 +281,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHSCYear;
+        
+        /// <summary>
+        /// txtHSCYear_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtHSCYear_CalendarExtender;
         
         /// <summary>
         /// lblHSCBoard control.

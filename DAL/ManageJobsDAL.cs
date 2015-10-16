@@ -23,7 +23,24 @@ namespace DAL
         {
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_SelectManageJobs");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_SelectViewJobPost");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// View Perticular Posted Job by recruiter
+        /// </summary>
+        /// <returns></returns>
+        public DataSet ViewJobsDetetailsDAL(int JobId)
+        {
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@jobId", JobId) };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_SelectViewJobDetails", sparams);
                 return ds;
             }
             catch (Exception ex)
