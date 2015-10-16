@@ -14,41 +14,44 @@ namespace JobFair.Forms.Recruiter
         protected void Page_Load(object sender, EventArgs e)
         {
          
-
-
-            
             if (!this.IsPostBack)
             {
                 for (int i = 1950; i <= DateTime.Now.Year; i++)
                 {
                     ddlyear.Items.Add(i.ToString());
                 }
-                for (int i = 1950; i <= DateTime.Now.AddYears(4).Year; i++)
-                {
-
-                    DropDownList1.Items.Add(i.ToString());
-                
-                }
-                for (int  i =1950 ; i <= DateTime.Now.Year; i++)
-                {
-                    ddlmaxyear.Items.Add(i.ToString());
-                }
-                for (int i = 1950; i < DateTime.Now.AddYears(4).Year; i++)
-                {
-                    ddlpassingyear.Items.Add(i.ToString());
-                }
+              
+              
+              
                 ddlminage.Items.Add(new ListItem("", ""));
                 for (int i = 0; i <= 100; i++)
                 {
-                    ddlminage.Items.Add(new ListItem(i.ToString(),i.ToString()));
+                    ddlminage.Items.Add(new ListItem(i.ToString(), i.ToString()));
                 }
              
+
             }
+            BindDepartment();
             BindFunctionalArea();
             BindIndustryType();
             BindMasterDegree();
             BindUnderGraduateDiploma();
             BindMasterDegree();
+            BindKeyRoles();
+        }
+
+        private void BindKeyRoles()
+        {
+            
+        }
+
+        private void BindDepartment()
+        {
+            ddldepartment.DataSource = SearchRecordBAL.GetDepartment();
+            ddldepartment.DataTextField = "DepartmentName";
+            ddldepartment.DataValueField = "DepartmentId";
+            ddldepartment.DataBind();
+            ddldepartment.Items.Insert(0, new ListItem("------select-------", "0"));
         }
        /// <summary>
        /// Bind dropdownlist Under graduate diploma

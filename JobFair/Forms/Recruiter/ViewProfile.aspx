@@ -62,7 +62,7 @@
                             <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; width: 500px">
                                 <tr>
                                     <td>Job Title:
-    <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" />
+                                 <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" />
                                     </td>
                                 </tr>
                             </table>

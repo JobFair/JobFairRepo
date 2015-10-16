@@ -1,8 +1,6 @@
 ﻿using BAL;
-using Entities.JobSeeker;
 using System;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
@@ -12,13 +10,17 @@ namespace JobFair.Forms.JobSeeker
     {
         private object ds;
         private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindIndustry();
-            BindDepartment();
-            BindCity();
+            if (!IsPostBack)
+            {
+                BindIndustry();
+                BindDepartment();
+                BindState();
+            }
         }
+
         /// <summary>
         /// bind industry to dropdown and stored in database
         /// </summary>
@@ -30,8 +32,8 @@ namespace JobFair.Forms.JobSeeker
             ddlIndustry.DataValueField = "IndustryId";
             ddlIndustry.DataBind();
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
-
         }
+
         private void BindDepartment()
         {
             ds = AdvanceJobSearchBAL.GetFunctionalArea();
@@ -41,35 +43,50 @@ namespace JobFair.Forms.JobSeeker
             ddlJobCategory.DataBind();
             ddlJobCategory.Items.Insert(0, new ListItem("--Select--", "0"));
         }
-        private void rep_bind()
+
+        private void BindState()
         {
-            string query = "select * from RE_JobPost where KeywordsTechnical like '" + txtkeyskill.Text + "%'";
-            SqlDataAdapter sda = new SqlDataAdapter(query,connection);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            AdvanceJobSearchBAL advaceJobSearchBAL = new AdvanceJobSearchBAL();
+            ds = advaceJobSearchBAL.GetState();
+            ddlState.DataSource = ds;
+            ddlState.DataTextField = "StateName";
+            ddlState.DataValueField = "StateId";
+            ddlState.DataBind();
+            ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
         }
-        private void BindCity()
-        {
-            string query = "select * from City";
-            SqlDataAdapter sda = new SqlDataAdapter(query, connection);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            ddlCity.DataSource = ds;
-            ddlCity.DataBind();
-        }
+
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-           // AdvanceSearchEntity JobSearchentity = new AdvanceSearchEntity();
+            // AdvanceSearchEntity JobSearchentity = new AdvanceSearchEntity();
             //AdvanceJobSearchBAL AdvancesearchBAL = new AdvanceJobSearchBAL();
             //JobSearchentity.KeySkill = txtkeyskill.Text.Trim();
-           // JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
-          
-                rep_bind();
-                GridView1.Visible = true;
-                txtkeyskill.Text = "";
-          
+            // JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
+
+            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text+"&city="+ddlCity.SelectedItem.Text);
         }
+
+        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int cityId = Convert.ToInt32(ddlCity.SelectedValue);
+            ds = AdvanceJobSearchBAL.GetArea(cityId);
+            ddlLocation.DataSource = ds;
+            ddlLocation.DataTextField = "AreaName";
+            ddlLocation.DataValueField = "AreaId";
+            ddlLocation.DataBind();
+            ddlLocation.Items.Insert(0,new ListItem("--Select--","0"));
+        }
+
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int stateId = Convert.ToInt32(ddlState.SelectedValue);
+            ds = AdvanceJobSearchBAL.GetCity(stateId);
+            ddlCity.DataSource = ds;
+            ddlCity.DataTextField = "cityName";
+            ddlCity.DataValueField = "cityID";
+            ddlCity.DataBind();
+            ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+      
     }
 }

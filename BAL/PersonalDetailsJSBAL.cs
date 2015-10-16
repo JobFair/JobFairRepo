@@ -21,6 +21,7 @@ namespace BAL
         /// Get Country
         /// </summary>
         /// <returns></returns>
+
         public DataSet GetCountry()
         {
             return Utility.GetCountry();
@@ -42,6 +43,10 @@ namespace BAL
         public DataSet GetCity(int StateId)
         {
             return Utility.GetCity(StateId);
+        }
+        public DataSet GetArea(int cityId)
+        {
+            return Utility.GetArea(cityId);
         }
     }
 }

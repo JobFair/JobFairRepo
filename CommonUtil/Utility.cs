@@ -71,7 +71,11 @@ namespace CommonUtil
             Common common = new Common();
             return common.GetCityDAL(stateid);
         }
-
+        public static DataSet GetArea(int cityId)
+        {
+            Common common = new Common();
+            return common.GetAreaDAL(cityId);
+        }
         public static DataSet GetFunctionalArea()
         {
             Common common = new Common();

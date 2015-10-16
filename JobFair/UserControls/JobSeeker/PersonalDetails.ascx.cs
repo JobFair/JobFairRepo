@@ -56,13 +56,13 @@ namespace JobFair.UserControls.JobSeeker
                     personalDetailsEntity.presentCountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
                     personalDetailsEntity.presentStateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
                     personalDetailsEntity.presentCityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
-                    personalDetailsEntity.presentArea = txtAreaPresent.Text;
+                    personalDetailsEntity.presentArea = Convert.ToInt32(ddlAreaPresent.SelectedValue);
                     personalDetailsEntity.presentPincode = Convert.ToInt32(txtPincodePresent.Text);
                     personalDetailsEntity.permantAddress = txtAddressPerm.Text;
                     personalDetailsEntity.permantCountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
                     personalDetailsEntity.permantStateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
                     personalDetailsEntity.permantCityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
-                    personalDetailsEntity.permantArea = txtAreaPerm.Text;
+                    personalDetailsEntity.permantArea = Convert.ToInt32(ddlAreaPerm.SelectedValue);
                     personalDetailsEntity.permantPincode = Convert.ToInt32(txtPincodePerm.Text);
                     personalDetailsEntity.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
 
@@ -86,7 +86,6 @@ namespace JobFair.UserControls.JobSeeker
 
                     personalDetailsEntity.passportNumber = Convert.ToInt32(txtPassportNo.Text);
                     personalDetailsEntity.passportValidity = Convert.ToDateTime(txtValidity.Text);
-                    personalDetailsEntity.workStatus = ddlWorkStatus.SelectedItem.Text;
                     personalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
                     int result = personalDetailsBAL.SavePersonalDetailsBAL(personalDetailsEntity);
                     if (result > 0)
@@ -224,6 +223,30 @@ namespace JobFair.UserControls.JobSeeker
             lblPassportValidity.Visible = false;
             txtPassportNo.Visible = false;
             txtValidity.Visible = false;
+        }
+
+        protected void ddlCityPresent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int cityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
+            DataSet ds = new DataSet();
+            ds = personalDetailsBAL.GetArea(cityId);
+            ddlAreaPresent.DataSource = ds;
+            ddlAreaPresent.DataTextField = "AreaName";
+            ddlAreaPresent.DataValueField = "AreaID";
+            ddlAreaPresent.DataBind();
+            ddlAreaPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        protected void ddlCityPerm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int cityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
+            DataSet ds = new DataSet();
+            ds = personalDetailsBAL.GetArea(cityId);
+            ddlAreaPerm.DataSource = ds;
+            ddlAreaPerm.DataTextField = "AreaName";
+            ddlAreaPerm.DataValueField = "AreaID";
+            ddlAreaPerm.DataBind();
+            ddlAreaPerm.Items.Insert(0, new ListItem("--Select--", "0"));
         }
     }
 }

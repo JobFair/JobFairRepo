@@ -1,6 +1,7 @@
 ﻿using BAL;
 using CommonUtil;
 using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
@@ -11,6 +12,9 @@ namespace JobFair.Forms.JobSeeker
     {
         private DataSet ds = new DataSet();
           private EducationalDetailsBAL educationalDetails = null;
+        public string s,city,state;
+                private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //GetDataFromSession();
@@ -23,8 +27,22 @@ namespace JobFair.Forms.JobSeeker
                 FiilEducationCheckboxList();
                 BindRepeaterData();
             }
+            s = Request.QueryString["keySkills"];
+           city=Request.QueryString["city"];
+            state=Request.QueryString["state"];
+            rep_bind();
+            Repeater1.Visible = true;
+          
         }
-
+        private void rep_bind()
+        {
+            string query = "select * from RE_JobPost where KeywordsTechnical like '" +s+ "%'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, connection);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            Repeater1.DataSource = ds;
+            Repeater1.DataBind();
+        }
         private void FillIndustryCheckBoxList()
 
         {
@@ -76,16 +94,16 @@ namespace JobFair.Forms.JobSeeker
 
         protected void BindRepeaterData()
         {
-            SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select  JobTitle,JobLocationCity,CompanyLevel,IndustryId,DepartmentId,FunctionalAreaId,JobDescription,WorkExprience,PostedDate from RE_JobPost", con);
+            //SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
+            //con.Open();
+            //SqlCommand cmd = new SqlCommand("select  JobTitle,JobLocationCity,CompanyLevel,IndustryId,DepartmentId,FunctionalAreaId,JobDescription,WorkExprience,PostedDate from RE_JobPost", con);
 
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(ds);
-            Repeater1.DataSource = ds;
-            Repeater1.DataBind();
-            con.Close();
+            //DataSet ds = new DataSet();
+            //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //da.Fill(ds);
+            //Repeater1.DataSource = ds;
+            //Repeater1.DataBind();
+            //con.Close();
         }
 
         protected void chkFreshness_SelectedIndexChanged(object sender, EventArgs e)

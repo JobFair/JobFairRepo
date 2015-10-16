@@ -37,8 +37,8 @@
         );
     </script>
  
-
-    <div>
+    <div style="width:100%;">
+    <div style="width:40%; float:left">
        <table>
             <tr>
                 <td class="auto-style1" >
@@ -152,7 +152,6 @@
                                 <cc1:CollapsiblePanelExtender ID="CPEEducation" runat="server" TargetControlID="PanelEducation" TextLabelID="lblEducation" CollapseControlID="lblEducation" ExpandControlID="lblEducation" Collapsed="true" />
                             </div>
 
-                            <br />
                             <div>
                                 <asp:LinkButton ID="lblStatus" runat="server" Text="By Employment Status"></asp:LinkButton>
 
@@ -184,57 +183,73 @@
                 </td>
      </table>
         </div>  
-     
-        <td width="80%" style="vertical-align: top">     
+        <div style="width:50%; float:right">
             <asp:Repeater ID="Repeater1" runat="server">
+                 
                 <HeaderTemplate>
-                 <table style="width:500px; border-collapse: collapse;" border="1">
-            <tr style="background-color: #df5015; height: 30px;">
-                 <th>JobTitle</th>
-                 <th>JobLocationArea</th>
-                <th>CompanyLevel</th>
-                 <th>IndustryId</th>
-                  <th>DepartmentId</th>
-                  <th>FunctionalAreaId</th>
-                  <th>JobDescription</th>
-                  <th>WorkExprience</th>
-                  <th>PostedDate</th>
-              </tr>
-          </HeaderTemplate>
-           <ItemTemplate>
-   <tr style="height: 50px;">
-    <th>
-            <%# DataBinder.Eval(Container.DataItem,"JobTitle")%>
-          </th>
-       <th>
-            <%# DataBinder.Eval(Container.DataItem,"JobLocationCity")%>
-          </th>
-             <th > 
-                <%# DataBinder.Eval(Container.DataItem, "CompanyLevel")%>
-          </th>
-           <th> 
-              <%# DataBinder.Eval(Container.DataItem,"IndustryId")%>
-             </th>
-               <th> 
-                <%# DataBinder.Eval(Container.DataItem,"DepartmentId")%>
-                </th>
-                 <th> 
-                <%# DataBinder.Eval(Container.DataItem,"FunctionalAreaId")%>
-                 </th>
-                 <th> 
-                <%# DataBinder.Eval(Container.DataItem,"JobDescription")%>
-                 </th>
-                 <th> 
-                <%# DataBinder.Eval(Container.DataItem,"WorkExprience")%>
-                </th> 
-                <th> 
-                <%# DataBinder.Eval(Container.DataItem,"PostedDate")%>
-                </th>    
-                </tr>
-        </table>
-            </ItemTemplate>
+                   
+                    <table border="0">
+                        <tr style="font-size: large; font-weight: bold; margin-bottom:5px">
+                            <td colspan="2">
+                                <b>Job Post</b>
+                            </td>
+                        </tr>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>Job Title:
+                                 <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" ForeColor="#09c" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <asp:Label ID="Label1" runat="server" Text="Logos Solutions Pvt Limited"></asp:Label></td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblWorkExperience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <asp:Label ID="lblComment" runat="server" Text='<%#Eval("JobLocationCity") %>' />
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Key Skills :
+                            <asp:Label ID="Label2" runat="server" Text='<%#Eval("KeywordsTechnical") %>' />
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table style="background-color:#f9f9f9; border-top: 1px dotted ; border-bottom: 1px solid; width: 500px">
+                                <tr>
+                                    <%--<td>Post By:
+                                        <asp:Label ID="lblUser" runat="server" Font-Bold="true" Text='<%#Eval("NumberOfVacancies") %>' /></td>--%>
+                                    <td>Created Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate") %>' /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </table>
+                </FooterTemplate>
+                     
             </asp:Repeater>
-                
+                </div>
+      </div>
          </asp:Content>
 
 

@@ -7,7 +7,49 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>
+  
+    </title>
+ <script type="text/javascript" lang="javascript">
+   function onCalendarShown() {
+        var cal = $find("calendarSSC");
+       cal._switchMode("months", true);
+       if (cal._monthsBody) {
+           for (var i = 0; i < cal._monthsBody.rows.length; i++) {
+               var row = cal._monthsBody.rows[i];
+               for (var j = 0; j < row.cells.length; j++) {
+                   Sys.UI.DomEvent.addHandler(row.cells[j].firstChild, "click", call);
+               }
+           }
+       }
+   }
+
+   function onCalendarHidden() {
+        var cal = $find("calendarSSC");
+       if (cal._monthsBody) {
+           for (var i = 0; i < cal._monthsBody.rows.length; i++) {
+               var row = cal._monthsBody.rows[i];
+               for (var j = 0; j < row.cells.length; j++) {
+                   Sys.UI.DomEvent.removeHandler(row.cells[j].firstChild, "click", call);
+               }
+           }
+       }
+   }
+
+   function call(eventElement) {
+       var target = eventElement.target;
+       switch (target.mode) {
+           case "month":
+                var cal = $find("calendarSSC");
+               cal.set_selectedDate(target.date);
+               cal._blur.post(true);
+               cal.raiseDateSelectionChanged(); break;
+               break;
+       }
+   }
+</script>
+  
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -76,34 +118,47 @@
                 <tr>
                     <td>Job Description</td>
                     <td>
-                        <asp:TextBox ID="txtJobDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtJobDescription" runat="server" TextMode="MultiLine" Width="350px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>Keywords/Skillsets Roles</td>
                     <td>
-                        <asp:TextBox ID="txtKeyRoles" runat="server" Height="26px" Width="292px"></asp:TextBox>
+                        <asp:TextBox ID="txtKeyRoles" runat="server" Height="26px" Width="344px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style1">Keywords/Skillsets Technical</td>
                     <td class="auto-style1">
-                        <asp:TextBox ID="txtKeyTechnical" runat="server" Height="22px" Width="285px"></asp:TextBox>
+                        <asp:TextBox ID="txtKeyTechnical" runat="server" Height="22px" Width="285px" style="margin-right: 3px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>Work Experience</td>
-                    <td>From
-                        <asp:TextBox ID="txtFromdate" runat="server"></asp:TextBox>
-                        <cc1:CalendarExtender ID="txtFromdate_CalendarExtender" runat="server" BehaviorID="txtFromdate_CalendarExtender" TargetControlID="txtFromdate"></cc1:CalendarExtender>
-                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" WatermarkText="From Year" TargetControlID="txtFromdate" WatermarkCssClass="c" />
-                        &nbsp;To
-                        <asp:TextBox ID="txtTill" runat="server" Height="16px" Width="100px"></asp:TextBox>
-                        <cc1:CalendarExtender ID="txtTill_CalendarExtender" runat="server" BehaviorID="txtTill_CalendarExtender" TargetControlID="txtTill"></cc1:CalendarExtender>
-                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" WatermarkText="To Year" TargetControlID="txtTill" WatermarkCssClass="c" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:DropDownList ID="ddlworkexprience" runat="server" Height="16px" Width="79px">
+                            <asp:ListItem>0.5</asp:ListItem>
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>1.5</asp:ListItem>
+                             <asp:ListItem> 2</asp:ListItem>
+                           <asp:ListItem>2.5</asp:ListItem>
+                           <asp:ListItem>3</asp:ListItem>
+                           <asp:ListItem>3.5</asp:ListItem>
+                             <asp:ListItem>4</asp:ListItem>
+                             <asp:ListItem>4.5</asp:ListItem>
+                               <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>5.5</asp:ListItem>
+                             <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>6.5</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                             <asp:ListItem>7.5</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>8.5</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>9.5</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                        </asp:DropDownList>
+                    &nbsp;
                     </td>
                 </tr>
                 <tr>
@@ -121,30 +176,49 @@
                     <td>Offered Anual Salary</td>
                     <td>&nbsp;&nbsp;<asp:DropDownList ID="ddlsalarymin" runat="server">
                         <asp:ListItem>Select</asp:ListItem>
-                        <asp:ListItem>5000</asp:ListItem>
-                        <asp:ListItem>10,000</asp:ListItem>
-                        <asp:ListItem>15,000</asp:ListItem>
-                        <asp:ListItem>20,000</asp:ListItem>
-                        <asp:ListItem>25,000</asp:ListItem>
-                        <asp:ListItem>30,000</asp:ListItem>
-                        <asp:ListItem>35,000</asp:ListItem>
-                        <asp:ListItem>40,000</asp:ListItem>
-                        <asp:ListItem>45,000</asp:ListItem>
                         <asp:ListItem>50,000</asp:ListItem>
+                        <asp:ListItem>1,00,000</asp:ListItem>
+                        <asp:ListItem>1,50,000</asp:ListItem>
+                        <asp:ListItem>2,00,000</asp:ListItem>
+                        <asp:ListItem>2,50,000</asp:ListItem>
+                        <asp:ListItem>3,00,00</asp:ListItem>
+                        <asp:ListItem>3,50,000</asp:ListItem>
+                        <asp:ListItem>4,00,000</asp:ListItem>
+                        <asp:ListItem>4,50,000</asp:ListItem>
+                        <asp:ListItem>5,00,000</asp:ListItem>
+                        <asp:ListItem>5,50,000</asp:ListItem>
+                        <asp:ListItem>6,00,000</asp:ListItem>
+                        <asp:ListItem>6,50,000</asp:ListItem>
+                        <asp:ListItem>7,00,000</asp:ListItem>
+                        <asp:ListItem>7,50,000</asp:ListItem>
+                        <asp:ListItem>8,00,000</asp:ListItem>
+                        <asp:ListItem>8,50,000</asp:ListItem>
+                        <asp:ListItem>9,00,000</asp:ListItem>
+                        <asp:ListItem>10,00,000</asp:ListItem>
                     </asp:DropDownList>
                         &nbsp;<asp:Label ID="lblmin" runat="server" Text="Min"></asp:Label>
                         &nbsp;&nbsp;
                 <asp:DropDownList ID="ddlsalarymax" runat="server">
                     <asp:ListItem>Select</asp:ListItem>
-                    <asp:ListItem>5000</asp:ListItem>
-                    <asp:ListItem>60,000</asp:ListItem>
-                    <asp:ListItem>65,000</asp:ListItem>
-                    <asp:ListItem>70,000</asp:ListItem>
-                    <asp:ListItem>75,000</asp:ListItem>
-                    <asp:ListItem>80,000</asp:ListItem>
-                    <asp:ListItem>85,000</asp:ListItem>
-                    <asp:ListItem>90,000</asp:ListItem>
-                    <asp:ListItem>95,000</asp:ListItem>
+                         <asp:ListItem>50,000</asp:ListItem>
+                        <asp:ListItem>1,00,000</asp:ListItem>
+                        <asp:ListItem>1,50,000</asp:ListItem>
+                        <asp:ListItem>2,00,000</asp:ListItem>
+                        <asp:ListItem>2,50,000</asp:ListItem>
+                        <asp:ListItem>3,00,00</asp:ListItem>
+                        <asp:ListItem>3,50,000</asp:ListItem>
+                        <asp:ListItem>4,00,000</asp:ListItem>
+                        <asp:ListItem>4,50,000</asp:ListItem>
+                        <asp:ListItem>5,00,000</asp:ListItem>
+                        <asp:ListItem>5,50,000</asp:ListItem>
+                        <asp:ListItem>6,00,000</asp:ListItem>
+                        <asp:ListItem>6,50,000</asp:ListItem>
+                        <asp:ListItem>7,00,000</asp:ListItem>
+                        <asp:ListItem>7,50,000</asp:ListItem>
+                        <asp:ListItem>8,00,000</asp:ListItem>
+                        <asp:ListItem>8,50,000</asp:ListItem>
+                        <asp:ListItem>9,00,000</asp:ListItem>
+                        <asp:ListItem>10,00,000</asp:ListItem>
                 </asp:DropDownList>
                         &nbsp;
                 <asp:Label ID="lblmin0" runat="server" Text="Max"></asp:Label>
@@ -168,19 +242,81 @@
                     <td>
                         <asp:TextBox ID="txtdate" runat="server"></asp:TextBox>
                     </td>
+                    <td>
+                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtdate" Format="d MM, yy" />
+                    </td>
                 </tr>
-                <tr>
+              
+                   <h2>Recruiter Type</h2>
+           
+                    <tr>
+                        <td class="auto-style1">
+                            <asp:Label ID="Label2" runat="server" Text="Recruitment Type"></asp:Label>
+                        </td>
+                        <td class="auto-style1">
+                            <asp:RadioButtonList ID="RadioButtonList1" runat="server"  OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged1" AutoPostBack="true">
+                               <asp:ListItem id="rdb1" runat="server" Text="In-House" Selected="True"></asp:ListItem>
+                                <asp:ListItem id="rdb2" runat="server" Text="Client"></asp:ListItem>
+                            </asp:RadioButtonList>
+                          </td>
+                        </tr>
+                 <tr>
+                        <td>
+                              &nbsp;</td>
+                        <td style="margin-left: 200px">
+                            <asp:TextBox ID="txtaboutcompany" runat="server" Width="506px"  Visible="false" TextMode="MultiLine" Height="183px" Text="Logos Solutions is one of the conglomerate companies in India.
+
+        Logos Corporate Solutions is the leading Recruitment and Placement Solution for IT -Non IT Companies.
+
+        Logos iTech Software Solutions is the IT Outsourcing Company specialized in Mobile Application Development, Publishing, Website Design, E-commerce Solutions and Product Development
+     
+
+ ">              Logos Solutions is one of the conglomerate companies in India.
+
+                  Logos Corporate Solutions is the leading Recruitment and Placement Solution for IT -Non IT Companies.
+
+                  Logos iTech Software Solutions is the IT Outsourcing Company specialized in Mobile Application Development, Publishing, Website Design, E-commerce Solutions and Product Development
+     
+
+ </asp:TextBox>
+                        </td>
+                     
+                        <td>
+                            <asp:TextBox ID="txtclient" runat="server" Visible="false"> </asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2">
+                              <asp:Label ID="lblcompanyclient" runat="server" Text="Company Name"></asp:Label>
+                        </td>
+                        <td class="auto-style2">
+                         
+                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions Pvt.Ltd" Visible="False" ></asp:Label>
+                         
+                            <br />
+                         
+                            <br />
+                            <br />
+                          <asp:Label ID="lblclientoflogossolutios" Text="Client Of Logos Solutions" runat="server"></asp:Label>
+                         
+                        </td>
+                    </tr>
+                   
+
+                  <tr>
                     <td>
                         <asp:Button ID="btnUpdate" runat="server" Text="Update" />
                     </td>
                     <td>
-                        <asp:Button ID="btnPostJob" runat="server" Text="Post Job" OnClick="btnPostJob_Click" />
+                        <asp:Button ID="btnPostJob" runat="server" Text="Post Job" OnClick="btnPostJob_Click" Width="77px" />
                         <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
                         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     </td>
                 </tr>
-            </table>
+                </table>
 
+        </div>
+             
             <div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
                 <h2>Desired Candidate Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 
@@ -404,9 +540,19 @@
                 </table>
             </div>
             <div>
-                <asp:DropDownList ID="ddlQuestionary" runat="server"></asp:DropDownList>
+                <h2> Select Questionrie</h2>
+                <table>
+               <tr>
+                   <td>
+                       <asp:Label ID="lblselectquestionrie" runat="server" Text="SelectQuestionrie"></asp:Label>
+                       </td>
+                   <td>
+                        <asp:DropDownList ID="ddlQuestionary" runat="server"></asp:DropDownList>
+                   </td>
+                   </tr>
+                 </table>
             </div>
-        </div>
+            
     </form>
 </body>
 </html>
