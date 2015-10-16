@@ -1,5 +1,4 @@
 ﻿using BAL;
-using CommonUtil;
 using System;
 using System.Configuration;
 using System.Data;
@@ -11,9 +10,9 @@ namespace JobFair.Forms.JobSeeker
     public partial class jobSearch : System.Web.UI.Page
     {
         private DataSet ds = new DataSet();
-          private EducationalDetailsBAL educationalDetails = null;
-        public string s,city,state;
-                private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+        private EducationalDetailsBAL educationalDetails = null;
+        public string s, city, state, experience;
+        private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,23 +27,23 @@ namespace JobFair.Forms.JobSeeker
                 BindRepeaterData();
             }
             s = Request.QueryString["keySkills"];
-           city=Request.QueryString["city"];
-            state=Request.QueryString["state"];
+            city = Request.QueryString["city"];
+            experience = Request.QueryString["experience"];
             rep_bind();
             Repeater1.Visible = true;
-          
         }
+
         private void rep_bind()
         {
-            string query = "select * from RE_JobPost where KeywordsTechnical like '" +s+ "%'";
+            string query = "select * from RE_JobPost where KeywordsTechnical like '" + s + "%' and JobLocationCity='" + city + "' and WorkExperience='" + experience + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, connection);
             DataSet ds = new DataSet();
             sda.Fill(ds);
             Repeater1.DataSource = ds;
             Repeater1.DataBind();
         }
-        private void FillIndustryCheckBoxList()
 
+        private void FillIndustryCheckBoxList()
         {
             ds = JobSearchBAL.GetIndustry();
             chkIndustry.DataSource = ds;
@@ -132,11 +131,8 @@ namespace JobFair.Forms.JobSeeker
                 if (li.Selected == true)
                 {
                     Label3.Text += li.Text;
-                
                 }
             }
-          
         }
-
     }
 }

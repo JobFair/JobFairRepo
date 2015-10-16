@@ -62,7 +62,7 @@ namespace JobFair.Forms.JobSeeker
             //JobSearchentity.KeySkill = txtkeyskill.Text.Trim();
             // JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
 
-            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text+"&city="+ddlCity.SelectedItem.Text);
+            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text);
         }
 
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace JobFair.Forms.JobSeeker
             ddlLocation.DataTextField = "AreaName";
             ddlLocation.DataValueField = "AreaId";
             ddlLocation.DataBind();
-            ddlLocation.Items.Insert(0,new ListItem("--Select--","0"));
+            ddlLocation.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,7 +86,5 @@ namespace JobFair.Forms.JobSeeker
             ddlCity.DataBind();
             ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
-
-      
     }
 }
