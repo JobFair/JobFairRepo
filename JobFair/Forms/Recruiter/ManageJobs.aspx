@@ -14,6 +14,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
 
         <div id="divMain" runat="server" style="min-height: 500px; width: 100%; padding: 10px">
             <h2 style="align-content: center">Manage Jobs </h2>
@@ -90,21 +92,121 @@
         </div>
 
         <div id="divViewJob" runat="server" style="min-height: 500px; width: 100%; padding: 10px" visible="false">
-            <h2 style="align-content: center">Jobs Details</h2>
 
-            <asp:GridView ID="gvViewJob" runat="server" AutoGenerateColumns="false">
-                <Columns>                
-                    <asp:BoundField DataField="JobTitle" HeaderText="Job Title"/>
-                    <asp:BoundField DataField="JobLocationCity" HeaderText="Location"/>
-                    <asp:BoundField DataField="FunctionalAreaId" HeaderText="Functional Area"/>
-                    <asp:BoundField DataField="WorkExperience" HeaderText="Work Experience"/>
-                    <asp:BoundField DataField="Gender" HeaderText="Gender"/>
-                    <asp:BoundField DataField="NumberOfVacancies" HeaderText="Number Of Vacancies"/>
-                    <asp:BoundField DataField="OfferedAnnualSalaryMin" HeaderText="Offered Annual Salary Min"/>
-                    <asp:BoundField DataField="OfferedAnnualSalaryMax" HeaderText="Offered Annual Salary Max"/>
-                    <asp:BoundField DataField="PostedDate" HeaderText="Posted Date"/>
-                     </Columns>
-                 </asp:GridView>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server" Width="100%">
+                <%--<h2 style="align-content: center">Jobs Details</h2>--%>
+                <ContentTemplate>
+                    <asp:GridView ID="gvViewJob" runat="server" AutoGenerateColumns="false" Width="100%"
+                        Font-Names="Arial" Font-Size="11pt" AlternatingRowStyle-BackColor="#C2D69B"
+                        HeaderStyle-BackColor="#FF6600" AllowPaging="true" ShowFooter="true"
+                        OnPageIndexChanging="OnPaging" OnRowEditing="EditCustomer"
+                        OnRowUpdating="UpdateCustomer" OnRowCancelingEdit="CancelEdit"
+                        PageSize="10">
+                        <Columns>
+                            <asp:TemplateField ItemStyle-Width="30px" HeaderText="Job Id">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblJobID" runat="server" Text='<%# Eval("JobId")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Job Title">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblJobTitle" runat="server" Text='<%# Eval("JobTitle")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtJobTitle" runat="server" Text='<%# Eval("JobTitle")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Location">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblLocation" runat="server" Text='<%# Eval("JobLocationCity")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtLocation" runat="server" Text='<%# Eval("JobLocationCity")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Functional Area">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblFunctionalAreaId" runat="server" Text='<%# Eval("FunctionalAreaId")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtFunctionalAreaId" runat="server" Text='<%# Eval("FunctionalAreaId")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Work Experience">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblWorkExperience" runat="server" Text='<%# Eval("WorkExperience")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtWorkExperience" runat="server" Text='<%# Eval("WorkExperience")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Gender">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblGender" runat="server" Text='<%# Eval("Gender")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtGender" runat="server" Text='<%# Eval("Gender")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Number Of Vacancies">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblNumberOfVacancies" runat="server" Text='<%# Eval("NumberOfVacancies")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtNumberOfVacancies" runat="server" Text='<%# Eval("NumberOfVacancies")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Offered Annual Salary Min">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblOfferedAnnualSalaryMin" runat="server" Text='<%# Eval("OfferedAnnualSalaryMin")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtOfferedAnnualSalaryMin" runat="server" Text='<%# Eval("OfferedAnnualSalaryMin")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Offered Annual Salary Max">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblOfferedAnnualSalaryMax" runat="server" Text='<%# Eval("OfferedAnnualSalaryMax")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtOfferedAnnualSalaryMax" runat="server" Text='<%# Eval("OfferedAnnualSalaryMax")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Posted Date">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblPostedDate" runat="server" Text='<%# Eval("PostedDate")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtPostedDate" runat="server" Text='<%# Eval("PostedDate")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+
+                            <%--  <asp:BoundField DataField="JobTitle" HeaderText="Job Title" />
+                            <asp:BoundField DataField="JobLocationCity" HeaderText="Location" />
+                            <asp:BoundField DataField="FunctionalAreaId" HeaderText="Functional Area" />
+                            <asp:BoundField DataField="WorkExperience" HeaderText="Work Experience" />
+                            <asp:BoundField DataField="Gender" HeaderText="Gender" />
+                            <asp:BoundField DataField="NumberOfVacancies" HeaderText="Number Of Vacancies" />
+                            <asp:BoundField DataField="OfferedAnnualSalaryMin" HeaderText="Offered Annual Salary Min" />
+                            <asp:BoundField DataField="OfferedAnnualSalaryMax" HeaderText="Offered Annual Salary Max" />
+                            <asp:BoundField DataField="PostedDate" HeaderText="Posted Date" />--%>
+
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("JobId")%>'
+                                        OnClientClick="return confirm('Do you want to delete?')"
+                                        Text="Delete" OnClick="DeleteCustomer"></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:CommandField ShowEditButton="True" />
+                        </Columns>
+                        <AlternatingRowStyle BackColor="#C2D69B" />
+                    </asp:GridView>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="gvViewJob" />
+                </Triggers>
+            </asp:UpdatePanel>
         </div>
     </form>
 </body>
