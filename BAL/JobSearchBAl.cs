@@ -1,6 +1,7 @@
 ﻿using CommonUtil;
 using DAL;
 using Entities.JobSeeker;
+using System.Data;
 
 
 namespace BAL
@@ -38,6 +39,11 @@ namespace BAL
         public static System.Data.DataSet GetEducationalDegreeType()
         {
             return Utility.GetEducationalDegreeTypeDAL();
+        }
+        public DataSet JobSearch(string keySkills, string city, string experience)
+        {
+            JobSearchDAL jobSearchDAL = new JobSearchDAL();
+            return  jobSearchDAL.JobSearch(keySkills,city,experience);
         }
     }
 }

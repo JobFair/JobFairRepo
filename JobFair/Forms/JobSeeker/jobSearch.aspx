@@ -181,7 +181,7 @@
             </table>
         </div>
         <div style="width: 50%; float: right; margin-right: 100px">
-            <asp:Repeater ID="Repeater1" runat="server">
+            <asp:Repeater ID="rptrJobPost" runat="server">
 
                 <HeaderTemplate>
 

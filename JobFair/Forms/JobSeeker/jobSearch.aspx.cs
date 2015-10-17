@@ -1,50 +1,45 @@
 ﻿using BAL;
 using System;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class jobSearch : System.Web.UI.Page
     {
-        private DataSet ds = new DataSet();
         private EducationalDetailsBAL educationalDetails = null;
-        public string s, city, state, experience;
-        private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+        public string keySkill, city, state, experience;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             //GetDataFromSession();
             if (!Page.IsPostBack)
             {
-                FillIndustryCheckBoxList();
-                fillLocationCheckboxList();
-                FiillRoleesChecboxList();
-                FillFunctionalAreaCheckboxList();
-                FiilEducationCheckboxList();
-                BindRepeaterData();
+                BindIndustry();
+                BindLocation();
+                BindRoles();
+                BindFunctionalArea();
+                BindEducation();
             }
-            s = Request.QueryString["keySkills"];
+            keySkill = Request.QueryString["keySkills"];
             city = Request.QueryString["city"];
             experience = Request.QueryString["experience"];
-            rep_bind();
-            Repeater1.Visible = true;
+            rptr_bind();
+            rptrJobPost.Visible = true;
         }
 
-        private void rep_bind()
+        private void rptr_bind()
         {
-            string query = "select * from RE_JobPost where KeywordsTechnical like '" + s + "%' and JobLocationCity='" + city + "' and WorkExperience='" + experience + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, connection);
             DataSet ds = new DataSet();
-            sda.Fill(ds);
-            Repeater1.DataSource = ds;
-            Repeater1.DataBind();
+            JobSearchBAL jobSearchBAL = new JobSearchBAL();
+            ds = jobSearchBAL.JobSearch(keySkill, city, experience);
+            rptrJobPost.DataSource = ds;
+            rptrJobPost.DataBind();
         }
 
-        private void FillIndustryCheckBoxList()
+        private void BindIndustry()
         {
+            DataSet ds = new DataSet();
             ds = JobSearchBAL.GetIndustry();
             chkIndustry.DataSource = ds;
             chkIndustry.DataTextField = "IndustryName";
@@ -52,8 +47,9 @@ namespace JobFair.Forms.JobSeeker
             chkIndustry.DataBind();
         }
 
-        private void FiillRoleesChecboxList()
+        private void BindRoles()
         {
+            DataSet ds = new DataSet();
             ds = JobSearchBAL.GetRoles();
             chkRole.DataSource = ds;
             chkRole.DataTextField = "roleName";
@@ -61,8 +57,9 @@ namespace JobFair.Forms.JobSeeker
             chkRole.DataBind();
         }
 
-        private void FillFunctionalAreaCheckboxList()
+        private void BindFunctionalArea()
         {
+            DataSet ds = new DataSet();
             ds = JobSearchBAL.GetFunctionalArea();
             chkFunctArea.DataSource = ds;
             chkFunctArea.DataTextField = "FunctionalArea";
@@ -70,8 +67,9 @@ namespace JobFair.Forms.JobSeeker
             chkFunctArea.DataBind();
         }
 
-        private void fillLocationCheckboxList()
+        private void BindLocation()
         {
+            DataSet ds = new DataSet();
             ds = JobSearchBAL.GetLocation();
             chkLocation.DataSource = ds;
             chkLocation.DataTextField = "location";
@@ -79,7 +77,7 @@ namespace JobFair.Forms.JobSeeker
             chkLocation.DataBind();
         }
 
-        private void FiilEducationCheckboxList()
+        private void BindEducation()
         {
             educationalDetails = new EducationalDetailsBAL();
             DataSet degreeData = new DataSet();
@@ -89,20 +87,6 @@ namespace JobFair.Forms.JobSeeker
             chkEducation.DataTextField = "degreeType";
             chkEducation.DataValueField = "degreeId";
             chkEducation.DataBind();
-        }
-
-        protected void BindRepeaterData()
-        {
-            //SqlConnection con = new SqlConnection("Data Source=PC02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123");
-            //con.Open();
-            //SqlCommand cmd = new SqlCommand("select  JobTitle,JobLocationCity,CompanyLevel,IndustryId,DepartmentId,FunctionalAreaId,JobDescription,WorkExprience,PostedDate from RE_JobPost", con);
-
-            //DataSet ds = new DataSet();
-            //SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //da.Fill(ds);
-            //Repeater1.DataSource = ds;
-            //Repeater1.DataBind();
-            //con.Close();
         }
 
         protected void chkFreshness_SelectedIndexChanged(object sender, EventArgs e)
