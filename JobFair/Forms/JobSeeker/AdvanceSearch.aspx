@@ -171,7 +171,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label2" runat="server" Text="Employement Status"></asp:Label>
+                        <asp:Label ID="lblEmploymentStatus" runat="server" Text="Employement Status"></asp:Label>
                     </td>
                     <td>
                         <asp:CheckBox ID="chkFullTime" runat="server" Text="Full Time" />
@@ -180,7 +180,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label3" runat="server" Text="Job Type"></asp:Label>
+                        <asp:Label ID="lblJobType" runat="server" Text="Job Type"></asp:Label>
                     </td>
                     <td>
                         <asp:CheckBox ID="chkPermanant" runat="server" Text="Permanant" />
@@ -190,7 +190,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblJobType" runat="server" Text="Recruitment Type"></asp:Label>
+                        <asp:Label ID="lblRecruitmentType" runat="server" Text="Recruitment Type"></asp:Label>
                     </td>
                     <td>
                         <asp:CheckBox ID="chkInhouse" runat="server" Text="Inhouse" />

@@ -202,13 +202,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlJobCategory;
         
         /// <summary>
-        /// Label2 control.
+        /// lblEmploymentStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblEmploymentStatus;
         
         /// <summary>
         /// chkFullTime control.
@@ -229,13 +229,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.CheckBox chkPartTime;
         
         /// <summary>
-        /// Label3 control.
+        /// lblJobType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblJobType;
         
         /// <summary>
         /// chkPermanant control.
@@ -265,13 +265,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.CheckBox chkFreelancing;
         
         /// <summary>
-        /// lblJobType control.
+        /// lblRecruitmentType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJobType;
+        protected global::System.Web.UI.WebControls.Label lblRecruitmentType;
         
         /// <summary>
         /// chkInhouse control.
