@@ -40,10 +40,10 @@ namespace BAL
         {
             return Utility.GetEducationalDegreeTypeDAL();
         }
-        public DataSet JobSearch(string keySkills, string city, string experience)
+        public DataSet JobSearch(string keySkills, string city, string experience, string minSalary, string maxSalary)
         {
             JobSearchDAL jobSearchDAL = new JobSearchDAL();
-            return  jobSearchDAL.JobSearch(keySkills,city,experience);
+            return  jobSearchDAL.JobSearch(keySkills,city,experience,minSalary,maxSalary);
         }
     }
 }

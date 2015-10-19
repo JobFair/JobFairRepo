@@ -48,7 +48,7 @@
                                 <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <br />
-                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server">
+                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -50px; left: 0px">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>
                             </ContentTemplate>
@@ -102,7 +102,7 @@
                     <td>
                         <asp:DropDownList ID="ddlMinSalary" runat="server">
                             <asp:ListItem>Min</asp:ListItem>
-                            <asp:ListItem>&lt;50,000</asp:ListItem>
+                            <asp:ListItem>50,000</asp:ListItem>
                             <asp:ListItem>1,00,000</asp:ListItem>
                             <asp:ListItem>1,50,000</asp:ListItem>
                             <asp:ListItem>2,00,000</asp:ListItem>
@@ -207,8 +207,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>
+                    <td colspan="2">
                         <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Width="97px" />
                     </td>
                 </tr>

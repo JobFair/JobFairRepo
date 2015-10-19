@@ -9,7 +9,6 @@ namespace JobFair.Forms.JobSeeker
     public partial class AdvanceSearch : System.Web.UI.Page
     {
         private object ds;
-        private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -57,12 +56,8 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-            // AdvanceSearchEntity JobSearchentity = new AdvanceSearchEntity();
-            //AdvanceJobSearchBAL AdvancesearchBAL = new AdvanceJobSearchBAL();
-            //JobSearchentity.KeySkill = txtkeyskill.Text.Trim();
-            // JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
-
-            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text);
+          
+            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text+"&minSalary="+ddlMinSalary.SelectedItem.Text+"&maxSalary="+ddlMaxSalary.SelectedItem.Text);
         }
 
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)

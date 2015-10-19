@@ -4,7 +4,6 @@
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <!DOCTYPE html>
-
     <script runat="server">
         protected void chkFreshness_SelectedIndexChanged(object sender, System.EventArgs e)
         {
@@ -36,7 +35,7 @@
             }
         );
     </script>
-
+   
     <div style="width: 100%;">
         <div style="width: 40%; float: left">
             <table>
@@ -234,7 +233,8 @@
                                         <asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />-
                                         <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>
                                     </td>
-                                    <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate") %>' /></td>
+                                    <td> 
+                                        Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>'/></td>
                                 </tr>
                             </table>
                         </td>

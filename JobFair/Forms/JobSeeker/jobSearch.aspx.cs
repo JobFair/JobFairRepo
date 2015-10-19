@@ -8,7 +8,7 @@ namespace JobFair.Forms.JobSeeker
     public partial class jobSearch : System.Web.UI.Page
     {
         private EducationalDetailsBAL educationalDetails = null;
-        public string keySkill, city, state, experience;
+        public string keySkill, city, state, experience,minSalary,maxSalary;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,9 +21,12 @@ namespace JobFair.Forms.JobSeeker
                 BindFunctionalArea();
                 BindEducation();
             }
+           
             keySkill = Request.QueryString["keySkills"];
             city = Request.QueryString["city"];
             experience = Request.QueryString["experience"];
+            minSalary = Request.QueryString["minSalary"];
+            maxSalary = Request.QueryString["maxSalary"];
             rptr_bind();
             rptrJobPost.Visible = true;
         }
@@ -32,7 +35,7 @@ namespace JobFair.Forms.JobSeeker
         {
             DataSet ds = new DataSet();
             JobSearchBAL jobSearchBAL = new JobSearchBAL();
-            ds = jobSearchBAL.JobSearch(keySkill, city, experience);
+            ds = jobSearchBAL.JobSearch(keySkill, city, experience,minSalary,maxSalary);
             rptrJobPost.DataSource = ds;
             rptrJobPost.DataBind();
         }
