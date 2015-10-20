@@ -10,6 +10,7 @@ namespace BAL
         /// create method in BAL
         /// </summary>
         /// <returns></returns>
+        AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
         public static object GetIndustry()
         {
             return Utility.GetIndustry();
@@ -28,8 +29,11 @@ namespace BAL
         }
         public DataSet GetState()
         {
-            AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
             return advanceSearchDAL.GetStateDAL();
+        }
+        public DataTable GetTechnicalSkillBAL(string prefixText)
+        {
+            return advanceSearchDAL.GetTechnicalSkillDAL(prefixText);
         }
     }
 }
