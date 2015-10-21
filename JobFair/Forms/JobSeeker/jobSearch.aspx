@@ -35,7 +35,7 @@
             }
         );
     </script>
-   
+
     <div style="width: 100%;">
         <div style="width: 40%; float: left">
             <table>
@@ -102,11 +102,11 @@
                                     <asp:LinkButton ID="lblCompanyLevel" runat="server" Text="Company Level "></asp:LinkButton>
 
                                     <asp:Panel ID="PanelCompanyLevel" runat="server">
-                                        <asp:CheckBoxList ID="chkCompanyLevel" runat="server">
-                                            <asp:ListItem>Start Up Company</asp:ListItem>
-                                            <asp:ListItem>Small Scale Company</asp:ListItem>
-                                            <asp:ListItem>Mid Level Company</asp:ListItem>
-                                            <asp:ListItem>MNC</asp:ListItem>
+                                        <asp:CheckBoxList ID="chkCompanyLevel" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkCompanyLevel_SelectedIndexChanged">
+                                            <asp:ListItem Text="Start level Company" Value="Start level Company"></asp:ListItem>
+                                            <asp:ListItem Text="Small Scale Company" Value="Small Scale Company"></asp:ListItem>
+                                            <asp:ListItem Text="Mid Level Company" Value="Mid Level Company"></asp:ListItem>
+                                            <asp:ListItem Text="MNC" Value="MNC"></asp:ListItem>
                                         </asp:CheckBoxList>
                                     </asp:Panel>
                                     <cc1:CollapsiblePanelExtender ID="CPECompnyLevel" runat="server" TargetControlID="PanelCompanyLevel" TextLabelID="lblCompanyLevel" CollapseControlID="lblCompanyLevel" ExpandControlID="lblCompanyLevel" Collapsed="true" />
@@ -116,7 +116,7 @@
                                     <asp:LinkButton ID="lblIndustry" runat="server" Text="Industry "></asp:LinkButton>
 
                                     <asp:Panel ID="PanelIndustry" runat="server">
-                                        <asp:CheckBoxList ID="chkIndustry" runat="server"></asp:CheckBoxList>
+                                        <asp:CheckBoxList ID="chkIndustry" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkIndustry_SelectedIndexChanged"></asp:CheckBoxList>
                                     </asp:Panel>
                                     <cc1:CollapsiblePanelExtender ID="CPEIndustry" runat="server" TargetControlID="PanelIndustry" TextLabelID="lblIndustry" CollapseControlID="lblIndustry" ExpandControlID="lblIndustry" Collapsed="true" />
                                 </div>
@@ -233,8 +233,7 @@
                                         <asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />-
                                         <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>
                                     </td>
-                                    <td> 
-                                        Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>'/></td>
+                                    <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
                                 </tr>
                             </table>
                         </td>

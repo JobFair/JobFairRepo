@@ -1,6 +1,8 @@
 ﻿using BAL;
 using System;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
@@ -8,7 +10,7 @@ namespace JobFair.Forms.JobSeeker
     public partial class jobSearch : System.Web.UI.Page
     {
         private EducationalDetailsBAL educationalDetails = null;
-        public string keySkill, city, state, experience,minSalary,maxSalary;
+        public string keySkill, city, state, experience, minSalary, maxSalary;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +23,7 @@ namespace JobFair.Forms.JobSeeker
                 BindFunctionalArea();
                 BindEducation();
             }
-           
+
             keySkill = Request.QueryString["keySkills"];
             city = Request.QueryString["city"];
             experience = Request.QueryString["experience"];
@@ -35,7 +37,7 @@ namespace JobFair.Forms.JobSeeker
         {
             DataSet ds = new DataSet();
             JobSearchBAL jobSearchBAL = new JobSearchBAL();
-            ds = jobSearchBAL.JobSearch(keySkill, city, experience,minSalary,maxSalary);
+            ds = jobSearchBAL.JobSearch(keySkill, city, experience, minSalary, maxSalary);
             rptrJobPost.DataSource = ds;
             rptrJobPost.DataBind();
         }
@@ -110,6 +112,7 @@ namespace JobFair.Forms.JobSeeker
             Label2.Text += "</i>";
         }
 
+
         protected void chkRole_SelectedIndexChanged(object sender, EventArgs e)
         {
             Label2.Text = "You Selected:";
@@ -120,6 +123,88 @@ namespace JobFair.Forms.JobSeeker
                     Label3.Text += li.Text;
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Filter used for Company Level
+        /// </summary>
+        private void BindRept()
+        {
+            string conString = ConfigurationManager.ConnectionStrings["JobPortalCon"].ConnectionString;
+            string query = "SELECT * FROM RE_JobPost";
+
+            string condition = string.Empty;
+            foreach (ListItem item in chkCompanyLevel.Items)
+            {
+                condition += item.Selected ? string.Format("'{0}',", item.Value) : "";
+            }
+            if (!string.IsNullOrEmpty(condition))
+            {
+                condition = string.Format(" where CompanyLevel in ({0})", condition.Substring(0, condition.Length - 1));
+            }
+            SqlCommand cmd = new SqlCommand(query + condition);
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+
+                    sda.SelectCommand = cmd;
+                    using (DataSet ds = new DataSet())
+                    {
+                        sda.Fill(ds);
+                        rptrJobPost.DataSource = ds;
+                        rptrJobPost.DataBind();
+                    }
+                }
+            }
+        }
+
+        protected void chkCompanyLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.BindRept();
+        }
+
+
+        /// <summary>
+        /// Filter used for Industry
+        /// </summary>
+        private void BindreptIndustry()
+        {
+            string conString = ConfigurationManager.ConnectionStrings["JobPortalCon"].ConnectionString;
+            string query = "SELECT * FROM RE_JobPost";
+
+            string condition = string.Empty;
+            foreach (ListItem item in chkIndustry.Items)
+            {
+                condition += item.Selected ? string.Format("'{0}',", item.Value) : "";
+            }
+            if (!string.IsNullOrEmpty(condition))
+            {
+                condition = string.Format(" where IndustryId in ({0})", condition.Substring(0, condition.Length - 1));
+            }
+            SqlCommand cmd = new SqlCommand(query + condition);
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+
+                    sda.SelectCommand = cmd;
+                    using (DataSet ds = new DataSet())
+                    {
+                        sda.Fill(ds);
+                        rptrJobPost.DataSource = ds;
+                        rptrJobPost.DataBind();
+                    }
+                }
+            }
+        }
+
+        protected void chkIndustry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.BindreptIndustry();
         }
     }
 }
