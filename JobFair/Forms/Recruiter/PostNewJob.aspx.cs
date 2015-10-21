@@ -143,7 +143,7 @@ namespace JobFair.Forms.Recruiter
         /// </summary>
         /// <param name="sender">The source of event</param>
         /// <param name="e">The <cref="EventArgs">instance containing event data</param>
-        protected void btnPostJob_Click(object sender, EventArgs e)
+        public void btnPostJob_Click(object sender, EventArgs e)
         {
             try
             {
