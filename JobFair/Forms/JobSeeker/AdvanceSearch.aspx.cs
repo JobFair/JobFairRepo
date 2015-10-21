@@ -97,9 +97,6 @@ namespace JobFair.Forms.JobSeeker
             return TechnicalSkillName;
         }
 
-        protected void btnReset_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Request.RawUrl);
-        }
+       
     }
 }
