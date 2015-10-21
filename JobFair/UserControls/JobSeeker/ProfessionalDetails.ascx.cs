@@ -25,6 +25,7 @@ namespace JobFair.UserControls.JobSeeker
         protected void lbPastEmployer_Click(object sender, EventArgs e)
         {
             divPastEmloyer.Visible = true;
+
         }
 
         protected void rbtEmployed_CheckedChanged(object sender, EventArgs e)
