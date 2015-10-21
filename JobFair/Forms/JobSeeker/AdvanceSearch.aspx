@@ -214,7 +214,7 @@
                 <tr>
                     <td colspan="2">
                         <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Width="97px" />
-                        
+                        <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" />
                     </td>
                 </tr>
             </table>
