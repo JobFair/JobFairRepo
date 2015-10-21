@@ -35,9 +35,12 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; border-bottom: 1px solid #df5015; float: left; width: 80%">
+                        
+                            <asp:HiddenField ID="hfJobID" runat="server" Value='<%#Eval("JobId")%>' />
+                            <asp:HiddenField ID="hRecruiterIDf" runat="server" Value='<%#Eval("RecruiterID")%>' />
+                            <asp:Label ID="lblJobID" runat="server" Text='<%#Eval("JobId") %>' Visible="false" /></td>
                         <tr>
                             <td>Job Title:
-                                        <asp:Label ID="lblJobID" runat="server" Text='<%#Eval("JobId") %>' Visible="false" />
                                 <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" /></td>
                             <td>Location:
                                         <asp:Label ID="lblLocation" runat="server" Font-Bold="true" Text='<%#Eval("JobLocationCity") %>' /></td>
@@ -60,7 +63,7 @@
                                 -
                                         <asp:Label ID="lblSalaryMax" runat="server" Font-Bold="true" Text='<%#Eval("OfferedAnnualSalaryMax") %>' /></td>
                             <td>Posted Date:
-                                        <asp:Label ID="lblPostedDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate") %>' /></td>
+                                        <asp:Label ID="lblPostedDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate", "{0:dd MMM yyyy H:mm:ss}") %>' /></td>
                         </tr>
                     </table>
                     <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; border-bottom: 1px solid #df5015; float: right; width: 20%">
@@ -71,17 +74,17 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:LinkButton ID="lnkBtnEdit" runat="server" Text="Edit/Modify" PostBackUrl="~/Forms/Recruiter/LogIn.aspx"></asp:LinkButton>
+                                <asp:LinkButton ID="lnkBtnEdit" runat="server" Text="Edit/Modify Job" OnClick="lnkBtnEditJob_Click" ></asp:LinkButton>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:LinkButton ID="lnkBtnDelete" runat="server" Text="Delete" PostBackUrl="~/Forms/Recruiter/LogIn.aspx"></asp:LinkButton>
+                                <asp:LinkButton ID="lnkBtnDelete" runat="server" Text="Delete Job" PostBackUrl="~/Forms/Recruiter/LogIn.aspx"></asp:LinkButton>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:LinkButton ID="lnkBtnRepost" runat="server" Text="Repost Job" OnClick="lnkBtnRepost_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="lnkBtnRepost" runat="server" Text="Clone/Repost Job" OnClick="lnkBtnRepost_Click"></asp:LinkButton>
                             </td>
                         </tr>
                     </table>
@@ -93,7 +96,7 @@
 
         <div id="divViewJob" runat="server" style="min-height: 500px; width: 100%; padding: 10px" visible="false">
 
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server" Width="100%">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <%--<h2 style="align-content: center">Jobs Details</h2>--%>
                 <ContentTemplate>
                     <asp:GridView ID="gvViewJob" runat="server" AutoGenerateColumns="false" Width="100%"
@@ -174,7 +177,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Posted Date">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblPostedDate" runat="server" Text='<%# Eval("PostedDate")%>'></asp:Label>
+                                    <asp:Label ID="lblPostedDate" runat="server" Text='<%# Eval("PostedDate", "{0:dd MMM yyyy}")%>'></asp:Label>
                                 </ItemTemplate>
                                 <EditItemTemplate>
                                     <asp:TextBox ID="txtPostedDate" runat="server" Text='<%# Eval("PostedDate")%>'></asp:TextBox>
@@ -191,21 +194,23 @@
                             <asp:BoundField DataField="OfferedAnnualSalaryMax" HeaderText="Offered Annual Salary Max" />
                             <asp:BoundField DataField="PostedDate" HeaderText="Posted Date" />--%>
 
-                            <asp:TemplateField>
+                           <%-- <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("JobId")%>'
+                                    <asp:LinkButton ID="lnkBtnRemove" runat="server" CommandArgument='<%# Eval("JobId")%>'
                                         OnClientClick="return confirm('Do you want to delete?')"
-                                        Text="Delete" OnClick="DeleteCustomer"></asp:LinkButton>
+                                        Text="Delete" OnClick="DeleteCustomer" Visible="true"></asp:LinkButton>
                                 </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:CommandField ShowEditButton="True" />
+                            </asp:TemplateField>--%>
+                            
+                            <asp:CommandField ShowEditButton="true"/>
+                            
                         </Columns>
-                        <AlternatingRowStyle BackColor="#C2D69B" />
+                      <%--  <AlternatingRowStyle BackColor="#C2D69B" />--%>
                     </asp:GridView>
                 </ContentTemplate>
-                <Triggers>
+           <%--     <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="gvViewJob" />
-                </Triggers>
+                </Triggers>--%>
             </asp:UpdatePanel>
         </div>
     </form>

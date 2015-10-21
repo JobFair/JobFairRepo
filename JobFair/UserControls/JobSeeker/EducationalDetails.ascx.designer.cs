@@ -121,22 +121,40 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblSSCYear;
         
         /// <summary>
-        /// txtSSCYear control.
+        /// ddlSSCMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSSCYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSSCMonth;
         
         /// <summary>
-        /// txtSSCYear_CalendarExtender control.
+        /// ddlSSCYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtSSCYear_CalendarExtender;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSSCYear;
+        
+        /// <summary>
+        /// lblSSCSchool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSSCSchool;
+        
+        /// <summary>
+        /// txtSSCSchool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSSCSchool;
         
         /// <summary>
         /// lblSSCBoard control.
@@ -292,6 +310,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::AjaxControlToolkit.CalendarExtender txtHSCYear_CalendarExtender;
         
         /// <summary>
+        /// lblHSCCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHSCCollege;
+        
+        /// <summary>
+        /// txtHSCCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHSCCollege;
+        
+        /// <summary>
         /// lblHSCBoard control.
         /// </summary>
         /// <remarks>
@@ -436,6 +472,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtDipYear;
         
         /// <summary>
+        /// lblDipCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDipCollege;
+        
+        /// <summary>
+        /// txtDipCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDipCollege;
+        
+        /// <summary>
         /// lblDipUniversity control.
         /// </summary>
         /// <remarks>
@@ -578,6 +632,24 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBDYear;
+        
+        /// <summary>
+        /// lblBDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBDCollege;
+        
+        /// <summary>
+        /// txtBDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBDCollege;
         
         /// <summary>
         /// lblBDUniversity control.
@@ -733,6 +805,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtDualBDYear;
         
         /// <summary>
+        /// lblDualBDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDualBDCollege;
+        
+        /// <summary>
+        /// txtDualBDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDualBDCollege;
+        
+        /// <summary>
         /// lblDualBDUniversity control.
         /// </summary>
         /// <remarks>
@@ -877,6 +967,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtPgdYear;
         
         /// <summary>
+        /// lblPgdCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPgdCollege;
+        
+        /// <summary>
+        /// txtPgdCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPgdCollege;
+        
+        /// <summary>
         /// lblPgdUniversity control.
         /// </summary>
         /// <remarks>
@@ -1019,6 +1127,24 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMDYear;
+        
+        /// <summary>
+        /// lblMDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMDCollege;
+        
+        /// <summary>
+        /// txtMDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMDCollege;
         
         /// <summary>
         /// lblMDUniversity control.
@@ -1174,6 +1300,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtDualMDYear;
         
         /// <summary>
+        /// lblDualMDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDualMDCollege;
+        
+        /// <summary>
+        /// txtDualMDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDualMDCollege;
+        
+        /// <summary>
         /// lblDualMDUniversity control.
         /// </summary>
         /// <remarks>
@@ -1316,6 +1460,24 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPHDYear;
+        
+        /// <summary>
+        /// lblPHDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPHDCollege;
+        
+        /// <summary>
+        /// txtPHDCollege control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPHDCollege;
         
         /// <summary>
         /// lblPHDUniversity control.

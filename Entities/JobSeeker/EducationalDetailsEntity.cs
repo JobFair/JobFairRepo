@@ -16,6 +16,7 @@ namespace Entities.JobSeeker
         public string Status { get; set; }
         public string Specialization { get; set; }
         public string YearOfCompletion { get; set; }
+        public string College { get; set; }
         public string University { get; set; }
         public string Percantage { get; set; }
 
