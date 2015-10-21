@@ -2,11 +2,19 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#lbPastEmployer").click(function () {
-            $("#divPastEmployer").append('<tr><td><input size=25 type="text" id="latbox" /></td></tr>')
-        });
+    
+    $("#lbPastEmployer").bind("click", function () {
+        var div = $("<div />");
+        div.html(GetDynamicTextBox(""));
+        $("#TextBoxContainer").append(div);
     });
+   
+    function GetDynamicTextBox(value) {
+        return 'Company<input name = "CompanyName" type="text" value = "' + value.value1 + '" /><br/>' +
+                'Designation<input type="text" name="designation"  value="'+value.value2+'" /><br/>'+
+                'Duration<input type="text" name="From" value="' + value.value3 + '"/>&nbsp;'+
+            '<input type="text" name="From" value="' + value.value4 + '"/>'
+    }
 </script>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
@@ -152,12 +160,16 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience" OnClick="lbPastEmployer_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience" OnClientClick="AddMorePastJob()" OnClick="lbPastEmployer_Click"></asp:LinkButton>
                             </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
-                            <td colspan="2"></td>
+                            <td colspan="2">
+                                <div id="TextBoxContainer" runat="server">
+    <!--Textboxes will be added here -->
+</div>
+                            </td>
                         </tr>
                     </table>
                 </div>

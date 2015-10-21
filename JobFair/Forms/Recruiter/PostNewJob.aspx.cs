@@ -3,6 +3,7 @@ using Entities.Recruiter;
 using System;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Collections.Generic;
 
 namespace JobFair.Forms.Recruiter
 {
@@ -23,8 +24,22 @@ namespace JobFair.Forms.Recruiter
                 BindDoctorOfPhilosophy();
                 BindBachelorDegree();
                 BindQuestions();
+                BindState();
             }
         }
+
+        private void BindState()
+        {
+            PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
+            ds = postnewjobBAL.GetState();
+            ddlState.DataSource = ds;
+            ddlState.DataTextField = "StateName";
+            ddlState.DataValueField = "StateId";
+            ddlState.DataBind();
+            ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+      
 
         /// <summary>
         /// Method for binding Dropdown with Industry_table of database
@@ -152,8 +167,7 @@ namespace JobFair.Forms.Recruiter
 
                 addJobPostEntity.RecruiterID = "RE12";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
-                addJobPostEntity.JobLocationCity = txtJobLocation.Text.Trim();
-                addJobPostEntity.JobLocationArea = txtJobLocationArea.Text.Trim();
+               
                 addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
                 addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
                 addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
@@ -216,6 +230,47 @@ namespace JobFair.Forms.Recruiter
                  lblclientoflogossolutios.Visible = true;
                  lblcompanyname1.Visible = false;
              }
+
+        }
+
+
+        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int cityId = Convert.ToInt32(ddlCity.SelectedValue);
+            ds = PostNewJobBAL.GetArea(cityId);
+            ddlLocation.DataSource = ds;
+            ddlLocation.DataTextField = "AreaName";
+            ddlLocation.DataValueField = "AreaId";
+            ddlLocation.DataBind();
+            ddlLocation.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int stateId = Convert.ToInt32(ddlState.SelectedValue);
+            ds = PostNewJobBAL.GetCity(stateId);
+            ddlCity.DataSource = ds;
+            ddlCity.DataTextField = "cityName";
+            ddlCity.DataValueField = "cityID";
+            ddlCity.DataBind();
+            ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
+
+        public static List<string> GetRoles(string prefixText)
+        {
+            DataTable dt = new DataTable();
+            PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
+            dt = postnewjobBAL.GetRolesBAL(prefixText);
+            List<string> rolename = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                rolename.Add(dt.Rows[i][1].ToString());
+            }
+            return rolename;
+        
         }
     }
 }

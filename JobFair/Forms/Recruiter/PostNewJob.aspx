@@ -10,46 +10,6 @@
     <title>
   
     </title>
- <script type="text/javascript" lang="javascript">
-   function onCalendarShown() {
-        var cal = $find("calendarSSC");
-       cal._switchMode("months", true);
-       if (cal._monthsBody) {
-           for (var i = 0; i < cal._monthsBody.rows.length; i++) {
-               var row = cal._monthsBody.rows[i];
-               for (var j = 0; j < row.cells.length; j++) {
-                   Sys.UI.DomEvent.addHandler(row.cells[j].firstChild, "click", call);
-               }
-           }
-       }
-   }
-
-   function onCalendarHidden() {
-        var cal = $find("calendarSSC");
-       if (cal._monthsBody) {
-           for (var i = 0; i < cal._monthsBody.rows.length; i++) {
-               var row = cal._monthsBody.rows[i];
-               for (var j = 0; j < row.cells.length; j++) {
-                   Sys.UI.DomEvent.removeHandler(row.cells[j].firstChild, "click", call);
-               }
-           }
-       }
-   }
-
-   function call(eventElement) {
-       var target = eventElement.target;
-       switch (target.mode) {
-           case "month":
-                var cal = $find("calendarSSC");
-               cal.set_selectedDate(target.date);
-               cal._blur.post(true);
-               cal.raiseDateSelectionChanged(); break;
-               break;
-       }
-   }
-</script>
-  
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -68,18 +28,38 @@
                         <asp:TextBox ID="txtJobtitle" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
-                <tr>
+                
 
-                    <td>Job Locations</td>
-                    <td>
-                        <asp:TextBox ID="txtJobLocation" runat="server"></asp:TextBox>
-                        <br />
+                   <tr>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
+                    </td>
+                    <td rowspan="3">
+                        <asp:UpdatePanel ID="pnlState" runat="server">
+                            <ContentTemplate>
+                                <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:DropDownList>
+                                <br />
+                                <br />
+                                <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:DropDownList>
+                                <br />
+                                <br />
+                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -82px; left: 4px">
+                                    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                                </asp:DropDownCheckBoxes>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </td>
                 </tr>
                 <tr>
-                    <td>Job Locations Area</td>
-                    <td>
-                        <asp:TextBox ID="txtJobLocationArea" runat="server"></asp:TextBox>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblArea" runat="server" Text="Area"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -124,19 +104,22 @@
                 <tr>
                     <td>Keywords/Skillsets Roles</td>
                     <td>
-                        <asp:TextBox ID="txtKeyRoles" runat="server" Height="26px" Width="344px"></asp:TextBox>
+                      
+                        <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
+                        <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtKeyRoles" MinimumPrefixLength="1"
+                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRoles"></cc1:AutoCompleteExtender>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style1">Keywords/Skillsets Technical</td>
                     <td class="auto-style1">
-                        <asp:TextBox ID="txtKeyTechnical" runat="server" Height="22px" Width="285px" style="margin-right: 3px"></asp:TextBox>
+                        <asp:TextBox ID="txtKeyTechnical" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>Work Experience</td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="ddlworkexprience" runat="server" Height="16px" Width="79px">
+                        <asp:DropDownList ID="ddlworkexprience" runat="server">
                             <asp:ListItem>0.5</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>1.5</asp:ListItem>
@@ -226,7 +209,7 @@
                 </tr>
                 <tr>
                     <td>&nbsp;OtherSalaryDetails</td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>&nbsp;
                 <asp:TextBox ID="txtsalarydetaills" runat="server"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
