@@ -1,9 +1,7 @@
 ﻿using BAL;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
@@ -11,40 +9,15 @@ namespace JobFair.Forms.JobSeeker
     public partial class AdvanceSearch : System.Web.UI.Page
     {
         private object ds;
-        private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
-
-
-
-
-
             if (!IsPostBack)
-            {                     
+            {
                 BindIndustry();
                 BindDepartment();
                 BindState();
             }
-        }
-
-
-        [System.Web.Script.Services.ScriptMethod()]
-        [System.Web.Services.WebMethod]
-        public static List<string> GetSkills(string skill)
-        {
-            DataSet ds = new DataSet();
-            AdvanceJobSearchBAL advaceJobSearchBAL = new AdvanceJobSearchBAL();
-            ds = advaceJobSearchBAL.GetSkills(skill);
-            List<string> skillSets = new List<string>();
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                skillSets.Add(ds.Tables[0].Rows[i][1].ToString());
-            }
-            return skillSets;
         }
 
         /// <summary>
@@ -83,12 +56,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-            // AdvanceSearchEntity JobSearchentity = new AdvanceSearchEntity();
-            //AdvanceJobSearchBAL AdvancesearchBAL = new AdvanceJobSearchBAL();
-            //JobSearchentity.KeySkill = txtkeyskill.Text.Trim();
-            // JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
-
-            //Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text + "&city=" + ddlCity.SelectedItem.Text);
+            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text + "&minSalary=" + ddlMinSalary.SelectedItem.Text + "&maxSalary=" + ddlMaxSalary.SelectedItem.Text);
         }
 
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,6 +81,25 @@ namespace JobFair.Forms.JobSeeker
             ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod]
+        public static List<string> GetKeySkills(string prefixText)
+        {
+            DataTable dt = new DataTable();
 
+            AdvanceJobSearchBAL advanceSearchBAL = new AdvanceJobSearchBAL();
+            dt = advanceSearchBAL.GetTechnicalSkillBAL(prefixText);
+            List<string> TechnicalSkillName = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                TechnicalSkillName.Add(dt.Rows[i][2].ToString());
+            }
+            return TechnicalSkillName;
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
+        }
     }
 }

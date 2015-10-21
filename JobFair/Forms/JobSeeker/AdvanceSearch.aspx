@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AdvanceSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.AdvanceSearch" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
 <!DOCTYPE html>
@@ -9,11 +10,11 @@
     <title></title>
     <style type="text/css">
         .style1 {
-           clear: both;
-    position: relative;
-    width: 100%;
-    background-color: #fff;
-    margin-bottom: 5px;
+            clear: both;
+            position: relative;
+            width: 100%;
+            background-color: #fff;
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -24,9 +25,8 @@
             <asp:Label ID="lbladvancesearch" runat="server" Text="AdvanceSearch"></asp:Label>
 
             &nbsp;
-  <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-
             <br />
             <table>
                 <tr>
@@ -34,8 +34,10 @@
                         <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill"></asp:Label>
                     </td>
                     <td>
-                        <%--<asp:TextBox ID="txtkeyskill" runat="server"></asp:TextBox>--%>
-                        <asp:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtskill" MinimumPrefixLength="1" EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetSkills"></asp:AutoCompleteExtender>
+                        <asp:TextBox ID="txtkeyskill" runat="server"></asp:TextBox>
+                        <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
+                            EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetKeySkills">
+                        </cc1:AutoCompleteExtender>
                     </td>
                 </tr>
                 <tr>
@@ -43,19 +45,19 @@
                         <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
                     </td>
                     <td rowspan="3">
-                          <asp:UpdatePanel ID="pnlState" runat="server">
-                <ContentTemplate>
-                        <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
-                        </asp:DropDownList>
-                     <br />
-                        <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="True">
-                        </asp:DropDownList>  
-                <br />
-                        <asp:DropDownCheckBoxes ID="ddlLocation" runat="server">
-                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                        </asp:DropDownCheckBoxes>
-                    </ContentTemplate>
-            </asp:UpdatePanel>
+                        <asp:UpdatePanel ID="pnlState" runat="server">
+                            <ContentTemplate>
+                                <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:DropDownList>
+                                <br />
+                                <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:DropDownList>
+                                <br />
+                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -50px; left: 0px">
+                                    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                                </asp:DropDownCheckBoxes>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </td>
                 </tr>
                 <tr>
@@ -72,29 +74,28 @@
                     <td class="auto-style1">
                         <asp:Label ID="lblworkexprience" runat="server" Text="Work Exprience"></asp:Label>
                     </td>
-                    <td>
-                        &nbsp;<asp:DropDownList ID="ddlWorkExperience" runat="server">
-                            <asp:ListItem>0.5</asp:ListItem>
-                            <asp:ListItem>1.0</asp:ListItem>
-                            <asp:ListItem>1.5</asp:ListItem>
-                            <asp:ListItem>2.0</asp:ListItem>
-                            <asp:ListItem>2.5</asp:ListItem>
-                            <asp:ListItem>3.0</asp:ListItem>
-                            <asp:ListItem>3.5</asp:ListItem>
-                            <asp:ListItem>4.0</asp:ListItem>
-                            <asp:ListItem>4.5</asp:ListItem>
-                            <asp:ListItem>5.0</asp:ListItem>
-                            <asp:ListItem>5.5</asp:ListItem>
-                            <asp:ListItem>6.0</asp:ListItem>
-                            <asp:ListItem>6.5</asp:ListItem>
-                            <asp:ListItem>7.0</asp:ListItem>
-                            <asp:ListItem>7.5</asp:ListItem>
-                            <asp:ListItem>8.0</asp:ListItem>
-                            <asp:ListItem>8.5</asp:ListItem>
-                            <asp:ListItem>9.0</asp:ListItem>
-                            <asp:ListItem>9.5</asp:ListItem>
-                            <asp:ListItem>10</asp:ListItem>
-                        </asp:DropDownList>
+                    <td>&nbsp;<asp:DropDownList ID="ddlWorkExperience" runat="server">
+                        <asp:ListItem>0.5</asp:ListItem>
+                        <asp:ListItem>1.0</asp:ListItem>
+                        <asp:ListItem>1.5</asp:ListItem>
+                        <asp:ListItem>2.0</asp:ListItem>
+                        <asp:ListItem>2.5</asp:ListItem>
+                        <asp:ListItem>3.0</asp:ListItem>
+                        <asp:ListItem>3.5</asp:ListItem>
+                        <asp:ListItem>4.0</asp:ListItem>
+                        <asp:ListItem>4.5</asp:ListItem>
+                        <asp:ListItem>5.0</asp:ListItem>
+                        <asp:ListItem>5.5</asp:ListItem>
+                        <asp:ListItem>6.0</asp:ListItem>
+                        <asp:ListItem>6.5</asp:ListItem>
+                        <asp:ListItem>7.0</asp:ListItem>
+                        <asp:ListItem>7.5</asp:ListItem>
+                        <asp:ListItem>8.0</asp:ListItem>
+                        <asp:ListItem>8.5</asp:ListItem>
+                        <asp:ListItem>9.0</asp:ListItem>
+                        <asp:ListItem>9.5</asp:ListItem>
+                        <asp:ListItem>10</asp:ListItem>
+                    </asp:DropDownList>
                         &nbsp;&nbsp;
 
                         &nbsp;</td>
@@ -106,7 +107,7 @@
                     <td>
                         <asp:DropDownList ID="ddlMinSalary" runat="server">
                             <asp:ListItem>Min</asp:ListItem>
-                            <asp:ListItem>&lt;50,000</asp:ListItem>
+                            <asp:ListItem>50,000</asp:ListItem>
                             <asp:ListItem>1,00,000</asp:ListItem>
                             <asp:ListItem>1,50,000</asp:ListItem>
                             <asp:ListItem>2,00,000</asp:ListItem>
@@ -130,7 +131,7 @@
                         &nbsp;To
                         <asp:DropDownList ID="ddlMaxSalary" runat="server">
                             <asp:ListItem>Max</asp:ListItem>
-                             <asp:ListItem>&lt;50,000</asp:ListItem>
+                            <asp:ListItem>&lt;50,000</asp:ListItem>
                             <asp:ListItem>1,00,000</asp:ListItem>
                             <asp:ListItem>1,50,000</asp:ListItem>
                             <asp:ListItem>2,00,000</asp:ListItem>
@@ -151,10 +152,10 @@
                             <asp:ListItem>9,50,000</asp:ListItem>
                             <asp:ListItem>10,00,000</asp:ListItem>
                         </asp:DropDownList>
-                        </td>
+                    </td>
                 </tr>
                 <tr>
-                    <td >
+                    <td>
                         <asp:Label ID="lblindustry" runat="server" Text="Industry"></asp:Label>
                     </td>
                     <td>
@@ -165,7 +166,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td >
+                    <td>
                         <asp:Label ID="lbljobcategory" runat="server" Text="JobCategory"></asp:Label>
                     </td>
                     <td>
@@ -175,7 +176,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label2" runat="server" Text="Employement Status"></asp:Label>
+                        <asp:Label ID="lblEmploymentStatus" runat="server" Text="Employement Status"></asp:Label>
                     </td>
                     <td>
                         <asp:CheckBox ID="chkFullTime" runat="server" Text="Full Time" />
@@ -184,7 +185,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label3" runat="server" Text="Job Type"></asp:Label>
+                        <asp:Label ID="lblJobType" runat="server" Text="Job Type"></asp:Label>
                     </td>
                     <td>
                         <asp:CheckBox ID="chkPermanant" runat="server" Text="Permanant" />
@@ -194,7 +195,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblJobType" runat="server" Text="Recruitment Type"></asp:Label>
+                        <asp:Label ID="lblRecruitmentType" runat="server" Text="Recruitment Type"></asp:Label>
                     </td>
                     <td>
                         <asp:CheckBox ID="chkInhouse" runat="server" Text="Inhouse" />
@@ -211,13 +212,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>
+                    <td colspan="2">
                         <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Width="97px" />
+                        <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" />
                     </td>
                 </tr>
             </table>
-         
         </div>
     </form>
 </body>

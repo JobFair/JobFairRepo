@@ -1,24 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace DAL
 {
-   
-   public class AdvanceSearchDAL
+    public class AdvanceSearchDAL
     {
-        
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         public DataSet GetStateDAL()
         {
-            DataSet ds = new DataSet();
             try
             {
+                DataSet ds = new DataSet();
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from State");
                 return ds;
             }
@@ -28,19 +23,15 @@ namespace DAL
             }
         }
 
-        public DataSet GetSkills(string skills)
+        public DataTable GetTechnicalSkillDAL(string prefixText)
         {
-            DataSet ds = new DataSet();
-            try
-            {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from City where CityName like %'" + skills +"'%'");
-                return ds;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            DataTable dt = new DataTable();
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from TechnicalSkillsDetails where TechnicalSkillName like @KeySkills+'%'", connection);
+            cmd.Parameters.AddWithValue("@KeySkills", prefixText);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(dt);
+            return dt;
         }
-
     }
 }

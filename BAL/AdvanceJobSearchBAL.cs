@@ -1,7 +1,6 @@
 ﻿using CommonUtil;
 using DAL;
 using Entities.Recruiter;
-using System.Collections.Generic;
 using System.Data;
 namespace BAL
 {
@@ -11,6 +10,7 @@ namespace BAL
         /// create method in BAL
         /// </summary>
         /// <returns></returns>
+        AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
         public static object GetIndustry()
         {
             return Utility.GetIndustry();
@@ -29,15 +29,11 @@ namespace BAL
         }
         public DataSet GetState()
         {
-            AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
             return advanceSearchDAL.GetStateDAL();
         }
-
-
-        public DataSet GetSkills(string skill)
+        public DataTable GetTechnicalSkillBAL(string prefixText)
         {
-            AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
-            return advanceSearchDAL.GetSkills(skill);
+            return advanceSearchDAL.GetTechnicalSkillDAL(prefixText);
         }
     }
 }
