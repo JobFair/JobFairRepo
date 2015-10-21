@@ -42,6 +42,10 @@ namespace JobFair.Forms.JobSeeker
             sda.Fill(ds);
             Repeater1.DataSource = ds;
             Repeater1.DataBind();
+
+
+          
+
         }
         private void FillIndustryCheckBoxList()
 

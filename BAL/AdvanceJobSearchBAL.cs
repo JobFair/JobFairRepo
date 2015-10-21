@@ -1,6 +1,7 @@
 ﻿using CommonUtil;
 using DAL;
 using Entities.Recruiter;
+using System.Collections.Generic;
 using System.Data;
 namespace BAL
 {
@@ -30,6 +31,13 @@ namespace BAL
         {
             AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
             return advanceSearchDAL.GetStateDAL();
+        }
+
+
+        public DataSet GetSkills(string skill)
+        {
+            AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
+            return advanceSearchDAL.GetSkills(skill);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AdvanceSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.AdvanceSearch" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
 <!DOCTYPE html>
@@ -24,8 +24,9 @@
             <asp:Label ID="lbladvancesearch" runat="server" Text="AdvanceSearch"></asp:Label>
 
             &nbsp;
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+  <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
+
             <br />
             <table>
                 <tr>
@@ -33,7 +34,8 @@
                         <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtkeyskill" runat="server"></asp:TextBox>
+                        <%--<asp:TextBox ID="txtkeyskill" runat="server"></asp:TextBox>--%>
+                        <asp:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtskill" MinimumPrefixLength="1" EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetSkills"></asp:AutoCompleteExtender>
                     </td>
                 </tr>
                 <tr>

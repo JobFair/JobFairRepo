@@ -1,6 +1,8 @@
 ﻿using BAL;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
@@ -13,12 +15,36 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+
+
+
+
+
+
             if (!IsPostBack)
-            {
+            {                     
                 BindIndustry();
                 BindDepartment();
                 BindState();
             }
+        }
+
+
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod]
+        public static List<string> GetSkills(string skill)
+        {
+            DataSet ds = new DataSet();
+            AdvanceJobSearchBAL advaceJobSearchBAL = new AdvanceJobSearchBAL();
+            ds = advaceJobSearchBAL.GetSkills(skill);
+            List<string> skillSets = new List<string>();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                skillSets.Add(ds.Tables[0].Rows[i][1].ToString());
+            }
+            return skillSets;
         }
 
         /// <summary>
@@ -62,7 +88,7 @@ namespace JobFair.Forms.JobSeeker
             //JobSearchentity.KeySkill = txtkeyskill.Text.Trim();
             // JobSearchentity.WorkExprienceYear = txtTill.Text.Trim();
 
-            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text+"&city="+ddlCity.SelectedItem.Text);
+            //Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text + "&city=" + ddlCity.SelectedItem.Text);
         }
 
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,7 +99,7 @@ namespace JobFair.Forms.JobSeeker
             ddlLocation.DataTextField = "AreaName";
             ddlLocation.DataValueField = "AreaId";
             ddlLocation.DataBind();
-            ddlLocation.Items.Insert(0,new ListItem("--Select--","0"));
+            ddlLocation.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,6 +113,6 @@ namespace JobFair.Forms.JobSeeker
             ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
-      
+
     }
 }
