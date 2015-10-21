@@ -1,21 +1,33 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProfessionalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ProfessionalDetails" %>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript">
-    
-    $("#lbPastEmployer").bind("click", function () {
-        var div = $("<div />");
-        div.html(GetDynamicTextBox(""));
-        $("#TextBoxContainer").append(div);
-    });
-   
-    function GetDynamicTextBox(value) {
-        return 'Company<input name = "CompanyName" type="text" value = "' + value.value1 + '" /><br/>' +
-                'Designation<input type="text" name="designation"  value="'+value.value2+'" /><br/>'+
-                'Duration<input type="text" name="From" value="' + value.value3 + '"/>&nbsp;'+
-            '<input type="text" name="From" value="' + value.value4 + '"/>'
-    }
-</script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#date").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1950:2015"
+            });
+            var $datepicker1 = $("#<%=txtFromDate.ClientID%>");
+            var $datepicker2 = $("#<%=txtTillDate.ClientID%>");
+            $datepicker1.datepicker();
+            $datepicker2.datepicker({
+                onClose: function () {
+                    var fromDate = $datepicker1.datepicker('getDate');
+                    var toDate = $datepicker2.datepicker('getDate');
+                    // date difference in millisec
+                    var diff = new Date(toDate - fromDate);
+                    // date difference in days
+                    var days = diff / 1000 / 60 / 60 / 24;
+
+                    alert(days);
+                }
+            });
+        });
+    </script>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <div>
@@ -166,7 +178,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <div id="TextBoxContainer" runat="server">
+                                <div id="TextBoxContainer" runat="server" visible="false">
     <!--Textboxes will be added here -->
 </div>
                             </td>
@@ -201,11 +213,9 @@
                         <tr>
                             <td>Duration</td>
                             <td>
-                                <asp:TextBox ID="txtFromDate" runat="server"></asp:TextBox>
-                                <cc1:CalendarExtender ID="txtFromDate_CalendarExtender" runat="server" BehaviorID="txtFromDate_CalendarExtender" TargetControlID="txtFromDate" />
+                                <asp:TextBox ID="txtFromDate" runat="server" ></asp:TextBox>
                                 <cc1:TextBoxWatermarkExtender ID="txtFromDate_TextBoxWatermarkExtender" runat="server" BehaviorID="txtFromDate_TextBoxWatermarkExtender" TargetControlID="txtFromDate" WatermarkText="From" />
                                 <asp:TextBox ID="txtTillDate" runat="server"></asp:TextBox>
-                                <cc1:CalendarExtender ID="txtTillDate_CalendarExtender" runat="server" BehaviorID="txtTillDate_CalendarExtender" TargetControlID="txtTillDate" />
                                 <cc1:TextBoxWatermarkExtender ID="txtTillDate_TextBoxWatermarkExtender" runat="server" BehaviorID="txtTillDate_TextBoxWatermarkExtender" TargetControlID="txtTillDate" WatermarkText="Till" />
                             </td>
                         </tr>
@@ -444,6 +454,184 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </td>
+        </tr>
+     
+        <tr>
+            <td>Availability for the Personal Round on Working Day</td>
+            <td>
+                <asp:CheckBoxList ID="CheckBoxList5" runat="server">
+                    <asp:ListItem>Yes</asp:ListItem>
+                    <asp:ListItem>No</asp:ListItem>
+                </asp:CheckBoxList>
+            </td>
+        </tr>
+     
+        <tr>
+            <td>Availabilty in Week Days(Monday to Friday)</td>
+            <td>Before<asp:DropDownList ID="DropDownList5" runat="server" >
+                <asp:ListItem>1</asp:ListItem>
+                <asp:ListItem>2</asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
+                <asp:ListItem>4</asp:ListItem>
+                <asp:ListItem>5</asp:ListItem>
+                <asp:ListItem>6</asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>8</asp:ListItem>
+                <asp:ListItem>9</asp:ListItem>
+                <asp:ListItem>10</asp:ListItem>
+                <asp:ListItem>11</asp:ListItem>
+                <asp:ListItem>12</asp:ListItem>
+                </asp:DropDownList>
+                <asp:DropDownList ID="DropDownList7" runat="server">
+                    <asp:ListItem>1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>
+                    <asp:ListItem>4</asp:ListItem>
+                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>6</asp:ListItem>
+                    <asp:ListItem>7</asp:ListItem>
+                    <asp:ListItem>8</asp:ListItem>
+                    <asp:ListItem>9</asp:ListItem>
+                    <asp:ListItem>10</asp:ListItem>
+                    <asp:ListItem>11</asp:ListItem>
+                    <asp:ListItem>12</asp:ListItem>
+                    <asp:ListItem>13</asp:ListItem>
+                    <asp:ListItem>14</asp:ListItem>
+                    <asp:ListItem>15</asp:ListItem>
+                    <asp:ListItem>16</asp:ListItem>
+                    <asp:ListItem>17</asp:ListItem>
+                    <asp:ListItem>18</asp:ListItem>
+                    <asp:ListItem>19</asp:ListItem>
+                    <asp:ListItem>20</asp:ListItem>
+                    <asp:ListItem>21</asp:ListItem>
+                    <asp:ListItem>22</asp:ListItem>
+                    <asp:ListItem>23</asp:ListItem>
+                    <asp:ListItem>24</asp:ListItem>
+                    <asp:ListItem>25</asp:ListItem>
+                    <asp:ListItem>26</asp:ListItem>
+                    <asp:ListItem>27</asp:ListItem>
+                    <asp:ListItem>28</asp:ListItem>
+                    <asp:ListItem>29</asp:ListItem>
+                    <asp:ListItem>31</asp:ListItem>
+                    <asp:ListItem>32</asp:ListItem>
+                    <asp:ListItem>33</asp:ListItem>
+                    <asp:ListItem>34</asp:ListItem>
+                    <asp:ListItem>35</asp:ListItem>
+                    <asp:ListItem>36</asp:ListItem>
+                    <asp:ListItem>37</asp:ListItem>
+                    <asp:ListItem>38</asp:ListItem>
+                    <asp:ListItem>39</asp:ListItem>
+                    <asp:ListItem>40</asp:ListItem>
+                    <asp:ListItem>41</asp:ListItem>
+                    <asp:ListItem>42</asp:ListItem>
+                    <asp:ListItem>43</asp:ListItem>
+                    <asp:ListItem>44</asp:ListItem>
+                    <asp:ListItem>45</asp:ListItem>
+                    <asp:ListItem>46</asp:ListItem>
+                    <asp:ListItem>47</asp:ListItem>
+                    <asp:ListItem>48</asp:ListItem>
+                    <asp:ListItem>49</asp:ListItem>
+                    <asp:ListItem>50</asp:ListItem>
+                    <asp:ListItem>51</asp:ListItem>
+                    <asp:ListItem>52</asp:ListItem>
+                    <asp:ListItem>53</asp:ListItem>
+                    <asp:ListItem>54</asp:ListItem>
+                    <asp:ListItem>55</asp:ListItem>
+                    <asp:ListItem>56</asp:ListItem>
+                    <asp:ListItem>57</asp:ListItem>
+                    <asp:ListItem>58</asp:ListItem>
+                    <asp:ListItem>59</asp:ListItem>
+                    <asp:ListItem>60</asp:ListItem>
+                </asp:DropDownList>
+                <asp:DropDownList ID="DropDownList8" runat="server">
+                    <asp:ListItem>AM</asp:ListItem>
+                    <asp:ListItem>PM</asp:ListItem>
+                </asp:DropDownList>
+                After<asp:DropDownList ID="DropDownList9" runat="server" >
+                    <asp:ListItem>1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>
+                    <asp:ListItem>4</asp:ListItem>
+                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>6</asp:ListItem>
+                    <asp:ListItem>7</asp:ListItem>
+                    <asp:ListItem>8</asp:ListItem>
+                    <asp:ListItem>9</asp:ListItem>
+                    <asp:ListItem>10</asp:ListItem>
+                    <asp:ListItem>11</asp:ListItem>
+                    <asp:ListItem>12</asp:ListItem>
+                </asp:DropDownList>
+                <asp:DropDownList ID="DropDownList10" runat="server">
+                    <asp:ListItem>1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>
+                    <asp:ListItem>4</asp:ListItem>
+                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>6</asp:ListItem>
+                    <asp:ListItem>7</asp:ListItem>
+                    <asp:ListItem>8</asp:ListItem>
+                    <asp:ListItem>9</asp:ListItem>
+                    <asp:ListItem>10</asp:ListItem>
+                    <asp:ListItem>11</asp:ListItem>
+                    <asp:ListItem>12</asp:ListItem>
+                    <asp:ListItem>13</asp:ListItem>
+                    <asp:ListItem>14</asp:ListItem>
+                    <asp:ListItem>15</asp:ListItem>
+                    <asp:ListItem>16</asp:ListItem>
+                    <asp:ListItem>17</asp:ListItem>
+                    <asp:ListItem>18</asp:ListItem>
+                    <asp:ListItem>19</asp:ListItem>
+                    <asp:ListItem>20</asp:ListItem>
+                    <asp:ListItem>21</asp:ListItem>
+                    <asp:ListItem>22</asp:ListItem>
+                    <asp:ListItem>23</asp:ListItem>
+                    <asp:ListItem>24</asp:ListItem>
+                    <asp:ListItem>25</asp:ListItem>
+                    <asp:ListItem>26</asp:ListItem>
+                    <asp:ListItem>27</asp:ListItem>
+                    <asp:ListItem>28</asp:ListItem>
+                    <asp:ListItem>29</asp:ListItem>
+                    <asp:ListItem>31</asp:ListItem>
+                    <asp:ListItem>32</asp:ListItem>
+                    <asp:ListItem>33</asp:ListItem>
+                    <asp:ListItem>34</asp:ListItem>
+                    <asp:ListItem>35</asp:ListItem>
+                    <asp:ListItem>36</asp:ListItem>
+                    <asp:ListItem>37</asp:ListItem>
+                    <asp:ListItem>38</asp:ListItem>
+                    <asp:ListItem>39</asp:ListItem>
+                    <asp:ListItem>40</asp:ListItem>
+                    <asp:ListItem>41</asp:ListItem>
+                    <asp:ListItem>42</asp:ListItem>
+                    <asp:ListItem>43</asp:ListItem>
+                    <asp:ListItem>44</asp:ListItem>
+                    <asp:ListItem>45</asp:ListItem>
+                    <asp:ListItem>46</asp:ListItem>
+                    <asp:ListItem>47</asp:ListItem>
+                    <asp:ListItem>48</asp:ListItem>
+                    <asp:ListItem>49</asp:ListItem>
+                    <asp:ListItem>50</asp:ListItem>
+                    <asp:ListItem>51</asp:ListItem>
+                    <asp:ListItem>52</asp:ListItem>
+                    <asp:ListItem>53</asp:ListItem>
+                    <asp:ListItem>54</asp:ListItem>
+                    <asp:ListItem>55</asp:ListItem>
+                    <asp:ListItem>56</asp:ListItem>
+                    <asp:ListItem>57</asp:ListItem>
+                    <asp:ListItem>58</asp:ListItem>
+                    <asp:ListItem>59</asp:ListItem>
+                    <asp:ListItem>60</asp:ListItem>
+                </asp:DropDownList>
+                <asp:DropDownList ID="DropDownList11" runat="server">
+                    <asp:ListItem>AM</asp:ListItem>
+                    <asp:ListItem>PM</asp:ListItem>
+                </asp:DropDownList>
+                <asp:DropDownList ID="DropDownList12" runat="server" ToolTip="Please Select TimeZone(IST/EST)">
+                    <asp:ListItem>IST</asp:ListItem>
+                    <asp:ListItem>EST</asp:ListItem>
+                </asp:DropDownList>
+                <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Min&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Min</td>
         </tr>
      
         <tr>

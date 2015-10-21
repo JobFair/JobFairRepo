@@ -19,13 +19,13 @@ namespace JobFair.UserControls.JobSeeker
                 //BindDropDownDepartment();
                 //BindDropDownCountry();
                 //divPastEmloyer.Visible = false;
-            }
+         }
         }
 
         protected void lbPastEmployer_Click(object sender, EventArgs e)
         {
-            divPastEmloyer.Visible = true;
-
+            
+            divPastEmloyer.Visible=true;
         }
 
         protected void rbtEmployed_CheckedChanged(object sender, EventArgs e)
@@ -61,6 +61,10 @@ namespace JobFair.UserControls.JobSeeker
         {
             divAddMoreJob.Visible = true;
         }
+
+      
+        }
+           
 
        
 
@@ -240,4 +244,3 @@ namespace JobFair.UserControls.JobSeeker
 
       
     }
-}

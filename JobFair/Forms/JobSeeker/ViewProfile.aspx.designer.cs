@@ -13,15 +13,6 @@ namespace JobFair.Forms.JobSeeker {
     public partial class ViewProfile {
         
         /// <summary>
-        /// imgCandidate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgCandidate;
-        
-        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// imgCandidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCandidate;
         
         /// <summary>
         /// lblFirstName control.
@@ -58,33 +58,6 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblEmailId;
         
         /// <summary>
-        /// divContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divContact;
-        
-        /// <summary>
-        /// txtContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContact;
-        
-        /// <summary>
-        /// btnOk control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOk;
-        
-        /// <summary>
         /// lblContact control.
         /// </summary>
         /// <remarks>
@@ -94,31 +67,40 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblContact;
         
         /// <summary>
-        /// lbEditContact control.
+        /// lblHighestQualification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditContact;
+        protected global::System.Web.UI.WebControls.Label lblHighestQualification;
         
         /// <summary>
-        /// lblEducation control.
+        /// lblPositionAppliedFor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEducation;
+        protected global::System.Web.UI.WebControls.Label lblPositionAppliedFor;
         
         /// <summary>
-        /// lblLastupdated control.
+        /// lblCurrentCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastupdated;
+        protected global::System.Web.UI.WebControls.Label lblCurrentCompany;
+        
+        /// <summary>
+        /// lblDesignation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDesignation;
         
         /// <summary>
         /// upSkills control.

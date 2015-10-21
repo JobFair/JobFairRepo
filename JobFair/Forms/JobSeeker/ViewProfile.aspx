@@ -12,10 +12,15 @@
         <table>
             <tr>
                 <td>
-                    <asp:Image ID="imgCandidate" ImageUrl='<%#Eval("JS12","~/Images/{0}") %>' runat="server" />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                    
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <asp:Image ID="imgCandidate" ImageUrl='<%#Eval("JS12","~/Images/{0}") %>' runat="server" />
                 </td>
             </tr>
             <tr>
@@ -37,27 +42,117 @@
                 <td>Contact details
                 </td>
                 <td>
-                    <div id="divContact" runat="server" visible="false">
-                        <asp:TextBox ID="txtContact" runat="server" CausesValidation="true" Text='<%#Eval("MobileNo") %>'>
-                        </asp:TextBox>
-                        <asp:Button ID="btnOk" runat="server" Text="Ok" OnClick="btnOk_Click" />
-                    </div>
+                   
                     <asp:Label ID="lblContact" runat="server" Text='<%#Eval("MobileNo") %>'></asp:Label>
 
-                    <asp:LinkButton ID="lbEditContact" runat="server" OnClick="lbEditContact_Click">Edit</asp:LinkButton>
                 </td>
             </tr>
             <tr>
-                <td>Education
-                </td>
+                <td>Highest Qualification</td>
                 <td>
-                    <asp:Label ID="lblEducation" runat="server"></asp:Label>
+                    <asp:Label ID="lblHighestQualification" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">Last Upadated on
-                    <asp:Label ID="lblLastupdated" runat="server"></asp:Label>
+                <td>Position Applied For</td>
+                <td>
+                    <asp:Label ID="lblPositionAppliedFor" runat="server" Text=""></asp:Label>
                 </td>
+            </tr>
+            <tr>
+                <td>Current Company</td>
+                <td>
+                    <asp:Label ID="lblCurrentCompany" runat="server" Text=""></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Designation</td>
+                <td>
+                    <asp:Label ID="lblDesignation" runat="server" Text=""></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>From </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Till</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Total Experience</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Relevant Experience</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Current CTC</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Expected CTC</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Joining Period</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Reason for Job Change</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Current City</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Residing Area</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Ready To Relocate</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Preferable City</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Areas in Preferred City</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Availability for the Personal Round on Working Days</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>Availability in Week Days</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
             </tr>
         </table>
     </div>
