@@ -23,8 +23,11 @@ namespace JobFair.Forms.Recruiter
                 BindDoctorOfPhilosophy();
                 BindBachelorDegree();
                 BindQuestions();
+          
             }
         }
+
+      
 
         /// <summary>
         /// Method for binding Dropdown with Industry_table of database

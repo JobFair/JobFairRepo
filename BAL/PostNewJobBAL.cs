@@ -99,5 +99,6 @@ namespace BAL
             NewJobPostDAL newJobPostDAL = new NewJobPostDAL();
             return newJobPostDAL.GetQuestionsDAL();
         }
+       
     }
 }

@@ -10,46 +10,6 @@
     <title>
   
     </title>
- <script type="text/javascript" lang="javascript">
-   function onCalendarShown() {
-        var cal = $find("calendarSSC");
-       cal._switchMode("months", true);
-       if (cal._monthsBody) {
-           for (var i = 0; i < cal._monthsBody.rows.length; i++) {
-               var row = cal._monthsBody.rows[i];
-               for (var j = 0; j < row.cells.length; j++) {
-                   Sys.UI.DomEvent.addHandler(row.cells[j].firstChild, "click", call);
-               }
-           }
-       }
-   }
-
-   function onCalendarHidden() {
-        var cal = $find("calendarSSC");
-       if (cal._monthsBody) {
-           for (var i = 0; i < cal._monthsBody.rows.length; i++) {
-               var row = cal._monthsBody.rows[i];
-               for (var j = 0; j < row.cells.length; j++) {
-                   Sys.UI.DomEvent.removeHandler(row.cells[j].firstChild, "click", call);
-               }
-           }
-       }
-   }
-
-   function call(eventElement) {
-       var target = eventElement.target;
-       switch (target.mode) {
-           case "month":
-                var cal = $find("calendarSSC");
-               cal.set_selectedDate(target.date);
-               cal._blur.post(true);
-               cal.raiseDateSelectionChanged(); break;
-               break;
-       }
-   }
-</script>
-  
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -70,7 +30,7 @@
                 </tr>
                 <tr>
 
-                    <td>Job Locations</td>
+                    <td>Job Location state</td>
                     <td>
                         <asp:TextBox ID="txtJobLocation" runat="server"></asp:TextBox>
                         <br />

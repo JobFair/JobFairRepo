@@ -14,6 +14,7 @@ namespace Entities.Recruiter
        
         public string RecruiterID { get; set; }
         public string JobTitle { get; set; }
+        public string JobLocationState { get; set; }
         public string JobLocationCity { get; set; }
         public string JobLocationArea { get; set; }
         public string CompanyLevel { get; set; }
