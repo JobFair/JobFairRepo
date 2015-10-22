@@ -99,6 +99,23 @@ namespace BAL
             NewJobPostDAL newJobPostDAL = new NewJobPostDAL();
             return newJobPostDAL.GetQuestionsDAL();
         }
-       
+
+
+        public DataSet GetState()
+        {
+
+            NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
+            return newjobpostDAL.GetStateDAL();
+        }
+
+        public static DataSet GetArea(int cityId)
+        {
+            return Utility.GetArea(cityId);
+        }
+
+        public static DataSet GetCity(int stateId)
+        {
+            return Utility.GetCity(stateId);
+        }
     }
 }

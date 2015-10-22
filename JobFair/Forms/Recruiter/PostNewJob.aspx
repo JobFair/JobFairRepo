@@ -28,18 +28,36 @@
                         <asp:TextBox ID="txtJobtitle" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
-                <tr>
+                
 
-                    <td>Job Location state</td>
-                    <td>
-                        <asp:TextBox ID="txtJobLocation" runat="server"></asp:TextBox>
-                        <br />
+                   <tr>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
+                    </td>
+                    <td rowspan="3">
+                        <asp:UpdatePanel ID="pnlState" runat="server">
+                            <ContentTemplate>
+                                <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:DropDownList>
+                                <br />
+                                <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:DropDownList>
+                                <br />
+                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -50px; left: 0px">
+                                    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                                </asp:DropDownCheckBoxes>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </td>
                 </tr>
                 <tr>
-                    <td>Job Locations Area</td>
-                    <td>
-                        <asp:TextBox ID="txtJobLocationArea" runat="server"></asp:TextBox>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblArea" runat="server" Text="Area"></asp:Label>
                     </td>
                 </tr>
                 <tr>

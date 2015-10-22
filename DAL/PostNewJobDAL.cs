@@ -64,8 +64,25 @@ namespace DAL
             return ds;
         }
 
-      
 
-       
+
+
+
+
+        public DataSet GetStateDAL()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from State");
+                return ds;
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
