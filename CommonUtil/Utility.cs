@@ -1,6 +1,7 @@
 ﻿using DAL;
 using Entities;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace CommonUtil
@@ -186,6 +187,26 @@ namespace CommonUtil
         {
             Common common = new Common();
             return common.GetLocation();
+        }
+
+        public static List<string> GetYears()
+        {
+            List<string> yearList = new List<string>();
+            int i = DateTime.Now.Year;
+            for (i = i - 60; i <= DateTime.Now.Year + 10; i++)
+                yearList.Add(Convert.ToString(i));
+            return yearList;
+        }
+        public static List<string> GetMonths()
+        {
+            string[] months = System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames;
+            List<string> monthList = new List<string>(months);
+             //monthList = System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames;
+             //Arrays.asList(months) = List<string> monthList;
+            //int i = DateTime.Now.Month;
+            //for (i = 1; i <= DateTime.Now.Month; i++)
+            //    monthList.Add(Convert.ToString(i));
+            return monthList;
         }
     }
 }

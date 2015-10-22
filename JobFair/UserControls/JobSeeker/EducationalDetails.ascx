@@ -7,44 +7,6 @@
 <link href="../../Css/Style.css" rel="stylesheet" />
 <link href="../../Css/Common.css" rel="stylesheet" />
 
-<script type="text/javascript" lang="javascript">
-    function onCalendarShown() {
-        var cal = $find("calendarSSC");
-        cal._switchMode("months", true);
-        if (cal._monthsBody) {
-            for (var i = 0; i < cal._monthsBody.rows.length; i++) {
-                var row = cal._monthsBody.rows[i];
-                for (var j = 0; j < row.cells.length; j++) {
-                    Sys.UI.DomEvent.addHandler(row.cells[j].firstChild, "click", call);
-                }
-            }
-        }
-    }  cx vge
-
-    function onCalendarHidden() {
-        var cal = $find("calendarSSC");
-        if (cal._monthsBody) {
-            for (var i = 0; i < cal._monthsBody.rows.length; i++) {
-                var row = cal._monthsBody.rows[i];
-                for (var j = 0; j < row.cells.length; j++) {
-                    Sys.UI.DomEvent.removeHandler(row.cells[j].firstChild, "click", call);
-                }
-            }
-        }
-    }
-
-    function call(eventElement) {
-        var target = eventElement.target;
-        switch (target.mode) {
-            case "month":
-                var cal = $find("calendarSSC");
-                cal.set_selectedDate(target.date);
-                cal._blur.post(true);
-                cal.raiseDateSelectionChanged(); break;
-                break;
-        }
-    }
-</script>
 
 <div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
 
@@ -66,6 +28,8 @@
                 <asp:Button ID="btnGo" runat="server" Text="Go" OnClick="btnGo_Click" CssClass="button" /></td>
         </tr>
     </table>
+
+
     <br />
     <hr />
     <br />
@@ -99,16 +63,21 @@
                     <asp:Label ID="lblSSCYear" runat="server" Text="Year of Completion" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSSCYear" runat="server" Width="100px"></asp:TextBox>
-                    <ajax:CalendarExtender ID="txtSSCYear_CalendarExtender" runat="server" OnClientHidden="onCalendarHidden"
-                        OnClientShown="onCalendarShown" Format="MMM/yyyy" BehaviorID="calendarSSC" TargetControlID="txtSSCYear"></ajax:CalendarExtender>
-                    <%-- <ajax:FilteredTextBoxExtender ID="FilteredtxtSSCYearExtender" runat="server" TargetControlID="txtSSCYear"
-                    FilterType="Custom, Numbers" ValidChars="/" Enabled="True" />--%>
+                     <asp:DropDownList ID="ddlSSCMonth" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlSSCYear" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <asp:Label ID="lblSSCSchool" runat="server" Text="School" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtSSCSchool" runat="server" Width="100px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblSSCBoard" runat="server" Text="University/Board" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblSSCBoard" runat="server" Text="Board" CssClass="label"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtSSCBoard" runat="server" Width="100px"></asp:TextBox>
@@ -177,9 +146,17 @@
                          OnClientShown="onCalendarShown" Format="MMM/yyyy" BehaviorID="calendarHSC" TargetControlID="txtHSCYear"></ajax:CalendarExtender>
                 </td>
             </tr>
+             <tr>
+                <td>
+                    <asp:Label ID="lblHSCCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtHSCCollege" runat="server" Width="100px"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblHSCBoard" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    <asp:Label ID="lblHSCBoard" runat="server" CssClass="label" Text="Board"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtHSCBoard" runat="server" Width="100px"></asp:TextBox>
@@ -241,9 +218,17 @@
                     <asp:TextBox ID="txtDipYear" runat="server" Width="100px"></asp:TextBox>
                 </td>
             </tr>
+             <tr>
+                <td>
+                    <asp:Label ID="lblDipCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtDipCollege" runat="server" Width="100px"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblDipUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    <asp:Label ID="lblDipUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtDipUniversity" runat="server" Width="100px"></asp:TextBox>
@@ -305,9 +290,17 @@
                     <asp:TextBox ID="txtBDYear" runat="server" Width="100px"></asp:TextBox>
                 </td>
             </tr>
+             <tr>
+                <td>
+                    <asp:Label ID="lblBDCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtBDCollege" runat="server" Width="100px"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblBDUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    <asp:Label ID="lblBDUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtBDUniversity" runat="server" Width="100px"></asp:TextBox>
@@ -372,7 +365,15 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblDualBDUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    <asp:Label ID="lblDualBDCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtDualBDCollege" runat="server" Width="100px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblDualBDUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtDualBDUniversity" runat="server" Width="100px"></asp:TextBox>
@@ -434,9 +435,17 @@
                     <asp:TextBox ID="txtPgdYear" runat="server" Width="100px"></asp:TextBox>
                 </td>
             </tr>
+             <tr>
+                <td>
+                    <asp:Label ID="lblPgdCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtPgdCollege" runat="server" Width="100px"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblPgdUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    <asp:Label ID="lblPgdUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtPgdUniversity" runat="server" Width="100px"></asp:TextBox>
@@ -498,9 +507,17 @@
                     <asp:TextBox ID="txtMDYear" runat="server" Width="100px"></asp:TextBox>
                 </td>
             </tr>
+              <tr>
+                <td>
+                    <asp:Label ID="lblMDCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtMDCollege" runat="server" Width="100px"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblMDUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    <asp:Label ID="lblMDUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtMDUniversity" runat="server" Width="100px"></asp:TextBox>
@@ -565,7 +582,15 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblDualMDUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    <asp:Label ID="lblDualMDCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtDualMDCollege" runat="server" Width="100px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblDualMDUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtDualMDUniversity" runat="server" Width="100px"></asp:TextBox>
@@ -627,9 +652,17 @@
                     <asp:TextBox ID="txtPHDYear" runat="server" Width="100px"></asp:TextBox>
                 </td>
             </tr>
+             <tr>
+                <td>
+                    <asp:Label ID="lblPHDCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtPHDCollege" runat="server" Width="100px"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblPHDUniversity" runat="server" CssClass="label" Text="University/Board"></asp:Label>
+                    <asp:Label ID="lblPHDUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox ID="txtPHDUniversity" runat="server" Width="100px"></asp:TextBox>
