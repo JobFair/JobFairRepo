@@ -3,6 +3,7 @@ using Entities.Recruiter;
 using System;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Collections.Generic;
 
 namespace JobFair.Forms.Recruiter
 {
@@ -166,9 +167,7 @@ namespace JobFair.Forms.Recruiter
 
                 addJobPostEntity.RecruiterID = "RE12";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
-                addJobPostEntity.JobLocationState = ddlState.SelectedItem.Text.Trim();
-                addJobPostEntity.JobLocationCity = 
-                addJobPostEntity.JobLocationArea = 
+               
                 addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
                 addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
                 addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
@@ -257,6 +256,21 @@ namespace JobFair.Forms.Recruiter
             ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
 
+        public static List<string> GetRoles(string prefixText)
+        {
+            DataTable dt = new DataTable();
+            PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
+            dt = postnewjobBAL.GetRolesBAL(prefixText);
+            List<string> rolename = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                rolename.Add(dt.Rows[i][1].ToString());
+            }
+            return rolename;
+        
+        }
     }
 }

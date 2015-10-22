@@ -40,10 +40,12 @@
                                 <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <br />
+                                <br />
                                 <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <br />
-                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -50px; left: 0px">
+                                <br />
+                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -82px; left: 4px">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>
                             </ContentTemplate>
@@ -102,19 +104,22 @@
                 <tr>
                     <td>Keywords/Skillsets Roles</td>
                     <td>
-                        <asp:TextBox ID="txtKeyRoles" runat="server" Height="26px" Width="344px"></asp:TextBox>
+                      
+                        <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
+                        <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtKeyRoles" MinimumPrefixLength="1"
+                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRoles"></cc1:AutoCompleteExtender>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style1">Keywords/Skillsets Technical</td>
                     <td class="auto-style1">
-                        <asp:TextBox ID="txtKeyTechnical" runat="server" Height="22px" Width="285px" style="margin-right: 3px"></asp:TextBox>
+                        <asp:TextBox ID="txtKeyTechnical" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>Work Experience</td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="ddlworkexprience" runat="server" Height="16px" Width="79px">
+                        <asp:DropDownList ID="ddlworkexprience" runat="server">
                             <asp:ListItem>0.5</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>1.5</asp:ListItem>
@@ -204,7 +209,7 @@
                 </tr>
                 <tr>
                     <td>&nbsp;OtherSalaryDetails</td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>&nbsp;
                 <asp:TextBox ID="txtsalarydetaills" runat="server"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                     </td>

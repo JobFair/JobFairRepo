@@ -100,10 +100,8 @@ namespace BAL
             return newJobPostDAL.GetQuestionsDAL();
         }
 
-
         public DataSet GetState()
         {
-
             NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
             return newjobpostDAL.GetStateDAL();
         }
@@ -116,6 +114,12 @@ namespace BAL
         public static DataSet GetCity(int stateId)
         {
             return Utility.GetCity(stateId);
+        }
+
+        public DataTable GetRolesBAL(string prefixText)
+        {
+            NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
+            return newjobpostDAL.GetRoles(prefixText);
         }
     }
 }

@@ -16,13 +16,13 @@ namespace DAL
         /// </summary>
         /// <param name="jobpostEntity">Object for inserting data into database</param>
         /// <returns>System.String</returns>
-        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-
+        private SqlConnection Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+   
         public int JobPostDAL(AddJobPostEntity jobpostEntity)
         {
             try
             {
-                connection.Open();
+                Connection.Open();
                 SqlParameter[] sqlparams ={
                                             new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
                                             new SqlParameter("@JobTitle",jobpostEntity.JobTitle),
@@ -45,7 +45,7 @@ namespace DAL
                                             new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType)
                                           
                                         };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
                 return result;
             }
             catch (Exception)
@@ -60,7 +60,7 @@ namespace DAL
         public DataSet GetQuestionsDAL()
         {
             DataSet ds = new DataSet();
-            ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from RE_Questionrie");
+            ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select * from RE_Questionrie");
             return ds;
         }
 
@@ -74,7 +74,7 @@ namespace DAL
             try
             {
                 DataSet ds = new DataSet();
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from State");
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select * from State");
                 return ds;
 
             }
@@ -83,6 +83,26 @@ namespace DAL
                 
                 throw;
             }
+        }
+
+
+
+
+
+
+
+
+        public DataTable GetRoles(string prefixText)
+        {
+            DataTable dt = new DataTable();
+            Connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from JS_Roles  where rolename like @roleName+'%'", Connection);
+            cmd.Parameters.AddWithValue("@rolename", prefixText);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(dt);
+            return dt;
+         
+           
         }
     }
 }
