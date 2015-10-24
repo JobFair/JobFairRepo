@@ -8,17 +8,115 @@
     <script src="../../Scripts/jquery-2.1.4.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+
+     <style type="text/css">
+        .border-right {
+            border-right: 1px solid #00ff21;
+        }
+
+        .borders {
+            border-left: 1px solid #00ff21;
+            border-right: 1px solid #00ff21;
+            margin: -1px;
+        }
+
+        .border-left {
+            border-left: 1px solid #00ff21;
+        }
+
+
+
+        .row.vdivide [class*='col-']:not(:last-child):after {
+            background: #00ff21;
+            width: 1px;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            min-height: 400px;
+        }
+    </style>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+
+        <div class="container">
+          
+            <div class="row">
+                <div class="panel panel-heading">
+                    <div class="row">
+                        <div class="col-md-2 text-center" style="vertical-align: middle">                           
+                                <h1>JOB FAIR</h1>                           
+                        </div>
+                        <div class="col-md-2 pull-left text-center">
+                            <img src="../../Images/Jobseeker/Profile.jpg" height="100px" width="100px" />
+                        </div>
+                        <div class="col-md-2 pull-left">
+                            <img src="../../Images/Jobseeker/Job Search.jpg" height="100px" width="100px" />
+                        </div>
+                        <div class="col-md-2 pull-left">
+                            <img src="../../Images/Jobseeker/Job Applications.png" height="100px" width="100px" />
+                        </div>
+                        <div class="col-md-2 pull-left">
+                            <img src="../../Images/Jobseeker/Referrals.png" height="100px" width="100px" />
+                        </div>
+                        <div class="col-md-2 pull-left">
+                            <img src="../../Images/Jobseeker/Folder.png" height="100px" width="100px" />
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-2 pull-left text-center">
+                            <span>Profile</span>
+                        </div>
+                        <div class="col-md-2 pull-left">
+                            <span>Search Job</span>
+                        </div>
+                        <div class="col-md-2 pull-left">
+                            <span>Job Applications</span>
+                        </div>
+                        <div class="col-md-2 pull-left">
+                            <span>Referral</span>
+                        </div>
+                        <div class="col-md-2 pull-left">
+                            <span>Email Folder</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            
+        </div>
+        <hr style="height: 3px; border: thick; color: #333; background-color: #333;" />
+        <div class="container">
+            <div class="row vdivide">
+                <div class="col-md-1 text-left pull-left">                    
+                    <img src="../../Images/Jobseeker/Expert advice.png" height="80px" width="80px" /></br><span class="text-center">Expert Advice</span></br>
+                    <img src="../../Images/Jobseeker/setting.jpg" height="80px" width="80px" /></br><span class="text-center">Settings</span></br>
+                    <img src="../../Images/Jobseeker/updates.jpg" height="80px" width="80px" /></br><span class="text-center">Updates</span></br>
+                    <img src="../../Images/Jobseeker/chat.png" height="80px" width="80px" /></br><span class="text-center">Chat</span></br>
+                    <img src="../../Images/Jobseeker/Rewards.png" height="80px" width="80px" /><br />
+                    <span class="text-center">Rewards</span>
+                </div>
+                <div class="col-md-11 text-center">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+
+
+
     </form>
 </body>
 </html>
