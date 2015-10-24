@@ -101,28 +101,13 @@ namespace JobFair.Forms.JobSeeker
 
         protected void chkLocation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Label2.Text = "You Selected:<br /><i>";
-            foreach (ListItem li in chkLocation.Items)
-            {
-                if (li.Selected == true)
-                {
-                    Label2.Text += li.Text + "<br />";
-                }
-            }
-            Label2.Text += "</i>";
+           
         }
 
 
         protected void chkRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Label2.Text = "You Selected:";
-            foreach (ListItem li in chkRole.Items)
-            {
-                if (li.Selected == true)
-                {
-                    Label3.Text += li.Text;
-                }
-            }
+          
         }
 
 
