@@ -7,7 +7,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    
 </head>
 
 <body>
@@ -18,7 +17,7 @@
             <table class="auto-style1">
                 <tr>
                     <td colspan="2">
-                        <img alt=""  src="../../Images/L1-whte.jpg" /></td>
+                        <img alt="" src="../../Images/L1-whte.jpg" /></td>
                 </tr>
                 <tr>
                     <td>First Name</td>
@@ -115,7 +114,6 @@
                 </tr>
             </table>
         </div>
-       
     </form>
 </body>
 </html>
