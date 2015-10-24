@@ -203,11 +203,15 @@ namespace JobFair.Forms.Recruiter
 
         protected void DropDownCheckBoxes1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (ListItem item in DropDownCheckBoxes1.Items)
+            selectedItemspanel.Controls.Clear();
+            foreach (ListItem item in (sender as ListControl).Items)
             {
                 if (item.Selected)
                 {
-                    lblHSCSelect.Text = item.Text;
+                    selectedItemspanel.Controls.Add(new Literal() 
+                    { Text = item.Text +"<br/>"}
+                    );
+
                 }
             }
         }
@@ -329,6 +333,7 @@ namespace JobFair.Forms.Recruiter
 
         protected void ddlBachelorsDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
+         
             foreach (ListItem item in ddlBachelorsDegree.Items)
             {
                 if (item.Selected)

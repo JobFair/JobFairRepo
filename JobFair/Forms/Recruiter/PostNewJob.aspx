@@ -276,7 +276,7 @@
                         </td>
                         <td class="auto-style2">
                          
-                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions Pvt.Ltd" Visible="False" ></asp:Label>
+                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions " Visible="False" ></asp:Label>
                          
                             <br />
                          
@@ -357,6 +357,11 @@
                                 <asp:ListItem>And</asp:ListItem>
                                 <asp:ListItem>Or</asp:ListItem>
                             </asp:RadioButtonList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Panel ID="selectedItemspanel" runat="server"></asp:Panel>
                         </td>
                     </tr>
                 </table>
