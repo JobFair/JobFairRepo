@@ -1,16 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProfessionalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ProfessionalDetails" %>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#date").datepicker({
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "1950:2015"
-            });
-            var $datepicker1 = $("#<%=txtFromDate.ClientID%>");
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var $datepicker1 = $("#<%=txtFromDate.ClientID%>");
             var $datepicker2 = $("#<%=txtTillDate.ClientID%>");
             $datepicker1.datepicker();
             $datepicker2.datepicker({
@@ -20,13 +16,13 @@
                     // date difference in millisec
                     var diff = new Date(toDate - fromDate);
                     // date difference in days
-                    var days = diff / 1000 / 60 / 60 / 24;
+                    var days = diff / 1000 / 60 / 60 / 24 / 365;
 
                     alert(days);
                 }
             });
         });
-    </script>
+</script>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
@@ -131,7 +127,7 @@
                                 </asp:DropDownList>
                             </td>
                         </tr>
-                      
+
                         <tr>
                             <td>Secondary Functional Roles</td>
                             <td>
@@ -179,8 +175,8 @@
                         <tr>
                             <td colspan="2">
                                 <div id="TextBoxContainer" runat="server" visible="false">
-    <!--Textboxes will be added here -->
-</div>
+                                    <!--Textboxes will be added here -->
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -213,9 +209,9 @@
                         <tr>
                             <td>Duration</td>
                             <td>
-                                <asp:TextBox ID="txtFromDate" runat="server" ></asp:TextBox>
+                                <asp:TextBox ID="txtFromDate" runat="server" CssClass="date"></asp:TextBox>
                                 <cc1:TextBoxWatermarkExtender ID="txtFromDate_TextBoxWatermarkExtender" runat="server" BehaviorID="txtFromDate_TextBoxWatermarkExtender" TargetControlID="txtFromDate" WatermarkText="From" />
-                                <asp:TextBox ID="txtTillDate" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtTillDate" runat="server" CssClass="date"></asp:TextBox>
                                 <cc1:TextBoxWatermarkExtender ID="txtTillDate_TextBoxWatermarkExtender" runat="server" BehaviorID="txtTillDate_TextBoxWatermarkExtender" TargetControlID="txtTillDate" WatermarkText="Till" />
                             </td>
                         </tr>
@@ -242,7 +238,7 @@
                                 </asp:DropDownList>
                             </td>
                         </tr>
-                       
+
                         <tr>
                             <td>Secondary Functional Roles</td>
                             <td>
@@ -253,8 +249,6 @@
                             </td>
                         </tr>
 
-                      
-
                         <tr>
                             <td>Reason For JobChange</td>
                             <td>
@@ -264,17 +258,17 @@
                     </table>
                 </div>
             </td>
-            </tr>
+        </tr>
 
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" />
-                    &nbsp;
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" />
+                &nbsp;
                 <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
-                    <asp:Label ID="lblmsgsave" runat="server" Text="Label"></asp:Label>
-                </td>
-            </tr>
+                <asp:Label ID="lblmsgsave" runat="server" Text="Label"></asp:Label>
+            </td>
+        </tr>
     </table>
 </div>
 <hr />
@@ -343,43 +337,45 @@
                 <div id="divAddMoreJob" runat="server" visible="false">
                     <table>
                         <tr>
-                            <td colspan="2"><h1>Add More Jobs</h1></td>
+                            <td colspan="2">
+                                <h1>Add More Jobs</h1>
+                            </td>
                         </tr>
-                       <tr>
-            <td>Job Post Looking For</td>
-            <td>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>Industry</td>
-            <td>
-                <asp:DropDownList ID="DropDownList2" runat="server">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td>Department</td>
-            <td>
-                <asp:DropDownList ID="DropDownList3" runat="server">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td>Functional Role</td>
-            <td>&nbsp;<asp:DropDownList ID="DropDownList4" runat="server">
-            </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td>Relevant Experience</td>
-            <td>
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            </td>
-        </tr>
+                        <tr>
+                            <td>Job Post Looking For</td>
+                            <td>
+                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Industry</td>
+                            <td>
+                                <asp:DropDownList ID="DropDownList2" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Department</td>
+                            <td>
+                                <asp:DropDownList ID="DropDownList3" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Functional Role</td>
+                            <td>&nbsp;<asp:DropDownList ID="DropDownList4" runat="server">
+                            </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Relevant Experience</td>
+                            <td>
+                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
                     </table>
-                    
-                </div></td>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>Current Anual Salary(Yearly)</td>
@@ -455,7 +451,7 @@
                 </asp:UpdatePanel>
             </td>
         </tr>
-     
+
         <tr>
             <td>Availability for the Personal Round on Working Day</td>
             <td>
@@ -465,10 +461,10 @@
                 </asp:CheckBoxList>
             </td>
         </tr>
-     
+
         <tr>
             <td>Availabilty in Week Days(Monday to Friday)</td>
-            <td>Before<asp:DropDownList ID="DropDownList5" runat="server" >
+            <td>Before<asp:DropDownList ID="DropDownList5" runat="server">
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
                 <asp:ListItem>3</asp:ListItem>
@@ -481,7 +477,7 @@
                 <asp:ListItem>10</asp:ListItem>
                 <asp:ListItem>11</asp:ListItem>
                 <asp:ListItem>12</asp:ListItem>
-                </asp:DropDownList>
+            </asp:DropDownList>
                 <asp:DropDownList ID="DropDownList7" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
@@ -547,7 +543,7 @@
                     <asp:ListItem>AM</asp:ListItem>
                     <asp:ListItem>PM</asp:ListItem>
                 </asp:DropDownList>
-                After<asp:DropDownList ID="DropDownList9" runat="server" >
+                After<asp:DropDownList ID="DropDownList9" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
                     <asp:ListItem>3</asp:ListItem>
@@ -631,9 +627,9 @@
                     <asp:ListItem>EST</asp:ListItem>
                 </asp:DropDownList>
                 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Min&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Min</td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Min&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Min</td>
         </tr>
-     
+
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

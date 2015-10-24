@@ -74,77 +74,92 @@
             <tr>
                 <td>From </td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblFromDate" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Till</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblTillDate" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Total Experience</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblTotalExperience" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Relevant Experience</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblRelevantExperience" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Current CTC</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblCurrentCTC" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Expected CTC</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="ExpectedCTC" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Joining Period</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblJoiningPeriod" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Reason for Job Change</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblReasonForJobChange" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Current City</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblCurrentCity" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Residing Area</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblResidingArea" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Ready To Relocate</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblReadyToRelocate" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Preferable City</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblPreferableCity" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Areas in Preferred City</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblAreaInPreferredCity" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Availability for the Personal Round on Working Days</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblAvailabiltyforPersonalRound" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>Availability in Week Days</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblAvailabilityInWeekDays" runat="server" Text=""></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
