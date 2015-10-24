@@ -167,7 +167,9 @@ namespace JobFair.Forms.Recruiter
 
                 addJobPostEntity.RecruiterID = "RE12";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
-               
+                addJobPostEntity.JobLocationState = ddlState.SelectedItem.Text.Trim();
+                addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Text.Trim();
+                addJobPostEntity.JobLocationArea = ddlLocation.SelectedItem.Text.Trim();
                 addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
                 addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
                 addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
@@ -180,8 +182,7 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
                 addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
-                addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
-                addJobPostEntity.PostedDate = Convert.ToDateTime(txtdate.Text);
+                addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim()); 
                 addJobPostEntity.RecruitmentType = RadioButtonList1.SelectedItem.ToString();
 
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
@@ -271,6 +272,108 @@ namespace JobFair.Forms.Recruiter
             }
             return rolename;
         
+        }
+
+        protected void ddlquestiontype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlanswertypw_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    
+        protected void lbHSC_Click(object sender, EventArgs e)
+        {
+            lblHSCSelect.Text = string.Empty;
+        }
+
+        protected void lbUGD_Click(object sender, EventArgs e)
+        {
+            lblUGDSelect.Text = string.Empty;
+        }
+
+        protected void lbBD_Click(object sender, EventArgs e)
+        {
+            lblBDSelect.Text = string.Empty;
+        }
+
+        protected void lbPGD_Click(object sender, EventArgs e)
+        {
+            lblPGDSelect.Text = string.Empty;
+        }
+
+        protected void lbMD_Click(object sender, EventArgs e)
+        {
+            lblMDSelect.Text = string.Empty;
+        }
+
+        protected void lbPHD_Click(object sender, EventArgs e)
+        {
+            lblPHDSelect.Text = string.Empty;
+        }
+         
+        protected void ddlUGDiploma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            foreach(ListItem item in  ddlUGDiploma.Items)
+            {
+                if (item.Selected)
+                {
+                    lblUGDSelect.Text = item.Text;
+                
+                }
+            }
+        }
+
+        protected void ddlBachelorsDegree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListItem item in ddlBachelorsDegree.Items)
+            {
+                if (item.Selected)
+                {
+                    lblBDSelect.Text = item.Text;
+                
+                
+                }
+            }
+        }
+
+        protected void ddlPGDiploma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach ( ListItem item in ddlPGDiploma.Items)
+            {
+                if (item.Selected)
+                {
+                    lblPGDSelect.Text = item.Text;
+                }
+            }
+        }
+
+        protected void ddlMasterDegree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListItem item in ddlMasterDegree.Items)
+            {
+                if (item.Selected)
+                {
+                    lblMDSelect.Text = item.Text;
+                }
+                
+            }
+
+        }
+
+        protected void ddlPHD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListItem item in ddlPHD.Items)
+            {
+                if (item.Selected)
+                {
+                    lblPHDSelect.Text = item.Text;
+                
+                }
+            }
         }
     }
 }
