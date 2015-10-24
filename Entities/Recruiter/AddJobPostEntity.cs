@@ -30,7 +30,7 @@ namespace Entities.Recruiter
         public string OfferedAnnualSalaryMax { get; set; }
         public string OtherSalaryDetails { get; set; }
         public int NumberOfVacancies { get; set; }
-        public DateTime  PostedDate { get; set; }
+   
         public string RecruitmentType { get; set; }
      
     }

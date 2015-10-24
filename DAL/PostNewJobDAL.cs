@@ -26,6 +26,7 @@ namespace DAL
                 SqlParameter[] sqlparams ={
                                             new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
                                             new SqlParameter("@JobTitle",jobpostEntity.JobTitle),
+                                            new SqlParameter("@JobLocationState",jobpostEntity.JobLocationState),
                                             new SqlParameter("@JobLocationCity",jobpostEntity.JobLocationCity),
                                             new SqlParameter("@JobLocationArea",jobpostEntity.JobLocationArea),
                                             new SqlParameter("@CompanyLevel",jobpostEntity.CompanyLevel),
@@ -38,11 +39,10 @@ namespace DAL
                                             new SqlParameter("@Workexperience",jobpostEntity.WorkExperience),
                                             new SqlParameter("@Gender",jobpostEntity.Gender),
                                             new SqlParameter("@OfferedAnnualSalaryMin",jobpostEntity.OfferedAnnualSalaryMin),
-                                              new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),
+                                            new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),
                                             new SqlParameter("@OtherSalaryDetails",jobpostEntity.OtherSalaryDetails),
                                             new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
-                                            new  SqlParameter("@PostedDate",jobpostEntity.PostedDate),
-                                            new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType)
+                                             new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType)
                                           
                                         };
                 int result = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);

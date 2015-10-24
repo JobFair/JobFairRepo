@@ -26,8 +26,7 @@ namespace DAL
                 SqlParameter[] sqlparams ={
                                             
                                             new SqlParameter("@JobTitle",JobPostentity.JobTitle),
-                                            new SqlParameter("@JobLocationCity",JobPostentity.JobLocationCity),
-                                            new SqlParameter("@JobLocationArea",JobPostentity.JobLocationArea),
+                                          
                                             new SqlParameter("@CompanyLevel",JobPostentity.CompanyLevel),
                                             new SqlParameter("@Industry",JobPostentity.IndustryId),
                                             new SqlParameter("@Department",JobPostentity.DepartmentId),

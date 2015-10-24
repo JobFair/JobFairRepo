@@ -247,24 +247,6 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.TextBox txtVacancies;
         
         /// <summary>
-        /// txtdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdate;
-        
-        /// <summary>
-        /// CalendarExtender1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
-        
-        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -418,6 +400,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.RadioButtonList rblSSC;
         
         /// <summary>
+        /// updatepanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel1;
+        
+        /// <summary>
         /// lblHSCHead control.
         /// </summary>
         /// <remarks>
@@ -461,6 +452,24 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblHSC;
+        
+        /// <summary>
+        /// selectedItemspanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel selectedItemspanel;
+        
+        /// <summary>
+        /// updatepanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel2;
         
         /// <summary>
         /// lblUGDHead control.
@@ -517,6 +526,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.RadioButtonList rblUGD;
         
         /// <summary>
+        /// updatepanel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel3;
+        
+        /// <summary>
         /// lblBDHead control.
         /// </summary>
         /// <remarks>
@@ -569,6 +587,15 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblBD;
+        
+        /// <summary>
+        /// updatepanel4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel4;
         
         /// <summary>
         /// lblPGDHead control.
@@ -625,6 +652,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.RadioButtonList rblPGD;
         
         /// <summary>
+        /// updatepanel5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel5;
+        
+        /// <summary>
         /// lblMDHead control.
         /// </summary>
         /// <remarks>
@@ -677,6 +713,15 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblMD;
+        
+        /// <summary>
+        /// updatepanel6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel6;
         
         /// <summary>
         /// lblPHDHead control.
