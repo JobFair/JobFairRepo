@@ -82,8 +82,13 @@
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
     <Content Include="bin\DropDownCheckBoxes.dll" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Css\Common.css" />
     <Content Include="Css\Style.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\Employer\Register.aspx" />
@@ -100,6 +105,17 @@
     <Content Include="Forms\Recruiter\searchrecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="NewFolder1\jquery-1.11.1.min %281%29.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="UserControls\JobSeeker\ProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
@@ -128,6 +144,7 @@
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
     <Content Include="Forms\Employer\HomePageEmployer.Master" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
