@@ -10,6 +10,11 @@
     <title>
   
     </title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 26px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,7 +50,7 @@
                                 </asp:DropDownList>
                                 <br />
                                 <br />
-                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -82px; left: 4px">
+                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -82px; left: 0px">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>
                             </ContentTemplate>
@@ -221,13 +226,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Posted Date</td>
+                    <td>&nbsp;</td>
                     <td>
-                        <asp:TextBox ID="txtdate" runat="server"></asp:TextBox>
-                    </td>
-                    <td>
-                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server"  TargetControlID="txtdate" Format="d MM, yy" />
-                    </td>
+                        &nbsp;</td>
+                  
                 </tr>
               
                    <h2>Recruiter Type</h2>
@@ -274,7 +276,7 @@
                         </td>
                         <td class="auto-style2">
                          
-                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions Pvt.Ltd" Visible="False" ></asp:Label>
+                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions " Visible="False" ></asp:Label>
                          
                             <br />
                          
@@ -321,6 +323,8 @@
                 </table>
                 <br />
                 <br />
+                <asp:UpdatePanel ID="updatepanel1" runat="server">
+                    <ContentTemplate>
                 <table style="width: 358px">
                     <asp:Label ID="lblHSCHead" runat="server" Text="Specify HSC / 12th Qualification"></asp:Label>
                     <tr>
@@ -343,7 +347,7 @@
                             <asp:Label ID="lblHSCSelect" runat="server"></asp:Label>
                         </td>
                         <td>
-                            <asp:LinkButton ID="lbHSC" runat="server">Remove All</asp:LinkButton>
+                            <asp:LinkButton ID="lbHSC" runat="server" OnClick="lbHSC_Click">Remove All</asp:LinkButton>
                         </td>
                     </tr>
 
@@ -355,14 +359,23 @@
                             </asp:RadioButtonList>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <asp:Panel ID="selectedItemspanel" runat="server"></asp:Panel>
+                        </td>
+                    </tr>
                 </table>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 <br />
                 <br />
+                <asp:UpdatePanel ID="updatepanel2" runat="server">
+                    <ContentTemplate>
                 <table>
                     <asp:Label ID="lblUGDHead" runat="server" Text="Specify UG Diploma Qualification"></asp:Label>
                     <tr>
                         <td colspan="2">
-                            <asp:DropDownCheckBoxes ID="ddlUGDiploma" runat="server" UseSelectAllNode="false">
+                            <asp:DropDownCheckBoxes ID="ddlUGDiploma" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlUGDiploma_SelectedIndexChanged" AutoPostBack="true">
                                 <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                             </asp:DropDownCheckBoxes>
                         </td>
@@ -372,7 +385,7 @@
                             <asp:Label ID="lblUGDSelect" runat="server"></asp:Label>
                         </td>
                         <td>
-                            <asp:LinkButton ID="lbUGD" runat="server">Remove All</asp:LinkButton>
+                            <asp:LinkButton ID="lbUGD" runat="server" OnClick="lbUGD_Click">Remove All</asp:LinkButton>
                         </td>
                     </tr>
                     <tr>
@@ -389,13 +402,17 @@
                         </td>
                     </tr>
                 </table>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 <br />
                 <br />
+                <asp:UpdatePanel ID="updatepanel3" runat="server">
+                    <ContentTemplate>
                 <table>
                     <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification"></asp:Label>
                     <tr>
                         <td colspan="2">
-                            <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode="false">
+                            <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlBachelorsDegree_SelectedIndexChanged" AutoPostBack="true">
                                 <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                             </asp:DropDownCheckBoxes>
                         </td>
@@ -405,7 +422,7 @@
                             <asp:Label ID="lblBDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                         </td>
                         <td>
-                            <asp:LinkButton ID="lbBD" runat="server">Remove All</asp:LinkButton>
+                            <asp:LinkButton ID="lbBD" runat="server" OnClick="lbBD_Click">Remove All</asp:LinkButton>
                         </td>
                     </tr>
                     <tr>
@@ -422,13 +439,17 @@
                         </td>
                     </tr>
                 </table>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 <br />
                 <br />
+                <asp:UpdatePanel ID="updatepanel4" runat="server">
+                    <ContentTemplate>
                 <table>
                     <asp:Label ID="lblPGDHead" runat="server" Text="Specify PG Deploma Qualification"></asp:Label>
                     <tr>
                         <td>
-                            <asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode="false">
+                            <asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlPGDiploma_SelectedIndexChanged" AutoPostBack="true">
                                 <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                             </asp:DropDownCheckBoxes>
                         </td>
@@ -438,7 +459,7 @@
                             <asp:Label ID="lblPGDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                         </td>
                         <td>
-                            <asp:LinkButton ID="lbPGD" runat="server">Remove All</asp:LinkButton>
+                            <asp:LinkButton ID="lbPGD" runat="server" OnClick="lbPGD_Click">Remove All</asp:LinkButton>
                         </td>
                     </tr>
                     <tr>
@@ -455,13 +476,17 @@
                         </td>
                     </tr>
                 </table>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 <br />
                 <br />
+                <asp:UpdatePanel ID="updatepanel5" runat="server">
+                    <ContentTemplate>
                 <table>
                     <asp:Label ID="lblMDHead" runat="server" Text="Specify Master Degree Qualification"></asp:Label>
                     <tr>
                         <td colspan="2">
-                            <asp:DropDownCheckBoxes ID="ddlMasterDegree" runat="server" UseSelectAllNode="false">
+                            <asp:DropDownCheckBoxes ID="ddlMasterDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlMasterDegree_SelectedIndexChanged" AutoPostBack="true">
                                 <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                             </asp:DropDownCheckBoxes>
                         </td>
@@ -471,7 +496,7 @@
                             <asp:Label ID="lblMDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                         </td>
                         <td>
-                            <asp:LinkButton ID="lbMD" runat="server">Remove All</asp:LinkButton>
+                            <asp:LinkButton ID="lbMD" runat="server" OnClick="lbMD_Click">Remove All</asp:LinkButton>
                         </td>
                     </tr>
                     <tr>
@@ -488,13 +513,17 @@
                         </td>
                     </tr>
                 </table>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 <br />
                 <br />
+                <asp:UpdatePanel ID="updatepanel6" runat="server">
+                    <ContentTemplate>
                 <table>
                     <asp:Label ID="lblPHDHead" runat="server" Text="Specify Doctorate / PHD Qualification"></asp:Label>
                     <tr>
                         <td colspan="2">
-                            <asp:DropDownCheckBoxes ID="ddlPHD" runat="server" UseSelectAllNode="false">
+                            <asp:DropDownCheckBoxes ID="ddlPHD" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlPHD_SelectedIndexChanged" AutoPostBack="true">
                                 <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                             </asp:DropDownCheckBoxes>
                         </td>
@@ -504,7 +533,7 @@
                             <asp:Label ID="lblPHDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
                         </td>
                         <td>
-                            <asp:LinkButton ID="lbPHD" runat="server">Remove All</asp:LinkButton>
+                            <asp:LinkButton ID="lbPHD" runat="server" OnClick="lbPHD_Click">Remove All</asp:LinkButton>
                         </td>
                     </tr>
                     <tr>
@@ -521,6 +550,9 @@
                         </td>
                     </tr>
                 </table>
+                          </ContentTemplate>
+                    </asp:UpdatePanel>
+                      
             </div>
             <div>
                 <h2> Select Questionrie</h2>
@@ -532,7 +564,7 @@
                    <td>
                         <asp:DropDownList ID="ddlQuestionary" runat="server"></asp:DropDownList>
                    </td>
-                   </tr>
+                       </tr>
                  </table>
             </div>
             
