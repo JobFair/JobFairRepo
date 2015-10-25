@@ -247,6 +247,42 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.TextBox txtVacancies;
         
         /// <summary>
+        /// lbljobtype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbljobtype;
+        
+        /// <summary>
+        /// chkjobtype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList chkjobtype;
+        
+        /// <summary>
+        /// lblrecruitmenttype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblrecruitmenttype;
+        
+        /// <summary>
+        /// chkemploymenttype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList chkemploymenttype;
+        
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -427,13 +463,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::Saplin.Controls.DropDownCheckBoxes DropDownCheckBoxes1;
         
         /// <summary>
-        /// lblHSCSelect control.
+        /// selectedItemspanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHSCSelect;
+        protected global::System.Web.UI.WebControls.Panel selectedItemspanel;
         
         /// <summary>
         /// lbHSC control.
@@ -452,15 +488,6 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblHSC;
-        
-        /// <summary>
-        /// selectedItemspanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel selectedItemspanel;
         
         /// <summary>
         /// updatepanel2 control.
@@ -490,13 +517,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::Saplin.Controls.DropDownCheckBoxes ddlUGDiploma;
         
         /// <summary>
-        /// lblUGDSelect control.
+        /// panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUGDSelect;
+        protected global::System.Web.UI.WebControls.Panel panel1;
         
         /// <summary>
         /// lbUGD control.
@@ -553,13 +580,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::Saplin.Controls.DropDownCheckBoxes ddlBachelorsDegree;
         
         /// <summary>
-        /// lblBDSelect control.
+        /// panel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBDSelect;
+        protected global::System.Web.UI.WebControls.Panel panel2;
         
         /// <summary>
         /// lbBD control.
@@ -616,13 +643,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::Saplin.Controls.DropDownCheckBoxes ddlPGDiploma;
         
         /// <summary>
-        /// lblPGDSelect control.
+        /// panel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPGDSelect;
+        protected global::System.Web.UI.WebControls.Panel panel3;
         
         /// <summary>
         /// lbPGD control.
@@ -679,13 +706,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::Saplin.Controls.DropDownCheckBoxes ddlMasterDegree;
         
         /// <summary>
-        /// lblMDSelect control.
+        /// panel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMDSelect;
+        protected global::System.Web.UI.WebControls.Panel panel4;
         
         /// <summary>
         /// lbMD control.
@@ -742,13 +769,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::Saplin.Controls.DropDownCheckBoxes ddlPHD;
         
         /// <summary>
-        /// lblPHDSelect control.
+        /// panel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPHDSelect;
+        protected global::System.Web.UI.WebControls.Panel panel5;
         
         /// <summary>
         /// lbPHD control.
