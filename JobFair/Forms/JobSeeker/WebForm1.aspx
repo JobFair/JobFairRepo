@@ -1,31 +1,19 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Webform1.aspx.cs" Inherits="JobFair.Forms.JobSeeker.WebForm1" %>
 
-<%@ Register Src="~/UserControls/JobSeeker/ProfessionalDetails.ascx" TagPrefix="uc1" TagName="ProfessionalDetails" %>
-
-
-
-
-
-
-
-
-
+<%@ Register Src="~/UserControls/JobSeeker/ContactDetails.ascx" TagPrefix="uc1" TagName="ContactDetails" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-
     <title></title>
-     
+      <script src="../../Scripts/jquery-2.1.4.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-   <form id="form1" runat="server">
-       
-       <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
-       <uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" />
-       
-    </form>
+    <form runat="server">
+        <uc1:ContactDetails runat="server" ID="ContactDetails" />
+</form>
 </body>
 </html>
