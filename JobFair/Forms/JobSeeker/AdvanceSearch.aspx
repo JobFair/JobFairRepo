@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="AdvanceSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.AdvanceSearch" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="AdvanceSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.AdvanceSearch" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
  
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-    <%--  <style type="text/css">
+    &nbsp;<%--  <style type="text/css">
         .style1 {
             clear: both;
             position: relative;
@@ -13,18 +13,13 @@
             background-color: #fff;
             margin-bottom: 5px;
         }
-    </style>--%>
-    
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </style>--%><script type="text/javascript"> function update() { __doPostBack('UpdatePanel1', ''); } </script><asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div class="container">
       <%--  <div class="row">--%>
            <%-- <div class="col-md-12">--%>
          <div class="h3"><span>Advance Search</span></div>
                 <form class="form-horizontal">
-                
-                    
-         
                         <div class="form-group">
                             <label for="KeySkill" class="control-label col-md-6">KeySkill</label>
                             <div class="controls col-xs-3"> 
