@@ -182,9 +182,10 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
                 addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
-                addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim()); 
+                addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
+                addJobPostEntity.JobType = chkjobtype.SelectedItem.Text.Trim();
+                addJobPostEntity.EmploymentStatus = chkemploymenttype.Text.Trim();
                 addJobPostEntity.RecruitmentType = RadioButtonList1.SelectedItem.ToString();
-
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
                 {
@@ -222,10 +223,15 @@ namespace JobFair.Forms.Recruiter
         {
              if (rdb1.Selected)
             {
+                lblclientoflogossolutios.Visible = false;
                 txtaboutcompany.Visible = true;
-                lblcompanyname1.Visible = true;
+                chkitech.Visible = true;
+                chkcorporate.Visible = true;
                 lblclientoflogossolutios.Visible = false;
                 txtclient.Visible = false;
+                lblcompanyname1.Visible = true;
+                lblcompanyname2.Visible = true;
+
             }
              else 
              {
@@ -287,35 +293,32 @@ namespace JobFair.Forms.Recruiter
         {
 
         }
-    
-        protected void lbHSC_Click(object sender, EventArgs e)
-        {
-            lblHSCSelect.Text = string.Empty;
-        }
+
+
 
         protected void lbUGD_Click(object sender, EventArgs e)
         {
-            lblUGDSelect.Text = string.Empty;
+            panel1.Controls.Clear();
         }
 
         protected void lbBD_Click(object sender, EventArgs e)
         {
-            lblBDSelect.Text = string.Empty;
+            panel2.Controls.Clear();
         }
 
         protected void lbPGD_Click(object sender, EventArgs e)
         {
-            lblPGDSelect.Text = string.Empty;
+            panel3.Controls.Clear();
         }
 
         protected void lbMD_Click(object sender, EventArgs e)
         {
-            lblMDSelect.Text = string.Empty;
+            panel4.Controls.Clear();
         }
 
         protected void lbPHD_Click(object sender, EventArgs e)
         {
-            lblPHDSelect.Text = string.Empty;
+            panel5.Controls.Clear();
         }
          
         protected void ddlUGDiploma_SelectedIndexChanged(object sender, EventArgs e)
@@ -325,8 +328,9 @@ namespace JobFair.Forms.Recruiter
             {
                 if (item.Selected)
                 {
-                    lblUGDSelect.Text = item.Text;
-                
+                  panel1.Controls.Add(new Literal()
+                        { Text = item.Text +"<br/>"}
+                    );
                 }
             }
         }
@@ -338,8 +342,7 @@ namespace JobFair.Forms.Recruiter
             {
                 if (item.Selected)
                 {
-                    lblBDSelect.Text = item.Text;
-                
+                    panel2.Controls.Add(new Literal() { Text = item.Text + "<br>" });
                 
                 }
             }
@@ -351,7 +354,7 @@ namespace JobFair.Forms.Recruiter
             {
                 if (item.Selected)
                 {
-                    lblPGDSelect.Text = item.Text;
+                    panel3.Controls.Add(new Literal() { Text = item.Text + "<br>" });
                 }
             }
         }
@@ -362,7 +365,7 @@ namespace JobFair.Forms.Recruiter
             {
                 if (item.Selected)
                 {
-                    lblMDSelect.Text = item.Text;
+                    panel4.Controls.Add(new Literal() { Text = item.Text + "<br>" });
                 }
                 
             }
@@ -375,9 +378,36 @@ namespace JobFair.Forms.Recruiter
             {
                 if (item.Selected)
                 {
-                    lblPHDSelect.Text = item.Text;
-                
+                    panel5.Controls.Add(new Literal() { Text = item.Text + "<br>" });
                 }
+            }
+        }
+
+        protected void lbHSC_Click(object sender, EventArgs e)
+        {
+            selectedItemspanel.Controls.Clear();
+        }
+
+        protected void chkitech_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkitech.Checked)
+            {
+                chkcorporate.Checked = false;
+                lblcompanyname1.Visible = true;
+                lblcompanyname2.Visible = false;
+
+            }
+        }
+
+        protected void chkcorporate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkcorporate.Checked)
+            {
+                chkitech.Checked = false;
+                lblcompanyname2.Visible = true;
+                lblcompanyname1.Visible = false;
+            
+            
             }
         }
     }

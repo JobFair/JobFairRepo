@@ -42,6 +42,8 @@ namespace DAL
                                             new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),
                                             new SqlParameter("@OtherSalaryDetails",jobpostEntity.OtherSalaryDetails),
                                             new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
+                                            new SqlParameter("@JobType",jobpostEntity.JobType),
+                                            new SqlParameter("@EmploymentStatus",jobpostEntity.EmploymentStatus),
                                              new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType)
                                           
                                         };

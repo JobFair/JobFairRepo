@@ -7,81 +7,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    
     <style type="text/css">
-        .auto-style2 {
-            width: 100%;
-        }
-
-        .auto-style3 {
-            height: 23px;
-        }
-
-        .auto-style4 {
-            height: 24px;
-        }
-        .auto-style5 {
-            width: 214px;
-        }
-        .auto-style6 {
-            height: 21px;
-        }
-        .auto-style7 {
-            width: 163px;
-        }
-        .auto-style8 {
-            width: 163px;
-            height: 23px;
-        }
-        .auto-style9 {
-            width: 46%;
-        }
-        .auto-style10 {
-            width: 188px;
-            height: 23px;
-        }
-        .auto-style11 {
-            width: 188px;
-        }
-        .auto-style13 {
-            height: 23px;
-            width: 134px;
-        }
-        .auto-style14 {
-            height: 24px;
-            width: 134px;
-        }
-        .auto-style15 {
-            width: 134px;
-        }
-        .auto-style16 {
-            height: 26px;
-        }
-        .auto-style19 {
-            height: 26px;
-            width: 46%;
-        }
-        .auto-style20 {
-            height: 17px;
-            width: 46%;
-        }
-        .auto-style21 {
-            height: 17px;
-        }
-        .auto-style22 {
-            height: 12px;
-            width: 46%;
-        }
-        .auto-style23 {
-            height: 12px;
-        }
-        .auto-style24 {
-            height: 15px;
-            width: 46%;
-        }
-        .auto-style25 {
-            height: 15px;
+        .auto-style1 {
+            width: 305px;
         }
     </style>
+    
 </head>
 
 <body>
@@ -90,13 +22,13 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <table style="width: 1273px">
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         <asp:Label ID="lblbasicdetails" runat="server" Style="font-weight: 700" Text="BasicDetails"></asp:Label>
                     </td>
-                    <td class="auto-style2"></td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         <asp:RadioButton ID="rdbbooleansearch" runat="server" Text="BooleanSearch" GroupName="b" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:RadioButton ID="rdbkeywords" runat="server" Text="Keywords" GroupName="b" />
@@ -104,7 +36,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         <asp:Label ID="lblkeywords" runat="server" Text="Any Of The KeyWords"></asp:Label>
                     </td>
                     <td>
@@ -112,7 +44,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         <asp:Label ID="lblkeywords1" runat="server" Text="All Of The KeyWords"></asp:Label>
                     </td>
                     <td>
@@ -120,7 +52,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         <asp:Label ID="lblkeywords2" runat="server" Text="Excluding Keywords"></asp:Label>
                     </td>
                     <td>
@@ -130,23 +62,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
-                        <asp:Label ID="lblsearch" runat="server" Text="Search In"></asp:Label>
-                     
-                    <asp:RadioButton ID="rdbresumetitle" runat="server" Text="ResumeTitle" GroupName="R" />
-                      
-                    <asp:RadioButton ID="rdbkeyskills" runat="server" Text="Resume Title And KeySkill" GroupName="R" />
-                       
-                    <asp:RadioButton ID="rdbsynopsis" runat="server" Text="Resume Synopsis" GroupName="R" />
-                      <asp:RadioButton ID="rdbentireresume" runat="server" Text="Entire Resume" GroupName="R" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         <asp:Label ID="lblworkstatus" runat="server" Text="Candidate Work Status"></asp:Label>
                     </td>
                     <td>
-            <asp:DropDownList ID="ddlWorkStatus0" runat="server">
+            <asp:DropDownList ID="ddlWorkStatus0" runat="server" Height="16px">
                 <asp:ListItem>Select</asp:ListItem>
                 <asp:ListItem>Working</asp:ListItem>
                 <asp:ListItem>On Notice Period</asp:ListItem>
@@ -156,53 +76,53 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         <asp:Label ID="lblcandidatelocation" runat="server" Text="Candidate Current Location"></asp:Label>
                     </td>
                     <td>
-                        &nbsp;</td>
+                      </td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         <asp:RadioButton ID="rdbarea" runat="server" GroupName="A" Text="And" />
                     </td>
                     <td>
-                        &nbsp;</td>
+                      </td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style1">
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblareacurrent" runat="server" Text="Area Of Current Location "></asp:Label>
                     </td>
                     <td>
-                        &nbsp;</td>
+                       </td>
                 </tr>
                 <tr>
-                    <td class="auto-style20">
+                    <td class="auto-style1">
                         <asp:Label ID="lblpreferedlocation" runat="server" Text="Candidate Prefered Location"></asp:Label>
                     </td>
-                    <td class="auto-style21">
+                    <td>
                         </td>
                 </tr>
                 <tr>
-                    <td class="auto-style22">
+                    <td class="auto-style1">
                         <asp:RadioButton ID="rdbor1" runat="server" GroupName="A" Text="OR" />
                     </td>
-                    <td class="auto-style23">
+                    <td>
                         </td>
                 </tr>
                 <tr>
-                    <td class="auto-style24">
+                    <td class="auto-style1">
                         <asp:Label ID="lblareaprefered" runat="server" Text="Area Of Prefered Location "></asp:Label>
                     </td>
-                    <td class="auto-style25">
+                    <td>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
+                    <td class="auto-style1">
                         <asp:Label ID="lblExprience" runat="server" Text="Exprience"></asp:Label>
                     </td>
-                    <td class="auto-style16">
+                    <td>
                         &nbsp;<asp:DropDownList ID="ddlworkexpyear" runat="server">
                             <asp:ListItem>---select----</asp:ListItem>
                             <asp:ListItem>0</asp:ListItem>
@@ -235,11 +155,10 @@
                             <asp:ListItem> 6.5</asp:ListItem>
                             <asp:ListItem>7</asp:ListItem>
                         </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
+                    <td class="auto-style1">
                         <asp:Label ID="lblannualsalary" runat="server" Text="Current Annual Salary"></asp:Label>
                     </td>
                     <td class="auto-style16">
@@ -278,7 +197,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
+                    <td class="auto-style1">
                         <asp:Label ID="lblexpectedannual" runat="server" Text="Expected Annual Salary"></asp:Label>
                     </td>
                     <td class="auto-style16">
@@ -317,7 +236,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
+                    <td class="auto-style1">
                         <asp:Label ID="lblnoticeperiod0" runat="server" Text="Notice Period"></asp:Label>
                     </td>
                     <td class="auto-style16">
@@ -364,7 +283,6 @@
                         </asp:DropDownList>
                      
                     </td>
-                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style11">

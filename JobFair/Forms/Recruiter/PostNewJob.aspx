@@ -126,20 +126,20 @@
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:DropDownList ID="ddlworkexprience" runat="server">
                             <asp:ListItem>0.5</asp:ListItem>
-                            <asp:ListItem>1</asp:ListItem>
-                            <asp:ListItem>1.5</asp:ListItem>
-                             <asp:ListItem> 2</asp:ListItem>
+                           <asp:ListItem>1</asp:ListItem>
+                           <asp:ListItem>1.5</asp:ListItem>
+                           <asp:ListItem> 2</asp:ListItem>
                            <asp:ListItem>2.5</asp:ListItem>
                            <asp:ListItem>3</asp:ListItem>
                            <asp:ListItem>3.5</asp:ListItem>
-                             <asp:ListItem>4</asp:ListItem>
-                             <asp:ListItem>4.5</asp:ListItem>
-                               <asp:ListItem>5</asp:ListItem>
-                            <asp:ListItem>5.5</asp:ListItem>
-                             <asp:ListItem>6</asp:ListItem>
-                            <asp:ListItem>6.5</asp:ListItem>
-                            <asp:ListItem>7</asp:ListItem>
-                             <asp:ListItem>7.5</asp:ListItem>
+                           <asp:ListItem>4</asp:ListItem>
+                           <asp:ListItem>4.5</asp:ListItem>
+                           <asp:ListItem>5</asp:ListItem>
+                           <asp:ListItem>5.5</asp:ListItem>
+                           <asp:ListItem>6</asp:ListItem>
+                           <asp:ListItem>6.5</asp:ListItem>
+                           <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>7.5</asp:ListItem>
                             <asp:ListItem>8</asp:ListItem>
                             <asp:ListItem>8.5</asp:ListItem>
                             <asp:ListItem>9</asp:ListItem>
@@ -226,13 +226,30 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td><asp:Label ID="lbljobtype" Text="Job Type" runat="server"></asp:Label></td>
                     <td>
-                        &nbsp;</td>
+                        <asp:CheckBoxList ID="chkjobtype" runat="server">
+                            <asp:ListItem>Part Time</asp:ListItem>
+                            <asp:ListItem>Full Time</asp:ListItem>
+                        </asp:CheckBoxList>
+       
+                    </td>
                   
                 </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblrecruitmenttype" Text ="Employment Status" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:CheckBoxList ID="chkemploymenttype" runat="server">
+                            <asp:ListItem>temporarily</asp:ListItem>
+                            <asp:ListItem>Permanant</asp:ListItem>
+                            <asp:ListItem>freelancing</asp:ListItem>
+                        </asp:CheckBoxList>
+                    </td>
+                </tr>
               
-                   <h2>Recruiter Type</h2>
+                 
            
                     <tr>
                         <td class="auto-style1">
@@ -247,7 +264,7 @@
                         </tr>
                  <tr>
                         <td>
-                              &nbsp;</td>
+                            &nbsp;</td>
                         <td style="margin-left: 200px">
                             <asp:TextBox ID="txtaboutcompany" runat="server" Width="506px"  Visible="false" TextMode="MultiLine" Height="183px" Text="Logos Solutions is one of the conglomerate companies in India.
 
@@ -266,27 +283,40 @@
  </asp:TextBox>
                         </td>
                      
-                        <td>
-                            <asp:TextBox ID="txtclient" runat="server" Visible="false"> </asp:TextBox>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td class="auto-style2">
                               <asp:Label ID="lblcompanyclient" runat="server" Text="Company Name"></asp:Label>
                         </td>
-                        <td class="auto-style2">
+                        <td>
+                    <asp:UpdatePanel ID="pnlcompanyname" runat="server">
+                       <ContentTemplate>
+                                <asp:CheckBox ID="chkitech" runat="server" OnCheckedChanged="chkitech_CheckedChanged" Visible="False" AutoPostBack="True" />
+
                          
-                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions " Visible="False" ></asp:Label>
+                                <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions " Visible="False" ></asp:Label>
                          
-                            <br />
+                                <br />
+                                <asp:CheckBox ID="chkcorporate" runat="server" OnCheckedChanged="chkcorporate_CheckedChanged" Visible="False" AutoPostBack="True"/>
+                                &nbsp;
+                         
+                                <asp:Label ID="lblcompanyname2" runat="server" Text="Logos  Corporate Solutions " Visible="False" ></asp:Label>
+                         
+                                <br />
+                         
+                                <asp:TextBox ID="txtclient" runat="server" Visible="false"> </asp:TextBox>
+                                &nbsp;
                          
                             <br />
                             <br />
                           <asp:Label ID="lblclientoflogossolutios" Text="Client Of Logos Solutions" runat="server"></asp:Label>
-                         
+                           </ContentTemplate>
+                            </asp:UpdatePanel>
                         </td>
                     </tr>
-                   
+                      
+              
 
                   <tr>
                     <td>
@@ -321,11 +351,9 @@
                         </td>
                     </tr>
                 </table>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel1" runat="server">
                     <ContentTemplate>
-                <table style="width: 358px">
+                <table style="width: 358px; height: 122px;">
                     <asp:Label ID="lblHSCHead" runat="server" Text="Specify HSC / 12th Qualification"></asp:Label>
                     <tr>
 
@@ -343,8 +371,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <asp:Label ID="lblHSCSelect" runat="server"></asp:Label>
+                          <td>
+                            <asp:Panel ID="selectedItemspanel" runat="server"></asp:Panel>
                         </td>
                         <td>
                             <asp:LinkButton ID="lbHSC" runat="server" OnClick="lbHSC_Click">Remove All</asp:LinkButton>
@@ -359,16 +387,9 @@
                             </asp:RadioButtonList>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <asp:Panel ID="selectedItemspanel" runat="server"></asp:Panel>
-                        </td>
-                    </tr>
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel2" runat="server">
                     <ContentTemplate>
                 <table>
@@ -381,8 +402,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <asp:Label ID="lblUGDSelect" runat="server"></asp:Label>
+                          <td>
+                            <asp:Panel ID="panel1" runat="server"></asp:Panel>
                         </td>
                         <td>
                             <asp:LinkButton ID="lbUGD" runat="server" OnClick="lbUGD_Click">Remove All</asp:LinkButton>
@@ -404,22 +425,20 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel3" runat="server">
                     <ContentTemplate>
                 <table>
                     <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification"></asp:Label>
                     <tr>
                         <td colspan="2">
-                            <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlBachelorsDegree_SelectedIndexChanged" AutoPostBack="true">
+                            <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlBachelorsDegree_SelectedIndexChanged" AutoPostBack="true" style="top: -1px; left: 2px">
                                 <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                             </asp:DropDownCheckBoxes>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="lblBDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
+                            <asp:Panel ID="panel2" runat="server"></asp:Panel>
                         </td>
                         <td>
                             <asp:LinkButton ID="lbBD" runat="server" OnClick="lbBD_Click">Remove All</asp:LinkButton>
@@ -441,8 +460,6 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel4" runat="server">
                     <ContentTemplate>
                 <table>
@@ -455,8 +472,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <asp:Label ID="lblPGDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
+                           <td>
+                            <asp:Panel ID="panel3" runat="server"></asp:Panel>
                         </td>
                         <td>
                             <asp:LinkButton ID="lbPGD" runat="server" OnClick="lbPGD_Click">Remove All</asp:LinkButton>
@@ -478,8 +495,6 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel5" runat="server">
                     <ContentTemplate>
                 <table>
@@ -493,7 +508,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="lblMDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
+                             <asp:Panel ID="panel4" runat="server"></asp:Panel>
                         </td>
                         <td>
                             <asp:LinkButton ID="lbMD" runat="server" OnClick="lbMD_Click">Remove All</asp:LinkButton>
@@ -515,8 +530,6 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel6" runat="server">
                     <ContentTemplate>
                 <table>
@@ -530,7 +543,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="lblPHDSelect" runat="server" Text="Selected Qualifications"></asp:Label>
+                          <asp:Panel ID="panel5" runat="server"></asp:Panel>
                         </td>
                         <td>
                             <asp:LinkButton ID="lbPHD" runat="server" OnClick="lbPHD_Click">Remove All</asp:LinkButton>

@@ -7,117 +7,117 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.JobSeeker {
+namespace JobFair.UserControls.JobSeeker {
     
     
-    public partial class jobSearch {
+    public partial class EducationalProjectDetails {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// txtProjectTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectTitle;
         
         /// <summary>
-        /// chkFreshness control.
+        /// ddlRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkFreshness;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
         
         /// <summary>
-        /// chkLocation control.
+        /// txtFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkLocation;
+        protected global::System.Web.UI.WebControls.TextBox txtFrom;
         
         /// <summary>
-        /// chkRole control.
+        /// txtTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkRole;
+        protected global::System.Web.UI.WebControls.TextBox txtTo;
         
         /// <summary>
-        /// chkFunctArea control.
+        /// txtProjectDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkFunctArea;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectDetails;
         
         /// <summary>
-        /// chkCompanyLevel control.
+        /// txtResponsibility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkCompanyLevel;
+        protected global::System.Web.UI.WebControls.TextBox txtResponsibility;
         
         /// <summary>
-        /// chkIndustry control.
+        /// ddlTeamSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkIndustry;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTeamSize;
         
         /// <summary>
-        /// chkSalary control.
+        /// txtSkillUsed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkSalary;
+        protected global::System.Web.UI.WebControls.TextBox txtSkillUsed;
         
         /// <summary>
-        /// chkEducation control.
+        /// rbtYes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkEducation;
+        protected global::System.Web.UI.WebControls.RadioButton rbtYes;
         
         /// <summary>
-        /// chkStatus control.
+        /// rbtNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkStatus;
+        protected global::System.Web.UI.WebControls.RadioButton rbtNo;
         
         /// <summary>
-        /// chkJobType control.
+        /// txtProjectURL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkJobType;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectURL;
         
         /// <summary>
-        /// rptrJobPost control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrJobPost;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }
