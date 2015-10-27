@@ -2,8 +2,6 @@
 
 <%@ Register Src="~/UserControls/JobSeeker/EducationalProjectDetails.ascx" TagPrefix="uc1" TagName="EducationalProjectDetails" %>
 
-
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,7 +13,7 @@
 </head>
 <body>
     <form runat="server">
-        <uc1:EducationalProjectDetails runat="server" id="EducationalProjectDetails" />
+        <uc1:EducationalProjectDetails runat="server" ID="EducationalProjectDetails" />
     </form>
 </body>
 </html>

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademicProjectDetailsDAL.cs" />
     <Compile Include="AdvanceSearchDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />
     <Compile Include="PostNewJobDAL.cs" />

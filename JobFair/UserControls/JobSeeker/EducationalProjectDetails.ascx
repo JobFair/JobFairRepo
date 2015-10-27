@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EducationalProjectDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.EducationalProjectDetails" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 <table class="auto-style1">
     <tr>
         <td colspan="2">Academic Projects</td>
@@ -11,18 +12,13 @@
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">Your Role</td>
-        <td>
-            <asp:DropDownList ID="ddlRole" runat="server">
-            </asp:DropDownList>
-        </td>
-    </tr>
-    <tr>
         <td class="auto-style2">Duration</td>
         <td>
             <asp:TextBox ID="txtFrom" runat="server"></asp:TextBox>
+            <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtFrom" PopupButtonID="txtFrom" Format="dd/MM/yyyy" />
 &nbsp;To
             <asp:TextBox ID="txtTo" runat="server"></asp:TextBox>
+            <cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtTo" PopupButtonID="txtTo" Format="dd/MM/yyyy" />
         </td>
     </tr>
     <tr>
