@@ -1,4 +1,7 @@
-﻿<%--<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="JobSeekerHome.master.cs" Inherits="JobFair.Forms.JobSeeker.JobSeekerHome" %>--%>
+﻿
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="JobSeekerHome.master.cs" Inherits="JobFair.Forms.JobSeeker.JobSeekerHome" %>
+
 
 <!DOCTYPE html>
 

@@ -20,7 +20,8 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Image ID="imgCandidate" ImageUrl='<%#Eval("JS12","~/Images/{0}") %>' runat="server" />
+                    <asp:Image ID="imgCandidate" ImageUrl='<%#Eval("JS12","~/Images/{0}") %>' runat="server" Height="100px" ImageAlign="Right" Width="100px" />
+                    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
                 </td>
             </tr>
             <tr>
@@ -162,12 +163,14 @@
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td>Resume Details</td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="2">
+                    <asp:TextBox ID="txtResumeDetails" runat="server" Height="459px" ReadOnly="True" TextMode="MultiLine" Width="341px"></asp:TextBox>
+                </td>
             </tr>
         </table>
     </div>
@@ -195,7 +198,7 @@
                                 <br />
                                 <asp:Label ID="lblSkills" runat="server"></asp:Label>
                                 <br />
-                                <asp:Button runat="server" ID="btnResumeskills" Text="Update" OnClick="btnResumeskills_Click" />
+                                <asp:Button runat="server" ID="btnResumeskills" Text="Update"  />
                             </div>
                         </td>
                         <td>
@@ -204,8 +207,8 @@
                                 <br />
                                 <asp:TextBox ID="txtkeyskills" runat="server"></asp:TextBox>
                                 <br />
-                                <asp:Button ID="btnAddResumeSkills" runat="server" Text="Add" OnClick="btnAddResumeSkills_Click" />
-                                <asp:Button ID="btnCancelResumeSkills" runat="server" Text="Cancel" OnClick="btnCancelResumeSkills_Click" />
+                                <asp:Button ID="btnAddResumeSkills" runat="server" Text="Add" />
+                                <asp:Button ID="btnCancelResumeSkills" runat="server" Text="Cancel"  />
                             </div>
                         </td>
                     </tr>
@@ -240,7 +243,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnLoaction" runat="server" Text="Update" OnClick="btnLoaction_Click" />
+                                <asp:Button ID="btnLoaction" runat="server" Text="Update"  />
                             </td>
                         </tr>
                     </table>
@@ -267,8 +270,8 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnAddLocation" runat="server" Text="Add" OnClick="btnAddLocation_Click" />
-                                <asp:Button ID="btnCancelLocation" runat="server" Text="Cancel" OnClick="btnCancelLocation_Click" />
+                                <asp:Button ID="btnAddLocation" runat="server" Text="Add"  />
+                                <asp:Button ID="btnCancelLocation" runat="server" Text="Cancel" />
                             </td>
                         </tr>
                     </table>
@@ -318,7 +321,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnUpdatePersonal" runat="server" Text="Update" OnClick="btnUpdatePersonal_Click" />
+                                <asp:Button ID="btnUpdatePersonal" runat="server" Text="Update" />
                             </td>
                         </tr>
                     </table>
@@ -360,8 +363,8 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnAddPersonal" runat="server" Text="Add" OnClick="btnAddPersonal_Click" />
-                                <asp:Button ID="btnCancelPersonal" runat="server" Text="Cancel" OnClick="btnCancelPersonal_Click" />
+                                <asp:Button ID="btnAddPersonal" runat="server" Text="Add"  />
+                                <asp:Button ID="btnCancelPersonal" runat="server" Text="Cancel"  />
                             </td>
                         </tr>
                     </table>
@@ -443,7 +446,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnUpdateEmployerDetails" runat="server" Text="Update" OnClick="btnUpdateEmployerDetails_Click" />
+                                <asp:Button ID="btnUpdateEmployerDetails" runat="server" Text="Update"  />
                             </td>
                         </tr>
                     </table>
@@ -489,7 +492,7 @@
                             </td>
                             <td>
 
-                                <asp:LinkButton ID="lbPreviousEmployment" runat="server" OnClick="lbPreviousEmployment_Click">AddPreviousEmployment</asp:LinkButton>
+                                <asp:LinkButton ID="lbPreviousEmployment" runat="server" >AddPreviousEmployment</asp:LinkButton>
                                 <div id="divPreviousEmployment" runat="server" visible="false">
                                     <table>
                                         <tr>
@@ -519,8 +522,8 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnAddEmployerDetails" runat="server" OnClick="btnAddEmployerDetails_Click" Text="Add" />
-                                <asp:Button ID="btnCancelEmployerDetails" runat="server" Text="Cancel" OnClick="btnCancelEmployerDetails_Click" />
+                                <asp:Button ID="btnAddEmployerDetails" runat="server"  Text="Add" />
+                                <asp:Button ID="btnCancelEmployerDetails" runat="server" Text="Cancel"  />
                             </td>
                         </tr>
                     </table>
@@ -555,7 +558,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnUpdateEducation" runat="server" Text="Update" OnClick="btnUpdateEducation_Click" /></td>
+                                <asp:Button ID="btnUpdateEducation" runat="server" Text="Update"  /></td>
                         </tr>
                     </table>
                 </div>
@@ -698,8 +701,8 @@
                     <tr>
                         <td>&nbsp;</td>
                         <td>
-                            <asp:Button ID="btnAddEduaction" runat="server" Text="Add" OnClick="btnAddEduaction_Click" />
-                            <asp:Button ID="btnCancelEducation" runat="server" Text="Cancel" OnClick="btnCancelEducation_Click" />
+                            <asp:Button ID="btnAddEduaction" runat="server" Text="Add"  />
+                            <asp:Button ID="btnCancelEducation" runat="server" Text="Cancel" />
                         </td>
                     </tr>
                     </table>
@@ -735,7 +738,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnUpdateProject" runat="server" Text="Update" OnClick="btnUpdateProject_Click" />
+                                <asp:Button ID="btnUpdateProject" runat="server" Text="Update"  />
                             </td>
                         </tr>
                     </table>
@@ -855,10 +858,10 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnAddProject" runat="server" Text="Add" OnClick="btnAddProject_Click" />
-                                <asp:Button ID="btnCancelProject" runat="server" Text="Cancel" OnClick="btnCancelProject_Click" />
+                                <asp:Button ID="btnAddProject" runat="server" Text="Add" />
+                                <asp:Button ID="btnCancelProject" runat="server" Text="Cancel"  />
                                 <br />
-                                <asp:LinkButton ID="lbAddmoreProject1" runat="server" OnClick="lbAddmoreProject1_Click">Add More Project</asp:LinkButton>
+                                <asp:LinkButton ID="lbAddmoreProject1" runat="server">Add More Project</asp:LinkButton>
                             </td>
                         </tr>
                     </table>
@@ -893,7 +896,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnUpdateIndustry" runat="server" Text="Update" OnClick="btnUpdateIndustry_Click" />
+                                <asp:Button ID="btnUpdateIndustry" runat="server" Text="Update"  />
                             </td>
                         </tr>
                     </table>
@@ -922,8 +925,8 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Button ID="btnAddIndustry" runat="server" Text="Add" OnClick="btnAddIndustry_Click" />
-                                <asp:Button ID="btnCancelIndustry" runat="server" Text="Cancel" OnClick="btnCancelIndustry_Click" />
+                                <asp:Button ID="btnAddIndustry" runat="server" Text="Add" />
+                                <asp:Button ID="btnCancelIndustry" runat="server" Text="Cancel"  />
                             </td>
                         </tr>
                     </table>
