@@ -121,51 +121,6 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Button btnsearch;
         
         /// <summary>
-        /// lblsearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblsearch;
-        
-        /// <summary>
-        /// rdbresumetitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbresumetitle;
-        
-        /// <summary>
-        /// rdbkeyskills control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbkeyskills;
-        
-        /// <summary>
-        /// rdbsynopsis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbsynopsis;
-        
-        /// <summary>
-        /// rdbentireresume control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbentireresume;
-        
-        /// <summary>
         /// lblworkstatus control.
         /// </summary>
         /// <remarks>

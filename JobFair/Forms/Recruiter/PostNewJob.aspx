@@ -264,7 +264,7 @@
                         </tr>
                  <tr>
                         <td>
-                              &nbsp;</td>
+                            &nbsp;</td>
                         <td style="margin-left: 200px">
                             <asp:TextBox ID="txtaboutcompany" runat="server" Width="506px"  Visible="false" TextMode="MultiLine" Height="183px" Text="Logos Solutions is one of the conglomerate companies in India.
 
@@ -283,27 +283,40 @@
  </asp:TextBox>
                         </td>
                      
-                        <td>
-                            <asp:TextBox ID="txtclient" runat="server" Visible="false"> </asp:TextBox>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td class="auto-style2">
                               <asp:Label ID="lblcompanyclient" runat="server" Text="Company Name"></asp:Label>
                         </td>
-                        <td class="auto-style2">
+                        <td>
+                    <asp:UpdatePanel ID="pnlcompanyname" runat="server">
+                       <ContentTemplate>
+                                <asp:CheckBox ID="chkitech" runat="server" OnCheckedChanged="chkitech_CheckedChanged" Visible="False" AutoPostBack="True" />
+
                          
-                            <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions " Visible="False" ></asp:Label>
+                                <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions " Visible="False" ></asp:Label>
                          
-                            <br />
+                                <br />
+                                <asp:CheckBox ID="chkcorporate" runat="server" OnCheckedChanged="chkcorporate_CheckedChanged" Visible="False" AutoPostBack="True"/>
+                                &nbsp;
+                         
+                                <asp:Label ID="lblcompanyname2" runat="server" Text="Logos  Corporate Solutions " Visible="False" ></asp:Label>
+                         
+                                <br />
+                         
+                                <asp:TextBox ID="txtclient" runat="server" Visible="false"> </asp:TextBox>
+                                &nbsp;
                          
                             <br />
                             <br />
                           <asp:Label ID="lblclientoflogossolutios" Text="Client Of Logos Solutions" runat="server"></asp:Label>
-                         
+                           </ContentTemplate>
+                            </asp:UpdatePanel>
                         </td>
                     </tr>
-                   
+                      
+              
 
                   <tr>
                     <td>
@@ -338,8 +351,6 @@
                         </td>
                     </tr>
                 </table>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel1" runat="server">
                     <ContentTemplate>
                 <table style="width: 358px; height: 122px;">
@@ -379,8 +390,6 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel2" runat="server">
                     <ContentTemplate>
                 <table>
@@ -416,8 +425,6 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel3" runat="server">
                     <ContentTemplate>
                 <table>
@@ -453,8 +460,6 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel4" runat="server">
                     <ContentTemplate>
                 <table>
@@ -490,8 +495,6 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel5" runat="server">
                     <ContentTemplate>
                 <table>
@@ -527,8 +530,6 @@
                 </table>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                <br />
-                <br />
                 <asp:UpdatePanel ID="updatepanel6" runat="server">
                     <ContentTemplate>
                 <table>
