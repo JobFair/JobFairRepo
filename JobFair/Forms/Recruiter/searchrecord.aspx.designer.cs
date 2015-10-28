@@ -202,13 +202,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblExprience;
         
         /// <summary>
-        /// ddlworkexpyear control.
+        /// ddlworkexprience control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlworkexpyear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlworkexprience;
         
         /// <summary>
         /// lblannualsalary control.
@@ -220,13 +220,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblannualsalary;
         
         /// <summary>
-        /// ddlworkexpyear0 control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlworkexpyear0;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
         /// lblexpectedannual control.
@@ -974,5 +974,14 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnresumefind;
+        
+        /// <summary>
+        /// dsdetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsdetails;
     }
 }
