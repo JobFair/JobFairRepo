@@ -20,7 +20,7 @@
            EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="Getcity"></cc1:AutoCompleteExtender>
         <%-- <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
                                     EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetKeySkills">
-                                </cc1:AutoCompleteExtender>--%>   
+                                </cc1:AutoCompleteExtender>--%>
     </form>
 </body>
 </html>

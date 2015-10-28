@@ -19,7 +19,7 @@ namespace JobFair.Forms.JobSeeker
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
         public static List<string> Getcity(string prefixText)
-        {   
+        {
             //DataTable dt = new DataTable();
 
             //AdvanceJobSearchBAL advanceSearchBAL = new AdvanceJobSearchBAL();
