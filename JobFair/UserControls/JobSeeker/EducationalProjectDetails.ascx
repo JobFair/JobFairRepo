@@ -3,7 +3,7 @@
 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 <table class="auto-style1">
     <tr>
-        <td colspan="2">Academic Projects</td>
+        <td colspan="2"><h2>Academic Projects</h2></td>
     </tr>
     <tr>
         <td class="auto-style2">Project Title</td>
