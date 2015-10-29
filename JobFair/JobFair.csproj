@@ -95,6 +95,7 @@
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
+    <Content Include="Forms\JobSeeker\ResumeFormating.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
@@ -239,6 +240,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ResumeFormating.aspx.cs">
+      <DependentUpon>ResumeFormating.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ResumeFormating.aspx.designer.cs">
+      <DependentUpon>ResumeFormating.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>

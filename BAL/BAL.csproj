@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademicProjectDetailsBAL.cs" />
     <Compile Include="AdvanceJobSearchBAL.cs" />
     <Compile Include="ClientRequirementsBAL.cs" />
     <Compile Include="ManageJobsBAL.cs" />

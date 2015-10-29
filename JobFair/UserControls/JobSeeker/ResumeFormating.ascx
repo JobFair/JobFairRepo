@@ -2,6 +2,9 @@
 
 <table>
     <tr>
+        <td><h2>Resume Formating</h2></td>
+    </tr>
+    <tr>
         <td>
             <asp:Label ID="lblUserType" runat="server" Text="You are"></asp:Label>
         </td>

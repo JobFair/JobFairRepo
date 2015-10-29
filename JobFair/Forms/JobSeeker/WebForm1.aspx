@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Webform1.aspx.cs" Inherits="JobFair.Forms.JobSeeker.WebForm1" %>
 
-<%@ Register Src="~/UserControls/JobSeeker/EducationalProjectDetails.ascx" TagPrefix="uc1" TagName="EducationalProjectDetails" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 
 <!DOCTYPE html>
@@ -15,7 +14,13 @@
 </head>
 <body>
     <form runat="server">
-        <uc1:EducationalProjectDetails runat="server" id="EducationalProjectDetails" />
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="TextBox1"  MinimumPrefixLength="1"
+           EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="Getcity"></cc1:AutoCompleteExtender>
+        <%-- <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
+                                    EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetKeySkills">
+                                </cc1:AutoCompleteExtender>--%>
     </form>
 </body>
 </html>
