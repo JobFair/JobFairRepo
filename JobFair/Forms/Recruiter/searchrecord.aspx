@@ -8,6 +8,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 27px;
+        }
+    </style>
 </head>
 
 <body>
@@ -74,6 +79,7 @@
                         <asp:Label ID="lblcandidatelocation" runat="server" Text="Candidate Current Location"></asp:Label>
                     </td>
                     <td>
+                        <asp:TextBox ID="txtcurrentlocation" runat="server"></asp:TextBox>
                       </td>
                 </tr>
                 <tr>
@@ -89,6 +95,7 @@
                         <asp:Label ID="lblareacurrent" runat="server" Text="Area Of Current Location "></asp:Label>
                     </td>
                     <td>
+                        <asp:TextBox ID="txtcurrentarea" runat="server"></asp:TextBox>
                        </td>
                 </tr>
                 <tr>
@@ -96,6 +103,7 @@
                         <asp:Label ID="lblpreferedlocation" runat="server" Text="Candidate Prefered Location"></asp:Label>
                     </td>
                     <td>
+                        <asp:TextBox ID="txtpreferedlocation" runat="server"></asp:TextBox>
                         </td>
                 </tr>
                 <tr>
@@ -110,6 +118,7 @@
                         <asp:Label ID="lblareaprefered" runat="server" Text="Area Of Prefered Location "></asp:Label>
                     </td>
                     <td>
+                        <asp:TextBox ID="txtpreferedarea" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -226,9 +235,6 @@
                         </asp:DropDownList>
                     </td>
                 </tr>
-                <asp:GridView ID="GridView1" runat="server">
-                </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </table>
         </div>
@@ -290,7 +296,6 @@
 
                         <asp:DropDownList ID="ddldepartment" runat="server">
                         </asp:DropDownList>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        
                         <asp:DropDownList ID="ddlemployer3" runat="server">
                             <asp:ListItem>current employer</asp:ListItem>
@@ -307,7 +312,6 @@
 
                     <td>
                         <asp:TextBox ID="txtrollskill" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        
                         <asp:DropDownList ID="ddlemployer4" runat="server">
                             <asp:ListItem>current employer</asp:ListItem>
@@ -376,10 +380,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lbldesignation" runat="server" Text="Designatin"></asp:Label>
                     </td>
-                    <td>
+                    <td class="auto-style1">
                         <asp:TextBox ID="txtdesignation" runat="server"></asp:TextBox>
                       
                         <asp:DropDownList ID="ddldesignation" runat="server">

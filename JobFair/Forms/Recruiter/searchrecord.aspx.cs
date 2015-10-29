@@ -116,45 +116,45 @@ namespace JobFair.Forms.Recruiter
         //    }
         //}
 
-        protected void txtallkeywords_TextChanged(object sender, EventArgs e)
-        {
-            connection.Open();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting where[KeyResultArea] like '" + txtallkeywords.Text + "%'", connection);
-            string text = ((TextBox)sender).Text;
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                GridView1.DataSource = ds.Tables[0];
-                GridView1.DataBind();
-                Label1.Visible = false;
-            }
-            else
-            {
-                Label1.Visible = true;
-                Label1.Text = "No Record Found";
-            }
-        }
+        //protected void txtallkeywords_TextChanged(object sender, EventArgs e)
+        //{
+        //    connection.Open();
+        //    DataSet ds = new DataSet();
+        //    SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting where[KeyResultArea] like '" + txtallkeywords.Text + "%'", connection);
+        //    string text = ((TextBox)sender).Text;
+        //    da.Fill(ds);
+        //    if (ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        GridView1.DataSource = ds.Tables[0];
+        //        GridView1.DataBind();
+        //        Label1.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        Label1.Visible = true;
+        //        Label1.Text = "No Record Found";
+        //    }
+        //}
 
-        protected void txtexcludingkeywords_TextChanged(object sender, EventArgs e)
-        {
-            connection.Open();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting where[RolesAndResponsiblity] like '" + txtallkeywords.Text + "%'", connection);
-            string text = ((TextBox)sender).Text;
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                GridView1.DataSource = ds.Tables[0];
-                GridView1.DataBind();
-                Label1.Visible = false;
-            }
-            else
-            {
-                Label1.Visible = true;
-                Label1.Text = "No Record Found";
-            }
-        }
+        //protected void txtexcludingkeywords_TextChanged(object sender, EventArgs e)
+        //{
+        //    connection.Open();
+        //    DataSet ds = new DataSet();
+        //    SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting where[RolesAndResponsiblity] like '" + txtallkeywords.Text + "%'", connection);
+        //    string text = ((TextBox)sender).Text;
+        //    da.Fill(ds);
+        //    if (ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        GridView1.DataSource = ds.Tables[0];
+        //        GridView1.DataBind();
+        //        Label1.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        Label1.Visible = true;
+        //        Label1.Text = "No Record Found";
+        //    }
+        //}
 
         protected void ddlfunctionalarea_SelectedIndexChanged(object sender, EventArgs e)
         {

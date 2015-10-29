@@ -11,6 +11,12 @@
   
     </title>
   
+    <style type="text/css">
+        .auto-style1 {
+            width: 241px;
+        }
+    </style>
+  
 </head>
 <body>
     <form id="form1" runat="server">
@@ -19,12 +25,12 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <table>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <h1>Post New Job</h1>
                     </td>
                 </tr>
                 <tr>
-                    <td>Job Title/Designation</td>
+                    <td class="auto-style1">Job Title/Designation</td>
                     <td>
                         <asp:TextBox ID="txtJobtitle" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </td>
@@ -32,7 +38,7 @@
                 
 
                    <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
                     </td>
                     <td>
@@ -54,17 +60,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lblArea" runat="server" Text="Area"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td>Company Level</td>
+                    <td class="auto-style1">Company Level</td>
                     <td>
                         <asp:DropDownList ID="ddlCompanyLevel" runat="server" AutoPostBack="True">
                             <asp:ListItem>Select</asp:ListItem>
@@ -76,34 +82,34 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Industry</td>
+                    <td class="auto-style1">Industry</td>
                     <td>
                         <asp:DropDownList ID="ddlIndustry" runat="server" Height="19px">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td>Department</td>
+                    <td class="auto-style1">Department</td>
                     <td>
                         <asp:DropDownList ID="ddlDepartment" runat="server">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td>Functional Area</td>
+                    <td class="auto-style1">Functional Area</td>
                     <td>
                         <asp:DropDownList ID="ddlFunArea" runat="server">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td>Job Description</td>
+                    <td class="auto-style1">Job Description</td>
                     <td>
                         <asp:TextBox ID="txtJobDescription" runat="server" TextMode="MultiLine" Width="350px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td>Keywords/Skillsets Roles</td>
+                    <td class="auto-style1">Keywords/Skillsets Roles</td>
                     <td>
                       
                         <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
@@ -112,13 +118,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Keywords/Skillsets Technical</td>
+                    <td class="auto-style1">Keywords/Skillsets Technical</td>
                     <td>
                         <asp:TextBox ID="txtKeyTechnical" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td>Work Experience</td>
+                    <td class="auto-style1">Work Experience</td>
                     <td>&nbsp;
                         <asp:DropDownList ID="ddlworkexprience" runat="server">
                             <asp:ListItem>0.5</asp:ListItem>
@@ -146,7 +152,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Gender</td>
+                    <td class="auto-style1">Gender</td>
                     <td>
                         <asp:DropDownList ID="ddlgender" runat="server" AutoPostBack="True">
                             <asp:ListItem>Select</asp:ListItem>
@@ -157,7 +163,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Offered Anual Salary</td>
+                    <td class="auto-style1">Offered Anual Salary</td>
                     <td>&nbsp;&nbsp;<asp:DropDownList ID="ddlsalarymin" runat="server">
                         <asp:ListItem>Select</asp:ListItem>
                         <asp:ListItem>50,000</asp:ListItem>
@@ -207,19 +213,19 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>OtherSalaryDetails</td>
+                    <td class="auto-style1">OtherSalaryDetails</td>
                     <td>
                 <asp:TextBox ID="txtsalarydetaills" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td>Number of Vacancies</td>
+                    <td class="auto-style1">Number of Vacancies</td>
                     <td>
                         <asp:TextBox ID="txtVacancies" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td><asp:Label ID="lbljobtype" Text="Job Type" runat="server"></asp:Label></td>
+                    <td class="auto-style1"><asp:Label ID="lbljobtype" Text="Job Type" runat="server"></asp:Label></td>
                     <td>
                         <asp:CheckBoxList ID="chkjobtype" runat="server">
                             <asp:ListItem>Part Time</asp:ListItem>
@@ -230,7 +236,7 @@
                   
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lblrecruitmenttype" Text ="Employment Status" runat="server"></asp:Label>
                     </td>
                     <td>
@@ -245,7 +251,7 @@
                  
            
                     <tr>
-                        <td>
+                        <td class="auto-style1">
                             <asp:Label ID="Label2" runat="server" Text="Recruitment Type"></asp:Label>
                         </td>
                         <td>
@@ -256,7 +262,7 @@
                           </td>
                         </tr>
                  <tr>
-                        <td>
+                        <td class="auto-style1">
                             <asp:TextBox ID="txtaboutcompany" runat="server" Width="506px"  Visible="false" TextMode="MultiLine" Height="183px" Text="Logos Solutions is one of the conglomerate companies in India.
 
         Logos Corporate Solutions is the leading Recruitment and Placement Solution for IT -Non IT Companies.
@@ -277,7 +283,7 @@
                         
                     </tr>
                     <tr>
-                        <td>
+                        <td class="auto-style1">
                               <asp:Label ID="lblcompanyclient" runat="server" Text="Company Name"></asp:Label>
                         </td>
                         <td>
@@ -309,7 +315,7 @@
               
 
                   <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Button ID="btnUpdate" runat="server" Text="Update" />
                     </td>
                     <td>
