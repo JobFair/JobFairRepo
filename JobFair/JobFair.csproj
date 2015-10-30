@@ -374,7 +374,6 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\ResumeFormating.ascx.cs">
       <DependentUpon>ResumeFormating.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\JobSeeker\ResumeFormating.ascx.designer.cs">
       <DependentUpon>ResumeFormating.ascx</DependentUpon>

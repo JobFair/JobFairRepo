@@ -46,9 +46,9 @@ namespace JobFair.UserControls.JobSeeker
                     Response.Write("<script language='javascript'>alert('Sorry')</script>");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Label2.Text = ex.Message.ToString();
+                throw;
             }
         }
     }

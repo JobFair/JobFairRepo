@@ -7,12 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
-    public partial class UserDetails : System.Web.UI.Page
+    public partial class ResumeFormating : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string canidateid = Session["Candidateid"].ToString();
-            //Response.Write(canidateid);
+
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

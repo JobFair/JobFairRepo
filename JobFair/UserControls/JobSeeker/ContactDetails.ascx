@@ -1,8 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ContactDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ContactDetails" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+ <script src="../../Scripts/jquery-2.1.4.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
 
-<table >
+<div class="container">
+    <div class="table">
+    <table>
     <tr>
         <td colspan="2">&nbsp;</td>
     </tr>
@@ -11,83 +16,87 @@
     </tr>
     <tr>
         <td >
-            <asp:Label ID="lblaltmob" runat="server" Text="Alternate Mobile No"></asp:Label>
+           <span>Alternate Mobile No</span> 
         </td>
         <td >
-            <asp:TextBox ID="txtAltNo" runat="server" ></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" WatermarkText="Alternate Number" TargetControlID="txtAltNo"  />
-        </td>
-    </tr>
-    <tr>
-        <td >
-            <asp:Label ID="lblLandno" runat="server" Text="Landline No"></asp:Label>
-        </td>
-        <td >
-            <asp:TextBox ID="txtLandno" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" WatermarkText="Landline No" TargetControlID="txtLandno" />
+            <asp:TextBox ID="txtAltNo" runat="server" ></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td >
-            <asp:Label ID="lblWhatapp" runat="server" Text="Whats App No"></asp:Label>
+           <span>Landline No</span>
         </td>
         <td >
-            <asp:TextBox ID="txtWhatsappNo" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" WatermarkText="Whatsapp Number" TargetControlID="txtWhatsappNo"  />
-        </td>
-    </tr>
-    <tr>
-        <td >
-            <asp:Label ID="lblLinkedIn" runat="server" Text="LinkedIn Profile Link"></asp:Label>
-        </td>
-        <td >
-            <asp:TextBox ID="txtLinkedIn" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" WatermarkText="LinkedIn ID" TargetControlID="txtLinkedIn" />
+            <asp:TextBox ID="txtLandno" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td >
-            <asp:Label ID="lblFacebook" runat="server" Text="Facebook Profile Link"></asp:Label>
+           <span>Whats App No</span> 
         </td>
         <td >
-            <asp:TextBox ID="txtFacebook" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server" WatermarkText="Facebook ID" TargetControlID="txtFacebook" />
-        </td>
-    </tr>
-    <tr>
-        <td >
-            <asp:Label ID="lblTwitter" runat="server" Text="Twitter Profile Link"></asp:Label>
-        </td>
-        <td >
-            <asp:TextBox ID="txtTwitter" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender6" runat="server" WatermarkText="Twitter ID" TargetControlID="txtTwitter" />
+            <asp:TextBox ID="txtWhatsappNo" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td >
-            <asp:Label ID="lblGTalk" runat="server" Text="GTalk Profile Id"></asp:Label>
+           <span>LinkedIn Profile Link</span>
         </td>
         <td >
-            <asp:TextBox ID="txtGTalk" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender7" runat="server" WatermarkText="GTalk ID" TargetControlID="txtGTalk" />
-        </td>
-    </tr>
-    <tr>
-        <td >
-            <asp:Label ID="lblSkype" runat="server" Text="Skype Profile Id"></asp:Label>
-        </td>
-        <td >
-            <asp:TextBox ID="txtSkype" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender8" runat="server" WatermarkText="Skype ID" TargetControlID="txtSkype"/>
+            <asp:TextBox ID="txtLinkedIn" runat="server" ></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td >
-            <asp:Label ID="lblGooglePlus" runat="server" Text="Google+ Profile Link"></asp:Label>
+           <span>Facebook Profile Link</span>
         </td>
         <td >
-            <asp:TextBox ID="txtGooglePlus" runat="server"></asp:TextBox><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender9" runat="server" WatermarkText="GooglePlus ID" TargetControlID="txtGooglePlus"  />
+            <asp:TextBox ID="txtFacebook" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td >
-            <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="132px" />
+           <span>Twitter Profile Link</span>
         </td>
         <td >
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="115px" />
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <asp:TextBox ID="txtTwitter" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td >
+           <span>GTalk Profile Id</span>
+        </td>
+        <td >
+            <asp:TextBox ID="txtGTalk" runat="server" ></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td >
+            <span>Skype Profile Id</span>
+        </td>
+        <td >
+            <asp:TextBox ID="txtSkype" runat="server" ></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td >
+           <span>Google+ Profile Link</span> 
+        </td>
+        <td >
+            <asp:TextBox ID="txtGooglePlus" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+        <tr>
+            <td><br /></td>
+        </tr>
+    <tr>
+        <td >
+            <asp:Button ID="btnSave" runat="server" CssClass="btn-success" OnClick="btnSave_Click" Text="Save" />
+        </td>
+        <td >
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn-danger"/>
         </td>
     </tr>
 </table>
+        </div>
+    </div>

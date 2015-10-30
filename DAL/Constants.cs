@@ -53,5 +53,6 @@ namespace DAL
         public const string sp_RE_SelectViewJobPost = "sp_RE_SelectViewJobPost";
         public const string sp_JS_InsertResumeFormating = "sp_JS_InsertResumeFormating";
         public const string sp_Area = "sp_Area";
+        public const string sp_JS_InsertAcademicProjectDetails = "sp_JS_InsertAcademicProjectDetails";
     }
 }

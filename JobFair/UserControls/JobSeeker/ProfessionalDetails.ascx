@@ -27,12 +27,14 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <div>
-    <table id="TableCurrentJob" runat="server">
+    &nbsp;<table id="TableCurrentJob" runat="server">
         <tr>
             <td colspan="2">
                 <h1>Current Job Details</h1>
             </td>
         </tr>
+         <tr><td>
+             &nbsp;</td></tr>
         <tr>
             <td>Resume Headline</td>
             <td>
@@ -67,6 +69,7 @@
                                 <asp:RadioButton ID="rbtNoExpeience" runat="server" Text="No Experience" AutoPostBack="True" GroupName="ExperienceOrNot" OnCheckedChanged="rbtNoExpeience_CheckedChanged" />
                             </td>
                         </tr>
+                       
                     </table>
                 </div>
             </td>
@@ -263,7 +266,22 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" />
+                <asp:GridView ID="GridView1" runat="server">
+                    
+                </asp:GridView>
+            </td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSaveCurrentJob_Click" />
                 &nbsp;
                 <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
                 <asp:Label ID="lblmsgsave" runat="server" Text="Label"></asp:Label>
@@ -441,12 +459,18 @@
             <td colspan="2">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        Preferred City<asp:DropDownList ID="ddlCity" runat="server" Width="69px">
-                        </asp:DropDownList>
+                        Preferred City<asp:TextBox ID="txtPreferredCity" runat="server"></asp:TextBox>
+                        <cc1:AutoCompleteExtender ID="txtPreferredCity_AutoCompleteExtender" runat="server"
+                            EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000"
+                             TargetControlID="txtPreferredCity" MinimumPrefixLength="1" ServiceMethod="Getcity">
+                        </cc1:AutoCompleteExtender>
                         <br />
                         Preferred Area
-                        <asp:DropDownList ID="ddlArea" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtPreferredArea" runat="server"></asp:TextBox>
+                        <cc1:AutoCompleteExtender ID="txtPreferredArea_AutoCompleteExtender" runat="server" TargetControlID="txtPreferredArea"
+                            CompletionInterval="500" CompletionSetCount="1" MinimumPrefixLength="1"
+                             ServiceMethod="GetArea">
+                        </cc1:AutoCompleteExtender>
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </td>

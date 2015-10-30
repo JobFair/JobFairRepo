@@ -87,5 +87,28 @@ namespace DAL
                 throw;
             }
         }
+
+        public DataTable GetPreferredCityDAL(string PrefixText)
+        {
+            connection.Open();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("select * from City where CityName like @citynames + '%' ", connection);
+            cmd.Parameters.AddWithValue("@citynames", PrefixText);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            return dt;
+
+        }
+
+        public DataTable GetPreferredAreaDAL(string prefixText)
+        {
+            connection.Open();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("select * from CityArea where AreaName like @areaname + '%' ", connection);
+            cmd.Parameters.AddWithValue("@areaname", prefixText);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            return dt;
+        }
     }
 }

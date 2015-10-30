@@ -23,11 +23,11 @@ namespace DAL
             return table;
         }
 
-        /// <summary>
-        /// Add Project Details
-        /// </summary>
-        /// <param name="addProjectDetailsEntity">Object for inserting data into database</param>
-        /// <returns>System.Int32</returns>
+        ///// <summary>
+        ///// Add Project Details
+        ///// </summary>
+        ///// <param name="addProjectDetailsEntity">Object for inserting data into database</param>
+        ///// <returns>System.Int32</returns>
         public int SaveProjectDetailsDAL(ProjectDetailsEntity addProjectDetailsEntity)
         {
             try
@@ -54,6 +54,35 @@ namespace DAL
             {
                 throw;
             }
+        }
+
+        public DataTable SaveProjectDetailsDAL(DataTable dtProductSold)
+        {
+           
+            connection.Open();
+            //creating object of SqlBulkCopy
+            SqlBulkCopy objbulk = new SqlBulkCopy(connection);
+            //assigning Destination table name
+            objbulk.DestinationTableName = "Test";
+            //Mapping Table column
+            objbulk.ColumnMappings.Add("ProjectFor", "ProjectFor");
+            objbulk.ColumnMappings.Add("ProjectTitle", "ProjectTitle");
+            objbulk.ColumnMappings.Add("CompanyName", "CompanyName");
+            objbulk.ColumnMappings.Add("Role", "Role");
+            objbulk.ColumnMappings.Add("ClientName", "ClientName");
+            objbulk.ColumnMappings.Add("Duration", "Duration");
+            objbulk.ColumnMappings.Add("ProjectLocation", "ProjectLocation");
+            objbulk.ColumnMappings.Add("EmploymentType", "EmploymentType");
+            objbulk.ColumnMappings.Add("ProjectDetails", "ProjectDetails");
+            objbulk.ColumnMappings.Add("RolesandResponsibility", "RolesandResponsibility");
+            objbulk.ColumnMappings.Add("TeamSize", "TeamSize");
+            objbulk.ColumnMappings.Add("SkillUsed", "SkillUsed");
+            objbulk.ColumnMappings.Add("ProjectLive", "ProjectLive");
+            objbulk.ColumnMappings.Add("ProjectLink", "ProjectLink");
+            objbulk.ColumnMappings.Add("Degree", "Degree");
+            //inserting bulk Records into DataBase 
+            objbulk.WriteToServer(dtProductSold);
+            return dtProductSold;
         }
     }
 }

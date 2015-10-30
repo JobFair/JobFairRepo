@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademicProjectDetailsBAL.cs" />
     <Compile Include="AdvanceJobSearchBAL.cs" />
     <Compile Include="ClientRequirementsBAL.cs" />
     <Compile Include="ManageJobsBAL.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="RegisterJobSeekerBAL.cs" />
     <Compile Include="RegisterRecruiterBAL.cs" />
     <Compile Include="ResumeFormatingBAL.cs" />
-    <Compile Include="SearchRecordBAL.cs" />
+    <Compile Include="searchRecordBAL.cs" />
     <Compile Include="TechnicalSkillsDetailsBAL.cs" />
     <Compile Include="ViewProfileJSBAL.cs" />
     <Compile Include="ViewProfileREBAL.cs" />

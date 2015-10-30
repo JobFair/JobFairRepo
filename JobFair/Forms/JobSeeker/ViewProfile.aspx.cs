@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.IO;
 using System.Text;
+using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -15,6 +16,15 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + "JS14.txt" ;
+         //   UploadFile(path);
+
+            byte[] arraycontent = ReadFileData(path);
+            txtResumeDetails.Text = System.Text.Encoding.UTF8.GetString(arraycontent);
+
+
+            LoadUploadedImages();
+
           //  JobseekerRegisterDetails();
           //  JobSeekerPersonalDetails();
           //  JobSeekerProfessionalDetails();
@@ -24,8 +34,55 @@ namespace JobFair.Forms.JobSeeker
           //  string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
           //  this.FileUploadResume.SaveAs(path);
           //  this.txtResume.Text = ShowContent(path);
+            
         }
+         private void LoadUploadedImages() {
+                
+                DirectoryInfo di = new DirectoryInfo(Server.MapPath("~/Images/"));
+              
+                             foreach (FileInfo fi in di.GetFiles()) {
+                                 if (fi.Name == "JS12.jpg") { 
+                   
+                    imgCandidate.ImageUrl = "~/Images/" + fi.Name;
+                   
+                                 }
+               }
+           }
+        public byte[] ReadFileData(String fileName)
+        {
+            byte[] buff = null;
+            FileStream fs = new FileStream(fileName,
+                                           FileMode.Open,
+                                           FileAccess.Read);
 
+            BinaryReader br = new BinaryReader(fs);
+            long numBytes = new FileInfo(fileName).Length;
+            buff = br.ReadBytes((int)numBytes);
+            return buff;
+        }
+        //private void UploadFile(string path)
+        //{
+        //    try
+        //    {
+        //        this.fileupload1.SaveAs(path);
+        //        FileInfo fi = new FileInfo(path);
+        //        FileStream fs = fi.OpenRead();
+        //        string filename = Path.GetFileName(this.fileupload1.FileName);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //   throw;
+        //    }
+        //}
+        //protected void btnRead_Click(object sender, EventArgs e)
+        //{
+        //    string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.fileupload1.FileName;
+        //    UploadFile(path);
+
+        //    byte[] arraycontent = ReadFileData(path);
+        //    textBoxContents.Text = System.Text.Encoding.UTF8.GetString(arraycontent);
+
+        //}
         //private void JobSeekerProfessionalDetails()
         //{
         //    viewProfileJSBAL.ProfessionalDetailsBAL(viewProfileEntity);

@@ -72,5 +72,20 @@ namespace BAL
         {
             return Utility.GetCity(StateId);
         }
+
+        public System.Data.DataTable GetPreferredCityBAL(string PrefixText)
+        {
+             CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
+             return desiredjobDAL.GetPreferredCityDAL(PrefixText);
+
+        }
+
+        public System.Data.DataTable GetPreferredAreaBAL(string prefixText)
+        {
+            CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
+            return desiredjobDAL.GetPreferredAreaDAL(prefixText);
+        }
+
+       
     }
 }
