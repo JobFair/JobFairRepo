@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
-
+using System.Web.UI;
 namespace JobFair.Forms.Recruiter
 {
     public partial class searchrecord : System.Web.UI.Page
@@ -116,45 +116,45 @@ namespace JobFair.Forms.Recruiter
         //    }
         //}
 
-        protected void txtallkeywords_TextChanged(object sender, EventArgs e)
-        {
-            connection.Open();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting where[KeyResultArea] like '" + txtallkeywords.Text + "%'", connection);
-            string text = ((TextBox)sender).Text;
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                GridView1.DataSource = ds.Tables[0];
-                GridView1.DataBind();
-                Label1.Visible = false;
-            }
-            else
-            {
-                Label1.Visible = true;
-                Label1.Text = "No Record Found";
-            }
-        }
+        //protected void txtallkeywords_TextChanged(object sender, EventArgs e)
+        //{
+        //    connection.Open();
+        //    DataSet ds = new DataSet();
+        //    SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting where[KeyResultArea] like '" + txtallkeywords.Text + "%'", connection);
+        //    string text = ((TextBox)sender).Text;
+        //    da.Fill(ds);
+        //    if (ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        GridView1.DataSource = ds.Tables[0];
+        //        GridView1.DataBind();
+        //        Label1.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        Label1.Visible = true;
+        //        Label1.Text = "No Record Found";
+        //    }
+        //}
 
-        protected void txtexcludingkeywords_TextChanged(object sender, EventArgs e)
-        {
-            connection.Open();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting where[RolesAndResponsiblity] like '" + txtallkeywords.Text + "%'", connection);
-            string text = ((TextBox)sender).Text;
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                GridView1.DataSource = ds.Tables[0];
-                GridView1.DataBind();
-                Label1.Visible = false;
-            }
-            else
-            {
-                Label1.Visible = true;
-                Label1.Text = "No Record Found";
-            }
-        }
+        //protected void txtexcludingkeywords_TextChanged(object sender, EventArgs e)
+        //{
+        //    connection.Open();
+        //    DataSet ds = new DataSet();
+        //    SqlDataAdapter da = new SqlDataAdapter("select * from JS_ResumeFormatting where[RolesAndResponsiblity] like '" + txtallkeywords.Text + "%'", connection);
+        //    string text = ((TextBox)sender).Text;
+        //    da.Fill(ds);
+        //    if (ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        GridView1.DataSource = ds.Tables[0];
+        //        GridView1.DataBind();
+        //        Label1.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        Label1.Visible = true;
+        //        Label1.Text = "No Record Found";
+        //    }
+        //}
 
         protected void ddlfunctionalarea_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -244,21 +244,30 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
-        public string HighlightText(string inputTxt)
-        {
-            string Search_Str = txtkeywords.Text;
-            Regex regexp = new Regex(Search_Str.Replace("", "|").Trim(), RegexOptions.IgnoreCase);
-            return regexp.Replace(inputTxt, new MatchEvaluator(ReplaceKeyWords));
-        }
+        //public string highlightText(string InputTxt)
+        //{
 
-        private string ReplaceKeyWords(Match match)
-        {
-            return("<span class = highlight>" + match.Value + "<span class>");
-        }
+        //    string Search_Str = txtcurrentlocation.Text;
+        //    Regex regexp = new Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase);
+        //    return regexp.Replace(InputTxt, new MatchEvaluator(ReplaceKeyWords));
 
+        //}
+
+        //private string ReplaceKeyWords(Match match)
+        //{
+        //    return ("<span class=highlight>" + match.Value + "</span>");
+        //}
+         
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-            SearchString = txtkeywords.Text;
+             string searchvar = txtcurrentlocation.Text;
+          //  BAL.SearchRecordBAL searchrecordBAL = new BAL.SearchRecordBAL();
+             SearchRecordBAL search = new SearchRecordBAL();
+             DataSet ds = search.searchrecordBAL(searchvar);
+         GridView1.DataSource = ds;
+            GridView1.DataBind();
+
+           
         }
 
     }
