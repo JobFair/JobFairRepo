@@ -44,6 +44,7 @@
     <Compile Include="Common\ChangePasswordEnitity.cs" />
     <Compile Include="Common\CityEntity.cs" />
     <Compile Include="JobSeeker\AdvanceSearchEntity.cs" />
+    <Compile Include="JobSeeker\CertificationEntity.cs" />
     <Compile Include="JobSeeker\ProjectDetailsEntity.cs" />
     <Compile Include="JobSeeker\AffirmativeDetailsEntity.cs" />
     <Compile Include="JobSeeker\ContactDetailsEntity.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="JobSeeker\PersonalDetailsJSEntity.cs" />
     <Compile Include="JobSeeker\ResumeFoematingEntity.cs" />
     <Compile Include="JobSeeker\ViewProfileEntity.cs" />
+    <Compile Include="JobSeeker\WorkshopEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JobSeeker\RegisterEntity.cs" />
     <Compile Include="Recruiter\AddJobPostEntity.cs" />

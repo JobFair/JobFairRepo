@@ -116,17 +116,17 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
+    <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
+    <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
     <Content Include="UserControls\JobSeeker\ProjectDetails.ascx" />
     <Content Include="UserControls\JobSeeker\AffirmativeDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ContactDetails.ascx" />
     <Content Include="Forms\JobSeeker\UserDetails.aspx" />
-    <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\EducationalDetails.ascx" />
     <Content Include="Forms\JobSeeker\LogIn.aspx" />
     <Content Include="Forms\JobSeeker\Register.aspx" />
     <Content Include="UserControls\JobSeeker\LiveProjectDetails.ascx" />
-    <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
-    <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
     <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ResumeFormating.ascx" />
@@ -302,6 +302,27 @@
       <DependentUpon>ViewProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
+    <Compile Include="UserControls\JobSeeker\DemoEducationalDetails.aspx.cs">
+      <DependentUpon>DemoEducationalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\DemoEducationalDetails.aspx.designer.cs">
+      <DependentUpon>DemoEducationalDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\MoreCertifications.ascx.cs">
+      <DependentUpon>MoreCertifications.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\MoreCertifications.ascx.designer.cs">
+      <DependentUpon>MoreCertifications.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.cs">
+      <DependentUpon>MoreWorkshops.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.designer.cs">
+      <DependentUpon>MoreWorkshops.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\JobSeeker\ProjectDetails.ascx.cs">
       <DependentUpon>ProjectDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -323,13 +344,6 @@
     <Compile Include="UserControls\JobSeeker\ContactDetails.ascx.designer.cs">
       <DependentUpon>ContactDetails.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\JobSeeker\DemoEducationalDetails.aspx.cs">
-      <DependentUpon>DemoEducationalDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\DemoEducationalDetails.aspx.designer.cs">
-      <DependentUpon>DemoEducationalDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\JobSeeker\EducationalDetails.ascx.cs">
       <DependentUpon>EducationalDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -343,17 +357,6 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\LiveProjectDetails.ascx.designer.cs">
       <DependentUpon>LiveProjectDetails.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\MoreCertifications.ascx.cs">
-      <DependentUpon>MoreCertifications.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.cs">
-      <DependentUpon>MoreWorkshops.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\MoreWorkshops.ascx.designer.cs">
-      <DependentUpon>MoreWorkshops.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\PersonalDetails.ascx.cs">
       <DependentUpon>PersonalDetails.ascx</DependentUpon>

@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="AdvanceSearchDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />
+    <Compile Include="MoreCertificationDAL.cs" />
+    <Compile Include="MoreWorkshopDAL.cs" />
     <Compile Include="PostNewJobDAL.cs" />
     <Compile Include="ClientRequirementsDAL.cs" />
     <Compile Include="ManageJobsDAL.cs" />

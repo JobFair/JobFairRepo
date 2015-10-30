@@ -51,6 +51,8 @@
     <Compile Include="JobSearchBAL.cs" />
     <Compile Include="LiveProjectDetailsBAL.cs" />
     <Compile Include="LoginBAL.cs" />
+    <Compile Include="MoreCertificationBAL.cs" />
+    <Compile Include="MoreWorkshopBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />
     <Compile Include="PostNewJobBAL.cs">
       <SubType>Code</SubType>

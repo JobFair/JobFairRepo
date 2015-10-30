@@ -680,25 +680,25 @@
     </asp:Panel>
     <br />
 </div>
-<div id="footer" runat="server" visible="true" style="width: 100%">
-    <%-- <table style="background-color: #C0C0C0">
+<div id="footer" runat="server" visible="true">
+     <table style="background-color: #C0C0C0">
         <tr>
-            <td>
-                <div id="divCertification" runat="server" visible="true" Style="width:50%">
+            <td style="width:500px">
+                <div id="divCertification" runat="server" visible="true">
                     <asp:Panel ID="pnlCollapsableCert" runat="server" CssClass="pnlCSS">
                         <uc2:MoreCertifications ID="MoreCertifications1" runat="server" />
                     </asp:Panel>
                 </div>
             </td>
-            <td>
-                <div id="divWorkshop" runat="server" visible="true" Style="width:50%">
+            <td style="width:500px">
+                <div id="divWorkshop" runat="server" visible="true">
                     <asp:Panel ID="pnlCollapsableWork" runat="server" CssClass="pnlCSS">
                         <uc3:MoreWorkshops ID="MoreWorkshops1" runat="server" />
                     </asp:Panel>
                 </div>
             </td>
         </tr>
-    </table>--%>
+    </table>
     <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" Visible="false" CssClass="button" />
     <br />
     <br />

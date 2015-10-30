@@ -1,4 +1,5 @@
-﻿   <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DemoEducationalDetails.aspx.cs" Inherits="JobFair.UserControls.JobSeeker.DemoEducationalDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DemoEducationalDetails.aspx.cs" Inherits="JobFair.UserControls.JobSeeker.DemoEducationalDetails" %>
+
 
 <%@ Register Src="~/UserControls/JobSeeker/EducationalDetails.ascx" TagPrefix="uc1" TagName="EducationalDetails" %>
 
