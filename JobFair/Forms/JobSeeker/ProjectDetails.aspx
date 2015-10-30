@@ -1,15 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResumeFormating.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ResumeFormating" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ProjectDetails" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <div>
+     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <table>
                 <tr>
                     <td>Project Details for </td>
@@ -66,7 +68,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtFromDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtFromDate" TargetControlID="txtFromDate" Format="dd/MM/yyyy" />
-
+                      
                         To<asp:TextBox ID="txtTodate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtTodate" TargetControlID="txtTodate" Format="dd/MM/yyyy" />
                     </td>
                 </tr>
@@ -211,6 +213,7 @@
     <asp:Button ID="btnsubmitProject" runat="server" style="color:White" 
             Text="Save Project" BackColor="#999966" onclick="btnsubmitProject_Click" />
     </div>
+   
     </form>
 </body>
 </html>

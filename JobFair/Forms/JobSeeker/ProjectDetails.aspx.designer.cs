@@ -10,7 +10,7 @@
 namespace JobFair.Forms.JobSeeker {
     
     
-    public partial class ResumeFormating {
+    public partial class ProjectDetails {
         
         /// <summary>
         /// form1 control.

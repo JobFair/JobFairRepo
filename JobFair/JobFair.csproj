@@ -95,6 +95,7 @@
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
+    <Content Include="Forms\JobSeeker\ProjectDetails.aspx" />
     <Content Include="Forms\JobSeeker\ResumeFormating.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
@@ -132,7 +133,6 @@
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
     <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
-    <Content Include="UserControls\JobSeeker\ResumeFormating.ascx" />
     <Content Include="UserControls\JobSeeker\searchRecord.ascx" />
     <Content Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
@@ -233,6 +233,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ProjectDetails.aspx.cs">
+      <DependentUpon>ProjectDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ProjectDetails.aspx.designer.cs">
+      <DependentUpon>ProjectDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -392,13 +399,6 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\ProfessionalDetails.ascx.designer.cs">
       <DependentUpon>ProfessionalDetails.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\ResumeFormating.ascx.cs">
-      <DependentUpon>ResumeFormating.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\JobSeeker\ResumeFormating.ascx.designer.cs">
-      <DependentUpon>ResumeFormating.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\searchRecord.ascx.cs">
       <DependentUpon>searchRecord.ascx</DependentUpon>
