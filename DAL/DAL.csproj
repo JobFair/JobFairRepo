@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcademicProjectDetailsDAL.cs" />
     <Compile Include="AdvanceSearchDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />
     <Compile Include="MoreCertificationDAL.cs" />
@@ -59,7 +58,6 @@
     <Compile Include="FeedbackJSDAL.cs" />
     <Compile Include="ForgetPasswordDAL.cs" />
     <Compile Include="FunctionalAreaDAL.cs" />
-    <Compile Include="LiveProjectDetailsDAL.cs" />
     <Compile Include="LogInJobSeekerDAL.cs" />
     <Compile Include="LoginRecruiterDAL.cs" />
     <Compile Include="PersonalDetailsJSDAL.cs" />
@@ -67,7 +65,6 @@
     <Compile Include="QuestionrieDAL.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />
     <Compile Include="RegisterRecruiterDAL.cs" />
-    <Compile Include="ResumeFormatingDAL.cs" />
     <Compile Include="SearchRecord.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="TechnicalSkillsDetailsDAL.cs" />

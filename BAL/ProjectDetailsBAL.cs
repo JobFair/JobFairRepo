@@ -21,17 +21,6 @@ namespace BAL
             return pdDAL.GetRole();
         }
 
-        /// <summary>
-        /// Add project details job seeker bal.
-        /// </summary>
-        /// <param name="addProjectDetailsEntity">AddProjectDetailsEntity</param>
-        /// <returns>System.Int32.</returns>
-        public int SaveProjectDetailsBAL(ProjectDetailsEntity addProjectDetailsEntity)
-        {
-            ProjectDetailsDAL pdDAL = new ProjectDetailsDAL();
-            return pdDAL.SaveProjectDetailsDAL(addProjectDetailsEntity);
-        }
-
         public DataTable SaveProjectDetailsBAL(DataTable dtProductSold)
         {
             ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
