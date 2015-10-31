@@ -31,6 +31,12 @@ namespace BAL
             ProjectDetailsDAL pdDAL = new ProjectDetailsDAL();
             return pdDAL.SaveProjectDetailsDAL(addProjectDetailsEntity);
         }
+
+        public DataTable SaveProjectDetailsBAL(DataTable dtProductSold)
+        {
+            ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+            return projectDetailsDAL.SaveProjectDetailsDAL(dtProductSold);
+        }
     }
 
 }

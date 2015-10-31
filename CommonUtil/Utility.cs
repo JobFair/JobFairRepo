@@ -193,19 +193,16 @@ namespace CommonUtil
         {
             List<string> yearList = new List<string>();
             int i = DateTime.Now.Year;
-            for (i = i - 60; i <= DateTime.Now.Year + 10; i++)
+            for (i = i - 60; i <= DateTime.Now.Year + 4; i++)
                 yearList.Add(Convert.ToString(i));
             return yearList;
         }
         public static List<string> GetMonths()
         {
             string[] months = System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames;
-            List<string> monthList = new List<string>(months);
-             //monthList = System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames;
-             //Arrays.asList(months) = List<string> monthList;
-            //int i = DateTime.Now.Month;
-            //for (i = 1; i <= DateTime.Now.Month; i++)
-            //    monthList.Add(Convert.ToString(i));
+            List<string> monthList = null;
+            monthList = new List<string>(months);
+            monthList.RemoveAt(12);
             return monthList;
         }
     }

@@ -1525,6 +1525,60 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl footer;
         
         /// <summary>
+        /// divCertification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCertification;
+        
+        /// <summary>
+        /// pnlCollapsableCert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCollapsableCert;
+        
+        /// <summary>
+        /// MoreCertifications1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JobFair.UserControls.JobSeeker.MoreCertifications MoreCertifications1;
+        
+        /// <summary>
+        /// divWorkshop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divWorkshop;
+        
+        /// <summary>
+        /// pnlCollapsableWork control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCollapsableWork;
+        
+        /// <summary>
+        /// MoreWorkshops1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JobFair.UserControls.JobSeeker.MoreWorkshops MoreWorkshops;
+        
+        /// <summary>
         /// BtnSubmit control.
         /// </summary>
         /// <remarks>
