@@ -61,17 +61,41 @@ namespace JobFair.UserControls.JobSeeker
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
-        public static List<string> GetPreferredCity(string PrefixText)
+        public static List<string> Getcity(string prefixText)
         {
+           
             DataTable dt = new DataTable();
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            dt = currentDesiredJobBAL.GetPreferredCityBAL(PrefixText);
+            dt = currentDesiredJobBAL.GetPreferredCityBAL(prefixText);
             List<string> cityList = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 cityList.Add(dt.Rows[i][1].ToString());
             }
             return cityList;
+
+        }
+
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod]
+        public static List<string> GetArea(string prefixText)
+        {
+
+            DataTable dt = new DataTable();
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            dt = currentDesiredJobBAL.GetPreferredAreaBAL(prefixText);
+            List<string> cityAreaList = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cityAreaList.Add(dt.Rows[i][1].ToString());
+            }
+            return cityAreaList;
+
+        }
+
+        protected void btnSaveCurrentJob_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

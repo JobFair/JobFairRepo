@@ -79,5 +79,13 @@ namespace BAL
              return desiredjobDAL.GetPreferredCityDAL(PrefixText);
 
         }
+
+        public System.Data.DataTable GetPreferredAreaBAL(string prefixText)
+        {
+            CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
+            return desiredjobDAL.GetPreferredAreaDAL(prefixText);
+        }
+
+       
     }
 }
