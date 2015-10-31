@@ -8,11 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 27px;
-        }
-    </style>
+   
 </head>
 
 <body>
@@ -47,7 +43,7 @@
                         <asp:Label ID="lblkeywords1" runat="server" Text="All Of The KeyWords"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtallkeywords" runat="server" OnTextChanged="txtallkeywords_TextChanged" AutoPostBack="true"></asp:TextBox>
+                        <asp:TextBox ID="txtallkeywords" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -55,7 +51,7 @@
                         <asp:Label ID="lblkeywords2" runat="server" Text="Excluding Keywords"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtexcludingkeywords" runat="server" Height="22px" AutoPostBack="True" OnTextChanged="txtexcludingkeywords_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="txtexcludingkeywords" runat="server" Height="22px"></asp:TextBox>
                       
                     <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" />
                     </td>
@@ -686,11 +682,10 @@
                 </tr>
             </table>
         </div>
-        <asp:SqlDataSource  id="dsdetails" runat="server" ConnectionString="Data Source=pc02;Initial Catalog=JobFairPortal;User ID=sa;Password=sa@123" SelectCommand="select * from JS_ResumeFormatting" FilterExpression=" CompanyName LIKE '%{0}%" >
-            <FilterParameters>
-                <asp:ControlParameter  Name="CompanyName" ControlID="txtkeywords" PropertyName="Text"/>
-            </FilterParameters>
-        </asp:SqlDataSource>
+    <div>
+        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+    </div>
+    
     </form>
 </body>
 </html>
