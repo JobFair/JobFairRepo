@@ -266,10 +266,7 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:GridView ID="GridView1" runat="server">
-                    
-                </asp:GridView>
-            </td>
+                &nbsp;</td>
         </tr>
 
         <tr>
