@@ -25,10 +25,8 @@ namespace DAL
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
 
         public DataTable SaveProjectDetailsDAL(DataTable dtProductSold)

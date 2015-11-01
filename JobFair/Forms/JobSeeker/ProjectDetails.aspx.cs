@@ -15,6 +15,17 @@ namespace JobFair.Forms.JobSeeker
                 hfCandidateId.Value = "C101"; //Session["CandidateId"].ToString();
                 AddDefaultFirstRecord();
             }
+
+            if (rbtYes.Checked)
+            {
+                txtLink.Visible = true;
+                lblLinkUrl.Visible = true;
+            }
+            else
+            {
+                txtLink.Visible = false;
+                lblLinkUrl.Visible = false;
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -155,6 +166,27 @@ namespace JobFair.Forms.JobSeeker
             DataTable dtProductSold = (DataTable)ViewState["ProductsSold"];
             projectDetailsBAL.SaveProjectDetailsBAL(dtProductSold);
             Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+        }
+
+        protected void rbtProjectTypeList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rbtProjectTypeList.SelectedValue == "1")
+                {
+                    Label2.Visible = true;
+                    TextBox1.Visible = true;
+                }
+                else
+                {
+                    Label2.Visible = false;
+                    TextBox1.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
