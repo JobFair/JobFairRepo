@@ -137,15 +137,24 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void ddlCountryPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int CountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
-            DataSet ds = new DataSet();
-            ds = personalDetailsBAL.GetState(CountryId);
-            ddlStatePresent.DataSource = ds;
+            try
+            {
+                int CountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetState(CountryId);
+                ddlStatePresent.DataSource = ds;
 
-            ddlStatePresent.DataTextField = "StateName";
-            ddlStatePresent.DataValueField = "StateId";
-            ddlStatePresent.DataBind();
-            ddlStatePresent.Items.Insert(0, new ListItem("--Select--", "0"));
+                ddlStatePresent.DataTextField = "StateName";
+                ddlStatePresent.DataValueField = "StateId";
+                ddlStatePresent.DataBind();
+                ddlStatePresent.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         /// <summary>
@@ -155,14 +164,23 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void ddlStatePresent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int StateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
-            DataSet ds = new DataSet();
-            ds = personalDetailsBAL.GetCity(StateId);
-            ddlCityPresent.DataSource = ds;
-            ddlCityPresent.DataTextField = "cityName";
-            ddlCityPresent.DataValueField = "cityID";
-            ddlCityPresent.DataBind();
-            ddlCityPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                int StateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetCity(StateId);
+                ddlCityPresent.DataSource = ds;
+                ddlCityPresent.DataTextField = "cityName";
+                ddlCityPresent.DataValueField = "cityID";
+                ddlCityPresent.DataBind();
+                ddlCityPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         /// <summary>
@@ -172,14 +190,23 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void ddlCountryPerm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int CountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
-            DataSet ds = new DataSet();
-            ds = personalDetailsBAL.GetState(CountryId);
-            ddlStatePerm.DataSource = ds;
-            ddlStatePerm.DataTextField = "StateName";
-            ddlStatePerm.DataValueField = "StateId";
-            ddlStatePerm.DataBind();
-            ddlStatePerm.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                int CountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetState(CountryId);
+                ddlStatePerm.DataSource = ds;
+                ddlStatePerm.DataTextField = "StateName";
+                ddlStatePerm.DataValueField = "StateId";
+                ddlStatePerm.DataBind();
+                ddlStatePerm.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         /// <summary>
@@ -189,14 +216,23 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void ddlStatePerm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int StateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
-            DataSet ds = new DataSet();
-            ds = personalDetailsBAL.GetCity(StateId);
-            ddlCityPerm.DataSource = ds;
-            ddlCityPerm.DataTextField = "cityName";
-            ddlCityPerm.DataValueField = "cityID";
-            ddlCityPerm.DataBind();
-            ddlCityPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                int StateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetCity(StateId);
+                ddlCityPerm.DataSource = ds;
+                ddlCityPerm.DataTextField = "cityName";
+                ddlCityPerm.DataValueField = "cityID";
+                ddlCityPerm.DataBind();
+                ddlCityPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         /// <summary>
@@ -206,10 +242,19 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void rbtPassportYes_CheckedChanged(object sender, EventArgs e)
         {
-            lblpass.Visible = true;
-            lblPassportValidity.Visible = true;
-            txtPassportNo.Visible = true;
-            txtValidity.Visible = true;
+            try
+            {
+                lblpass.Visible = true;
+                lblPassportValidity.Visible = true;
+                txtPassportNo.Visible = true;
+                txtValidity.Visible = true;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         /// <summary>
@@ -219,34 +264,61 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void rbtPassportNo_CheckedChanged(object sender, EventArgs e)
         {
-            lblpass.Visible = false;
-            lblPassportValidity.Visible = false;
-            txtPassportNo.Visible = false;
-            txtValidity.Visible = false;
+            try
+            {
+                lblpass.Visible = false;
+                lblPassportValidity.Visible = false;
+                txtPassportNo.Visible = false;
+                txtValidity.Visible = false;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         protected void ddlCityPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int cityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
-            DataSet ds = new DataSet();
-            ds = personalDetailsBAL.GetArea(cityId);
-            ddlAreaPresent.DataSource = ds;
-            ddlAreaPresent.DataTextField = "AreaName";
-            ddlAreaPresent.DataValueField = "AreaID";
-            ddlAreaPresent.DataBind();
-            ddlAreaPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                int cityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetArea(cityId);
+                ddlAreaPresent.DataSource = ds;
+                ddlAreaPresent.DataTextField = "AreaName";
+                ddlAreaPresent.DataValueField = "AreaID";
+                ddlAreaPresent.DataBind();
+                ddlAreaPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         protected void ddlCityPerm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int cityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
-            DataSet ds = new DataSet();
-            ds = personalDetailsBAL.GetArea(cityId);
-            ddlAreaPerm.DataSource = ds;
-            ddlAreaPerm.DataTextField = "AreaName";
-            ddlAreaPerm.DataValueField = "AreaID";
-            ddlAreaPerm.DataBind();
-            ddlAreaPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                int cityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetArea(cityId);
+                ddlAreaPerm.DataSource = ds;
+                ddlAreaPerm.DataTextField = "AreaName";
+                ddlAreaPerm.DataValueField = "AreaID";
+                ddlAreaPerm.DataBind();
+                ddlAreaPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
     }
 }

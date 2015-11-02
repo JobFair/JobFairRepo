@@ -1,26 +1,26 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ProjectDetails" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <table>
                 <tr>
                     <td>Project Details for </td>
+
                     <td>
-                        <asp:RadioButtonList ID="rbtProjectTypeList" runat="server" RepeatDirection="Horizontal">
-                            <asp:ListItem>Academic</asp:ListItem>
-                            <asp:ListItem>Intern</asp:ListItem>
-                            <asp:ListItem>Professional</asp:ListItem>
-                            <asp:ListItem>FreeLancing</asp:ListItem>
+
+                        <asp:RadioButtonList ID="rbtProjectTypeList" runat="server" RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="rbtProjectTypeList_SelectedIndexChanged">
+                            <asp:ListItem Value="1">Academic</asp:ListItem>
+                            <asp:ListItem Value="2">Intern</asp:ListItem>
+                            <asp:ListItem Value="3">Professional</asp:ListItem>
+                            <asp:ListItem Value="4">FreeLancing</asp:ListItem>
                         </asp:RadioButtonList>
                     </td>
                 </tr>
@@ -68,7 +68,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtFromDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtFromDate" TargetControlID="txtFromDate" Format="dd/MM/yyyy" />
-                      
+
                         To<asp:TextBox ID="txtTodate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtTodate" TargetControlID="txtTodate" Format="dd/MM/yyyy" />
                     </td>
                 </tr>
@@ -111,6 +111,7 @@
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlTeamSize" runat="server">
+                            <asp:ListItem>Select</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
@@ -145,23 +146,23 @@
                 <tr>
                     <td>Project Live</td>
                     <td>
-                        <asp:RadioButton ID="rbtYes" runat="server" GroupName="Live" Text="Yes" />
+                        <asp:RadioButton ID="rbtYes" runat="server" GroupName="Live" Text="Yes" AutoPostBack="True" />
                         <asp:RadioButton ID="rbtNo" runat="server" GroupName="Live" Text="No" /></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblLinkUrl" runat="server" Text="Project Link/URL"></asp:Label>
+                        <asp:Label ID="lblLinkUrl" runat="server" Text="Project Link/URL" Visible="false"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtLink" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtLink" runat="server" Visible="false"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label2" runat="server" Text="Degree"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Degree" Visible="false"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -176,11 +177,12 @@
         </div>
 
         <div style="margin-top: 20px; margin-left: 10px;">
-
+            <asp:HiddenField ID="hfCandidateId" runat="server" />
             <asp:GridView ID="GridView1" AutoGenerateColumns="false" runat="server" ForeColor="#333333"
                 GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                    <asp:BoundField Visible="false" HeaderText="CandidateId" DataField="CandidateId" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Project For" DataField="ProjectFor" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Project Title" DataField="ProjectTitle" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Company Name" DataField="CompanyName" />
@@ -209,11 +211,10 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
         </div>
-         <div  style="margin-top:10px;margin-left:350px">
-    <asp:Button ID="btnsubmitProject" runat="server" style="color:White" 
-            Text="Save Project" BackColor="#999966" onclick="btnsubmitProject_Click" />
-    </div>
-   
+        <div style="margin-top: 10px; margin-left: 350px">
+            <asp:Button ID="btnsubmitProject" runat="server" Style="color: White"
+                Text="Save Project" BackColor="#999966" OnClick="btnsubmitProject_Click" />
+        </div>
     </form>
 </body>
 </html>

@@ -1,5 +1,4 @@
-﻿using Entities.JobSeeker;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -16,39 +15,13 @@ namespace DAL
         /// <returns></returns>
         public DataTable GetRole()
         {
-            DataTable table = new DataTable();
-            SqlCommand cmd = new SqlCommand("select * from JS_Roles", connection);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(table);
-            return table;
-        }
-
-        ///// <summary>
-        ///// Add Project Details
-        ///// </summary>
-        ///// <param name="addProjectDetailsEntity">Object for inserting data into database</param>
-        ///// <returns>System.Int32</returns>
-        public int SaveProjectDetailsDAL(ProjectDetailsEntity addProjectDetailsEntity)
-        {
             try
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand();
-                SqlParameter[] sqlparams ={
-                                            new SqlParameter("@candidateId",addProjectDetailsEntity.CandidateId),
-                                            new SqlParameter("@companyName",addProjectDetailsEntity.CompanyName),
-                                            new SqlParameter("@projectTitle",addProjectDetailsEntity.ProjectTitle),
-                                            new SqlParameter("@yourRole",addProjectDetailsEntity.YourRole),
-                                            new SqlParameter("@clientName",addProjectDetailsEntity.ClientName),
-                                            new SqlParameter("@projectLocation",addProjectDetailsEntity.ProjectLocation),
-                                            new SqlParameter("@duration",addProjectDetailsEntity.Duration),
-                                            new SqlParameter("@employeeType",addProjectDetailsEntity.EmployeeType),
-                                            new SqlParameter("@projectDescription",addProjectDetailsEntity.ProjectDescription),
-                                            new SqlParameter("@teamSize",addProjectDetailsEntity.TeamSize),
-                                            new SqlParameter("@skillUsed",addProjectDetailsEntity.SkillUsed)
-                                        };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertProjectDetails, sqlparams);
-                return result;
+                DataTable table = new DataTable();
+                SqlCommand cmd = new SqlCommand("select * from JS_Roles", connection);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(table);
+                return table;
             }
             catch (Exception)
             {
@@ -58,31 +31,38 @@ namespace DAL
 
         public DataTable SaveProjectDetailsDAL(DataTable dtProductSold)
         {
-           
-            connection.Open();
-            //creating object of SqlBulkCopy
-            SqlBulkCopy objbulk = new SqlBulkCopy(connection);
-            //assigning Destination table name
-            objbulk.DestinationTableName = "Test";
-            //Mapping Table column
-            objbulk.ColumnMappings.Add("ProjectFor", "ProjectFor");
-            objbulk.ColumnMappings.Add("ProjectTitle", "ProjectTitle");
-            objbulk.ColumnMappings.Add("CompanyName", "CompanyName");
-            objbulk.ColumnMappings.Add("Role", "Role");
-            objbulk.ColumnMappings.Add("ClientName", "ClientName");
-            objbulk.ColumnMappings.Add("Duration", "Duration");
-            objbulk.ColumnMappings.Add("ProjectLocation", "ProjectLocation");
-            objbulk.ColumnMappings.Add("EmploymentType", "EmploymentType");
-            objbulk.ColumnMappings.Add("ProjectDetails", "ProjectDetails");
-            objbulk.ColumnMappings.Add("RolesandResponsibility", "RolesandResponsibility");
-            objbulk.ColumnMappings.Add("TeamSize", "TeamSize");
-            objbulk.ColumnMappings.Add("SkillUsed", "SkillUsed");
-            objbulk.ColumnMappings.Add("ProjectLive", "ProjectLive");
-            objbulk.ColumnMappings.Add("ProjectLink", "ProjectLink");
-            objbulk.ColumnMappings.Add("Degree", "Degree");
-            //inserting bulk Records into DataBase 
-            objbulk.WriteToServer(dtProductSold);
-            return dtProductSold;
+            try
+            {
+                connection.Open();
+                //creating object of SqlBulkCopy
+                SqlBulkCopy objbulk = new SqlBulkCopy(connection);
+                //assigning Destination table name
+                objbulk.DestinationTableName = "JS_ProjectDetail";
+                //Mapping Table column
+                objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
+                objbulk.ColumnMappings.Add("ProjectFor", "ProjectFor");
+                objbulk.ColumnMappings.Add("ProjectTitle", "ProjectTitle");
+                objbulk.ColumnMappings.Add("CompanyName", "CompanyName");
+                objbulk.ColumnMappings.Add("Role", "Role");
+                objbulk.ColumnMappings.Add("ClientName", "ClientName");
+                objbulk.ColumnMappings.Add("Duration", "Duration");
+                objbulk.ColumnMappings.Add("ProjectLocation", "ProjectLocation");
+                objbulk.ColumnMappings.Add("EmploymentType", "EmploymentType");
+                objbulk.ColumnMappings.Add("ProjectDetails", "ProjectDetails");
+                objbulk.ColumnMappings.Add("RolesandResponsibility", "RolesandResponsibility");
+                objbulk.ColumnMappings.Add("TeamSize", "TeamSize");
+                objbulk.ColumnMappings.Add("SkillUsed", "SkillUsed");
+                objbulk.ColumnMappings.Add("ProjectLive", "ProjectLive");
+                objbulk.ColumnMappings.Add("ProjectLink", "ProjectLink");
+                objbulk.ColumnMappings.Add("Degree", "Degree");
+                //inserting bulk Records into DataBase
+                objbulk.WriteToServer(dtProductSold);
+                return dtProductSold;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

@@ -25,13 +25,22 @@ namespace DAL
 
         public DataTable GetTechnicalSkillDAL(string prefixText)
         {
-            DataTable dt = new DataTable();
-            connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from TechnicalSkillsDetails where TechnicalSkillName like @KeySkills+'%'", connection);
-            cmd.Parameters.AddWithValue("@KeySkills", prefixText);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            adp.Fill(dt);
-            return dt;
+            try
+            {
+                DataTable dt = new DataTable();
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("select * from TechnicalSkillsDetails where TechnicalSkillName like @KeySkills+'%'", connection);
+                cmd.Parameters.AddWithValue("@KeySkills", prefixText);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
     }
 }
