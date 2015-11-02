@@ -7,12 +7,18 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ProjectDetails : System.Web.UI.Page
     {
+        string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["candidateId"] == "undefined")
+            {
+                Response.Redirect("LogIn.aspx");
+            }
+            candidateId = Convert.ToString(Session["candidateId"]);
             if (!IsPostBack)
             {
                 //Take Candidate Id from Session
-                hfCandidateId.Value = "C101"; //Session["CandidateId"].ToString();
+                hfCandidateId.Value = candidateId; //Session["CandidateId"].ToString();
                 AddDefaultFirstRecord();
             }
 
@@ -51,7 +57,7 @@ namespace JobFair.Forms.JobSeeker
             {
                 if (ViewState["ProductsSold"] != null)
                 {
-                    DataTable dtCurrentTable = (DataTable)ViewState["ProductsSold"];
+                    DataTable dtCurrentTable = (DataTable)ViewState["ProjectDetails"];
                     DataRow drCurrentRow = null;
 
                     if (dtCurrentTable.Rows.Count > 0)
@@ -109,7 +115,7 @@ namespace JobFair.Forms.JobSeeker
                         //Added New Record to the DataTable
                         dtCurrentTable.Rows.Add(drCurrentRow);
                         //storing DataTable to ViewState
-                        ViewState["ProductsSold"] = dtCurrentTable;
+                        ViewState["ProjectDetails"] = dtCurrentTable;
                         //binding Gridview with New Row
                         GridView1.DataSource = dtCurrentTable;
                         GridView1.DataBind();
@@ -129,7 +135,7 @@ namespace JobFair.Forms.JobSeeker
                 //creating DataTable
                 DataTable dt = new DataTable();
                 DataRow dr;
-                dt.TableName = "ProductsSold";
+                dt.TableName = "ProjectDetails";
                 //creating columns for DataTable
                 dt.Columns.Add(new DataColumn("CandidateId", typeof(string)));
                 dt.Columns.Add(new DataColumn("ProjectFor", typeof(string)));
@@ -150,7 +156,7 @@ namespace JobFair.Forms.JobSeeker
                 dr = dt.NewRow();
                 dt.Rows.Add(dr);
 
-                ViewState["ProductsSold"] = dt;
+                ViewState["ProjectDetails"] = dt;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
             }
@@ -163,8 +169,8 @@ namespace JobFair.Forms.JobSeeker
         protected void btnsubmitProject_Click(object sender, EventArgs e)
         {
             ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
-            DataTable dtProductSold = (DataTable)ViewState["ProductsSold"];
-            projectDetailsBAL.SaveProjectDetailsBAL(dtProductSold);
+            DataTable dtProjectDetails = (DataTable)ViewState["ProjectDetails"];
+            projectDetailsBAL.SaveProjectDetailsBAL(dtProjectDetails);
             Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
         }
 

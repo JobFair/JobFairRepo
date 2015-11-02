@@ -9,8 +9,10 @@ namespace JobFair.UserControls.JobSeeker
     /// </summary>
     public partial class ContactDetails : System.Web.UI.UserControl
     {
+        string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
+           candidateId = Convert.ToString(Session["candidateId"]);
         }
 
         /// <summary>
@@ -26,7 +28,7 @@ namespace JobFair.UserControls.JobSeeker
                 ContactDetailsEntity contactDetailsEntity = new ContactDetailsEntity();
                 //set the value of ContactDetailsJobSeekerEntity
 
-                contactDetailsEntity.CandidateId = "JS00001";//static data used because session value not set
+                contactDetailsEntity.CandidateId = candidateId;
                 contactDetailsEntity.AltMobileNo = txtAltNo.Text.Trim();
                 contactDetailsEntity.LandLineNo = txtLandno.Text.Trim();
                 contactDetailsEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();

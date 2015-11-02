@@ -11,12 +11,13 @@ namespace JobFair.UserControls.JobSeeker
     {
         private DataSet ds = new DataSet();
         private PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
-
+        string candidateId;
         /// <summary>
         /// Class PersonalDetails
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
             if (!IsPostBack)
             {
                 ds = personalDetailsBAL.GetCountry();
@@ -51,7 +52,7 @@ namespace JobFair.UserControls.JobSeeker
                 if (validated)
                 {
                     // Set value to PersonalDetails job seeker entity
-                    personalDetailsEntity.candidateId = "JS00001";//static data used because session value not set
+                    personalDetailsEntity.candidateId = candidateId;//static data used because session value not set
                     personalDetailsEntity.presentAddress = txtPresentAddress.Text;
                     personalDetailsEntity.presentCountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
                     personalDetailsEntity.presentStateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
@@ -91,6 +92,7 @@ namespace JobFair.UserControls.JobSeeker
                     if (result > 0)
                     {
                         Response.Write("<script language='javascript'>alert('Personal Details Inserted')</script>");
+                      
                     }
                     else
                     {
