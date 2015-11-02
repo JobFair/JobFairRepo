@@ -3,34 +3,16 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script>
-    $(document).ready(function () {
-
-        var $datepicker1 = $("#<%=txtFromDate.ClientID%>");
-            var $datepicker2 = $("#<%=txtTillDate.ClientID%>");
-            $datepicker1.datepicker();
-            $datepicker2.datepicker({
-                onClose: function () {
-                    var fromDate = $datepicker1.datepicker('getDate');
-                    var toDate = $datepicker2.datepicker('getDate');
-                    // date difference in millisec
-                    var diff = new Date(toDate - fromDate);
-                    // date difference in days
-                    var days = diff / 1000 / 60 / 60 / 24 / 365;
-
-                    alert(days);
-                }
-            });
-        });
-</script>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
+
 
 <div>
     &nbsp;<table id="TableCurrentJob" runat="server">
         <tr>
             <td colspan="2">
-                <h1>Current Job Details</h1>
+                <h1>&nbsp;Job Details</h1>
             </td>
         </tr>
          <tr><td>
@@ -39,6 +21,12 @@
             <td>Resume Headline</td>
             <td>
                 <asp:TextBox ID="txtResumeHeadline" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>Objective</td>
+            <td>
+                <asp:TextBox ID="txtObjective" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -54,20 +42,17 @@
             <td>
                 <asp:RadioButton ID="rbtEmployed" Text="Employed" runat="server" OnCheckedChanged="rbtEmployed_CheckedChanged" AutoPostBack="True" GroupName="EmplyeeORNot" />
                 &nbsp;&nbsp;&nbsp;
-                <asp:RadioButton ID="rbtUnEmployed" Text="UnEmployed" runat="server" AutoPostBack="True" GroupName="EmplyeeORNot" OnCheckedChanged="rbtUnEmployed_CheckedChanged" />
+                <asp:RadioButton ID="rbtUnEmployed" Text="Un-Employed" runat="server" AutoPostBack="True" GroupName="EmplyeeORNot" OnCheckedChanged="rbtUnEmployed_CheckedChanged" />
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <div id="divExperience" runat="server" visible="false">
+                <div id="divExperience" runat="server" >
                     <table>
                         <tr>
-                            <td>Do You Have?
-                            </td>
+                            <td>&nbsp;</td>
                             <td>
-                                <asp:RadioButton ID="rbtPastExperience" Text="Past Experience" runat="server" AutoPostBack="True" GroupName="ExperienceOrNot" OnCheckedChanged="rbtPastExperience_CheckedChanged" />
-                                <asp:RadioButton ID="rbtNoExpeience" runat="server" Text="No Experience" AutoPostBack="True" GroupName="ExperienceOrNot" OnCheckedChanged="rbtNoExpeience_CheckedChanged" />
-                            </td>
+                                &nbsp;</td>
                         </tr>
                        
                     </table>
@@ -76,39 +61,62 @@
         </tr>
         <tr>
             <td colspan="2">
-                <div id="divCurrentEmployer" visible="false" runat="server">
+                <div id="divCurrentEmployer"  runat="server">
                     <table>
                         <tr>
                             <td colspan="2">
-                                <h1>Current Employer</h1>
+                                <h1>&nbsp;Employer</h1>
                             </td>
                         </tr>
                         <tr>
-                            <td>Current Designation</td>
+                            <td>&nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Employer/Company Name</td>
+                            <td>
+                                <asp:DropDownList ID="DropDownList13" runat="server">
+                                    <asp:ListItem>Select</asp:ListItem>
+                                    <asp:ListItem>Current</asp:ListItem>
+                                    <asp:ListItem>Past</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:TextBox ID="txtCurrentEmployer" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Designation</td>
                             <td>
                                 <asp:TextBox ID="txtCurrentDesignation" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Current Employer</td>
+                            <td>Roles &amp; Responsibilities</td>
                             <td>
-                                <asp:TextBox ID="txtCurrentEmployer" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox3" runat="server" Height="117px" TextMode="MultiLine" Width="366px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td>Duration</td>
                             <td>
-                                <asp:TextBox ID="txtFromCurrent" runat="server"></asp:TextBox>
-                                <cc1:TextBoxWatermarkExtender ID="txtFromCurrent_TextBoxWatermarkExtender" runat="server" BehaviorID="txtFromCurrent_TextBoxWatermarkExtender" TargetControlID="txtFromCurrent" WatermarkText="From" />
-                                <cc1:CalendarExtender ID="txtFromCurrent_CalendarExtender" runat="server" BehaviorID="txtFromCurrent_CalendarExtender" TargetControlID="txtFromCurrent" />
-                                <asp:TextBox ID="txtTillCurrent" runat="server"></asp:TextBox>
-                                <cc1:TextBoxWatermarkExtender ID="txtTillCurrent_TextBoxWatermarkExtender" runat="server" BehaviorID="txtTillCurrent_TextBoxWatermarkExtender" TargetControlID="txtTillCurrent" WatermarkText="Till" />
-                                <cc1:CalendarExtender ID="txtTillCurrent_CalendarExtender" runat="server" BehaviorID="txtTillCurrent_CalendarExtender" TargetControlID="txtTillCurrent" />
+                                From
+                                <asp:DropDownList ID="ddlFromMonth" runat="server" >
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlFromYear" runat="server">
+                                </asp:DropDownList>
+&nbsp;Till<asp:DropDownList ID="ddlTillMonth" runat="server">
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlTillYear" runat="server">
+                                </asp:DropDownList>
                             </td>
                         </tr>
                         <tr>
                             <td>Industry</td>
                             <td>
+                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" CssClass="form-control">
+                                  
+                                </asp:DropDownCheckBoxes>
+                                <asp:DropDownCheckBoxes ID="ddlchbIndustry" runat="server"></asp:DropDownCheckBoxes>
                                 <asp:DropDownList ID="ddlIndustry" runat="server">
                                 </asp:DropDownList>
                                 <br />
@@ -122,32 +130,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Primary Functional Role</td>
-                            <td>
-                                <asp:DropDownList ID="ddlPrimaryRole" runat="server">
-                                    <asp:ListItem>Development</asp:ListItem>
-                                    <asp:ListItem>Testing</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Secondary Functional Roles</td>
-                            <td>
-                                <asp:DropDownList ID="ddlSecRole" runat="server">
-                                    <asp:ListItem>Testing</asp:ListItem>
-                                    <asp:ListItem>Developement</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Employment status</td>
+                            <td>Employment Status</td>
                             <td>
                                 <asp:CheckBoxList ID="CheckBoxList2" runat="server">
                                     <asp:ListItem>Full Time</asp:ListItem>
                                     <asp:ListItem>Part Time</asp:ListItem>
                                 </asp:CheckBoxList>
-                            </td>
+                            &nbsp;</td>
                         </tr>
                         <tr>
                             <td>Job Type</td>
@@ -171,13 +160,23 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:LinkButton ID="lbPastEmployer" runat="server" Text="PastExperience" OnClientClick="AddMorePastJob()" OnClick="lbPastEmployer_Click"></asp:LinkButton>
+                                Reason For JobChange</td>
+                            <td>
+                                <asp:TextBox ID="txtPastReasonforJobchange" runat="server" TextMode="MultiLine" ></asp:TextBox>
                             </td>
-                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSaveCurrentJob_Click" />
+                <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
+                <asp:Label ID="lblmsgsave" runat="server" Text="Label"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <div id="TextBoxContainer" runat="server" visible="false">
+                                <div id="TextBoxContainer" runat="server" >
                                     <!--Textboxes will be added here -->
                                 </div>
                             </td>
@@ -187,107 +186,10 @@
             </td>
         </tr>
 
-        <tr>
-            <td colspan="2">
-                <div id="divPastEmloyer" runat="server" visible="false">
-                    <table>
-                        <tr>
-                            <td colspan="2">
-                                <h1>Past Experience</h1>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Past Designation
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtPastDesignation" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Past Employer</td>
-                            <td>
-                                <asp:TextBox ID="txtPastEmployer" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Duration</td>
-                            <td>
-                                <asp:TextBox ID="txtFromDate" runat="server" CssClass="date"></asp:TextBox>
-                                <cc1:TextBoxWatermarkExtender ID="txtFromDate_TextBoxWatermarkExtender" runat="server" BehaviorID="txtFromDate_TextBoxWatermarkExtender" TargetControlID="txtFromDate" WatermarkText="From" />
-                                <asp:TextBox ID="txtTillDate" runat="server" CssClass="date"></asp:TextBox>
-                                <cc1:TextBoxWatermarkExtender ID="txtTillDate_TextBoxWatermarkExtender" runat="server" BehaviorID="txtTillDate_TextBoxWatermarkExtender" TargetControlID="txtTillDate" WatermarkText="Till" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Industry</td>
-                            <td>
-                                <asp:DropDownList ID="ddlPastIndustry" runat="server">
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Department</td>
-                            <td>
-                                <asp:DropDownList ID="ddlPastDepartment" runat="server" DataTextField="DepartmentName" DataValueField="DepartmentId">
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Primary Functional Role</td>
-                            <td>
-                                <asp:DropDownList ID="ddlPastPrimaryRole" runat="server">
-                                    <asp:ListItem>Development</asp:ListItem>
-                                    <asp:ListItem>Testing</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Secondary Functional Roles</td>
-                            <td>
-                                <asp:DropDownList ID="DropDownList1" runat="server">
-                                    <asp:ListItem>Testing</asp:ListItem>
-                                    <asp:ListItem>Developement</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Reason For JobChange</td>
-                            <td>
-                                <asp:TextBox ID="txtPastReasonforJobchange" runat="server" TextMode="MultiLine"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-
-        <tr>
-            <td>&nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-
-        <tr>
-            <td>&nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-
-        <tr>
-            <td>&nbsp;</td>
-            <td>
-                <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSaveCurrentJob_Click" />
-                &nbsp;
-                <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
-                <asp:Label ID="lblmsgsave" runat="server" Text="Label"></asp:Label>
-            </td>
-        </tr>
-    </table>
+        </table>
 </div>
 <hr />
-<div id="divDesireJobDetails" runat="server" visible="false">
+<div id="divDesireJobDetails" runat="server" >
     <table id="TableDesiredJob" runat="server">
         <tr>
             <td colspan="2">
@@ -349,7 +251,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <div id="divAddMoreJob" runat="server" visible="false">
+                <div id="divAddMoreJob" runat="server" >
                     <table>
                         <tr>
                             <td colspan="2">
@@ -453,23 +355,24 @@
             </td>
         </tr>
         <tr>
+            <td>
+                <%-- <asp:DropDownList ID="ddlCity" runat="server"></asp:DropDownList>--%>
+            </td>
             <td colspan="2">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        Preferred City<asp:TextBox ID="txtPreferredCity" runat="server"></asp:TextBox>
-                        <cc1:AutoCompleteExtender ID="txtPreferredCity_AutoCompleteExtender" runat="server"
-                            EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000"
-                             TargetControlID="txtPreferredCity" MinimumPrefixLength="1" ServiceMethod="Getcity">
-                        </cc1:AutoCompleteExtender>
+                
+                  
+                        Preferred City<asp:DropDownCheckBoxes ID="ddlPreferredCity" runat="server"></asp:DropDownCheckBoxes>
+               <%-- <asp:DropDownCheckBoxes ID="ddlCity" runat="server" style="right: 90px; top: 0px; left: -130px">--%>
+
+                       <%-- </asp:DropDownCheckBoxes>--%>
+               
                         <br />
                         Preferred Area
-                        <asp:TextBox ID="txtPreferredArea" runat="server"></asp:TextBox>
-                        <cc1:AutoCompleteExtender ID="txtPreferredArea_AutoCompleteExtender" runat="server" TargetControlID="txtPreferredArea"
-                            CompletionInterval="500" CompletionSetCount="1" MinimumPrefixLength="1"
-                             ServiceMethod="GetArea">
-                        </cc1:AutoCompleteExtender>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                         <asp:DropDownCheckBoxes ID="ddlArea" runat="server" style="top: -19px; left: -95px" AutoPostBack="True">
+                                    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                                </asp:DropDownCheckBoxes>
+                        
+                   
             </td>
         </tr>
 
