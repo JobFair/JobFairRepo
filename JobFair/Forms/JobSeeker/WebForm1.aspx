@@ -5,6 +5,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,12 +19,6 @@
 <body>
     <form runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="TextBox1"  MinimumPrefixLength="1"
-           EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="Getcity"></cc1:AutoCompleteExtender>
-        <%-- <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
-                                    EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetKeySkills">
-                                </cc1:AutoCompleteExtender>--%>
         <uc1:ProfessionalDetails runat="server" ID="ProfessionalDetails" />
     </form>
 </body>

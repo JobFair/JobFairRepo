@@ -26,7 +26,7 @@ namespace DAL
 
                 //Parameters to pass to the stored procedure
 
-                SqlParameter[] sparams = new SqlParameter[12];
+                SqlParameter[] sparams = new SqlParameter[11];
                  
                 sparams[0] = new SqlParameter("@fname", registerEntity.FirstName);
                 sparams[1] = new SqlParameter("@lname", registerEntity.LastName);

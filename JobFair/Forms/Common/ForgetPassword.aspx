@@ -17,6 +17,7 @@
         <tr>
             <td>Enter your MailId here</td>
             <td><asp:TextBox ID="txtEmailId" runat="server" CssClass="watermark"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter Correct Mail Id" ForeColor="#FF3300">*</asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
