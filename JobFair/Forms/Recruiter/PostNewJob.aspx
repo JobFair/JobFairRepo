@@ -48,9 +48,11 @@
                                 </asp:DropDownList>
                                 <br />
                                 <br />
-                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -82px; left: 0px">
+                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -82px; left: 0px" AutoPostBack="True" OnSelectedIndexChanged="ddlLocation_SelectedIndexChanged">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>
+                                &nbsp;&nbsp;
+                            <asp:Label ID="lbllocation" runat="server"></asp:Label>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </td>
