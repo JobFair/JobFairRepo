@@ -10,10 +10,24 @@ namespace JobFair.Forms.JobSeeker
     public partial class jobSearch : System.Web.UI.Page
     {
         private EducationalDetailsBAL educationalDetails = null;
-        public string keySkill, city, state, experience, minSalary, maxSalary;
+        public string keySkill, city, state, experience, minSalary, maxSalary, candidateId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
+            if (candidateId == "")
+            {
+                string message = "Sorry your session has been expired !!!!";
+                string url = "LogIn.aspx";
+                string script = "window.onload = function(){ alert('";
+                script += message;
+                script += "');";
+                script += "window.location = '";
+                script += url;
+                script += "'; }";
+                ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                // Response.Redirect("LogIn.aspx");
+            }
             //GetDataFromSession();
             if (!Page.IsPostBack)
             {

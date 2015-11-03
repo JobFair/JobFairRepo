@@ -13,6 +13,7 @@ namespace JobFair.UserControls.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
            candidateId = Convert.ToString(Session["candidateId"]);
+         
         }
 
         /// <summary>

@@ -10,11 +10,21 @@ namespace JobFair.Forms.JobSeeker
         string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["candidateId"] == "undefined")
-            {
-                Response.Redirect("LogIn.aspx");
-            }
             candidateId = Convert.ToString(Session["candidateId"]);
+            if (candidateId == "")
+            {
+                string message = "Sorry your session has been expired !!!!";
+                string url = "LogIn.aspx";
+                string script = "window.onload = function(){ alert('";
+                script += message;
+                script += "');";
+                script += "window.location = '";
+                script += url;
+                script += "'; }";
+                ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+               // Response.Redirect("LogIn.aspx");
+            }
+            
             if (!IsPostBack)
             {
                 //Take Candidate Id from Session
@@ -55,7 +65,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                if (ViewState["ProductsSold"] != null)
+                if (ViewState["ProjectDetails"] != null)
                 {
                     DataTable dtCurrentTable = (DataTable)ViewState["ProjectDetails"];
                     DataRow drCurrentRow = null;
@@ -73,12 +83,12 @@ namespace JobFair.Forms.JobSeeker
                             drCurrentRow = dtCurrentTable.NewRow();
                             drCurrentRow["CandidateId"] = hfCandidateId.Value.Trim();
                             drCurrentRow["ProjectFor"] = rbtProjectTypeList.SelectedItem.Text;
-                            drCurrentRow["ProjectTitle"] = txtProjectTitle.Text;
-                            drCurrentRow["CompanyName"] = txtCompanyName.Text;
+                            drCurrentRow["ProjectTitle"] = txtProjectTitle.Text.Trim();
+                            drCurrentRow["CompanyName"] = txtCompanyName.Text.Trim();
                             drCurrentRow["Role"] = ddlRole.SelectedItem.Text;
-                            drCurrentRow["ClientName"] = txtClientName.Text;
+                            drCurrentRow["ClientName"] = txtClientName.Text.Trim();
                             drCurrentRow["Duration"] = Convert.ToInt32(days);
-                            drCurrentRow["ProjectLocation"] = txtLocation.Text;
+                            drCurrentRow["ProjectLocation"] = txtLocation.Text.Trim();
 
                             if (rbtFullTime.Checked)
                             {
@@ -89,10 +99,10 @@ namespace JobFair.Forms.JobSeeker
                                 drCurrentRow["EmploymentType"] = "PartTime";
                             }
 
-                            drCurrentRow["ProjectDetails"] = txtProjectDetails.Text;
-                            drCurrentRow["RolesandResponsibility"] = txtRolesAndResponsibility.Text;
+                            drCurrentRow["ProjectDetails"] = txtProjectDetails.Text.Trim();
+                            drCurrentRow["RolesandResponsibility"] = txtRolesAndResponsibility.Text.Trim();
                             drCurrentRow["TeamSize"] = ddlTeamSize.SelectedItem.Text;
-                            drCurrentRow["SkillUsed"] = txtSkillUsed.Text;
+                            drCurrentRow["SkillUsed"] = txtSkillUsed.Text.Trim();
 
                             if (rbtYes.Checked)
                             {
@@ -102,8 +112,8 @@ namespace JobFair.Forms.JobSeeker
                             {
                                 drCurrentRow["ProjectLive"] = "No";
                             }
-                            drCurrentRow["ProjectLink"] = txtLink.Text;
-                            drCurrentRow["Degree"] = TextBox1.Text;
+                            drCurrentRow["ProjectLink"] = txtLink.Text.Trim();
+                            drCurrentRow["Degree"] = TextBox1.Text.Trim();
                         }
                         //Removing initial blank row
                         if (dtCurrentTable.Rows[0][0].ToString() == "")
