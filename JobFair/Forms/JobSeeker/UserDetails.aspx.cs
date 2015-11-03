@@ -11,8 +11,12 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string canidateid = Session["Candidateid"].ToString();
-            //Response.Write(canidateid);
+            if (Session["candidateId"] == "undefined")
+            {
+                Response.Redirect("LogIn.aspx");
+            }
+           string candidateId = Convert.ToString(Session["candidateId"]);
+            
         }
     }
 }

@@ -18,7 +18,6 @@ namespace JobFair
         protected void Session_Start(object sender, EventArgs e)
         {
             Session["candidateId"] = "undefined";
-            //Session["JobPost"] = "txtJobtitle.Text";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

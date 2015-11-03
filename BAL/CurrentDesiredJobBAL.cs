@@ -86,6 +86,16 @@ namespace BAL
             return desiredjobDAL.GetPreferredAreaDAL(prefixText);
         }
 
-       
+
+
+        public System.Data.DataSet GetCity()
+        {
+            return Utility.GetCity();
+        }
+
+        public System.Data.DataSet GetArea()
+        {
+            return Utility.GetArea();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Forms/JobSeeker/Home.Master" CodeBehind="Register.aspx.cs" Inherits="JobFair.Forms.JobSeeker.JobSeekerRegister" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" CodeBehind="Register.aspx.cs" Inherits="JobFair.Forms.JobSeeker.JobSeekerRegister" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
@@ -6,44 +6,7 @@
     <div class="container">
         <div class="jumbotron">
             <h1>Register</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                First name
-            </div>
-            <div class="col-md-4">
-                <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            Last Name
-        </div>
-        <div class="col-md-4">
-            <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4">
-            Email Id
-        </div>
-        <div class="col-lg-4">
-            <asp:TextBox ID="txtEmailId" runat="server"></asp:TextBox>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4">
-            Gender
-        </div>
-        <div class="col-lg-4">
-            <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
-                <asp:ListItem>Female</asp:ListItem>
-                <asp:ListItem>Male</asp:ListItem>
-            </asp:RadioButtonList>
-        </div>
-    </div>
-
+        </div> 
     <div>
 
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -51,16 +14,38 @@
         <table class="auto-style1">
             <tr>
                 <td colspan="2">
-                    <img alt="" src="../../Images/L1-whte.jpg" /></td>
+                    &nbsp;</td>
             </tr>
 
             <tr>
-                <td></td>
-               
+                <td>First name</td>
+                <td>
+                <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
-                <td></td>
-               
+                <td>Last Name
+        </td>
+                <td>
+            <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>Email Id
+        </td>
+                <td>
+            <asp:TextBox ID="txtEmailId" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender
+        </td>
+                <td>
+            <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
+                <asp:ListItem>Female</asp:ListItem>
+                <asp:ListItem>Male</asp:ListItem>
+            </asp:RadioButtonList>
+                </td>
             </tr>
             <tr>
                 <td>Mobile No</td>

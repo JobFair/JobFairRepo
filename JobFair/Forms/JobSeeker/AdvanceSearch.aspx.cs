@@ -25,33 +25,54 @@ namespace JobFair.Forms.JobSeeker
         /// </summary>
         private void BindIndustry()
         {
-            ds = AdvanceJobSearchBAL.GetIndustry();
-            ddlIndustry.DataSource = ds;
-            ddlIndustry.DataTextField = "IndustryName";
-            ddlIndustry.DataValueField = "IndustryId";
-            ddlIndustry.DataBind();
-            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                ds = AdvanceJobSearchBAL.GetIndustry();
+                ddlIndustry.DataSource = ds;
+                ddlIndustry.DataTextField = "IndustryName";
+                ddlIndustry.DataValueField = "IndustryId";
+                ddlIndustry.DataBind();
+                ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void BindDepartment()
         {
-            ds = AdvanceJobSearchBAL.GetFunctionalArea();
-            ddlJobCategory.DataSource = ds;
-            ddlJobCategory.DataTextField = "FunctionalArea";
-            ddlJobCategory.DataValueField = "FunctionalAreaId";
-            ddlJobCategory.DataBind();
-            ddlJobCategory.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                ds = AdvanceJobSearchBAL.GetFunctionalArea();
+                ddlJobCategory.DataSource = ds;
+                ddlJobCategory.DataTextField = "FunctionalArea";
+                ddlJobCategory.DataValueField = "FunctionalAreaId";
+                ddlJobCategory.DataBind();
+                ddlJobCategory.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void BindState()
         {
-            AdvanceJobSearchBAL advaceJobSearchBAL = new AdvanceJobSearchBAL();
-            ds = advaceJobSearchBAL.GetState();
-            ddlState.DataSource = ds;
-            ddlState.DataTextField = "StateName";
-            ddlState.DataValueField = "StateId";
-            ddlState.DataBind();
-            ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                AdvanceJobSearchBAL advaceJobSearchBAL = new AdvanceJobSearchBAL();
+                ds = advaceJobSearchBAL.GetState();
+                ddlState.DataSource = ds;
+                ddlState.DataTextField = "StateName";
+                ddlState.DataValueField = "StateId";
+                ddlState.DataBind();
+                ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected void btnsearch_Click(object sender, EventArgs e)
@@ -61,24 +82,38 @@ namespace JobFair.Forms.JobSeeker
 
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int cityId = Convert.ToInt32(ddlCity.SelectedValue);
-            ds = AdvanceJobSearchBAL.GetArea(cityId);
-            ddlLocation.DataSource = ds;
-            ddlLocation.DataTextField = "AreaName";
-            ddlLocation.DataValueField = "AreaId";
-            ddlLocation.DataBind();
-            ddlLocation.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                int cityId = Convert.ToInt32(ddlCity.SelectedValue);
+                ds = AdvanceJobSearchBAL.GetArea(cityId);
+                ddlLocation.DataSource = ds;
+                ddlLocation.DataTextField = "AreaName";
+                ddlLocation.DataValueField = "AreaId";
+                ddlLocation.DataBind();
+                ddlLocation.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int stateId = Convert.ToInt32(ddlState.SelectedValue);
-            ds = AdvanceJobSearchBAL.GetCity(stateId);
-            ddlCity.DataSource = ds;
-            ddlCity.DataTextField = "cityName";
-            ddlCity.DataValueField = "cityID";
-            ddlCity.DataBind();
-            ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                int stateId = Convert.ToInt32(ddlState.SelectedValue);
+                ds = AdvanceJobSearchBAL.GetCity(stateId);
+                ddlCity.DataSource = ds;
+                ddlCity.DataTextField = "cityName";
+                ddlCity.DataValueField = "cityID";
+                ddlCity.DataBind();
+                ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [System.Web.Script.Services.ScriptMethod()]

@@ -186,6 +186,7 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobType = chkjobtype.SelectedItem.Text.Trim();
                 addJobPostEntity.EmploymentStatus = chkemploymenttype.Text.Trim();
                 addJobPostEntity.RecruitmentType = RadioButtonList1.SelectedItem.ToString();
+                addJobPostEntity.CompanyName = chkcompanyname.SelectedItem.Text.Trim();
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
                 {
@@ -225,12 +226,9 @@ namespace JobFair.Forms.Recruiter
             {
                 lblclientoflogossolutios.Visible = false;
                 txtaboutcompany.Visible = true;
-                chkitech.Visible = true;
-                chkcorporate.Visible = true;
                 lblclientoflogossolutios.Visible = false;
                 txtclient.Visible = false;
-                lblcompanyname1.Visible = true;
-                lblcompanyname2.Visible = true;
+               
 
             }
              else 
@@ -239,7 +237,7 @@ namespace JobFair.Forms.Recruiter
                  txtclient.Visible = true;
                  txtaboutcompany.Visible = false;
                  lblclientoflogossolutios.Visible = true;
-                 lblcompanyname1.Visible = false;
+              
              }
 
         }
@@ -388,27 +386,6 @@ namespace JobFair.Forms.Recruiter
             selectedItemspanel.Controls.Clear();
         }
 
-        protected void chkitech_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkitech.Checked)
-            {
-                chkcorporate.Checked = false;
-                lblcompanyname1.Visible = true;
-                lblcompanyname2.Visible = false;
-
-            }
-        }
-
-        protected void chkcorporate_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkcorporate.Checked)
-            {
-                chkitech.Checked = false;
-                lblcompanyname2.Visible = true;
-                lblcompanyname1.Visible = false;
-            
-            
-            }
-        }
+      
     }
 }

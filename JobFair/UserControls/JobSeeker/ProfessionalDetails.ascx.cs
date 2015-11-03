@@ -1,7 +1,9 @@
 ﻿using BAL;
+using CommonUtil;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Web.UI.WebControls;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -18,12 +20,78 @@ namespace JobFair.UserControls.JobSeeker
                 //BindDropDownDepartment();
                 //BindDropDownCountry();
                 //divPastEmloyer.Visible = false;
+                //Bind Month List
+                BindMonth();
+                BindYear();
+                BindCity();
+                BindArea();
+                BindIndustry();
+                BindDepartment();
+
             }
+        }
+
+        private void BindDepartment()
+        {
+            ds = currentjobBAL.GetDepartment();
+            ddlDepartment.DataSource = ds;
+            ddlDepartment.DataTextField = "DepartmentName";
+            ddlDepartment.DataValueField = "DepartmentId";
+            ddlDepartment.DataBind();
+            ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        private void BindIndustry()
+        {
+            ds = currentjobBAL.GetIndustry();
+            ddlchbIndustry.DataSource = ds;
+            ddlchbIndustry.DataTextField = "IndustryName";
+            ddlchbIndustry.DataValueField = "IndustryId";
+            ddlchbIndustry.DataBind();
+            ddlchbIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        private void BindArea()
+        {
+            ds = currentjobBAL.GetArea();
+            ddlArea.DataSource = ds;
+            ddlArea.DataTextField = "AreaName";
+            ddlArea.DataValueField = "AreaId";
+            ddlArea.DataBind();
+            ddlArea.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        private void BindYear()
+        {
+            List<string> yearList = new List<string>();
+            ddlFromYear.DataSource = Utility.GetYears();
+            ddlTillYear.DataSource = Utility.GetYears();
+            ddlTillYear.DataBind();
+            ddlFromYear.DataBind();
+        }
+
+        private void BindMonth()
+        {
+            List<string> monthList = new List<string>();
+            ddlFromMonth.DataSource = Utility.GetMonths();
+            ddlTillMonth.DataSource = Utility.GetMonths();
+            ddlFromMonth.DataBind();
+            ddlTillMonth.DataBind();
+        }
+
+        private void BindCity()
+        {
+            ds = currentjobBAL.GetCity();
+            ddlPreferredCity.DataSource = ds;
+            ddlPreferredCity.DataTextField = "CityName";
+            ddlPreferredCity.DataValueField = "CityId";
+            ddlPreferredCity.DataBind();
+            ddlPreferredCity.Items.Insert(0, new ListItem("--Select--", "0"));           
         }
 
         protected void lbPastEmployer_Click(object sender, EventArgs e)
         {
-            divPastEmloyer.Visible = true;
+            
         }
 
         protected void rbtEmployed_CheckedChanged(object sender, EventArgs e)
@@ -37,19 +105,18 @@ namespace JobFair.UserControls.JobSeeker
             divExperience.Visible = true;
             divCurrentEmployer.Visible = false;
             divDesireJobDetails.Visible = false;
-            divPastEmloyer.Visible = false;
-        }
+                  }
 
         protected void rbtPastExperience_CheckedChanged(object sender, EventArgs e)
         {
             divExperience.Visible = false;
-            divPastEmloyer.Visible = true;
+           
             divDesireJobDetails.Visible = true;
         }
 
         protected void rbtNoExpeience_CheckedChanged(object sender, EventArgs e)
         {
-            divPastEmloyer.Visible = false;
+            
             divCurrentEmployer.Visible = false;
             divDesireJobDetails.Visible = true;
         }
@@ -97,6 +164,13 @@ namespace JobFair.UserControls.JobSeeker
         {
 
         }
+
+       
+       
+
+       
+
+
     }
 }
 

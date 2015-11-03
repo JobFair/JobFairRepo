@@ -44,7 +44,8 @@ namespace DAL
                                             new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
                                             new SqlParameter("@JobType",jobpostEntity.JobType),
                                             new SqlParameter("@EmploymentStatus",jobpostEntity.EmploymentStatus),
-                                             new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType)
+                                             new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType),
+                                             new SqlParameter("@CompanyName",jobpostEntity.CompanyName)
                                           
                                         };
                 int result = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
