@@ -220,7 +220,7 @@ namespace CommonUtil
             catch (Exception ex)
             {
                 throw ex;
-            }
+            }    
         }
         /// <summary>
         /// Get Doctor Of Philosophy Details
