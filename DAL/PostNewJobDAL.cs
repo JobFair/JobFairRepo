@@ -48,8 +48,11 @@ namespace DAL
                                             new SqlParameter("@CompanyName",jobpostEntity.CompanyName)
                                           
                                         };
+                //SqlParameter[] sqlparams1 ={
+                //                                new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
+                //                           };
                 int result = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
-                //int result1 = SqlHelper.ExecuteScalar(Connection, CommandType.StoredProcedure, Constants.sp_InsertJobPostHistory, sqlparams);
+                //int result1 = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_InsertJobPostHistory, sqlparams1);
                 return result;
             }
             catch (Exception)
