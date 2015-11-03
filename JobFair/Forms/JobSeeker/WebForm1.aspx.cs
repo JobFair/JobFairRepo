@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using BAL;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -13,8 +14,21 @@ namespace JobFair.Forms.JobSeeker
         string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindCity();
             candidateId = Convert.ToString(Session["candidateId"]);
             Response.Write(candidateId);
+        }
+
+        private void BindCity()
+        {
+            DataSet ds = new DataSet();
+            CurrentDesiredJobBAL obj=new BAL.CurrentDesiredJobBAL();
+            ds = obj.GetCity();
+            ddlchbCity.DataSource=ds;
+            ddlchbCity.DataTextField = "CityName";
+            ddlchbCity.DataValueField = "CityId";
+            ddlchbCity.DataBind();
+
         }
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]

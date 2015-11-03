@@ -19,6 +19,7 @@
 </head>
 <body>
     <form runat="server">
+        <asp:DropDownCheckBoxes ID="ddlchbCity" runat="server"></asp:DropDownCheckBoxes>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <uc1:ProfessionalDetails runat="server" ID="ProfessionalDetails" />
     </form>
