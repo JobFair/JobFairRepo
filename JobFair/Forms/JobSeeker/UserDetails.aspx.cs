@@ -9,14 +9,16 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class UserDetails : System.Web.UI.Page
     {
+        string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["candidateId"] == "undefined")
+            candidateId = Convert.ToString(Session["candidateId"]);
+            if (candidateId == "")
             {
                 Response.Redirect("LogIn.aspx");
             }
-           string candidateId = Convert.ToString(Session["candidateId"]);
+          
             
         }
-    }
+    }                                                                                                                                                                                                                                                                                                                                                                               
 }
