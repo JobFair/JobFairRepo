@@ -58,7 +58,7 @@
                             <asp:Label ID="lblRecruiterID" runat="server" Text='<%#Eval("RecruiterID") %>' Visible="false" /></td>
                         <tr>
                             <td>Job Title:
-                                <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" /></td>
+                                <asp:Label ID="lblJobTitle" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" /></td>
                             <td>Job Location State:
                                         <asp:Label ID="lblJobLocationState" runat="server" Font-Bold="true" Text='<%#Eval("JobLocationState") %>' /></td>
                         </tr>
@@ -147,10 +147,197 @@
             </asp:Repeater>
         </div>
 
-        <div id="divViewJob" runat="server" style="min-height: 500px; width: 100%; padding: 10px;" visible="false">
+        
+        <div id="divViewJob" runat="server">
+             <asp:Repeater ID="repViewJob" runat="server">
+                  <ItemTemplate>
+            <table>
+                <tr>
+                    <td>
+                        <h1>View Job</h1>
+                    </td>
+                </tr>
+                <tr>
+                    
+                        <asp:Label ID="lblJobID" runat="server" Text='<%#Eval("JobId") %>' Visible="false" />
+                    <td><asp:Label ID="lblJobtitle" runat="server" Text="Job Title/Designation"></asp:Label></td>
+                    <td>
+                        <asp:TextBox ID="txtJobtitle" runat="server" Text='<%#Eval("JobTitle") %>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                   <tr>
+                    <td>
+                        <asp:Label ID="lblJobLocationState" runat="server" Text="Job Location State"></asp:Label>
+                    </td>
+                    <td>
+                         <asp:TextBox ID="txtJobLocationState" runat="server" Text='<%# Eval("JobLocationState")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblJobLocationCity" runat="server" Text="Job Location City"></asp:Label>
+                    </td>
+                    <td>
+                         <asp:TextBox ID="txtJobLocationCity" runat="server" Text='<%# Eval("JobLocationCity")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblJobLocationArea" runat="server" Text="Job Location Area"></asp:Label>
+                    </td>
+                    <td>
+                         <asp:TextBox ID="txtJobLocationArea" runat="server" Text='<%# Eval("JobLocationArea")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
 
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <%--<h2 style="align-content: center">Jobs Details</h2>--%>
+                </tr>
+                <tr>
+                     <td>
+                        <asp:Label ID="lblCompanyLevel" runat="server" Text="Company Level"></asp:Label>
+                    </td>
+                    <td>
+                       <asp:TextBox ID="txtCompanyLevel" runat="server" Text='<%# Eval("CompanyLevel")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblIndustry" runat="server" Text="Industry"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtIndustry" runat="server" Text='<%# Eval("IndustryId")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDepartment" runat="server" Text="Department"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDepartment" runat="server" Text='<%# Eval("DepartmentId")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblFunctionalArea" runat="server" Text="Functional Area"></asp:Label>
+                    </td>
+                    <td>
+                         <asp:TextBox ID="txtFunctionalArea" runat="server" Text='<%# Eval("FunctionalAreaId")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblJobDescription" runat="server" Text="Job Description"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtJobDescription" runat="server" Text='<%# Eval("JobDescription")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblKeyRoles" runat="server" Text="Keywords/Skillsets Roles"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtKeyRoles" runat="server" Text='<%# Eval("KeywordsRoles")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="Label1" runat="server" Text="Keywords/Skillsets Technical"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtKeyTechnical" runat="server" Text='<%# Eval("KeywordsTechnical")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblWorkExperience" runat="server" Text="Work Experience"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtWorkExperience" runat="server" Text='<%# Eval("WorkExperience")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtGender" runat="server" Text='<%# Eval("Gender")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblOfferedAnnualSalaryMin" runat="server" Text="Offered Anual Salary (Minimum)"></asp:Label>
+                    </td>
+                    <td>
+                       <asp:TextBox ID="txtOfferedAnnualSalaryMin" runat="server" Text='<%# Eval("OfferedAnnualSalaryMin")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <asp:Label ID="lblOfferedAnnualSalaryMax" runat="server" Text="Offered Anual Salary (Maximum)"></asp:Label>
+                    </td>
+                    <td>
+                       <asp:TextBox ID="txtOfferedAnnualSalaryMax" runat="server" Text='<%# Eval("OfferedAnnualSalaryMax")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblOtherSalaryDetails" runat="server" Text="Other Salary Details"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtOtherSalaryDetails" runat="server" Text='<%# Eval("OtherSalaryDetails")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblNumberofVacancies" runat="server" Text="Number of Vacancies"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtNumberOfVacancies" runat="server" Text='<%# Eval("NumberOfVacancies")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <asp:Label ID="lblPostedDate" runat="server" Text="Posted Date"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtPostedDate" runat="server" Text='<%# Eval("PostedDate", "{0:dd MMM yyyy}")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lbljobtype" runat="server" Text="Job Type"></asp:Label></td>
+                    <td>
+                        <asp:TextBox ID="txtjobtype" runat="server" Text='<%# Eval("JobType")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                  
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblEmploymentStatus" runat="server" Text ="Employment Status"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtEmploymentStatus" runat="server" Text='<%# Eval("EmploymentStatus")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                    </td>
+                </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblrecruitmenttype" runat="server" Text="Recruitment Type"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtrecruitmenttype" runat="server" Text='<%# Eval("RecruitmentType")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                         </td>
+                    </tr>
+                </table>
+            </ItemTemplate>
+          </asp:Repeater>
+        </div>
+        
+        
+        
+        
+      <%--  <div id="divViewJob" runat="server" style="min-height: 500px; width: 100%; padding: 10px;" visible="false">
+
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">--%>
+                <%--<h2 style="align-content: center">Jobs Details</h2>
                 <ContentTemplate>
                     <asp:GridView ID="gvViewJob" runat="server" AutoGenerateColumns="false" Width="100%"
                         Font-Names="Arial" Font-Size="11pt" AlternatingRowStyle-BackColor="#C2D69B"
@@ -386,13 +573,15 @@
 
               
                       <%--  <AlternatingRowStyle BackColor="#C2D69B" />--%>
-                    </asp:GridView>
-                </ContentTemplate>
+                 <%--   </asp:GridView>
+                </ContentTemplate>--%>
            <%--     <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="gvViewJob" />
                 </Triggers>--%>
-            </asp:UpdatePanel>
-        </div>
+         <%--   </asp:UpdatePanel>
+        </div>--%>
+
+
     </form>
 </body>
 </html>
