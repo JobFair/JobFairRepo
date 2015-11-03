@@ -7,16 +7,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>
-  
-    </title>
-  
+    <title></title>
     <style type="text/css">
         .auto-style1 {
-            width: 241px;
+            width: 392px;
         }
     </style>
-  
 </head>
 <body>
     <form id="form1" runat="server">
@@ -30,7 +26,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Job Title/Designation</td>
+                    <td class="auto-style1"><asp:Label runat="server" ID="lbltitle" Text="Job Title/Designation"></asp:Label></td>
                     <td>
                         <asp:TextBox ID="txtJobtitle" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </td>
@@ -70,7 +66,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Company Level</td>
+                    <td class="auto-style1">x<asp:Label ID="lblcompanyname" runat="server" Text="CompanyName"></asp:Label></td>
                     <td>
                         <asp:DropDownList ID="ddlCompanyLevel" runat="server" AutoPostBack="True">
                             <asp:ListItem>Select</asp:ListItem>
@@ -82,34 +78,34 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Industry</td>
+                    <td class="auto-style1"><asp:Label ID="lblindustry" runat="server" Text="Industry"> </asp:Label></td>
                     <td>
                         <asp:DropDownList ID="ddlIndustry" runat="server" Height="19px">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Department</td>
+                    <td class="auto-style1"><asp:Label ID="lbldepartment" runat="server" Text="Department"> </asp:Label></td>
                     <td>
                         <asp:DropDownList ID="ddlDepartment" runat="server">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Functional Area</td>
+                    <td class="auto-style1"><asp:Label ID="lblfunctionalarea" runat="server" Text="Functional Area"></asp:Label></td>
                     <td>
                         <asp:DropDownList ID="ddlFunArea" runat="server">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Job Description</td>
+                    <td class="auto-style1"><asp:Label ID="lbljobdescription" runat="server" Text="Job Description"></asp:Label></td>
                     <td>
                         <asp:TextBox ID="txtJobDescription" runat="server" TextMode="MultiLine" Width="350px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Keywords/Skillsets Roles</td>
+                    <td class="auto-style1"><asp:Label ID="lblkeyroles" runat="server" Text="Keywords/Skillsets Roles"></asp:Label></td>
                     <td>
                       
                         <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
@@ -118,13 +114,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Keywords/Skillsets Technical</td>
+                    <td class="auto-style1"><asp:Label ID="lblkeytechnical" runat="server" Text="Keywords/Skillsets Technical"></asp:Label></td>
                     <td>
                         <asp:TextBox ID="txtKeyTechnical" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Work Experience</td>
+                    <td class="auto-style1"><asp:Label ID="lblworkexprience" runat="server" Text="Work Experience"></asp:Label></td>
                     <td>&nbsp;
                         <asp:DropDownList ID="ddlworkexprience" runat="server">
                             <asp:ListItem>0.5</asp:ListItem>
@@ -152,7 +148,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Gender</td>
+                    <td class="auto-style1"><asp:Label ID="lblgender" runat="server" Text="Gender"></asp:Label></td>
                     <td>
                         <asp:DropDownList ID="ddlgender" runat="server" AutoPostBack="True">
                             <asp:ListItem>Select</asp:ListItem>
@@ -163,7 +159,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Offered Anual Salary</td>
+                    <td class="auto-style1"><asp:Label ID="lblofferedsalary" runat="server" Text="Offered Anual Salary"></asp:Label></td>
                     <td>&nbsp;&nbsp;<asp:DropDownList ID="ddlsalarymin" runat="server">
                         <asp:ListItem>Select</asp:ListItem>
                         <asp:ListItem>50,000</asp:ListItem>
@@ -213,13 +209,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">OtherSalaryDetails</td>
+                    <td class="auto-style1">,<asp:Label ID="lblsalrydetails" runat="server" Text="OtherSalaryDetails"></asp:Label></td>
                     <td>
                 <asp:TextBox ID="txtsalarydetaills" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Number of Vacancies</td>
+                    <td class="auto-style1"> <asp:Label ID="lblvacancies" runat="server" Text="Number Of Vacancies"></asp:Label></td>
                     <td>
                         <asp:TextBox ID="txtVacancies" runat="server"></asp:TextBox>
                     </td>
@@ -256,7 +252,7 @@
                         </td>
                         <td>
                             <asp:RadioButtonList ID="RadioButtonList1" runat="server"  OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged1" AutoPostBack="true">
-                               <asp:ListItem id="rdb1" runat="server" Text="In-House" Selected="True"></asp:ListItem>
+                               <asp:ListItem id="rdb1" runat="server" Text="In-House"></asp:ListItem>
                                 <asp:ListItem id="rdb2" runat="server" Text="Client"></asp:ListItem>
                             </asp:RadioButtonList>
                           </td>
@@ -289,16 +285,14 @@
                         <td>
                     <asp:UpdatePanel ID="pnlcompanyname" runat="server">
                        <ContentTemplate>
-                                <asp:CheckBox ID="chkitech" runat="server" OnCheckedChanged="chkitech_CheckedChanged" Visible="False" AutoPostBack="True" />
+                                <asp:CheckBoxList ID="chkcompanyname" runat="server">
+                                    <asp:ListItem>Logos Corporate Solutions</asp:ListItem>
+                                    <asp:ListItem>Logos  Itech Solutions</asp:ListItem>
+                                </asp:CheckBoxList>
 
                          
-                                <asp:Label ID="lblcompanyname1" runat="server" Text="Logos Itech Solutions " Visible="False" ></asp:Label>
-                         
                                 <br />
-                                <asp:CheckBox ID="chkcorporate" runat="server" OnCheckedChanged="chkcorporate_CheckedChanged" Visible="False" AutoPostBack="True"/>
                              
-                         
-                                <asp:Label ID="lblcompanyname2" runat="server" Text="Logos  Corporate Solutions " Visible="False" ></asp:Label>
                          
                                 <br />
                          
@@ -353,7 +347,7 @@
                     <asp:Label ID="lblHSCHead" runat="server" Text="Specify HSC / 12th Qualification"></asp:Label>
                     <tr>
 
-                        <td colspan="2">
+                        <td>
                             <asp:DropDownCheckBoxes ID="DropDownCheckBoxes1" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="DropDownCheckBoxes1_SelectedIndexChanged" AutoPostBack="true">
                                 <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 <Items>
@@ -376,7 +370,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2">
+                        <td>
                             <asp:RadioButtonList ID="rblHSC" runat="server" RepeatDirection="Horizontal">
                                 <asp:ListItem>And</asp:ListItem>
                                 <asp:ListItem>Or</asp:ListItem>

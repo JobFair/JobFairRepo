@@ -33,6 +33,7 @@ namespace Entities.Recruiter
         public string JobType { get; set; }
         public string EmploymentStatus { get; set; }
         public string RecruitmentType { get; set; }
+        public string CompanyName { get; set; }
      
     }
 }
