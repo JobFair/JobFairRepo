@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -27,8 +28,56 @@ namespace JobFair.UserControls.JobSeeker
                 BindArea();
                 BindIndustry();
                 BindDepartment();
+                hfCandidateId.Value = "JS2";
+                AddExperienceRecords();
 
             }
+        }
+
+        private void AddExperienceRecords()
+        {
+             //<asp:BoundField HeaderText="CandidateId" DataField="CandidateId" Visible="false" />
+             //                           <asp:BoundField HeaderText="CompanyCurrentOrPast" DataField="CompanyCurrentOrPast" />
+             //                           <asp:BoundField HeaderText="ComapnyName" DataField="ComapnyName" />
+             //                           <asp:BoundField HeaderText="Designation" DataField="Designation" />
+             //                           <asp:BoundField HeaderText="RolesResponsibilities" DataField="RolesResponsibilities" />
+             //                           <asp:BoundField HeaderText="FromMonth" DataField="FromMonth" />
+             //                           <asp:BoundField HeaderText="FromYear" DataField="FromYear" />
+             //                           <asp:BoundField HeaderText="TillMonth" DataField="TillMonth" />
+             //                           <asp:BoundField HeaderText="TillYear" DataField="TillYear" />
+             //                           <asp:BoundField HeaderText="Industry" DataField="Industry" />
+             //                           <asp:BoundField HeaderText="Department" DataField="Department" />
+             //                           <asp:BoundField HeaderText="EmploymentStatus" DataField="EmploymentStatus" />
+             //                           <asp:BoundField HeaderText="JobType" DataField="JobType" />
+             //                           <asp:BoundField HeaderText="CompanyType" DataField="CompanyType" />
+             //                           <asp:BoundField HeaderText="Reason" DataField="Reason" />  
+            //creating DataTable
+            DataTable dt = new DataTable();
+            DataRow dr;
+            dt.TableName = "ProfessionalDetails";
+            //creating columns for DataTable
+            dt.Columns.Add(new DataColumn("CandidateId", typeof(string)));
+            dt.Columns.Add(new DataColumn("CompanyCurrentOrPast", typeof(string)));
+            dt.Columns.Add(new DataColumn("ComapnyName", typeof(string)));
+            dt.Columns.Add(new DataColumn("CompanyName", typeof(string)));
+            dt.Columns.Add(new DataColumn("Designation", typeof(string)));
+            dt.Columns.Add(new DataColumn("RolesResponsibilities", typeof(string)));
+            dt.Columns.Add(new DataColumn("FromMonth", typeof(string)));
+            dt.Columns.Add(new DataColumn("FromYear", typeof(string)));
+            dt.Columns.Add(new DataColumn("TillMonth", typeof(string)));
+            dt.Columns.Add(new DataColumn("TillYear", typeof(string)));
+            dt.Columns.Add(new DataColumn("Industry", typeof(int)));
+            dt.Columns.Add(new DataColumn("Department", typeof(int)));
+            dt.Columns.Add(new DataColumn("EmploymentStatus", typeof(string)));
+            dt.Columns.Add(new DataColumn("JobType", typeof(string)));
+            dt.Columns.Add(new DataColumn("CompanyType", typeof(string)));
+            dt.Columns.Add(new DataColumn("Reason", typeof(string)));
+            dr = dt.NewRow();
+            dt.Rows.Add(dr);
+
+            ViewState["ProfessionalDetails"] = dt;
+            gvExperience.DataSource = dt;
+            gvExperience.DataBind();
         }
 
         private void BindDepartment()
@@ -44,11 +93,11 @@ namespace JobFair.UserControls.JobSeeker
         private void BindIndustry()
         {
             ds = currentjobBAL.GetIndustry();
-            ddlchbIndustry.DataSource = ds;
-            ddlchbIndustry.DataTextField = "IndustryName";
-            ddlchbIndustry.DataValueField = "IndustryId";
-            ddlchbIndustry.DataBind();
-            ddlchbIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+            ddlIndustry.DataSource = ds;
+            ddlIndustry.DataTextField = "IndustryName";
+            ddlIndustry.DataValueField = "IndustryId";
+            ddlIndustry.DataBind();
+            ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void BindArea()
@@ -162,8 +211,88 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void btnSaveCurrentJob_Click(object sender, EventArgs e)
         {
-
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            DataTable dt=(DataTable)ViewState["ProfessionalDetails"];
+            currentDesiredJobBAL.SaveExperienceDetailsBAL(dt);
+            gvExperience.Columns.Clear();
+            Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
         }
+
+        protected void btnAddExperience_Click(object sender, EventArgs e)
+        {
+            AddNewRecordToGrid();
+            txtDesignation.Text = "";
+            txtCurrentEmployer.Text = "";
+            txtRollesResponsibilities.Text = "";
+            txtFromDate.Text = "";
+            txtTillDate.Text = "";
+            txtReasonforJobchange.Text = "";
+        }
+
+        private void AddNewRecordToGrid()
+        {
+            try
+            {
+                if (ViewState["ProfessionalDetails"] != null)
+                {
+                    DataTable dt =(DataTable) ViewState["ProfessionalDetails"];
+                    DataRow dr = null;
+                    if (dt.Rows.Count > 0)
+                    {
+                        for (int i = 1; i <= dt.Rows.Count; i++)
+                        {
+                            DateTime f1 = Convert.ToDateTime(txtFromDate.Text);
+                            DateTime f2 = Convert.ToDateTime(txtTillDate.Text);
+                            int f3 = f2.Month - f1.Month;
+                            int f4 = f2.Year - f1.Year;
+                            //creating new row
+                            dr = dt.NewRow();
+                            dr["CandidateId"] = hfCandidateId.Value.Trim();
+                            dr["CompanyCurrentOrPast"] = ddlCurrentOrPast.Text;
+                            dr["ComapnyName"]=txtCurrentEmployer.Text.Trim();
+                            dr["Designation"]=txtDesignation.Text.Trim();
+                            dr["RolesResponsibilities"]=txtRollesResponsibilities.Text;
+                            dr["FromMonth"]=Convert.ToString(f1.Month);
+                            dr["TillMonth"]=Convert.ToString(f2.Month);
+                            dr["FromYear"]=Convert.ToString(f1.Year);
+                            dr["TillYear"]=Convert.ToString(f2.Year);
+                            dr["Industry"]=ddlIndustry.SelectedItem.Value;
+                            dr["Department"]=ddlDepartment.SelectedItem.Value;
+                            dr["EmploymentStatus"]=cblEmployeStatus.Text;
+                            dr["JobType"]=chlJobType.Text;
+                            dr["CompanyType"]=cblCompanyType.Text;
+                            dr["Reason"] = txtReasonforJobchange.Text.Trim();
+
+                            //Removing initial row
+                            if (dt.Rows[0][0].ToString() == "")
+                            {
+                                dt.Rows[0].Delete();
+                                dt.AcceptChanges();
+                            }
+
+                            //add new record to the datatable
+                            dt.Rows.Add(dr);
+
+                            //storing datatable to viewstate
+                            ViewState["ProfessionalDetails"] = dt;
+
+                            //binding gridview with new row
+                            gvExperience.DataSource = dt;
+                            gvExperience.DataBind();
+                              
+
+                           
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
+         }
 
        
        

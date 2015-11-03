@@ -280,6 +280,7 @@
     </Compile>
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>
