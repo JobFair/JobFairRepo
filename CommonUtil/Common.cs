@@ -220,7 +220,7 @@ namespace CommonUtil
             catch (Exception ex)
             {
                 throw ex;
-            }
+            }    
         }
         /// <summary>
         /// Get Doctor Of Philosophy Details
@@ -230,7 +230,7 @@ namespace CommonUtil
         {
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_DoctorOfPhilosophy");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_PHD");
                 return ds;
             }
             catch (Exception ex)

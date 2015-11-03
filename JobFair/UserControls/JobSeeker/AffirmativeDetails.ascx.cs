@@ -12,9 +12,12 @@ namespace JobFair.UserControls.JobSeeker
         private AffirmativeDetailsJSBAL AffirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
         private AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
         private int languageCount = 0;
+        private string candidateId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
+      
             if (!IsPostBack)
             {
                 DataSet ds = new DataSet();
@@ -64,11 +67,11 @@ namespace JobFair.UserControls.JobSeeker
             List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
 
             //set the value of AffirmativeDetailsJSEntity
-            affirmativeDetailsEntity.CandidateId = "JS00001";//static data used because session value not set
+            affirmativeDetailsEntity.CandidateId = candidateId;
 
             // Set the value of LanguageEntity for first language
             LanguageEntity firstlanguageEntity = new LanguageEntity();
-            firstlanguageEntity.CandidateId = "JS00001";
+            firstlanguageEntity.CandidateId = candidateId;
             firstlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
             firstlanguageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
             firstlanguageEntity.Read = chkReadFirst.Checked;
@@ -80,7 +83,7 @@ namespace JobFair.UserControls.JobSeeker
 
             //set the value of LanguageEntity for second language
             LanguageEntity secondlanguageEntity = new LanguageEntity();
-            secondlanguageEntity.CandidateId = "JS00001";
+            secondlanguageEntity.CandidateId = candidateId;
             secondlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageSecond.SelectedValue);
             secondlanguageEntity.ProficiencyLevel = ddlProficiencySecond.SelectedItem.Text;
             secondlanguageEntity.Read = chkReadSecond.Checked;
@@ -92,7 +95,7 @@ namespace JobFair.UserControls.JobSeeker
 
             //set the value of LanguageEntity for third language
             LanguageEntity thirdlanguageEntity = new LanguageEntity();
-            thirdlanguageEntity.CandidateId = "JS00001";
+            thirdlanguageEntity.CandidateId = candidateId;
             thirdlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageThird.SelectedValue);
             thirdlanguageEntity.ProficiencyLevel = ddlProficiencyThird.SelectedItem.Text;
             thirdlanguageEntity.Read = chkReadThird.Checked;
@@ -108,16 +111,16 @@ namespace JobFair.UserControls.JobSeeker
             else
                 affirmativeDetailsEntity.PhysicallyChallenged = "No";
 
-            affirmativeDetailsEntity.Description = txtDescription.Text;
-            affirmativeDetailsEntity.Sports = txtSports.Text;
-            affirmativeDetailsEntity.SportsDescription = txtSportsDescription.Text;
+            affirmativeDetailsEntity.Description = txtDescription.Text.Trim();
+            affirmativeDetailsEntity.Sports = txtSports.Text.Trim();
+            affirmativeDetailsEntity.SportsDescription = txtSportsDescription.Text.Trim();
             affirmativeDetailsEntity.USAPermit = string.Empty;
             if (rbtYesUSA.Checked)
                 affirmativeDetailsEntity.USAPermit = "Yes";
             else
                 affirmativeDetailsEntity.USAPermit = "No";
 
-            affirmativeDetailsEntity.OtherPermits = txtOtherPermit.Text;
+            affirmativeDetailsEntity.OtherPermits = txtOtherPermit.Text.Trim();
 
             // Save language details
             bool isLanguageSaved = AffirmativeDetailsBAL.SaveLanguageDetailsBAL(languageDetailsList);

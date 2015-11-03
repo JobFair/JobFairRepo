@@ -44,10 +44,15 @@ namespace DAL
                                             new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
                                             new SqlParameter("@JobType",jobpostEntity.JobType),
                                             new SqlParameter("@EmploymentStatus",jobpostEntity.EmploymentStatus),
-                                             new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType)
+                                            new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType),
+                                            new SqlParameter("@CompanyName",jobpostEntity.CompanyName)
                                           
                                         };
+                //SqlParameter[] sqlparams1 ={
+                //                                new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
+                //                           };
                 int result = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
+                //int result1 = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_InsertJobPostHistory, sqlparams1);
                 return result;
             }
             catch (Exception)
