@@ -229,7 +229,9 @@
                             <asp:ListItem>Part Time</asp:ListItem>
                             <asp:ListItem>Full Time</asp:ListItem>
                         </asp:CheckBoxList>
-       
+
+                       
+                
                     </td>
                   
                 </tr>
