@@ -100,7 +100,6 @@
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\ManageJobs.aspx" />
-    <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
     <Content Include="Forms\Recruiter\searchrecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
@@ -271,13 +270,6 @@
     </Compile>
     <Compile Include="Forms\Recruiter\ManageJobs.aspx.designer.cs">
       <DependentUpon>ManageJobs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Recruiter\PostNewJob.aspx.cs">
-      <DependentUpon>PostNewJob.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
-      <DependentUpon>PostNewJob.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\Questionrie.aspx.cs">
       <DependentUpon>Questionrie.aspx</DependentUpon>

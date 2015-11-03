@@ -14,7 +14,8 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
         private DataSet ds = new DataSet();
-        
+        CloneJobPostEntity cloneJobPostEntity = new CloneJobPostEntity();
+
         /// <summary>
         /// View Manage Jobs of recruiter
         /// </summary>
@@ -52,17 +53,25 @@ namespace DAL
         /// View Manage Jobs of recruiter
         /// </summary>
         /// <returns></returns>
-        public DataSet RePostJobDAL(int JobId)
+        public DataSet ClonePostJobDAL(int JobId, string RecruiterID)
         {
             try
             {
-                SqlParameter[] sparams = { new SqlParameter("@jobId", JobId) };
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_RePostJob", sparams);
+                
+                SqlParameter[] sparams = { 
+                                             new SqlParameter("@jobId", JobId) ,
+                                             new SqlParameter("@recruiterId", RecruiterID)};
+                
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_InsertCloneJob", sparams);
                 return ds;
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

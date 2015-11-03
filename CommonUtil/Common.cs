@@ -230,7 +230,7 @@ namespace CommonUtil
         {
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_DoctorOfPhilosophy");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_PHD");
                 return ds;
             }
             catch (Exception ex)

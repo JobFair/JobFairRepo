@@ -25,6 +25,7 @@ namespace DAL
         public const string sp_JS_InsertEducationDegreesType = "sp_JS_InsertEducationDegreesType";
         public const string sp_JS_InsertMoreCertification = "sp_JS_InsertMoreCertification";
         public const string sp_JS_InsertMoreWorkshop = "sp_JS_InsertMoreWorkshop";
+        public const string sp_RE_InsertCloneJob = "sp_RE_InsertCloneJob";
         public const string sp_Country = "sp_Country";
         public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
         public const string sp_State = "sp_State";

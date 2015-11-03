@@ -33,9 +33,9 @@ namespace BAL
         /// For display Re-Post Job of recruiter
         /// </summary>
         /// <returns></returns>
-        public DataSet RePostJobBAL(int JobId)
+        public DataSet ClonePostJobBAL(int JobId, string RecruiterID)
         {
-            return manageJobsDAL.RePostJobDAL(JobId);
+            return manageJobsDAL.ClonePostJobDAL(JobId, RecruiterID);
         }
     }
 }
