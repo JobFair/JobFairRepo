@@ -11,6 +11,7 @@ namespace CommonUtil
     /// </summary>
     public static class Utility
     {
+
         /// <summary>
         /// Forget password method in Utility class
         /// </summary>
@@ -204,6 +205,18 @@ namespace CommonUtil
             monthList = new List<string>(months);
             monthList.RemoveAt(12);
             return monthList;
+        }
+
+        public static DataSet GetCity()
+        {
+            Common common = new Common();
+            return common.GetCityDAL();
+        }
+
+        public static DataSet GetArea()
+        {
+            Common common = new Common();
+            return common.GetAreaDAL();
         }
     }
 }

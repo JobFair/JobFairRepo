@@ -281,5 +281,33 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
+        internal DataSet GetCityDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from City");
+                return ds;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        internal DataSet GetAreaDAL()
+        {
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from CityArea");
+                return ds;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

@@ -11,9 +11,7 @@ namespace JobFair.Forms.JobSeeker
     public partial class JobSeekerRegister : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {}
-        
-
+        { }
 
         /// <summary>
         /// Handles the Click event of the btnSubmit control.
@@ -31,7 +29,7 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.FirstName = txtFirstName.Text.Trim();
                 jobSeekerEntity.LastName = txtLastName.Text.Trim();
                 jobSeekerEntity.EmailId = txtEmailId.Text.Trim();
-              
+
                 jobSeekerEntity.Gender = rblGender.SelectedItem.Text;
                 jobSeekerEntity.MobileNo = txtMobileNo.Text.Trim();
                 jobSeekerEntity.Password = txtPassword.Text.Trim();

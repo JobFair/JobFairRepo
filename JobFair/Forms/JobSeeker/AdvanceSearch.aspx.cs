@@ -36,10 +36,8 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         private void BindDepartment()
@@ -55,10 +53,8 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         private void BindState()
@@ -75,10 +71,8 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         protected void btnsearch_Click(object sender, EventArgs e)
@@ -100,10 +94,8 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,10 +112,8 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         [System.Web.Script.Services.ScriptMethod()]

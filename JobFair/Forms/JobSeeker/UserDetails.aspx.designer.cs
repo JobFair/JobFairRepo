@@ -13,6 +13,15 @@ namespace JobFair.Forms.JobSeeker {
     public partial class UserDetails {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// TabContainer1 control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel1;
         
         /// <summary>
-        /// ContactDetails control.
+        /// PersonalDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.ContactDetails ContactDetails;
+        protected global::JobFair.UserControls.JobSeeker.PersonalDetails PersonalDetails;
         
         /// <summary>
         /// TabPanel2 control.
@@ -49,13 +58,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel2;
         
         /// <summary>
-        /// ProfessionalDetails control.
+        /// ContactDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.ProfessionalDetails ProfessionalDetails;
+        protected global::JobFair.UserControls.JobSeeker.ContactDetails ContactDetails;
         
         /// <summary>
         /// TabPanel3 control.
@@ -65,6 +74,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel TabPanel3;
+        
+        /// <summary>
+        /// ProfessionalDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JobFair.UserControls.JobSeeker.ProfessionalDetails ProfessionalDetails;
         
         /// <summary>
         /// TabPanel4 control.
