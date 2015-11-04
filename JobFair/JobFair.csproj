@@ -101,6 +101,7 @@
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\ManageJobs.aspx" />
+    <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
     <Content Include="Forms\Recruiter\searchrecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
@@ -116,6 +117,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\ValidationAll.js" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
@@ -276,6 +278,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\ManageJobs.aspx.designer.cs">
       <DependentUpon>ManageJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\PostNewJob.aspx.cs">
+      <DependentUpon>PostNewJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
+      <DependentUpon>PostNewJob.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\Questionrie.aspx.cs">
       <DependentUpon>Questionrie.aspx</DependentUpon>
