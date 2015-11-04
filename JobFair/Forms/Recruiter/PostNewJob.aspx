@@ -12,6 +12,13 @@
         .auto-style1 {
             width: 392px;
         }
+        .auto-style2 {
+            width: 392px;
+            height: 26px;
+        }
+        .auto-style3 {
+            height: 26px;
+        }
     </style>
 </head>
 <body>
@@ -107,8 +114,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1"><asp:Label ID="lblkeyroles" runat="server" Text="Keywords/Skillsets Roles"></asp:Label></td>
-                    <td>
+                    <td class="auto-style2"><asp:Label ID="lblkeyroles" runat="server" Text="Keywords/Skillsets Roles"></asp:Label></td>
+                    <td class="auto-style3">
                       
                         <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtKeyRoles" MinimumPrefixLength="1"
@@ -119,6 +126,8 @@
                     <td class="auto-style1"><asp:Label ID="lblkeytechnical" runat="server" Text="Keywords/Skillsets Technical"></asp:Label></td>
                     <td>
                         <asp:TextBox ID="txtKeyTechnical" runat="server"></asp:TextBox>
+                        <cc1:AutoCompleteExtender ID="AutoCompleteExtender2" runat="server" TargetControlID="txtKeyTechnical" MinimumPrefixLength="1" EnableCaching="true"
+                           CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="Gettechnicalskill" > </cc1:AutoCompleteExtender>
                     </td>
                 </tr>
                 <tr>

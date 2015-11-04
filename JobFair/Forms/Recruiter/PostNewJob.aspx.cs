@@ -290,6 +290,22 @@ namespace JobFair.Forms.Recruiter
             return rolename;
 
         }
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
+        public static List<string>Gettechnicalskill(string prefixText)
+        {
+            DataTable dt = new DataTable();
+           PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
+           dt = postnewjobBAL.GettechnicalskillBAL(prefixText);
+            List<string> skillname = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                skillname.Add(dt.Rows[i][2].ToString());
+            }
+            return skillname;
+        }
+
+       
 
         protected void ddlquestiontype_SelectedIndexChanged(object sender, EventArgs e)
         {

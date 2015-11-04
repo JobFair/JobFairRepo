@@ -121,5 +121,15 @@ namespace BAL
             NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
             return newjobpostDAL.GetRoles(prefixText);
         }
+
+       
+
+       
+
+        public DataTable GettechnicalskillBAL(string prefixText)
+        {
+            NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
+            return newjobpostDAL.GetSkill(prefixText);
+        }
     }
 }
