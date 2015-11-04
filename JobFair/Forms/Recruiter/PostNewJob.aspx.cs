@@ -61,8 +61,8 @@ namespace JobFair.Forms.Recruiter
                     txtJobtitle.Text = dataset.Tables[0].Rows[0]["JobTitle"].ToString();
                     ddlState.SelectedItem.Text = dataset.Tables[0].Rows[0]["JobLocationState"].ToString();
                     ddlCity.SelectedItem.Value = dataset.Tables[0].Rows[0]["JobLocationCity"].ToString();
-                    ddlLocation.SelectedItem.Value = dataset.Tables[0].Rows[0]["JobLocationArea"].ToString();
-                    ddlCompanyLevel.SelectedItem.Value = dataset.Tables[0].Rows[0]["CompanyLevel"].ToString();
+                    //ddlLocation.SelectedItem.Value = dataset.Tables[0].Rows[0]["JobLocationArea"].ToString();
+                    //ddlCompanyLevel.SelectedItem.Value = dataset.Tables[0].Rows[0]["CompanyLevel"].ToString();
                     ddlIndustry.SelectedValue = dataset.Tables[0].Rows[0]["IndustryName"].ToString();
                     ddlDepartment.SelectedValue = dataset.Tables[0].Rows[0]["DepartmentName"].ToString();
                     ddlFunArea.SelectedValue = dataset.Tables[0].Rows[0]["FunctionalArea"].ToString();
@@ -77,7 +77,7 @@ namespace JobFair.Forms.Recruiter
                     txtVacancies.Text = dataset.Tables[0].Rows[0]["NumberOfVacancies"].ToString();
                     chkjobtype.SelectedItem.Text = dataset.Tables[0].Rows[0]["JobType"].ToString();
                     chkemploymenttype.Text = dataset.Tables[0].Rows[0]["EmploymentStatus"].ToString();
-                    RadioButtonList1.SelectedItem.Value = dataset.Tables[0].Rows[0]["RecruitmentType"].ToString();
+                    //RadioButtonList1.SelectedItem.Value = dataset.Tables[0].Rows[0]["RecruitmentType"].ToString();
                     chkcompanyname.SelectedItem.Text = dataset.Tables[0].Rows[0]["CompanyName"].ToString();
                     
                     //int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
