@@ -15,8 +15,17 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public bool SaveAffirmaiveDetailsBAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
         {
-            AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
-            return affirmativeDetailsDAL.SaveAffirmativeDetailsDAL(affirmativeDetailsEntity);
+            try
+            {
+                AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
+                return affirmativeDetailsDAL.SaveAffirmativeDetailsDAL(affirmativeDetailsEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         /// <summary>
@@ -26,8 +35,17 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public bool SaveLanguageDetailsBAL(List<LanguageEntity> languageEntity)
         {
-            AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
-            return affirmativeDetailsBAL.SaveLanguageDetailsDAL(languageEntity);
+            try
+            {
+                AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
+                return affirmativeDetailsBAL.SaveLanguageDetailsDAL(languageEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+          
         }
 
         /// <summary>
@@ -36,7 +54,16 @@ namespace BAL
         /// <returns></returns>
         public DataSet GetLanguageBAL()
         {
-            return Utility.GetLanguage();
+            try
+            {
+                return Utility.GetLanguage();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
     }
 }

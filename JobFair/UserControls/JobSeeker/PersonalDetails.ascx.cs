@@ -9,7 +9,7 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
-        private DataSet ds = new DataSet();
+       
         private PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
         string candidateId;
         /// <summary>
@@ -21,6 +21,7 @@ namespace JobFair.UserControls.JobSeeker
          
             if (!IsPostBack)
             {
+                DataSet ds = new DataSet();
                 ds = personalDetailsBAL.GetCountry();
                 ddlCountryPresent.DataSource = ds;
                 ddlCountryPresent.DataTextField = "CountryName";

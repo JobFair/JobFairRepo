@@ -15,8 +15,17 @@ namespace BAL
         /// <returns>System.String</returns>
         public string JobSeekerLogIn(Entities.LoginEnitity loginEntity)
         {
-            LogInJobSeekerDAL loginDAL = new LogInJobSeekerDAL();
-            return  loginDAL.LoginJSDAL(loginEntity);
+            try
+            {
+                LogInJobSeekerDAL loginDAL = new LogInJobSeekerDAL();
+                return loginDAL.LoginJSDAL(loginEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+         
            
         }
         /// <summary>
@@ -26,8 +35,17 @@ namespace BAL
         /// <returns>System.String</returns>
         public string RecruiterLoginBAL(Entities.LoginEnitity lnEntity)
         {
-            LoginRecruiterDAL loginDAL = new LoginRecruiterDAL();
-            return loginDAL.LoginRecruDAL(lnEntity);
+            try
+            {
+                LoginRecruiterDAL loginDAL = new LoginRecruiterDAL();
+                return loginDAL.LoginRecruDAL(lnEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+            
         }
     }
 }

@@ -10,6 +10,7 @@ namespace JobFair.Forms.Recruiter
     public partial class PostNewJob : System.Web.UI.Page
     {
         private DataSet ds = new DataSet();
+      
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +26,76 @@ namespace JobFair.Forms.Recruiter
                 BindBachelorDegree();
                 BindQuestions();
                 BindState();
+            }
+            bool isCheck;
+            int JobId;
+            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+            if(isCheck=true)
+            {
+                try
+                {
+                    DataSet dataset = new DataSet();
+                    ManageJobsBAL manageJobsBAL = new ManageJobsBAL();
+                    JobId = Convert.ToInt32(Request.QueryString["JobId"]);
+                    dataset = manageJobsBAL.ViewJobsDetailsBAL(JobId);
+
+                    int stateId = Convert.ToInt32(dataset.Tables[0].Rows[0]["JobLocationState"]);
+                    ds = PostNewJobBAL.GetCity(stateId);
+                    ddlCity.DataSource = ds;
+                    ddlCity.DataTextField = "cityName";
+                    ddlCity.DataValueField = "cityID";
+                    ddlCity.DataBind();
+                    ddlCity.Items.Insert(0, "cityName");
+
+                    //int cityId = Convert.ToInt32(ddlCity.SelectedValue);
+                    //ds = PostNewJobBAL.GetArea(cityId);
+                    //ddlLocation.DataSource = ds;
+                    //ddlLocation.DataTextField = "AreaName";
+                    //ddlLocation.DataValueField = "AreaId";
+                    //ddlLocation.DataBind();
+                    //ddlLocation.Items.Insert(0, "AreaName");
+
+                    //Industry.IndustryName, FunctionalArea.FunctionalArea, Departments.DepartmentName,
+                    //AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
+
+                    txtJobtitle.Text = dataset.Tables[0].Rows[0]["JobTitle"].ToString();
+                    ddlState.SelectedItem.Text = dataset.Tables[0].Rows[0]["JobLocationState"].ToString();
+                    ddlCity.SelectedItem.Value = dataset.Tables[0].Rows[0]["JobLocationCity"].ToString();
+                    ddlLocation.SelectedItem.Value = dataset.Tables[0].Rows[0]["JobLocationArea"].ToString();
+                    ddlCompanyLevel.SelectedItem.Value = dataset.Tables[0].Rows[0]["CompanyLevel"].ToString();
+                    ddlIndustry.SelectedValue = dataset.Tables[0].Rows[0]["IndustryName"].ToString();
+                    ddlDepartment.SelectedValue = dataset.Tables[0].Rows[0]["DepartmentName"].ToString();
+                    ddlFunArea.SelectedValue = dataset.Tables[0].Rows[0]["FunctionalArea"].ToString();
+                    txtJobDescription.Text = dataset.Tables[0].Rows[0]["JobDescription"].ToString();
+                    txtKeyRoles.Text = dataset.Tables[0].Rows[0]["KeywordsRoles"].ToString();
+                    txtKeyTechnical.Text = dataset.Tables[0].Rows[0]["KeywordsTechnical"].ToString();
+                    ddlworkexprience.SelectedItem.Text = dataset.Tables[0].Rows[0]["WorkExperience"].ToString();
+                    ddlgender.SelectedItem.Text = dataset.Tables[0].Rows[0]["Gender"].ToString();
+                    ddlsalarymin.SelectedItem.Text = dataset.Tables[0].Rows[0]["OfferedAnnualSalaryMin"].ToString();
+                    ddlsalarymax.SelectedItem.Text = dataset.Tables[0].Rows[0]["OfferedAnnualSalaryMax"].ToString();
+                    txtsalarydetaills.Text = dataset.Tables[0].Rows[0]["OtherSalaryDetails"].ToString();
+                    txtVacancies.Text = dataset.Tables[0].Rows[0]["NumberOfVacancies"].ToString();
+                    chkjobtype.SelectedItem.Text = dataset.Tables[0].Rows[0]["JobType"].ToString();
+                    chkemploymenttype.Text = dataset.Tables[0].Rows[0]["EmploymentStatus"].ToString();
+                    RadioButtonList1.SelectedItem.Value = dataset.Tables[0].Rows[0]["RecruitmentType"].ToString();
+                    chkcompanyname.SelectedItem.Text = dataset.Tables[0].Rows[0]["CompanyName"].ToString();
+                    
+                    //int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
+                    //if (result > 0)
+                    //{
+                    //    Response.Write("<script language='javascript'>alert('JobPost')</script>");
+                    //}
+                    //else
+                    //{
+                    //    Response.Write("<script language='javascript'>alert('Sorry')</script>");
+                    //}
+                }
+                catch (Exception ex)
+                {
+                    Label1.Text = ex.Message.ToString();
+                }
+                
+               
             }
         }
 
@@ -139,7 +210,7 @@ namespace JobFair.Forms.Recruiter
             ddlBachelorsDegree.DataBind();
             ddlBachelorsDegree.Items.Insert(0, new ListItem("--Select--", "0"));
         }
-
+        
         /// <summary>
         /// Binding dropdown with Questionaries
         /// </summary>
@@ -172,10 +243,10 @@ namespace JobFair.Forms.Recruiter
 
                 addJobPostEntity.RecruiterID = "RE12";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
-                addJobPostEntity.JobLocationState = ddlState.SelectedItem.Text.Trim();
-                addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Text.Trim();
-                addJobPostEntity.JobLocationArea = lbllocation.Text;
-                addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
+                addJobPostEntity.JobLocationState = ddlState.SelectedItem.Value;
+                addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Value;
+                addJobPostEntity.JobLocationArea = ddllocation.SelectedItem.Value;
+                   addJobPostEntity.CompanyLevel = ddlCompanytype.SelectedItem.Text.Trim();
                 addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
                 addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
                 addJobPostEntity.FunctionalAreaId = Convert.ToInt32(ddlFunArea.SelectedValue);
@@ -188,9 +259,9 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
                 addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
                 addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
-                addJobPostEntity.JobType = chkjobtype.SelectedItem.Text.Trim();
-                addJobPostEntity.EmploymentStatus = chkemploymenttype.Text.Trim();
-                addJobPostEntity.RecruitmentType = RadioButtonList1.SelectedItem.ToString();
+                addJobPostEntity.JobType = lblselectedjobtype.Text;
+                addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
+                addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
                 addJobPostEntity.CompanyName = chkcompanyname.SelectedItem.Text.Trim();
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
@@ -233,34 +304,21 @@ namespace JobFair.Forms.Recruiter
         {
             if (rdb1.Selected)
             {
-                lblclientoflogossolutios.Visible = false;
+              
                 txtaboutcompany.Visible = true;
-                lblclientoflogossolutios.Visible = false;
-                txtclient.Visible = false;
+               
 
 
             }
-            else
+            else if(rdb2.Selected)
             {
                 txtaboutcompany.Visible = false;
-                txtclient.Visible = true;
                 txtaboutcompany.Visible = false;
-                lblclientoflogossolutios.Visible = true;
+                chkcompanyname.Visible = true;
+
 
             }
 
-        }
-
-
-        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int cityId = Convert.ToInt32(ddlCity.SelectedValue);
-            ds = PostNewJobBAL.GetArea(cityId);
-            ddlLocation.DataSource = ds;
-            ddlLocation.DataTextField = "AreaName";
-            ddlLocation.DataValueField = "AreaId";
-            ddlLocation.DataBind();
-            ddlLocation.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
@@ -272,6 +330,17 @@ namespace JobFair.Forms.Recruiter
             ddlCity.DataValueField = "cityID";
             ddlCity.DataBind();
             ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int cityId = Convert.ToInt32(ddlCity.SelectedValue);
+            ds = PostNewJobBAL.GetArea(cityId);
+            ddllocation.DataSource = ds;
+            ddllocation.DataTextField = "AreaName";
+            ddllocation.DataValueField = "AreaId";
+            ddllocation.DataBind();
+            ddllocation.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         [System.Web.Script.Services.ScriptMethod()]
@@ -290,17 +359,20 @@ namespace JobFair.Forms.Recruiter
             return rolename;
 
         }
-
-        protected void ddlquestiontype_SelectedIndexChanged(object sender, EventArgs e)
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
+        public static List<string>Gettechnicalskill(string prefixText)
         {
-
+            DataTable dt = new DataTable();
+           PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
+           dt = postnewjobBAL.GettechnicalskillBAL(prefixText);
+            List<string> skillname = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                skillname.Add(dt.Rows[i][2].ToString());
+            }
+            return skillname;
         }
-
-        protected void ddlanswertypw_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         protected void lbUGD_Click(object sender, EventArgs e)
@@ -398,7 +470,7 @@ namespace JobFair.Forms.Recruiter
         {
 
             List<string> area_List = new List<string>();
-            foreach (ListItem item in ddlLocation.Items)
+            foreach (ListItem item in ddllocation.Items)
             {
                 if (item.Selected)
                 {
@@ -410,5 +482,37 @@ namespace JobFair.Forms.Recruiter
 
 
         }
+        List<string> job_type = new List<string>();
+
+        protected void chkjobtype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> job_type = new List<string>();
+            foreach (ListItem item in chkjobtype.Items)
+            {
+                if (item.Selected)
+                {
+                    job_type.Add(item.Value);
+                
+                }
+                lblselectedjobtype.Text = string.Join(",",job_type.ToArray());
+            }
+        }
+
+        protected void chkemploymenttype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            List<string> employment_type = new List<string>();
+            foreach(ListItem item in chkemploymenttype.Items)
+            {
+                if(item.Selected)
+                {
+                    employment_type.Add(item.Value);
+                
+                }
+                lblemploymentstatus.Text = string.Join(",", employment_type.ToArray());
+            }
+        }
+
+       
     }
 }

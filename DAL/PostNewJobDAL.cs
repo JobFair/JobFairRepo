@@ -111,5 +111,17 @@ namespace DAL
          
            
         }
+
+       
+        public DataTable GetSkill(string prefixText)
+        {
+            DataTable dt = new DataTable();
+            Connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from TechnicalSkillsDetails  where TechnicalSkillName like @TechnicalSkillName+'%'", Connection);
+            cmd.Parameters.AddWithValue("@TechnicalSkillName", prefixText);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(dt);
+            return dt;
+        }
     }
 }

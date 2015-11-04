@@ -56,11 +56,11 @@ namespace DAL
         public DataSet ClonePostJobDAL(int JobId, string RecruiterID)
         {
             try
-            {
-                
-                SqlParameter[] sparams = { 
-                                             new SqlParameter("@jobId", JobId) ,
-                                             new SqlParameter("@recruiterId", RecruiterID)};
+            {                
+                SqlParameter[] sparams = new SqlParameter[2]; 
+                                          
+                sparams[0] = new SqlParameter("@jobId", JobId);
+                sparams[1] = new SqlParameter("@recruiterId", RecruiterID);
                 
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_InsertCloneJob", sparams);
                 return ds;

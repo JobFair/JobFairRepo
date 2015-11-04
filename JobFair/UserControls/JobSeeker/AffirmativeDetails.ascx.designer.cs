@@ -283,6 +283,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtSportsDescription;
         
         /// <summary>
+        /// txtHobbies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHobbies;
+        
+        /// <summary>
+        /// txtExtraActivity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExtraActivity;
+        
+        /// <summary>
         /// lblUSAPermit control.
         /// </summary>
         /// <remarks>

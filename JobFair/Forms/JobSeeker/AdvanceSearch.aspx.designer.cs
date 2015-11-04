@@ -7,11 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.JobSeeker {
-    
-    
-    public partial class AdvanceSearch {
-        
+namespace JobFair.Forms.JobSeeker
+{
+
+
+    public partial class AdvanceSearch
+    {
+
+        /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// lbladvancesearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbladvancesearch;
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +40,16 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
+        /// <summary>
+        /// lblkeyskill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblkeyskill;
+
         /// <summary>
         /// txtkeyskill control.
         /// </summary>
@@ -29,7 +58,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtkeyskill;
-        
+
         /// <summary>
         /// AutoCompleteExtender1 control.
         /// </summary>
@@ -38,7 +67,25 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender1;
-        
+
+        /// <summary>
+        /// lblState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblState;
+
+        /// <summary>
+        /// pnlState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel pnlState;
+
         /// <summary>
         /// ddlState control.
         /// </summary>
@@ -47,7 +94,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlState;
-        
+
         /// <summary>
         /// ddlCity control.
         /// </summary>
@@ -56,7 +103,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCity;
-        
+
         /// <summary>
         /// ddlLocation control.
         /// </summary>
@@ -65,7 +112,34 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Saplin.Controls.DropDownCheckBoxes ddlLocation;
-        
+
+        /// <summary>
+        /// lblCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCity;
+
+        /// <summary>
+        /// lblArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblArea;
+
+        /// <summary>
+        /// lblworkexprience control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblworkexprience;
+
         /// <summary>
         /// ddlWorkExperience control.
         /// </summary>
@@ -74,7 +148,16 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlWorkExperience;
-        
+
+        /// <summary>
+        /// lbsalary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbsalary;
+
         /// <summary>
         /// ddlMinSalary control.
         /// </summary>
@@ -83,7 +166,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMinSalary;
-        
+
         /// <summary>
         /// ddlMaxSalary control.
         /// </summary>
@@ -92,7 +175,16 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMaxSalary;
-        
+
+        /// <summary>
+        /// lblindustry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblindustry;
+
         /// <summary>
         /// ddlIndustry control.
         /// </summary>
@@ -101,7 +193,16 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Saplin.Controls.DropDownCheckBoxes ddlIndustry;
-        
+
+        /// <summary>
+        /// lbljobcategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbljobcategory;
+
         /// <summary>
         /// ddlJobCategory control.
         /// </summary>
@@ -110,7 +211,16 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlJobCategory;
-        
+
+        /// <summary>
+        /// lblEmploymentStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmploymentStatus;
+
         /// <summary>
         /// chkFullTime control.
         /// </summary>
@@ -119,7 +229,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkFullTime;
-        
+
         /// <summary>
         /// chkPartTime control.
         /// </summary>
@@ -128,7 +238,16 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkPartTime;
-        
+
+        /// <summary>
+        /// lblJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblJobType;
+
         /// <summary>
         /// chkPermanant control.
         /// </summary>
@@ -137,7 +256,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkPermanant;
-        
+
         /// <summary>
         /// chkTemporary control.
         /// </summary>
@@ -146,7 +265,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkTemporary;
-        
+
         /// <summary>
         /// chkFreelancing control.
         /// </summary>
@@ -155,7 +274,16 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkFreelancing;
-        
+
+        /// <summary>
+        /// lblRecruitmentType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecruitmentType;
+
         /// <summary>
         /// chkInhouse control.
         /// </summary>
@@ -164,7 +292,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkInhouse;
-        
+
         /// <summary>
         /// chkClient control.
         /// </summary>
@@ -173,7 +301,16 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkClient;
-        
+
+        /// <summary>
+        /// lblSortBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSortBy;
+
         /// <summary>
         /// ddlJobFreshness control.
         /// </summary>
@@ -182,7 +319,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlJobFreshness;
-        
+
         /// <summary>
         /// btnsearch control.
         /// </summary>
@@ -191,7 +328,7 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnsearch;
-        
+
         /// <summary>
         /// btnReset control.
         /// </summary>

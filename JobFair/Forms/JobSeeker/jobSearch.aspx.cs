@@ -11,6 +11,7 @@ namespace JobFair.Forms.JobSeeker
     {
         private EducationalDetailsBAL educationalDetails = null;
         public string keySkill, city, state, experience, minSalary, maxSalary, candidateId;
+        public int functionalArea;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,6 +44,7 @@ namespace JobFair.Forms.JobSeeker
             experience = Request.QueryString["experience"];
             minSalary = Request.QueryString["minSalary"];
             maxSalary = Request.QueryString["maxSalary"];
+            functionalArea = Convert.ToInt32(Request.QueryString["functionalArea"]);
             rptr_bind();
             rptrJobPost.Visible = true;
         }
@@ -51,7 +53,7 @@ namespace JobFair.Forms.JobSeeker
         {
             DataSet ds = new DataSet();
             JobSearchBAL jobSearchBAL = new JobSearchBAL();
-            ds = jobSearchBAL.JobSearch(keySkill, city, experience, minSalary, maxSalary);
+            ds = jobSearchBAL.JobSearch(keySkill, city, experience, minSalary, maxSalary,functionalArea);
             rptrJobPost.DataSource = ds;
             rptrJobPost.DataBind();
         }

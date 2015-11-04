@@ -117,6 +117,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\ValidationAll.js" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
