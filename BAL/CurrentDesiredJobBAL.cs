@@ -1,6 +1,7 @@
 ﻿using CommonUtil;
 using DAL;
 using Entities.JobSeeker;
+using System.Data;
 
 namespace BAL
 {
@@ -96,6 +97,12 @@ namespace BAL
         public System.Data.DataSet GetArea()
         {
             return Utility.GetArea();
+        }
+
+        public DataTable SaveExperienceDetailsBAL(System.Data.DataTable dt)
+        {
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.SaveExperienceDetailsDAL(dt);
         }
     }
 }
