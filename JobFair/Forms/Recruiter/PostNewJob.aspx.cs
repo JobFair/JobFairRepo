@@ -217,11 +217,11 @@ namespace JobFair.Forms.Recruiter
         private void BindQuestions()
         {
             PostNewJobBAL newJobPostBAL = new PostNewJobBAL();
-            ddlQuestionary.DataSource = newJobPostBAL.GetQuestionsBAL();
-            ddlQuestionary.DataTextField = "Question";
-            ddlQuestionary.DataValueField = "QuestionId";
-            ddlQuestionary.DataBind();
-            ddlQuestionary.Items.Insert(0, new ListItem("--Select--", "0"));
+            ddlquestionnaire.DataSource = newJobPostBAL.GetQuestionsBAL();
+            ddlquestionnaire.DataTextField = "Question";
+            ddlquestionnaire.DataValueField = "QuestionId";
+            ddlquestionnaire.DataBind();
+            ddlquestionnaire.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         /// <summary>

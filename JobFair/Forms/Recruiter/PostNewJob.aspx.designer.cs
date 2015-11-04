@@ -940,12 +940,12 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblselectquestionrie;
         
         /// <summary>
-        /// ddlQuestionary control.
+        /// ddlquestionnaire control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlQuestionary;
+        protected global::System.Web.UI.WebControls.DropDownList ddlquestionnaire;
     }
 }
