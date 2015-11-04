@@ -7,14 +7,12 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ProjectDetails : System.Web.UI.Page
     {
-        string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["candidateId"] == "undefined")
-            {
-                Response.Redirect("LogIn.aspx");
-            }
-            candidateId = Convert.ToString(Session["candidateId"]);
+            string candidateId = Convert.ToString(Session["candidateId"]);
+
+            CheckAuthorised(candidateId);
+
             if (!IsPostBack)
             {
                 //Take Candidate Id from Session
@@ -26,11 +24,25 @@ namespace JobFair.Forms.JobSeeker
             {
                 txtLink.Visible = true;
                 lblLinkUrl.Visible = true;
+                return;
             }
-            else
+            txtLink.Visible = false;
+            lblLinkUrl.Visible = false;
+        }
+
+        private void CheckAuthorised(string candidateId)
+        {
+            if (string.IsNullOrEmpty(candidateId))
             {
-                txtLink.Visible = false;
-                lblLinkUrl.Visible = false;
+                string message = "Sorry your session has been expired !!!!";
+                string url = "LogIn.aspx";
+                string script = "window.onload = function(){ alert('";
+                script += message;
+                script += "');";
+                script += "window.location = '";
+                script += url;
+                script += "'; }";
+                ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
             }
         }
 
@@ -55,7 +67,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                if (ViewState["ProductsSold"] != null)
+                if (ViewState["ProjectDetails"] != null)
                 {
                     DataTable dtCurrentTable = (DataTable)ViewState["ProjectDetails"];
                     DataRow drCurrentRow = null;
@@ -73,12 +85,12 @@ namespace JobFair.Forms.JobSeeker
                             drCurrentRow = dtCurrentTable.NewRow();
                             drCurrentRow["CandidateId"] = hfCandidateId.Value.Trim();
                             drCurrentRow["ProjectFor"] = rbtProjectTypeList.SelectedItem.Text;
-                            drCurrentRow["ProjectTitle"] = txtProjectTitle.Text;
-                            drCurrentRow["CompanyName"] = txtCompanyName.Text;
+                            drCurrentRow["ProjectTitle"] = txtProjectTitle.Text.Trim();
+                            drCurrentRow["CompanyName"] = txtCompanyName.Text.Trim();
                             drCurrentRow["Role"] = ddlRole.SelectedItem.Text;
-                            drCurrentRow["ClientName"] = txtClientName.Text;
+                            drCurrentRow["ClientName"] = txtClientName.Text.Trim();
                             drCurrentRow["Duration"] = Convert.ToInt32(days);
-                            drCurrentRow["ProjectLocation"] = txtLocation.Text;
+                            drCurrentRow["ProjectLocation"] = txtLocation.Text.Trim();
 
                             if (rbtFullTime.Checked)
                             {
@@ -89,10 +101,10 @@ namespace JobFair.Forms.JobSeeker
                                 drCurrentRow["EmploymentType"] = "PartTime";
                             }
 
-                            drCurrentRow["ProjectDetails"] = txtProjectDetails.Text;
-                            drCurrentRow["RolesandResponsibility"] = txtRolesAndResponsibility.Text;
+                            drCurrentRow["ProjectDetails"] = txtProjectDetails.Text.Trim();
+                            drCurrentRow["RolesandResponsibility"] = txtRolesAndResponsibility.Text.Trim();
                             drCurrentRow["TeamSize"] = ddlTeamSize.SelectedItem.Text;
-                            drCurrentRow["SkillUsed"] = txtSkillUsed.Text;
+                            drCurrentRow["SkillUsed"] = txtSkillUsed.Text.Trim();
 
                             if (rbtYes.Checked)
                             {
@@ -102,8 +114,8 @@ namespace JobFair.Forms.JobSeeker
                             {
                                 drCurrentRow["ProjectLive"] = "No";
                             }
-                            drCurrentRow["ProjectLink"] = txtLink.Text;
-                            drCurrentRow["Degree"] = TextBox1.Text;
+                            drCurrentRow["ProjectLink"] = txtLink.Text.Trim();
+                            drCurrentRow["Degree"] = TextBox1.Text.Trim();
                         }
                         //Removing initial blank row
                         if (dtCurrentTable.Rows[0][0].ToString() == "")
@@ -171,7 +183,10 @@ namespace JobFair.Forms.JobSeeker
             ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
             DataTable dtProjectDetails = (DataTable)ViewState["ProjectDetails"];
             projectDetailsBAL.SaveProjectDetailsBAL(dtProjectDetails);
+            GridView1.DataSource = null;
+            GridView1.DataBind();
             Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+
         }
 
         protected void rbtProjectTypeList_SelectedIndexChanged(object sender, EventArgs e)

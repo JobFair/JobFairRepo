@@ -110,7 +110,7 @@ namespace JobFair.Forms.Recruiter
             ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
-      
+
 
         /// <summary>
         /// Method for binding Dropdown with Industry_table of database
@@ -231,6 +231,11 @@ namespace JobFair.Forms.Recruiter
         /// <param name="e">The <cref="EventArgs">instance containing event data</param>
         public void btnPostJob_Click(object sender, EventArgs e)
         {
+
+
+
+
+
             try
             {
                 PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
@@ -238,10 +243,10 @@ namespace JobFair.Forms.Recruiter
 
                 addJobPostEntity.RecruiterID = "RE12";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
-                addJobPostEntity.JobLocationState = ddlState.SelectedItem.Text.Trim();
-                addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Text.Trim();
-                addJobPostEntity.JobLocationArea = ddlLocation.SelectedItem.Text.Trim();
-                addJobPostEntity.CompanyLevel = ddlCompanyLevel.SelectedItem.Text.Trim();
+                addJobPostEntity.JobLocationState = ddlState.SelectedItem.Value;
+                addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Value;
+                addJobPostEntity.JobLocationArea = ddllocation.SelectedItem.Value;
+                   addJobPostEntity.CompanyLevel = ddlCompanytype.SelectedItem.Text.Trim();
                 addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
                 addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
                 addJobPostEntity.FunctionalAreaId = Convert.ToInt32(ddlFunArea.SelectedValue);
@@ -254,9 +259,9 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
                 addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
                 addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
-                addJobPostEntity.JobType = chkjobtype.SelectedItem.Text.Trim();
-                addJobPostEntity.EmploymentStatus = chkemploymenttype.Text.Trim();
-                addJobPostEntity.RecruitmentType = RadioButtonList1.SelectedItem.ToString();
+                addJobPostEntity.JobType = lblselectedjobtype.Text;
+                addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
+                addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
                 addJobPostEntity.CompanyName = chkcompanyname.SelectedItem.Text.Trim();
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
@@ -272,6 +277,11 @@ namespace JobFair.Forms.Recruiter
             {
                 Label1.Text = ex.Message.ToString();
             }
+
+
+
+
+
         }
 
         protected void DropDownCheckBoxes1_SelectedIndexChanged(object sender, EventArgs e)
@@ -281,35 +291,33 @@ namespace JobFair.Forms.Recruiter
             {
                 if (item.Selected)
                 {
-                    selectedItemspanel.Controls.Add(new Literal() 
-                    { Text = item.Text +"<br/>"}
+                    selectedItemspanel.Controls.Add(new Literal() { Text = item.Text + "<br/>" }
                     );
 
                 }
             }
         }
 
-      
+
 
         protected void RadioButtonList1_SelectedIndexChanged1(object sender, EventArgs e)
         {
-             if (rdb1.Selected)
+            if (rdb1.Selected)
             {
-                lblclientoflogossolutios.Visible = false;
+              
                 txtaboutcompany.Visible = true;
-                lblclientoflogossolutios.Visible = false;
-                txtclient.Visible = false;
                
 
+
             }
-             else 
-             {
-                 txtaboutcompany.Visible = false;
-                 txtclient.Visible = true;
-                 txtaboutcompany.Visible = false;
-                 lblclientoflogossolutios.Visible = true;
-              
-             }
+            else if(rdb2.Selected)
+            {
+                txtaboutcompany.Visible = false;
+                txtaboutcompany.Visible = false;
+                chkcompanyname.Visible = true;
+
+
+            }
 
         }
 
@@ -328,11 +336,11 @@ namespace JobFair.Forms.Recruiter
         {
             int cityId = Convert.ToInt32(ddlCity.SelectedValue);
             ds = PostNewJobBAL.GetArea(cityId);
-            ddlLocation.DataSource = ds;
-            ddlLocation.DataTextField = "AreaName";
-            ddlLocation.DataValueField = "AreaId";
-            ddlLocation.DataBind();
-            ddlLocation.Items.Insert(0, new ListItem("--Select--", "0"));
+            ddllocation.DataSource = ds;
+            ddllocation.DataTextField = "AreaName";
+            ddllocation.DataValueField = "AreaId";
+            ddllocation.DataBind();
+            ddllocation.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         [System.Web.Script.Services.ScriptMethod()]
@@ -349,19 +357,22 @@ namespace JobFair.Forms.Recruiter
                 rolename.Add(dt.Rows[i][1].ToString());
             }
             return rolename;
-        
-        }
 
-        protected void ddlquestiontype_SelectedIndexChanged(object sender, EventArgs e)
+        }
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
+        public static List<string>Gettechnicalskill(string prefixText)
         {
-
+            DataTable dt = new DataTable();
+           PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
+           dt = postnewjobBAL.GettechnicalskillBAL(prefixText);
+            List<string> skillname = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                skillname.Add(dt.Rows[i][2].ToString());
+            }
+            return skillname;
         }
-
-        protected void ddlanswertypw_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         protected void lbUGD_Click(object sender, EventArgs e)
@@ -388,37 +399,36 @@ namespace JobFair.Forms.Recruiter
         {
             panel5.Controls.Clear();
         }
-         
+
         protected void ddlUGDiploma_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            foreach(ListItem item in  ddlUGDiploma.Items)
+
+            foreach (ListItem item in ddlUGDiploma.Items)
             {
                 if (item.Selected)
                 {
-                  panel1.Controls.Add(new Literal()
-                        { Text = item.Text +"<br/>"}
-                    );
+                    panel1.Controls.Add(new Literal() { Text = item.Text + "<br/>" }
+                      );
                 }
             }
         }
 
         protected void ddlBachelorsDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
-         
+
             foreach (ListItem item in ddlBachelorsDegree.Items)
             {
                 if (item.Selected)
                 {
                     panel2.Controls.Add(new Literal() { Text = item.Text + "<br>" });
-                
+
                 }
             }
         }
 
         protected void ddlPGDiploma_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach ( ListItem item in ddlPGDiploma.Items)
+            foreach (ListItem item in ddlPGDiploma.Items)
             {
                 if (item.Selected)
                 {
@@ -435,7 +445,7 @@ namespace JobFair.Forms.Recruiter
                 {
                     panel4.Controls.Add(new Literal() { Text = item.Text + "<br>" });
                 }
-                
+
             }
 
         }
@@ -456,6 +466,53 @@ namespace JobFair.Forms.Recruiter
             selectedItemspanel.Controls.Clear();
         }
 
-      
+        protected void ddlLocation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            List<string> area_List = new List<string>();
+            foreach (ListItem item in ddllocation.Items)
+            {
+                if (item.Selected)
+                {
+                    area_List.Add(item.Value);
+
+                }
+                lbllocation.Text = string.Join(",", area_List.ToArray());
+            }
+
+
+        }
+        List<string> job_type = new List<string>();
+
+        protected void chkjobtype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> job_type = new List<string>();
+            foreach (ListItem item in chkjobtype.Items)
+            {
+                if (item.Selected)
+                {
+                    job_type.Add(item.Value);
+                
+                }
+                lblselectedjobtype.Text = string.Join(",",job_type.ToArray());
+            }
+        }
+
+        protected void chkemploymenttype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            List<string> employment_type = new List<string>();
+            foreach(ListItem item in chkemploymenttype.Items)
+            {
+                if(item.Selected)
+                {
+                    employment_type.Add(item.Value);
+                
+                }
+                lblemploymentstatus.Text = string.Join(",", employment_type.ToArray());
+            }
+        }
+
+       
     }
 }

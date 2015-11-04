@@ -4,20 +4,7 @@
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <!DOCTYPE html>
-    <%--<script runat="server">
-        protected void chkFreshness_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            Label1.Text = "You Selected:<br /><i>";
-            foreach (ListItem li in chkFreshness.Items)
-            {
-                if (li.Selected == true)
-                {
-                    Label1.Text += li.Text + "<br />";
-                }
-            }
-            Label1.Text += "</i>";
-        }
-    </script>--%>
+    
     <script>
         $('#checkbox_filter').click(function () { oTable.fnDraw(); });
         /* Custom filtering function which will filter data in column four between two values */
@@ -149,7 +136,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="Label1" runat="server" Text="Logos Solutions Pvt Limited"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
                                             &nbsp; [<asp:Label ID="lblRecruitmentType" runat="server" Text='<%#Eval("RecruitmentType")%>'></asp:Label>]
                                         </td>
                                     </tr>
@@ -166,10 +153,10 @@
                         </tr>
                         <tr>
                             <td>Key Skills :
-                            <asp:Label ID="Label2" runat="server" Text='<%#Eval("KeywordsTechnical") %>' /><br />
+                            <asp:Label ID="lblKeySkills" runat="server" Text='<%#Eval("KeywordsTechnical") %>' /><br />
 
                                 Job Description :
-                            <asp:Label ID="Label4" runat="server" Text='<%#Eval("JobDescription")%>'></asp:Label>
+                            <asp:Label ID="lblJobDescription" runat="server" Text='<%#Eval("JobDescription")%>'></asp:Label>
                             </td>
                         </tr>
                         <tr>

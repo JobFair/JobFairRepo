@@ -9,7 +9,7 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
-        private DataSet ds = new DataSet();
+       
         private PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
         string candidateId;
         /// <summary>
@@ -18,8 +18,10 @@ namespace JobFair.UserControls.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
             candidateId = Convert.ToString(Session["candidateId"]);
+         
             if (!IsPostBack)
             {
+                DataSet ds = new DataSet();
                 ds = personalDetailsBAL.GetCountry();
                 ddlCountryPresent.DataSource = ds;
                 ddlCountryPresent.DataTextField = "CountryName";
@@ -52,14 +54,14 @@ namespace JobFair.UserControls.JobSeeker
                 if (validated)
                 {
                     // Set value to PersonalDetails job seeker entity
-                    personalDetailsEntity.candidateId = candidateId;//static data used because session value not set
-                    personalDetailsEntity.presentAddress = txtPresentAddress.Text;
+                    personalDetailsEntity.candidateId = candidateId;
+                    personalDetailsEntity.presentAddress = txtPresentAddress.Text.Trim();
                     personalDetailsEntity.presentCountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
                     personalDetailsEntity.presentStateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
                     personalDetailsEntity.presentCityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
                     personalDetailsEntity.presentArea = Convert.ToInt32(ddlAreaPresent.SelectedValue);
                     personalDetailsEntity.presentPincode = Convert.ToInt32(txtPincodePresent.Text);
-                    personalDetailsEntity.permantAddress = txtAddressPerm.Text;
+                    personalDetailsEntity.permantAddress = txtAddressPerm.Text.Trim();
                     personalDetailsEntity.permantCountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
                     personalDetailsEntity.permantStateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
                     personalDetailsEntity.permantCityId = Convert.ToInt32(ddlCityPerm.SelectedValue);

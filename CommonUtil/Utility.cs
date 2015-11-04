@@ -37,8 +37,17 @@ namespace CommonUtil
         /// <returns>System.Int32</returns>
         public static int ChangePassword(ChangePasswordEnitity changepasswordEntity)
         {
-            ChangePasswordDAL cpDAL = new ChangePasswordDAL();
-            return cpDAL.ChangePasswordDALMethod(changepasswordEntity);
+            try
+            {
+                ChangePasswordDAL cpDAL = new ChangePasswordDAL();
+                return cpDAL.ChangePasswordDALMethod(changepasswordEntity);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         /// <summary>
@@ -48,8 +57,17 @@ namespace CommonUtil
 
         public static DataSet GetCountry()
         {
-            Common common = new Common();
-            return common.GetCountryDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetCountryDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         /// <summary>
@@ -59,8 +77,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetState(int countryid)
         {
-            Common common = new Common();
-            return common.GetStateDAL(countryid);
+            try
+            {
+                Common common = new Common();
+                return common.GetStateDAL(countryid);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         /// <summary>
@@ -70,18 +97,45 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetCity(int stateid)
         {
-            Common common = new Common();
-            return common.GetCityDAL(stateid);
+            try
+            {
+                Common common = new Common();
+                return common.GetCityDAL(stateid);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         public static DataSet GetArea(int cityId)
         {
-            Common common = new Common();
-            return common.GetAreaDAL(cityId);
+            try
+            {
+                Common common = new Common();
+                return common.GetAreaDAL(cityId);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         public static DataSet GetFunctionalArea()
         {
-            Common common = new Common();
-            return common.GetFunctionalAreaDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetFunctionalAreaDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         /// <summary>
@@ -90,8 +144,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetIndustry()
         {
-            Common common = new Common();
-            return common.GetIndustryDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetIndustryDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// Get Departments
@@ -99,8 +162,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetDepartment()
         {
-            Common common = new Common();
-            return common.GetDepartmentDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetDepartmentDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
         /// <summary>
         /// GetEducationalDegreeTypeDAL() method of Utility class
@@ -108,8 +180,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetEducationalDegreeTypeDAL()
         {
-            Common common = new Common();
-            return common.GetEducationalDegreeTypeDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetEducationalDegreeTypeDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// GetLanguage() method of Utility class
@@ -117,8 +198,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetLanguage()
         {
-            Common common = new Common();
-            return common.GetLanguagesDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetLanguagesDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+          
         }
         /// <summary>
         /// GetClientName() method of Utility class
@@ -126,8 +216,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetClientName()
         {
-            Common common = new Common();
-            return common.GetClientNameDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetClientNameDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+          
         }
         /// <summary>
         /// GetUnderGraduateDiploma() method of Utility class
@@ -135,8 +234,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetUnderGraduateDiplomaDAL()
         {
-            Common common = new Common();
-            return common.GetUnderGraduateDiplomaDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetUnderGraduateDiplomaDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// GetBachelorDegree() method of Utility class
@@ -144,8 +252,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetBachelorDegreeDAL()
         {
-            Common common = new Common();
-            return common.GetBachelorDegreeDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetBachelorDegreeDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// GetPostGraduateDiploma() method of Utility class
@@ -153,8 +270,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetPostGraduateDiplomaDAL()
         {
-            Common common = new Common();
-            return common.GetPostGraduateDiplomaDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetPostGraduateDiplomaDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// GetMasterDegree() method of Utility class
@@ -162,8 +288,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetMasterDegreeDAL()
         {
-            Common common = new Common();
-            return common.GetMasterDegreeDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetMasterDegreeDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// GetDoctorOfPhilosophy() method of Utility class
@@ -171,8 +306,17 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetDoctorOfPhilosophyDAL()
         {
-            Common common = new Common();
-            return common.GetDoctorOfPhilosophyDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetDoctorOfPhilosophyDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// GetRoles() method Of utility Class
@@ -180,43 +324,97 @@ namespace CommonUtil
         /// <returns>System.Data.Set</returns>
         public static DataSet GetRoles()
         {
-            Common common = new Common();
-            return common.GetRole();
+            try
+            {
+                Common common = new Common();
+                return common.GetRole();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         public static DataSet GetLocation()
         {
-            Common common = new Common();
-            return common.GetLocation();
+            try
+            {
+                Common common = new Common();
+                return common.GetLocation();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+          
         }
 
         public static List<string> GetYears()
         {
-            List<string> yearList = new List<string>();
-            int i = DateTime.Now.Year;
-            for (i = i - 60; i <= DateTime.Now.Year + 4; i++)
-                yearList.Add(Convert.ToString(i));
-            return yearList;
+            try
+            {
+                List<string> yearList = new List<string>();
+                int i = DateTime.Now.Year;
+                for (i = i - 60; i <= DateTime.Now.Year + 4; i++)
+                    yearList.Add(Convert.ToString(i));
+                return yearList;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+          
         }
         public static List<string> GetMonths()
         {
-            string[] months = System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames;
-            List<string> monthList = null;
-            monthList = new List<string>(months);
-            monthList.RemoveAt(12);
-            return monthList;
+            try
+            {
+                string[] months = System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames;
+                List<string> monthList = null;
+                monthList = new List<string>(months);
+                monthList.RemoveAt(12);
+                return monthList;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         public static DataSet GetCity()
         {
-            Common common = new Common();
-            return common.GetCityDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetCityDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         public static DataSet GetArea()
         {
-            Common common = new Common();
-            return common.GetAreaDAL();
+            try
+            {
+                Common common = new Common();
+                return common.GetAreaDAL();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
     }
 }

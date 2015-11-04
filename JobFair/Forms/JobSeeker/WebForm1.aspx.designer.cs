@@ -13,6 +13,15 @@ namespace JobFair.Forms.JobSeeker {
     public partial class WebForm1 {
         
         /// <summary>
+        /// ddlchbCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Saplin.Controls.DropDownCheckBoxes ddlchbCity;
+        
+        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -22,12 +31,12 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// ProfessionalDetails control.
+        /// AffirmativeDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.ProfessionalDetails ProfessionalDetails;
+        protected global::JobFair.UserControls.JobSeeker.AffirmativeDetails AffirmativeDetails;
     }
 }

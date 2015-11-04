@@ -13,27 +13,81 @@ namespace BAL
         AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
         public static object GetIndustry()
         {
-            return Utility.GetIndustry();
+            try
+            {
+                return Utility.GetIndustry();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+            
         }
         public static object GetFunctionalArea()
         {
-            return Utility.GetFunctionalArea();
+            try
+            {
+                return Utility.GetFunctionalArea();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
         public static object GetCity(int StateId)
         {
-            return Utility.GetCity(StateId);
+            try
+            {
+                return Utility.GetCity(StateId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
         public static object GetArea(int cityId)
         {
-            return Utility.GetArea(cityId);
+            try
+            {
+                return Utility.GetArea(cityId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+            
         }
         public DataSet GetState()
         {
-            return advanceSearchDAL.GetStateDAL();
+            try
+            {
+                return advanceSearchDAL.GetStateDAL();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
         public DataTable GetTechnicalSkillBAL(string prefixText)
         {
-            return advanceSearchDAL.GetTechnicalSkillDAL(prefixText);
+            try
+            {
+                return advanceSearchDAL.GetTechnicalSkillDAL(prefixText);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
     }
 }

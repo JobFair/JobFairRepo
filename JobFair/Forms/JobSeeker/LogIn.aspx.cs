@@ -28,12 +28,10 @@ namespace JobFair.Forms.JobSeeker
                 if (string.IsNullOrEmpty(candidateID))
                 {
                     lblmsg.Text = "Wrong username or password";
+                    return;
                 }
-                else
-                {
-                    Session["Candidateid"] = candidateID.ToString();
-                    Response.Redirect("UserDetails.aspx");
-                }
+                Session["Candidateid"] = candidateID;
+                Response.Redirect("ProjectDetails.aspx");
             }
             catch (Exception ex)
             {

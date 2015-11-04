@@ -1,4 +1,5 @@
 ﻿using BAL;
+using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,10 +9,24 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class AdvanceSearch : System.Web.UI.Page
     {
-        private object ds;
-
+       
+        string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
+            if (candidateId == "")
+            {
+                //string message = "Sorry your session has been expired !!!!";
+                //string url = "LogIn.aspx";
+                //string script = "window.onload = function(){ alert('";
+                //script += message;
+                //script += "');";
+                //script += "window.location = '";
+                //script += url;
+                //script += "'; }";
+                //ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                 Response.Redirect("LogIn.aspx");
+            }
             if (!IsPostBack)
             {
                 BindIndustry();
@@ -27,6 +42,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                object ds;
                 ds = AdvanceJobSearchBAL.GetIndustry();
                 ddlIndustry.DataSource = ds;
                 ddlIndustry.DataTextField = "IndustryName";
@@ -44,6 +60,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                object ds;
                 ds = AdvanceJobSearchBAL.GetFunctionalArea();
                 ddlJobCategory.DataSource = ds;
                 ddlJobCategory.DataTextField = "FunctionalArea";
@@ -61,6 +78,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                object ds;
                 AdvanceJobSearchBAL advaceJobSearchBAL = new AdvanceJobSearchBAL();
                 ds = advaceJobSearchBAL.GetState();
                 ddlState.DataSource = ds;
@@ -77,13 +95,33 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text + "&minSalary=" + ddlMinSalary.SelectedItem.Text + "&maxSalary=" + ddlMaxSalary.SelectedItem.Text);
+            AdvanceSearchDetailsEntity advanceSearch = new AdvanceSearchDetailsEntity();
+            advanceSearch.City = ddlCity.SelectedValue.Trim();
+            advanceSearch.Freshness = ddlJobFreshness.SelectedValue.Trim();
+            advanceSearch.KeySkill = txtkeyskill.Text.Trim();
+            advanceSearch.State = ddlState.SelectedValue.Trim();
+            advanceSearch.MinSalary = ddlMinSalary.SelectedItem.Text.Trim();
+            advanceSearch.MaxSalary = ddlMaxSalary.SelectedItem.Text.Trim();
+            advanceSearch.WorkExp = ddlWorkExperience.SelectedItem.Text.Trim();
+            advanceSearch.JobCategory = ddlJobCategory.SelectedValue.Trim();
+            //IEnumerable<int> allChecked = (from item in ddlLocation.Items 
+            //                   where item.Selected 
+            //                   select int.Parse(item.Value));
+
+            //advanceSearch.Area.AddRange(ddl)
+
+
+
+            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text.Trim() + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text + "&minSalary=" + ddlMinSalary.SelectedItem.Text + "&maxSalary=" + ddlMaxSalary.SelectedItem.Text+"&functionalArea="+ddlJobCategory.SelectedValue);
+
+
         }
 
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                object ds;
                 int cityId = Convert.ToInt32(ddlCity.SelectedValue);
                 ds = AdvanceJobSearchBAL.GetArea(cityId);
                 ddlLocation.DataSource = ds;
@@ -102,6 +140,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                object ds;
                 int stateId = Convert.ToInt32(ddlState.SelectedValue);
                 ds = AdvanceJobSearchBAL.GetCity(stateId);
                 ddlCity.DataSource = ds;

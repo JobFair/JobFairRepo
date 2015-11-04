@@ -11,39 +11,101 @@ namespace BAL
         public static System.Data.DataSet GetIndustry()
        
         {
-            return Utility.GetIndustry();
+            try
+            {
+                return Utility.GetIndustry();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
 
         public static System.Data.DataSet GetDepartment()
         {
-            return Utility.GetDepartment();
+            try
+            {
+                return Utility.GetDepartment();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         public static System.Data.DataSet GetFunctionalArea()
         {
-            return Utility.GetFunctionalArea();
+            try
+            {
+                return Utility.GetFunctionalArea();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
 
         public static System.Data.DataSet GetRoles()
         {
-            return Utility.GetRoles();
+            try
+            {
+                return Utility.GetRoles();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         public static System.Data.DataSet GetLocation()
         {
-            return Utility.GetLocation();
+            try
+            {
+                return Utility.GetLocation();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         public static System.Data.DataSet GetEducationalDegreeType()
         {
-            return Utility.GetEducationalDegreeTypeDAL();
+            try
+            {
+                return Utility.GetEducationalDegreeTypeDAL();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
-        public DataSet JobSearch(string keySkills, string city, string experience, string minSalary, string maxSalary)
+        public DataSet JobSearch(string keySkills, string city, string experience, string minSalary, string maxSalary, int functionalArea)
         {
-            JobSearchDAL jobSearchDAL = new JobSearchDAL();
-            return  jobSearchDAL.JobSearch(keySkills,city,experience,minSalary,maxSalary);
+            try
+            {
+                JobSearchDAL jobSearchDAL = new JobSearchDAL();
+                return jobSearchDAL.JobSearch(keySkills, city, experience, minSalary, maxSalary, functionalArea);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+          
         }
     }
 }

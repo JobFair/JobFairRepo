@@ -40,6 +40,7 @@ namespace DAL
         public const string sp_dropdiagram = "sp_dropdiagram";
         public const string sp_JS_InsertAdvanceSearch = "sp_JS_InsertAdvanceSearch";
         public const string sp_RE_InsertJobPost = "sp_RE_InsertJobPost";
+        public const string sp_InsertJobPostHistory = "sp_InsertJobPostHistory";
         public const string sp_JS_InsertProfessionalDetails = "sp_JS_InsertProfessionalDetails";
         public const string sp_UserCredentials = "sp_UserCredentials";
         public const string sp_RE_InsertRegisterDetails = "sp_RE_InsertRegisterDetails";
