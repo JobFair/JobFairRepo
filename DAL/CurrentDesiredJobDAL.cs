@@ -90,37 +90,49 @@ namespace DAL
 
         public DataTable GetPreferredCityDAL(string PrefixText)
         {
-            connection.Open();
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("select * from City where CityName like @citynames + '%' ", connection);
-            cmd.Parameters.AddWithValue("@citynames", PrefixText);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            return dt;
-
+            try
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("select * from City where CityName like @citynames + '%' ", connection);
+                cmd.Parameters.AddWithValue("@citynames", PrefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public DataTable GetPreferredAreaDAL(string prefixText)
         {
-            connection.Open();
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("select * from CityArea where AreaName like @areaname + '%' ", connection);
-            cmd.Parameters.AddWithValue("@areaname", prefixText);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("select * from CityArea where AreaName like @areaname + '%' ", connection);
+                cmd.Parameters.AddWithValue("@areaname", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public DataTable SaveExperienceDetailsDAL(DataTable dt)
         {
-           
             try
             {
                 connection.Open();
                 //creating object of SqlBulkCopy
                 SqlBulkCopy objbulk = new SqlBulkCopy(connection);
                 //assigning Destination table name
-                objbulk.DestinationTableName = "JS_PastExperience";
+                objbulk.DestinationTableName = "JS_CurrentPastExperience";
                 //Mapping Table column
                 objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
                 objbulk.ColumnMappings.Add("CompanyCurrentOrPast", "CompanyCurrentOrPast");
@@ -137,7 +149,33 @@ namespace DAL
                 objbulk.ColumnMappings.Add("JobType", "JobType");
                 objbulk.ColumnMappings.Add("CompanyType", "CompanyType");
                 objbulk.ColumnMappings.Add("Reason", "Reason");
-               
+
+                //inserting bulk Records into DataBase
+                objbulk.WriteToServer(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataTable SaveJobLookingDetailsDAL(DataTable dt)
+        {
+            try
+            {
+                connection.Open();
+                //creating object of SqlBulkCopy
+                SqlBulkCopy objbulk = new SqlBulkCopy(connection);
+                //assigning Destination table name
+                objbulk.DestinationTableName = "JS_JobPostLookingFor";
+                //Mapping Table column
+                objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
+                objbulk.ColumnMappings.Add("JobPostLookingFor", "JobPostLookingFor");
+                objbulk.ColumnMappings.Add("Industry", "Industry");
+                objbulk.ColumnMappings.Add("Department", "Department");
+                objbulk.ColumnMappings.Add("FunctionalRole", "FunctionalRole");
+                objbulk.ColumnMappings.Add("RelevantExperience", "RelevantExperience");
                 //inserting bulk Records into DataBase
                 objbulk.WriteToServer(dt);
                 return dt;

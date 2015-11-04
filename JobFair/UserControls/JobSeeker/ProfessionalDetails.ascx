@@ -40,6 +40,12 @@
             </td>
         </tr>
         <tr>
+            <td>Profile Summary</td>
+            <td>
+                <asp:TextBox ID="txtProfileSummary" runat="server" Height="111px" TextMode="MultiLine" Width="375px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
             <td>Total Experience</td>
             <td>
                 <asp:Label ID="lblYear" runat="server" Text=""></asp:Label>
@@ -71,11 +77,15 @@
         </tr>
         <tr>
             <td colspan="2">
+                <asp:UpdatePanel ID="upPastCurrentExperience" runat="server">
+                    <ContentTemplate>
+
+                   
                 <div id="divCurrentEmployer"  runat="server">
                     <table>
                         <tr>
                             <td colspan="2">
-                                <h1>&nbsp;Employer</h1>
+                                <h1>&nbsp;Employer Details</h1>
                             </td>
                         </tr>
                         <tr>
@@ -86,12 +96,8 @@
                         <tr>
                             <td>Employer/Company Name</td>
                             <td>
-                                <asp:DropDownList ID="ddlCurrentOrPast" runat="server">
-                                    <asp:ListItem>Select</asp:ListItem>
-                                    <asp:ListItem>Current</asp:ListItem>
-                                    <asp:ListItem>Past</asp:ListItem>
-                                </asp:DropDownList>
-                                <asp:TextBox ID="txtCurrentEmployer" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtCurrentEmployer" runat="server" ></asp:TextBox>
+                                <asp:CheckBox ID="chkCurrentYes" runat="server" Text="Current Company" />
                             </td>
                         </tr>
                         <tr>
@@ -110,13 +116,11 @@
                             <td>Duration</td>
                             <td>
                                 From
-                                <asp:TextBox ID="txtFromDate" CssClass="date" runat="server"></asp:TextBox>
-                                <asp:DropDownList ID="ddlFromMonth" runat="server" >
+                                <asp:DropDownList ID="ddlFromMonth" runat="server">
                                 </asp:DropDownList>
-                                <asp:DropDownList ID="ddlFromYear"  runat="server">
+                                <asp:DropDownList ID="ddlFromYear" runat="server">
                                 </asp:DropDownList>
-&nbsp;Till<asp:TextBox ID="txtTillDate" runat="server" CssClass="date"></asp:TextBox>
-                                <asp:DropDownList ID="ddlTillMonth" runat="server">
+                                &nbsp;Till<asp:DropDownList ID="ddlTillMonth" runat="server">
                                 </asp:DropDownList>
                                 <asp:DropDownList ID="ddlTillYear" runat="server">
                                 </asp:DropDownList>
@@ -140,30 +144,30 @@
                         <tr>
                             <td>Employment Status</td>
                             <td>
-                                <asp:CheckBoxList ID="cblEmployeStatus" runat="server">
+                                <asp:RadioButtonList ID="rblEmployeStatus" runat="server">
                                     <asp:ListItem>Full Time</asp:ListItem>
                                     <asp:ListItem>Part Time</asp:ListItem>
-                                </asp:CheckBoxList>
+                                </asp:RadioButtonList>
                             &nbsp;</td>
                         </tr>
                         <tr>
                             <td>Job Type</td>
                             <td>
-                                <asp:CheckBoxList ID="chlJobType" runat="server">
+                                <asp:RadioButtonList ID="rblJobType" runat="server">
                                     <asp:ListItem>Permanent</asp:ListItem>
                                     <asp:ListItem>Temporary</asp:ListItem>
                                     <asp:ListItem>Freelancing</asp:ListItem>
-                                </asp:CheckBoxList>
+                                </asp:RadioButtonList>
                             </td>
                         </tr>
                         <tr>
                             <td>Company Type</td>
                             <td>
-                                <asp:CheckBoxList ID="cblCompanyType" runat="server">
+                                <asp:RadioButtonList ID="rblCompanyType" runat="server">
                                     <asp:ListItem>Small</asp:ListItem>
                                     <asp:ListItem>Middle</asp:ListItem>
                                     <asp:ListItem>MNC</asp:ListItem>
-                                </asp:CheckBoxList>
+                                </asp:RadioButtonList>
                             </td>
                         </tr>
                         <tr>
@@ -234,6 +238,8 @@
                         </tr>
                     </table>
                 </div>
+                         </ContentTemplate>
+                </asp:UpdatePanel>
             </td>
         </tr>
 
@@ -258,43 +264,109 @@
                     <asp:ListItem>Satisfied in the Current Job</asp:ListItem>
                     <asp:ListItem>Looking For the Freelancing Work</asp:ListItem>
                     <asp:ListItem>Looking for the Part Time Work</asp:ListItem>
-                    <asp:ListItem>Servicing Notice Period</asp:ListItem>
+                    <asp:ListItem>Serving Notice Period</asp:ListItem>
                     <asp:ListItem>Unemployed</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td>Job Post Looking For</td>
-            <td>
-                <asp:TextBox ID="txtJobPostLooking" runat="server"></asp:TextBox>
+            <td colspan="2">
+                <asp:UpdatePanel runat="server" ID="upAddMoreJobs">
+                    <ContentTemplate>
+
+                   
+                <div id="divAddMoreJob" runat="server" >
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <h1>Add Jobs</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Job Post Looking For</td>
+                            <td>
+                                <asp:TextBox ID="txtJobPostLookingFor" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Industry</td>
+                            <td>
+                                <asp:DropDownList ID="ddlIndustry123" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Department</td>
+                            <td>
+                                <asp:DropDownList ID="ddlDepartment123" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Functional Role</td>
+                            <td>&nbsp;<asp:DropDownList ID="ddlFunctionalRole" runat="server">
+                            </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Relevant Experience</td>
+                            <td>
+                                <asp:TextBox ID="txtRelevantExp" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button ID="btnAddMoreJobPost" runat="server" Text="Add More Jobs" OnClick="btnAddMoreJobPost_Click" />
+                            </td>
+                            <td>
+                                <asp:Label ID="lblSuggestion" runat="server" Text="You can Add 5 Jobs"></asp:Label>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <asp:GridView ID="gvJobsLookingFor" AutoGenerateColumns="false" runat="server">
+                                    <Columns>
+                                         <asp:BoundField HeaderText="CandidateId" DataField="CandidateId" Visible="false" />
+                                        <asp:BoundField HeaderText="JobPostLookingFor" DataField="JobPostLookingFor"  />
+                                        <asp:BoundField HeaderText="Industry" DataField="Industry" />
+                                        <asp:BoundField HeaderText="Department" DataField="Department" />
+                                        <asp:BoundField HeaderText="FunctionalRole" DataField="FunctionalRole" />
+                                        <asp:BoundField HeaderText="RelevantExperience" DataField="RelevantExperience" />
+                                    </Columns>
+                                    <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                </asp:GridView>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                <asp:Button ID="btnSaveMoreJobs" runat="server" Text="Save" OnClick="btnSaveMoreJobs_Click" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
+                         </ContentTemplate>
+                </asp:UpdatePanel>
             </td>
+            
         </tr>
-        <tr>
-            <td>Industry</td>
-            <td>
-                <asp:DropDownList ID="ddlDesiredIndustry" runat="server">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td>Department</td>
-            <td>
-                <asp:DropDownList ID="ddlDesiredDepartment" runat="server">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td>Functional Role</td>
-            <td>&nbsp;<asp:DropDownList ID="ddlDesiredFunctionalRole" runat="server">
-            </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td>Relevant Experience</td>
-            <td>
-                <asp:TextBox ID="txtRelevantExp" runat="server"></asp:TextBox>
-            </td>
-        </tr>
+       
         <tr>
             <td colspan="2">
                 <asp:LinkButton ID="lbAddMoreJobPost" runat="server" OnClick="lbAddMoreJobPost_Click">Add more Job Post</asp:LinkButton>
@@ -302,47 +374,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <div id="divAddMoreJob" runat="server" >
-                    <table>
-                        <tr>
-                            <td colspan="2">
-                                <h1>Add More Jobs</h1>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Job Post Looking For</td>
-                            <td>
-                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Industry</td>
-                            <td>
-                                <asp:DropDownList ID="DropDownList2" runat="server">
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Department</td>
-                            <td>
-                                <asp:DropDownList ID="DropDownList3" runat="server">
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Functional Role</td>
-                            <td>&nbsp;<asp:DropDownList ID="DropDownList4" runat="server">
-                            </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Relevant Experience</td>
-                            <td>
-                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                
             </td>
         </tr>
         <tr>
@@ -379,47 +411,45 @@
         <tr>
             <td>Employment status</td>
             <td>
-                <asp:CheckBoxList ID="cblEmploymentStatus" runat="server">
+                <asp:RadioButtonList ID="rblEmploymentStatus" runat="server" >
                     <asp:ListItem>Full Time</asp:ListItem>
                     <asp:ListItem>Part Time</asp:ListItem>
-                </asp:CheckBoxList>
+                </asp:RadioButtonList>
             </td>
         </tr>
         <tr>
             <td>Job Type</td>
             <td>
-                <asp:CheckBoxList ID="cblJobType" runat="server">
+                <asp:RadioButtonList ID="rblJobType123" runat="server">
                     <asp:ListItem>Permanent</asp:ListItem>
                     <asp:ListItem>Temporary</asp:ListItem>
                     <asp:ListItem>Freelancing</asp:ListItem>
-                </asp:CheckBoxList>
+                </asp:RadioButtonList>
             </td>
         </tr>
         <tr>
             <td>Company Type</td>
             <td>
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                <asp:RadioButtonList ID="rblCompanyType123" runat="server">
                     <asp:ListItem>Small</asp:ListItem>
                     <asp:ListItem>Middle</asp:ListItem>
                     <asp:ListItem>MNC</asp:ListItem>
-                </asp:CheckBoxList>
+                </asp:RadioButtonList>
             </td>
         </tr>
         <tr>
             <td>
-                <%-- <asp:DropDownList ID="ddlCity" runat="server"></asp:DropDownList>--%>
-            </td>
-            <td colspan="2">
+                <%-- <asp:DropDownList ID="ddlCity" runat="server"></asp:DropDownList>--%>Preferred City<br />
+                        Preferred Area</td>
+            <td style="margin-left: 40px">
                 
                   
-                        Preferred City<asp:DropDownCheckBoxes ID="ddlPreferredCity" runat="server"></asp:DropDownCheckBoxes>
-               <%-- <asp:DropDownCheckBoxes ID="ddlCity" runat="server" style="right: 90px; top: 0px; left: -130px">--%>
-
+                        <asp:DropDownCheckBoxes ID="ddlPreferredCity" runat="server" style="top: 0px; left: -87px"></asp:DropDownCheckBoxes>
+                        <%-- <asp:DropDownCheckBoxes ID="ddlCity" runat="server" style="right: 90px; top: 0px; left: -130px">--%>
                        <%-- </asp:DropDownCheckBoxes>--%>
                
                         <br />
-                        Preferred Area
-                         <asp:DropDownCheckBoxes ID="ddlArea" runat="server" style="top: -19px; left: -95px" AutoPostBack="True">
+                        <asp:DropDownCheckBoxes ID="ddlArea" runat="server" style="top: -19px; left: -5px" AutoPostBack="True">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>
                         
@@ -430,10 +460,10 @@
         <tr>
             <td>Availability for the Personal Round on Working Day</td>
             <td>
-                <asp:CheckBoxList ID="CheckBoxList5" runat="server">
+                <asp:RadioButtonList ID="rblYesNo" runat="server">
                     <asp:ListItem>Yes</asp:ListItem>
                     <asp:ListItem>No</asp:ListItem>
-                </asp:CheckBoxList>
+                </asp:RadioButtonList>
             </td>
         </tr>
 

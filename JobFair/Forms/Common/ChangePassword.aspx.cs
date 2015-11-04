@@ -9,6 +9,7 @@ namespace JobFair.Forms.Common
         protected void Page_Load(object sender, EventArgs e)
         {
         }
+
         /// <summary>
         /// Handles the click event of btnOk of change password page
         /// </summary>

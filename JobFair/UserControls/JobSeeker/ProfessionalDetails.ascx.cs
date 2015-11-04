@@ -1,17 +1,14 @@
 ﻿using BAL;
-using CommonUtil;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
-using System.Globalization;
 
 namespace JobFair.UserControls.JobSeeker
 {
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
         private CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
-        private DataSet ds = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,36 +23,85 @@ namespace JobFair.UserControls.JobSeeker
                 BindYear();
                 BindCity();
                 BindArea();
+                BindFunctionalArea();
                 BindIndustry();
                 BindDepartment();
                 hfCandidateId.Value = "JS2";
                 AddExperienceRecords();
+                AddJobLookingRecords();
+            }
+        }
+
+        private void AddJobLookingRecords()
+        {
+           
+            // Creating DataTable
+            DataTable dt = new DataTable();
+            DataRow dr;
+            dt.TableName = "JobDetails";
+            // Creating columns for DataTable
+            dt.Columns.Add(new DataColumn("CandidateId", typeof(string)));
+            dt.Columns.Add(new DataColumn("JobPostLookingFor", typeof(string)));
+            dt.Columns.Add(new DataColumn("Industry", typeof(int)));
+            dt.Columns.Add(new DataColumn("Department", typeof(int)));          
+            dt.Columns.Add(new DataColumn("FunctionalRole", typeof(int)));
+            dt.Columns.Add(new DataColumn("RelevantExperience", typeof(float)));          
+            dr = dt.NewRow();
+            dt.Rows.Add(dr);
+            ViewState["JobDetails"] = dt;
+            gvJobsLookingFor.DataSource = dt;
+            gvJobsLookingFor.DataBind();
+            ViewState["JobDetails"] = null;
+           
+        }
+
+        private void BindYear()
+        {
+            try
+            {
+                // Bind Year List
+                List<string> yearList = CommonUtil.Utility.GetYears();
+                ddlFromYear.DataSource = yearList;
+                ddlFromYear.DataBind();
+                ddlTillYear.DataSource = yearList;
+                ddlTillYear.DataBind();
 
             }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
+        }
+
+        private void BindMonth()
+        {
+            List<string> monthList = CommonUtil.Utility.GetMonths();
+            ddlFromMonth.DataSource = monthList;
+            ddlTillMonth.DataSource = monthList;
+            ddlFromMonth.DataBind();
+            ddlTillMonth.DataBind();            
+        }
+
+        private void BindFunctionalArea()
+        {
+            DataSet ds = new DataSet();
+            ds = currentjobBAL.GetFunctionalArea();
+            ddlFunctionalRole.DataSource = ds;
+            ddlFunctionalRole.DataTextField = "FunctionalArea";
+            ddlFunctionalRole.DataValueField = "FunctionalAreaId";
+            ddlFunctionalRole.DataBind();
+            ddlFunctionalRole.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void AddExperienceRecords()
         {
-             //<asp:BoundField HeaderText="CandidateId" DataField="CandidateId" Visible="false" />
-             //                           <asp:BoundField HeaderText="CompanyCurrentOrPast" DataField="CompanyCurrentOrPast" />
-             //                           <asp:BoundField HeaderText="ComapnyName" DataField="ComapnyName" />
-             //                           <asp:BoundField HeaderText="Designation" DataField="Designation" />
-             //                           <asp:BoundField HeaderText="RolesResponsibilities" DataField="RolesResponsibilities" />
-             //                           <asp:BoundField HeaderText="FromMonth" DataField="FromMonth" />
-             //                           <asp:BoundField HeaderText="FromYear" DataField="FromYear" />
-             //                           <asp:BoundField HeaderText="TillMonth" DataField="TillMonth" />
-             //                           <asp:BoundField HeaderText="TillYear" DataField="TillYear" />
-             //                           <asp:BoundField HeaderText="Industry" DataField="Industry" />
-             //                           <asp:BoundField HeaderText="Department" DataField="Department" />
-             //                           <asp:BoundField HeaderText="EmploymentStatus" DataField="EmploymentStatus" />
-             //                           <asp:BoundField HeaderText="JobType" DataField="JobType" />
-             //                           <asp:BoundField HeaderText="CompanyType" DataField="CompanyType" />
-             //                           <asp:BoundField HeaderText="Reason" DataField="Reason" />  
-            //creating DataTable
+            // Creating DataTable
             DataTable dt = new DataTable();
             DataRow dr;
             dt.TableName = "ProfessionalDetails";
-            //creating columns for DataTable
+            // Creating columns for DataTable
             dt.Columns.Add(new DataColumn("CandidateId", typeof(string)));
             dt.Columns.Add(new DataColumn("CompanyCurrentOrPast", typeof(string)));
             dt.Columns.Add(new DataColumn("ComapnyName", typeof(string)));
@@ -74,34 +120,47 @@ namespace JobFair.UserControls.JobSeeker
             dt.Columns.Add(new DataColumn("Reason", typeof(string)));
             dr = dt.NewRow();
             dt.Rows.Add(dr);
-
             ViewState["ProfessionalDetails"] = dt;
             gvExperience.DataSource = dt;
             gvExperience.DataBind();
+            ViewState["ProfessionalDetails"] = null;
         }
 
         private void BindDepartment()
         {
+            DataSet ds = new DataSet();
             ds = currentjobBAL.GetDepartment();
             ddlDepartment.DataSource = ds;
+            ddlDepartment123.DataSource = ds;
             ddlDepartment.DataTextField = "DepartmentName";
             ddlDepartment.DataValueField = "DepartmentId";
+            ddlDepartment123.DataTextField = "DepartmentName";
+            ddlDepartment123.DataValueField = "DepartmentId";
             ddlDepartment.DataBind();
+            ddlDepartment123.DataBind();
+            ddlDepartment123.Items.Insert(0, new ListItem("--Select--", "0"));
             ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void BindIndustry()
         {
+            DataSet ds = new DataSet();
             ds = currentjobBAL.GetIndustry();
             ddlIndustry.DataSource = ds;
+            ddlIndustry123.DataSource = ds;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
+            ddlIndustry123.DataTextField = "IndustryName";
+            ddlIndustry123.DataValueField = "IndustryId";
             ddlIndustry.DataBind();
+            ddlIndustry123.DataBind();
+            ddlIndustry123.Items.Insert(0, new ListItem("--Select--", "0"));
             ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         private void BindArea()
         {
+            DataSet ds = new DataSet();
             ds = currentjobBAL.GetArea();
             ddlArea.DataSource = ds;
             ddlArea.DataTextField = "AreaName";
@@ -110,37 +169,19 @@ namespace JobFair.UserControls.JobSeeker
             ddlArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
-        private void BindYear()
-        {
-            List<string> yearList = new List<string>();
-            ddlFromYear.DataSource = Utility.GetYears();
-            ddlTillYear.DataSource = Utility.GetYears();
-            ddlTillYear.DataBind();
-            ddlFromYear.DataBind();
-        }
-
-        private void BindMonth()
-        {
-            List<string> monthList = new List<string>();
-            ddlFromMonth.DataSource = Utility.GetMonths();
-            ddlTillMonth.DataSource = Utility.GetMonths();
-            ddlFromMonth.DataBind();
-            ddlTillMonth.DataBind();
-        }
-
         private void BindCity()
         {
+            DataSet ds = new DataSet();
             ds = currentjobBAL.GetCity();
             ddlPreferredCity.DataSource = ds;
             ddlPreferredCity.DataTextField = "CityName";
             ddlPreferredCity.DataValueField = "CityId";
             ddlPreferredCity.DataBind();
-            ddlPreferredCity.Items.Insert(0, new ListItem("--Select--", "0"));           
+            ddlPreferredCity.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
         protected void lbPastEmployer_Click(object sender, EventArgs e)
         {
-            
         }
 
         protected void rbtEmployed_CheckedChanged(object sender, EventArgs e)
@@ -154,18 +195,16 @@ namespace JobFair.UserControls.JobSeeker
             divExperience.Visible = true;
             divCurrentEmployer.Visible = false;
             divDesireJobDetails.Visible = false;
-                  }
+        }
 
         protected void rbtPastExperience_CheckedChanged(object sender, EventArgs e)
         {
             divExperience.Visible = false;
-           
             divDesireJobDetails.Visible = true;
         }
 
         protected void rbtNoExpeience_CheckedChanged(object sender, EventArgs e)
         {
-            
             divCurrentEmployer.Visible = false;
             divDesireJobDetails.Visible = true;
         }
@@ -179,7 +218,6 @@ namespace JobFair.UserControls.JobSeeker
         [System.Web.Services.WebMethod]
         public static List<string> Getcity(string prefixText)
         {
-           
             DataTable dt = new DataTable();
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             dt = currentDesiredJobBAL.GetPreferredCityBAL(prefixText);
@@ -189,14 +227,12 @@ namespace JobFair.UserControls.JobSeeker
                 cityList.Add(dt.Rows[i][1].ToString());
             }
             return cityList;
-
         }
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
         public static List<string> GetArea(string prefixText)
         {
-
             DataTable dt = new DataTable();
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             dt = currentDesiredJobBAL.GetPreferredAreaBAL(prefixText);
@@ -206,15 +242,13 @@ namespace JobFair.UserControls.JobSeeker
                 cityAreaList.Add(dt.Rows[i][1].ToString());
             }
             return cityAreaList;
-
         }
 
         protected void btnSaveCurrentJob_Click(object sender, EventArgs e)
         {
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            DataTable dt=(DataTable)ViewState["ProfessionalDetails"];
+            DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
             currentDesiredJobBAL.SaveExperienceDetailsBAL(dt);
-            gvExperience.Columns.Clear();
             Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
         }
 
@@ -223,9 +257,7 @@ namespace JobFair.UserControls.JobSeeker
             AddNewRecordToGrid();
             txtDesignation.Text = "";
             txtCurrentEmployer.Text = "";
-            txtRollesResponsibilities.Text = "";
-            txtFromDate.Text = "";
-            txtTillDate.Text = "";
+            txtRollesResponsibilities.Text = "";           
             txtReasonforJobchange.Text = "";
         }
 
@@ -235,71 +267,140 @@ namespace JobFair.UserControls.JobSeeker
             {
                 if (ViewState["ProfessionalDetails"] != null)
                 {
-                    DataTable dt =(DataTable) ViewState["ProfessionalDetails"];
+                    DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
                     DataRow dr = null;
                     if (dt.Rows.Count > 0)
                     {
                         for (int i = 1; i <= dt.Rows.Count; i++)
                         {
-                            DateTime f1 = Convert.ToDateTime(txtFromDate.Text);
-                            DateTime f2 = Convert.ToDateTime(txtTillDate.Text);
-                            int f3 = f2.Month - f1.Month;
-                            int f4 = f2.Year - f1.Year;
+                            //DateTime f1 = Convert.ToDateTime(txtFromDate.Text);
+                            //DateTime f2 = Convert.ToDateTime(txtTillDate.Text);
+                            //int f3 = f2.Month - f1.Month;
+                            //int f4 = f2.Year - f1.Year;
+                            // Creating new row
+                            dr = dt.NewRow();
+                            dr["CandidateId"] = hfCandidateId.Value.Trim();
+                            dr["CompanyCurrentOrPast"] = chkCurrentYes.Text;
+                            dr["ComapnyName"] = txtCurrentEmployer.Text.Trim();
+                            dr["Designation"] = txtDesignation.Text.Trim();
+                            dr["RolesResponsibilities"] = txtRollesResponsibilities.Text;
+                            dr["FromMonth"] = ddlFromMonth.Text;
+                            dr["TillMonth"] = ddlTillYear.Text;
+                            dr["FromYear"] = ddlFromYear.Text;
+                            dr["TillYear"] = ddlTillYear.Text;
+                            dr["Industry"] = ddlIndustry.SelectedItem.Value;
+                            dr["Department"] = ddlDepartment.SelectedItem.Value;
+                            dr["EmploymentStatus"] = rblEmploymentStatus.Text;
+                            dr["JobType"] = rblJobType.Text;
+                            dr["CompanyType"] = rblCompanyType.Text;
+                            dr["Reason"] = txtReasonforJobchange.Text.Trim();
+                        }
+                        // Removing initial row
+                        if (dt.Rows[0][0].ToString() == "")
+                        {
+                            dt.Rows[0].Delete();
+                            dt.AcceptChanges();
+                        }
+
+                        // Add new record to the datatable
+                        dt.Rows.Add(dr);
+
+                        // Storing datatable to viewstate
+                        ViewState["ProfessionalDetails"] = dt;
+
+                        //binding gridview with new row
+                        gvExperience.DataSource = dt;
+                        gvExperience.DataBind();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        protected void ddlFromYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        protected void btnAddMoreJobPost_Click(object sender, EventArgs e)
+        {
+            AddMoreJobs();
+        }
+
+        private void AddMoreJobs()
+        {
+            try
+            {
+                if (ViewState["JobDetails"] != null)
+                {
+                    DataTable dt = (DataTable)ViewState["JobDetails"];
+                    DataRow dr = null;
+                    if (dt.Rows.Count > 0)
+                    {
+                        for (int i = 1; i <= dt.Rows.Count; i++)
+                        {
                             //creating new row
                             dr = dt.NewRow();
                             dr["CandidateId"] = hfCandidateId.Value.Trim();
-                            dr["CompanyCurrentOrPast"] = ddlCurrentOrPast.Text;
-                            dr["ComapnyName"]=txtCurrentEmployer.Text.Trim();
-                            dr["Designation"]=txtDesignation.Text.Trim();
-                            dr["RolesResponsibilities"]=txtRollesResponsibilities.Text;
-                            dr["FromMonth"]=Convert.ToString(f1.Month);
-                            dr["TillMonth"]=Convert.ToString(f2.Month);
-                            dr["FromYear"]=Convert.ToString(f1.Year);
-                            dr["TillYear"]=Convert.ToString(f2.Year);
-                            dr["Industry"]=ddlIndustry.SelectedItem.Value;
-                            dr["Department"]=ddlDepartment.SelectedItem.Value;
-                            dr["EmploymentStatus"]=cblEmployeStatus.Text;
-                            dr["JobType"]=chlJobType.Text;
-                            dr["CompanyType"]=cblCompanyType.Text;
-                            dr["Reason"] = txtReasonforJobchange.Text.Trim();
-
-                            //Removing initial row
-                            if (dt.Rows[0][0].ToString() == "")
-                            {
-                                dt.Rows[0].Delete();
-                                dt.AcceptChanges();
-                            }
-
-                            //add new record to the datatable
-                            dt.Rows.Add(dr);
-
-                            //storing datatable to viewstate
-                            ViewState["ProfessionalDetails"] = dt;
-
-                            //binding gridview with new row
-                            gvExperience.DataSource = dt;
-                            gvExperience.DataBind();
-                              
-
-                           
+                            dr["JobPostLookingFor"] = txtJobPostLookingFor.Text.Trim();
+                            dr["Industry"] = ddlIndustry123.SelectedItem.Value;
+                            dr["Department"] = ddlDepartment123.SelectedItem.Value;
+                            dr["FunctionalRole"] = ddlFunctionalRole.SelectedItem.Value;
+                            dr["RelevantExperience"] = txtRelevantExp.Text.Trim();
                         }
+                        //Removing initial row
+                        if (dt.Rows[0][0].ToString() == "")
+                        {
+                            dt.Rows[0].Delete();
+                            dt.AcceptChanges();
+                        }
+
+                        //add new record to the datatable
+                        dt.Rows.Add(dr);
+
+                        //storing datatable to viewstate
+                        ViewState["JobDetails"] = dt;
+
+                        //binding gridview with new row
+                        gvJobsLookingFor.DataSource = dt;
+                        gvJobsLookingFor.DataBind();
                     }
                 }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        protected void btnSaveMoreJobs_Click(object sender, EventArgs e)
+        {
+            //CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            //DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
+            //currentDesiredJobBAL.SaveExperienceDetailsBAL(dt);
+            //Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
+            try
+            {
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
+                currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
+                Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
+
+
             }
             catch (Exception)
             {
                 
                 throw;
             }
-           
-         }
+
+        }
+
+      
 
        
-       
-
-       
-
-
     }
 }
 
