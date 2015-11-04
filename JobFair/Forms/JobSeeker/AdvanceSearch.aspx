@@ -30,7 +30,7 @@
             <br />
             <table>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill"></asp:Label>
                     </td>
                     <td>
@@ -41,7 +41,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
                     </td>
                     <td rowspan="3">
@@ -61,20 +61,21 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="lblArea" runat="server" Text="Area"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="lblworkexprience" runat="server" Text="Work Exprience"></asp:Label>
                     </td>
                     <td>&nbsp;<asp:DropDownList ID="ddlWorkExperience" runat="server">
+                        <asp:ListItem>Select</asp:ListItem>
                         <asp:ListItem>0.5</asp:ListItem>
                         <asp:ListItem>1</asp:ListItem>
                         <asp:ListItem>1.5</asp:ListItem>
@@ -101,7 +102,7 @@
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">
+                    <td>
                         <asp:Label ID="lbsalary" runat="server" Text="Expected Salary"></asp:Label>
                     </td>
                     <td>

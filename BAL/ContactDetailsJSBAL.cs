@@ -12,8 +12,17 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int SaveContactDetailsBAL(ContactDetailsEntity contactDetailsEntity)
         {
-            ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
-            return contactDetailsDAL.SaveContactDetailsDAL(contactDetailsEntity);
+            try
+            {
+                ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
+                return contactDetailsDAL.SaveContactDetailsDAL(contactDetailsEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
     }
 }

@@ -14,8 +14,17 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int SavePersonalDetailsBAL(PersonalDetailsJSEntity personalDetailsEntity)
         {
-            PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
-            return pdDAL.SavePersonalDetails(personalDetailsEntity);
+            try
+            {
+                PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+                return pdDAL.SavePersonalDetails(personalDetailsEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// Get Country
@@ -24,7 +33,16 @@ namespace BAL
 
         public DataSet GetCountry()
         {
-            return Utility.GetCountry();
+            try
+            {
+                return Utility.GetCountry();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+            
         }
         /// <summary>
         /// Get state
@@ -33,7 +51,16 @@ namespace BAL
         /// <returns></returns>
         public DataSet GetState(int CountryId)
         {
-            return Utility.GetState(CountryId);
+            try
+            {
+                return Utility.GetState(CountryId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
         /// <summary>
         /// Get City
@@ -42,11 +69,29 @@ namespace BAL
         /// <returns></returns>
         public DataSet GetCity(int StateId)
         {
-            return Utility.GetCity(StateId);
+            try
+            {
+                return Utility.GetCity(StateId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
         public DataSet GetArea(int cityId)
         {
-            return Utility.GetArea(cityId);
+            try
+            {
+                return Utility.GetArea(cityId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
     }
 }

@@ -4,20 +4,7 @@
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <!DOCTYPE html>
-    <%--<script runat="server">
-        protected void chkFreshness_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            Label1.Text = "You Selected:<br /><i>";
-            foreach (ListItem li in chkFreshness.Items)
-            {
-                if (li.Selected == true)
-                {
-                    Label1.Text += li.Text + "<br />";
-                }
-            }
-            Label1.Text += "</i>";
-        }
-    </script>--%>
+    
     <script>
         $('#checkbox_filter').click(function () { oTable.fnDraw(); });
         /* Custom filtering function which will filter data in column four between two values */

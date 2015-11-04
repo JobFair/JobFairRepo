@@ -7,24 +7,12 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ProjectDetails : System.Web.UI.Page
     {
-        string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId = Convert.ToString(Session["candidateId"]);
-            if (candidateId == "")
-            {
-                string message = "Sorry your session has been expired !!!!";
-                string url = "LogIn.aspx";
-                string script = "window.onload = function(){ alert('";
-                script += message;
-                script += "');";
-                script += "window.location = '";
-                script += url;
-                script += "'; }";
-                ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
-               // Response.Redirect("LogIn.aspx");
-            }
-            
+            string candidateId = Convert.ToString(Session["candidateId"]);
+
+            CheckAuthorised(candidateId);
+
             if (!IsPostBack)
             {
                 //Take Candidate Id from Session
@@ -36,11 +24,25 @@ namespace JobFair.Forms.JobSeeker
             {
                 txtLink.Visible = true;
                 lblLinkUrl.Visible = true;
+                return;
             }
-            else
+            txtLink.Visible = false;
+            lblLinkUrl.Visible = false;
+        }
+
+        private void CheckAuthorised(string candidateId)
+        {
+            if (string.IsNullOrEmpty(candidateId))
             {
-                txtLink.Visible = false;
-                lblLinkUrl.Visible = false;
+                string message = "Sorry your session has been expired !!!!";
+                string url = "LogIn.aspx";
+                string script = "window.onload = function(){ alert('";
+                script += message;
+                script += "');";
+                script += "window.location = '";
+                script += url;
+                script += "'; }";
+                ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
             }
         }
 
@@ -181,7 +183,10 @@ namespace JobFair.Forms.JobSeeker
             ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
             DataTable dtProjectDetails = (DataTable)ViewState["ProjectDetails"];
             projectDetailsBAL.SaveProjectDetailsBAL(dtProjectDetails);
+            GridView1.DataSource = null;
+            GridView1.DataBind();
             Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+
         }
 
         protected void rbtProjectTypeList_SelectedIndexChanged(object sender, EventArgs e)

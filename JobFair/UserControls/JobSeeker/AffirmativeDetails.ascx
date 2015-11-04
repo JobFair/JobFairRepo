@@ -119,6 +119,20 @@
     </tr>
     <tr>
         <td>
+            Hobbies</td>
+        <td colspan="5">
+            <asp:TextBox ID="txtHobbies" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Extra Curricular Activity</td>
+        <td colspan="5">
+            <asp:TextBox ID="txtExtraActivity" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <asp:Label ID="lblUSAPermit" runat="server" Text="USAPermit"></asp:Label>
         </td>
         <td colspan="5">
