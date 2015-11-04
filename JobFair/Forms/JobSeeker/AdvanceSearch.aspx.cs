@@ -15,16 +15,16 @@ namespace JobFair.Forms.JobSeeker
             candidateId = Convert.ToString(Session["candidateId"]);
             if (candidateId == "")
             {
-                string message = "Sorry your session has been expired !!!!";
-                string url = "LogIn.aspx";
-                string script = "window.onload = function(){ alert('";
-                script += message;
-                script += "');";
-                script += "window.location = '";
-                script += url;
-                script += "'; }";
-                ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
-                // Response.Redirect("LogIn.aspx");
+                //string message = "Sorry your session has been expired !!!!";
+                //string url = "LogIn.aspx";
+                //string script = "window.onload = function(){ alert('";
+                //script += message;
+                //script += "');";
+                //script += "window.location = '";
+                //script += url;
+                //script += "'; }";
+                //ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                 Response.Redirect("LogIn.aspx");
             }
             if (!IsPostBack)
             {
@@ -91,7 +91,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text.Trim() + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text + "&minSalary=" + ddlMinSalary.SelectedItem.Text + "&maxSalary=" + ddlMaxSalary.SelectedItem.Text);
+            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text.Trim() + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text + "&minSalary=" + ddlMinSalary.SelectedItem.Text + "&maxSalary=" + ddlMaxSalary.SelectedItem.Text+"&functionalArea="+ddlJobCategory.SelectedValue);
         }
 
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)

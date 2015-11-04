@@ -149,7 +149,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="Label1" runat="server" Text="Logos Solutions Pvt Limited"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
                                             &nbsp; [<asp:Label ID="lblRecruitmentType" runat="server" Text='<%#Eval("RecruitmentType")%>'></asp:Label>]
                                         </td>
                                     </tr>
@@ -166,10 +166,10 @@
                         </tr>
                         <tr>
                             <td>Key Skills :
-                            <asp:Label ID="Label2" runat="server" Text='<%#Eval("KeywordsTechnical") %>' /><br />
+                            <asp:Label ID="lblKeySkills" runat="server" Text='<%#Eval("KeywordsTechnical") %>' /><br />
 
                                 Job Description :
-                            <asp:Label ID="Label4" runat="server" Text='<%#Eval("JobDescription")%>'></asp:Label>
+                            <asp:Label ID="lblJobDescription" runat="server" Text='<%#Eval("JobDescription")%>'></asp:Label>
                             </td>
                         </tr>
                         <tr>
