@@ -555,16 +555,16 @@
                       
             </div>
             <div>
-                <h2>Select Questionrie</h2>
+                <h2>Select Questionnaire</h2>
                 <table>
                <tr>
                    <td>
-                       <asp:Label ID="lblselectquestionrie" runat="server" Text="SelectQuestionrie"></asp:Label>
+                       <asp:Label ID="lblselectquestionrie" runat="server" Text="Select  Questionnaire"></asp:Label>
                        </td>
 
 
                    <td>
-                        <asp:DropDownList ID="ddlQuestionary" runat="server" style="margin-left: 47px"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlquestionnaire" runat="server" style="margin-left: 47px"></asp:DropDownList>
                    </td>
                        </tr>
                  </table>

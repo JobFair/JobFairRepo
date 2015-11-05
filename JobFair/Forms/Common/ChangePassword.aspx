@@ -5,24 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
+    
 
-table {
-    background-color:lightgray;
-    color:black;
-    table-layout:auto;
-    background-color: #CCCCCC;
-    }
-H1  {
-	font-size : 16pt;
-	font-family : arial;
-	font-weight : bold;
-	font-style : normal;
-	color : Black;
-}
-
-
-    </style>
+   
 </head>
 <body>
     <form id="form1" runat="server">

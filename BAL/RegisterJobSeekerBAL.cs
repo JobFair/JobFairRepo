@@ -1,7 +1,5 @@
 ﻿using DAL;
 using Entities;
-using System.Data.SqlClient;
-using System.Data;
 
 namespace BAL
 {
@@ -17,8 +15,5 @@ namespace BAL
             RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
             return jobSeekerDAL.SaveRegisterNewJobSeekerDAL(jobSeekerEntity);
         }
-
-       
-      
     }
 }

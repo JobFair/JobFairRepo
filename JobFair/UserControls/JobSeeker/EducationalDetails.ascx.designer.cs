@@ -1576,7 +1576,7 @@ namespace JobFair.UserControls.JobSeeker {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.MoreWorkshops MoreWorkshops;
+        protected global::JobFair.UserControls.JobSeeker.MoreWorkshops MoreWorkshops1;
         
         /// <summary>
         /// BtnSubmit control.

@@ -8,14 +8,14 @@ namespace CommonUtil
 {
     public class Common
     {
-        private DataSet ds = new DataSet();
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         public DataSet GetCountryDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure,Constants.sp_Country);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_Country);
                 return ds;
             }
             catch (Exception ex)
@@ -26,10 +26,11 @@ namespace CommonUtil
 
         internal DataSet GetStateDAL(int countryid)
         {
+            DataSet ds = new DataSet();
             try
             {
                 SqlParameter[] sparams = { new SqlParameter("@countryId", countryid) };
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure,Constants.sp_State, sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_State, sparams);
                 return ds;
             }
             catch (Exception ex)
@@ -40,6 +41,7 @@ namespace CommonUtil
 
         internal DataSet GetCityDAL(int stateid)
         {
+            DataSet ds = new DataSet();
             try
             {
                 SqlParameter[] sparams = { new SqlParameter("@stateId", stateid) };
@@ -51,25 +53,27 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         internal DataSet GetAreaDAL(int cityId)
         {
+            DataSet ds = new DataSet();
             try
             {
                 SqlParameter[] sparams ={
                                            new SqlParameter("@cityId",cityId)
                                         };
-                ds = SqlHelper.ExecuteDataset(connection,CommandType.StoredProcedure,Constants.sp_Area,sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_Area, sparams);
                 return ds;
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
 
         internal DataSet GetIndustryDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Industry");
@@ -87,6 +91,7 @@ namespace CommonUtil
         /// <returns></returns>
         internal DataSet GetDepartmentDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Department");
@@ -97,12 +102,14 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         /// <summary>
         /// functional area
         /// </summary>
         /// <returns></returns>
         internal DataSet GetFunctionalAreaDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_FunctionalArea");
@@ -113,12 +120,14 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get Education Degrees Type
         /// </summary>
         /// <returns></returns>
         internal DataSet GetEducationalDegreeTypeDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select * from JS_EducationDegreesType");
@@ -132,6 +141,7 @@ namespace CommonUtil
 
         internal DataSet GetLanguagesDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Language");
@@ -142,12 +152,14 @@ namespace CommonUtil
                 throw;
             }
         }
+
         /// <summary>
         /// Get Client Name
         /// </summary>
         /// <returns></returns>
         internal DataSet GetClientNameDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select ClientId,ClientName from RE_ClientDetails where RecruiterID='RE2' ");
@@ -158,12 +170,14 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get Under Graduate Diploma Details
         /// </summary>
         /// <returns></returns>
         internal DataSet GetUnderGraduateDiplomaDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_UnderGraduateDiploma");
@@ -174,12 +188,14 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get Bachelor Degree Details
         /// </summary>
         /// <returns></returns>
         internal DataSet GetBachelorDegreeDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_BachelorDegree");
@@ -190,12 +206,14 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get Post Graduate Diploma Details
         /// </summary>
         /// <returns></returns>
         internal DataSet GetPostGraduateDiplomaDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_PostGraduateDiploma");
@@ -206,12 +224,14 @@ namespace CommonUtil
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get Master Degree Details
         /// </summary>
         /// <returns></returns>
         internal DataSet GetMasterDegreeDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_MasterDegree");
@@ -220,14 +240,16 @@ namespace CommonUtil
             catch (Exception ex)
             {
                 throw ex;
-            }    
+            }
         }
+
         /// <summary>
         /// Get Doctor Of Philosophy Details
         /// </summary>
         /// <returns></returns>
         internal DataSet GetDoctorOfPhilosophyDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_PHD");
@@ -239,24 +261,23 @@ namespace CommonUtil
             }
         }
 
-
         internal DataSet GetRole()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, " Select * from JS_Roles ");
                 return ds;
-
             }
             catch (Exception ex)
             {
-                
                 throw ex;
             }
         }
 
         internal DataSet GetLocation()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select * from LocationsMaster");
@@ -264,13 +285,13 @@ namespace CommonUtil
             }
             catch (Exception ex)
             {
-                
                 throw ex;
             }
         }
 
         internal DataSet GetEducation()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select  * from JS_EducationDegreesType ");
@@ -284,6 +305,7 @@ namespace CommonUtil
 
         internal DataSet GetCityDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from City");
@@ -291,13 +313,13 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
 
         internal DataSet GetAreaDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from CityArea");
@@ -305,7 +327,6 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
