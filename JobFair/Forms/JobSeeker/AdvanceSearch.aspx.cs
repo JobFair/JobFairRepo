@@ -32,9 +32,17 @@ namespace JobFair.Forms.JobSeeker
                 BindIndustry();
                 BindDepartment();
                 BindState();
+                BindArea();
+                
             }
         }
 
+        private void BindArea()
+        {
+           
+        }
+
+       
         /// <summary>
         /// bind industry to dropdown and stored in database
         /// </summary>
@@ -117,24 +125,7 @@ namespace JobFair.Forms.JobSeeker
 
         }
 
-        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                object ds;
-                int cityId = Convert.ToInt32(ddlCity.SelectedValue);
-                ds = AdvanceJobSearchBAL.GetArea(cityId);
-                ddlLocation.DataSource = ds;
-                ddlLocation.DataTextField = "AreaName";
-                ddlLocation.DataValueField = "AreaId";
-                ddlLocation.DataBind();
-                ddlLocation.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+       
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -174,6 +165,41 @@ namespace JobFair.Forms.JobSeeker
         protected void btnReset_Click(object sender, EventArgs e)
         {
             Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnarea_Click(object sender, EventArgs e)
+        {
+            Panelarea.Visible = true;
+
+            for (int i = 0; i < chkarea.Items.Count; i++)
+            {
+                if(chkarea.Items[i].Selected)
+                {
+
+                    txtarea.Text += chkarea.Items[i].Text + ",";
+                }
+            }
+            
+        }
+
+        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                 object ds;
+                 int cityId = Convert.ToInt32(ddlCity.SelectedValue);
+                 ds = AdvanceJobSearchBAL.GetArea(cityId);
+            chkarea.DataSource = ds;
+            chkarea.DataTextField = "AreaName";
+            chkarea.DataValueField = "AreaId";
+            chkarea.DataBind();
+            chkarea.Items.Insert(0,new ListItem ("----select----","0"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

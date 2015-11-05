@@ -50,12 +50,19 @@
                                 <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <br />
-                                <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="True">
+                                <asp:DropDownList ID="ddlCity" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
                                 </asp:DropDownList>
                                 <br />
-                                <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" style="top: -50px; left: 0px">
-                                    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                                </asp:DropDownCheckBoxes>
+                                <br />
+                              <div>
+                                  <asp:Button  runat="server" ID="btnarea" Text="go" OnClick="btnarea_Click" />
+                                  <asp:Panel ID="Panelarea" runat="server" Visible="false">
+                                      <asp:TextBox runat="server" ID="txtarea" ReadOnly="true" Height="23px" Width="436px" />
+                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px"></asp:CheckBoxList>
+                                      &nbsp;
+                                </asp:Panel>
+                                  <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
+                              </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </td>
