@@ -15,8 +15,8 @@ namespace JobFair.Forms.JobSeeker
 
             if (!IsPostBack)
             {
-                //Take Candidate Id from Session
-                hfCandidateId.Value = candidateId; //Session["CandidateId"].ToString();
+                // Take Candidate Id from Session
+                hfCandidateId.Value = candidateId; // Session["CandidateId"].ToString();
                 AddDefaultFirstRecord();
             }
 
@@ -81,7 +81,7 @@ namespace JobFair.Forms.JobSeeker
                             DateTime endDate = Convert.ToDateTime(this.txtTodate.Text.Trim(), new CultureInfo("en-Gb"));
                             o += endDate.Subtract(startDate);
                             int days = o.Days;
-                            //Creating new row and assigning values
+                            // Creating new row and assigning values
                             drCurrentRow = dtCurrentTable.NewRow();
                             drCurrentRow["CandidateId"] = hfCandidateId.Value.Trim();
                             drCurrentRow["ProjectFor"] = rbtProjectTypeList.SelectedItem.Text;
@@ -117,20 +117,20 @@ namespace JobFair.Forms.JobSeeker
                             drCurrentRow["ProjectLink"] = txtLink.Text.Trim();
                             drCurrentRow["Degree"] = TextBox1.Text.Trim();
                         }
-                        //Removing initial blank row
+                        // Removing initial blank row
                         if (dtCurrentTable.Rows[0][0].ToString() == "")
                         {
                             dtCurrentTable.Rows[0].Delete();
                             dtCurrentTable.AcceptChanges();
                         }
 
-                        //Added New Record to the DataTable
+                        // Added New Record to the DataTable
                         dtCurrentTable.Rows.Add(drCurrentRow);
-                        //storing DataTable to ViewState
+                        // Storing DataTable to ViewState
                         ViewState["ProjectDetails"] = dtCurrentTable;
-                        //binding Gridview with New Row
-                        GridView1.DataSource = dtCurrentTable;
-                        GridView1.DataBind();
+                        // Binding Gridview with New Row
+                        grdProjectDetails.DataSource = dtCurrentTable;
+                        grdProjectDetails.DataBind();
                     }
                 }
             }
@@ -144,11 +144,11 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                //creating DataTable
+                // Creating DataTable
                 DataTable dt = new DataTable();
                 DataRow dr;
                 dt.TableName = "ProjectDetails";
-                //creating columns for DataTable
+                // Creating columns for DataTable
                 dt.Columns.Add(new DataColumn("CandidateId", typeof(string)));
                 dt.Columns.Add(new DataColumn("ProjectFor", typeof(string)));
                 dt.Columns.Add(new DataColumn("ProjectTitle", typeof(string)));
@@ -169,8 +169,8 @@ namespace JobFair.Forms.JobSeeker
                 dt.Rows.Add(dr);
 
                 ViewState["ProjectDetails"] = dt;
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
+                grdProjectDetails.DataSource = dt;
+                grdProjectDetails.DataBind();
             }
             catch (Exception)
             {
@@ -183,10 +183,9 @@ namespace JobFair.Forms.JobSeeker
             ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
             DataTable dtProjectDetails = (DataTable)ViewState["ProjectDetails"];
             projectDetailsBAL.SaveProjectDetailsBAL(dtProjectDetails);
-            GridView1.DataSource = null;
-            GridView1.DataBind();
+            grdProjectDetails.DataSource = null;
+            grdProjectDetails.DataBind();
             Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
-
         }
 
         protected void rbtProjectTypeList_SelectedIndexChanged(object sender, EventArgs e)
@@ -197,12 +196,10 @@ namespace JobFair.Forms.JobSeeker
                 {
                     Label2.Visible = true;
                     TextBox1.Visible = true;
+                    return;
                 }
-                else
-                {
-                    Label2.Visible = false;
-                    TextBox1.Visible = false;
-                }
+                Label2.Visible = false;
+                TextBox1.Visible = false;
             }
             catch (Exception)
             {

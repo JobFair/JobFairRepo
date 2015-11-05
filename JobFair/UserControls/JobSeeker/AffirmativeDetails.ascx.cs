@@ -114,6 +114,8 @@ namespace JobFair.UserControls.JobSeeker
             affirmativeDetailsEntity.Description = txtDescription.Text.Trim();
             affirmativeDetailsEntity.Sports = txtSports.Text.Trim();
             affirmativeDetailsEntity.SportsDescription = txtSportsDescription.Text.Trim();
+            affirmativeDetailsEntity.Hobbies = txtHobbies.Text.Trim();
+            affirmativeDetailsEntity.ExtraActivity = txtExtraActivity.Text.Trim();
             affirmativeDetailsEntity.USAPermit = string.Empty;
             if (rbtYesUSA.Checked)
                 affirmativeDetailsEntity.USAPermit = "Yes";

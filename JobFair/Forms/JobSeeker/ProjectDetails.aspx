@@ -147,7 +147,7 @@
                     <td>Project Live</td>
                     <td>
                         <asp:RadioButton ID="rbtYes" runat="server" GroupName="Live" Text="Yes" AutoPostBack="True" />
-                        <asp:RadioButton ID="rbtNo" runat="server" GroupName="Live" Text="No" /></td>
+                        <asp:RadioButton ID="rbtNo" runat="server" GroupName="Live" Text="No" AutoPostBack="True" /></td>
                 </tr>
                 <tr>
                     <td>
@@ -178,7 +178,7 @@
 
         <div style="margin-top: 20px; margin-left: 10px;">
             <asp:HiddenField ID="hfCandidateId" runat="server" />
-            <asp:GridView ID="GridView1" AutoGenerateColumns="false" runat="server" ForeColor="#333333"
+            <asp:GridView ID="grdProjectDetails" AutoGenerateColumns="false" runat="server" ForeColor="#333333"
                 GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>

@@ -1,6 +1,7 @@
 ﻿using BAL;
 using Entities;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Web.UI.WebControls;
@@ -10,7 +11,6 @@ namespace JobFair.UserControls.JobSeeker
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
        
-        private PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
         string candidateId;
         /// <summary>
         /// Class PersonalDetails
@@ -21,23 +21,45 @@ namespace JobFair.UserControls.JobSeeker
          
             if (!IsPostBack)
             {
-                DataSet ds = new DataSet();
-                ds = personalDetailsBAL.GetCountry();
-                ddlCountryPresent.DataSource = ds;
-                ddlCountryPresent.DataTextField = "CountryName";
-                ddlCountryPresent.DataValueField = "CountryId";
-                ddlCountryPresent.DataBind();
-                ddlCountryPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+               GetCountryPresent();
+               GetCountryPerm();
 
-                ds = personalDetailsBAL.GetCountry();
-                ddlCountryPerm.DataSource = ds;
-                ddlCountryPerm.DataTextField = "CountryName";
-                ddlCountryPerm.DataValueField = "CountryId";
-                ddlCountryPerm.DataBind();
-                ddlCountryPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+               // Bind Month List
+               List<string> monthList = CommonUtil.Utility.GetMonths();
+               ddlMonth.DataSource = monthList;
+               ddlMonth.DataBind();
+               ddlMonth.Items.Insert(0, new ListItem("--Select--", "0"));
+
+               // Bind Year List
+               List<string> yearList = CommonUtil.Utility.GetYears();
+               ddlYear.DataSource = yearList;
+               ddlYear.DataBind();
+               ddlYear.Items.Insert(0, new ListItem("--Select--", "0"));
             }
         }
 
+        private void GetCountryPresent()
+        {
+            PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
+            DataSet ds = new DataSet();
+            ds = personalDetailsBAL.GetCountry();
+            ddlCountryPresent.DataSource = ds;
+            ddlCountryPresent.DataTextField = "CountryName";
+            ddlCountryPresent.DataValueField = "CountryId";
+            ddlCountryPresent.DataBind();
+            ddlCountryPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+        private void GetCountryPerm()
+        {
+            PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
+            DataSet ds = new DataSet();
+            ds = personalDetailsBAL.GetCountry();
+            ddlCountryPerm.DataSource = ds;
+            ddlCountryPerm.DataTextField = "CountryName";
+            ddlCountryPerm.DataValueField = "CountryId";
+            ddlCountryPerm.DataBind();
+            ddlCountryPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
         /// <summary>
         /// Handles the Click event of the btnSubmit control.
         /// </summary>
@@ -45,14 +67,14 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            bool validated = false;
+            //bool validated = false;
             try
             {
                 PersonalDetailsJSEntity personalDetailsEntity = new PersonalDetailsJSEntity();
-
-                validated = ValidatePersonalDetails();
-                if (validated)
-                {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
+                //validated = ValidatePersonalDetails();
+                //if (validated)
+                //{
                     // Set value to PersonalDetails job seeker entity
                     personalDetailsEntity.candidateId = candidateId;
                     personalDetailsEntity.presentAddress = txtPresentAddress.Text.Trim();
@@ -86,9 +108,9 @@ namespace JobFair.UserControls.JobSeeker
                     {
                         personalDetailsEntity.gender = "Female";
                     }
-
+                    string validity = ddlMonth.SelectedItem.Text +'/'+ ddlYear.SelectedItem.Text;
                     personalDetailsEntity.passportNumber = Convert.ToInt32(txtPassportNo.Text);
-                    personalDetailsEntity.passportValidity = Convert.ToDateTime(txtValidity.Text);
+                    personalDetailsEntity.passportValidity = validity;
                     personalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
                     int result = personalDetailsBAL.SavePersonalDetailsBAL(personalDetailsEntity);
                     if (result > 0)
@@ -100,11 +122,11 @@ namespace JobFair.UserControls.JobSeeker
                     {
                         Response.Write("<script language='javascript'>alert('Sorry')</script>");
                     }
-                }
-                else
-                {
-                    //Error message to user
-                }
+                //}
+                //else
+                //{
+                //    //Error message to user
+                //}
             }
             catch (Exception ex)
             {
@@ -116,23 +138,23 @@ namespace JobFair.UserControls.JobSeeker
         /// For Chake Validation
         /// </summary>
         /// <returns></returns>
-        private bool ValidatePersonalDetails()
-        {
-            bool validated = true;
-            try
-            {
-                if (txtDOB.Text.Equals(String.Empty))
-                {
-                    validated = false;
-                    return validated;
-                }
-            }
-            catch (Exception)
-            {
-                //   throw;
-            }
-            return validated;
-        }
+        //private bool ValidatePersonalDetails()
+        //{
+        //    bool validated = true;
+        //    try
+        //    {
+        //        if (txtDOB.Text.Equals(String.Empty))
+        //        {
+        //            validated = false;
+        //            return validated;
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        //   throw;
+        //    }
+        //    return validated;
+        //}
 
         /// <summary>
         /// Handles the SelectedIndexChanged event of the ddlCountryPresent control.
@@ -143,6 +165,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int CountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
                 DataSet ds = new DataSet();
                 ds = personalDetailsBAL.GetState(CountryId);
@@ -170,6 +193,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int StateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
                 DataSet ds = new DataSet();
                 ds = personalDetailsBAL.GetCity(StateId);
@@ -196,6 +220,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int CountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
                 DataSet ds = new DataSet();
                 ds = personalDetailsBAL.GetState(CountryId);
@@ -222,6 +247,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int StateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
                 DataSet ds = new DataSet();
                 ds = personalDetailsBAL.GetCity(StateId);
@@ -251,7 +277,8 @@ namespace JobFair.UserControls.JobSeeker
                 lblpass.Visible = true;
                 lblPassportValidity.Visible = true;
                 txtPassportNo.Visible = true;
-                txtValidity.Visible = true;
+                ddlMonth.Visible = true;
+                ddlYear.Visible = true;
             }
             catch (Exception)
             {
@@ -273,7 +300,8 @@ namespace JobFair.UserControls.JobSeeker
                 lblpass.Visible = false;
                 lblPassportValidity.Visible = false;
                 txtPassportNo.Visible = false;
-                txtValidity.Visible = false;
+                ddlMonth.Visible = false;
+                ddlYear.Visible = false;
             }
             catch (Exception)
             {
@@ -287,6 +315,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int cityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
                 DataSet ds = new DataSet();
                 ds = personalDetailsBAL.GetArea(cityId);
@@ -308,6 +337,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int cityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
                 DataSet ds = new DataSet();
                 ds = personalDetailsBAL.GetArea(cityId);
