@@ -27,7 +27,7 @@ namespace JobFair.UserControls.JobSeeker
             {
                 ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
                 ContactDetailsEntity contactDetailsEntity = new ContactDetailsEntity();
-                //set the value of ContactDetailsJobSeekerEntity
+                // Set the value of ContactDetailsJobSeekerEntity
 
                 contactDetailsEntity.CandidateId = candidateId;
                 contactDetailsEntity.AltMobileNo = txtAltNo.Text.Trim();

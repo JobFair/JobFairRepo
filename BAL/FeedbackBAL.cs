@@ -18,8 +18,17 @@ namespace BAL
 
         public int feedbackNewJobseekerBAL(FeedbackEntity feedbackEntity)
         {
-            FeedbackJSDAL  feedbackDAL = new FeedbackJSDAL();
-            return feedbackDAL.FeedbackDAL(feedbackEntity);
+            try
+            {
+                FeedbackJSDAL feedbackDAL = new FeedbackJSDAL();
+                return feedbackDAL.FeedbackDAL(feedbackEntity);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
     }
 }

@@ -10,56 +10,88 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
-       
-        string candidateId;
+        private string candidateId;
+
         /// <summary>
         /// Class PersonalDetails
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             candidateId = Convert.ToString(Session["candidateId"]);
-         
+
             if (!IsPostBack)
             {
-               GetCountryPresent();
-               GetCountryPerm();
+                GetCountryPresent();
+                GetCountryPerm();
 
-               // Bind Month List
-               List<string> monthList = CommonUtil.Utility.GetMonths();
-               ddlMonth.DataSource = monthList;
-               ddlMonth.DataBind();
-               ddlMonth.Items.Insert(0, new ListItem("--Select--", "0"));
+                // Bind Month List
+                List<string> monthList = CommonUtil.Utility.GetMonths();
+                ddlMonth.DataSource = monthList;
+                ddlMonth.DataBind();
+                ddlMonth.Items.Insert(0, new ListItem("--Select--", "0"));
 
-               // Bind Year List
-               List<string> yearList = CommonUtil.Utility.GetYears();
-               ddlYear.DataSource = yearList;
-               ddlYear.DataBind();
-               ddlYear.Items.Insert(0, new ListItem("--Select--", "0"));
+                // Bind Year List
+                List<string> yearList = GetYears();
+                ddlYear.DataSource = yearList;
+                ddlYear.DataBind();
+                ddlYear.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+        }
+         
+        private static List<string> GetYears()
+        {
+            try
+            {
+                List<string> yearList = new List<string>();
+                int i = DateTime.Now.Year;
+                for (i = i - 60; i <= DateTime.Now.Year + 30; i++)
+                    yearList.Add(Convert.ToString(i));
+                return yearList;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
         private void GetCountryPresent()
         {
-            PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
-            DataSet ds = new DataSet();
-            ds = personalDetailsBAL.GetCountry();
-            ddlCountryPresent.DataSource = ds;
-            ddlCountryPresent.DataTextField = "CountryName";
-            ddlCountryPresent.DataValueField = "CountryId";
-            ddlCountryPresent.DataBind();
-            ddlCountryPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetCountry();
+                ddlCountryPresent.DataSource = ds;
+                ddlCountryPresent.DataTextField = "CountryName";
+                ddlCountryPresent.DataValueField = "CountryId";
+                ddlCountryPresent.DataBind();
+                ddlCountryPresent.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+
         private void GetCountryPerm()
         {
-            PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
-            DataSet ds = new DataSet();
-            ds = personalDetailsBAL.GetCountry();
-            ddlCountryPerm.DataSource = ds;
-            ddlCountryPerm.DataTextField = "CountryName";
-            ddlCountryPerm.DataValueField = "CountryId";
-            ddlCountryPerm.DataBind();
-            ddlCountryPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+            try
+            {
+                PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetCountry();
+                ddlCountryPerm.DataSource = ds;
+                ddlCountryPerm.DataTextField = "CountryName";
+                ddlCountryPerm.DataValueField = "CountryId";
+                ddlCountryPerm.DataBind();
+                ddlCountryPerm.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+
         /// <summary>
         /// Handles the Click event of the btnSubmit control.
         /// </summary>
@@ -75,53 +107,60 @@ namespace JobFair.UserControls.JobSeeker
                 //validated = ValidatePersonalDetails();
                 //if (validated)
                 //{
-                    // Set value to PersonalDetails job seeker entity
-                    personalDetailsEntity.candidateId = candidateId;
-                    personalDetailsEntity.presentAddress = txtPresentAddress.Text.Trim();
-                    personalDetailsEntity.presentCountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
-                    personalDetailsEntity.presentStateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
-                    personalDetailsEntity.presentCityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
-                    personalDetailsEntity.presentArea = Convert.ToInt32(ddlAreaPresent.SelectedValue);
-                    personalDetailsEntity.presentPincode = Convert.ToInt32(txtPincodePresent.Text);
-                    personalDetailsEntity.permantAddress = txtAddressPerm.Text.Trim();
-                    personalDetailsEntity.permantCountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
-                    personalDetailsEntity.permantStateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
-                    personalDetailsEntity.permantCityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
-                    personalDetailsEntity.permantArea = Convert.ToInt32(ddlAreaPerm.SelectedValue);
-                    personalDetailsEntity.permantPincode = Convert.ToInt32(txtPincodePerm.Text);
-                    personalDetailsEntity.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
+                // Set value to PersonalDetails job seeker entity
+                personalDetailsEntity.candidateId = candidateId;
+                personalDetailsEntity.presentAddress = txtPresentAddress.Text.Trim();
+                personalDetailsEntity.presentCountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
+                personalDetailsEntity.presentStateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
+                personalDetailsEntity.presentCityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
+                personalDetailsEntity.presentArea = Convert.ToInt32(ddlAreaPresent.SelectedValue);
+                personalDetailsEntity.presentPincode = Convert.ToInt32(txtPincodePresent.Text);
+                personalDetailsEntity.permantAddress = txtAddressPerm.Text.Trim();
+                personalDetailsEntity.permantCountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
+                personalDetailsEntity.permantStateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
+                personalDetailsEntity.permantCityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
+                personalDetailsEntity.permantArea = Convert.ToInt32(ddlAreaPerm.SelectedValue);
+                personalDetailsEntity.permantPincode = Convert.ToInt32(txtPincodePerm.Text);
+                personalDetailsEntity.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
 
-                    // Check if fileupload control has a file.
-                    if (FileUploadPhoto.PostedFile != null)
-                    {
-                        personalDetailsEntity.photo = Path.GetFileName(FileUploadPhoto.PostedFile.FileName);
-                        FileUploadPhoto.SaveAs(Server.MapPath("~/UploadImages/" + personalDetailsEntity.photo));
-                    }
+                // Check if fileupload control has a file.
+                if (FileUploadPhoto.PostedFile != null)
+                {
+                    personalDetailsEntity.photo = Path.GetFileName(FileUploadPhoto.PostedFile.FileName);
+                    FileUploadPhoto.SaveAs(Server.MapPath("~/UploadImages/" + personalDetailsEntity.photo));
+                }
 
-                    // Check if radio button check.
-                    personalDetailsEntity.gender = string.Empty;
-                    if (rbtMale.Checked)
-                    {
-                        personalDetailsEntity.gender = "Male";
-                    }
-                    else if (rbtFemale.Checked)
-                    {
-                        personalDetailsEntity.gender = "Female";
-                    }
-                    string validity = ddlMonth.SelectedItem.Text +'/'+ ddlYear.SelectedItem.Text;
+                // Check if radio button check.
+                personalDetailsEntity.gender = string.Empty;
+                if (rbtMale.Checked)
+                {
+                    personalDetailsEntity.gender = "Male";
+                }
+                else if (rbtFemale.Checked)
+                {
+                    personalDetailsEntity.gender = "Female";
+                }
+                if (rbtPassportYes.Checked)
+                {
+                    string validity = ddlMonth.SelectedItem.Text + '/' + ddlYear.SelectedItem.Text;
                     personalDetailsEntity.passportNumber = Convert.ToInt32(txtPassportNo.Text);
                     personalDetailsEntity.passportValidity = validity;
-                    personalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
-                    int result = personalDetailsBAL.SavePersonalDetailsBAL(personalDetailsEntity);
-                    if (result > 0)
-                    {
-                        Response.Write("<script language='javascript'>alert('Personal Details Inserted')</script>");
-                      
-                    }
-                    else
-                    {
-                        Response.Write("<script language='javascript'>alert('Sorry')</script>");
-                    }
+                }
+                else
+                {
+                    personalDetailsEntity.passportNumber = Convert.ToInt32(null);
+                    personalDetailsEntity.passportValidity = "null";
+                }
+                personalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
+                int result = personalDetailsBAL.SavePersonalDetailsBAL(personalDetailsEntity);
+                if (result > 0)
+                {
+                    Response.Write("<script language='javascript'>alert('Personal Details Inserted')</script>");
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Sorry')</script>");
+                }
                 //}
                 //else
                 //{
@@ -178,10 +217,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
 
         /// <summary>
@@ -205,10 +242,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         /// <summary>
@@ -232,10 +267,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         /// <summary>
@@ -259,10 +292,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         /// <summary>
@@ -282,10 +313,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         /// <summary>
@@ -305,10 +334,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         protected void ddlCityPresent_SelectedIndexChanged(object sender, EventArgs e)
@@ -327,10 +354,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         protected void ddlCityPerm_SelectedIndexChanged(object sender, EventArgs e)
@@ -349,10 +374,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
     }
 }
