@@ -27,13 +27,38 @@ namespace JobFair.Forms.JobSeeker
                 //ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
                  Response.Redirect("LogIn.aspx");
             }
+
+
+
             if (!IsPostBack)
             {
-                BindIndustry();
+                
                 BindDepartment();
                 BindState();
                 BindArea();
+                BindIndustry();
+
                 
+            }
+
+        }
+
+        private void BindIndustry()
+        {
+            try
+            {
+                object ds;
+                ds = AdvanceJobSearchBAL.GetIndustry();
+                CheckBoxList1.DataSource = ds;
+                CheckBoxList1.DataTextField = "IndustryName";
+                CheckBoxList1.DataValueField = "IndustryId";
+                CheckBoxList1.DataBind();
+                CheckBoxList1.Items.Insert(0, new ListItem("----select----", "0"));
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -42,27 +67,57 @@ namespace JobFair.Forms.JobSeeker
            
         }
 
-       
-        /// <summary>
-        /// bind industry to dropdown and stored in database
-        /// </summary>
-        private void BindIndustry()
+        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 object ds;
-                ds = AdvanceJobSearchBAL.GetIndustry();
-                ddlIndustry.DataSource = ds;
-                ddlIndustry.DataTextField = "IndustryName";
-                ddlIndustry.DataValueField = "IndustryId";
-                ddlIndustry.DataBind();
-                ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+                int cityId = Convert.ToInt32(ddlCity.SelectedValue);
+                ds = AdvanceJobSearchBAL.GetArea(cityId);
+                chkarea.DataSource = ds;
+                chkarea.DataTextField = "AreaName";
+                chkarea.DataValueField = "AreaId";
+                chkarea.DataBind();
+                chkarea.Items.Insert(0, new ListItem("----select----", "0"));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void chkarea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtarea.Text = string.Empty;
+
+        }
+
+
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                object ds;
+                int stateId = Convert.ToInt32(ddlState.SelectedValue);
+                ds = AdvanceJobSearchBAL.GetCity(stateId);
+                ddlCity.DataSource = ds;
+                ddlCity.DataTextField = "cityName";
+                ddlCity.DataValueField = "cityID";
+                ddlCity.DataBind();
+                ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
+       
+        /// <summary>
+        /// bind industry to dropdown and stored in database
+        /// </summary>
+       
 
         private void BindDepartment()
         {
@@ -127,25 +182,6 @@ namespace JobFair.Forms.JobSeeker
 
        
 
-        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                object ds;
-                int stateId = Convert.ToInt32(ddlState.SelectedValue);
-                ds = AdvanceJobSearchBAL.GetCity(stateId);
-                ddlCity.DataSource = ds;
-                ddlCity.DataTextField = "cityName";
-                ddlCity.DataValueField = "cityID";
-                ddlCity.DataBind();
-                ddlCity.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
         public static List<string> GetKeySkills(string prefixText)
@@ -173,33 +209,18 @@ namespace JobFair.Forms.JobSeeker
 
             for (int i = 0; i < chkarea.Items.Count; i++)
             {
-                if(chkarea.Items[i].Selected)
+                if (chkarea.Items[i].Selected)
                 {
 
                     txtarea.Text += chkarea.Items[i].Text + ",";
                 }
+              
             }
             
         }
 
-        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                 object ds;
-                 int cityId = Convert.ToInt32(ddlCity.SelectedValue);
-                 ds = AdvanceJobSearchBAL.GetArea(cityId);
-            chkarea.DataSource = ds;
-            chkarea.DataTextField = "AreaName";
-            chkarea.DataValueField = "AreaId";
-            chkarea.DataBind();
-            chkarea.Items.Insert(0,new ListItem ("----select----","0"));
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-        }
+      
+
+        
     }
 }

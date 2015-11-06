@@ -55,10 +55,11 @@
                                 <br />
                                 <br />
                               <div>
-                                  <asp:Button  runat="server" ID="btnarea" Text="go" OnClick="btnarea_Click" />
+                                  <asp:Button  runat="server" ID="btnarea" Text="go" OnClick="btnarea_Click" Height="23px" Width="106px" />
+                                  &nbsp;&nbsp;
                                   <asp:Panel ID="Panelarea" runat="server" Visible="false">
                                       <asp:TextBox runat="server" ID="txtarea" ReadOnly="true" Height="23px" Width="436px" />
-                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px" OnSelectedIndexChanged="chkarea_SelectedIndexChanged"></asp:CheckBoxList>
                                       &nbsp;
                                 </asp:Panel>
                                   <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
@@ -167,10 +168,19 @@
                         <asp:Label ID="lblindustry" runat="server" Text="Industry"></asp:Label>
                     </td>
                     <td>
+                        <div>
+                            <asp:Button  ID="btnselect" runat="server" Text="Select"/>
+                            <asp:Panel ID="panellindustry" runat="server">
+                            <asp:TextBox ID="txtindusry" runat="server"></asp:TextBox>
+                                <asp:CheckBoxList ID="CheckBoxList1" runat="server"></asp:CheckBoxList>
+                            </asp:Panel>
 
-                        <asp:DropDownCheckBoxes ID="ddlIndustry" runat="server" UseSelectAllNode="false" style="top: 1px; left: 0px; width: 186px">
-                            <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                        </asp:DropDownCheckBoxes>
+
+
+
+                            <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" TargetControlID="panellindustry" TextLabelID="btnselect" CollapseControlID="btnselect" ExpandControlID="btnselect" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
+                        </div>
+
                     </td>
                 </tr>
                 <tr>
