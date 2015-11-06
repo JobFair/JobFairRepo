@@ -182,7 +182,10 @@
                                 <cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtValidity" PopupButtonID="txtValidity" Format="yyyy/MM/dd" />--%>
                                 <asp:DropDownList ID="ddlMonth" runat="server" Visible="false">
                                    
-                                </asp:DropDownList><asp:DropDownList ID="ddlYear" runat="server" Visible="false"></asp:DropDownList>
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlYear" runat="server" Visible="false">
+                                  
+                                </asp:DropDownList>
                             </td>
                         </tr>
                     </table>

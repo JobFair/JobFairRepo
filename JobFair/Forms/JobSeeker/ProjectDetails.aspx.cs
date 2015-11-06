@@ -2,9 +2,13 @@
 using System;
 using System.Data;
 using System.Globalization;
+using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
+    /// <summary>
+    /// Class ProjectDetails
+    /// </summary>
     public partial class ProjectDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -15,8 +19,9 @@ namespace JobFair.Forms.JobSeeker
 
             if (!IsPostBack)
             {
+                GetRole();
                 // Take Candidate Id from Session
-                hfCandidateId.Value = candidateId; // Session["CandidateId"].ToString();
+                hfCandidateId.Value = candidateId;
                 AddDefaultFirstRecord();
             }
 
@@ -30,6 +35,25 @@ namespace JobFair.Forms.JobSeeker
             lblLinkUrl.Visible = false;
         }
 
+        private void GetRole()
+        {
+            try
+            {
+                ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
+                DataSet ds = new DataSet();
+                ds = projectDetailsBAL.GetRole();
+                ddlRole.DataSource = ds;
+                ddlRole.DataTextField = "roleName";
+                ddlRole.DataValueField = "roleId";
+                ddlRole.DataBind();
+                ddlRole.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
         private void CheckAuthorised(string candidateId)
         {
             if (string.IsNullOrEmpty(candidateId))
@@ -59,7 +83,7 @@ namespace JobFair.Forms.JobSeeker
             txtRolesAndResponsibility.Text = "";
             txtSkillUsed.Text = "";
             txtLink.Text = "";
-            TextBox1.Text = "";
+            ddlAcademicLevel.SelectedIndex = 0;
             ddlTeamSize.SelectedIndex = 0;
         }
 
@@ -115,7 +139,7 @@ namespace JobFair.Forms.JobSeeker
                                 drCurrentRow["ProjectLive"] = "No";
                             }
                             drCurrentRow["ProjectLink"] = txtLink.Text.Trim();
-                            drCurrentRow["Degree"] = TextBox1.Text.Trim();
+                            drCurrentRow["Degree"] = ddlAcademicLevel.SelectedItem.Text.Trim();
                         }
                         // Removing initial blank row
                         if (dtCurrentTable.Rows[0][0].ToString() == "")
@@ -178,6 +202,11 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnsubmitProject control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnsubmitProject_Click(object sender, EventArgs e)
         {
             ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
@@ -185,6 +214,7 @@ namespace JobFair.Forms.JobSeeker
             projectDetailsBAL.SaveProjectDetailsBAL(dtProjectDetails);
             grdProjectDetails.DataSource = null;
             grdProjectDetails.DataBind();
+            ViewState["ProjectDetails"] = null;
             Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
         }
 
@@ -194,12 +224,12 @@ namespace JobFair.Forms.JobSeeker
             {
                 if (rbtProjectTypeList.SelectedValue == "1")
                 {
-                    Label2.Visible = true;
-                    TextBox1.Visible = true;
+                    lblAcademicLevel.Visible = true;
+                    ddlAcademicLevel.Visible = true;
                     return;
                 }
-                Label2.Visible = false;
-                TextBox1.Visible = false;
+                lblAcademicLevel.Visible = false;
+                ddlAcademicLevel.Visible = false;
             }
             catch (Exception)
             {

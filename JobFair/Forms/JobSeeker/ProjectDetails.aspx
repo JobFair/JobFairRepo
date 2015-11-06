@@ -46,10 +46,6 @@
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlRole" runat="server">
-                            <asp:ListItem>Developer</asp:ListItem>
-                            <asp:ListItem>Tester</asp:ListItem>
-                            <asp:ListItem>Analyst</asp:ListItem>
-                            <asp:ListItem>Manager</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -159,10 +155,17 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label2" runat="server" Text="Degree" Visible="false"></asp:Label>
+                        <asp:Label ID="lblAcademicLevel" runat="server" Text="Academic Level" Visible="false"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
+                        <asp:DropDownList ID="ddlAcademicLevel" runat="server" Visible="false">
+                            <asp:ListItem Value="0">Select</asp:ListItem>
+                            <asp:ListItem Value="1">PG Project</asp:ListItem>
+                            <asp:ListItem Value="2">UG Project</asp:ListItem>
+                            <asp:ListItem Value="3">PG Diploma</asp:ListItem>
+                            <asp:ListItem Value="4">Diploma</asp:ListItem>
+                            <asp:ListItem Value="5">Certification</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>

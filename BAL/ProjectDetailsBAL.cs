@@ -9,7 +9,7 @@ namespace BAL
         /// Get fuctional role bal.
         /// </summary>
         /// <returns></returns>
-        public DataTable GetRole()
+        public DataSet GetRole()
         {
             try
             {
@@ -18,25 +18,26 @@ namespace BAL
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
-           
         }
 
-        public DataTable SaveProjectDetailsBAL(DataTable dtProductSold)
+        /// <summary>
+        /// Project Details of job seeker
+        /// </summary>
+        /// <param name="dtProjectDetails"></param>
+        /// <returns></returns>
+        public DataTable SaveProjectDetailsBAL(DataTable dtProjectDetails)
         {
             try
             {
                 ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
-                return projectDetailsDAL.SaveProjectDetailsDAL(dtProductSold);
+                return projectDetailsDAL.SaveProjectDetailsDAL(dtProjectDetails);
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
-           
         }
     }
 }
