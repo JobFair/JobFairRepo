@@ -94,15 +94,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExperience;
         
         /// <summary>
-        /// upPastCurrentExperience control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upPastCurrentExperience;
-        
-        /// <summary>
         /// divCurrentEmployer control.
         /// </summary>
         /// <remarks>
@@ -247,6 +238,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnAddExperience;
         
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
         /// hfCandidateId control.
         /// </summary>
         /// <remarks>
@@ -326,15 +326,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlWorkStatus;
-        
-        /// <summary>
-        /// upAddMoreJobs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upAddMoreJobs;
         
         /// <summary>
         /// divAddMoreJob control.
@@ -425,15 +416,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveMoreJobs;
-        
-        /// <summary>
-        /// lbAddMoreJobPost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbAddMoreJobPost;
         
         /// <summary>
         /// txtcurrentannualsalary control.

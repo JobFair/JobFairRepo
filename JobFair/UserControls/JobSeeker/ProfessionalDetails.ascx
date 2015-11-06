@@ -3,16 +3,7 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $(".date").datepicker(
-            {
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "1950:2020"
-            });
-    });
-</script>
+
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
@@ -56,9 +47,9 @@
         <tr>
             <td>Currently You Are?</td>
             <td>
-                <asp:RadioButton ID="rbtEmployed" Text="Employed" runat="server" OnCheckedChanged="rbtEmployed_CheckedChanged" AutoPostBack="True" GroupName="EmplyeeORNot" />
+                <asp:RadioButton ID="rbtEmployed" Text="Employed" runat="server"  AutoPostBack="True" GroupName="EmplyeeORNot" />
                 &nbsp;&nbsp;&nbsp;
-                <asp:RadioButton ID="rbtUnEmployed" Text="Un-Employed" runat="server" AutoPostBack="True" GroupName="EmplyeeORNot" OnCheckedChanged="rbtUnEmployed_CheckedChanged" />
+                <asp:RadioButton ID="rbtUnEmployed" Text="Un-Employed" runat="server" AutoPostBack="True" GroupName="EmplyeeORNot"  />
             </td>
         </tr>
         <tr>
@@ -77,8 +68,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:UpdatePanel ID="upPastCurrentExperience" runat="server">
-                    <ContentTemplate>
+                
 
                    
                 <div id="divCurrentEmployer"  runat="server">
@@ -182,7 +172,8 @@
                                 <asp:Button ID="btnAddExperience" runat="server" Text="Add Experience" OnClick="btnAddExperience_Click" />
                             </td>
                             <td>
-                                &nbsp;</td>
+                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -238,8 +229,7 @@
                         </tr>
                     </table>
                 </div>
-                         </ContentTemplate>
-                </asp:UpdatePanel>
+                        
             </td>
         </tr>
 
@@ -271,8 +261,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:UpdatePanel runat="server" ID="upAddMoreJobs">
-                    <ContentTemplate>
+               
 
                    
                 <div id="divAddMoreJob" runat="server" >
@@ -361,16 +350,14 @@
                         </tr>
                     </table>
                 </div>
-                         </ContentTemplate>
-                </asp:UpdatePanel>
+                        
             </td>
             
         </tr>
        
         <tr>
             <td colspan="2">
-                <asp:LinkButton ID="lbAddMoreJobPost" runat="server" OnClick="lbAddMoreJobPost_Click">Add more Job Post</asp:LinkButton>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
