@@ -13,15 +13,15 @@ namespace DAL
         /// Get the functional roles
         /// </summary>
         /// <returns></returns>
-        public DataTable GetRole()
+        public DataSet GetRole()
         {
             try
             {
-                DataTable table = new DataTable();
+                DataSet ds = new DataSet();
                 SqlCommand cmd = new SqlCommand("select * from JS_Roles", connection);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(table);
-                return table;
+                da.Fill(ds);
+                return ds;
             }
             catch (Exception)
             {
@@ -29,16 +29,21 @@ namespace DAL
             }
         }
 
-        public DataTable SaveProjectDetailsDAL(DataTable dtProductSold)
+        /// <summary>
+        ///  Insert Project Details
+        /// </summary>
+        /// <param name="dtProjectDetails">Object for inserting data into database</param>
+        /// <returns></returns>
+        public DataTable SaveProjectDetailsDAL(DataTable dtProjectDetails)
         {
             try
             {
                 connection.Open();
-                //creating object of SqlBulkCopy
+                // Creating object of SqlBulkCopy
                 SqlBulkCopy objbulk = new SqlBulkCopy(connection);
-                //assigning Destination table name
+                // Assigning Destination table name
                 objbulk.DestinationTableName = "JS_ProjectDetail";
-                //Mapping Table column
+                // Mapping Table column
                 objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
                 objbulk.ColumnMappings.Add("ProjectFor", "ProjectFor");
                 objbulk.ColumnMappings.Add("ProjectTitle", "ProjectTitle");
@@ -55,9 +60,9 @@ namespace DAL
                 objbulk.ColumnMappings.Add("ProjectLive", "ProjectLive");
                 objbulk.ColumnMappings.Add("ProjectLink", "ProjectLink");
                 objbulk.ColumnMappings.Add("Degree", "Degree");
-                //inserting bulk Records into DataBase
-                objbulk.WriteToServer(dtProductSold);
-                return dtProductSold;
+                // Inserting bulk Records into DataBase
+                objbulk.WriteToServer(dtProjectDetails);
+                return dtProjectDetails;
             }
             catch (Exception)
             {

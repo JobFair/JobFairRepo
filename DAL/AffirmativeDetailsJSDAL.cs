@@ -15,7 +15,7 @@ namespace DAL
         private static SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
-        /// method for converting the object to XML.
+        /// Method for converting the object to XML.
         /// </summary>
         /// <param name="languageDetails"></param>
         /// <returns></returns>
@@ -82,6 +82,8 @@ namespace DAL
                                           new SqlParameter("@sportsDescription",affirmativeDetailsEntity.SportsDescription),
                                           new SqlParameter("@usaPermit",affirmativeDetailsEntity.USAPermit),
                                           new SqlParameter("@otherPermits",affirmativeDetailsEntity.OtherPermits),
+                                          new SqlParameter ("@hobbies",affirmativeDetailsEntity.Hobbies),
+                                          new SqlParameter ("@extraActivity",affirmativeDetailsEntity.ExtraActivity)
                                           };
                 result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_OtherDetails, sqlparams);
                 if (result > 0)

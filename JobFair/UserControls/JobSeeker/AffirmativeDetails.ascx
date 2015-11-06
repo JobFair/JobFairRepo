@@ -121,14 +121,14 @@
         <td>
             Hobbies</td>
         <td colspan="5">
-            <asp:TextBox ID="txtHobbies" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtHobbies" runat="server" TextMode="MultiLine"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td>
             Extra Curricular Activity</td>
         <td colspan="5">
-            <asp:TextBox ID="txtExtraActivity" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtExtraActivity" runat="server" TextMode="MultiLine"></asp:TextBox>
         </td>
     </tr>
     <tr>
