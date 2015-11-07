@@ -6,6 +6,7 @@
 <center>
 <asp:Label ID="lblAddCert" runat="server" Text="Add Certifications" Font-Bold="true"></asp:Label>
 </center>
+<hr />
 <table style="background-color: #C0C0C0">
     <tr>
         <td > <asp:Label ID="lblCert" runat="server" Text="Certification Name"></asp:Label></td>
@@ -41,14 +42,40 @@
     </tr>
     <tr>
         <td>
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
-        </td>
-        <td>
-            <asp:Button ID="btnAdd" runat="server" Text="Add More" OnClick="btnAdd_Click"/>
+            <asp:Button ID="btnAdd" runat="server" Text="Add Certification" OnClick="btnAdd_Click" style="margin-top: 10px; margin-left: 150px"/>
         </td>
     </tr>
     </table>
- <div>
+     <div style="margin-top: 20px; margin-left: 10px;">
+            <asp:HiddenField ID="hfCandidateId" runat="server" />
+            <asp:GridView ID="grvAddMore" AutoGenerateColumns="false" runat="server" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField Visible="false" HeaderText="CandidateId" DataField="CandidateId" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Certification Name" DataField="CertificationName" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Certification Institute" DataField="Institute" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Certification Duration" DataField="Duration" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Year Of Completion" DataField="YearOfCompletion" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Certification Grade" DataField="Grade" />
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+        </div>
+        <div style="margin-top: 10px; margin-left: 150px">
+            <asp:Button ID="btnsubmitCertifications" runat="server" Style="color: White"
+                Text="Save Certifications" BackColor="#999966" OnClick="btnsubmitCertifications_Click"/>
+        </div>
+
+    <div>
         <asp:Label ID="lblSuccess" runat="server" Text="" ForeColor="Green" Font-Bold="true" Font-Size="14px" Visible="false"></asp:Label>
         <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red" Font-Bold="true" Font-Size="14px" Visible="false"></asp:Label>
     </div>

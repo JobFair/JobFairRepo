@@ -8,7 +8,7 @@
 <link href="../../Css/Common.css" rel="stylesheet" />
 
 
-<div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
+<div id="divMain" runat="server">
 
     <h2>Highest Qualification&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="ddlHQ" runat="server">

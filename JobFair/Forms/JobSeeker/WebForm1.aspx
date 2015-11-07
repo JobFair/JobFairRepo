@@ -12,12 +12,13 @@
       <script src="../../Scripts/jquery-2.1.4.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Scripts/ValidationAll.js"></script>
 </head>
 <body>
-    <form runat="server">
-        <asp:DropDownCheckBoxes ID="ddlchbCity" runat="server"></asp:DropDownCheckBoxes>
+    <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <uc1:ProfessionalDetails runat="server" ID="ProfessionalDetails" />
+        <asp:TextBox ID="txtUserName" runat="server" onchange="return CharOnly(evt);" ></asp:TextBox>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
     </form>
 </body>
 </html>
