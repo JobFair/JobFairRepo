@@ -56,10 +56,11 @@
                                 <br />
                               <div>
                                   <asp:Button  runat="server" ID="btnarea" Text="go" OnClick="btnarea_Click" Height="23px" Width="106px" />
+                                   <asp:TextBox runat="server" ID="txtarea" ReadOnly="true" Height="23px" Width="436px" />
                                   &nbsp;&nbsp;
                                   <asp:Panel ID="Panelarea" runat="server" Visible="false">
-                                      <asp:TextBox runat="server" ID="txtarea" ReadOnly="true" Height="23px" Width="436px" />
-                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px" OnSelectedIndexChanged="chkarea_SelectedIndexChanged"></asp:CheckBoxList>
+                                     
+                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px" OnSelectedIndexChanged="chkarea_SelectedIndexChanged" ></asp:CheckBoxList>
                                       &nbsp;
                                 </asp:Panel>
                                   <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
