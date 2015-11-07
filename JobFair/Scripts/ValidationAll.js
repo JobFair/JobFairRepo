@@ -67,7 +67,7 @@ function AllowOnlyNumric(e) {
         return false;
     return true;
 }
-function CheckAlphaNumeric(controlId) {
+ function CheckAlphaNumeric(controlId) {
     var textBoxContent = document.getElementById(controlId).value;
     var chk = /[^a-zA-Z 0-9 . - ( )]+/;
     if (chk.test(textBoxContent)) {
