@@ -15,7 +15,7 @@
             width: 100%;
             background-color: #fff;
             margin-bottom: 5px;
-               }
+        }
     </style>
 </head>
 <body>
@@ -54,16 +54,16 @@
                                 </asp:DropDownList>
                                 <br />
                                 <br />
-                              <div>
-                                  <asp:Button  runat="server" ID="btnarea" Text="go" OnClick="btnarea_Click" Height="23px" Width="106px" />
-                                  &nbsp;&nbsp;
+                                <div>
+                                    <asp:Button runat="server" ID="btnarea" Text="go" OnClick="btnarea_Click" Height="23px" Width="106px" />
+                                    &nbsp;&nbsp;
                                   <asp:Panel ID="Panelarea" runat="server" Visible="false">
                                       <asp:TextBox runat="server" ID="txtarea" ReadOnly="true" Height="23px" Width="436px" />
-                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px" OnSelectedIndexChanged="chkarea_SelectedIndexChanged"></asp:CheckBoxList>
+                                      <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" Height="50px" OnSelectedIndexChanged="chkarea_SelectedIndexChanged" RepeatColumns="6"></asp:CheckBoxList>
                                       &nbsp;
-                                </asp:Panel>
-                                  <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
-                              </div>
+                                  </asp:Panel>
+                                    <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
+                                </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </td>
@@ -84,26 +84,45 @@
                     </td>
                     <td>&nbsp;<asp:DropDownList ID="ddlWorkExperience" runat="server">
                         <asp:ListItem>Select</asp:ListItem>
-                        <asp:ListItem>0.5</asp:ListItem>
+                        <asp:ListItem>0</asp:ListItem>
                         <asp:ListItem>1</asp:ListItem>
-                        <asp:ListItem>1.5</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
-                        <asp:ListItem>2.5</asp:ListItem>
                         <asp:ListItem>3</asp:ListItem>
-                        <asp:ListItem>3.5</asp:ListItem>
                         <asp:ListItem>4</asp:ListItem>
-                        <asp:ListItem>4.5</asp:ListItem>
                         <asp:ListItem>5</asp:ListItem>
-                        <asp:ListItem>5.5</asp:ListItem>
                         <asp:ListItem>6</asp:ListItem>
-                        <asp:ListItem>6.5</asp:ListItem>
                         <asp:ListItem>7</asp:ListItem>
-                        <asp:ListItem>7.5</asp:ListItem>
                         <asp:ListItem>8</asp:ListItem>
-                        <asp:ListItem>8.5</asp:ListItem>
                         <asp:ListItem>9</asp:ListItem>
-                        <asp:ListItem>9.5</asp:ListItem>
-                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>11</asp:ListItem>
+                        <asp:ListItem>12</asp:ListItem>
+                        <asp:ListItem>13</asp:ListItem>
+                        <asp:ListItem>14</asp:ListItem>
+                        <asp:ListItem>15</asp:ListItem>
+                        <asp:ListItem>16</asp:ListItem>
+                        <asp:ListItem>17</asp:ListItem>
+                        <asp:ListItem>18</asp:ListItem>
+                        <asp:ListItem>19</asp:ListItem>
+                        <asp:ListItem>20</asp:ListItem>
+                        <asp:ListItem>21</asp:ListItem>
+                        <asp:ListItem>22</asp:ListItem>
+                        <asp:ListItem>23</asp:ListItem>
+                        <asp:ListItem>24</asp:ListItem>
+                        <asp:ListItem>25</asp:ListItem>
+                        <asp:ListItem>26</asp:ListItem>
+                        <asp:ListItem>27</asp:ListItem>
+                        <asp:ListItem>28</asp:ListItem>
+                        <asp:ListItem>29</asp:ListItem>
+                        <asp:ListItem>30</asp:ListItem>
+                        <asp:ListItem>31</asp:ListItem>
+                        <asp:ListItem>32</asp:ListItem>
+                        <asp:ListItem>33</asp:ListItem>
+                        <asp:ListItem>34</asp:ListItem>
+                        <asp:ListItem>35</asp:ListItem>
+                        <asp:ListItem>36</asp:ListItem>
+                        <asp:ListItem>37</asp:ListItem>
+                        <asp:ListItem>38</asp:ListItem>
+                        <asp:ListItem>39</asp:ListItem>
                     </asp:DropDownList>
                         &nbsp;&nbsp;
 
@@ -169,18 +188,14 @@
                     </td>
                     <td>
                         <div>
-                            <asp:Button  ID="btnselect" runat="server" Text="Select"/>
+                            <asp:TextBox ID="txtindusry" runat="server" ReadOnly="True"></asp:TextBox>
+                            <asp:Button ID="btnselect" runat="server" Text="Select" />
                             <asp:Panel ID="panellindustry" runat="server">
-                            <asp:TextBox ID="txtindusry" runat="server"></asp:TextBox>
-                                <asp:CheckBoxList ID="CheckBoxList1" runat="server"></asp:CheckBoxList>
+                                <asp:CheckBoxList ID="chkIndustry" runat="server" RepeatColumns="4"></asp:CheckBoxList>
                             </asp:Panel>
-
-
-
 
                             <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" TargetControlID="panellindustry" TextLabelID="btnselect" CollapseControlID="btnselect" ExpandControlID="btnselect" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                         </div>
-
                     </td>
                 </tr>
                 <tr>
@@ -197,8 +212,10 @@
                         <asp:Label ID="lblEmploymentStatus" runat="server" Text="Employement Status"></asp:Label>
                     </td>
                     <td>
-                        <asp:CheckBox ID="chkFullTime" runat="server" Text="Full Time" />
-                        <asp:CheckBox ID="chkPartTime" runat="server" Text="Part Time" />
+                        <asp:CheckBoxList ID="chkEmploymentStatus" runat="server">
+                            <asp:ListItem Value="0">Full Time</asp:ListItem>
+                            <asp:ListItem Value="1">Part Time</asp:ListItem>
+                        </asp:CheckBoxList>
                     </td>
                 </tr>
                 <tr>
@@ -206,9 +223,11 @@
                         <asp:Label ID="lblJobType" runat="server" Text="Job Type"></asp:Label>
                     </td>
                     <td>
-                        <asp:CheckBox ID="chkPermanant" runat="server" Text="Permanant" />
-                        <asp:CheckBox ID="chkTemporary" runat="server" Text="Temporary" />
-                        <asp:CheckBox ID="chkFreelancing" runat="server" Text="Freelancing" />
+                        <asp:CheckBoxList ID="chkJobType" runat="server">
+                            <asp:ListItem Value="0">Permanant</asp:ListItem>
+                            <asp:ListItem Value="1">Temporary</asp:ListItem>
+                            <asp:ListItem Value="2">Freelancing</asp:ListItem>
+                        </asp:CheckBoxList>
                     </td>
                 </tr>
                 <tr>
@@ -216,8 +235,10 @@
                         <asp:Label ID="lblRecruitmentType" runat="server" Text="Recruitment Type"></asp:Label>
                     </td>
                     <td>
-                        <asp:CheckBox ID="chkInhouse" runat="server" Text="Inhouse" />
-                        <asp:CheckBox ID="chkClient" runat="server" Text="Client" />
+                        <asp:CheckBoxList ID="chkRecruitmentType" runat="server">
+                            <asp:ListItem Value="0">Inhouse</asp:ListItem>
+                            <asp:ListItem Value="1">Client</asp:ListItem>
+                        </asp:CheckBoxList>
                     </td>
                 </tr>
                 <tr>

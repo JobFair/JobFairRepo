@@ -1,37 +1,43 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="LogIn.aspx.cs" Inherits="JobFair.Forms.JobSeeker.LogIn" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../../Scripts/ValidationAll.js"></script>
+
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <table>
         <tr>
-            <td colspan="2"><h1>Login</h1></td>
+            <td colspan="2">
+                <h1>Login</h1>
+            </td>
         </tr>
         <tr>
             <td>User Name</td>
-            <td><asp:TextBox ID="txtUserName" runat="server" placeholder="User Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'User Name'"></asp:TextBox>
+            <td>
+                <asp:TextBox ID="txtUserName" runat="server" placeholder="User Name" OnClientClick="checkEmail();"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td>Password</td>
-            <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"></asp:TextBox>
+            <td>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><asp:CheckBox ID="cbRememberMe" runat="server" Text="Remember Me" /></td>
+            <td>
+                <asp:CheckBox ID="cbRememberMe" runat="server" Text="Remember Me" /></td>
         </tr>
         <tr>
-            <td colspan="2">
-                &nbsp;</td>
+            <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
             <td></td>
-            <td><asp:Button ID="btnLogIn" runat="server" Text="LogIn" OnClick="btnLogIn_Click" /><asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
+            <td>
+                <asp:Button ID="btnLogIn" runat="server" Text="LogIn" OnClientClick="return ValidationAll:CheckAlphaNumeric('txtUserName');" OnClick="btnLogIn_Click" /><asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
         </tr>
         <tr>
             <td>

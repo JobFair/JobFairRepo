@@ -14,19 +14,19 @@ namespace JobFair.Forms.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
             candidateId = Convert.ToString(Session["candidateId"]);
-            if (candidateId == "")
-            {
-                //string message = "Sorry your session has been expired !!!!";
-                //string url = "LogIn.aspx";
-                //string script = "window.onload = function(){ alert('";
-                //script += message;
-                //script += "');";
-                //script += "window.location = '";
-                //script += url;
-                //script += "'; }";
-                //ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
-                 Response.Redirect("LogIn.aspx");
-            }
+            //if (candidateId == "")
+            //{
+            //    //string message = "Sorry your session has been expired !!!!";
+            //    //string url = "LogIn.aspx";
+            //    //string script = "window.onload = function(){ alert('";
+            //    //script += message;
+            //    //script += "');";
+            //    //script += "window.location = '";
+            //    //script += url;
+            //    //script += "'; }";
+            //    //ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+            //     Response.Redirect("LogIn.aspx");
+            //}
 
 
 
@@ -49,11 +49,11 @@ namespace JobFair.Forms.JobSeeker
             {
                 object ds;
                 ds = AdvanceJobSearchBAL.GetIndustry();
-                CheckBoxList1.DataSource = ds;
-                CheckBoxList1.DataTextField = "IndustryName";
-                CheckBoxList1.DataValueField = "IndustryId";
-                CheckBoxList1.DataBind();
-                CheckBoxList1.Items.Insert(0, new ListItem("----select----", "0"));
+                chkIndustry.DataSource = ds;
+                chkIndustry.DataTextField = "IndustryName";
+                chkIndustry.DataValueField = "IndustryId";
+                chkIndustry.DataBind();
+                
             }
             catch (Exception)
             {
@@ -78,7 +78,7 @@ namespace JobFair.Forms.JobSeeker
                 chkarea.DataTextField = "AreaName";
                 chkarea.DataValueField = "AreaId";
                 chkarea.DataBind();
-                chkarea.Items.Insert(0, new ListItem("----select----", "0"));
+                
             }
             catch (Exception)
             {
