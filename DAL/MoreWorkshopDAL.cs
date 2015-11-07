@@ -18,45 +18,29 @@ namespace DAL
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
-        /// method for converting the object to XML.
-        /// </summary>
-        /// <param name="workshopEntity"></param>
-        /// <returns></returns>
-        private string CreateXML(List<WorkshopEntity> workshopEntity)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlSerializer xmlSerializer = new XmlSerializer(workshopEntity.GetType());
-
-            using (MemoryStream xmlStream = new MemoryStream())
-            {
-                xmlSerializer.Serialize(xmlStream, workshopEntity);
-                xmlStream.Position = 0;
-
-                xmlDoc.Load(xmlStream);
-                return xmlDoc.InnerXml;
-            }
-        }
-
-        /// <summary>
         /// Saving MoreWorkshop Deatils JobSeeker.
         /// </summary>
         /// <param name="workshopEntity">Object for inserting data into database</param>
         /// <returns>True/false</returns>
-        public bool SaveMoreWorkshopDAL(List<WorkshopEntity> workEntity)
+        public DataTable SaveMoreWorkshopDAL(DataTable workEntity)
         {
             try
             {
-                //Get xml String data from object
-                string workshopEntity = CreateXML(workEntity);
-
-                SqlParameter[] sqlparams ={
-                                            new SqlParameter("@workshopEntity",workshopEntity)};
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertMoreWorkshop, sqlparams);
-                if (result > 0)
-                {
-                    return true;
-                }
-                return false;
+                connection.Open();
+                //creating object of SqlBulkCopy
+                SqlBulkCopy objbulk = new SqlBulkCopy(connection);
+                //assigning Destination table name
+                objbulk.DestinationTableName = "JS_MoreWorkshop";
+                //Mapping Table column
+                objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
+                objbulk.ColumnMappings.Add("WorkshopName", "WorkshopName");
+                objbulk.ColumnMappings.Add("Institute", "Institute");
+                objbulk.ColumnMappings.Add("Duration", "Duration");
+                objbulk.ColumnMappings.Add("YearOfCompletion", "YearOfCompletion");
+                objbulk.ColumnMappings.Add("Grade", "Grade");
+                //inserting bulk Records into DataBase
+                objbulk.WriteToServer(workEntity);
+                return workEntity;
             }
             catch (Exception)
             {

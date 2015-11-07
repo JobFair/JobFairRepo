@@ -6,7 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
+using System.Globalization;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -31,54 +32,105 @@ namespace JobFair.UserControls.JobSeeker
                 List<string> yearList = CommonUtil.Utility.GetYears();
                 ddlYear.DataSource = yearList;
                 ddlYear.DataBind();
+
+                AddDefaultFirstRecord();
             }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            PlaceHolder PlaceHolder1 = new PlaceHolder();
-            int numlabels = 2;
-            Label lblCert1 = new Label();
-            for (int i = 1; i <= numlabels; i++)
+            AddNewRecordRowToGrid();
+            txtCertificationName.Text = "";
+            txtCertificationInstitute.Text = "";
+            txtCertificationDuration.Text = "";
+            ddlMonth.SelectedIndex = 0;
+            ddlYear.SelectedIndex = 0;
+            txtCertificationGrade.Text = "";
+            
+        }
+        private void AddNewRecordRowToGrid()
+        {
+            try
             {
-                // Set the label's Text and ID properties.
-                lblCert1.Text = "Certificate" + i.ToString();
-                lblCert1.ID = "lblCert" + i.ToString();
-                PlaceHolder1.Controls.Add(lblCert1);
-                // Add a spacer in the form of an HTML <br /> element.
-                PlaceHolder1.Controls.Add(new LiteralControl("<br />"));
+                    DataTable dtCurrentTable = (DataTable)ViewState["EducationalDetails"];
+                    DataRow drCurrentRow = null;
+
+                    if (dtCurrentTable.Rows.Count > 0)
+                    {
+                        for (int i = 1; i <= dtCurrentTable.Rows.Count; i++)
+                        {
+                            //TimeSpan o = new TimeSpan(0, 0, 0);
+                            //DateTime startDate = Convert.ToDateTime(this.txtFromDate.Text.Trim(), new CultureInfo("en-Gb"));
+                            //DateTime endDate = Convert.ToDateTime(this.txtTodate.Text.Trim(), new CultureInfo("en-Gb"));
+                            //o += endDate.Subtract(startDate);
+                            //int days = o.Days;
+
+                            //Creating new row and assigning values
+                            drCurrentRow = dtCurrentTable.NewRow();
+                            drCurrentRow["CandidateId"] = "JS9";//hfCandidateId.Value.Trim();
+                            drCurrentRow["CertificationName"] = txtCertificationName.Text.Trim();
+                            drCurrentRow["Institute"] = txtCertificationInstitute.Text.Trim();
+                            drCurrentRow["Duration"] = txtCertificationDuration.Text.Trim();
+                            drCurrentRow["YearOfCompletion"] = ddlMonth.SelectedItem.Text + ddlYear.SelectedItem.Text;
+                            drCurrentRow["Grade"] = txtCertificationGrade.Text.Trim();
+                        }
+                        //Removing initial blank row
+                        if (dtCurrentTable.Rows[0][0].ToString() == "")
+                        {
+                            dtCurrentTable.Rows[0].Delete();
+                            dtCurrentTable.AcceptChanges();
+                        }
+
+                        //Added New Record to the DataTable
+                        dtCurrentTable.Rows.Add(drCurrentRow);
+                        //storing DataTable to ViewState
+                        ViewState["EducationalDetails"] = dtCurrentTable;
+                        //binding Gridview with New Row
+                        grvAddMore.DataSource = dtCurrentTable;
+                        grvAddMore.DataBind();
+                  }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        private void AddDefaultFirstRecord()
         {
-            List<CertificationEntity> certificationDetailsList = new List<CertificationEntity>();
-            certificationDetails = new MoreCertificationBAL();
-
-            CertificationEntity certificationEntity = new CertificationEntity();
-            certificationEntity.CandidateId = "JS9";
-            certificationEntity.CertificationName = txtCertificationName.Text.Trim();
-            certificationEntity.Institute = txtCertificationInstitute.Text.Trim();
-            certificationEntity.Duration = txtCertificationDuration.Text.Trim();
-            certificationEntity.YearOfCompletion = ddlMonth.Text + ddlYear.Text;
-            certificationEntity.Grade = txtCertificationGrade.Text.Trim();
-           
-            // Add object to the MoreCertification details collection
-            certificationDetailsList.Add(certificationEntity);
-      
-
-            // Save educational deails.
-            if (certificationDetails.SaveMoreCertificationBAL(certificationDetailsList))
+            try
             {
+                //creating DataTable
+                DataTable dt = new DataTable();
+                DataRow dr;
+                dt.TableName = "EducationalDetails";
+                //creating columns for DataTable
+                dt.Columns.Add(new DataColumn("CandidateId", typeof(string)));
+                dt.Columns.Add(new DataColumn("CertificationName", typeof(string)));
+                dt.Columns.Add(new DataColumn("Institute", typeof(string)));
+                dt.Columns.Add(new DataColumn("Duration", typeof(string)));
+                dt.Columns.Add(new DataColumn("YearOfCompletion", typeof(string)));
+                dt.Columns.Add(new DataColumn("Grade", typeof(string)));
+                dr = dt.NewRow();
+                dt.Rows.Add(dr);
 
-                lblSuccess.Text = "Data saved Successfully...!!";
-                lblSuccess.Visible = true;
+                ViewState["EducationalDetails"] = dt;
+                grvAddMore.DataSource = dt;
+                grvAddMore.DataBind();
             }
-            else
+            catch (Exception)
             {
-                lblError.Text = "Data was not saved successfuly";
-                lblError.Visible = true;
+                throw;
             }
+        }
+        protected void btnsubmitCertifications_Click(object sender, EventArgs e)
+        {
+            MoreCertificationBAL certificationDetailsBAL = new MoreCertificationBAL();
+            DataTable dtcertificationDetails = (DataTable)ViewState["EducationalDetails"];
+            certificationDetailsBAL.SaveMoreCertificationBAL(dtcertificationDetails);
+            grvAddMore.DataSource = null;
+            grvAddMore.DataBind();
+            Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
         }
     }
 }

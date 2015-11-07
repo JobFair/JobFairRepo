@@ -18,45 +18,29 @@ namespace DAL
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
-        /// method for converting the object to XML.
-        /// </summary>
-        /// <param name="certificationEntity"></param>
-        /// <returns></returns>
-        private string CreateXML(List<CertificationEntity> certificationEntity)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlSerializer xmlSerializer = new XmlSerializer(certificationEntity.GetType());
-
-            using (MemoryStream xmlStream = new MemoryStream())
-            {
-                xmlSerializer.Serialize(xmlStream, certificationEntity);
-                xmlStream.Position = 0;
-
-                xmlDoc.Load(xmlStream);
-                return xmlDoc.InnerXml;
-            }
-        }
-
-        /// <summary>
         /// Saving MoreCertification Deatils JobSeeker.
         /// </summary>
         /// <param name="certificationEntity">Object for inserting data into database</param>
         /// <returns>True/false</returns>
-        public bool SaveMoreCertificationDAL(List<CertificationEntity> certEntity)
+        public DataTable SaveMoreCertificationDAL(DataTable certEntity)
         {
             try
             {
-                //Get xml String data from object
-                string certificationEntity = CreateXML(certEntity);
-
-                SqlParameter[] sqlparams ={
-                                            new SqlParameter("@certificationEntity",certificationEntity)};
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertMoreCertification, sqlparams);
-                if (result > 0)
-                {
-                    return true;
-                }
-                return false;
+                connection.Open();
+                //creating object of SqlBulkCopy
+                SqlBulkCopy objbulk = new SqlBulkCopy(connection);
+                //assigning Destination table name
+                objbulk.DestinationTableName = "JS_MoreCertification";
+                //Mapping Table column
+                objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
+                objbulk.ColumnMappings.Add("CertificationName", "CertificationName");
+                objbulk.ColumnMappings.Add("Institute", "Institute");
+                objbulk.ColumnMappings.Add("Duration", "Duration");
+                objbulk.ColumnMappings.Add("YearOfCompletion", "YearOfCompletion");
+                objbulk.ColumnMappings.Add("Grade", "Grade");
+                //inserting bulk Records into DataBase
+                objbulk.WriteToServer(certEntity);
+                return certEntity;
             }
             catch (Exception)
             {
