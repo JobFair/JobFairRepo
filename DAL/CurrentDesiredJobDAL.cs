@@ -129,19 +129,19 @@ namespace DAL
             try
             {
                 connection.Open();
-                //creating object of SqlBulkCopy
+                // Creating object of SqlBulkCopy
                 SqlBulkCopy objbulk = new SqlBulkCopy(connection);
                 //assigning Destination table name
                 objbulk.DestinationTableName = "JS_CurrentPastExperience";
-                //Mapping Table column
+                // Mapping Table column
                 objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
                 objbulk.ColumnMappings.Add("CompanyCurrentOrPast", "CompanyCurrentOrPast");
                 objbulk.ColumnMappings.Add("ComapnyName", "ComapnyName");
                 objbulk.ColumnMappings.Add("Designation", "Designation");
                 objbulk.ColumnMappings.Add("RolesResponsibilities", "RolesResponsibilities");
                 objbulk.ColumnMappings.Add("FromMonth", "FromMonth");
-                objbulk.ColumnMappings.Add("TillMonth", "TillMonth");
                 objbulk.ColumnMappings.Add("FromYear", "FromYear");
+                objbulk.ColumnMappings.Add("TillMonth", "TillMonth");               
                 objbulk.ColumnMappings.Add("TillYear", "TillYear");
                 objbulk.ColumnMappings.Add("Industry", "Industry");
                 objbulk.ColumnMappings.Add("Department", "Department");
@@ -150,14 +150,14 @@ namespace DAL
                 objbulk.ColumnMappings.Add("CompanyType", "CompanyType");
                 objbulk.ColumnMappings.Add("Reason", "Reason");
 
-                //inserting bulk Records into DataBase
+                // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dt);
                 return dt;
             }
             catch (Exception)
             {
                 throw;
-            }
+            }            
         }
 
         public DataTable SaveJobLookingDetailsDAL(DataTable dt)

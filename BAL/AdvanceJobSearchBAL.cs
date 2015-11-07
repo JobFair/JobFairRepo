@@ -37,19 +37,7 @@ namespace BAL
             }
            
         }
-        public static object GetCity(int StateId)
-        {
-            try
-            {
-                return Utility.GetCity(StateId);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-           
-        }
+       
         public static object GetArea(int cityId)
         {
             try
@@ -88,6 +76,34 @@ namespace BAL
                 throw;
             }
            
+        }
+
+
+
+        public static object GetCity(int stateId)
+        {
+            try
+            {
+                return Utility.GetCity(stateId);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static object GetArea()
+        {
+            try
+            {
+                return Utility.GetArea();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

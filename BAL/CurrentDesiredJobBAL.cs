@@ -101,8 +101,18 @@ namespace BAL
 
         public DataTable SaveExperienceDetailsBAL(System.Data.DataTable dt)
         {
+            try
+            {
+
+         
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             return currentDesiredJobDAL.SaveExperienceDetailsDAL(dt);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
 
         public DataSet GetFunctionalArea()
@@ -112,8 +122,18 @@ namespace BAL
 
         public DataTable SaveJobLookingDetailsBAL(DataTable dt)
         {
+            try
+            {
+
+            
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             return currentDesiredJobDAL.SaveJobLookingDetailsDAL(dt);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
