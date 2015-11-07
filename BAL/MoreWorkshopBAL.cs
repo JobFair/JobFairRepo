@@ -17,10 +17,18 @@ namespace BAL
         /// </summary>
         /// <param name="workshopEntity">The Workshop Entity.</param>
         /// <returns>System.Int32.</returns>
-        public bool SaveMoreCertificationBAL(List<WorkshopEntity> workshopEntity)
+        public DataTable SaveMoreCertificationBAL(DataTable workshopEntity)
         {
-            MoreWorkshopDAL workDAL = new MoreWorkshopDAL();
-            return workDAL.SaveMoreWorkshopDAL(workshopEntity);
+            try
+            {
+                MoreWorkshopDAL workDAL = new MoreWorkshopDAL();
+                return workDAL.SaveMoreWorkshopDAL(workshopEntity);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
