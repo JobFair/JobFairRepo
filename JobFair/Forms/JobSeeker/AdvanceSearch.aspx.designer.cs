@@ -220,6 +220,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblindustry;
         
         /// <summary>
+        /// txtindusry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtindusry;
+        
+        /// <summary>
         /// btnselect control.
         /// </summary>
         /// <remarks>
@@ -238,22 +247,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Panel panellindustry;
         
         /// <summary>
-        /// txtindusry control.
+        /// chkIndustry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtindusry;
-        
-        /// <summary>
-        /// CheckBoxList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkIndustry;
         
         /// <summary>
         /// CollapsiblePanelExtender1 control.
@@ -292,22 +292,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblEmploymentStatus;
         
         /// <summary>
-        /// chkFullTime control.
+        /// chkEmploymentStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkFullTime;
-        
-        /// <summary>
-        /// chkPartTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkPartTime;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkEmploymentStatus;
         
         /// <summary>
         /// lblJobType control.
@@ -319,31 +310,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblJobType;
         
         /// <summary>
-        /// chkPermanant control.
+        /// chkJobType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkPermanant;
-        
-        /// <summary>
-        /// chkTemporary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkTemporary;
-        
-        /// <summary>
-        /// chkFreelancing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkFreelancing;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkJobType;
         
         /// <summary>
         /// lblRecruitmentType control.
@@ -355,22 +328,13 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblRecruitmentType;
         
         /// <summary>
-        /// chkInhouse control.
+        /// chkRecruitmentType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkInhouse;
-        
-        /// <summary>
-        /// chkClient control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkClient;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkRecruitmentType;
         
         /// <summary>
         /// lblSortBy control.
