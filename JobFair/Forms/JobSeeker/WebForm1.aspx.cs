@@ -10,7 +10,7 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        string candidateId;
+        //string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
             candidateId = Convert.ToString(Session["candidateId"]);

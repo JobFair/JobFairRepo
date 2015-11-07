@@ -16,10 +16,18 @@ namespace BAL
         /// </summary>
         /// <param name="certificationEntity">The Certification Entity.</param>
         /// <returns>System.Int32.</returns>
-        public bool SaveMoreCertificationBAL(List<CertificationEntity> certificationEntity)
+        public DataTable SaveMoreCertificationBAL(DataTable certificationEntity)
         {
-            MoreCertificationDAL certDAL = new MoreCertificationDAL();
-            return certDAL.SaveMoreCertificationDAL(certificationEntity);
+            try
+            {
+                MoreCertificationDAL certDAL = new MoreCertificationDAL();
+                return certDAL.SaveMoreCertificationDAL(certificationEntity);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

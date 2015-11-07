@@ -223,6 +223,7 @@ function FormatDate(val) {
     return fDate;
 }
 
+
 /*************** Functions for date time end*************************/
 
 

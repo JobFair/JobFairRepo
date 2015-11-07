@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Linq;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -28,6 +29,7 @@ namespace JobFair.Forms.JobSeeker
             //     Response.Redirect("LogIn.aspx");
             //}
 
+          
 
 
             if (!IsPostBack)
@@ -35,7 +37,6 @@ namespace JobFair.Forms.JobSeeker
                 
                 BindDepartment();
                 BindState();
-                BindArea();
                 BindIndustry();
 
                 
@@ -62,11 +63,7 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        private void BindArea()
-        {
-           
-        }
-
+       
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -87,11 +84,7 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        protected void chkarea_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtarea.Text = string.Empty;
-
-        }
+       
 
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,20 +200,50 @@ namespace JobFair.Forms.JobSeeker
         {
             Panelarea.Visible = true;
 
-            for (int i = 0; i < chkarea.Items.Count; i++)
-            {
-                if (chkarea.Items[i].Selected)
-                {
+          //  for (int i = 0; i < chkarea.Items.Count; i++)
+          //  {
+          //      if (chkarea.Items[i].Selected == true)
+          //      {
 
-                    txtarea.Text += chkarea.Items[i].Text + ",";
-                }
-              
+          //          txtarea.Text += chkarea.Items[i].Text + ",";
+          //      }
+             
+          //}
+                   
             }
-            
-        }
 
-      
+        protected void chkarea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var  selectedarea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+            //foreach (var item in selectedarea)
+            //{
+            //    if(item.Selected = true)
+            //    {
+            //        txtarea.Text += item.Text + ",";
+            //    }
+            //    else
+            //    {
+            //        //var selectedarea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+            //       // txtarea.Text.Remove(selectedarea);
+            //        for (int i = 0; i < chkarea.Items.Count; i++)
+            //        {
+
+        txtarea.Text = string.Join(",", selectedarea.Select(x=>x.Text));
+                  //  }
+               // }
+            }
+        }
+            
+      //  }
+   }
+                    
+                    
+                    
+                    
+                
+            
+        
+
 
         
-    }
-}
+    

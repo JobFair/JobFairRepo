@@ -12,8 +12,15 @@ namespace BAL
         /// <returns>System.Int32.</returns>
         public string SaveRegisterNewJobSeekerBAL(RegisterEntity jobSeekerEntity)
         {
-            RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
-            return jobSeekerDAL.SaveRegisterNewJobSeekerDAL(jobSeekerEntity);
+            try
+            {
+                RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
+                return jobSeekerDAL.SaveRegisterNewJobSeekerDAL(jobSeekerEntity);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
     }
 }
