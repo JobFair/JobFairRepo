@@ -14,9 +14,17 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int CurrentProfessionalDetailsBAL(CurrentDesiredJobEntity currentJobEntity)
         {
-            CurrentDesiredJobDAL currentjobDAL = new CurrentDesiredJobDAL();
-            return currentjobDAL.SaveCurrentProfessionalDetailsDAL(currentJobEntity);
+            try
+            {
+                CurrentDesiredJobDAL currentjobDAL = new CurrentDesiredJobDAL();
+                return currentjobDAL.SaveCurrentProfessionalDetailsDAL(currentJobEntity);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
+
         /// <summary>
         /// Method for Desired job details
         /// </summary>
@@ -24,8 +32,15 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int DesiredJobDetailsBAL(CurrentDesiredJobEntity desiredJobEntity)
         {
-            CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
-            return desiredjobDAL.SaveDesiredJobDetailsDAL(desiredJobEntity);
+            try
+            {
+                CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
+                return desiredjobDAL.SaveDesiredJobDetailsDAL(desiredJobEntity);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -34,7 +49,14 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetCountry()
         {
-            return Utility.GetCountry();
+            try
+            {
+                return Utility.GetCountry();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -43,7 +65,14 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetDepartment()
         {
-            return Utility.GetDepartment();
+            try
+            {
+                return Utility.GetDepartment();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -52,7 +81,14 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetIndustry()
         {
-            return Utility.GetIndustry();
+            try
+            {
+                return Utility.GetIndustry();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -62,8 +98,16 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetState(int CountryId)
         {
-            return Utility.GetState(CountryId);
+            try
+            {
+                return Utility.GetState(CountryId);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
+
         /// <summary>
         /// Method to get City
         /// </summary>
@@ -71,67 +115,104 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetCity(int StateId)
         {
-            return Utility.GetCity(StateId);
+            try
+            {
+                return Utility.GetCity(StateId);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="PrefixText"></param>
+        /// <returns></returns>
         public System.Data.DataTable GetPreferredCityBAL(string PrefixText)
         {
-             CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
-             return desiredjobDAL.GetPreferredCityDAL(PrefixText);
-
+            try
+            {
+                CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
+                return desiredjobDAL.GetPreferredCityDAL(PrefixText);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         public System.Data.DataTable GetPreferredAreaBAL(string prefixText)
         {
-            CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
-            return desiredjobDAL.GetPreferredAreaDAL(prefixText);
+            try
+            {
+                CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
+                return desiredjobDAL.GetPreferredAreaDAL(prefixText);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
-
-
 
         public System.Data.DataSet GetCity()
         {
-            return Utility.GetCity();
+            try
+            {
+                return Utility.GetCity();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         public System.Data.DataSet GetArea()
         {
-            return Utility.GetArea();
+            try
+            {
+                return Utility.GetArea();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         public DataTable SaveExperienceDetailsBAL(System.Data.DataTable dt)
         {
             try
             {
-
-         
-            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            return currentDesiredJobDAL.SaveExperienceDetailsDAL(dt);
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.SaveExperienceDetailsDAL(dt);
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }
 
         public DataSet GetFunctionalArea()
         {
-            return Utility.GetFunctionalArea();
+            try
+            {
+                return Utility.GetFunctionalArea();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         public DataTable SaveJobLookingDetailsBAL(DataTable dt)
         {
             try
             {
-
-            
-            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            return currentDesiredJobDAL.SaveJobLookingDetailsDAL(dt);
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.SaveJobLookingDetailsDAL(dt);
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }

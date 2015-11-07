@@ -14,11 +14,6 @@ namespace JobFair.UserControls.JobSeeker
         {
             if (!IsPostBack)
             {
-                //BindDropDownIndustry();
-                //BindDropDownDepartment();
-                //BindDropDownCountry();
-                //divPastEmloyer.Visible = false;
-                //Bind Month List
                 BindMonth();
                 BindYear();
                 BindCity();
@@ -78,14 +73,7 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindMonth()
         {
-            // try
-            //{
-            //    string[] months = System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames;
-            //    List<string> monthList = null;
-            //    monthList = new List<string>(months);
-            //    monthList.RemoveAt(12);
-            //    return monthList;
-            //}
+           
             try
             {
                 List<string> monthList = CommonUtil.Utility.GetMonths();
@@ -436,6 +424,18 @@ namespace JobFair.UserControls.JobSeeker
                 dt = null;
                 currentDesiredJobBAL = null;
             }
+        }
+
+        protected void rbtEmployed_CheckedChanged(object sender, EventArgs e)
+        {
+            divDesireJobDetails.Visible = false;
+            divCurrentEmployer.Visible = true;
+        }
+
+        protected void rbtUnEmployed_CheckedChanged(object sender, EventArgs e)
+        {
+            divDesireJobDetails.Visible = true;
+            divCurrentEmployer.Visible = false;
         }
     }
 }

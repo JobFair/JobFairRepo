@@ -13,15 +13,6 @@ namespace JobFair.Forms.JobSeeker {
     public partial class WebForm1 {
         
         /// <summary>
-        /// ddlchbCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes ddlchbCity;
-        
-        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
