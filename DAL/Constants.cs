@@ -56,5 +56,6 @@ namespace DAL
         public const string sp_JS_InsertResumeFormating = "sp_JS_InsertResumeFormating";
         public const string sp_Area = "sp_Area";
         public const string sp_JS_InsertAcademicProjectDetails = "sp_JS_InsertAcademicProjectDetails";
+        public const string sp_JS_InsertJobDetails = "sp_JS_InsertJobDetails";
     }
 }

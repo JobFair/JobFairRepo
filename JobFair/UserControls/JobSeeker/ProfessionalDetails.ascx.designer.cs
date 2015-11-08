@@ -400,15 +400,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.GridView gvJobsLookingFor;
         
         /// <summary>
-        /// btnSaveMoreJobs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveMoreJobs;
-        
-        /// <summary>
         /// txtcurrentannualsalary control.
         /// </summary>
         /// <remarks>
@@ -434,15 +425,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlNoticePeriod;
-        
-        /// <summary>
-        /// txtDesiredReasonforJobchange control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDesiredReasonforJobchange;
         
         /// <summary>
         /// rblEmploymentStatus control.
@@ -472,22 +454,22 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButtonList rblCompanyType123;
         
         /// <summary>
-        /// ddlPreferredCity control.
+        /// chklCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes ddlPreferredCity;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklCity;
         
         /// <summary>
-        /// ddlArea control.
+        /// chklArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes ddlArea;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklArea;
         
         /// <summary>
         /// rblYesNo control.
@@ -562,22 +544,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList12;
         
         /// <summary>
-        /// btnsaveDesJob control.
+        /// btnSaveMoreJobs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsaveDesJob;
-        
-        /// <summary>
-        /// btnCancelDesJob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelDesJob;
+        protected global::System.Web.UI.WebControls.Button btnSaveMoreJobs;
         
         /// <summary>
         /// lblmsg control.
