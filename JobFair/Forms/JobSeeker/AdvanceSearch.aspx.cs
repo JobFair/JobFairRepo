@@ -173,8 +173,6 @@ namespace JobFair.Forms.JobSeeker
 
         }
 
-       
-
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
         public static List<string> GetKeySkills(string prefixText)
@@ -199,42 +197,18 @@ namespace JobFair.Forms.JobSeeker
         protected void btnarea_Click(object sender, EventArgs e)
         {
             Panelarea.Visible = true;
-
-          //  for (int i = 0; i < chkarea.Items.Count; i++)
-          //  {
-          //      if (chkarea.Items[i].Selected == true)
-          //      {
-
-          //          txtarea.Text += chkarea.Items[i].Text + ",";
-          //      }
-             
-          //}
-                   
-            }
+    
+         }
 
         protected void chkarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var  selectedarea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-            //foreach (var item in selectedarea)
-            //{
-            //    if(item.Selected = true)
-            //    {
-            //        txtarea.Text += item.Text + ",";
-            //    }
-            //    else
-            //    {
-            //        //var selectedarea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-            //       // txtarea.Text.Remove(selectedarea);
-            //        for (int i = 0; i < chkarea.Items.Count; i++)
-            //        {
+       var  selectedArea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
 
-        txtarea.Text = string.Join(",", selectedarea.Select(x=>x.Text));
-                  //  }
-               // }
-            }
-        }
-            
-      //  }
+        txtarea.Text = string.Join(",", selectedArea.Select(x=>x.Text));
+         }
+
+      }
+           
    }
                     
                     

@@ -60,8 +60,7 @@
                                   &nbsp;&nbsp;
                                   <asp:Panel ID="Panelarea" runat="server" Visible="false">
                                      
-                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px" OnSelectedIndexChanged="chkarea_SelectedIndexChanged" ></asp:CheckBoxList>
-                                      &nbsp;
+                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px" OnSelectedIndexChanged="chkarea_SelectedIndexChanged" ></asp:CheckBoxList>                                
                                 </asp:Panel>
                                   <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                               </div>
@@ -192,7 +191,8 @@
                             <asp:TextBox ID="txtindusry" runat="server" ReadOnly="True"></asp:TextBox>
                             <asp:Button ID="btnselect" runat="server" Text="Select" />
                             <asp:Panel ID="panellindustry" runat="server">
-                                <asp:CheckBoxList ID="chkIndustry" runat="server" RepeatColumns="4"></asp:CheckBoxList>
+                                <asp:CheckBoxList ID="chkIndustry" runat="server" RepeatColumns="4">
+                                </asp:CheckBoxList>
                             </asp:Panel>
 
                             <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" TargetControlID="panellindustry" TextLabelID="btnselect" CollapseControlID="btnselect" ExpandControlID="btnselect" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
