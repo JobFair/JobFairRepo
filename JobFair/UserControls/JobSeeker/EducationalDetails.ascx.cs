@@ -43,16 +43,7 @@ namespace JobFair.UserControls.JobSeeker
                 BindDropDownDualMasterDegree();
                 BindDropDownDoctorOfPhilosophy();
 
-                // Bind Month List
-                List<string> monthList = CommonUtil.Utility.GetMonths();
-                ddlSSCMonth.DataSource = monthList;
-                ddlSSCMonth.DataBind();
-
-                // Bind Year List
-                List<string> yearList = CommonUtil.Utility.GetYears();
-                ddlSSCYear.DataSource = yearList;
-                ddlSSCYear.DataBind();
-
+               
 
             }
         }
@@ -81,7 +72,8 @@ namespace JobFair.UserControls.JobSeeker
                         sscDetails.MediumOfEducation = txtSSCMedium.Text.Trim();
                         sscDetails.Specialization = "Null";
                         sscDetails.Status = rblSSCStat.SelectedValue.Trim();
-                        sscDetails.YearOfCompletion = ddlSSCMonth.Text + ddlSSCYear.Text;
+                        sscDetails.FromYear = ddlSSCMonthFrom.Text + ddlSSCYearFrom.Text;
+                        sscDetails.ToYear = ddlSSCMonthTo.Text + ddlSSCYearTo.Text;
                         sscDetails.College = txtSSCSchool.Text.Trim();
                         sscDetails.University = txtSSCBoard.Text.Trim();
                         sscDetails.Percantage = txtSSCPercentage.Text.Trim();
@@ -96,7 +88,8 @@ namespace JobFair.UserControls.JobSeeker
                         hscDetails.MediumOfEducation = txtHSCMedium.Text.Trim();
                         hscDetails.Specialization = ddlHSC.SelectedValue.Trim();
                         hscDetails.Status = rblHSCStat.SelectedValue.Trim();
-                        hscDetails.YearOfCompletion = txtHSCYear.Text.Trim();
+                        hscDetails.FromYear = ddlHSCMonthFrom.Text + ddlHSCYearFrom.Text;
+                        hscDetails.ToYear = ddlHSCMonthTo.Text + ddlHSCYearTo.Text;
                         hscDetails.College = txtHSCCollege.Text.Trim();
                         hscDetails.University = txtHSCBoard.Text.Trim();
                         hscDetails.Percantage = txtHSCPercentage.Text.Trim();
@@ -111,7 +104,8 @@ namespace JobFair.UserControls.JobSeeker
                         ugDiplomaDetails.MediumOfEducation = txtDipMedium.Text.Trim();
                         ugDiplomaDetails.Specialization = ddlDip.SelectedValue.Trim();
                         ugDiplomaDetails.Status = rblDipStat.SelectedValue.Trim();
-                        ugDiplomaDetails.YearOfCompletion = txtDipYear.Text.Trim();
+                        ugDiplomaDetails.FromYear = ddlDipMonthFrom.Text + ddlDipYearFrom.Text;
+                        ugDiplomaDetails.ToYear = ddlDipMonthTo.Text + ddlDipYearTo.Text;
                         ugDiplomaDetails.College = txtDipCollege.Text.Trim();
                         ugDiplomaDetails.University = txtDipUniversity.Text.Trim();
                         ugDiplomaDetails.Percantage = txtDipPercentage.Text.Trim();
@@ -126,7 +120,8 @@ namespace JobFair.UserControls.JobSeeker
                         bachelorDegreeDetails.MediumOfEducation = txtBDMedium.Text.Trim();
                         bachelorDegreeDetails.Status = rblBDStat.SelectedValue.Trim();
                         bachelorDegreeDetails.Specialization = ddlBD.SelectedValue.Trim();
-                        bachelorDegreeDetails.YearOfCompletion = txtBDYear.Text.Trim();
+                        bachelorDegreeDetails.FromYear = ddlBDMonthFrom.Text + ddlBDYearFrom.Text;
+                        bachelorDegreeDetails.ToYear = ddlBDMonthTo.Text + ddlBDYearTo.Text;
                         bachelorDegreeDetails.College = txtBDCollege.Text.Trim();
                         bachelorDegreeDetails.University = txtBDUniversity.Text.Trim();
                         bachelorDegreeDetails.Percantage = txtBDPercentage.Text.Trim();
@@ -141,7 +136,8 @@ namespace JobFair.UserControls.JobSeeker
                             dualBachelorDegreeDetails.MediumOfEducation = txtDualBDMedium.Text.Trim();
                             dualBachelorDegreeDetails.Status = rblDualBDStat.SelectedValue.Trim();
                             dualBachelorDegreeDetails.Specialization = ddlDualBD.SelectedValue.Trim();
-                            dualBachelorDegreeDetails.YearOfCompletion = txtDualBDYear.Text.Trim();
+                            dualBachelorDegreeDetails.FromYear = ddlDualBDMonthFrom.Text + ddlDualBDYearFrom.Text;
+                            dualBachelorDegreeDetails.ToYear = ddlDualBDMonthTo.Text + ddlDualBDYearTo.Text;
                             dualBachelorDegreeDetails.College = txtDualBDCollege.Text.Trim();
                             dualBachelorDegreeDetails.University = txtDualBDUniversity.Text.Trim();
                             dualBachelorDegreeDetails.Percantage = txtDualBDPercentage.Text.Trim();
@@ -157,7 +153,8 @@ namespace JobFair.UserControls.JobSeeker
                         pgDiplomaDetails.MediumOfEducation = txtPgdMedium.Text.Trim();
                         pgDiplomaDetails.Status = rblPgdStat.SelectedValue.Trim();
                         pgDiplomaDetails.Specialization = ddlPgd.SelectedValue.Trim();
-                        pgDiplomaDetails.YearOfCompletion = txtPgdYear.Text.Trim();
+                        pgDiplomaDetails.FromYear = ddlPgdMonthFrom.Text + ddlPgdYearFrom.Text;
+                        pgDiplomaDetails.ToYear = ddlPgdMonthTo.Text + ddlPgdYearTo.Text;
                         pgDiplomaDetails.College = txtPgdCollege.Text.Trim();
                         pgDiplomaDetails.University = txtPgdUniversity.Text.Trim();
                         pgDiplomaDetails.Percantage = txtPgdPercentage.Text.Trim();
@@ -172,7 +169,8 @@ namespace JobFair.UserControls.JobSeeker
                         masterDegreeDetails.MediumOfEducation = txtMDMedium.Text.Trim();
                         masterDegreeDetails.Specialization = ddlMD.SelectedValue.Trim();
                         masterDegreeDetails.Status = rblMDStat.SelectedValue.Trim();
-                        masterDegreeDetails.YearOfCompletion = txtMDYear.Text.Trim();
+                        masterDegreeDetails.FromYear = ddlMDMonthFrom.Text + ddlMDYearFrom.Text;
+                        masterDegreeDetails.ToYear = ddlMDMonthTo.Text + ddlMDYearTo.Text;
                         masterDegreeDetails.College = txtMDCollege.Text.Trim();
                         masterDegreeDetails.University = txtMDUniversity.Text.Trim();
                         masterDegreeDetails.Percantage = txtMDPercentage.Text.Trim();
@@ -187,7 +185,8 @@ namespace JobFair.UserControls.JobSeeker
                             dualMasterDegreeDetails.MediumOfEducation = txtDualMDMedium.Text.Trim();
                             dualMasterDegreeDetails.Specialization = ddlDualMD.SelectedValue.Trim();
                             dualMasterDegreeDetails.Status = rblDualMDStat.SelectedValue.Trim();
-                            dualMasterDegreeDetails.YearOfCompletion = txtDualMDYear.Text.Trim();
+                            dualMasterDegreeDetails.FromYear = ddlDualMDMonthFrom.Text + ddlDualMDYearFrom.Text;
+                            dualMasterDegreeDetails.ToYear = ddlDualMDMonthTo.Text + ddlDualMDYearTo.Text;
                             dualMasterDegreeDetails.College = txtDualMDCollege.Text.Trim();
                             dualMasterDegreeDetails.University = txtDualMDUniversity.Text.Trim();
                             dualMasterDegreeDetails.Percantage = txtDualMDPercentage.Text.Trim();
@@ -203,7 +202,8 @@ namespace JobFair.UserControls.JobSeeker
                         phdDetails.MediumOfEducation = txtPHDMedium.Text.Trim();
                         phdDetails.Specialization = ddlPHD.SelectedValue.Trim();
                         phdDetails.Status = rblPHDStat.SelectedValue.Trim();
-                        phdDetails.YearOfCompletion = txtPHDYear.Text.Trim();
+                        phdDetails.FromYear = ddlPHDMonthFrom.Text + ddlPHDYearFrom.Text;
+                        phdDetails.ToYear = ddlPHDMonthTo.Text + ddlPHDYearTo.Text;
                         phdDetails.College = txtPHDCollege.Text.Trim();
                         phdDetails.University = txtPHDUniversity.Text.Trim();
                         phdDetails.Percantage = txtPHDPercentage.Text.Trim();
@@ -250,6 +250,9 @@ namespace JobFair.UserControls.JobSeeker
         protected void btnGo_Click(object sender, EventArgs e)
         {
             BtnSubmit.Visible = true;
+            //Declration For ALL
+            List<string> YearList = CommonUtil.Utility.GetYears();
+            List<string> MonthList = CommonUtil.Utility.GetMonths();
             // Get only selected checkboxes list
             var selectedDegreeTypes = chkList.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             foreach (var item in selectedDegreeTypes)
@@ -257,33 +260,142 @@ namespace JobFair.UserControls.JobSeeker
                 switch (item.Text)
                 {
                     case "SSC / 10th":
+                    
+                        // Bind Year List
+                        ddlSSCYearFrom.DataSource = YearList;
+                        ddlSSCYearFrom.DataBind();
+                        ddlSSCYearTo.DataSource = YearList;
+                        ddlSSCYearTo.DataBind();
+                        // Bind Month List
+                        ddlSSCMonthFrom.DataSource = MonthList;
+                        ddlSSCMonthFrom.DataBind();
+                        ddlSSCMonthTo.DataSource = MonthList;
+                        ddlSSCMonthTo.DataBind();
+
                         pnlCollapsableSSC.Visible = true;
 
                         break;
 
                     case "HSC / 12th":
+
+                        // Bind Year List
+                        ddlHSCYearFrom.DataSource = YearList;
+                        ddlHSCYearFrom.DataBind();
+                        ddlHSCYearTo.DataSource = YearList;
+                        ddlHSCYearTo.DataBind();
+                        // Bind Month List
+                        ddlHSCMonthFrom.DataSource = MonthList;
+                        ddlHSCMonthFrom.DataBind();
+                        ddlHSCMonthTo.DataSource = MonthList;
+                        ddlHSCMonthTo.DataBind();
+                        
                         pnlCollapsableHSC.Visible = true;
 
                         break;
 
                     case "UG Diploma":
+
+                        // Bind Year List
+                        ddlDipYearFrom.DataSource = YearList;
+                        ddlDipYearFrom.DataBind();
+                        ddlDipYearTo.DataSource = YearList;
+                        ddlDipYearTo.DataBind();
+                        // Bind Month List
+                        ddlDipMonthFrom.DataSource = MonthList;
+                        ddlDipMonthFrom.DataBind();
+                        ddlDipMonthTo.DataSource = MonthList;
+                        ddlDipMonthTo.DataBind();
+
                         pnlCollapsableDip.Visible = true;
+
                         break;
 
                     case "Bachelors Degree":
+
+                        // Bind Year List
+                        ddlBDYearFrom.DataSource = YearList;
+                        ddlBDYearFrom.DataBind();
+                        ddlBDYearTo.DataSource = YearList;
+                        ddlBDYearTo.DataBind();
+                        // Bind Month List
+                        ddlBDMonthFrom.DataSource = MonthList;
+                        ddlBDMonthFrom.DataBind();
+                        ddlBDMonthTo.DataSource = MonthList;
+                        ddlBDMonthTo.DataBind();
+
+                        // Bind Year List(Dual Degree)
+                        ddlDualBDYearFrom.DataSource = YearList;
+                        ddlDualBDYearFrom.DataBind();
+                        ddlDualBDYearTo.DataSource = YearList;
+                        ddlDualBDYearTo.DataBind();
+                        // Bind Month List(Dual Degree)
+                        ddlDualBDMonthFrom.DataSource = MonthList;
+                        ddlDualBDMonthFrom.DataBind();
+                        ddlDualBDMonthTo.DataSource = MonthList;
+                        ddlDualBDMonthTo.DataBind();
+
                         pnlCollapsableBD.Visible = true;
                         break;
 
                     case "PG Diploma":
+
+                        // Bind Year List
+                        ddlPgdYearFrom.DataSource = YearList;
+                        ddlPgdYearFrom.DataBind();
+                        ddlPgdYearTo.DataSource = YearList;
+                        ddlPgdYearTo.DataBind();
+                        // Bind Month List
+                        ddlPgdMonthFrom.DataSource = MonthList;
+                        ddlPgdMonthFrom.DataBind();
+                        ddlPgdMonthTo.DataSource = MonthList;
+                        ddlPgdMonthTo.DataBind();
+
                         pnlCollapsablePgd.Visible = true;
+
                         break; ;
 
                     case "Masters Degree":
+
+                        // Bind Year List
+                        ddlMDYearFrom.DataSource = YearList;
+                        ddlMDYearFrom.DataBind();
+                        ddlMDYearTo.DataSource = YearList;
+                        ddlMDYearTo.DataBind();
+                        // Bind Month List
+                        ddlMDMonthFrom.DataSource = MonthList;
+                        ddlMDMonthFrom.DataBind();
+                        ddlMDMonthTo.DataSource = MonthList;
+                        ddlMDMonthTo.DataBind();
+
+                        // Bind Year List(Dual Degree)
+                        ddlDualMDYearFrom.DataSource = YearList;
+                        ddlDualMDYearFrom.DataBind();
+                        ddlDualMDYearTo.DataSource = YearList;
+                        ddlDualMDYearTo.DataBind();
+                        // Bind Month List(Dual Degree)
+                        ddlDualMDMonthFrom.DataSource = MonthList;
+                        ddlDualMDMonthFrom.DataBind();
+                        ddlDualMDMonthTo.DataSource = MonthList;
+                        ddlDualMDMonthTo.DataBind();
+
                         pnlCollapsableMD.Visible = true;
                         break;
 
                     case "Doctorate/ PHD Degree":
+
+                        // Bind Year List
+                        ddlPHDYearFrom.DataSource = YearList;
+                        ddlPHDYearFrom.DataBind();
+                        ddlPHDYearTo.DataSource = YearList;
+                        ddlPHDYearTo.DataBind();
+                        // Bind Month List
+                        ddlPHDMonthFrom.DataSource = MonthList;
+                        ddlPHDMonthFrom.DataBind();
+                        ddlPHDMonthTo.DataSource = MonthList;
+                        ddlPHDMonthTo.DataBind();
+
                         pnlCollapsablePHD.Visible = true;
+
                         break;
 
                     default:

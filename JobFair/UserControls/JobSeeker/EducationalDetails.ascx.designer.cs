@@ -112,31 +112,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButtonList rblSSCStat;
         
         /// <summary>
-        /// lblSSCYear control.
+        /// lblSSCYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSSCYear;
+        protected global::System.Web.UI.WebControls.Label lblSSCYearFrom;
         
         /// <summary>
-        /// ddlSSCMonth control.
+        /// ddlSSCMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSSCMonth;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSSCMonthFrom;
         
         /// <summary>
-        /// ddlSSCYear control.
+        /// ddlSSCYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSSCYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSSCYearFrom;
+        
+        /// <summary>
+        /// lblSSCYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSSCYearTo;
+        
+        /// <summary>
+        /// ddlSSCMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSSCMonthTo;
+        
+        /// <summary>
+        /// ddlSSCYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSSCYearTo;
         
         /// <summary>
         /// lblSSCSchool control.
@@ -283,31 +310,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnHSCAdd;
         
         /// <summary>
-        /// lblHSCYear control.
+        /// lblHSCYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHSCYear;
+        protected global::System.Web.UI.WebControls.Label lblHSCYearFrom;
         
         /// <summary>
-        /// txtHSCYear control.
+        /// ddlHSCMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHSCYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHSCMonthFrom;
         
         /// <summary>
-        /// txtHSCYear_CalendarExtender control.
+        /// ddlHSCYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtHSCYear_CalendarExtender;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHSCYearFrom;
+        
+        /// <summary>
+        /// lblHSCYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHSCYearTo;
+        
+        /// <summary>
+        /// ddlHSCMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHSCMonthTo;
+        
+        /// <summary>
+        /// ddlHSCYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHSCYearTo;
         
         /// <summary>
         /// lblHSCCollege control.
@@ -454,22 +508,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnDipAdd;
         
         /// <summary>
-        /// lblDipYear control.
+        /// lblDipYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDipYear;
+        protected global::System.Web.UI.WebControls.Label lblDipYearFrom;
         
         /// <summary>
-        /// txtDipYear control.
+        /// ddlDipMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDipYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDipMonthFrom;
+        
+        /// <summary>
+        /// ddlDipYearFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDipYearFrom;
+        
+        /// <summary>
+        /// lblDipYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDipYearTo;
+        
+        /// <summary>
+        /// ddlDipMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDipMonthTo;
+        
+        /// <summary>
+        /// ddlDipYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDipYearTo;
         
         /// <summary>
         /// lblDipCollege control.
@@ -616,22 +706,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnBDAdd;
         
         /// <summary>
-        /// lblBDYear control.
+        /// lblBDYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBDYear;
+        protected global::System.Web.UI.WebControls.Label lblBDYearFrom;
         
         /// <summary>
-        /// txtBDYear control.
+        /// ddlBDMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBDYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBDMonthFrom;
+        
+        /// <summary>
+        /// ddlBDYearFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBDYearFrom;
+        
+        /// <summary>
+        /// lblBDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBDYearTo;
+        
+        /// <summary>
+        /// ddlBDMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBDMonthTo;
+        
+        /// <summary>
+        /// ddlBDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBDYearTo;
         
         /// <summary>
         /// lblBDCollege control.
@@ -787,22 +913,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnDualBDAdd;
         
         /// <summary>
-        /// lblDualBDYear control.
+        /// lblDualBDYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDualBDYear;
+        protected global::System.Web.UI.WebControls.Label lblDualBDYearFrom;
         
         /// <summary>
-        /// txtDualBDYear control.
+        /// ddlDualBDMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDualBDYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualBDMonthFrom;
+        
+        /// <summary>
+        /// ddlDualBDYearFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualBDYearFrom;
+        
+        /// <summary>
+        /// lblDualBDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDualBDYearTo;
+        
+        /// <summary>
+        /// ddlDualBDMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualBDMonthTo;
+        
+        /// <summary>
+        /// ddlDualBDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualBDYearTo;
         
         /// <summary>
         /// lblDualBDCollege control.
@@ -949,22 +1111,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnPgdAdd;
         
         /// <summary>
-        /// lblPgdYear control.
+        /// lblPgdYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPgdYear;
+        protected global::System.Web.UI.WebControls.Label lblPgdYearFrom;
         
         /// <summary>
-        /// txtPgdYear control.
+        /// ddlPgdMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPgdYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPgdMonthFrom;
+        
+        /// <summary>
+        /// ddlPgdYearFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPgdYearFrom;
+        
+        /// <summary>
+        /// lblPgdYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPgdYearTo;
+        
+        /// <summary>
+        /// ddlPgdMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPgdMonthTo;
+        
+        /// <summary>
+        /// ddlPgdYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPgdYearTo;
         
         /// <summary>
         /// lblPgdCollege control.
@@ -1111,22 +1309,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnMDAdd;
         
         /// <summary>
-        /// lblMDYear control.
+        /// lblMDYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMDYear;
+        protected global::System.Web.UI.WebControls.Label lblMDYearFrom;
         
         /// <summary>
-        /// txtMDYear control.
+        /// ddlMDMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMDYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMDMonthFrom;
+        
+        /// <summary>
+        /// ddlMDYearFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMDYearFrom;
+        
+        /// <summary>
+        /// lblMDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMDYearTo;
+        
+        /// <summary>
+        /// ddlMDMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMDMonthTo;
+        
+        /// <summary>
+        /// ddlMDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMDYearTo;
         
         /// <summary>
         /// lblMDCollege control.
@@ -1282,22 +1516,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnDualMDAdd;
         
         /// <summary>
-        /// lblDualMDYear control.
+        /// lblDualMDYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDualMDYear;
+        protected global::System.Web.UI.WebControls.Label lblDualMDYearFrom;
         
         /// <summary>
-        /// txtDualMDYear control.
+        /// ddlDualMDMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDualMDYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualMDMonthFrom;
+        
+        /// <summary>
+        /// ddlDualMDYearFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualMDYearFrom;
+        
+        /// <summary>
+        /// lblDualMDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDualMDYearTo;
+        
+        /// <summary>
+        /// ddlDualMDMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualMDMonthTo;
+        
+        /// <summary>
+        /// ddlDualMDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualMDYearTo;
         
         /// <summary>
         /// lblDualMDCollege control.
@@ -1444,22 +1714,58 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Button btnPHDAdd;
         
         /// <summary>
-        /// lblPHDYear control.
+        /// lblPHDYearFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPHDYear;
+        protected global::System.Web.UI.WebControls.Label lblPHDYearFrom;
         
         /// <summary>
-        /// txtPHDYear control.
+        /// ddlPHDMonthFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPHDYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPHDMonthFrom;
+        
+        /// <summary>
+        /// ddlPHDYearFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPHDYearFrom;
+        
+        /// <summary>
+        /// lblPHDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPHDYearTo;
+        
+        /// <summary>
+        /// ddlPHDMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPHDMonthTo;
+        
+        /// <summary>
+        /// ddlPHDYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPHDYearTo;
         
         /// <summary>
         /// lblPHDCollege control.

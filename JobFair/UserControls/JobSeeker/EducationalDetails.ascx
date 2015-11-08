@@ -60,11 +60,18 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblSSCYear" runat="server" Text="Year of Completion" CssClass="label"></asp:Label>
+                    <asp:Label ID="lblSSCYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                     <asp:DropDownList ID="ddlSSCMonth" runat="server" AutoPostBack="true"></asp:DropDownList>
-                    <asp:DropDownList ID="ddlSSCYear" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlSSCMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlSSCYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+                <td>
+                    <asp:Label ID="lblSSCYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlSSCMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlSSCYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
              <tr>
@@ -138,12 +145,19 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblHSCYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    <asp:Label ID="lblHSCYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtHSCYear" runat="server" Width="100px"></asp:TextBox>
-                    <ajax:CalendarExtender ID="txtHSCYear_CalendarExtender" runat="server" OnClientHidden="onCalendarHidden"
-                         OnClientShown="onCalendarShown" Format="MMM/yyyy" BehaviorID="calendarHSC" TargetControlID="txtHSCYear"></ajax:CalendarExtender>
+                    <asp:DropDownList ID="ddlHSCMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlHSCYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+
+                 <td>
+                    <asp:Label ID="lblHSCYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlHSCMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlHSCYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
              <tr>
@@ -210,12 +224,21 @@
                     <asp:Button ID="btnDipAdd" runat="server" OnClick="btnDipAdd_Click" Text="Add" Visible="False" CssClass="button" />
                 </td>
             </tr>
-            <tr>
+             <tr>
                 <td>
-                    <asp:Label ID="lblDipYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    <asp:Label ID="lblDipYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtDipYear" runat="server" Width="100px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlDipMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlDipYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+
+                 <td>
+                    <asp:Label ID="lblDipYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlDipMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlDipYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
              <tr>
@@ -282,12 +305,21 @@
                     <asp:Button ID="btnBDAdd" runat="server" OnClick="btnBDAdd_Click" Text="Add" Visible="False" CssClass="button" />
                 </td>
             </tr>
-            <tr>
+             <tr>
                 <td>
-                    <asp:Label ID="lblBDYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    <asp:Label ID="lblBDYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtBDYear" runat="server" Width="100px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlBDMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlBDYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+
+                 <td>
+                    <asp:Label ID="lblBDYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlBDMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlBDYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
              <tr>
@@ -357,10 +389,19 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblDualBDYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    <asp:Label ID="lblDualBDYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtDualBDYear" runat="server" Width="100px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlDualBDMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlDualBDYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+
+                 <td>
+                    <asp:Label ID="lblDualBDYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlDualBDMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlDualBDYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
             <tr>
@@ -429,10 +470,19 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblPgdYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    <asp:Label ID="lblPgdYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPgdYear" runat="server" Width="100px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlPgdMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlPgdYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+
+                 <td>
+                    <asp:Label ID="lblPgdYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlPgdMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlPgdYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
              <tr>
@@ -501,10 +551,19 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblMDYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    <asp:Label ID="lblMDYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtMDYear" runat="server" Width="100px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlMDMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlMDYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+
+                 <td>
+                    <asp:Label ID="lblMDYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlMDMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlMDYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
               <tr>
@@ -574,10 +633,19 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblDualMDYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    <asp:Label ID="lblDualMDYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtDualMDYear" runat="server" Width="100px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlDualMDMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlDualMDYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+
+                 <td>
+                    <asp:Label ID="lblDualMDYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlDualMDMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlDualMDYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
             <tr>
@@ -646,10 +714,19 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblPHDYear" runat="server" CssClass="label" Text="Year of Completion"></asp:Label>
+                    <asp:Label ID="lblPHDYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPHDYear" runat="server" Width="100px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlPHDMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlPHDYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+                </td>
+
+                 <td>
+                    <asp:Label ID="lblPHDYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlPHDMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlPHDYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
                 </td>
             </tr>
              <tr>
@@ -699,7 +776,9 @@
             </td>
         </tr>
     </table>
-    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" Visible="false" CssClass="button" />
+    <br />
+    <br />
+    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" Visible="false" CssClass="button"  style="margin-top: 10px; margin-left: 450px"/>
     <br />
     <br />
     <div>

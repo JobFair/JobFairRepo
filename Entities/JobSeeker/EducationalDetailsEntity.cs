@@ -15,7 +15,8 @@ namespace Entities.JobSeeker
         public string MediumOfEducation { get; set; }
         public string Status { get; set; }
         public string Specialization { get; set; }
-        public string YearOfCompletion { get; set; }
+        public string FromYear { get; set; }
+        public string ToYear { get; set; }
         public string College { get; set; }
         public string University { get; set; }
         public string Percantage { get; set; }
