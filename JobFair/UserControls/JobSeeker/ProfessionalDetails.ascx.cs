@@ -1,4 +1,5 @@
 ﻿using BAL;
+using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -199,11 +200,11 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 ds = currentjobBAL.GetArea();
-                ddlArea.DataSource = ds;
-                ddlArea.DataTextField = "AreaName";
-                ddlArea.DataValueField = "AreaId";
-                ddlArea.DataBind();
-                ddlArea.Items.Insert(0, new ListItem("--Select--", "0"));
+                chklArea.DataSource = ds;
+                chklArea.DataTextField = "AreaName";
+                chklArea.DataValueField = "AreaId";
+                chklArea.DataBind();
+                chklArea.Items.Insert(0, new ListItem("--Select--", "0"));
             }
             catch (Exception)
             {
@@ -221,11 +222,11 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 ds = currentjobBAL.GetCity();
-                ddlPreferredCity.DataSource = ds;
-                ddlPreferredCity.DataTextField = "CityName";
-                ddlPreferredCity.DataValueField = "CityId";
-                ddlPreferredCity.DataBind();
-                ddlPreferredCity.Items.Insert(0, new ListItem("--Select--", "0"));
+                chklCity.DataSource = ds;
+                chklCity.DataTextField = "CityName";
+                chklCity.DataValueField = "CityId";
+                chklCity.DataBind();
+                chklCity.Items.Insert(0, new ListItem("--Select--", "0"));
             }
             catch (Exception)
             {
@@ -239,11 +240,28 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void btnSaveCurrentJob_Click(object sender, EventArgs e)
         {
+            
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            Entities.JobSeeker.CurrentDesiredJobEntity currentDesiredJobEntity = new Entities.JobSeeker.CurrentDesiredJobEntity();
+            currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
+            currentDesiredJobEntity.Objective = txtObjective.Text.Trim();
+            currentDesiredJobEntity.ProfileSummary = txtProfileSummary.Text.Trim();
+            if (rbtEmployed.Checked)
+            {
+                currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtEmployed.Text.Trim();
+            }
+            else
+            {
+                currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtUnEmployed.Text.Trim();
+            }
+            currentDesiredJobEntity.TotalExperience = Label1.Text;
+            currentDesiredJobEntity.ResumeHeadline = txtResumeHeadline.Text.Trim();
+           
             DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
             try
             {
                 currentDesiredJobBAL.SaveExperienceDetailsBAL(dt);
+                currentDesiredJobBAL.SaveJobDetailsBAL(currentDesiredJobEntity);
                 Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
             }
             catch (Exception)
@@ -276,19 +294,12 @@ namespace JobFair.UserControls.JobSeeker
 
         private void AddNewRecordToGrid()
         {
-            int months = MonthDifference();
+            double months = MonthDifference();
 
-            double year = Math.Abs((double)months / 12);
-            Label1.Text = (Math.Abs((double)months / 12)).ToString();
+           
+            Label1.Text = months.ToString();
 
-            //            public static int MonthDifference(this DateTime lValue, DateTime rValue)
-            //{
-            //    return (lValue.Month - rValue.Month) + 12 * (lValue.Year - rValue.Year);
-            //}
-            //            public static int MonthDifference(this DateTime lValue, DateTime rValue)
-            //{
-            //    return Math.Abs((lValue.Month - rValue.Month) + 12 * (lValue.Year - rValue.Year));
-            //}
+          
             try
             {
                 if (ViewState["ProfessionalDetails"] != null)
@@ -342,11 +353,14 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        private int MonthDifference()
+        private double MonthDifference()
         {
             DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
             DateTime d2 = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
-            return (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
+            int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
+            double year = Math.Abs((double)months / 12);
+            return year;
+
 
             //            public static int MonthDifference(this DateTime lValue, DateTime rValue)
             //{
@@ -410,9 +424,21 @@ namespace JobFair.UserControls.JobSeeker
         {
             DataTable dt = (DataTable)ViewState["JobDetails"];
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
             try
             {
+                currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
+                currentDesiredJobEntity.CurrentWorkingStatus = ddlWorkStatus.SelectedItem.Text.Trim();
+                currentDesiredJobEntity.CurrentAnualSal = Convert.ToDouble(txtcurrentannualsalary.Text);
+                currentDesiredJobEntity.ExpectedAnualSal = Convert.ToDouble(txtexpectedsalary.Text);
+                currentDesiredJobEntity.NoticePeriod = ddlNoticePeriod.SelectedItem.Text.Trim();
+                currentDesiredJobEntity.EmploymentStatus = rblEmploymentStatus.Text;
+                currentDesiredJobEntity.JobType = rblJobType.Text;
+                currentDesiredJobEntity.CompanyType = rblCompanyType.Text;
+                currentDesiredJobEntity.Availabilityforinterview = rblYesNo.Text;
+               
                 currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
+                currentDesiredJobBAL.SaveDesiredJobDetailsBAL(currentDesiredJobEntity);
                 Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
             }
             catch (Exception)
@@ -435,7 +461,7 @@ namespace JobFair.UserControls.JobSeeker
         protected void rbtUnEmployed_CheckedChanged(object sender, EventArgs e)
         {
             divDesireJobDetails.Visible = true;
-            divCurrentEmployer.Visible = false;
+            divCurrentEmployer.Visible = true;
         }
     }
 }

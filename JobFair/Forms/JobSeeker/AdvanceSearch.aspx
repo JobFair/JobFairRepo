@@ -55,13 +55,12 @@
                                 <br />
                                 <br />
                               <div>
-                                  <asp:Button  runat="server" ID="btnarea" Text="go" OnClick="btnarea_Click" Height="23px" Width="106px" />
-                                   <asp:TextBox runat="server" ID="txtarea" ReadOnly="true" Height="23px" Width="436px" />
-                                  &nbsp;&nbsp;
-                                  <asp:Panel ID="Panelarea" runat="server" Visible="false">
                                      
-                                    <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" width="100px" Height="50px" OnSelectedIndexChanged="chkarea_SelectedIndexChanged" ></asp:CheckBoxList>
-                                      &nbsp;
+                                    <%--<asp:TextBox runat="server" ID="txtarea" ReadOnly="true"/>--%>
+                                   <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px"></asp:TextBox>
+                                     <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click"/>
+                                  <asp:Panel ID="Panelarea" runat="server" Visible="false">
+                                      <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chkarea_SelectedIndexChanged"></asp:CheckBoxList>
                                 </asp:Panel>
                                   <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                               </div>
@@ -188,15 +187,19 @@
                         <asp:Label ID="lblindustry" runat="server" Text="Industry"></asp:Label>
                     </td>
                     <td>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
                         <div>
-                            <asp:TextBox ID="txtindusry" runat="server" ReadOnly="True"></asp:TextBox>
+                            <asp:TextBox ID="txtindusry" runat="server" ReadOnly="True" TextMode="MultiLine"  Width="300px"></asp:TextBox>
                             <asp:Button ID="btnselect" runat="server" Text="Select" />
                             <asp:Panel ID="panellindustry" runat="server">
-                                <asp:CheckBoxList ID="chkIndustry" runat="server" RepeatColumns="4"></asp:CheckBoxList>
+                                <asp:CheckBoxList ID="chkIndustry" runat="server" RepeatColumns="4" AutoPostBack="True" OnSelectedIndexChanged="chkIndustry_SelectedIndexChanged"></asp:CheckBoxList>
                             </asp:Panel>
 
                             <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" TargetControlID="panellindustry" TextLabelID="btnselect" CollapseControlID="btnselect" ExpandControlID="btnselect" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                         </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                     </td>
                 </tr>
                 <tr>

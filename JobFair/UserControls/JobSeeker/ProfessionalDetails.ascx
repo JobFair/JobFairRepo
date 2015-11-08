@@ -317,8 +317,7 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td>
-                                <asp:Button ID="btnSaveMoreJobs" runat="server" Text="Save" OnClick="btnSaveMoreJobs_Click" />
-                            </td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -339,13 +338,13 @@
             <td>Current Anual Salary(Yearly)</td>
             <td>
                 <asp:TextBox ID="txtcurrentannualsalary" runat="server"></asp:TextBox>
-            </td>
+                lpa</td>
         </tr>
         <tr>
             <td>Expected Anual Salary(Yearly)</td>
             <td>
                 <asp:TextBox ID="txtexpectedsalary" runat="server"></asp:TextBox>
-            </td>
+                lpa</td>
         </tr>
         <tr>
             <td>Notice Period</td>
@@ -361,10 +360,9 @@
             </td>
         </tr>
         <tr>
-            <td>Reason for Job change</td>
+            <td>&nbsp;</td>
             <td>
-                <asp:TextBox ID="txtDesiredReasonforJobchange" runat="server" TextMode="MultiLine"></asp:TextBox>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td>Employment status</td>
@@ -401,14 +399,16 @@
                 Preferred Area</td>
             <td style="margin-left: 40px">
 
-                <asp:DropDownCheckBoxes ID="ddlPreferredCity" runat="server" style="top: 0px; left: -87px"></asp:DropDownCheckBoxes>
                 <%-- <asp:DropDownCheckBoxes ID="ddlCity" runat="server" style="right: 90px; top: 0px; left: -130px">--%>
                 <%-- </asp:DropDownCheckBoxes>--%>
+               
+                <asp:CheckBoxList ID="chklCity" runat="server" RepeatDirection="Horizontal" >
+                </asp:CheckBoxList>
+                <asp:CheckBoxList ID="chklArea" runat="server" RepeatDirection="Horizontal">
+                </asp:CheckBoxList>
+                 
 
                 <br />
-                <asp:DropDownCheckBoxes ID="ddlArea" runat="server" style="top: -19px; left: -5px" AutoPostBack="True">
-                    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                </asp:DropDownCheckBoxes>
             </td>
         </tr>
 
@@ -597,14 +597,13 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:Button ID="btnsaveDesJob" runat="server" Text="Save" />
                 &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnCancelDesJob" runat="server" Text="Cancel" />
-            </td>
+                </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>
+                                <asp:Button ID="btnSaveMoreJobs" runat="server" Text="Save" OnClick="btnSaveMoreJobs_Click" style="height: 26px" />
                 <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
             </td>
         </tr>

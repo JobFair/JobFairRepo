@@ -7,42 +7,10 @@ namespace BAL
 {
     public class CurrentDesiredJobBAL
     {
-        /// <summary>
-        /// Method for Current professional details
-        /// </summary>
-        /// <param name="currentJobEntity">Object of CurrentDesiredJobEntity entity class</param>
-        /// <returns>System.Int32</returns>
-        public int CurrentProfessionalDetailsBAL(CurrentDesiredJobEntity currentJobEntity)
-        {
-            try
-            {
-                CurrentDesiredJobDAL currentjobDAL = new CurrentDesiredJobDAL();
-                return currentjobDAL.SaveCurrentProfessionalDetailsDAL(currentJobEntity);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
+        
+       
 
-        /// <summary>
-        /// Method for Desired job details
-        /// </summary>
-        /// <param name="desiredJobEntity">Object of CurrentDesiredJobEntity entity class</param>
-        /// <returns>System.Int32</returns>
-        public int DesiredJobDetailsBAL(CurrentDesiredJobEntity desiredJobEntity)
-        {
-            try
-            {
-                CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
-                return desiredjobDAL.SaveDesiredJobDetailsDAL(desiredJobEntity);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
-
+       
         /// <summary>
         /// Method to get Country
         /// </summary>
@@ -213,6 +181,36 @@ namespace BAL
             }
             catch (System.Exception)
             {
+                throw;
+            }
+        }
+
+        public void SaveJobDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                currentDesiredJobDAL.SaveJobDetailsDAL(currentDesiredJobEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public void SaveDesiredJobDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                currentDesiredJobDAL.SaveDesiredJobDetailsDAL(currentDesiredJobEntity);
+
+            }
+            catch (System.Exception)
+            {
+                
                 throw;
             }
         }
