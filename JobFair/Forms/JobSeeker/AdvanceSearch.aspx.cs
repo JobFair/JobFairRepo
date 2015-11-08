@@ -11,7 +11,7 @@ namespace JobFair.Forms.JobSeeker
     public partial class AdvanceSearch : System.Web.UI.Page
     {
         private string candidateId;
-
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             candidateId = Convert.ToString(Session["candidateId"]);
@@ -94,7 +94,7 @@ namespace JobFair.Forms.JobSeeker
         /// <summary>
         /// bind industry to dropdown and stored in database
         /// </summary>
-
+       
         private void BindDepartment()
         {
             try
@@ -143,8 +143,8 @@ namespace JobFair.Forms.JobSeeker
             advanceSearch.MaxSalary = ddlMaxSalary.SelectedItem.Text.Trim();
             advanceSearch.WorkExp = ddlWorkExperience.SelectedItem.Text.Trim();
             advanceSearch.JobCategory = ddlJobCategory.SelectedValue.Trim();
-            //IEnumerable<int> allChecked = (from item in ddlLocation.Items
-            //                   where item.Selected
+            //IEnumerable<int> allChecked = (from item in ddlLocation.Items 
+            //                   where item.Selected 
             //                   select int.Parse(item.Value));
 
             //advanceSearch.Area.AddRange(ddl)
@@ -177,35 +177,22 @@ namespace JobFair.Forms.JobSeeker
 
         protected void chkarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedarea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-            //foreach (var item in selectedarea)
-            //{
-            //    if(item.Selected = true)
-            //    {
-            //        txtarea.Text += item.Text + ",";
-            //    }
-            //    else
-            //    {
-            //        //var selectedarea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-            //       // txtarea.Text.Remove(selectedarea);
-            //        for (int i = 0; i < chkarea.Items.Count; i++)
-            //        {
-            txtarea.Text = string.Join(",", selectedarea.Select(x => x.Text));
-            //  }
-            // }
-        }
+       var  selectedArea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+
+        txtarea.Text = string.Join(",", selectedArea.Select(x=>x.Text));
+            }
 
         protected void chkIndustry_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectIndustry = chkIndustry.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             txtindusry.Text = string.Join(",",selectIndustry.Select(x=>x.Text));
         }
-
+            
         protected void btnarea_Click(object sender, EventArgs e)
         {
             Panelarea.Visible = true;
-        }
+   }
     }
-
+                    
     //  }
 }

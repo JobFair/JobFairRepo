@@ -15,7 +15,7 @@
             width: 100%;
             background-color: #fff;
             margin-bottom: 5px;
-        }
+               }
     </style>
 </head>
 <body>
@@ -54,16 +54,16 @@
                                 </asp:DropDownList>
                                 <br />
                                 <br />
-                                <div>
-                                   
+                              <div>
+                                     
                                     <%--<asp:TextBox runat="server" ID="txtarea" ReadOnly="true"/>--%>
                                    <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px"></asp:TextBox>
                                      <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click"/>
                                   <asp:Panel ID="Panelarea" runat="server" Visible="false">
                                       <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chkarea_SelectedIndexChanged"></asp:CheckBoxList>
-                                  </asp:Panel>
-                                    <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
-                                </div>
+                                </asp:Panel>
+                                  <cc1:CollapsiblePanelExtender ID="CPELocation" runat="server" TargetControlID="Panelarea" TextLabelID="btnarea" CollapseControlID="btnarea" ExpandControlID="btnarea" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
+                              </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </td>
@@ -197,7 +197,7 @@
                             </asp:Panel>
 
                             <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" TargetControlID="panellindustry" TextLabelID="btnselect" CollapseControlID="btnselect" ExpandControlID="btnselect" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
-                             </div>
+                        </div>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                     </td>
