@@ -3,15 +3,15 @@ using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Web.UI.WebControls;
 using System.Linq;
+using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class AdvanceSearch : System.Web.UI.Page
     {
-       
-        string candidateId;
+        private string candidateId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             candidateId = Convert.ToString(Session["candidateId"]);
@@ -29,19 +29,12 @@ namespace JobFair.Forms.JobSeeker
             //     Response.Redirect("LogIn.aspx");
             //}
 
-          
-
-
             if (!IsPostBack)
             {
-                
                 BindDepartment();
                 BindState();
                 BindIndustry();
-
-                
             }
-
         }
 
         private void BindIndustry()
@@ -54,16 +47,13 @@ namespace JobFair.Forms.JobSeeker
                 chkIndustry.DataTextField = "IndustryName";
                 chkIndustry.DataValueField = "IndustryId";
                 chkIndustry.DataBind();
-                
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-       
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -75,17 +65,12 @@ namespace JobFair.Forms.JobSeeker
                 chkarea.DataTextField = "AreaName";
                 chkarea.DataValueField = "AreaId";
                 chkarea.DataBind();
-                
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
-       
-
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -106,11 +91,9 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-       
         /// <summary>
         /// bind industry to dropdown and stored in database
         /// </summary>
-       
 
         private void BindDepartment()
         {
@@ -160,20 +143,14 @@ namespace JobFair.Forms.JobSeeker
             advanceSearch.MaxSalary = ddlMaxSalary.SelectedItem.Text.Trim();
             advanceSearch.WorkExp = ddlWorkExperience.SelectedItem.Text.Trim();
             advanceSearch.JobCategory = ddlJobCategory.SelectedValue.Trim();
-            //IEnumerable<int> allChecked = (from item in ddlLocation.Items 
-            //                   where item.Selected 
+            //IEnumerable<int> allChecked = (from item in ddlLocation.Items
+            //                   where item.Selected
             //                   select int.Parse(item.Value));
 
             //advanceSearch.Area.AddRange(ddl)
 
-
-
-            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text.Trim() + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text + "&minSalary=" + ddlMinSalary.SelectedItem.Text + "&maxSalary=" + ddlMaxSalary.SelectedItem.Text+"&functionalArea="+ddlJobCategory.SelectedValue);
-
-
+            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text.Trim() + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text + "&minSalary=" + ddlMinSalary.SelectedItem.Text + "&maxSalary=" + ddlMaxSalary.SelectedItem.Text + "&functionalArea=" + ddlJobCategory.SelectedValue);
         }
-
-       
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
@@ -196,25 +173,11 @@ namespace JobFair.Forms.JobSeeker
             Response.Redirect(Request.RawUrl);
         }
 
-        protected void btnarea_Click(object sender, EventArgs e)
-        {
-            Panelarea.Visible = true;
-
-          //  for (int i = 0; i < chkarea.Items.Count; i++)
-          //  {
-          //      if (chkarea.Items[i].Selected == true)
-          //      {
-
-          //          txtarea.Text += chkarea.Items[i].Text + ",";
-          //      }
-             
-          //}
-                   
-            }
+      
 
         protected void chkarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var  selectedarea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+            var selectedarea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             //foreach (var item in selectedarea)
             //{
             //    if(item.Selected = true)
@@ -227,23 +190,22 @@ namespace JobFair.Forms.JobSeeker
             //       // txtarea.Text.Remove(selectedarea);
             //        for (int i = 0; i < chkarea.Items.Count; i++)
             //        {
-
-        txtarea.Text = string.Join(",", selectedarea.Select(x=>x.Text));
-                  //  }
-               // }
-            }
+            txtarea.Text = string.Join(",", selectedarea.Select(x => x.Text));
+            //  }
+            // }
         }
-            
-      //  }
-   }
-                    
-                    
-                    
-                    
-                
-            
-        
 
+        protected void chkIndustry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectIndustry = chkIndustry.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+            txtindusry.Text = string.Join(",",selectIndustry.Select(x=>x.Text));
+        }
 
-        
-    
+        protected void btnarea_Click(object sender, EventArgs e)
+        {
+            Panelarea.Visible = true;
+        }
+    }
+
+    //  }
+}
