@@ -36,6 +36,42 @@ namespace JobFair.UserControls.JobSeeker
                 ddlYear.DataBind();
                 ddlYear.Items.Insert(0, new ListItem("--Select--", "0"));
             }
+             bool isCheck=true;
+           
+           // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+            if(isCheck)
+            {
+                try
+                {
+                    DataSet ds = new DataSet();
+                    PersonalDetailsJSBAL personalDetailsJSBAL = new PersonalDetailsJSBAL();
+                    ds = personalDetailsJSBAL.ViewPersonalDetailsBAL(candidateId);
+                    txtPresentAddress.Text =Convert.ToString(ds.Tables[0].Rows[0]["PresentAddress"]);
+                    ddlCountryPresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentCountryId"]);
+                   // ddlStatePresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentStateId"]);
+                   // ddlCityPresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentCityId"]);
+                  //  ddlAreaPresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentArea"]);
+                    txtPincodePresent.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentPincode"]);
+                    txtAddressPerm.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantAddress"]);
+                    ddlCountryPerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantCountryId"]);
+                   // ddlStatePerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantStateId"]);
+                   // ddlCityPerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantCityId"]);
+                  //  ddlAreaPerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantArea"]);
+                    txtPincodePerm.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantPincode"]);
+                    txtDOB.Text = Convert.ToString(ds.Tables[0].Rows[0]["DateOfBirth"]);
+                    string asch = Convert.ToString(ds.Tables[0].Rows[0]["MaritalStatus"]);
+                    ddlMaritalStatus.Items.FindByValue(asch).Selected = true;
+                    //ddlMaritalStatus.Items.FindByValue(asch);
+                    txtPassportNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PassportNumber"]);
+                    ddlMonth.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PassportValidity"]);
+                    ddlYear.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PassportValidity"]);
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
+            }
         }
          
         private static List<string> GetYears()

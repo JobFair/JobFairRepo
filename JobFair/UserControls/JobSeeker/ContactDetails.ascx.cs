@@ -1,6 +1,7 @@
 ﻿using BAL;
 using Entities;
 using System;
+using System.Data;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -13,6 +14,33 @@ namespace JobFair.UserControls.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
            candidateId = Convert.ToString(Session["candidateId"]);
+
+              bool isCheck=true;
+           
+           // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+            if(isCheck)
+            {
+                try
+                {
+                     DataSet ds = new DataSet();
+                     ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
+                     ds = contactDetailsBAL.ViewContactDetailsBAL(candidateId);
+                     txtAltNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["AltMobile"]);
+                     txtLandno.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandLine"]);
+                     txtWhatsappNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["WhatsapNo"]);
+                     txtLinkedIn.Text = Convert.ToString(ds.Tables[0].Rows[0]["LinkedId"]);
+                     txtFacebook.Text = Convert.ToString(ds.Tables[0].Rows[0]["FaceBookId"]);
+                     txtTwitter.Text = Convert.ToString(ds.Tables[0].Rows[0]["TwitterId"]);
+                     txtGTalk.Text = Convert.ToString(ds.Tables[0].Rows[0]["GtalkId"]);
+                     txtSkype.Text = Convert.ToString(ds.Tables[0].Rows[0]["skypeId"]);
+                     txtGooglePlus.Text = Convert.ToString(ds.Tables[0].Rows[0]["GoogleP"]);
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
+            }
          
         }
 

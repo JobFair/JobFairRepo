@@ -10,6 +10,21 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        public DataSet ViewContactDetailsDAL(string candidateId)
+        {
+            try
+            {
+                 DataSet ds = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectContactDetails, sparams);
+                return ds;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
         /// <summary>
         /// Insert Contact Details
         /// </summary>

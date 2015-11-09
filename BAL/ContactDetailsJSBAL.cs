@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Entities;
+using System.Data;
 
 namespace BAL
 {
@@ -23,6 +24,19 @@ namespace BAL
                 throw;
             }
            
+        }
+        public DataSet ViewContactDetailsBAL(string candidateId)
+        {
+            try
+            {
+                ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
+                return contactDetailsDAL.ViewContactDetailsDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

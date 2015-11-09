@@ -57,5 +57,7 @@ namespace DAL
         public const string sp_Area = "sp_Area";
         public const string sp_JS_InsertAcademicProjectDetails = "sp_JS_InsertAcademicProjectDetails";
         public const string sp_JS_InsertJobDetails = "sp_JS_InsertJobDetails";
+        public const string sp_JS_SelectPersonalDetails = "sp_JS_SelectPersonalDetails";
+        public const string sp_JS_SelectContactDetails = "sp_JS_SelectContactDetails";
     }
 }
