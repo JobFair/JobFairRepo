@@ -17,7 +17,7 @@
 </head>
 <body>
     <form runat="server">
-        <asp:DropDownCheckBoxes ID="ddlchbCity" runat="server"></asp:DropDownCheckBoxes>
+        <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged"></asp:CheckBoxList>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <uc1:ProfessionalDetails runat="server" ID="ProfessionalDetails" />
     </form>

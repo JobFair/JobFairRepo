@@ -3,28 +3,50 @@ using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace JobFair.UserControls.JobSeeker
 {
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
-        private CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                bindState();
                 BindMonth();
                 BindYear();
-                BindCity();
-                BindArea();
+              
                 BindFunctionalArea();
                 BindIndustry();
                 BindDepartment();
                 hfCandidateId.Value = "JS3";
                 AddExperienceRecords();
                 AddJobLookingRecords();
+            }
+        }
+
+        private void bindState()
+        {
+            CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
+            DataSet ds = new DataSet();
+            try
+            {
+                ds = currentjobBAL.GetStateBAL();
+                ddlState.DataSource = ds;
+                ddlState.DataTextField = "StateName";
+                ddlState.DataValueField = "StateId";
+                ddlState.DataBind();
+                ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
+                
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 
@@ -74,7 +96,6 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindMonth()
         {
-           
             try
             {
                 List<string> monthList = CommonUtil.Utility.GetMonths();
@@ -91,9 +112,11 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindFunctionalArea()
         {
+            CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
+               
                 ds = currentjobBAL.GetFunctionalArea();
                 ddlFunctionalRole.DataSource = ds;
                 ddlFunctionalRole.DataTextField = "FunctionalArea";
@@ -146,6 +169,7 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindDepartment()
         {
+            CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
             try
             {
                 DataSet ds = new DataSet();
@@ -169,6 +193,7 @@ namespace JobFair.UserControls.JobSeeker
 
         private void BindIndustry()
         {
+            CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
             DataSet ds = new DataSet();
             try
             {
@@ -194,53 +219,12 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        private void BindArea()
-        {
-            DataSet ds = new DataSet();
-            try
-            {
-                ds = currentjobBAL.GetArea();
-                chklArea.DataSource = ds;
-                chklArea.DataTextField = "AreaName";
-                chklArea.DataValueField = "AreaId";
-                chklArea.DataBind();
-                chklArea.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
+        
 
-        private void BindCity()
-        {
-            DataSet ds = new DataSet();
-            try
-            {
-                ds = currentjobBAL.GetCity();
-                chklCity.DataSource = ds;
-                chklCity.DataTextField = "CityName";
-                chklCity.DataValueField = "CityId";
-                chklCity.DataBind();
-                chklCity.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                ds = null;
-            }
-        }
+       
 
         protected void btnSaveCurrentJob_Click(object sender, EventArgs e)
         {
-            
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             Entities.JobSeeker.CurrentDesiredJobEntity currentDesiredJobEntity = new Entities.JobSeeker.CurrentDesiredJobEntity();
             currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
@@ -256,7 +240,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             currentDesiredJobEntity.TotalExperience = Label1.Text;
             currentDesiredJobEntity.ResumeHeadline = txtResumeHeadline.Text.Trim();
-           
+
             DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
             try
             {
@@ -296,10 +280,8 @@ namespace JobFair.UserControls.JobSeeker
         {
             double months = MonthDifference();
 
-           
             Label1.Text = months.ToString();
 
-          
             try
             {
                 if (ViewState["ProfessionalDetails"] != null)
@@ -360,7 +342,6 @@ namespace JobFair.UserControls.JobSeeker
             int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
             double year = Math.Abs((double)months / 12);
             return year;
-
 
             //            public static int MonthDifference(this DateTime lValue, DateTime rValue)
             //{
@@ -433,10 +414,11 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobEntity.ExpectedAnualSal = Convert.ToDouble(txtexpectedsalary.Text);
                 currentDesiredJobEntity.NoticePeriod = ddlNoticePeriod.SelectedItem.Text.Trim();
                 currentDesiredJobEntity.EmploymentStatus = rblEmploymentStatus.Text;
-                currentDesiredJobEntity.JobType = rblJobType.Text;
-                currentDesiredJobEntity.CompanyType = rblCompanyType.Text;
-                currentDesiredJobEntity.Availabilityforinterview = rblYesNo.Text;
-               
+                currentDesiredJobEntity.JobType = rblJobType.SelectedItem.Text;
+                currentDesiredJobEntity.CompanyType = rblCompanyType.SelectedItem.Text;
+                currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
+                currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
+
                 currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
                 currentDesiredJobBAL.SaveDesiredJobDetailsBAL(currentDesiredJobEntity);
                 Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
@@ -462,6 +444,11 @@ namespace JobFair.UserControls.JobSeeker
         {
             divDesireJobDetails.Visible = true;
             divCurrentEmployer.Visible = true;
+        }     
+       
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

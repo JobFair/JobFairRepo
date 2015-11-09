@@ -417,5 +417,19 @@ namespace CommonUtil
             }
            
         }
+
+        public static DataSet GetState()
+        {
+            try
+            {
+                Common common = new Common();
+                return common.GetStateDAL();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

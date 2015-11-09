@@ -214,5 +214,17 @@ namespace BAL
                 throw;
             }
         }
+
+        public DataSet GetStateBAL()
+        {
+            try
+            {
+                return Utility.GetState();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
     }
 }

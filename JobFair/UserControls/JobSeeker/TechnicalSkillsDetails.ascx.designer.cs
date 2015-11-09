@@ -13,93 +13,84 @@ namespace JobFair.UserControls.JobSeeker {
     public partial class TechnicalSkillsDetails {
         
         /// <summary>
-        /// chkTechnicalLanguage control.
+        /// ddlTechnicalSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkTechnicalLanguage;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTechnicalSkills;
         
         /// <summary>
-        /// Panel1 control.
+        /// ddlDromMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDromMonth;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlFromYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFromYear;
         
         /// <summary>
-        /// txtFormDate control.
+        /// ddlTillMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFormDate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTillMonth;
         
         /// <summary>
-        /// CalendarExtender1 control.
+        /// ddlTillYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTillYear;
         
         /// <summary>
-        /// txtToDate control.
+        /// ddlProficiency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtToDate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProficiency;
         
         /// <summary>
-        /// CalendarExtender2 control.
+        /// btnAddMoreSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
+        protected global::System.Web.UI.WebControls.Button btnAddMoreSkills;
         
         /// <summary>
-        /// chkTechnicalDatabase control.
+        /// gvSkillsDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkTechnicalDatabase;
+        protected global::System.Web.UI.WebControls.GridView gvSkillsDetails;
         
         /// <summary>
-        /// chkSoftwares control.
+        /// btnSaveSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkSoftwares;
-        
-        /// <summary>
-        /// chkOperatingSystem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkOperatingSystem;
+        protected global::System.Web.UI.WebControls.Button btnSaveSkills;
     }
 }
