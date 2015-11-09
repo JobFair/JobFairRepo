@@ -308,7 +308,7 @@ namespace CommonUtil
             DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from City");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from City order by CityName asc");
                 return ds;
             }
             catch (Exception)
@@ -322,12 +322,27 @@ namespace CommonUtil
             DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from CityArea");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from CityArea order by AreaName asc");
                 return ds;
             }
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        internal DataSet GetStateDAL()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text,"select StateName,StateId from State order by StateName asc");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
