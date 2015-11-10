@@ -10,8 +10,12 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
-        
-
+        static double Temp = 0;
+        /// <summary>
+        /// Handles the Load event of Page
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -19,7 +23,7 @@ namespace JobFair.UserControls.JobSeeker
                 bindState();
                 BindMonth();
                 BindYear();
-              
+
                 BindFunctionalArea();
                 BindIndustry();
                 BindDepartment();
@@ -28,7 +32,9 @@ namespace JobFair.UserControls.JobSeeker
                 AddJobLookingRecords();
             }
         }
-
+        /// <summary>
+        /// Method Bind state to the ddlState control
+        /// </summary>
         private void bindState()
         {
             CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
@@ -41,15 +47,15 @@ namespace JobFair.UserControls.JobSeeker
                 ddlState.DataValueField = "StateId";
                 ddlState.DataBind();
                 ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
-                
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Add Job Looking for to gvJobsLookingFor control
+        /// </summary>
         private void AddJobLookingRecords()
         {
             try
@@ -76,7 +82,9 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Bind years to ddlFromYear & ddlTillYear control
+        /// </summary>
         private void BindYear()
         {
             try
@@ -93,7 +101,9 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Bind months to ddlFromMonth & ddlTillMonth control
+        /// </summary>
         private void BindMonth()
         {
             try
@@ -109,14 +119,15 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Bind FunctionalArea to ddlFunctionalRole control
+        /// </summary>
         private void BindFunctionalArea()
         {
             CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
             DataSet ds = new DataSet();
             try
             {
-               
                 ds = currentjobBAL.GetFunctionalArea();
                 ddlFunctionalRole.DataSource = ds;
                 ddlFunctionalRole.DataTextField = "FunctionalArea";
@@ -129,7 +140,9 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Add Experience details to the gvExperience control
+        /// </summary>
         private void AddExperienceRecords()
         {
             try
@@ -166,7 +179,9 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Bind department ddlDepartment & ddlDepartment123 control
+        /// </summary>
         private void BindDepartment()
         {
             CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
@@ -190,7 +205,9 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Bind industry to ddlIndustry & ddlIndustry123 control
+        /// </summary>
         private void BindIndustry()
         {
             CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
@@ -218,34 +235,22 @@ namespace JobFair.UserControls.JobSeeker
                 ds = null;
             }
         }
-
-        
-
-       
-
+        /// <summary>
+        /// Handles Click event of btnSaveCurrentJob control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSaveCurrentJob_Click(object sender, EventArgs e)
         {
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             Entities.JobSeeker.CurrentDesiredJobEntity currentDesiredJobEntity = new Entities.JobSeeker.CurrentDesiredJobEntity();
             currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
-            currentDesiredJobEntity.Objective = txtObjective.Text.Trim();
-            currentDesiredJobEntity.ProfileSummary = txtProfileSummary.Text.Trim();
-            if (rbtEmployed.Checked)
-            {
-                currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtEmployed.Text.Trim();
-            }
-            else
-            {
-                currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtUnEmployed.Text.Trim();
-            }
-            currentDesiredJobEntity.TotalExperience = Label1.Text;
-            currentDesiredJobEntity.ResumeHeadline = txtResumeHeadline.Text.Trim();
 
             DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
             try
             {
                 currentDesiredJobBAL.SaveExperienceDetailsBAL(dt);
-                currentDesiredJobBAL.SaveJobDetailsBAL(currentDesiredJobEntity);
+
                 Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
             }
             catch (Exception)
@@ -258,13 +263,16 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobBAL = null;
             }
         }
-
+        /// <summary>
+        /// Handles Click event of btnAddExperience control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAddExperience_Click(object sender, EventArgs e)
         {
             try
             {
                 AddNewRecordToGrid();
-
                 txtDesignation.Text = "";
                 txtCurrentEmployer.Text = "";
                 txtRollesResponsibilities.Text = "";
@@ -275,11 +283,13 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Bind data of datatable to gvExperience control
+        /// </summary>
         private void AddNewRecordToGrid()
         {
             double months = MonthDifference();
-
+            
             Label1.Text = months.ToString();
 
             try
@@ -334,27 +344,31 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to count difference between two dates and total experience
+        /// </summary>
+        /// <returns>System.Double</returns>
         private double MonthDifference()
         {
             DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
             DateTime d2 = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
             int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
-            double year = Math.Abs((double)months / 12);
-            return year;
-
-            //            public static int MonthDifference(this DateTime lValue, DateTime rValue)
-            //{
-            //    return (lValue.Month - rValue.Month) + 12 * (lValue.Year - rValue.Year);
-
-            //}
+            double year = Math.Abs((double)months / 12);            
+            Temp = Temp + year;
+            return Temp;           
         }
-
+        /// <summary>
+        /// Handles the click event of btnAddMoreJobPost control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAddMoreJobPost_Click(object sender, EventArgs e)
         {
             AddMoreJobs();
         }
-
+        /// <summary>
+        /// Method to Add More JobDetails of Jobseeker
+        /// </summary>
         private void AddMoreJobs()
         {
             try
@@ -367,7 +381,7 @@ namespace JobFair.UserControls.JobSeeker
                     {
                         for (int i = 1; i <= datatable.Rows.Count; i++)
                         {
-                            //creating new row
+                            // Creating new row
                             datarow = datatable.NewRow();
                             datarow["CandidateId"] = hfCandidateId.Value.Trim();
                             datarow["JobPostLookingFor"] = txtJobPostLookingFor.Text.Trim();
@@ -376,20 +390,20 @@ namespace JobFair.UserControls.JobSeeker
                             datarow["FunctionalRole"] = ddlFunctionalRole.SelectedItem.Value;
                             datarow["RelevantExperience"] = txtRelevantExp.Text.Trim();
                         }
-                        //Removing initial row
+                        // Removing initial row
                         if (datatable.Rows[0][0].ToString() == "")
                         {
                             datatable.Rows[0].Delete();
                             datatable.AcceptChanges();
                         }
 
-                        //add new record to the datatable
+                        // Add new record to the datatable
                         datatable.Rows.Add(datarow);
 
-                        //storing datatable to viewstate
+                        // Storing datatable to viewstate
                         ViewState["JobDetails"] = datatable;
 
-                        //binding gridview with new row
+                        // Binding gridview with new row
                         gvJobsLookingFor.DataSource = datatable;
                         gvJobsLookingFor.DataBind();
                     }
@@ -400,27 +414,48 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Handles the Click event of btnSaveMoreJobs control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSaveMoreJobs_Click(object sender, EventArgs e)
         {
             DataTable dt = (DataTable)ViewState["JobDetails"];
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+            var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+            var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+
             try
             {
                 currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
+                currentDesiredJobEntity.Objective = txtObjective.Text.Trim();
+                currentDesiredJobEntity.ProfileSummary = txtProfileSummary.Text.Trim();
+                if (rbtEmployed.Checked)
+                {
+                    currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtEmployed.Text.Trim();
+                }
+                else
+                {
+                    currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtUnEmployed.Text.Trim();
+                }
+                currentDesiredJobEntity.TotalExperience = Label1.Text;
+                currentDesiredJobEntity.ResumeHeadline = txtResumeHeadline.Text.Trim();
                 currentDesiredJobEntity.CurrentWorkingStatus = ddlWorkStatus.SelectedItem.Text.Trim();
                 currentDesiredJobEntity.CurrentAnualSal = Convert.ToDouble(txtcurrentannualsalary.Text);
                 currentDesiredJobEntity.ExpectedAnualSal = Convert.ToDouble(txtexpectedsalary.Text);
                 currentDesiredJobEntity.NoticePeriod = ddlNoticePeriod.SelectedItem.Text.Trim();
                 currentDesiredJobEntity.EmploymentStatus = rblEmploymentStatus.Text;
-                currentDesiredJobEntity.JobType = rblJobType.SelectedItem.Text;
-                currentDesiredJobEntity.CompanyType = rblCompanyType.SelectedItem.Text;
+                currentDesiredJobEntity.JobType = rblJobType123.SelectedItem.Text;
+                currentDesiredJobEntity.CompanyType = rblCompanyType123.SelectedItem.Text;
                 currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
                 currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
-
+                currentDesiredJobEntity.PreferredCity = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
+                currentDesiredJobEntity.PreferrefArea = "," + string.Join(",", selectedarea.Select(x => x.Value)) + ",";
                 currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
                 currentDesiredJobBAL.SaveDesiredJobDetailsBAL(currentDesiredJobEntity);
+                currentDesiredJobBAL.SaveJobDetailsBAL(currentDesiredJobEntity);
                 Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
             }
             catch (Exception)
@@ -433,22 +468,107 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobBAL = null;
             }
         }
-
+        /// <summary>
+        /// Handles the CheckedChanged event of rbtEmployed control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtEmployed_CheckedChanged(object sender, EventArgs e)
-        {
-            divDesireJobDetails.Visible = false;
-            divCurrentEmployer.Visible = true;
-        }
-
-        protected void rbtUnEmployed_CheckedChanged(object sender, EventArgs e)
         {
             divDesireJobDetails.Visible = true;
             divCurrentEmployer.Visible = true;
-        }     
-       
+        }
+        /// <summary>
+        /// Handles the CheckedChanged event of rbtUnEmployed control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void rbtUnEmployed_CheckedChanged(object sender, EventArgs e)
+        {
+            divDesireJobDetails.Visible = true;
+            divCurrentEmployer.Visible = false;
+        }
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of ddlState control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                int stateId = Convert.ToInt32(ddlState.SelectedValue);
+                ds = currentDesiredJobBAL.GetCity(stateId);
+                chklCity.DataSource = ds;
+                chklCity.DataTextField = "cityName";
+                chklCity.DataValueField = "cityID";
+                chklCity.DataBind();
+                chklCity.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// Handles the Click event of btnCity control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void btnCity_Click(object sender, EventArgs e)
+        {
+            Panelcity.Visible = true;
+        }
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of chklCity control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void chklCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                txtCity.Text = string.Join(",", selectedcity.Select(x => x.Text));
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                //for(int i=1;i<=chklCity.Items.Cast<ListItem>().Count(li => li.Selected);i++)
+                //{
+                //int cityId = Convert.ToInt32(chklCity.SelectedValue);
+                string cityId = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
+                ds = currentDesiredJobBAL.GetArea(cityId);
+                chklArea.DataSource = ds;
+                chklArea.DataTextField = "AreaName";
+                chklArea.DataValueField = "AreaId";
+                chklArea.DataBind();
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of chklArea control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void chklArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+            txtarea.Text = string.Join(",", selectedarea.Select(x => x.Text));
+        }
 
+        /// <summary>
+        /// Click event of btnarea button to select area of cities
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void btnarea_Click(object sender, EventArgs e)
+        {
+            PanelArea.Visible = true;
         }
     }
 }

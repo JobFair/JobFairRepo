@@ -159,6 +159,7 @@ namespace DAL
                 sparams[9] = new SqlParameter("@timeInWeekdays",currentDesiredJobEntity.TimeInWeekdays);
                 sparams[10] = new SqlParameter("@preferredcity", currentDesiredJobEntity.PreferredCity);
                 sparams[11] = new SqlParameter("@preferredarea", currentDesiredJobEntity.PreferrefArea);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertDesiredJobDetails", sparams);
             }
             catch (Exception)
             {

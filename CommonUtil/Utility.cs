@@ -431,5 +431,23 @@ namespace CommonUtil
                 throw;
             }
         }
+
+
+
+
+
+        public static DataSet GetArea(string cityId)
+        {
+            try
+            {
+                Common common = new Common();
+                return common.GetAreaDAL(cityId);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
-}
+    }

@@ -330,7 +330,10 @@ namespace CommonUtil
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to get all states
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
         internal DataSet GetStateDAL()
         {
             DataSet ds = new DataSet();
@@ -343,6 +346,28 @@ namespace CommonUtil
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }     
+        /// <summary>
+        /// Method to get Area on cityid
+        /// </summary>
+        /// <param name="cityId">String to pass collection of cityid's</param>
+        /// <returns>System.Data.DataSet</returns>
+        internal DataSet GetAreaDAL(string cityId)
+        {
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = new SqlParameter[1];
+                sparams[0] = new SqlParameter("@cityid", cityId);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_SelectCityArea", sparams);
+                return ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

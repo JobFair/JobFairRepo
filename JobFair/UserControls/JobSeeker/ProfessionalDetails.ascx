@@ -415,8 +415,13 @@
                             PreferredCity
                         </td>
                         <td>
-                            <asp:CheckBoxList ID="chklCity" runat="server">
-                            </asp:CheckBoxList>
+                            <br />
+                            <asp:TextBox ID="txtCity" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                            <asp:Button ID="btnCity" runat="server" Text="Select City" OnClick="btnCity_Click" />
+                            <asp:Panel ID="Panelcity" runat="server" Visible="false" Width="444px">
+                                <asp:CheckBoxList ID="chklCity" runat="server" OnSelectedIndexChanged="chklCity_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:CheckBoxList>
+                            </asp:Panel>
                         </td>
                     </tr>
                     <tr>
@@ -425,9 +430,9 @@
                         </td>
                         <td>
                              <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px"></asp:TextBox>
-                                     <asp:Button runat="server" ID="btnarea" Text="Select Area" />
-                                  <asp:Panel ID="Panel1" runat="server" Visible="false" Width="444px">
-                                      <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="true" RepeatColumns="6" ></asp:CheckBoxList>
+                                     <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click" />
+                                  <asp:Panel ID="PanelArea" runat="server" Visible="false" Width="444px">
+                                      <asp:CheckBoxList ID="chklArea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chklArea_SelectedIndexChanged" ></asp:CheckBoxList>
                                 </asp:Panel>
                         </td>
                     </tr>
