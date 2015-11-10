@@ -59,8 +59,8 @@ namespace JobFair.UserControls.JobSeeker
                   //  ddlAreaPerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantArea"]);
                     txtPincodePerm.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantPincode"]);
                     txtDOB.Text = Convert.ToString(ds.Tables[0].Rows[0]["DateOfBirth"]);
-                    string asch = Convert.ToString(ds.Tables[0].Rows[0]["MaritalStatus"]);
-                    ddlMaritalStatus.Items.FindByValue(asch).Selected = true;
+                    string maritalStatus = Convert.ToString(ds.Tables[0].Rows[0]["MaritalStatus"]);
+                    ddlMaritalStatus.Items.FindByValue(maritalStatus).Selected = true;
                     //ddlMaritalStatus.Items.FindByValue(asch);
                     txtPassportNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PassportNumber"]);
                     ddlMonth.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PassportValidity"]);

@@ -10,21 +10,26 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// View Contact Details.
+        /// </summary>
+        /// <param name="candidateId">for selecting data into database</param>
+        /// <returns></returns>
         public DataSet ViewContactDetailsDAL(string candidateId)
         {
             try
             {
-                 DataSet ds = new DataSet();
+                DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectContactDetails, sparams);
                 return ds;
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
+
         /// <summary>
         /// Insert Contact Details
         /// </summary>
@@ -59,6 +64,39 @@ namespace DAL
             finally
             {
                 connection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Update Contact Details
+        /// </summary>
+        /// <param name="contactDetailsEntity">Object for inserting data into database</param>
+        /// <returns>System.Int32</returns>
+        public int UpdateContactDetailsDAL(ContactDetailsEntity contactDetailsEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                SqlParameter[] sqlparams = {
+                                              new SqlParameter("@candidateId",contactDetailsEntity.CandidateId),
+                                              new SqlParameter("@altMobNo",contactDetailsEntity.AltMobileNo ),
+                                              new SqlParameter("@landLine", contactDetailsEntity.LandLineNo),
+                                              new SqlParameter("@whatsappNo",contactDetailsEntity.WhatsAppNo),
+                                              new SqlParameter("@linkedId", contactDetailsEntity.LinkedId),
+                                              new SqlParameter("@facebookId",contactDetailsEntity.FacebookId),
+                                              new SqlParameter("@twitterId", contactDetailsEntity.TwitterId),
+                                              new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
+                                              new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
+                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus)
+                                            };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateContactDetails, sqlparams);
+
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }
