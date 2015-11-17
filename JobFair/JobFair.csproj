@@ -132,6 +132,7 @@
     <Content Include="Forms\JobSeeker\Register.aspx" />
     <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
+    <Content Include="UserControls\JobSeeker\RoleSkillsDetails.ascx" />
     <Content Include="UserControls\JobSeeker\searchRecord.ascx" />
     <Content Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
@@ -368,6 +369,13 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\ProfessionalDetails.ascx.designer.cs">
       <DependentUpon>ProfessionalDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\RoleSkillsDetails.ascx.cs">
+      <DependentUpon>RoleSkillsDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobSeeker\RoleSkillsDetails.ascx.designer.cs">
+      <DependentUpon>RoleSkillsDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\searchRecord.ascx.cs">
       <DependentUpon>searchRecord.ascx</DependentUpon>

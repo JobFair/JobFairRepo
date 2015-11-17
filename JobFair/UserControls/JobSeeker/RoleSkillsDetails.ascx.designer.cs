@@ -10,16 +10,16 @@
 namespace JobFair.UserControls.JobSeeker {
     
     
-    public partial class TechnicalSkillsDetails {
+    public partial class RoleSkillsDetails {
         
         /// <summary>
-        /// ddlTechnicalSkills control.
+        /// ddlRoleSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTechnicalSkills;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRoleSkills;
         
         /// <summary>
         /// ddlFromMonth control.

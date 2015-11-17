@@ -13,60 +13,25 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+
+
         /// <summary>
-        /// Method in DAL layer for CurrentJobDetails
+        /// Method to Save Experience details in Database in CurrentDesiredJobDAL class
         /// </summary>
-        /// <param name="currentJobEntity">Current job details entity</param>
-        /// <returns>System.Int32</returns>
-       
-
-       
-
-        public DataTable GetPreferredCityDAL(string PrefixText)
-        {
-            try
-            {
-                connection.Open();
-                DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("select * from City where CityName like @citynames + '%' ", connection);
-                cmd.Parameters.AddWithValue("@citynames", PrefixText);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public DataTable GetPreferredAreaDAL(string prefixText)
-        {
-            try
-            {
-                connection.Open();
-                DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("select * from CityArea where AreaName like @areaname + '%' ", connection);
-                cmd.Parameters.AddWithValue("@areaname", prefixText);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
+        /// <param name="dt">Parameter of Datatable to pass data</param>
+        /// <returns>System.Data.DataTable</returns>
         public DataTable SaveExperienceDetailsDAL(DataTable dt)
         {
             try
             {
                 connection.Open();
+
                 // Creating object of SqlBulkCopy
                 SqlBulkCopy objbulk = new SqlBulkCopy(connection);
-                //assigning Destination table name
+
+                // Assigning Destination table name
                 objbulk.DestinationTableName = "JS_CurrentPastExperience";
+
                 // Mapping Table column
                 objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
                 objbulk.ColumnMappings.Add("CompanyCurrentOrPast", "CompanyCurrentOrPast");
@@ -75,7 +40,7 @@ namespace DAL
                 objbulk.ColumnMappings.Add("RolesResponsibilities", "RolesResponsibilities");
                 objbulk.ColumnMappings.Add("FromMonth", "FromMonth");
                 objbulk.ColumnMappings.Add("FromYear", "FromYear");
-                objbulk.ColumnMappings.Add("TillMonth", "TillMonth");               
+                objbulk.ColumnMappings.Add("TillMonth", "TillMonth");
                 objbulk.ColumnMappings.Add("TillYear", "TillYear");
                 objbulk.ColumnMappings.Add("Industry", "Industry");
                 objbulk.ColumnMappings.Add("Department", "Department");
@@ -91,26 +56,34 @@ namespace DAL
             catch (Exception)
             {
                 throw;
-            }            
+            }
         }
-
+        /// <summary>
+        /// Method to Save Job Looking Details of Jobseeker in Database in CurrentDesiredJobDAL class
+        /// </summary>
+        /// <param name="dt">Parameter of Datatable to pass data</param>
+        /// <returns>System.Data.DataTable</returns>
         public DataTable SaveJobLookingDetailsDAL(DataTable dt)
         {
             try
             {
                 connection.Open();
-                //creating object of SqlBulkCopy
+
+                // Creating object of SqlBulkCopy
                 SqlBulkCopy objbulk = new SqlBulkCopy(connection);
-                //assigning Destination table name
+
+                // Assigning Destination table name
                 objbulk.DestinationTableName = "JS_JobPostLookingFor";
-                //Mapping Table column
+
+                // Mapping Table column
                 objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
                 objbulk.ColumnMappings.Add("JobPostLookingFor", "JobPostLookingFor");
                 objbulk.ColumnMappings.Add("Industry", "Industry");
                 objbulk.ColumnMappings.Add("Department", "Department");
                 objbulk.ColumnMappings.Add("FunctionalRole", "FunctionalRole");
                 objbulk.ColumnMappings.Add("RelevantExperience", "RelevantExperience");
-                //inserting bulk Records into DataBase
+
+                // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dt);
                 return dt;
             }
@@ -119,7 +92,10 @@ namespace DAL
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Save Job Details in Database in CurrentDesiredJobDAL class
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Object of CurrentDesiredJobEntity</param>
         public void SaveJobDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
@@ -136,11 +112,15 @@ namespace DAL
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
 
+        /// <summary>
+        /// Method to Save Desired Job Details in Database in CurrentDesiredJobDAL class
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Object of CurrentDesiredJobEntity</param>
         public void SaveDesiredJobDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
@@ -156,14 +136,108 @@ namespace DAL
                 sparams[6] = new SqlParameter("@jobtype", currentDesiredJobEntity.JobType);
                 sparams[7] = new SqlParameter("@companyType", currentDesiredJobEntity.CompanyType);
                 sparams[8] = new SqlParameter("@availabilityForInterview", currentDesiredJobEntity.Availabilityforinterview);
-                sparams[9] = new SqlParameter("@timeInWeekdays",currentDesiredJobEntity.TimeInWeekdays);
+                sparams[9] = new SqlParameter("@timeInWeekdays", currentDesiredJobEntity.TimeInWeekdays);
                 sparams[10] = new SqlParameter("@preferredcity", currentDesiredJobEntity.PreferredCity);
                 sparams[11] = new SqlParameter("@preferredarea", currentDesiredJobEntity.PreferrefArea);
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertDesiredJobDetails", sparams);
             }
             catch (Exception)
             {
-                
+
+                throw;
+            }
+        }
+
+        public DataSet GetTechnicalSkillsDetailsDAL()
+        {
+            DataSet ds = new DataSet();
+            connection.Open();
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from TechnicalSkillsDetails order by TechnicalSkillName asc");
+                return ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataTable SaveTechnicalSkillsDAL(DataTable dt)
+        {
+            try
+            {
+
+                connection.Open();
+
+                // Creating object of SqlBulkCopy
+                SqlBulkCopy objbulk = new SqlBulkCopy(connection);
+
+                // Assigning Destination table name
+                objbulk.DestinationTableName = "JS_TechnicalSkillDetails";
+
+                // Mapping Table column
+                objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
+                objbulk.ColumnMappings.Add("TechnicalSkills", "TechnicalSkills");
+                objbulk.ColumnMappings.Add("FromDate", "FromDate");
+                objbulk.ColumnMappings.Add("TillDate", "TillDate");
+                objbulk.ColumnMappings.Add("Proficiency", "Proficiency");
+                objbulk.ColumnMappings.Add("TotalYear", "TotalYear");
+
+                // Inserting bulk Records into DataBase
+                objbulk.WriteToServer(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataSet GetRoleSkillsDAL()
+        {
+            DataSet ds = new DataSet();
+            connection.Open();
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from RoleSkills order by RoleName asc");
+                return ds;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataTable SaveRoleSkillsDAL(DataTable dt)
+        {
+            try
+            {
+
+                connection.Open();
+
+                // Creating object of SqlBulkCopy
+                SqlBulkCopy objbulk = new SqlBulkCopy(connection);
+
+                // Assigning Destination table name
+                objbulk.DestinationTableName = "JS_RoleSkillsDetails";
+
+                // Mapping Table column
+                objbulk.ColumnMappings.Add("CandidateId", "CandidateId");
+                objbulk.ColumnMappings.Add("RoleSkills", "RoleSkills");
+                objbulk.ColumnMappings.Add("FromDate", "FromDate");
+                objbulk.ColumnMappings.Add("TillDate", "TillDate");
+                objbulk.ColumnMappings.Add("Proficiency", "Proficiency");
+                objbulk.ColumnMappings.Add("TotalYear", "TotalYear");
+
+                // Inserting bulk Records into DataBase
+                objbulk.WriteToServer(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }
