@@ -18,7 +18,7 @@ namespace DAL
             try
             {
                 DataSet ds = new DataSet();
-                SqlCommand cmd = new SqlCommand("select * from JS_Roles", connection);
+                SqlCommand cmd = new SqlCommand("select * from TechnicalSkillsDetails order by TechnicalSkillName asc", connection);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
                 return ds;

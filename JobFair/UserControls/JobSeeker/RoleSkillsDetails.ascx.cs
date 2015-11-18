@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 namespace JobFair.UserControls.JobSeeker
 {
     /// <summary>
-    /// 
+    /// RoleSkillsDetails Class
     /// </summary>
     public partial class RoleSkillsDetails : System.Web.UI.UserControl
     {
@@ -23,7 +23,9 @@ namespace JobFair.UserControls.JobSeeker
 
             }
         }
-
+        /// <summary>
+        /// Method to Bind Role Skills to ddlRoleSkills Control
+        /// </summary>
         private void BindRoleSkills()
         {
             DataSet ds = new DataSet();
@@ -42,7 +44,9 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Create Skills Records Table for gvSkillsDetails Control
+        /// </summary>
         private void AddRoleSkills()
         {
             try
@@ -69,7 +73,9 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method Bind Year List to ddlFromYear Control
+        /// </summary>
         private void BindYears()
         {
             try
@@ -86,7 +92,9 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Bind Month List to ddlFromMonth Control
+        /// </summary>
         private void BindMonth()
         {
             try
@@ -103,13 +111,18 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
-       
+        /// <summary>
+        /// Handles Click event of btnAddMoreSkills Control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>       
         protected void btnAddMoreSkills_Click(object sender, EventArgs e)
         {
             AddMoreSkills();
         }
-
+        /// <summary>
+        /// Method to Insert Data into gvSkillsDetails Control
+        /// </summary>
         private void AddMoreSkills()
         {
             string year = TotalYears();
@@ -159,7 +172,10 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Get Total Years of Experience 
+        /// </summary>
+        /// <returns>System.String</returns>
         private string TotalYears()
         {
             DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
@@ -168,7 +184,11 @@ namespace JobFair.UserControls.JobSeeker
             double year = Math.Abs((double)months / 12);
             return year.ToString();
         }
-
+        /// <summary>
+        /// Handles the Click event of btnSaveSkills Control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>  
         protected void btnSaveSkills_Click(object sender, EventArgs e)
         {
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
