@@ -1,12 +1,11 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TechnicalSkillsDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.TechnicalSkillsDetails" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RoleSkillsDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.RoleSkillsDetails" %>
 <div style="border: solid; margin-left: 150px; margin-right: 150px">
     <div style="margin-left: 60px; margin-right: 60px">
-        <h3>Technical Skills</h3>
+        <h3>Role Skills</h3>
         <table>
             <tr>
                 <th>
-                   Technical Skills
+                    Role Skills
                 </th>
                 <th colspan="2">
                     Using Year<br />
@@ -16,7 +15,7 @@
             </tr>
             <tr>
                 <td>
-        <asp:DropDownList ID="ddlTechnicalSkills" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="ddlRoleSkills" runat="server"></asp:DropDownList>
                     </td>
                 <td>
                     <asp:DropDownList ID="ddlFromMonth" runat="server">
@@ -50,7 +49,7 @@
                          <AlternatingRowStyle BackColor="White" />
                         <Columns>
                                         <asp:BoundField HeaderText="CandidateId" DataField="CandidateId" Visible="false" />
-                                        <asp:BoundField HeaderText="TechnicalSkills" DataField="TechnicalSkills" />
+                                        <asp:BoundField HeaderText="RoleSkills" DataField="RoleSkills" />
                                         <asp:BoundField HeaderText="FromDate" DataField="FromDate" />
                                         <asp:BoundField HeaderText="TillDate" DataField="TillDate" />
                                         <asp:BoundField HeaderText="Proficiency" DataField="Proficiency" />

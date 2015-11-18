@@ -26,6 +26,12 @@ namespace BAL
             }
            
         }
+
+        public DataSet ViewPersonalDetailsBAL(string candidateId)
+        {
+            PersonalDetailsJSDAL personalDetailsDAL = new PersonalDetailsJSDAL();
+            return personalDetailsDAL.ViewPersonalDetailsDAL(candidateId);
+        }
         /// <summary>
         /// Get Country
         /// </summary>

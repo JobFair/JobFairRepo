@@ -276,11 +276,9 @@ namespace CommonUtil
                 return common.GetPostGraduateDiplomaDAL();
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
-            }
-           
+            }           
         }
         /// <summary>
         /// GetMasterDegree() method of Utility class
@@ -294,8 +292,7 @@ namespace CommonUtil
                 return common.GetMasterDegreeDAL();
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
            
@@ -319,9 +316,9 @@ namespace CommonUtil
            
         }
         /// <summary>
-        /// GetRoles() method Of utility Class
+        /// Method to Get Roles in utility Class
         /// </summary>
-        /// <returns>System.Data.Set</returns>
+        /// <returns>System.Data.DataSet</returns>
         public static DataSet GetRoles()
         {
             try
@@ -330,13 +327,14 @@ namespace CommonUtil
                 return common.GetRole();
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
-            }
-           
+            }           
         }
-
+        /// <summary>
+        /// Method to Get Location in Utility Class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
         public static DataSet GetLocation()
         {
             try
@@ -345,13 +343,14 @@ namespace CommonUtil
                 return common.GetLocation();
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
-            }
-          
+            }          
         }
-
+        /// <summary>
+        /// Mwthod to Get Years in Utility Class
+        /// </summary>
+        /// <returns>System.Collections.Generic.List</returns>
         public static List<string> GetYears()
         {
             try
@@ -363,12 +362,15 @@ namespace CommonUtil
                 return yearList;
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
-            }
-          
+            }          
         }
+
+        /// <summary>
+        /// Method to Get Months from System in Utility Class
+        /// </summary>
+        /// <returns>System.Collections.Generic.List</returns>
         public static List<string> GetMonths()
         {
             try
@@ -380,29 +382,16 @@ namespace CommonUtil
                 return monthList;
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
-            }
-           
+            }           
         }
 
-
-        public static DataSet GetCity()
-        {
-            try
-            {
-                Common common = new Common();
-                return common.GetCityDAL();
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-           
-        }
-
+       
+        /// <summary>
+        /// Method to Get Area in Utility Class  
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
         public static DataSet GetArea()
         {
             try
@@ -411,11 +400,44 @@ namespace CommonUtil
                 return common.GetAreaDAL();
             }
             catch (Exception)
-            {
-                
+            {                
                 throw;
             }
            
         }
+        /// <summary>
+        /// Method to Get State in Utility Class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetState()
+        {
+            try
+            {
+                Common common = new Common();
+                return common.GetStateDAL();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Method to Get Area from CityId in Utility Class
+        /// </summary>
+        /// <param name="cityId">String Parameter</param>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetArea(string cityId)
+        {
+            try
+            {
+                Common common = new Common();
+                return common.GetAreaDAL(cityId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
-}
+    }

@@ -26,6 +26,7 @@
             </td>
         </tr>
         <tr>
+            <a href="ProjectDetails.aspx">ProjectDetails.aspx</a>
             <td>&nbsp;</td>
             <td><asp:CheckBox ID="cbRememberMe" runat="server" Text="Remember Me" /></td>
         </tr>

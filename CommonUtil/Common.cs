@@ -266,7 +266,7 @@ namespace CommonUtil
             DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, " Select * from JS_Roles ");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, " select * from TechnicalSkillsDetails order by TechnicalSkillName asc ");
                 return ds;
             }
             catch (Exception ex)
@@ -308,7 +308,7 @@ namespace CommonUtil
             DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from City");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from City order by CityName asc");
                 return ds;
             }
             catch (Exception)
@@ -322,11 +322,51 @@ namespace CommonUtil
             DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from CityArea");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from CityArea order by AreaName asc");
                 return ds;
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+        /// <summary>
+        /// Method to get all states
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        internal DataSet GetStateDAL()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select StateName,StateId from State order by StateName asc");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Method to get Area on cityid
+        /// </summary>
+        /// <param name="cityId">String to pass collection of cityid's</param>
+        /// <returns>System.Data.DataSet</returns>
+        internal DataSet GetAreaDAL(string cityId)
+        {
+            connection.Open();
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = new SqlParameter[1];
+                sparams[0] = new SqlParameter("@cityid", cityId);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_SelectCityArea", sparams);
+                return ds;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

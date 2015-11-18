@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -27,6 +28,13 @@ namespace JobFair.Forms.JobSeeker
             //    ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
             //    // Response.Redirect("LogIn.aspx");
             //}
+        }
+
+        protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+
+            
         }
 
     }

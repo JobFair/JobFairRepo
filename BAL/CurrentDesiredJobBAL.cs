@@ -5,12 +5,11 @@ using System.Data;
 
 namespace BAL
 {
+    /// <summary>
+    /// CurrentDesiredJobBAL class
+    /// </summary>
     public class CurrentDesiredJobBAL
     {
-        
-       
-
-       
         /// <summary>
         /// Method to get Country
         /// </summary>
@@ -92,61 +91,12 @@ namespace BAL
                 throw;
             }
         }
+
         /// <summary>
-        /// 
+        /// Method to save experience details in CurrentDesiredJobBAL class
         /// </summary>
-        /// <param name="PrefixText"></param>
-        /// <returns></returns>
-        public System.Data.DataTable GetPreferredCityBAL(string PrefixText)
-        {
-            try
-            {
-                CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
-                return desiredjobDAL.GetPreferredCityDAL(PrefixText);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
-
-        public System.Data.DataTable GetPreferredAreaBAL(string prefixText)
-        {
-            try
-            {
-                CurrentDesiredJobDAL desiredjobDAL = new CurrentDesiredJobDAL();
-                return desiredjobDAL.GetPreferredAreaDAL(prefixText);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
-
-        public System.Data.DataSet GetCity()
-        {
-            try
-            {
-                return Utility.GetCity();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
-
-        public System.Data.DataSet GetArea()
-        {
-            try
-            {
-                return Utility.GetArea();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
-
+        /// <param name="dt">Parameter of DataTable </param>
+        /// <returns>System.Data.DataTable</returns>
         public DataTable SaveExperienceDetailsBAL(System.Data.DataTable dt)
         {
             try
@@ -160,6 +110,10 @@ namespace BAL
             }
         }
 
+        /// <summary>
+        /// Method to get Functional Area
+        /// </summary>
+        /// <returns>System.DataSet</returns>
         public DataSet GetFunctionalArea()
         {
             try
@@ -172,6 +126,11 @@ namespace BAL
             }
         }
 
+        /// <summary>
+        /// Method to save Job Looking Details in CurrentDesiredJobBAL class
+        /// </summary>
+        /// <param name="dt">Parameter type DataTable</param>
+        /// <returns>System.Data.DataTable</returns>
         public DataTable SaveJobLookingDetailsBAL(DataTable dt)
         {
             try
@@ -185,6 +144,10 @@ namespace BAL
             }
         }
 
+        /// <summary>
+        /// Method to save Job details in CurrentDesiredJobBAL class
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Object of CurrentDesiredJobEntity class</param>
         public void SaveJobDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
@@ -194,23 +157,116 @@ namespace BAL
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
         }
 
+        /// <summary>
+        /// Method to save desired details in CurrentDesiredJobBAL class
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Object of CurrentDesiredJobEntity class</param>
         public void SaveDesiredJobDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
-
             try
             {
                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
                 currentDesiredJobDAL.SaveDesiredJobDetailsDAL(currentDesiredJobEntity);
-
             }
             catch (System.Exception)
             {
-                
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Method to get State
+        /// </summary>
+        /// <returns>System.DataSet</returns>
+        public DataSet GetStateBAL()
+        {
+            try
+            {
+                return Utility.GetState();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Method to Get CityArea in CurrentDesiredJobBAL class
+        /// </summary>
+        /// <param name="cityId">String parameter</param>
+        /// <returns>System.Data.DataSet</returns>
+        public DataSet GetArea(string cityId)
+        {
+            try
+            {
+                return Utility.GetArea(cityId);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Method to Get Technical Skills in CurrentDesiredJobBAL
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public DataSet GetTechnicalSkillsDetailsBAL()
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.GetTechnicalSkillsDetailsDAL();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// Method to Save Technical 
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public DataTable SaveTechnicalSkillsBAL(DataTable dt)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.SaveTechnicalSkillsDAL(dt);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataSet GetRoleSkillsBAL()
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.GetRoleSkillsDAL();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataTable SaveRoleSkillsBAL(DataTable dt)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.SaveRoleSkillsDAL(dt);
+            }
+            catch (System.Exception)
+            {
                 throw;
             }
         }

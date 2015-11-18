@@ -7,33 +7,47 @@ using System.Web.UI.WebControls;
 namespace JobFair.UserControls.JobSeeker
 {
     /// <summary>
-    /// TechnicalSkillsDetails Class
+    /// RoleSkillsDetails Class
     /// </summary>
-    public partial class TechnicalSkillsDetails : System.Web.UI.UserControl
+    public partial class RoleSkillsDetails : System.Web.UI.UserControl
     {
-        private DataSet ds = new DataSet();
-        private TechnicalSkillsDetailsBAL technicalSkillsBAL = new TechnicalSkillsDetailsBAL();
-        /// <summary>
-        /// Handles the Load event of Page
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>      
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                BindTechnicalSkills();
+                BindRoleSkills();
                 BindMonth();
                 BindYears();
                 hfCandidateId.Value = "JS3";
-                AddTechnicalSkills();
-               
+                AddRoleSkills();
+
             }
         }
         /// <summary>
-        /// Method to Create Skills Record Table for gvSkillsDetails Control
+        /// Method to Bind Role Skills to ddlRoleSkills Control
         /// </summary>
-        private void AddTechnicalSkills()
+        private void BindRoleSkills()
+        {
+            DataSet ds = new DataSet();
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            try
+            {
+                ds = currentDesiredJobBAL.GetRoleSkillsBAL();
+                ddlRoleSkills.DataSource = ds;
+                ddlRoleSkills.DataTextField = "RoleName";
+                ddlRoleSkills.DataValueField = "RoleId";
+                ddlRoleSkills.DataBind();
+                ddlRoleSkills.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// Method to Create Skills Records Table for gvSkillsDetails Control
+        /// </summary>
+        private void AddRoleSkills()
         {
             try
             {
@@ -43,7 +57,7 @@ namespace JobFair.UserControls.JobSeeker
                 datatable.TableName = "SkillDetails";
                 // Creating columns for DataTable
                 datatable.Columns.Add(new DataColumn("CandidateId", typeof(string)));
-                datatable.Columns.Add(new DataColumn("TechnicalSkills", typeof(int)));
+                datatable.Columns.Add(new DataColumn("RoleSkills", typeof(int)));
                 datatable.Columns.Add(new DataColumn("FromDate", typeof(string)));
                 datatable.Columns.Add(new DataColumn("TillDate", typeof(string)));
                 datatable.Columns.Add(new DataColumn("Proficiency", typeof(string)));
@@ -84,7 +98,7 @@ namespace JobFair.UserControls.JobSeeker
         private void BindMonth()
         {
             try
-            {          
+            {           
             List<string> monthlist = CommonUtil.Utility.GetMonths();
             ddlFromMonth.DataSource = monthlist;
             ddlTillMonth.DataSource = monthlist;
@@ -98,32 +112,10 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
         /// <summary>
-        /// Method to Create Skills Records Table for gvSkillsDetails Control
-        /// </summary>
-        private void BindTechnicalSkills()
-        {
-            try
-            {           
-            DataSet ds = new DataSet();
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            ds = currentDesiredJobBAL.GetTechnicalSkillsDetailsBAL();
-            ddlTechnicalSkills.DataSource = ds;
-            ddlTechnicalSkills.DataValueField = "TechnicalSkillId";
-            ddlTechnicalSkills.DataTextField = "TechnicalSkillName";
-            ddlTechnicalSkills.DataBind();
-            ddlTechnicalSkills.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        /// <summary>
-        /// Handles the Click event of btnAddMoreSkills Control
+        /// Handles Click event of btnAddMoreSkills Control
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>      
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>       
         protected void btnAddMoreSkills_Click(object sender, EventArgs e)
         {
             AddMoreSkills();
@@ -147,14 +139,14 @@ namespace JobFair.UserControls.JobSeeker
                             // Creating new row
                             datarow = datatable.NewRow();
                             datarow["CandidateId"] = hfCandidateId.Value.Trim();
-                            datarow["TechnicalSkills"] = ddlTechnicalSkills.SelectedItem.Value;
-                            datarow["FromDate"] = ddlFromMonth.SelectedItem.Text +" "+ ddlFromYear.SelectedItem.Text;
-                            datarow["TillDate"] = ddlTillMonth.SelectedItem.Text+" "+ddlTillYear.SelectedItem.Text;
+                            datarow["RoleSkills"] = ddlRoleSkills.SelectedItem.Value;
+                            datarow["FromDate"] = ddlFromMonth.SelectedItem.Text + " " + ddlFromYear.SelectedItem.Text;
+                            datarow["TillDate"] = ddlTillMonth.SelectedItem.Text + " " + ddlTillYear.SelectedItem.Text;
                             datarow["Proficiency"] = ddlProficiency.SelectedItem.Text;
 
                             // Calculate Year
-                            
-                             datarow["TotalYear"] = year ;
+
+                            datarow["TotalYear"] = year;
                         }
                         // Removing initial row
                         if (datatable.Rows[0][0].ToString() == "")
@@ -196,16 +188,16 @@ namespace JobFair.UserControls.JobSeeker
         /// Handles the Click event of btnSaveSkills Control
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>      
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>  
         protected void btnSaveSkills_Click(object sender, EventArgs e)
         {
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             DataTable dt = (DataTable)ViewState["SkillDetails"];
             try
             {
-                currentDesiredJobBAL.SaveTechnicalSkillsBAL(dt);
+                currentDesiredJobBAL.SaveRoleSkillsBAL(dt);
 
-                Response.Write("<script language='javascript'>alert('Technical Skills Details saved successfully')</script>");
+                Response.Write("<script language='javascript'>alert('Role Skills Details saved successfully')</script>");
             }
             catch (Exception)
             {
@@ -218,6 +210,5 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-       
     }
 }

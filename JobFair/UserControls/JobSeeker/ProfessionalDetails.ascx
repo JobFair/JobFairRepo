@@ -1,4 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProfessionalDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.ProfessionalDetails" %>
+<%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -6,6 +8,12 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
+
+<style type="text/css">
+    .auto-style3 {
+        width: 404px;
+    }
+</style>
 
 <div>
     &nbsp;<table id="TableCurrentJob" runat="server">
@@ -51,11 +59,11 @@
                 <asp:RadioButton ID="rbtUnEmployed" Text="Un-Employed" runat="server" AutoPostBack="True" GroupName="EmplyeeORNot" OnCheckedChanged="rbtUnEmployed_CheckedChanged" />
             </td>
         </tr>
-        
-            <tr>
-                <td colspan="2">
-                    <hr />
-                </td>
+
+        <tr>
+            <td colspan="2">
+                <hr />
+            </td>
         </tr>
 
         <tr>
@@ -316,8 +324,7 @@
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
-                            <td>
-                                &nbsp;</td>
+                            <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -361,8 +368,7 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
             <td>Employment status</td>
@@ -394,24 +400,48 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <%-- <asp:DropDownList ID="ddlCity" runat="server"></asp:DropDownList>--%>Preferred City<br />
-                Preferred Area</td>
-            <td style="margin-left: 40px">
-
-                <%-- <asp:DropDownCheckBoxes ID="ddlCity" runat="server" style="right: 90px; top: 0px; left: -130px">--%>
-                <%-- </asp:DropDownCheckBoxes>--%>
-               
-                <asp:CheckBoxList ID="chklCity" runat="server" RepeatDirection="Horizontal" >
-                </asp:CheckBoxList>
-                <asp:CheckBoxList ID="chklArea" runat="server" RepeatDirection="Horizontal">
-                </asp:CheckBoxList>
-                 
-
-                <br />
+            <td colspan="2">
+                <asp:UpdatePanel ID="panelLocation" runat="server">
+            <ContentTemplate>   
+                <table style="width: 688px">       
+        <tr>
+            <td class="auto-style3">Preferred State</td>
+            <td><asp:DropDownList ID="ddlState" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="ddlState_SelectedIndexChanged">
+                                </asp:DropDownList>
+                </td>
+        </tr>
+                    <tr>
+                        <td>
+                            PreferredCity
+                        </td>
+                        <td>
+                            <br />
+                            <asp:TextBox ID="txtCity" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                            <asp:Button ID="btnCity" runat="server" Text="Select City" OnClick="btnCity_Click" />
+                            <asp:Panel ID="Panelcity" runat="server" Visible="false" Width="444px">
+                                <asp:CheckBoxList ID="chklCity" runat="server" OnSelectedIndexChanged="chklCity_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:CheckBoxList>
+                            </asp:Panel>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            PreferredArea
+                        </td>
+                        <td>
+                             <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px"></asp:TextBox>
+                                     <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click" />
+                                  <asp:Panel ID="PanelArea" runat="server" Visible="false" Width="444px">
+                                      <asp:CheckBoxList ID="chklArea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chklArea_SelectedIndexChanged" ></asp:CheckBoxList>
+                                </asp:Panel>
+                        </td>
+                    </tr>
+</table>
+          </ContentTemplate>
+        </asp:UpdatePanel>
             </td>
         </tr>
-
+        
         <tr>
             <td>Availability for the Personal Round on Working Day</td>
             <td>
@@ -424,7 +454,7 @@
 
         <tr>
             <td>Availabilty in Week Days(Monday to Friday)</td>
-            <td>Before<asp:DropDownList ID="DropDownList5" runat="server">
+            <td>Before<asp:DropDownList ID="ddlBeforeHours" runat="server">
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
                 <asp:ListItem>3</asp:ListItem>
@@ -438,7 +468,7 @@
                 <asp:ListItem>11</asp:ListItem>
                 <asp:ListItem>12</asp:ListItem>
             </asp:DropDownList>
-                <asp:DropDownList ID="DropDownList7" runat="server">
+                <asp:DropDownList ID="ddlBeforeMinutes" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
                     <asp:ListItem>3</asp:ListItem>
@@ -499,11 +529,11 @@
                     <asp:ListItem>59</asp:ListItem>
                     <asp:ListItem>60</asp:ListItem>
                 </asp:DropDownList>
-                <asp:DropDownList ID="DropDownList8" runat="server">
+                <asp:DropDownList ID="ddlBeforeTime" runat="server">
                     <asp:ListItem>AM</asp:ListItem>
                     <asp:ListItem>PM</asp:ListItem>
                 </asp:DropDownList>
-                After<asp:DropDownList ID="DropDownList9" runat="server">
+                After<asp:DropDownList ID="ddlAfterHours" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
                     <asp:ListItem>3</asp:ListItem>
@@ -517,7 +547,7 @@
                     <asp:ListItem>11</asp:ListItem>
                     <asp:ListItem>12</asp:ListItem>
                 </asp:DropDownList>
-                <asp:DropDownList ID="DropDownList10" runat="server">
+                <asp:DropDownList ID="ddlAfterMinutes" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
                     <asp:ListItem>3</asp:ListItem>
@@ -578,11 +608,11 @@
                     <asp:ListItem>59</asp:ListItem>
                     <asp:ListItem>60</asp:ListItem>
                 </asp:DropDownList>
-                <asp:DropDownList ID="DropDownList11" runat="server">
+                <asp:DropDownList ID="ddlAfterTime" runat="server">
                     <asp:ListItem>AM</asp:ListItem>
                     <asp:ListItem>PM</asp:ListItem>
                 </asp:DropDownList>
-                <asp:DropDownList ID="DropDownList12" runat="server" ToolTip="Please Select TimeZone(IST/EST)">
+                <asp:DropDownList ID="ddlISTETE" runat="server" ToolTip="Please Select TimeZone(IST/EST)">
                     <asp:ListItem>IST</asp:ListItem>
                     <asp:ListItem>EST</asp:ListItem>
                 </asp:DropDownList>
@@ -596,14 +626,13 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>
-                &nbsp;&nbsp;&nbsp;
-                </td>
+            <td>&nbsp;&nbsp;&nbsp;
+            </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>
-                                <asp:Button ID="btnSaveMoreJobs" runat="server" Text="Save" OnClick="btnSaveMoreJobs_Click" style="height: 26px" />
+                <asp:Button ID="btnSaveMoreJobs" runat="server" Text="Save" OnClick="btnSaveMoreJobs_Click" Style="height: 26px" />
                 <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
             </td>
         </tr>

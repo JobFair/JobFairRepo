@@ -454,6 +454,51 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButtonList rblCompanyType123;
         
         /// <summary>
+        /// panelLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel panelLocation;
+        
+        /// <summary>
+        /// ddlState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlState;
+        
+        /// <summary>
+        /// txtCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCity;
+        
+        /// <summary>
+        /// btnCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCity;
+        
+        /// <summary>
+        /// Panelcity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panelcity;
+        
+        /// <summary>
         /// chklCity control.
         /// </summary>
         /// <remarks>
@@ -461,6 +506,33 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList chklCity;
+        
+        /// <summary>
+        /// txtarea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtarea;
+        
+        /// <summary>
+        /// btnarea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnarea;
+        
+        /// <summary>
+        /// PanelArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelArea;
         
         /// <summary>
         /// chklArea control.
@@ -481,67 +553,67 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButtonList rblYesNo;
         
         /// <summary>
-        /// DropDownList5 control.
+        /// ddlBeforeHours control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBeforeHours;
         
         /// <summary>
-        /// DropDownList7 control.
+        /// ddlBeforeMinutes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList7;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBeforeMinutes;
         
         /// <summary>
-        /// DropDownList8 control.
+        /// ddlBeforeTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList8;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBeforeTime;
         
         /// <summary>
-        /// DropDownList9 control.
+        /// ddlAfterHours control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList9;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAfterHours;
         
         /// <summary>
-        /// DropDownList10 control.
+        /// ddlAfterMinutes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList10;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAfterMinutes;
         
         /// <summary>
-        /// DropDownList11 control.
+        /// ddlAfterTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList11;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAfterTime;
         
         /// <summary>
-        /// DropDownList12 control.
+        /// ddlISTETE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList12;
+        protected global::System.Web.UI.WebControls.DropDownList ddlISTETE;
         
         /// <summary>
         /// btnSaveMoreJobs control.
