@@ -3,6 +3,9 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
+
+<script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +37,7 @@
                         <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtkeyskill" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtkeyskill" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
                             EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetKeySkills">
                         </cc1:AutoCompleteExtender>
@@ -47,7 +50,7 @@
                     <td rowspan="3">
                         <asp:UpdatePanel ID="pnlState" runat="server">
                             <ContentTemplate>
-                                <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
+                                <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" onkeypress="return IsSelectedDDL(this.id)" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <br />
                                 <asp:DropDownList ID="ddlCity" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">

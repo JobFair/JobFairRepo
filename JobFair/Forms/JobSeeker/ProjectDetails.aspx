@@ -5,6 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+       
+<script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,7 +32,7 @@
                         <asp:Label ID="lblProjectTitle" runat="server" Text="Project Title"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtProjectTitle" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtProjectTitle" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -37,7 +40,7 @@
                         <asp:Label ID="lblCompanyName" runat="server" Text="Company Name"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCompanyName" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtCompanyName" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +57,7 @@
                         <asp:Label ID="lblClientName" runat="server" Text="Client Name"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtClientName" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtClientName" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -65,7 +68,7 @@
                     <td>
                         <asp:TextBox ID="txtFromDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtFromDate" TargetControlID="txtFromDate" Format="dd/MM/yyyy" />
 
-                        To<asp:TextBox ID="txtTodate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtTodate" TargetControlID="txtTodate" Format="dd/MM/yyyy" />
+                        To<asp:TextBox ID="txtTodate" runat="server" <%--onkeypress="return CheckValidDate(this.id);"--%>></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtTodate" TargetControlID="txtTodate" Format="dd/MM/yyyy" />
                     </td>
                 </tr>
                 <tr>
@@ -73,7 +76,7 @@
                         <asp:Label ID="lblLocation" runat="server" Text="Project Location"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtLocation" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtLocation" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -90,7 +93,7 @@
                         <asp:Label ID="lblProjectDetails" runat="server" Text="Project Details"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtProjectDetails" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtProjectDetails" runat="server" TextMode="MultiLine" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -98,7 +101,7 @@
                         <asp:Label ID="lblResponsibility" runat="server" Text="Roles And Responsibility"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtRolesAndResponsibility" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtRolesAndResponsibility" runat="server" TextMode="MultiLine" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -136,7 +139,7 @@
                         <asp:Label ID="lblSkillUsed" runat="server" Text="Skill Used"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtSkillUsed" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtSkillUsed" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
