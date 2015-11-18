@@ -6,6 +6,9 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.UserControls.JobSeeker
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class RoleSkillsDetails : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
