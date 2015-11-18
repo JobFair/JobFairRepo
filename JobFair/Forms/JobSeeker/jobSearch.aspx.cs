@@ -73,8 +73,8 @@ namespace JobFair.Forms.JobSeeker
             DataSet ds = new DataSet();
             ds = JobSearchBAL.GetRoles();
             chkRole.DataSource = ds;
-            chkRole.DataTextField = "roleName";
-            chkRole.DataValueField = "roleId";
+            chkRole.DataTextField = "TechnicalSkillName";
+            chkRole.DataValueField = "TechnicalSkillId";
             chkRole.DataBind();
         }
 

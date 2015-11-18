@@ -266,7 +266,7 @@ namespace CommonUtil
             DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, " Select * from JS_Roles ");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, " select * from TechnicalSkillsDetails order by TechnicalSkillName asc ");
                 return ds;
             }
             catch (Exception ex)
@@ -339,15 +339,15 @@ namespace CommonUtil
             DataSet ds = new DataSet();
             try
             {
-                
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text,"select StateName,StateId from State order by StateName asc");
+
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select StateName,StateId from State order by StateName asc");
                 return ds;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }     
+        }
         /// <summary>
         /// Method to get Area on cityid
         /// </summary>

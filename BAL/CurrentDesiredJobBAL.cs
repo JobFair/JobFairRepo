@@ -9,7 +9,7 @@ namespace BAL
     /// CurrentDesiredJobBAL class
     /// </summary>
     public class CurrentDesiredJobBAL
-    {                  
+    {
         /// <summary>
         /// Method to get Country
         /// </summary>
@@ -90,9 +90,8 @@ namespace BAL
             {
                 throw;
             }
-        }   
-           
-               
+        }
+
         /// <summary>
         /// Method to save experience details in CurrentDesiredJobBAL class
         /// </summary>
@@ -110,6 +109,7 @@ namespace BAL
                 throw;
             }
         }
+
         /// <summary>
         /// Method to get Functional Area
         /// </summary>
@@ -125,6 +125,7 @@ namespace BAL
                 throw;
             }
         }
+
         /// <summary>
         /// Method to save Job Looking Details in CurrentDesiredJobBAL class
         /// </summary>
@@ -142,6 +143,7 @@ namespace BAL
                 throw;
             }
         }
+
         /// <summary>
         /// Method to save Job details in CurrentDesiredJobBAL class
         /// </summary>
@@ -155,10 +157,10 @@ namespace BAL
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
         }
+
         /// <summary>
         /// Method to save desired details in CurrentDesiredJobBAL class
         /// </summary>
@@ -171,10 +173,11 @@ namespace BAL
                 currentDesiredJobDAL.SaveDesiredJobDetailsDAL(currentDesiredJobEntity);
             }
             catch (System.Exception)
-            {                
+            {
                 throw;
             }
         }
+
         /// <summary>
         /// Method to get State
         /// </summary>
@@ -190,7 +193,7 @@ namespace BAL
                 throw;
             }
         }
-       
+
         /// <summary>
         /// Method to Get CityArea in CurrentDesiredJobBAL class
         /// </summary>
@@ -203,11 +206,15 @@ namespace BAL
                 return Utility.GetArea(cityId);
             }
             catch (System.Exception)
-            {                
+            {
                 throw;
             }
         }
 
+        /// <summary>
+        /// Method to Get Technical Skills in CurrentDesiredJobBAL
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
         public DataSet GetTechnicalSkillsDetailsBAL()
         {
             try
@@ -217,11 +224,14 @@ namespace BAL
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method to Save Technical 
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public DataTable SaveTechnicalSkillsBAL(DataTable dt)
         {
             try
@@ -231,11 +241,8 @@ namespace BAL
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
-            
-
         }
 
         public DataSet GetRoleSkillsBAL()
@@ -244,11 +251,9 @@ namespace BAL
             {
                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
                 return currentDesiredJobDAL.GetRoleSkillsDAL();
-
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
         }
@@ -262,10 +267,8 @@ namespace BAL
             }
             catch (System.Exception)
             {
-
                 throw;
             }
-            
         }
     }
 }
