@@ -347,6 +347,14 @@ function IsSelected(ctrl, ctrlType, msg) {
     }
 }
 
+function IsSelectedDDL(ctrl) {
+    if (document.getElementById(ctrl).value == "") {
+        alert("Select At Least One"); // prompt user
+        document.getElementById(ctrl).focus(); //set focus back to control
+        return false;
+    }
+}
+
 function CheckEmail(pEmail) {
     var email = document.getElementById(pEmail);
     var regex = /[\w-]+@([\w-]+\.)+[\w-]+/;
@@ -769,17 +777,17 @@ function ScrollGrid(Grid, height, flag) {
 
 //------------------------//
 //-----Progress Window Start------//
-Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
-Sys.WebForms.PageRequestManager.getInstance().add_endRequest(endRequestHandler);
-function BeginRequestHandler(sender, args) {
-    var state = document.getElementById('myProgressDivID').style.display;
-    //if (state == 'block') {
-    //    document.getElementById('myProgressDivID').style.display = 'none';
-    //}
-    //else {
-    document.getElementById('myProgressDivID').style.display = 'block';
-    //}
-}
+//Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+//Sys.WebForms.PageRequestManager.getInstance().add_endRequest(endRequestHandler);
+//function BeginRequestHandler(sender, args) {
+//    var state = document.getElementById('myProgressDivID').style.display;
+//    //if (state == 'block') {
+//    //    document.getElementById('myProgressDivID').style.display = 'none';
+//    //}
+//    //else {
+//    document.getElementById('myProgressDivID').style.display = 'block';
+//    //}
+//}
 function endRequestHandler(sender, args) {
     //var state = document.getElementById('myProgressDivID').style.display;
     //if (state == 'block') {

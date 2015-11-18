@@ -10,7 +10,7 @@
     <script src="../../Scripts/ValidationAll.js"></script>
     <script src="../../Scripts/jquery-2.1.4.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
-    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
 
      <style type="text/css">
         .border-right {

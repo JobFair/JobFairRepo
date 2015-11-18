@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="searchRecord.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.searchRecord" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SearchRecord.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.searchRecord" %>
 <script src="../../NewFolder1/jquery-1.11.1.min%20(1).js"></script>
 <table class="auto-style1">
             <tr>
