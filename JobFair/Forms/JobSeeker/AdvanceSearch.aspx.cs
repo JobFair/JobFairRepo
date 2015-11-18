@@ -92,7 +92,7 @@ namespace JobFair.Forms.JobSeeker
         }
 
         /// <summary>
-        /// bind industry to dropdown and stored in database
+        /// Bind industry to dropdown and stored in database
         /// </summary>
        
         private void BindDepartment()
@@ -174,14 +174,22 @@ namespace JobFair.Forms.JobSeeker
         }
 
       
-
+        /// <summary>
+        ///  Bind area to checkboxlist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void chkarea_SelectedIndexChanged(object sender, EventArgs e)
         {
        var  selectedArea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
 
         txtarea.Text = string.Join(",", selectedArea.Select(x=>x.Text));
             }
-
+        /// <summary>
+        /// Bind industry to checkboxlist 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void chkIndustry_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectIndustry = chkIndustry.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
@@ -194,7 +202,16 @@ namespace JobFair.Forms.JobSeeker
    }
 
         
-    }
+   }
                     
-    //  }
 }
+        
+
+
+
+
+
+
+
+
+

@@ -11,8 +11,29 @@ namespace JobFair.Forms.Recruiter
         /// Class ViewProfile
         /// </summary>
 
+        private string candidateId;
+        private bool isCheck = true;
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
+            if (!IsPostBack)
+            { 
+                    if(isCheck)
+                        try
+                        {
+
+                        }
+                        catch (Exception)
+                        {
+                            
+                            throw;
+                        }
+            
+            }
+
+
+
+
             DataSet ds = new DataSet();
             ViewProfileREBAL viewProfileBAL = new ViewProfileREBAL();
             ViewProfileEntity viewProfileEntity = new ViewProfileEntity();

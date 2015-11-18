@@ -170,6 +170,9 @@
             <tr>
                 <td colspan="2">
                     <asp:TextBox ID="txtResumeDetails" runat="server" Height="459px" ReadOnly="True" TextMode="MultiLine" Width="341px"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Button ID="btnedit" runat="server" Height="27px" Text="Edit" Width="93px" />
                 </td>
             </tr>
         </table>

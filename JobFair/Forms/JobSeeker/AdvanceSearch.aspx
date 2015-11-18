@@ -8,15 +8,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .style1 {
-            clear: both;
-            position: relative;
-            width: 100%;
-            background-color: #fff;
-            margin-bottom: 5px;
-               }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
