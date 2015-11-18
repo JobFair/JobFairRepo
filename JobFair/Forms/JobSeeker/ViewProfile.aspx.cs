@@ -16,7 +16,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + "JS14.txt" ;
+            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + "JS4.txt" ;
          //   UploadFile(path);
 
             byte[] arraycontent = ReadFileData(path);
