@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td>User Name</td>
-            <td><asp:TextBox ID="txtUserName" runat="server" placeholder="User Name" onfocus="this.placeholder = ''" onblur="ValidationAll:allLetter(document.form1.text1);"></asp:TextBox>
+            <td><asp:TextBox ID="txtUserName" runat="server" placeholder="User Name" onfocus="this.placeholder = ''" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>
             </td>
         </tr>

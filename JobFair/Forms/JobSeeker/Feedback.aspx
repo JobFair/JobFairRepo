@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feedback.aspx.cs" Inherits="JobFair.Forms.JobSeeker.Feedback" %>
 
+<script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,9 +18,7 @@
         <td>
             Name:</td>
         <td>
-            <asp:TextBox ID="txtName" 
-                            runat="server"
-                            Columns="50"></asp:TextBox>
+            <asp:TextBox ID="txtName" runat="server" Columns="50" onkeypress="return CheckOnlyChar(this.id);"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -39,11 +39,7 @@
             Feedback:
         </td>
         <td>
-            <asp:TextBox ID="txtMessage" 
-                            runat="server"
-                            Columns="40"
-                            Rows="6" 
-                            TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="txtMessage" runat="server" Columns="40" Rows="6" TextMode="MultiLine" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
         </td>
     </tr>
     <tr>
