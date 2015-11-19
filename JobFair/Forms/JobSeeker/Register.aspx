@@ -23,21 +23,21 @@
             <tr>
                 <td>First name</td>
                 <td>
-                <asp:TextBox ID="txtFirstName" runat="server" onkeypress="return CheckOnlyChar(this.id);"></asp:TextBox>
+                <asp:TextBox ID="txtFirstName" runat="server" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>Last Name
         </td>
                 <td>
-            <asp:TextBox ID="txtLastName" runat="server" onkeypress="return CheckOnlyChar(this.id);"></asp:TextBox>
+            <asp:TextBox ID="txtLastName" runat="server" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>Email Id
         </td>
                 <td>
-            <asp:TextBox ID="txtEmailId" runat="server" onkeypress="return CheckEmail(this.id);"></asp:TextBox>
+            <asp:TextBox ID="txtEmailId" runat="server" onblur="return IsValidEmail(this.id);"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -53,7 +53,7 @@
             <tr>
                 <td>Mobile No</td>
                 <td>
-                    <asp:TextBox ID="txtMobileNo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMobileNo" runat="server" onblur="return IsValidMobNumber(this.id);"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvMobileNo" runat="server" ErrorMessage="Enter your mobile number" ForeColor="#FF3300" ControlToValidate="txtMobileNo">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -74,14 +74,14 @@
             <tr>
                 <td>Current City</td>
                 <td>
-                    <asp:TextBox ID="txtCurrCity" runat="server" onkeypress="return CheckOnlyChar(this.id);"></asp:TextBox>
+                    <asp:TextBox ID="txtCurrCity" runat="server" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvCurrentCity" runat="server" ErrorMessage="Enter your city" ForeColor="#FF3300" ControlToValidate="txtCurrCity">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>Current Address</td>
                 <td>
-                    <asp:TextBox ID="txtCurrAddress" runat="server" TextMode="MultiLine" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                    <asp:TextBox ID="txtCurrAddress" runat="server" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvCurrentAddress" runat="server" ErrorMessage="Enter your address" ForeColor="#FF3300" ControlToValidate="txtCurrAddress">*</asp:RequiredFieldValidator>
                 </td>
             </tr>

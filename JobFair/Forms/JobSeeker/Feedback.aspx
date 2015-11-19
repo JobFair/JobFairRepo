@@ -18,7 +18,7 @@
         <td>
             Name:</td>
         <td>
-            <asp:TextBox ID="txtName" runat="server" Columns="50" onkeypress="return CheckOnlyChar(this.id);"></asp:TextBox>
+            <asp:TextBox ID="txtName" runat="server" Columns="50" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -39,7 +39,7 @@
             Feedback:
         </td>
         <td>
-            <asp:TextBox ID="txtMessage" runat="server" Columns="40" Rows="6" TextMode="MultiLine" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+            <asp:TextBox ID="txtMessage" runat="server" Columns="40" Rows="6" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
         </td>
     </tr>
     <tr>

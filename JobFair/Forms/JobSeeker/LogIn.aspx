@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td>User Name </td>
-            <td><asp:TextBox ID="txtUserName" runat="server" placeholder="User Name" onfocus="this.placeholder = ''" onkeypress="return IsValidEmail(this.id);"></asp:TextBox>
+            <td><asp:TextBox ID="txtUserName" runat="server" placeholder="User Name" onfocus="this.placeholder = ''" onblur="return IsValidEmail(this.id);"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
             </td>
@@ -27,7 +27,6 @@
             </td>
         </tr>
         <tr>
-            <a href="ProjectDetails.aspx">ProjectDetails.aspx</a>
             <td>&nbsp;</td>
             <td><asp:CheckBox ID="cbRememberMe" runat="server" Text="Remember Me" /></td>
         </tr>

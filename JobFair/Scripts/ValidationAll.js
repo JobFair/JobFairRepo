@@ -599,6 +599,25 @@ function SetSelectedIndex(dropdownlist, sVal) {
     }
 }
 
+
+/***************Function To Valid Mobile Number******************/
+function IsValidMobNumber(ctrl) {
+    try {
+        var chkNumber = /^([1-9]{1})+([0-9]{9})+$/i;
+        if (!chkNumber.test(document.getElementById(ctrl).value.trim())) {
+            alert("Please Enter Valid Mobile Number.");
+            document.getElementById(ctrl).focus();
+            return false;
+        }
+        return true;
+    } catch (e) {
+        alert(e.toString());
+        return false;
+    }
+}
+/***************Function To Valid Mobile Number End******************/
+
+
 /***************Function To Valid Email Address******************/
 function IsValidEmail(ctrl) {
     try {

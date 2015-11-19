@@ -32,7 +32,7 @@
                         <asp:Label ID="lblProjectTitle" runat="server" Text="Project Title"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtProjectTitle" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                        <asp:TextBox ID="txtProjectTitle" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -40,7 +40,7 @@
                         <asp:Label ID="lblCompanyName" runat="server" Text="Company Name"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCompanyName" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                        <asp:TextBox ID="txtCompanyName" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -57,7 +57,7 @@
                         <asp:Label ID="lblClientName" runat="server" Text="Client Name"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtClientName" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                        <asp:TextBox ID="txtClientName" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -69,7 +69,7 @@
                         <asp:TextBox ID="txtFromDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtFromDate" TargetControlID="txtFromDate" Format="dd/MM/yyyy" />
 
                         To<asp:TextBox ID="txtTodate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtTodate" TargetControlID="txtTodate" Format="dd/MM/yyyy" />
-                         <%--onkeypress="return CheckValidDate(this.id);"--%>
+                         <%--onblur="return CheckValidDate(this.id);"--%>
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +77,7 @@
                         <asp:Label ID="lblLocation" runat="server" Text="Project Location"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtLocation" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                        <asp:TextBox ID="txtLocation" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                         <asp:Label ID="lblProjectDetails" runat="server" Text="Project Details"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtProjectDetails" runat="server" TextMode="MultiLine" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                        <asp:TextBox ID="txtProjectDetails" runat="server" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -102,7 +102,7 @@
                         <asp:Label ID="lblResponsibility" runat="server" Text="Roles And Responsibility"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtRolesAndResponsibility" runat="server" TextMode="MultiLine" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                        <asp:TextBox ID="txtRolesAndResponsibility" runat="server" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -140,7 +140,7 @@
                         <asp:Label ID="lblSkillUsed" runat="server" Text="Skill Used"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtSkillUsed" runat="server" onkeypress="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                        <asp:TextBox ID="txtSkillUsed" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
