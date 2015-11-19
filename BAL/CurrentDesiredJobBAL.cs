@@ -270,5 +270,10 @@ namespace BAL
                 throw;
             }
         }
+
+        public DataSet ViewCurrentJobDetailsBAL(string candidateId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
