@@ -47,13 +47,13 @@ namespace JobFair.UserControls.JobSeeker
                     PersonalDetailsJSBAL personalDetailsJSBAL = new PersonalDetailsJSBAL();
                     ds = personalDetailsJSBAL.ViewPersonalDetailsBAL(candidateId);
                     txtPresentAddress.Text =Convert.ToString(ds.Tables[0].Rows[0]["PresentAddress"]);
-                    ddlCountryPresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentCountryId"]);
-                   // ddlStatePresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentStateId"]);
+                    ddlCountryPresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CountryName"]);
+                    ddlStatePresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["StateName"]);
                    // ddlCityPresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentCityId"]);
                   //  ddlAreaPresent.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentArea"]);
                     txtPincodePresent.Text = Convert.ToString(ds.Tables[0].Rows[0]["PresentPincode"]);
                     txtAddressPerm.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantAddress"]);
-                    ddlCountryPerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantCountryId"]);
+                   // ddlCountryPerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantCountryId"]);
                    // ddlStatePerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantStateId"]);
                    // ddlCityPerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantCityId"]);
                   //  ddlAreaPerm.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PermantArea"]);
