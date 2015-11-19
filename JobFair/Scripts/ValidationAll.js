@@ -81,7 +81,7 @@ function AllowOnlyNumric(e) {
     }
 }
 function CheckOnlyChar(controlId) {
-    var textBoxContent = document.getElementById(controlId).value;
+    var textBoxContent = document.getElementById(controlId).value.trim();
     var chk = /[^a-zA-Z]+/;
     if (chk.test(textBoxContent)) {
         alert('Enter Only Characters')
@@ -602,7 +602,9 @@ function SetSelectedIndex(dropdownlist, sVal) {
 /***************Function To Valid Email Address******************/
 function IsValidEmail(ctrl) {
     try {
-        var chkEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        //var chkEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        //var chkEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        var chkEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{3,})+$/i;
         if (!chkEmail.test(document.getElementById(ctrl).value.trim())) {
             alert("Please Enter Valid Email Address.");
             document.getElementById(ctrl).focus();
