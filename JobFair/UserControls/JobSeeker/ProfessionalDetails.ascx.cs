@@ -10,7 +10,9 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
+        private string candidateId;
         static double Temp = 0;
+        private bool isCheck = true;
         /// <summary>
         /// Handles the Load event of Page
         /// </summary>
@@ -18,8 +20,24 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+             candidateId = Convert.ToString(Session["candidateId"]);
             if (!IsPostBack)
             {
+                if(isCheck)
+                {
+                    try
+                    {
+                        DataSet ds = new DataSet();
+                        CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                        ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
+
+                    }
+                    catch (Exception)
+                    {
+                        
+                        throw;
+                    }
+                }
                 bindState();
                 BindMonth();
                 BindYear();

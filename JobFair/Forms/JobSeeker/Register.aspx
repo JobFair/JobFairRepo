@@ -93,7 +93,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Reference Id<br />
+                <td>Reference Mail Id<br />
                     (If any)</td>
                 <td>
                     <asp:TextBox ID="txtRefCandidateId" runat="server"></asp:TextBox>
