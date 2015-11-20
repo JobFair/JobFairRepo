@@ -60,5 +60,6 @@ namespace DAL
         public const string sp_JS_SelectContactDetails = "sp_JS_SelectContactDetails";
         public const string sp_JS_UpdateContactDetails = "sp_JS_UpdateContactDetails";
         public const string sp_JS_SelectCurrentDesiredJobDetails = "sp_JS_SelectCurrentDesiredJobDetails";
+        public const string sp_JS_UpdatePersonalDetails = "sp_JS_UpdatePersonalDetails";
     }
 }

@@ -70,5 +70,47 @@ namespace DAL
                 connection.Close();
             }
         }
+
+        public int UpdatePersonalDetailsDAL(PersonalDetailsJSEntity personalDetailsEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+
+                SqlParameter[] sqlparams = {
+                                              new SqlParameter("@candidateId",personalDetailsEntity.candidateId),
+                                              new SqlParameter("@presentAddress",personalDetailsEntity.presentAddress),
+                                              new SqlParameter("@presentCountryId",personalDetailsEntity.presentCountryId),
+                                              new SqlParameter("@presentStateId",personalDetailsEntity.presentStateId),
+                                              new SqlParameter("@presentCityId",personalDetailsEntity.presentCityId),
+                                              new SqlParameter("@presentArea",personalDetailsEntity.presentArea),
+                                              new SqlParameter("@presentPincode",personalDetailsEntity.presentPincode),
+                                              new SqlParameter("@permantAddress",personalDetailsEntity.permantAddress),
+                                              new SqlParameter("@permantCountryId",personalDetailsEntity.permantCountryId),
+                                              new SqlParameter("@permantStateId",personalDetailsEntity.permantStateId),
+                                              new SqlParameter("@permantCityId",personalDetailsEntity.permantCityId),
+                                              new SqlParameter("@permantArea",personalDetailsEntity.permantArea),
+                                              new SqlParameter("@permantPincode",personalDetailsEntity.permantPincode),
+                                              new SqlParameter("@dateOfBirth", personalDetailsEntity.dateOfBirth.Date),
+                                              new SqlParameter("@gender",personalDetailsEntity.gender),
+                                              new SqlParameter("@maritalStatus",personalDetailsEntity.maritialStatus),
+                                              new SqlParameter("@passportNumber", personalDetailsEntity.passportNumber),
+                                              new SqlParameter("@passportValidity",personalDetailsEntity.passportValidity),
+                                              new SqlParameter("@photo", "~/UploadImages/"+personalDetailsEntity.photo)
+                                            };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdatePersonalDetails, sqlparams);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

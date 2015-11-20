@@ -27,11 +27,26 @@ namespace BAL
            
         }
 
+        public int UpdatePersonalDetailsBAL(PersonalDetailsJSEntity personalDetailsEntity)
+        {
+            try
+            {
+                PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
+                return pdDAL.UpdatePersonalDetailsDAL(personalDetailsEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
         public DataSet ViewPersonalDetailsBAL(string candidateId)
         {
             PersonalDetailsJSDAL personalDetailsDAL = new PersonalDetailsJSDAL();
             return personalDetailsDAL.ViewPersonalDetailsDAL(candidateId);
         }
+
+       
         /// <summary>
         /// Get Country
         /// </summary>
