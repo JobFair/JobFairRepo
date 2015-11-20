@@ -215,7 +215,21 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <div id="TextBoxContainer" runat="server">
+                                <div id="divPastCurrentJobDetails" runat="server">
+                                    <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand">
+                                        <HeaderTemplate>
+                                            <h1>Your Past & Current Experience</h1>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <table>
+                                                <tr>
+                                                    <td>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                     <!--Textboxes will be added here -->
                                 </div>
                             </td>
@@ -327,8 +341,86 @@
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td colspan="2">
+                                <div id="divJobPostLookingForRepeater" runat="server">
+                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand">
+                                        <HeaderTemplate>
+                                             <table>
+                                                 <tr>
+                                                     <td colspan="2">
+                                                         <h1>Your are looking for this Jobs</h1>
+                                                     </td>
+                                                 </tr>
+                                            
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            
+                                           <tr style="background-color:#EBEFF0">
+<td>
+<table style="background-color:#EBEFF0;border-top:1px dotted #c1650f; width:300px" >
+<tr>
+<td>
+<b>Job Post Looking For</b>
+<asp:Label ID="lblJobPostLooking" runat="server" Text='<%#Eval("JobPostLookingFor") %>'/>
+ <asp:TextBox ID="txtJobPostLooking" runat="server" Text='<%#Eval("JobPostLookingFor") %>' Visible="false"></asp:TextBox>
+</td>
+</tr>
+<tr>
+<td>
+<b>Industry</b>
+<asp:Label ID="lblIndustry" runat="server" Text='<%#Eval("IndustryName") %>'/>
+<asp:DropDownList ID="ddlIndustry" runat="server" Text='<%#Eval("IndustryName") %>' Visible="false"></asp:DropDownList>
+</td>
+</tr>
+<tr>
+<td>
+<b>Department</b>
+<asp:Label ID="lblDepartment" runat="server" Text='<%#Eval("DepartmentName") %>'/>
+<asp:DropDownList ID="ddlDepartment" runat="server" Text='<%#Eval("DepartmentName") %>' Visible="false"></asp:DropDownList>
+</td>
+</tr>
+<tr>
+<td>
+<b>Functional Role</b>
+<asp:Label ID="lblFunctionalRole" runat="server" Text='<%#Eval("FunctionalArea") %>'/>
+<asp:DropDownList ID="ddlFunctionalRole" runat="server" Text='<%#Eval("FunctionalArea") %>' Visible="false"></asp:DropDownList>
+</td>
+    </tr>
+    <tr>
+    <td>
+<b>Relevant Experience</b>
+<asp:Label ID="lblRelevantExperience" runat="server" Text='<%#Eval("RelevantExperience") %>'/>
+<asp:TextBox ID="txtRelevantExperience" runat="server" Text='<%#Eval("RelevantExperience") %>' Visible="false"></asp:TextBox>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table style="background-color:#EBEFF0;border-top:1px dotted #c1650f;border-bottom:1px solid #c1650f; width:300px" >
+<tr>
+   <td>
+        <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("CandidateId") %>' CommandName="edit">Edit</asp:LinkButton>
+            <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("CandidateId") %>' CommandName="delete" onclientclick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
+            <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("CandidateId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
+            <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("CandidateId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
+   </td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+                                        </table>
+                                        </ItemTemplate>
+                                       
+                                    </asp:Repeater>
+
+                                </div>
+                            </td>
+                            
                         </tr>
                     </table>
                 </div>

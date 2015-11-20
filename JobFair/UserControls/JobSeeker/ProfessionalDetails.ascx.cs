@@ -20,10 +20,11 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-             candidateId = Convert.ToString(Session["candidateId"]);
+             //candidateId = Convert.ToString(Session["candidateId"]);
+            candidateId = "JS3";
             if (!IsPostBack)
             {
-                if(isCheck)
+                if (isCheck)
                 {
                     try
                     {
@@ -31,24 +32,41 @@ namespace JobFair.UserControls.JobSeeker
                         CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                         ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
 
+                        BindRepeaterJobPostLooking();
+
                     }
                     catch (Exception)
                     {
-                        
+
                         throw;
                     }
                 }
-                bindState();
-                BindMonth();
-                BindYear();
+                else
+                {
+                    bindState();
+                    BindMonth();
+                    BindYear();
 
-                BindFunctionalArea();
-                BindIndustry();
-                BindDepartment();
-                hfCandidateId.Value = "JS3";
-                AddExperienceRecords();
-                AddJobLookingRecords();
+                    BindFunctionalArea();
+                    BindIndustry();
+                    BindDepartment();
+                    hfCandidateId.Value = "JS3";
+                    AddExperienceRecords();
+                    AddJobLookingRecords();
+                }
             }
+        }
+
+        private void BindRepeaterJobPostLooking()
+        {
+            DataSet ds = new DataSet();
+             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+             ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
+           
+          
+            rptrJobPostLookinFor.DataSource = ds;
+            rptrJobPostLookinFor.DataBind();
+            
         }
         /// <summary>
         /// Method Bind state to the ddlState control
@@ -587,6 +605,72 @@ namespace JobFair.UserControls.JobSeeker
         protected void btnarea_Click(object sender, EventArgs e)
         {
             PanelArea.Visible = true;
+        }
+
+        protected void rptrPastCurrentJobDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+        }
+
+        protected void rptrJobPostLookinFor_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "edit")
+            {
+                ((Label)e.Item.FindControl("lblJobPostLooking")).Visible = false;
+                ((Label)e.Item.FindControl("lblIndustry")).Visible = false;
+                ((Label)e.Item.FindControl("lblDepartment")).Visible = false;
+                ((Label)e.Item.FindControl("lblFunctionalRole")).Visible = false;
+                ((Label)e.Item.FindControl("lblRelevantExperience")).Visible = false;
+                ((TextBox)e.Item.FindControl("txtJobPostLooking")).Visible = true;
+                ((DropDownList)e.Item.FindControl("ddlIndustry")).Visible = true;
+                ((DropDownList)e.Item.FindControl("ddlDepartment")).Visible = true;
+                ((DropDownList)e.Item.FindControl("ddlFunctionalRole")).Visible = true;
+                ((TextBox)e.Item.FindControl("txtRelevantExperience")).Visible = true;
+                ((LinkButton)e.Item.FindControl("lnkEdit")).Visible = false;
+                ((LinkButton)e.Item.FindControl("lnkDelete")).Visible = false;
+                ((LinkButton)e.Item.FindControl("lnkUpdate")).Visible = true;
+                ((LinkButton)e.Item.FindControl("lnkCancel")).Visible = true;
+            }
+            if (e.CommandName == "update")
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                currentDesiredJobEntity.JobPostLookingFor = ((TextBox)e.Item.FindControl("txtJobPostLooking")).Text;
+               currentDesiredJobEntity.Industry=((DropDownList)e.Item.FindControl("ddlIndustry")).SelectedItem.Value;
+               
+               currentDesiredJobEntity.Department = ((DropDownList)e.Item.FindControl("ddlDepartment")).SelectedItem.Value;
+                currentDesiredJobEntity.FunctionalRole = ((DropDownList)e.Item.FindControl("ddlFunctionalRole")).SelectedItem.Value;
+                currentDesiredJobEntity.RelevantExp = ((TextBox)e.Item.FindControl("txtRelevantExperience")).Text;
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                 currentDesiredJobBAL.UpdateJobLookingBAL(candidateId);
+               
+                BindRepeaterJobPostLooking();
+            }
+            if (e.CommandName == "delete")
+            {
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                currentDesiredJobBAL.DeleteJobPostLookingForBAL(candidateId);
+               
+                BindRepeaterJobPostLooking();
+            }
+            if (e.CommandName == "cancel")
+            {
+                ((Label)e.Item.FindControl("lblJobPostLooking")).Visible = true;
+                ((Label)e.Item.FindControl("lblIndustry")).Visible = true;
+                ((Label)e.Item.FindControl("lblDepartment")).Visible = true;
+                ((Label)e.Item.FindControl("lblFunctionalRole")).Visible = true;
+                ((Label)e.Item.FindControl("lblRelevantExperience")).Visible = true;
+                ((TextBox)e.Item.FindControl("txtJobPostLooking")).Visible = false;
+                ((DropDownList)e.Item.FindControl("ddlIndustry")).Visible = false;
+                ((DropDownList)e.Item.FindControl("ddlDepartment")).Visible = false;
+                ((DropDownList)e.Item.FindControl("ddlFunctionalRole")).Visible = false;
+                ((TextBox)e.Item.FindControl("txtRelevantExperience")).Visible = false;
+                ((LinkButton)e.Item.FindControl("lnkEdit")).Visible = true;
+                ((LinkButton)e.Item.FindControl("lnkDelete")).Visible = true;
+                ((LinkButton)e.Item.FindControl("lnkUpdate")).Visible = false;
+                ((LinkButton)e.Item.FindControl("lnkCancel")).Visible = false;
+            }
+    
         }
     }
 }
