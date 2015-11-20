@@ -129,13 +129,13 @@
             <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
         </td>
         <td colspan="2">
-           <%-- <asp:RadioButtonList ID="rbtGender" runat="server" RepeatDirection="Horizontal">
+            <asp:RadioButtonList ID="rbtGender" runat="server" RepeatDirection="Horizontal">
                     <asp:ListItem>Female</asp:ListItem>
                     <asp:ListItem>Male</asp:ListItem>
                 </asp:RadioButtonList>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rbtGender"></asp:RequiredFieldValidator>--%>
-            <asp:RadioButton ID="rbtMale" runat="server" GroupName="gender" Text="Male" />
-            <asp:RadioButton ID="rbtFemale" runat="server" GroupName="gender" Text="Female" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rbtGender"></asp:RequiredFieldValidator>
+           <%-- <asp:RadioButton ID="rbtMale" runat="server" GroupName="gender" Text="Male" />
+            <asp:RadioButton ID="rbtFemale" runat="server" GroupName="gender" Text="Female" />--%>
         </td>
     </tr>
     <tr>

@@ -12,11 +12,11 @@ namespace JobFair.Forms.JobSeeker
         string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId = Convert.ToString(Session["candidateId"]);
-            if (candidateId == "")
-            {
-                Response.Redirect("LogIn.aspx");
-            }
+            //candidateId = Convert.ToString(Session["candidateId"]);
+            //if (candidateId == "")
+            //{
+            //    Response.Redirect("LogIn.aspx");
+            //}
           
             
         }
