@@ -15,7 +15,7 @@ namespace JobFair.Forms.JobSeeker
         {
             string candidateId = Convert.ToString(Session["candidateId"]);
 
-            CheckAuthorised(candidateId);
+            //CheckAuthorised(candidateId);
 
             if (!IsPostBack)
             {
@@ -27,12 +27,10 @@ namespace JobFair.Forms.JobSeeker
 
             if (rbtYes.Checked)
             {
-                txtLink.Visible = true;
-                lblLinkUrl.Visible = true;
+                panelProjectLink.Visible = true;
                 return;
             }
-            txtLink.Visible = false;
-            lblLinkUrl.Visible = false;
+            panelProjectLink.Visible = false;
         }
 
         private void GetRole()
@@ -224,12 +222,10 @@ namespace JobFair.Forms.JobSeeker
             {
                 if (rbtProjectTypeList.SelectedValue == "1")
                 {
-                    lblAcademicLevel.Visible = true;
-                    ddlAcademicLevel.Visible = true;
+                    panelAcademicLevel.Visible = true;
                     return;
                 }
-                lblAcademicLevel.Visible = false;
-                ddlAcademicLevel.Visible = false;
+                panelAcademicLevel.Visible = false;
             }
             catch (Exception)
             {
