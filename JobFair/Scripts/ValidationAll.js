@@ -93,6 +93,18 @@ function CheckOnlyChar(controlId) {
         return true;
     }
 }
+function CheckIsNum(txtObj) {
+    obj = document.getElementById(txtObj);
+    var regex = /^[0-9]+$/;
+    if (!regex.test(obj.value)) {
+        obj.value = theVal = obj.value.replace(/[^0-9]/g, '');
+        if (theVal > "") {
+            obj.value = parseFloat("0" + theVal);
+            obj.focus()
+        }
+        alert('Enter Only Numeric Values')
+    }
+}
 function CheckIsNumDec(txtObj) {
     obj = document.getElementById(txtObj);
     if (!/^\d+(\.\d*)?$/.test(obj.value)) {
@@ -103,17 +115,7 @@ function CheckIsNumDec(txtObj) {
         }
     }
 }
-function CheckIsNum(txtObj) {
-    obj = document.getElementById(txtObj);
-    var regex = /^[0-9]+$/;
-    if (!regex.test(obj.value)) {
-        obj.value = theVal = obj.value.replace(/[^0-9]/g, '');
-        if (theVal > "") {
-            obj.value = parseFloat("0" + theVal);
-            obj.focus()
-        }
-    }
-}
+
 /************* Allow Only Number or aplha numeric or charcters only End**************/
 
 
@@ -326,7 +328,7 @@ function IsSelected(ctrl, ctrlType, msg) {
     if (selectedTest != null) {
         var elements = selectedTest.getElementsByTagName("input");
         var bReturn = false;
-        for (i = 0; i < elements.length; i++) {
+        for (i = 1; i < elements.length; i++) {
             if (elements[i].type == ctrlType) {
                 if (elements[i].checked) {
                     bReturn = true;
@@ -347,9 +349,9 @@ function IsSelected(ctrl, ctrlType, msg) {
     }
 }
 
-function IsSelectedDDL(ctrl) {
-    if (document.getElementById(ctrl).value == "") {
-        alert("Select At Least One"); // prompt user
+function IsSelectedDDL(ctrl, msg) {
+    if (document.getElementById(ctrl).value == "" || document.getElementById(ctrl).text == '--Select--') {
+        alert('Select At Least One' + msg); // prompt user
         document.getElementById(ctrl).focus(); //set focus back to control
         return false;
     }

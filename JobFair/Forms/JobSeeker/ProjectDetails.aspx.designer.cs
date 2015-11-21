@@ -40,6 +40,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButtonList rbtProjectTypeList;
         
         /// <summary>
+        /// rfvProjectTypeList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProjectTypeList;
+        
+        /// <summary>
         /// lblProjectTitle control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProjectTitle;
+        
+        /// <summary>
+        /// rfvProjectTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProjectTitle;
         
         /// <summary>
         /// lblCompanyName control.
@@ -76,6 +94,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtCompanyName;
         
         /// <summary>
+        /// rfvCompanyName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompanyName;
+        
+        /// <summary>
         /// lblRole control.
         /// </summary>
         /// <remarks>
@@ -92,6 +119,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlRole;
+        
+        /// <summary>
+        /// rfvRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRole;
         
         /// <summary>
         /// lblClientName control.
@@ -139,6 +175,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
         
         /// <summary>
+        /// rfvFromDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFromDate;
+        
+        /// <summary>
         /// txtTodate control.
         /// </summary>
         /// <remarks>
@@ -157,6 +202,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
         
         /// <summary>
+        /// rfvTodate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTodate;
+        
+        /// <summary>
         /// lblLocation control.
         /// </summary>
         /// <remarks>
@@ -173,6 +227,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLocation;
+        
+        /// <summary>
+        /// rfvLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLocation;
         
         /// <summary>
         /// lblEmploymentType control.
@@ -220,6 +283,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtProjectDetails;
         
         /// <summary>
+        /// rfvProjectDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProjectDetails;
+        
+        /// <summary>
         /// lblResponsibility control.
         /// </summary>
         /// <remarks>
@@ -236,6 +308,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRolesAndResponsibility;
+        
+        /// <summary>
+        /// rfvRolesAndResponsibility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRolesAndResponsibility;
         
         /// <summary>
         /// lblTeamSize control.
@@ -256,6 +337,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlTeamSize;
         
         /// <summary>
+        /// rfvTeamSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTeamSize;
+        
+        /// <summary>
         /// lblSkillUsed control.
         /// </summary>
         /// <remarks>
@@ -272,6 +362,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSkillUsed;
+        
+        /// <summary>
+        /// rfvSkillUsed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSkillUsed;
         
         /// <summary>
         /// rbtYes control.
@@ -292,6 +391,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButton rbtNo;
         
         /// <summary>
+        /// panelProjectLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelProjectLink;
+        
+        /// <summary>
         /// lblLinkUrl control.
         /// </summary>
         /// <remarks>
@@ -310,6 +418,33 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtLink;
         
         /// <summary>
+        /// rfvLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLink;
+        
+        /// <summary>
+        /// revLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revLink;
+        
+        /// <summary>
+        /// panelAcademicLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelAcademicLevel;
+        
+        /// <summary>
         /// lblAcademicLevel control.
         /// </summary>
         /// <remarks>
@@ -326,6 +461,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAcademicLevel;
+        
+        /// <summary>
+        /// rfvAcademicLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAcademicLevel;
         
         /// <summary>
         /// btnSubmit control.

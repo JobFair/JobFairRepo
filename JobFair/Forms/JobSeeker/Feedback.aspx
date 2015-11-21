@@ -19,6 +19,7 @@
             Name:</td>
         <td>
             <asp:TextBox ID="txtName" runat="server" Columns="50" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtName"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -32,6 +33,7 @@
                 <asp:ListItem>Customer support ticket</asp:ListItem>
                 <asp:ListItem>Other</asp:ListItem>
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvSubject" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -40,6 +42,7 @@
         </td>
         <td>
             <asp:TextBox ID="txtMessage" runat="server" Columns="40" Rows="6" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvMessage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMessage"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>

@@ -4,7 +4,7 @@
 <%@ Register Src="~/UserControls/JobSeeker/EducationalDetails.ascx" TagPrefix="uc1" TagName="EducationalDetails" %>
 
 
-
+<script src="../../Scripts/ValidationAll.js"></script>
 <%--<%@ Register src="~/UserControls/JobSeeker/EducationalDetails.ascx" tagname="EducationalDetails" tagprefix="uc1" %>--%>
 
 <!DOCTYPE html>

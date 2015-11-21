@@ -273,7 +273,46 @@ namespace BAL
 
         public DataSet ViewCurrentJobDetailsBAL(string candidateId)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                 return currentDesiredJobDAL.ViewCurrentJobDetailsDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+      
+
+        public void UpdateJobLookingBAL(string candidateId)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                 currentDesiredJobDAL.UpdateJobLookingDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void DeleteJobPostLookingForBAL(string candidateId)
+        {
+            try
+            {
+CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+ currentDesiredJobDAL.DeleteJobPostLookingForDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

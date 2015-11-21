@@ -30,5 +30,15 @@
         public string TimeInWeekdays { get; set; }
 
         public string PreferrefArea { get; set; }
+
+        public string JobPostLookingFor { get; set; }
+
+        public string Industry { get; set; }
+
+        public string Department { get; set; }
+
+        public string FunctionalRole { get; set; }
+
+        public string RelevantExp { get; set; }
     }
 }
