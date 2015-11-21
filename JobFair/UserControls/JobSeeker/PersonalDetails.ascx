@@ -14,6 +14,7 @@
         </td>
         <td colspan="2">
             <asp:FileUpload ID="FileUploadPhoto" runat="server" />
+            <asp:Image ID="Image1" runat="server" Height="100px" Width="100px" ImageAlign="Top" />
         </td>
     </tr>
     <tr>
@@ -130,11 +131,11 @@
         </td>
         <td colspan="2">
             <asp:RadioButtonList ID="rbtGender" runat="server" RepeatDirection="Horizontal">
-                    <asp:ListItem>Female</asp:ListItem>
-                    <asp:ListItem>Male</asp:ListItem>
-                </asp:RadioButtonList>
+                <asp:ListItem>Female</asp:ListItem>
+                <asp:ListItem>Male</asp:ListItem>
+            </asp:RadioButtonList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rbtGender"></asp:RequiredFieldValidator>
-           <%-- <asp:RadioButton ID="rbtMale" runat="server" GroupName="gender" Text="Male" />
+            <%-- <asp:RadioButton ID="rbtMale" runat="server" GroupName="gender" Text="Male" />
             <asp:RadioButton ID="rbtFemale" runat="server" GroupName="gender" Text="Female" />--%>
         </td>
     </tr>
@@ -181,10 +182,8 @@
                                 <%--<asp:TextBox ID="txtValidity" runat="server" Visible="false"></asp:TextBox>
                                 <cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtValidity" PopupButtonID="txtValidity" Format="yyyy/MM/dd" />--%>
                                 <asp:DropDownList ID="ddlMonth" runat="server" Visible="false">
-                                   
                                 </asp:DropDownList>
                                 <asp:DropDownList ID="ddlYear" runat="server" Visible="false">
-                                  
                                 </asp:DropDownList>
                             </td>
                         </tr>

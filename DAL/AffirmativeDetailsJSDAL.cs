@@ -101,5 +101,19 @@ namespace DAL
                 connection.Close();
             }
         }
+        public DataSet ViewAffirmativeDetialsDAL(string candidateId)
+        {
+            try
+            {
+                  DataSet ds = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectAffirmativeDetails, sparams);
+                return ds;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
