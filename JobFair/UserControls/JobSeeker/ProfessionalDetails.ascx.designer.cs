@@ -283,13 +283,22 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblmsgsave;
         
         /// <summary>
-        /// TextBoxContainer control.
+        /// divPastCurrentJobDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TextBoxContainer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPastCurrentJobDetails;
+        
+        /// <summary>
+        /// rptrPastCurrentJobDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrPastCurrentJobDetails;
         
         /// <summary>
         /// divDesireJobDetails control.
@@ -398,6 +407,24 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvJobsLookingFor;
+        
+        /// <summary>
+        /// divJobPostLookingForRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divJobPostLookingForRepeater;
+        
+        /// <summary>
+        /// rptrJobPostLookinFor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrJobPostLookinFor;
         
         /// <summary>
         /// txtcurrentannualsalary control.

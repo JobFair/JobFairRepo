@@ -241,5 +241,68 @@ namespace DAL
                 throw;
             }
         }
+
+        public DataSet ViewCurrentJobDetailsDAL(string candidateId)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@candiadteId", candidateId) };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentDesiredJobDetails, sparams);
+                return ds;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+       
+
+        public void UpdateJobLookingDAL(string candidateId)
+        {
+            try
+            {
+
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+            connection.Open();
+            SqlParameter[] sparams = new SqlParameter[6];
+            sparams[0] = new SqlParameter("@candidateId", candidateId);
+            sparams[1] = new SqlParameter("@jobPostLookingFor", currentDesiredJobEntity.JobPostLookingFor);
+            sparams[2] = new SqlParameter("@industry", currentDesiredJobEntity.Industry);
+            sparams[3] = new SqlParameter("@department", currentDesiredJobEntity.Department);
+            sparams[4] = new SqlParameter("@functionalRole", currentDesiredJobEntity.FunctionalRole);
+            sparams[5] = new SqlParameter("@relevantExp", Convert.ToDouble(currentDesiredJobEntity.RelevantExp));
+
+            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_UpdateJobPostLookingFor", sparams);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void DeleteJobPostLookingForDAL(string candidateId)
+        {
+            try
+            {
+                
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+            connection.Open();
+           
+           SqlParameter [] sparams ={ new SqlParameter("@candidateId", candidateId)};
+          
+
+            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_DeleteJobPostLookingFor", sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+        }
     }
 }
