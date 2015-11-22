@@ -1,17 +1,11 @@
 ﻿using BAL;
-using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
-using System.Globalization;
 
 namespace JobFair.UserControls.JobSeeker
 {
-     /// <summary>
+    /// <summary>
     /// Class MoreCertifications.
     /// </summary>
     public partial class MoreCertifications : System.Web.UI.UserControl
@@ -22,16 +16,23 @@ namespace JobFair.UserControls.JobSeeker
         {
             if (!IsPostBack)
             {
-                 certificationDetails = new MoreCertificationBAL();
-                // Bind Month List
-                List<string> monthList = CommonUtil.Utility.GetMonths();
-                ddlMonth.DataSource = monthList;
-                ddlMonth.DataBind();
+                certificationDetails = new MoreCertificationBAL();
+
+                //Declration For ALL
+                List<string> YearList = CommonUtil.Utility.GetYears();
+                List<string> MonthList = CommonUtil.Utility.GetMonths();
 
                 // Bind Year List
-                List<string> yearList = CommonUtil.Utility.GetYears();
-                ddlYear.DataSource = yearList;
-                ddlYear.DataBind();
+                ddlYearFrom.DataSource = YearList;
+                ddlYearFrom.DataBind();
+                ddlYearTo.DataSource = YearList;
+                ddlYearTo.DataBind();
+
+                // Bind Month List
+                ddlMonthFrom.DataSource = MonthList;
+                ddlMonthFrom.DataBind();
+                ddlMonthTo.DataSource = MonthList;
+                ddlMonthTo.DataBind();
 
                 AddDefaultFirstRecord();
             }
@@ -43,52 +44,55 @@ namespace JobFair.UserControls.JobSeeker
             txtCertificationName.Text = "";
             txtCertificationInstitute.Text = "";
             txtCertificationDuration.Text = "";
-            ddlMonth.SelectedIndex = 0;
-            ddlYear.SelectedIndex = 0;
+            ddlMonthFrom.SelectedIndex = 0;
+            ddlYearFrom.SelectedIndex = 0;
+            ddlMonthTo.SelectedIndex = 0;
+            ddlYearTo.SelectedIndex = 0;
             txtCertificationGrade.Text = "";
-            
         }
+
         private void AddNewRecordRowToGrid()
         {
             try
             {
-                    DataTable dtCurrentTable = (DataTable)ViewState["EducationalDetails"];
-                    DataRow drCurrentRow = null;
+                DataTable dtCurrentTable = (DataTable)ViewState["EducationalDetails"];
+                DataRow drCurrentRow = null;
 
-                    if (dtCurrentTable.Rows.Count > 0)
+                if (dtCurrentTable.Rows.Count > 0)
+                {
+                    for (int i = 1; i <= dtCurrentTable.Rows.Count; i++)
                     {
-                        for (int i = 1; i <= dtCurrentTable.Rows.Count; i++)
-                        {
-                            //TimeSpan o = new TimeSpan(0, 0, 0);
-                            //DateTime startDate = Convert.ToDateTime(this.txtFromDate.Text.Trim(), new CultureInfo("en-Gb"));
-                            //DateTime endDate = Convert.ToDateTime(this.txtTodate.Text.Trim(), new CultureInfo("en-Gb"));
-                            //o += endDate.Subtract(startDate);
-                            //int days = o.Days;
+                        //TimeSpan o = new TimeSpan(0, 0, 0);
+                        //DateTime startDate = Convert.ToDateTime(this.txtFromDate.Text.Trim(), new CultureInfo("en-Gb"));
+                        //DateTime endDate = Convert.ToDateTime(this.txtTodate.Text.Trim(), new CultureInfo("en-Gb"));
+                        //o += endDate.Subtract(startDate);
+                        //int days = o.Days;
 
-                            //Creating new row and assigning values
-                            drCurrentRow = dtCurrentTable.NewRow();
-                            drCurrentRow["CandidateId"] = "JS9";//hfCandidateId.Value.Trim();
-                            drCurrentRow["CertificationName"] = txtCertificationName.Text.Trim();
-                            drCurrentRow["Institute"] = txtCertificationInstitute.Text.Trim();
-                            drCurrentRow["Duration"] = txtCertificationDuration.Text.Trim();
-                            drCurrentRow["YearOfCompletion"] = ddlMonth.SelectedItem.Text + ddlYear.SelectedItem.Text;
-                            drCurrentRow["Grade"] = txtCertificationGrade.Text.Trim();
-                        }
-                        //Removing initial blank row
-                        if (dtCurrentTable.Rows[0][0].ToString() == "")
-                        {
-                            dtCurrentTable.Rows[0].Delete();
-                            dtCurrentTable.AcceptChanges();
-                        }
+                        //Creating new row and assigning values
+                        drCurrentRow = dtCurrentTable.NewRow();
+                        drCurrentRow["CandidateId"] = "JS9";//hfCandidateId.Value.Trim();
+                        drCurrentRow["CertificationName"] = txtCertificationName.Text.Trim();
+                        drCurrentRow["Institute"] = txtCertificationInstitute.Text.Trim();
+                        drCurrentRow["Duration"] = txtCertificationDuration.Text.Trim();
+                        drCurrentRow["FromYear"] = ddlMonthFrom.SelectedItem.Text + ddlYearFrom.SelectedItem.Text;
+                        drCurrentRow["ToYear"] = ddlMonthTo.SelectedItem.Text + ddlYearTo.SelectedItem.Text;
+                        drCurrentRow["Grade"] = txtCertificationGrade.Text.Trim();
+                    }
+                    //Removing initial blank row
+                    if (dtCurrentTable.Rows[0][0].ToString() == "")
+                    {
+                        dtCurrentTable.Rows[0].Delete();
+                        dtCurrentTable.AcceptChanges();
+                    }
 
-                        //Added New Record to the DataTable
-                        dtCurrentTable.Rows.Add(drCurrentRow);
-                        //storing DataTable to ViewState
-                        ViewState["EducationalDetails"] = dtCurrentTable;
-                        //binding Gridview with New Row
-                        grvAddMore.DataSource = dtCurrentTable;
-                        grvAddMore.DataBind();
-                  }
+                    //Added New Record to the DataTable
+                    dtCurrentTable.Rows.Add(drCurrentRow);
+                    //storing DataTable to ViewState
+                    ViewState["EducationalDetails"] = dtCurrentTable;
+                    //binding Gridview with New Row
+                    grvAddMore.DataSource = dtCurrentTable;
+                    grvAddMore.DataBind();
+                }
             }
             catch (Exception)
             {
@@ -109,7 +113,8 @@ namespace JobFair.UserControls.JobSeeker
                 dt.Columns.Add(new DataColumn("CertificationName", typeof(string)));
                 dt.Columns.Add(new DataColumn("Institute", typeof(string)));
                 dt.Columns.Add(new DataColumn("Duration", typeof(string)));
-                dt.Columns.Add(new DataColumn("YearOfCompletion", typeof(string)));
+                dt.Columns.Add(new DataColumn("FromYear", typeof(string)));
+                dt.Columns.Add(new DataColumn("ToYear", typeof(string)));
                 dt.Columns.Add(new DataColumn("Grade", typeof(string)));
                 dr = dt.NewRow();
                 dt.Rows.Add(dr);
@@ -123,6 +128,7 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
+
         protected void btnsubmitCertifications_Click(object sender, EventArgs e)
         {
             MoreCertificationBAL certificationDetailsBAL = new MoreCertificationBAL();

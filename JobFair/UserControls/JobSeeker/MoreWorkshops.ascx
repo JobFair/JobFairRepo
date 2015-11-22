@@ -27,10 +27,21 @@
         </td>
     </tr>
     <tr>
-        <td > <asp:Label ID="lblYOC" runat="server" Text="Year of Completion"></asp:Label></td>
         <td>
-              <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true"></asp:DropDownList>
-              <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true"></asp:DropDownList>
+            <asp:Label ID="lblYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
+        </td>
+        <td>
+            <asp:DropDownList ID="ddlMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+            <asp:DropDownList ID="ddlYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label ID="lblYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
+        </td>
+        <td>
+            <asp:DropDownList ID="ddlMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
+            <asp:DropDownList ID="ddlYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
         </td>
     </tr>
     <tr>
@@ -57,7 +68,8 @@
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Workshop Name" DataField="WorkshopName" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Workshop Institute" DataField="Institute" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Workshop Duration" DataField="Duration" />
-                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Year Of Completion" DataField="YearOfCompletion" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="From Year" DataField="FromYear" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="To Year" DataField="ToYear" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Workshop Grade" DataField="Grade" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />

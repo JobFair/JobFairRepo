@@ -36,7 +36,8 @@ namespace DAL
                 objbulk.ColumnMappings.Add("CertificationName", "CertificationName");
                 objbulk.ColumnMappings.Add("Institute", "Institute");
                 objbulk.ColumnMappings.Add("Duration", "Duration");
-                objbulk.ColumnMappings.Add("YearOfCompletion", "YearOfCompletion");
+                objbulk.ColumnMappings.Add("FromYear", "FromYear");
+                objbulk.ColumnMappings.Add("ToYear", "ToYear");
                 objbulk.ColumnMappings.Add("Grade", "Grade");
                 //inserting bulk Records into DataBase
                 objbulk.WriteToServer(certEntity);
