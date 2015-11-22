@@ -88,19 +88,19 @@
             <asp:Label ID="lblPhysicallyChallenged" runat="server" Text="Physically Challenged"></asp:Label>
         </td>
         <td colspan="5">
-            <asp:RadioButton ID="rbtYes" runat="server" Text="Yes" GroupName="PhysicallyChallenged" AutoPostBack="true" />
+            <asp:RadioButtonList ID="rbtPhysicallyChallenged" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rbtPhysicallyChallenged_SelectedIndexChanged">
+                <asp:ListItem Value="1">Yes</asp:ListItem>
+                <asp:ListItem Value="0">No</asp:ListItem>
+            </asp:RadioButtonList>
+            <%--<asp:RadioButton ID="rbtYes" runat="server" Text="Yes" GroupName="PhysicallyChallenged" AutoPostBack="true" />
             &nbsp;&nbsp;
-                <asp:RadioButton ID="rbtNo" runat="server" Text="No" GroupName="PhysicallyChallenged" AutoPostBack="true" />
+                <asp:RadioButton ID="rbtNo" runat="server" Text="No" GroupName="PhysicallyChallenged" AutoPostBack="true" />--%>
         </td>
     </tr>
-    <tr>
-        <td>
+    <asp:Panel id="upPhysicallyChallenged" runat="server" Visible="false">
             <asp:Label ID="lblDescription" runat="server" Text="Description" Visible="false"></asp:Label>
-        </td>
-        <td colspan="5">
             <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Visible="false"></asp:TextBox>
-        </td>
-    </tr>
+    </asp:Panel>
     <tr>
         <td>
             <asp:Label ID="lblSports" runat="server" Text="Sports"></asp:Label>
@@ -136,9 +136,13 @@
             <asp:Label ID="lblUSAPermit" runat="server" Text="USAPermit"></asp:Label>
         </td>
         <td colspan="5">
-            <asp:RadioButton ID="rbtYesUSA" runat="server" Text="Yes" GroupName="Permit" />
+            <asp:RadioButtonList ID="rbtUSAPermit" runat="server" RepeatDirection="Horizontal">
+                <asp:ListItem>Yes</asp:ListItem>
+                <asp:ListItem>No</asp:ListItem>
+            </asp:RadioButtonList>
+            <%--<asp:RadioButton ID="rbtYesUSA" runat="server" Text="Yes" GroupName="Permit" />
             &nbsp;&nbsp;
-                <asp:RadioButton ID="rbtNOUSA" runat="server" Text="No" GroupName="Permit" />
+                <asp:RadioButton ID="rbtNoUSA" runat="server" Text="No" GroupName="Permit" />--%>
         </td>
     </tr>
     <tr>
