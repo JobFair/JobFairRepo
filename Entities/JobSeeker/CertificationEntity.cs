@@ -14,7 +14,8 @@ namespace Entities.JobSeeker
         public string CertificationName { get; set; }
         public string Institute { get; set; }
         public string Duration { get; set; }
-        public string YearOfCompletion { get; set; }
+        public string FromYear { get; set; }
+        public string ToYear { get; set; }
         public string Grade { get; set; }
     }
 }

@@ -23,15 +23,23 @@ namespace JobFair.UserControls.JobSeeker
             if (!IsPostBack)
             {
                 workshopDetails = new MoreWorkshopBAL();
-                // Bind Month List
-                List<string> monthList = CommonUtil.Utility.GetMonths();
-                ddlMonth.DataSource = monthList;
-                ddlMonth.DataBind();
+
+                //Declration For ALL
+                List<string> YearList = CommonUtil.Utility.GetYears();
+                List<string> MonthList = CommonUtil.Utility.GetMonths();
 
                 // Bind Year List
-                List<string> yearList = CommonUtil.Utility.GetYears();
-                ddlYear.DataSource = yearList;
-                ddlYear.DataBind();
+                ddlYearFrom.DataSource = YearList;
+                ddlYearFrom.DataBind();
+                ddlYearTo.DataSource = YearList;
+                ddlYearTo.DataBind();
+
+                // Bind Month List
+                ddlMonthFrom.DataSource = MonthList;
+                ddlMonthFrom.DataBind();
+                ddlMonthTo.DataSource = MonthList;
+                ddlMonthTo.DataBind();
+
 
                 AddDefaultFirstRecord();
             }
@@ -43,8 +51,10 @@ namespace JobFair.UserControls.JobSeeker
             txtWorkshopName.Text = "";
             txtWorkshopInstitute.Text = "";
             txtWorkshopDuration.Text = "";
-            ddlMonth.SelectedIndex = 0;
-            ddlYear.SelectedIndex = 0;
+            ddlMonthFrom.SelectedIndex = 0;
+            ddlYearFrom.SelectedIndex = 0;
+            ddlMonthTo.SelectedIndex = 0;
+            ddlYearTo.SelectedIndex = 0;
             txtworkspGrade.Text = "";
         }
         private void AddNewRecordRowToGrid()
@@ -70,7 +80,8 @@ namespace JobFair.UserControls.JobSeeker
                         drCurrentRow["WorkshopName"] = txtWorkshopName.Text.Trim();
                         drCurrentRow["Institute"] = txtWorkshopInstitute.Text.Trim();
                         drCurrentRow["Duration"] = txtWorkshopDuration.Text.Trim();
-                        drCurrentRow["YearOfCompletion"] = ddlMonth.SelectedItem.Text + ddlYear.SelectedItem.Text;
+                        drCurrentRow["FromYear"] = ddlMonthFrom.SelectedItem.Text + ddlYearFrom.SelectedItem.Text;
+                        drCurrentRow["ToYear"] = ddlMonthTo.SelectedItem.Text + ddlYearTo.SelectedItem.Text;
                         drCurrentRow["Grade"] = txtworkspGrade.Text.Trim();
                     }
                     //Removing initial blank row
@@ -108,7 +119,8 @@ namespace JobFair.UserControls.JobSeeker
                 dt.Columns.Add(new DataColumn("WorkshopName", typeof(string)));
                 dt.Columns.Add(new DataColumn("Institute", typeof(string)));
                 dt.Columns.Add(new DataColumn("Duration", typeof(string)));
-                dt.Columns.Add(new DataColumn("YearOfCompletion", typeof(string)));
+                dt.Columns.Add(new DataColumn("FromYear", typeof(string)));
+                dt.Columns.Add(new DataColumn("ToYear", typeof(string)));
                 dt.Columns.Add(new DataColumn("Grade", typeof(string)));
                 dr = dt.NewRow();
                 dt.Rows.Add(dr);

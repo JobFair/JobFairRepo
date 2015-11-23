@@ -71,7 +71,8 @@ function AllowOnlyNumric(e) {
     var textBoxContent = document.getElementById(controlId).value;
     var chk = /[^a-zA-Z 0-9 . - ( )]+/;
     if (chk.test(textBoxContent)) {
-        alert('Special Characters are not allowed')
+        var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+        ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Special Characters are not allowed</font></h3></center");
         textBoxContent = textBoxContent.replace(/[^a-zA-Z 0-9 . - ( )]+/g, '');
         document.getElementById(controlId).value = textBoxContent;
         return false;
@@ -84,7 +85,10 @@ function CheckOnlyChar(controlId) {
     var textBoxContent = document.getElementById(controlId).value.trim();
     var chk = /[^a-zA-Z]+/;
     if (chk.test(textBoxContent)) {
-        alert('Enter Only Characters')
+        var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+        ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Enter Only Characters</font></h3></center");
+        //response.Write("<script language='javascript'>alert('Enter Only Characters')</script>");
+        //onmessage.alert('Enter Only Characters')
         textBoxContent = textBoxContent.replace(/[^a-zA-Z]+/g, '');
         document.getElementById(controlId).value = textBoxContent;
         return false;
@@ -102,7 +106,8 @@ function CheckIsNum(txtObj) {
             obj.value = parseFloat("0" + theVal);
             obj.focus()
         }
-        alert('Enter Only Numeric Values')
+        var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+        ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Enter Only Numeric Values</font></h3></center");
     }
 }
 function CheckIsNumDec(txtObj) {
@@ -115,7 +120,30 @@ function CheckIsNumDec(txtObj) {
         }
     }
 }
-
+//function CheckRange(txtObj) {
+//    obj = parseInt(document.getElementById(txtObj).value);
+//    var regex = /^[0-9]+$/;
+//    if (regex.test(obj.value) > 35 && regex.test(obj.value) < 100 && theVal > "") {
+//        obj.value = theVal = obj.value.replace(/[^0-9]/g, '');
+//        if (theVal > "") {
+//            obj.value = parseFloat("0" + theVal);
+//            obj.focus()
+//        }
+//    }
+//    alert('Enter Numeric Values Between 35 to 100');
+//}
+function CheckRange(controlId) {
+    var txtVal = document.getElementById(controlId).value;
+        if (txtVal >= 35 && txtVal <= 100) {               
+            return true;
+        }          
+    else
+            var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+            ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Enter Numeric Values Between 35 to 100</font></h3></center");
+            document.getElementById(controlId).value = '';
+            document.getElementById(controlId).focus();
+        return false;
+}
 /************* Allow Only Number or aplha numeric or charcters only End**************/
 
 
@@ -258,7 +286,7 @@ function IsValidDate(ctrl) {
     var chk = /^(((((0[1-9])|(1\d)|(2[0-8]))\/((0[1-9])|(1[0-2])))|((31\/((0[13578])|(1[02])))|((29|30)\/((0[1,3-9])|(1[0-2])))))\/((20[0-9][0-9])|(19[0-9][0-9])))|((29\/02\/(19|20)(([02468][048])|([13579][26]))))$/
     var control = document.getElementById(ctrl);
     if (control.value.replace(/^\s+|\s+$/g, "") == "") {
-        alert("Enter a Date");
+       // alert("Enter a Date");
         control.focus();
         return false;
     }
@@ -348,10 +376,17 @@ function IsSelected(ctrl, ctrlType, msg) {
         return false;
     }
 }
-
-function IsSelectedDDL(ctrl, msg) {
+function ValidateDropdown() {
+    var result = document.getElementById('<%=ddlTeamSize%>').value;
+    if (result == "0") {
+        alert("Please Select Education");
+        return false;
+    }
+    return false;
+}
+function IsSelectedDDL(ctrl) {
     if (document.getElementById(ctrl).value == "" || document.getElementById(ctrl).text == '--Select--') {
-        alert('Select At Least One' + msg); // prompt user
+        alert('Select At Least One'); // prompt user
         document.getElementById(ctrl).focus(); //set focus back to control
         return false;
     }
@@ -361,7 +396,9 @@ function CheckEmail(pEmail) {
     var email = document.getElementById(pEmail);
     var regex = /[\w-]+@([\w-]+\.)+[\w-]+/;
     if (email.value != "" && !regex.test(email.value)) {
-        alert("Invalid Email");
+        //alert("Invalid Email");
+        var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+        ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Invalid Email</font></h3></center");
         email.focus();
         email.value = "";
         return false;
@@ -395,128 +432,6 @@ function CheckRadio(theRadio) {
 }
 /********** other controls validation End************************/
 
-
-/***************Grid Scrollable ************************/
-var headerHeight = 8;
-function GridScroll(gvId, wrapperClass) {
-    freezeGridViewHeaderForIEAndFF(gvId, wrapperClass);
-}
-function freezeGridViewHeaderForIEAndFF(gridViewId, wrapperDivClassName) {
-    var grid = document.getElementById(gridViewId);
-    if (grid != 'undefined') {
-        grid.style.visibility = 'hidden';
-
-        var div = null;
-        if (grid.parentNode != 'undefined') {
-            //Find wrapper div output by GridView
-            div = grid.parentNode;
-            if (div.tagName == "DIV") {
-                div.className = wrapperDivClassName;
-                div.style.overflow = "auto";
-            }
-        }
-
-        var grid = prepareFixedHeader(grid);
-        var tbody = grid.getElementsByTagName('TBODY')[0];
-
-        //Needed for Firefox
-        tbody.style.height = (522 - headerHeight) + 'px';
-
-        tbody.style.overflowX = "hidden";
-        tbody.overflow = 'auto';
-        tbody.overflowX = 'hidden';
-
-        grid.style.visibility = 'visible';
-    }
-}
-function prepareFixedHeader(grid) {
-    //Find DOM TBODY element and  and
-    var tags = grid.getElementsByTagName('TBODY');
-    if (tags != 'undefined') {
-        var tbody = tags[0];
-
-        var trs = tbody.getElementsByTagName('TR');
-
-        if (trs != 'undefined') {
-            headerHeight += trs[0].offsetHeight;
-
-            //Remove first TR tag from it
-            var headTR = tbody.removeChild(trs[0]);
-
-            //create a new element called THEAD
-            var head = document.createElement('THEAD');
-            head.appendChild(headTR);
-
-            //add to a THEAD element instead of TR so CSS styles
-            //can be applied properly in both IE and FireFox
-            grid.insertBefore(head, grid.firstChild);
-        }
-    }
-    return grid;
-}
-/***************Grid Scrollable END************************/
-
-/********** Confirmation Of Delete *******************/
-function DeleteComfirm() {
-    if (ConfirmDelete()) {
-        var Reason = window.prompt("Please Enter Reason To Delete", "");
-        if (Reason) {
-            if (Reason.trim() != null && Reason.trim() != "") {
-                document.getElementById("hdnDeleteRemark").value = Reason.trim();
-                return true;
-            }
-            else {
-                alert('Can not delete without reason');
-                return false;
-            }
-        }
-        else {
-            alert('Can not delete without reason');
-            return false;
-        }
-    }
-    else {
-        alert('Delete Cancelled: Reason not given');
-        return false;
-    }
-}
-function ConfirmDelete() {
-    return confirm('Confirm delete?')
-}
-
-
-/********** Editable dropdown *******************/
-function AddItem(textId, ddlID, DivID) {
-    txt = document.getElementById(textId);
-    ddl = document.getElementById(ddlID);
-    var strLower = txt.value;
-    strLower = strLower.toLowerCase();
-    var itemText = "";
-    var ent = /Enter/;
-    var i, iflag = 0;
-    if (strLower.search(ent) != -1) {
-        alert("Can't Save Empty Text");
-        return false;
-    }
-
-    for (i = 0; i < ddl.length; i++) {
-        itemText = ddl[i].innerHTML;
-        itemText = itemText.toLowerCase();
-
-        if (strLower == "enter new value") {
-            return false;
-        }
-        else if (strLower == itemText) {
-            alert("Item Already Exists");
-            return false;
-        }
-    }
-    HideDiv(DivID);
-    return true;
-}
-/********** Editable dropdown end*******************/
-
-
 /********** Text With List *******************/
 function AddText(chkID, textID) {
     var List = document.getElementById(chkID);
@@ -545,52 +460,6 @@ function AddText(chkID, textID) {
 }
 /********** TextWithList End *******************/
 
-
-/********** Dropdown extender *****************/
-function VisibleMe(ContrilId) {
-    $find(ContrilId)._dropWrapperHoverBehavior_onhover();
-}
-
-function ShowCheckBoxList() {
-    if (!e) var e = window.event;
-    e.cancelBubble = true;
-    if (e.stopPropagation) e.stopPropagation();
-}
-/********** Dropdown extender *****************/
-
-
-/********** Record save Deleted notification *****************/
-function FadeOutNotification() {
-    $('#Notification').show();
-    $('#Notification').fadeOut(2000);
-}
-/********** Record save Deleted notification End *****************/
-
-
-/**************** Expport to Html**************************/
-function htmlView() {
-    //var Id = document.getElementById(visitID).value.split(';')[0];
-
-    window.open(getRootPath() + "HtmlView.htm", "window", "top=10,left=100,height=630px,width=750px,menubar=yes,scrollbars=1,address=0", true);
-    return false;
-}
-
-function getRootPath() {
-    var searchString = document.location.search;
-
-    // strip off the leading '?'
-    searchString = searchString.substring(1);
-
-    var nvPairs = searchString.split("/");
-    var loc = "";
-    for (i = 0; i < nvPairs.length - 3; i++) {
-        loc = loc + "../";
-    }
-    return loc;
-}
-/*****************Expport to Html End***************************/
-
-
 //SET SELECTED INDEX
 function SetSelectedIndex(dropdownlist, sVal) {
     var a = document.getElementById(dropdownlist);
@@ -607,7 +476,8 @@ function IsValidMobNumber(ctrl) {
     try {
         var chkNumber = /^([1-9]{1})+([0-9]{9})+$/i;
         if (!chkNumber.test(document.getElementById(ctrl).value.trim())) {
-            alert("Please Enter Valid Mobile Number.");
+            var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+            ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Please Enter Valid Mobile Number</font></h3></center");
             document.getElementById(ctrl).focus();
             return false;
         }
@@ -627,7 +497,8 @@ function IsValidEmail(ctrl) {
         //var chkEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         var chkEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{3,})+$/i;
         if (!chkEmail.test(document.getElementById(ctrl).value.trim())) {
-            alert("Please Enter Valid Email Address.");
+            var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+            ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Please Enter Valid Email Address</font></h3></center");
             document.getElementById(ctrl).focus();
             return false;
         }
@@ -797,31 +668,6 @@ function ScrollGrid(Grid, height, flag) {
     }
 
 }
-
-//------------------------//
-//-----Progress Window Start------//
-//Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
-//Sys.WebForms.PageRequestManager.getInstance().add_endRequest(endRequestHandler);
-//function BeginRequestHandler(sender, args) {
-//    var state = document.getElementById('myProgressDivID').style.display;
-//    //if (state == 'block') {
-//    //    document.getElementById('myProgressDivID').style.display = 'none';
-//    //}
-//    //else {
-//    document.getElementById('myProgressDivID').style.display = 'block';
-//    //}
-//}
-function endRequestHandler(sender, args) {
-    //var state = document.getElementById('myProgressDivID').style.display;
-    //if (state == 'block') {
-    document.getElementById('myProgressDivID').style.display = 'none';
-    //}
-    //else {
-    //    document.getElementById('myProgressDivID').style.display = 'block';
-
-    //}
-}
-//-----Progress Window End------//
 
 function GetQueryStringParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

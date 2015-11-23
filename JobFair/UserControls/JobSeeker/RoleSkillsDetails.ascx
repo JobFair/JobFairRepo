@@ -19,13 +19,22 @@
                     </td>
                 <td>
                     <asp:DropDownList ID="ddlFromMonth" runat="server">
-                      
                     </asp:DropDownList>
-                    <asp:DropDownList ID="ddlFromYear" runat="server"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvFromMonth" runat="server" ControlToValidate="ddlFromMonth" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                    <asp:DropDownList ID="ddlFromYear" runat="server">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvFromYear" runat="server" ControlToValidate="ddlFromYear" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlTillMonth" runat="server"></asp:DropDownList>
-                    <asp:DropDownList ID="ddlTillYear" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlTillMonth" runat="server">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvTillMonth" runat="server" ControlToValidate="ddlTillMonth" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                    <asp:DropDownList ID="ddlTillYear" runat="server">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvTillYear" runat="server" ControlToValidate="ddlTillYear" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+
                 </td>
                 <td>
                     <asp:DropDownList ID="ddlProficiency" runat="server">
@@ -34,6 +43,7 @@
                         <asp:ListItem>Intermediate</asp:ListItem>
                         <asp:ListItem>Expert</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvProficiency" runat="server" ControlToValidate="ddlProficiency" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
                 </tr>
             <tr>

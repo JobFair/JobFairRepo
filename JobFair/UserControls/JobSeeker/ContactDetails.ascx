@@ -21,6 +21,8 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtAltNo" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revAltNo" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtAltNo" ValidationExpression="/^([1-9]{1})+([0-9]{9})+$/i"></asp:RegularExpressionValidator>
+
                 </td>
             </tr>
             <tr>
@@ -45,6 +47,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtLinkedIn" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revLinkedIn" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtLinkedIn" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -53,6 +56,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtFacebook" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revFacebook" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtFacebook" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -61,6 +65,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtTwitter" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revTwitter" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtTwitter" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -69,6 +74,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtGTalk" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revGTalk" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtGTalk" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -77,6 +83,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtSkype" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revSkype" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtSkype" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -85,6 +92,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtGooglePlus" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revGooglePlus" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtGooglePlus" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>

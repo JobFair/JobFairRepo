@@ -249,6 +249,7 @@ namespace DAL
                 DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candiadteId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentDesiredJobDetails, sparams);
+               
                 return ds;
             }
             catch (Exception)

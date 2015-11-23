@@ -28,11 +28,37 @@ namespace JobFair.UserControls.JobSeeker
                 {
                     try
                     {
+                       
                         DataSet ds = new DataSet();
+                        DataSet ds2 = new DataSet();
                         CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                         ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-
-                        BindRepeaterJobPostLooking();
+                        bindState();
+                        
+                        txtResumeHeadline.Text=Convert.ToString(ds.Tables[0].Rows[0]["ResumeHeadline"]);
+                        txtObjective.Text = Convert.ToString(ds.Tables[0].Rows[0]["Objective"]);
+                        txtProfileSummary.Text = Convert.ToString(ds.Tables[0].Rows[0]["ProfileSummary"]);
+                        lblTotalExp.Text = Convert.ToString(ds.Tables[0].Rows[0]["TotalExpriance"]);
+                        txtcurrentannualsalary.Text = Convert.ToString(ds.Tables[0].Rows[0]["CurrentAnualSalary"]);
+                        txtexpectedsalary.Text = Convert.ToString(ds.Tables[0].Rows[0]["ExpectedAnualSalary"]);
+                        ddlState.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PreferredState"]);
+                        //string format = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCity"]); ;
+                        //string[] Words = format.Split(new char[] { ',' });
+                        //int count = 0;
+                        //foreach (string Word in Words)
+                        //{
+                        //    count += 1;
+                        //    if (count == 1)
+                        //    { chklCity.SelectedValue = Word; }
+                           
+                        //}
+                        //int stateId = Convert.ToInt32(ds.Tables[0].Rows[0]["PreferredState"]);
+                       
+                        //BindIndustry();
+                        //BindDepartment();
+                        //BindFunctionalArea();
+                        //hfCandidateId.Value = "JS3";
+                        //BindRepeaterJobPostLooking();
 
                     }
                     catch (Exception)
@@ -57,16 +83,20 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
+       
+
         private void BindRepeaterJobPostLooking()
         {
             DataSet ds = new DataSet();
              CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
              ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-           
-          
-            rptrJobPostLookinFor.DataSource = ds;
-            rptrJobPostLookinFor.DataBind();
+
+
+             ddlIndustry123.SelectedIndex = Convert.ToInt32(ds.Tables[0].Rows[0]["Industry"]);
+            rptrJobPostLookinFor.DataSource = ds;    
             
+            rptrJobPostLookinFor.DataBind();
+           
         }
         /// <summary>
         /// Method Bind state to the ddlState control
@@ -326,7 +356,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             double months = MonthDifference();
             
-            Label1.Text = months.ToString();
+            lblTotalExp.Text = months.ToString();
 
             try
             {
@@ -476,7 +506,7 @@ namespace JobFair.UserControls.JobSeeker
                 {
                     currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtUnEmployed.Text.Trim();
                 }
-                currentDesiredJobEntity.TotalExperience = Label1.Text;
+                currentDesiredJobEntity.TotalExperience = lblTotalExp.Text;
                 currentDesiredJobEntity.ResumeHeadline = txtResumeHeadline.Text.Trim();
                 currentDesiredJobEntity.CurrentWorkingStatus = ddlWorkStatus.SelectedItem.Text.Trim();
                 currentDesiredJobEntity.CurrentAnualSal = Convert.ToDouble(txtcurrentannualsalary.Text);
@@ -555,6 +585,26 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnCity_Click(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet();
+           
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
+            string format = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCity"]); ;
+            string[] Words = format.Split(new char[] { ',' });
+            int count = 0;
+            //Array[] arraylist = new Array[10];
+            
+            foreach (string Word in Words)
+            {
+                
+                count += 1;
+                if (count == 1)
+
+                {
+                    
+                    chklCity.SelectedItem.Value = Word; }
+
+            }
             Panelcity.Visible = true;
         }
         /// <summary>
@@ -611,7 +661,30 @@ namespace JobFair.UserControls.JobSeeker
         {
 
         }
+        protected void ddlState_onrowdatabound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                CheckBoxList c = (CheckBoxList)e.Row.FindControl("chklCity");
+                if (c != null)
+                {
+                    string s = (string)e.Row.DataItem;
 
+
+                    string[] items = s.Split(',');
+                    c.DataSource = items;
+                    c.DataBind();
+                    
+                    for (int i = 0; i < c.Items.Count; i++)
+                    {
+                        if (items.Contains(c.Items[i].Value))
+                        {
+                            c.Items[i].Selected = true;
+                        }
+                    }
+                }
+            }
+        }
         protected void rptrJobPostLookinFor_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "edit")
@@ -622,8 +695,8 @@ namespace JobFair.UserControls.JobSeeker
                 ((Label)e.Item.FindControl("lblFunctionalRole")).Visible = false;
                 ((Label)e.Item.FindControl("lblRelevantExperience")).Visible = false;
                 ((TextBox)e.Item.FindControl("txtJobPostLooking")).Visible = true;
-                ((DropDownList)e.Item.FindControl("ddlIndustry")).Visible = true;
-                ((DropDownList)e.Item.FindControl("ddlDepartment")).Visible = true;
+                ((DropDownList)e.Item.FindControl("ddlIndustry123")).Visible = true;
+                ((DropDownList)e.Item.FindControl("ddlDepartment123")).Visible = true;
                 ((DropDownList)e.Item.FindControl("ddlFunctionalRole")).Visible = true;
                 ((TextBox)e.Item.FindControl("txtRelevantExperience")).Visible = true;
                 ((LinkButton)e.Item.FindControl("lnkEdit")).Visible = false;
@@ -635,10 +708,10 @@ namespace JobFair.UserControls.JobSeeker
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
                 currentDesiredJobEntity.JobPostLookingFor = ((TextBox)e.Item.FindControl("txtJobPostLooking")).Text;
-               currentDesiredJobEntity.Industry=((DropDownList)e.Item.FindControl("ddlIndustry")).SelectedItem.Value;
+               currentDesiredJobEntity.Industry=((DropDownList)e.Item.FindControl("ddlIndustryRep")).SelectedItem.Value;
                
-               currentDesiredJobEntity.Department = ((DropDownList)e.Item.FindControl("ddlDepartment")).SelectedItem.Value;
-                currentDesiredJobEntity.FunctionalRole = ((DropDownList)e.Item.FindControl("ddlFunctionalRole")).SelectedItem.Value;
+               currentDesiredJobEntity.Department = ((DropDownList)e.Item.FindControl("ddlDepartmentRep")).SelectedItem.Value;
+                currentDesiredJobEntity.FunctionalRole = ((DropDownList)e.Item.FindControl("ddlFunctionalRoleRep")).SelectedItem.Value;
                 currentDesiredJobEntity.RelevantExp = ((TextBox)e.Item.FindControl("txtRelevantExperience")).Text;
                 DataSet ds = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
@@ -661,8 +734,8 @@ namespace JobFair.UserControls.JobSeeker
                 ((Label)e.Item.FindControl("lblFunctionalRole")).Visible = true;
                 ((Label)e.Item.FindControl("lblRelevantExperience")).Visible = true;
                 ((TextBox)e.Item.FindControl("txtJobPostLooking")).Visible = false;
-                ((DropDownList)e.Item.FindControl("ddlIndustry")).Visible = false;
-                ((DropDownList)e.Item.FindControl("ddlDepartment")).Visible = false;
+                ((DropDownList)e.Item.FindControl("ddlIndustry123")).Visible = false;
+                ((DropDownList)e.Item.FindControl("ddlDepartment123")).Visible = false;
                 ((DropDownList)e.Item.FindControl("ddlFunctionalRole")).Visible = false;
                 ((TextBox)e.Item.FindControl("txtRelevantExperience")).Visible = false;
                 ((LinkButton)e.Item.FindControl("lnkEdit")).Visible = true;
