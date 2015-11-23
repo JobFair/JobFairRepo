@@ -14,7 +14,7 @@ namespace JobFair.Forms.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
             string candidateId = Convert.ToString(Session["candidateId"]);
-
+            bool isCheck = true;
             //CheckAuthorised(candidateId);
 
             if (!IsPostBack)
@@ -31,6 +31,10 @@ namespace JobFair.Forms.JobSeeker
                 return;
             }
             panelProjectLink.Visible = false;
+            if(isCheck)
+            {
+                
+            }
         }
 
         private void GetRole()

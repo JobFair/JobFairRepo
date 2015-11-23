@@ -69,13 +69,40 @@ namespace BAL
         {
             try
             {
-                AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
-                return affirmativeDetailsBAL.ViewAffirmativeDetialsDAL(candidateId);
+                AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
+                return affirmativeDetailsDAL.ViewAffirmativeDetialsDAL(candidateId);
             }
             catch (System.Exception)
             {
                 throw;
             }
+        }
+        public bool UpdateAffirmativeDetailsBAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
+        {
+            try
+            {
+                 AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
+                return affirmativeDetailsDAL.UpdateAffirmativeDetailsDAL(affirmativeDetailsEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public bool UpdateLanguageDetailsBAL(List<LanguageEntity> languageEntity,string candidateId)
+        {
+            try
+            {
+                AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
+                return affirmativeDetailsBAL.UpdateLanguageDetailsDAL(languageEntity,candidateId);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+
         }
     }
 }

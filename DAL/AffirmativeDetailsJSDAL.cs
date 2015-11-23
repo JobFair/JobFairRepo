@@ -101,11 +101,12 @@ namespace DAL
                 connection.Close();
             }
         }
+
         public DataSet ViewAffirmativeDetialsDAL(string candidateId)
         {
             try
             {
-                  DataSet ds = new DataSet();
+                DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectAffirmativeDetails, sparams);
                 return ds;
@@ -113,6 +114,62 @@ namespace DAL
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public bool UpdateAffirmativeDetailsDAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
+        {
+            try
+            {
+                SqlParameter[] sqlparams ={
+                                          new SqlParameter("@candidateId",affirmativeDetailsEntity.CandidateId),
+                                          new SqlParameter("@physicallyChallenged",affirmativeDetailsEntity.PhysicallyChallenged),
+                                          new SqlParameter("@description",affirmativeDetailsEntity.Description),
+                                          new SqlParameter("@sports",affirmativeDetailsEntity.Sports),
+                                          new SqlParameter("@sportsDescription",affirmativeDetailsEntity.SportsDescription),
+                                          new SqlParameter("@usaPermit",affirmativeDetailsEntity.USAPermit),
+                                          new SqlParameter("@otherPermits",affirmativeDetailsEntity.OtherPermits),
+                                          new SqlParameter ("@hobbies",affirmativeDetailsEntity.Hobbies),
+                                          new SqlParameter ("@extraActivity",affirmativeDetailsEntity.ExtraActivity)
+                                          };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateAffirmativeDetails, sqlparams);
+                if (result > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+          
+        }
+
+        public bool UpdateLanguageDetailsDAL(List<LanguageEntity> languageEntity,string candidateId)
+        {
+            try
+            {
+                // Get xml string data from object
+                string languageDetails = CreateXML(languageEntity);
+
+                SqlParameter[] sqlparams = { new SqlParameter("@adEntity", languageDetails)
+                                           
+                                            };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateLanguageDetails, sqlparams);
+                if (result > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }
