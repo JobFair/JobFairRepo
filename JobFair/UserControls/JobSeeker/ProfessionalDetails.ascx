@@ -46,10 +46,10 @@
         <tr>
             <td>Total Experience</td>
             <td>
-                <asp:Label ID="lblYear" runat="server" Text=""></asp:Label>
-                &nbsp;Years &amp;
-                <asp:Label ID="lblMonth" runat="server" Text=""></asp:Label>
-                &nbsp;Months</td>
+                <asp:Label ID="lblTotalExp" runat="server"></asp:Label>
+                &nbsp;Years
+                </td>
+               
         </tr>
         <tr>
             <td>Currently You Are?</td>
@@ -369,21 +369,21 @@
 <td>
 <b>Industry</b>
 <asp:Label ID="lblIndustry" runat="server" Text='<%#Eval("IndustryName") %>'/>
-<asp:DropDownList ID="ddlIndustry" runat="server" Text='<%#Eval("IndustryName") %>' Visible="false"></asp:DropDownList>
+<asp:DropDownList ID="ddlIndustry123" runat="server" SelectedValue='<%#Eval("IndustryName") %>' Visible="false"></asp:DropDownList>
 </td>
 </tr>
 <tr>
 <td>
 <b>Department</b>
-<asp:Label ID="lblDepartment" runat="server" Text='<%#Eval("DepartmentName") %>'/>
-<asp:DropDownList ID="ddlDepartment" runat="server" Text='<%#Eval("DepartmentName") %>' Visible="false"></asp:DropDownList>
+<asp:Label ID="lblDepartment" runat="server"  Text='<%#Eval("DepartmentName") %>'/>
+<asp:DropDownList ID="ddlDepartment123" DataTextField="DepartmentName" DataValueField="DepartmentId" runat="server"  SelectedValue='<%#Eval("DepartmentId") %>' Visible="false"></asp:DropDownList>
 </td>
 </tr>
 <tr>
 <td>
 <b>Functional Role</b>
 <asp:Label ID="lblFunctionalRole" runat="server" Text='<%#Eval("FunctionalArea") %>'/>
-<asp:DropDownList ID="ddlFunctionalRole" runat="server" Text='<%#Eval("FunctionalArea") %>' Visible="false"></asp:DropDownList>
+<asp:DropDownList ID="ddlFunctionalRole" DataValueField="FunctionalAreaId" DataTextField="FunctionalArea" runat="server" Text='<%#Eval("FunctionalAreaId") %>' Visible="false"></asp:DropDownList>
 </td>
     </tr>
     <tr>
@@ -497,11 +497,16 @@
             <ContentTemplate>   
                 <table style="width: 688px">       
         <tr>
-            <td class="auto-style3">Preferred State</td>
-            <td><asp:DropDownList ID="ddlState" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="ddlState_SelectedIndexChanged">
-                                </asp:DropDownList>
-                </td>
+            <td class="auto-style3">&nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
+                    <tr>
+                        <td class="auto-style3">Preferred State</td>
+                        <td>
+                            <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" onrowdatabound="ddlState_onrowdatabound" OnSelectedIndexChanged="ddlState_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             PreferredCity
