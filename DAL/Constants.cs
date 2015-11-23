@@ -22,6 +22,8 @@ namespace DAL
         public const string sp_JS_InsertProjectDetails = "sp_JS_InsertProjectDetails";
         public const string SP_Insert_MultipleRows = "SP_Insert_MultipleRows";
         public const string sp_JS_InsertEducationalDetails = "sp_JS_InsertEducationalDetails";
+        public const string sp_JS_SelectEducationalDetails = "sp_JS_SelectEducationalDetails";
+        public const string sp_JS_UpdateEducationalDetails = "sp_JS_UpdateEducationalDetails";
         public const string sp_JS_InsertEducationDegreesType = "sp_JS_InsertEducationDegreesType";
         public const string sp_JS_InsertMoreCertification = "sp_JS_InsertMoreCertification";
         public const string sp_JS_InsertMoreWorkshop = "sp_JS_InsertMoreWorkshop";
@@ -61,5 +63,6 @@ namespace DAL
         public const string sp_JS_UpdateContactDetails = "sp_JS_UpdateContactDetails";
         public const string sp_JS_SelectCurrentDesiredJobDetails = "sp_JS_SelectCurrentDesiredJobDetails";
         public const string sp_JS_UpdatePersonalDetails = "sp_JS_UpdatePersonalDetails";
+        public const string sp_JS_SelectAffirmativeDetails = "sp_JS_SelectAffirmativeDetails";
     }
 }

@@ -22,6 +22,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtAltNo;
         
         /// <summary>
+        /// revAltNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revAltNo;
+        
+        /// <summary>
         /// txtLandno control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtLinkedIn;
         
         /// <summary>
+        /// revLinkedIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revLinkedIn;
+        
+        /// <summary>
         /// txtFacebook control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFacebook;
+        
+        /// <summary>
+        /// revFacebook control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revFacebook;
         
         /// <summary>
         /// txtTwitter control.
@@ -67,6 +94,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtTwitter;
         
         /// <summary>
+        /// revTwitter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revTwitter;
+        
+        /// <summary>
         /// txtGTalk control.
         /// </summary>
         /// <remarks>
@@ -74,6 +110,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGTalk;
+        
+        /// <summary>
+        /// revGTalk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revGTalk;
         
         /// <summary>
         /// txtSkype control.
@@ -85,6 +130,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtSkype;
         
         /// <summary>
+        /// revSkype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revSkype;
+        
+        /// <summary>
         /// txtGooglePlus control.
         /// </summary>
         /// <remarks>
@@ -92,6 +146,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGooglePlus;
+        
+        /// <summary>
+        /// revGooglePlus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revGooglePlus;
         
         /// <summary>
         /// btnSave control.

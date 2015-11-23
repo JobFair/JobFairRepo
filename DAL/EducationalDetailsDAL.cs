@@ -13,7 +13,7 @@ namespace DAL
     public class EducationalDetailsDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-
+      
         /// <summary>
         /// method for converting the object to XML.
         /// </summary>
@@ -55,11 +55,77 @@ namespace DAL
                 }
                 return false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
+        /// <summary>
+        /// View Educational Deatils JobSeeker.
+        /// </summary>
+        /// <param name="edEntity">Object for Selecting data into database</param>
+        /// <returns>True/false</returns>
+        public DataSet ViewEducationalDetailsDAL(string candidateId)
+        {
+            try
+            {
+                DataSet dsEducationalDetails = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@CandidateId", candidateId) };
+                dsEducationalDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectEducationalDetails, sparams);
+                return dsEducationalDetails;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /// <summary>
+        /// Update Educational Deatils JobSeeker.
+        /// </summary>
+        /// <param name="edEntity">Object for Updating data into database</param>
+        /// <returns>True/false</returns>
+        public int UpdateEducationalDetailsDAL(EducationalDetailsEntity educationalDetailsEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+
+                SqlParameter[] sqlparams = {
+                                              new SqlParameter("@CandidateId",educationalDetailsEntity.CandidateId),
+                                              new SqlParameter("@DegreeId",educationalDetailsEntity.DegreeId),
+                                              new SqlParameter("@MediumOfEducation",educationalDetailsEntity.MediumOfEducation),
+                                              new SqlParameter("@Status",educationalDetailsEntity.Status),
+                                              new SqlParameter("@Specialization",educationalDetailsEntity.Specialization),
+                                              new SqlParameter("@FromYear",educationalDetailsEntity.FromYear),
+                                              new SqlParameter("@ToYear",educationalDetailsEntity.ToYear),
+                                              new SqlParameter("@College",educationalDetailsEntity.College),
+                                              new SqlParameter("@University",educationalDetailsEntity.University),
+                                              new SqlParameter("@Percantage",educationalDetailsEntity.Percantage),
+                                            };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateEducationalDetails, sqlparams);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
         /// <summary>
         /// Method for adding Under Graduate Diploma Details in database
         /// </summary>
@@ -74,9 +140,13 @@ namespace DAL
                 sparams[0] = new SqlParameter("@UGDName", educationalDetailsEntity.AddUnderGraduateDiplomaName);
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_InsertUnderGraduateDiploma", sparams);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         /// <summary>
@@ -93,9 +163,13 @@ namespace DAL
                 sparams[0] = new SqlParameter("@BDName", educationalDetailsEntity.AddBachelorDegreeName);
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_InsertBachelorDegree", sparams);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         /// <summary>
@@ -112,9 +186,13 @@ namespace DAL
                 sparams[0] = new SqlParameter("@PGDName", educationalDetailsEntity.AddPostGraduateDiplomaName);
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_InsertPostGraduateDiploma", sparams);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         /// <summary>
@@ -131,9 +209,13 @@ namespace DAL
                 sparams[0] = new SqlParameter("@MDName", educationalDetailsEntity.AddMasterDegreeName);
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_InsertMasterDegree", sparams);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         /// <summary>
@@ -150,9 +232,13 @@ namespace DAL
                 sparams[0] = new SqlParameter("@PHDName", educationalDetailsEntity.AddDoctorOfPhilosophyName);
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_InsertDoctorOfPhilosophy", sparams);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

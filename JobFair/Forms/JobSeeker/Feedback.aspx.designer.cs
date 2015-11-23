@@ -31,6 +31,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
+        /// rfvName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+        
+        /// <summary>
         /// ddlSubject control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlSubject;
         
         /// <summary>
+        /// rfvSubject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSubject;
+        
+        /// <summary>
         /// txtMessage control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMessage;
+        
+        /// <summary>
+        /// rfvMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMessage;
         
         /// <summary>
         /// btnSubmit control.

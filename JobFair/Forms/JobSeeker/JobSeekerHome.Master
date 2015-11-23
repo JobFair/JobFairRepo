@@ -7,11 +7,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="../../Scripts/ValidationAll.js"></script>
+    <link href="../../Css/ValidationEngine.css" rel="stylesheet" />
+    <%--<script src="../../Scripts/jquery.min.js"></script>--%> 
     <script src="../../Scripts/jquery-2.1.4.min.js"></script>
+    <script src="../../Scripts/jquery.validationEngine-en.js"></script>
+    <script src="../../Scripts/jquery.validationEngine.js"></script>
+
+    <script src="../../Scripts/ValidationAll.js"></script>
+   
     <script src="../../Scripts/bootstrap.min.js"></script>
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
+     <script type="text/javascript">
+         //$(document).ready(function () {
+         //    $("#form1").validationEngine('attach', { promptPosition: "topRight" });
+         //});
+         
+         //function DateFormat(field, rules, i, options) {
+         //    var regex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+         //    if (!regex.test(field.val())) {
+         //        return "Please enter date in dd/MM/yyyy format."
+         //    }
+         //}
+         $(document).ready(function () {
+             $('#submit-form').on('click', function () {
+                 //$("#form1").validationEngine('attach', { promptPosition: "topRight" });
+                 $('#form1').validationEngine('validate') ? subForm() : '';
+                // $('#preview_form').validationEngine('validate') ? subForm() : '';
+             });
+         });
 
+</script>
      <style type="text/css">
         .border-right {
             border-right: 1px solid #00ff21;
@@ -41,7 +66,7 @@
             min-height: 400px;
         }
     </style>
-
+   
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 

@@ -10,6 +10,11 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// Pesonal Details of job seeker
+        /// </summary>
+        /// <param name="candidateId">Object for view data</param>
+        /// <returns></returns>
         public DataSet ViewPersonalDetailsDAL(string candidateId)
         {
             try
@@ -24,6 +29,7 @@ namespace DAL
                 throw;
             }
         }
+
         /// <summary>
         /// Pesonal Details of job seeker
         /// </summary>
@@ -71,6 +77,11 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Pesonal Details of job seeker
+        /// </summary>
+        /// <param name="personalDetailsEntity">Object for updating data to database</param>
+        /// <returns>System.Int32</returns>
         public int UpdatePersonalDetailsDAL(PersonalDetailsJSEntity personalDetailsEntity)
         {
             try

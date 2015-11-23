@@ -3,8 +3,6 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-    
-<script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
 
     <!DOCTYPE html>
     

@@ -31,6 +31,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.FileUpload FileUploadPhoto;
         
         /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+        
+        /// <summary>
         /// lblPresentAdd control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtPresentAddress;
         
         /// <summary>
+        /// rfvPresentAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPresentAddress;
+        
+        /// <summary>
         /// pnlPresentAddress control.
         /// </summary>
         /// <remarks>
@@ -76,6 +94,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlCountryPresent;
         
         /// <summary>
+        /// rfvCountryPresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCountryPresent;
+        
+        /// <summary>
         /// ddlStatePresent control.
         /// </summary>
         /// <remarks>
@@ -83,6 +110,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlStatePresent;
+        
+        /// <summary>
+        /// rfvStatePresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStatePresent;
         
         /// <summary>
         /// ddlCityPresent control.
@@ -94,6 +130,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlCityPresent;
         
         /// <summary>
+        /// rfvCityPresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCityPresent;
+        
+        /// <summary>
         /// ddlAreaPresent control.
         /// </summary>
         /// <remarks>
@@ -101,6 +146,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAreaPresent;
+        
+        /// <summary>
+        /// rfvAreaPresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAreaPresent;
         
         /// <summary>
         /// lblState control.
@@ -139,6 +193,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtPincodePresent;
         
         /// <summary>
+        /// rfvPincodePresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPincodePresent;
+        
+        /// <summary>
         /// lblPermAddress control.
         /// </summary>
         /// <remarks>
@@ -166,6 +229,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtAddressPerm;
         
         /// <summary>
+        /// rfvAddressPerm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAddressPerm;
+        
+        /// <summary>
         /// pnlPermanentAddress control.
         /// </summary>
         /// <remarks>
@@ -184,6 +256,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlCountryPerm;
         
         /// <summary>
+        /// rfvCountryPerm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCountryPerm;
+        
+        /// <summary>
         /// ddlStatePerm control.
         /// </summary>
         /// <remarks>
@@ -191,6 +272,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlStatePerm;
+        
+        /// <summary>
+        /// rfvStatePerm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStatePerm;
         
         /// <summary>
         /// ddlCityPerm control.
@@ -202,6 +292,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlCityPerm;
         
         /// <summary>
+        /// rfvCityPerm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCityPerm;
+        
+        /// <summary>
         /// ddlAreaPerm control.
         /// </summary>
         /// <remarks>
@@ -209,6 +308,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAreaPerm;
+        
+        /// <summary>
+        /// rfvAreaPerm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAreaPerm;
         
         /// <summary>
         /// lblStatePerm control.
@@ -247,6 +355,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtPincodePerm;
         
         /// <summary>
+        /// rfvPincodePerm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPincodePerm;
+        
+        /// <summary>
         /// lblDateOfBirth control.
         /// </summary>
         /// <remarks>
@@ -274,6 +391,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
         
         /// <summary>
+        /// rfvDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDOB;
+        
+        /// <summary>
+        /// revDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDOB;
+        
+        /// <summary>
         /// lblGender control.
         /// </summary>
         /// <remarks>
@@ -292,13 +427,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButtonList rbtGender;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// rfvGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvGender;
         
         /// <summary>
         /// lblMaritalStatus control.
@@ -317,6 +452,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMaritalStatus;
+        
+        /// <summary>
+        /// rfvMaritalStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMaritalStatus;
         
         /// <summary>
         /// lblPassport control.

@@ -23,6 +23,26 @@ namespace BAL
                return edDAL.SaveEducationalDetailsDAL(edEntity);
            }
            /// <summary>
+           /// Selecting Educational Deatils JobSeeker.
+           /// </summary>
+           /// <param name="edEntity">The Educational Details entity.</param>
+           /// <returns>System.Int32.</returns>
+           public DataSet ViewEducationalDetailsBAL(string candidateId)
+           {
+               EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
+               return educationalDetailsDAL.ViewEducationalDetailsDAL(candidateId);
+           }
+            /// <summary>
+            /// Updating Educational Deatils JobSeeker.
+            /// </summary>
+            /// <param name="edEntity">The Educational Details entity.</param>
+            /// <returns>System.Int32.</returns>
+           public int UpdateEducationalDetailsBAL(Entities.JobSeeker.EducationalDetailsEntity educationalDetailsEntity)
+           {
+               EducationalDetailsDAL updateEdDAL = new EducationalDetailsDAL();
+               return updateEdDAL.UpdateEducationalDetailsDAL(educationalDetailsEntity);
+           }
+           /// <summary>
            /// Load Educational Degree Type
            /// </summary>
            /// <returns></returns>

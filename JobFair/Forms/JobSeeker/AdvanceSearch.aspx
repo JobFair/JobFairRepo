@@ -29,6 +29,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtkeyskill" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvkeyskill" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtkeyskill"></asp:RequiredFieldValidator>
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
                             EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetKeySkills">
                         </cc1:AutoCompleteExtender>

@@ -211,22 +211,22 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblPhysicallyChallenged;
         
         /// <summary>
-        /// rbtYes control.
+        /// rbtPhysicallyChallenged control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtYes;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtPhysicallyChallenged;
         
         /// <summary>
-        /// rbtNo control.
+        /// upPhysicallyChallenged control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtNo;
+        protected global::System.Web.UI.WebControls.Panel upPhysicallyChallenged;
         
         /// <summary>
         /// lblDescription control.
@@ -310,22 +310,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblUSAPermit;
         
         /// <summary>
-        /// rbtYesUSA control.
+        /// rbtUSAPermit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtYesUSA;
-        
-        /// <summary>
-        /// rbtNOUSA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtNOUSA;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtUSAPermit;
         
         /// <summary>
         /// lblOtherPermit control.

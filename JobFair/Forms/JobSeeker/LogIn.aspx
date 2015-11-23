@@ -3,27 +3,31 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
+      <script src="../../Scripts/ValidationAll.js"></script>
+      <link href="../../Css/bootstrap.min.css" rel="stylesheet" />
+      <script src="../../Scripts/bootstrap.min.js"></script>
+      <script src="../../Scripts/jquery.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    
     <table>
         <tr>
             <td colspan="2"><h1>Login</h1></td>
         </tr>
         <tr>
-            <td>User Name </td>
-            <td><asp:TextBox ID="txtUserName" runat="server" placeholder="User Name" onfocus="this.placeholder = ''" onblur="return IsValidEmail(this.id);"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            <td>User Name  </td>
+            <td><asp:TextBox ID="txtUserName" runat="server" onblur="return CheckEmail(this.id)"></asp:TextBox>
+                <%--<asp:RequiredFieldValidator ID="rfvUserName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>--%>
+                <%--<asp:RegularExpressionValidator ID="revUserName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>--%>
             </td>
         </tr>
         <tr>
             <td>Password</td>
-            <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
+            <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password"  CssClass="validate[required]"></asp:TextBox>
+                <%--<asp:RequiredFieldValidator ID="refPassword" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>--%>
             </td>
         </tr>
         <tr>
@@ -49,4 +53,5 @@
             </td>
         </tr>
     </table>
+
 </asp:Content>

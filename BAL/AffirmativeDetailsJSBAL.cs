@@ -65,5 +65,17 @@ namespace BAL
             }
            
         }
+        public DataSet viewAffirmativeDetailsBAL(string candidateId)
+        {
+            try
+            {
+                AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
+                return affirmativeDetailsBAL.ViewAffirmativeDetialsDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
     }
 }
