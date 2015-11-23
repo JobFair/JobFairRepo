@@ -139,7 +139,7 @@
     <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\RoleSkillsDetails.ascx" />
-    <Content Include="UserControls\JobSeeker\SearchRecord.ascx" />
+    <Content Include="UserControls\Recruiter\SearchRecord.ascx" />
     <Content Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
     <Content Include="UserControls\Recruiter\ClientDetails.ascx" />
@@ -390,11 +390,11 @@
     <Compile Include="UserControls\JobSeeker\RoleSkillsDetails.ascx.designer.cs">
       <DependentUpon>RoleSkillsDetails.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\JobSeeker\SearchRecord.ascx.cs">
+    <Compile Include="UserControls\Recruiter\SearchRecord.ascx.cs">
       <DependentUpon>SearchRecord.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControls\JobSeeker\SearchRecord.ascx.designer.cs">
+    <Compile Include="UserControls\Recruiter\SearchRecord.ascx.designer.cs">
       <DependentUpon>SearchRecord.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx.cs">

@@ -71,7 +71,8 @@ function AllowOnlyNumric(e) {
     var textBoxContent = document.getElementById(controlId).value;
     var chk = /[^a-zA-Z 0-9 . - ( )]+/;
     if (chk.test(textBoxContent)) {
-        alert('Special Characters are not allowed')
+        var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+        ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Special Characters are not allowed</font></h3></center");
         textBoxContent = textBoxContent.replace(/[^a-zA-Z 0-9 . - ( )]+/g, '');
         document.getElementById(controlId).value = textBoxContent;
         return false;
@@ -84,7 +85,8 @@ function CheckOnlyChar(controlId) {
     var textBoxContent = document.getElementById(controlId).value.trim();
     var chk = /[^a-zA-Z]+/;
     if (chk.test(textBoxContent)) {
-        alert('Enter Only Characters')
+        var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+        ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Enter Only Characters</font></h3></center");
         //response.Write("<script language='javascript'>alert('Enter Only Characters')</script>");
         //onmessage.alert('Enter Only Characters')
         textBoxContent = textBoxContent.replace(/[^a-zA-Z]+/g, '');
@@ -104,7 +106,8 @@ function CheckIsNum(txtObj) {
             obj.value = parseFloat("0" + theVal);
             obj.focus()
         }
-        alert('Enter Only Numeric Values')
+        var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+        ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Enter Only Numeric Values</font></h3></center");
     }
 }
 function CheckIsNumDec(txtObj) {
@@ -135,7 +138,8 @@ function CheckRange(controlId) {
             return true;
         }          
     else
-            alert('Enter Numeric Values Between 35 to 100');
+            var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+            ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Enter Numeric Values Between 35 to 100</font></h3></center");
             document.getElementById(controlId).value = '';
             document.getElementById(controlId).focus();
         return false;
@@ -282,7 +286,7 @@ function IsValidDate(ctrl) {
     var chk = /^(((((0[1-9])|(1\d)|(2[0-8]))\/((0[1-9])|(1[0-2])))|((31\/((0[13578])|(1[02])))|((29|30)\/((0[1,3-9])|(1[0-2])))))\/((20[0-9][0-9])|(19[0-9][0-9])))|((29\/02\/(19|20)(([02468][048])|([13579][26]))))$/
     var control = document.getElementById(ctrl);
     if (control.value.replace(/^\s+|\s+$/g, "") == "") {
-        alert("Enter a Date");
+       // alert("Enter a Date");
         control.focus();
         return false;
     }
@@ -372,10 +376,17 @@ function IsSelected(ctrl, ctrlType, msg) {
         return false;
     }
 }
-
-function IsSelectedDDL(ctrl, msg) {
+function ValidateDropdown() {
+    var result = document.getElementById('<%=ddlTeamSize%>').value;
+    if (result == "0") {
+        alert("Please Select Education");
+        return false;
+    }
+    return false;
+}
+function IsSelectedDDL(ctrl) {
     if (document.getElementById(ctrl).value == "" || document.getElementById(ctrl).text == '--Select--') {
-        alert('Select At Least One' + msg); // prompt user
+        alert('Select At Least One'); // prompt user
         document.getElementById(ctrl).focus(); //set focus back to control
         return false;
     }
@@ -385,7 +396,9 @@ function CheckEmail(pEmail) {
     var email = document.getElementById(pEmail);
     var regex = /[\w-]+@([\w-]+\.)+[\w-]+/;
     if (email.value != "" && !regex.test(email.value)) {
-        alert("Invalid Email");
+        //alert("Invalid Email");
+        var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+        ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Invalid Email</font></h3></center");
         email.focus();
         email.value = "";
         return false;
@@ -463,7 +476,8 @@ function IsValidMobNumber(ctrl) {
     try {
         var chkNumber = /^([1-9]{1})+([0-9]{9})+$/i;
         if (!chkNumber.test(document.getElementById(ctrl).value.trim())) {
-            alert("Please Enter Valid Mobile Number.");
+            var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+            ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Please Enter Valid Mobile Number</font></h3></center");
             document.getElementById(ctrl).focus();
             return false;
         }
@@ -483,7 +497,8 @@ function IsValidEmail(ctrl) {
         //var chkEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         var chkEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{3,})+$/i;
         if (!chkEmail.test(document.getElementById(ctrl).value.trim())) {
-            alert("Please Enter Valid Email Address.");
+            var ErrorMsgWindow = window.open("", "ErrorMsgWindow", "top=190,left=220,height=140px,width=350px");
+            ErrorMsgWindow.document.write("<center>This is 'Error Message Window'</center><hr/><center><h3><font color=red>Please Enter Valid Email Address</font></h3></center");
             document.getElementById(ctrl).focus();
             return false;
         }

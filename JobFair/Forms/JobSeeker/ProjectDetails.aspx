@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
        
-<script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
+    <script src="../../Scripts/ValidationAll.js"></script>
 
 </head>
 <body>
@@ -118,7 +118,7 @@
                         <asp:Label ID="lblTeamSize" runat="server" Text="Team Size"></asp:Label>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlTeamSize" runat="server">
+                        <asp:DropDownList ID="ddlTeamSize" runat="server" onchange="IsSelectedDDL(ddlTeamSize.id);">
                             <asp:ListItem>Select</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
@@ -194,7 +194,7 @@
                        <%-- <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#">Add More Projects</asp:HyperLink></td></tr>
                      <tr>--%>
                     <td colspan="2">
-                        <asp:Button ID="btnSubmit" runat="server" Text="Add Project" OnClick="btnSubmit_Click" OnClientClick="return IsSelectedDDL(ddlRole,'Radio Button')" />
+                        <asp:Button ID="btnSubmit" runat="server" Text="Add Project" OnClick="btnSubmit_Click" OnClientClick="IsSelected(ddlTeamSize.id,DropDownList,'DropDownList');"/>
                     </td>
                 </tr>
             </table>

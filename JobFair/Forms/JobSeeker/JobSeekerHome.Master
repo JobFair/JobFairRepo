@@ -13,7 +13,7 @@
     <script src="../../Scripts/jquery.validationEngine-en.js"></script>
     <script src="../../Scripts/jquery.validationEngine.js"></script>
 
-   <%-- <script src="../../Scripts/ValidationAll.js"></script>--%>
+    <script src="../../Scripts/ValidationAll.js"></script>
    
     <script src="../../Scripts/bootstrap.min.js"></script>
     <link href="../../Content/bootstrap.css" rel="stylesheet" />

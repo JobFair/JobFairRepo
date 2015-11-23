@@ -40,6 +40,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtCertificationName;
         
         /// <summary>
+        /// rfvCertificationName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCertificationName;
+        
+        /// <summary>
         /// lblIns control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCertificationInstitute;
+        
+        /// <summary>
+        /// rfvCertificationInstitute control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCertificationInstitute;
         
         /// <summary>
         /// lblDur control.
@@ -76,6 +94,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtCertificationDuration;
         
         /// <summary>
+        /// rfvCertificationDuration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCertificationDuration;
+        
+        /// <summary>
         /// lblYearFrom control.
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlMonthFrom;
         
         /// <summary>
+        /// rfvMonthFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMonthFrom;
+        
+        /// <summary>
         /// ddlYearFrom control.
         /// </summary>
         /// <remarks>
@@ -101,6 +137,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlYearFrom;
+        
+        /// <summary>
+        /// rfvYearFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvYearFrom;
         
         /// <summary>
         /// lblYearTo control.
@@ -121,6 +166,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlMonthTo;
         
         /// <summary>
+        /// rfvMonthTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMonthTo;
+        
+        /// <summary>
         /// ddlYearTo control.
         /// </summary>
         /// <remarks>
@@ -128,6 +182,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlYearTo;
+        
+        /// <summary>
+        /// rfvYearTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvYearTo;
         
         /// <summary>
         /// lblGrade control.
@@ -146,6 +209,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCertificationGrade;
+        
+        /// <summary>
+        /// rfvCertificationGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCertificationGrade;
         
         /// <summary>
         /// btnAdd control.
