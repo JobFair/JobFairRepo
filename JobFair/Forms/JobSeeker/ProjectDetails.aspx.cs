@@ -45,8 +45,8 @@ namespace JobFair.Forms.JobSeeker
                 DataSet ds = new DataSet();
                 ds = projectDetailsBAL.GetRole();
                 ddlRole.DataSource = ds;
-                ddlRole.DataTextField = "TechnicalSkillName";
-                ddlRole.DataValueField = "TechnicalSkillId";
+                ddlRole.DataTextField = "RoleName";
+                ddlRole.DataValueField = "RoleId";
                 ddlRole.DataBind();
                 ddlRole.Items.Insert(0, new ListItem("--Select--", "0"));
             }

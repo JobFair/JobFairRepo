@@ -194,7 +194,7 @@
                        <%-- <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#">Add More Projects</asp:HyperLink></td></tr>
                      <tr>--%>
                     <td colspan="2">
-                        <asp:Button ID="btnSubmit" runat="server" Text="Add Project" OnClick="btnSubmit_Click" OnClientClick="IsSelected(ddlTeamSize.id,DropDownList,'DropDownList');"/>
+                         <asp:Button ID="btnSubmit" runat="server" Text="Add Project" OnClick="btnSubmit_Click" OnClientClick="IsSelected(ddlTeamSize.id,DropDownList,'DropDownList');"/>
                     </td>
                 </tr>
             </table>
