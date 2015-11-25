@@ -1,8 +1,12 @@
 ﻿using BAL;
 using System;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
+using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entities.JobSeeker;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -11,10 +15,13 @@ namespace JobFair.Forms.JobSeeker
     /// </summary>
     public partial class ProjectDetails : System.Web.UI.Page
     {
+        public string candidateId;
+        private bool isCheck = true;
+        // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
         protected void Page_Load(object sender, EventArgs e)
         {
-            string candidateId = Convert.ToString(Session["candidateId"]);
-            bool isCheck = true;
+
+            candidateId = Convert.ToString(Session["candidateId"]);
             //CheckAuthorised(candidateId);
 
             if (!IsPostBack)
@@ -23,6 +30,15 @@ namespace JobFair.Forms.JobSeeker
                 // Take Candidate Id from Session
                 hfCandidateId.Value = candidateId;
                 AddDefaultFirstRecord();
+                if (isCheck)
+                {
+                    pnlEdit.Visible = true;
+                    BindRepeater();
+                }
+                else
+                {
+                    pnlInsert.Visible = true;
+                }
             }
 
             if (rbtYes.Checked)
@@ -31,11 +47,189 @@ namespace JobFair.Forms.JobSeeker
                 return;
             }
             panelProjectLink.Visible = false;
-            if(isCheck)
+           
+        }
+
+        private void BindRepeater()
+        {
+            DataSet ds = new DataSet();
+            ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
+            ds= projectDetailsBAL.ViewProjectDetailsBAL(candidateId);
+            cpRepeater.DataSource = ds;
+            cpRepeater.DataBind();
+        }
+
+        protected void cpRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
+            LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
+            LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
+            LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
+            // Label lblName = (Label)e.Item.FindControl("lblName");
+            Label lblrptID = (Label)e.Item.FindControl("lblID");
+            Label lblProjectFor = (Label)e.Item.FindControl("lblProjectFor");
+            Label lblProjectTiltle = (Label)e.Item.FindControl("lblProjectTiltle");
+            Label lblCompanyName = (Label)e.Item.FindControl("lblCompanyName");
+            Label lblClientName = (Label)e.Item.FindControl("lblClientName");
+            Label lblDuration = (Label)e.Item.FindControl("lblDuration");
+            Label lblProjectLocation = (Label)e.Item.FindControl("lblProjectLocation");
+            Label lblEmploymentType = (Label)e.Item.FindControl("lblEmploymentType");
+            Label lblProjectDetails = (Label)e.Item.FindControl("lblProjectDetails");
+            Label lblRolesandResponsibility = (Label)e.Item.FindControl("lblRolesandResponsibility");
+            Label lblSkillUsed = (Label)e.Item.FindControl("lblSkillUsed");
+            Label lblProjectLive = (Label)e.Item.FindControl("lblProjectLive");
+            Label lblProjectLink = (Label)e.Item.FindControl("lblProjectLink");
+            TextBox txtProjectTiltle = (TextBox)e.Item.FindControl("txtProjectTiltle");
+            TextBox txtCompanyName = (TextBox)e.Item.FindControl("txtCompanyName");
+            TextBox txtClientName = (TextBox)e.Item.FindControl("txtClientName");
+            TextBox txtDuration = (TextBox)e.Item.FindControl("txtDuration");
+            TextBox txtProjectLocation = (TextBox)e.Item.FindControl("txtProjectLocation");
+            TextBox txtEmploymentType = (TextBox)e.Item.FindControl("txtEmploymentType");
+            TextBox txtProjectDetails = (TextBox)e.Item.FindControl("txtProjectDetails");
+            TextBox txtRolesandResponsibility = (TextBox)e.Item.FindControl("txtRolesandResponsibility");
+            TextBox txtSkillUsed = (TextBox)e.Item.FindControl("txtSkillUsed");
+            TextBox txtProjectLive = (TextBox)e.Item.FindControl("txtProjectLive");
+            TextBox txtProjectLink = (TextBox)e.Item.FindControl("txtProjectLink");
+
+            DropDownList ddlRole = (DropDownList)e.Item.FindControl("ddlRole");
+            DropDownList ddlTeamSize = (DropDownList)e.Item.FindControl("ddlTeamSize");
+
+            DropDownList ddlDegree = (DropDownList)e.Item.FindControl("ddlDegree");
+            CheckBox chkDelete = (CheckBox)e.Item.FindControl("chkDelete");
+
+            if (e.CommandName == "edit")
             {
-                
+                lnkCancel.Visible = true;
+                lnkUpdate.Visible = true;
+                lnkEdit.Visible = false;
+                txtProjectTiltle.Visible = true;
+                txtCompanyName.Visible = true;
+                txtClientName.Visible = true;
+                txtDuration.Visible = true;
+                txtEmploymentType.Visible = true;
+                txtRolesandResponsibility.Visible = true;
+                txtProjectLive.Visible = true;
+                txtProjectLocation.Visible = true;
+                txtProjectLink.Visible = true;
+                txtSkillUsed.Visible = true;
+                txtProjectDetails.Visible = true;
+                txtProjectLink.Visible = true;
+                lblProjectFor.Visible = false;
+                lblProjectTiltle.Visible = false;
+                lblCompanyName.Visible = false;
+                lblClientName.Visible = false;
+                lblDuration.Visible = false;
+                lblProjectLocation.Visible = false;
+                lblEmploymentType.Visible = false;
+                lblProjectDetails.Visible = false;
+                lblRolesandResponsibility.Visible = false;
+                lblSkillUsed.Visible = false;
+                lblProjectLive.Visible = false;
+                lblProjectLink.Visible = false;
+            }
+            if (e.CommandName == "cancel")
+            {
+                BindRepeater();
+            }
+            if (e.CommandName == "update")
+            {
+                try
+                {
+                    ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
+                    ProjectDetailsEntity projectDetailsEntity = new ProjectDetailsEntity();
+                    projectDetailsEntity.ProjectTitle = txtProjectTiltle.Text;
+                    projectDetailsEntity.CompanyName = txtCompanyName.Text;
+                    projectDetailsEntity.YourRole = ddlRole.SelectedValue;
+                    projectDetailsEntity.ClientName = txtClientName.Text;
+                    projectDetailsEntity.Duration = txtDuration.Text;
+                    projectDetailsEntity.ProjectLocation = txtProjectLocation.Text;
+                    projectDetailsEntity.EmploymentType = txtEmploymentType.Text;
+                    projectDetailsEntity.ProjectDescription = txtProjectDetails.Text;
+                    projectDetailsEntity.RolesandResponsibility = txtRolesandResponsibility.Text;
+                    projectDetailsEntity.TeamSize = ddlTeamSize.SelectedValue;
+                    projectDetailsEntity.SkillUsed = txtSkillUsed.Text;
+                    projectDetailsEntity.ProjectLive = txtProjectLive.Text;
+                    projectDetailsEntity.ProjectLink = txtProjectLink.Text;
+                    projectDetailsEntity.Degree = ddlDegree.SelectedValue;
+                    projectDetailsEntity.ProjectId = Convert.ToInt32(e.CommandArgument);
+                    projectDetailsBAL.UpdateProjectDetailsBAL(projectDetailsEntity);
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
+             
+                BindRepeater();
+            }
+            if (e.CommandName == "delete")
+            {
+                try
+                {
+                    ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
+                    int projectId = Convert.ToInt32(e.CommandArgument);
+                    projectDetailsBAL.DeleteProjectDetailsBAL(projectId);
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
+                BindRepeater();
             }
         }
+
+        protected void cpRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            DropDownList ddlRole = (DropDownList)e.Item.FindControl("ddlRole");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
+                DataSet ds = new DataSet();
+                ds = projectDetailsBAL.GetRole();
+                ddlRole.DataSource = ds;
+                ddlRole.DataTextField = "RoleName";
+                //ddlRole.DataValueField = "RoleId";
+                ddlRole.DataBind();
+                ddlRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "RoleName"));
+            }
+            DropDownList ddlTeamSize = (DropDownList)e.Item.FindControl("ddlTeamSize");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                ddlTeamSize.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "TeamSize"));
+            }
+            DropDownList ddlDegree = (DropDownList)e.Item.FindControl("ddlDegree");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                ddlDegree.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Degree"));
+            }
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            //foreach (RepeaterItem Item in cpRepeater.Items)
+            //{
+            //    CheckBox chkDelete = (CheckBox)Item.FindControl("chkDelete");
+            //    Label lblrptID = (Label)Item.FindControl("lblID");
+
+            //    if (chkDelete.Checked)
+            //    {
+            //        SqlConnection SqlCnn = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ConnectionString);
+            //        SqlCommand SqlCmd = new SqlCommand("delete JS_ProjectDetail where ProjectId=@ID", SqlCnn);
+            //        SqlCmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = lblrptID.Text;
+            //        SqlCmd.Connection = SqlCnn;
+            //        SqlCnn.Open();
+            //        SqlCmd.ExecuteNonQuery();
+            //        SqlCnn.Close();
+            //    }
+            //}
+            //BindRepeater();
+        }
+
+
+
+
+
 
         private void GetRole()
         {
@@ -45,8 +239,8 @@ namespace JobFair.Forms.JobSeeker
                 DataSet ds = new DataSet();
                 ds = projectDetailsBAL.GetRole();
                 ddlRole.DataSource = ds;
-                ddlRole.DataTextField = "TechnicalSkillName";
-                ddlRole.DataValueField = "TechnicalSkillId";
+                ddlRole.DataTextField = "RoleName";
+                ddlRole.DataValueField = "RoleId";
                 ddlRole.DataBind();
                 ddlRole.Items.Insert(0, new ListItem("--Select--", "0"));
             }

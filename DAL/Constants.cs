@@ -66,5 +66,9 @@ namespace DAL
         public const string sp_JS_SelectAffirmativeDetails = "sp_JS_SelectAffirmativeDetails";
         public const string sp_JS_UpdateAffirmativeDetails = "sp_JS_UpdateAffirmativeDetails";
         public const string sp_JS_UpdateLanguageDetails = "sp_JS_UpdateLanguageDetails";
+        public const string sp_JS_SelectProjectDetails = "sp_JS_SelectProjectDetails";
+        public const string sp_JS_UpdateProjectDetails = "sp_JS_UpdateProjectDetails";
+        public const string sp_JS_DeleteProjectDetails = "sp_JS_DeleteProjectDetails";
+        public const string sp_FunctionalRoles = "sp_FunctionalRoles";
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DAL;
 using System.Data;
+using Entities.JobSeeker;
 
 namespace BAL
 {
@@ -36,6 +37,47 @@ namespace BAL
             }
             catch (System.Exception)
             {
+                throw;
+            }
+        }
+
+        public DataSet ViewProjectDetailsBAL(string candidateId)
+        {
+            try
+            {
+                 ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+                 return projectDetailsDAL.ViewProjectDetailsDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public int UpdateProjectDetailsBAL(ProjectDetailsEntity projectDetailsEntity)
+        {
+            try
+            {
+                ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+                return projectDetailsDAL.UpdateProjectDetailsDAL(projectDetailsEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+        public DataSet DeleteProjectDetailsBAL(int projectId)
+        {
+            try
+            {
+                ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+                return projectDetailsDAL.DeleteProjectDetailsDAL(projectId);
+            }
+            catch (System.Exception)
+            {
+                
                 throw;
             }
         }
