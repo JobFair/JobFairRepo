@@ -1,6 +1,6 @@
 ﻿using DAL;
-using System.Data;
 using Entities.JobSeeker;
+using System.Data;
 
 namespace BAL
 {
@@ -26,7 +26,7 @@ namespace BAL
         /// <summary>
         /// Project Details of job seeker
         /// </summary>
-        /// <param name="dtProjectDetails"></param>
+        /// <param name="dtProjectDetails">dtProjectDetails</param>
         /// <returns></returns>
         public DataTable SaveProjectDetailsBAL(DataTable dtProjectDetails)
         {
@@ -41,20 +41,29 @@ namespace BAL
             }
         }
 
+        /// <summary>
+        /// View projectDetails of Job Seeker
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns></returns>
         public DataSet ViewProjectDetailsBAL(string candidateId)
         {
             try
             {
-                 ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
-                 return projectDetailsDAL.ViewProjectDetailsDAL(candidateId);
+                ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+                return projectDetailsDAL.ViewProjectDetailsDAL(candidateId);
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
         }
 
+        /// <summary>
+        /// Update Project Details
+        /// </summary>
+        /// <param name="projectDetailsEntity">ProjectDetailsEntity</param>
+        /// <returns></returns>
         public int UpdateProjectDetailsBAL(ProjectDetailsEntity projectDetailsEntity)
         {
             try
@@ -64,10 +73,15 @@ namespace BAL
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
         }
+
+        /// <summary>
+        /// Delete specific Project
+        /// </summary>
+        /// <param name="projectId">projectId</param>
+        /// <returns></returns>
         public DataSet DeleteProjectDetailsBAL(int projectId)
         {
             try
@@ -77,7 +91,6 @@ namespace BAL
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
         }
