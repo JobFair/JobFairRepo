@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Entities.JobSeeker;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using Entities.JobSeeker;
 
 namespace DAL
 {
@@ -47,7 +47,7 @@ namespace DAL
                 objbulk.ColumnMappings.Add("ProjectFor", "ProjectFor");
                 objbulk.ColumnMappings.Add("ProjectTitle", "ProjectTitle");
                 objbulk.ColumnMappings.Add("CompanyName", "CompanyName");
-                objbulk.ColumnMappings.Add("Role", "RoleName");
+                objbulk.ColumnMappings.Add("RoleId", "RoleId");
                 objbulk.ColumnMappings.Add("ClientName", "ClientName");
                 objbulk.ColumnMappings.Add("Duration", "Duration");
                 objbulk.ColumnMappings.Add("ProjectLocation", "ProjectLocation");
@@ -69,6 +69,11 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// View Project Details
+        /// </summary>
+        /// <param name="candidateId">For view specific record from database</param>
+        /// <returns></returns>
         public DataSet ViewProjectDetailsDAL(string candidateId)
         {
             try
@@ -80,11 +85,15 @@ namespace DAL
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
 
+        /// <summary>
+        /// Update Project Details
+        /// </summary>
+        /// <param name="projectDetailsEntity">Object for update data into database</param>
+        /// <returns></returns>
         public int UpdateProjectDetailsDAL(ProjectDetailsEntity projectDetailsEntity)
         {
             try
@@ -96,7 +105,7 @@ namespace DAL
                                               //new SqlParameter("@candidateId",projectDetailsEntity.CandidateId),
                                               new SqlParameter("@companyName",projectDetailsEntity.CompanyName),
                                               new SqlParameter("@projectTitle",projectDetailsEntity.ProjectTitle),
-                                              new SqlParameter("@role",projectDetailsEntity.YourRole),
+                                              new SqlParameter("@roleId",projectDetailsEntity.YourRole),
                                               new SqlParameter("@clientName",projectDetailsEntity.ClientName),
                                               new SqlParameter("@projectLocation",projectDetailsEntity.ProjectLocation),
                                               new SqlParameter("@duration",projectDetailsEntity.Duration),
@@ -108,8 +117,8 @@ namespace DAL
                                               new SqlParameter("@projectLive",projectDetailsEntity.ProjectLive),
                                               new SqlParameter("@projectLink", projectDetailsEntity.ProjectLink),
                                               new SqlParameter("@projectId",projectDetailsEntity.ProjectId),
-                                              new SqlParameter("@degree",projectDetailsEntity.Degree)
-                                             
+                                              new SqlParameter("@degree",projectDetailsEntity.Degree),
+                                              new SqlParameter("@projectFor",projectDetailsEntity.ProjectFor),
                                             };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateProjectDetails, sqlparams);
 
@@ -117,11 +126,15 @@ namespace DAL
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
 
+        /// <summary>
+        /// Delete Project Details.
+        /// </summary>
+        /// <param name="projectId">for delete spefic record from database</param>
+        /// <returns></returns>
         public DataSet DeleteProjectDetailsDAL(int projectId)
         {
             try
@@ -133,7 +146,6 @@ namespace DAL
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }

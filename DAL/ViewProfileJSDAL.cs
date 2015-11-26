@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.JobSeeker;
 
 
 namespace DAL
@@ -16,31 +17,43 @@ namespace DAL
     public class ViewProfileJSDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        private DataSet ds = new DataSet();
-        public DataSet ViewProfileDAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+       
+        public DataSet ViewProfileDAL(string candidateId)
         {
+           // try
+           // {          
+           //ds= SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from JS_RegisterDetails where CandidateId='JS12'");
+           //viewProfileEntity.FirstName = ds.Tables[0].Rows[0]["FirstName"].ToString();
+           //viewProfileEntity.LastName = ds.Tables[0].Rows[0]["LastName"].ToString();
+           //viewProfileEntity.MobileNumber = ds.Tables[0].Rows[0]["MobileNo"].ToString();           
+           //viewProfileEntity.EmailId = ds.Tables[0].Rows[0]["EmailId"].ToString();
+           //   SqlParameter[] sparams1=new SqlParameter[1];
+           //     sparams1[0]=new SqlParameter("@id","JS12");
+           //ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_JS_SelectPersonalDetails",sparams1);
+           //     viewProfileEntity.Birthdate=Convert.ToDateTime(ds.Tables[0].Rows[0]["DateOfBirth"].ToString());
+           //     viewProfileEntity.Address=ds.Tables[0].Rows[0]["CurrentAddress"].ToString();
+           // }
+           // catch (Exception)
+           // {
+
+           //     throw;
+           // }
+           //return ds;
             try
-            {          
-           ds= SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from JS_RegisterDetails where CandidateId='JS12'");
-           viewProfileEntity.FirstName = ds.Tables[0].Rows[0]["FirstName"].ToString();
-           viewProfileEntity.LastName = ds.Tables[0].Rows[0]["LastName"].ToString();
-           viewProfileEntity.MobileNumber = ds.Tables[0].Rows[0]["MobileNo"].ToString();           
-           viewProfileEntity.EmailId = ds.Tables[0].Rows[0]["EmailId"].ToString();
-              SqlParameter[] sparams1=new SqlParameter[1];
-                sparams1[0]=new SqlParameter("@id","JS12");
-           ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_JS_SelectPersonalDetails",sparams1);
-                viewProfileEntity.Birthdate=Convert.ToDateTime(ds.Tables[0].Rows[0]["DateOfBirth"].ToString());
-                viewProfileEntity.Address=ds.Tables[0].Rows[0]["CurrentAddress"].ToString();
+            {
+                 DataSet ds = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_ViewProfile, sparams);
+                return ds;
             }
             catch (Exception)
             {
-
+                
                 throw;
             }
-           return ds;
-
         }
 
+       
         public int ChangeConatctNoDAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {
             SqlParameter[] sparams =new SqlParameter[2];

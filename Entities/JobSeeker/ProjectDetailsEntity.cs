@@ -7,7 +7,7 @@
         public string CandidateId { get; set; }
         public string CompanyName { get; set; }
         public string ProjectTitle { get; set; }
-        public string YourRole { get; set; }
+        public int YourRole { get; set; }
         public string ClientName { get; set; }
         public string ProjectLocation { get; set; }
         public string Duration { get; set; }
@@ -19,6 +19,6 @@
         public string ProjectLive { get; set; }
         public string ProjectLink { get; set; }
         public string Degree { get; set; }
-        
+        public string ProjectFor { get; set; }
     }
 }

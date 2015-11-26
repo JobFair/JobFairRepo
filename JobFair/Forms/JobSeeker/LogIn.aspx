@@ -12,7 +12,27 @@
      
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    
+    <%--<div class="form-horizontal",role="form">
+        <div class="form-group">
+            <asp:Label ID="Label1" runat="server" Text="User Name" CssClass="col-md-2 control-label"></asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label ID="Label2" runat="server" Text="Password" CssClass="col-md-2 control-label"></asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <asp:Button ID="Button1" runat="server" CssClass="btn btn-default" Text="Login" />
+            </div>
+        </div>
+    </div>--%>
+
+
     <table>
         <tr>
             <td colspan="2"><h1>Login</h1></td>

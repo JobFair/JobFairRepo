@@ -1,12 +1,10 @@
 ﻿using BAL;
+using Entities.JobSeeker;
 using System;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Entities.JobSeeker;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -17,10 +15,10 @@ namespace JobFair.Forms.JobSeeker
     {
         public string candidateId;
         private bool isCheck = true;
+
         // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
         protected void Page_Load(object sender, EventArgs e)
         {
-
             candidateId = Convert.ToString(Session["candidateId"]);
             //CheckAuthorised(candidateId);
 
@@ -47,25 +45,26 @@ namespace JobFair.Forms.JobSeeker
                 return;
             }
             panelProjectLink.Visible = false;
-           
         }
 
+        /// <summary>
+        /// Bind Repeater for ProjectDetails.
+        /// </summary>
         private void BindRepeater()
         {
             DataSet ds = new DataSet();
             ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
-            ds= projectDetailsBAL.ViewProjectDetailsBAL(candidateId);
-            cpRepeater.DataSource = ds;
-            cpRepeater.DataBind();
+            ds = projectDetailsBAL.ViewProjectDetailsBAL(candidateId);
+            rptrProjectDetails.DataSource = ds;
+            rptrProjectDetails.DataBind();
         }
 
-        protected void cpRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void rptrProjectDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
             LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
             LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
             LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
-            // Label lblName = (Label)e.Item.FindControl("lblName");
             Label lblrptID = (Label)e.Item.FindControl("lblID");
             Label lblProjectFor = (Label)e.Item.FindControl("lblProjectFor");
             Label lblProjectTiltle = (Label)e.Item.FindControl("lblProjectTiltle");
@@ -93,7 +92,7 @@ namespace JobFair.Forms.JobSeeker
 
             DropDownList ddlRole = (DropDownList)e.Item.FindControl("ddlRole");
             DropDownList ddlTeamSize = (DropDownList)e.Item.FindControl("ddlTeamSize");
-
+            DropDownList ddlProjectFor = (DropDownList)e.Item.FindControl("ddlProjectFor");
             DropDownList ddlDegree = (DropDownList)e.Item.FindControl("ddlDegree");
             CheckBox chkDelete = (CheckBox)e.Item.FindControl("chkDelete");
 
@@ -114,6 +113,7 @@ namespace JobFair.Forms.JobSeeker
                 txtSkillUsed.Visible = true;
                 txtProjectDetails.Visible = true;
                 txtProjectLink.Visible = true;
+                ddlProjectFor.Visible = true;
                 lblProjectFor.Visible = false;
                 lblProjectTiltle.Visible = false;
                 lblCompanyName.Visible = false;
@@ -139,7 +139,7 @@ namespace JobFair.Forms.JobSeeker
                     ProjectDetailsEntity projectDetailsEntity = new ProjectDetailsEntity();
                     projectDetailsEntity.ProjectTitle = txtProjectTiltle.Text;
                     projectDetailsEntity.CompanyName = txtCompanyName.Text;
-                    projectDetailsEntity.YourRole = ddlRole.SelectedValue;
+                    projectDetailsEntity.YourRole = Convert.ToInt32(ddlRole.SelectedValue);
                     projectDetailsEntity.ClientName = txtClientName.Text;
                     projectDetailsEntity.Duration = txtDuration.Text;
                     projectDetailsEntity.ProjectLocation = txtProjectLocation.Text;
@@ -151,15 +151,15 @@ namespace JobFair.Forms.JobSeeker
                     projectDetailsEntity.ProjectLive = txtProjectLive.Text;
                     projectDetailsEntity.ProjectLink = txtProjectLink.Text;
                     projectDetailsEntity.Degree = ddlDegree.SelectedValue;
+                    projectDetailsEntity.ProjectFor = ddlProjectFor.SelectedValue;
                     projectDetailsEntity.ProjectId = Convert.ToInt32(e.CommandArgument);
                     projectDetailsBAL.UpdateProjectDetailsBAL(projectDetailsEntity);
                 }
                 catch (Exception)
                 {
-                    
                     throw;
                 }
-             
+
                 BindRepeater();
             }
             if (e.CommandName == "delete")
@@ -172,14 +172,13 @@ namespace JobFair.Forms.JobSeeker
                 }
                 catch (Exception)
                 {
-                    
                     throw;
                 }
                 BindRepeater();
             }
         }
 
-        protected void cpRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void rptrProjectDetails_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             DropDownList ddlRole = (DropDownList)e.Item.FindControl("ddlRole");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -189,9 +188,9 @@ namespace JobFair.Forms.JobSeeker
                 ds = projectDetailsBAL.GetRole();
                 ddlRole.DataSource = ds;
                 ddlRole.DataTextField = "RoleName";
-                //ddlRole.DataValueField = "RoleId";
+                ddlRole.DataValueField = "RoleId";
                 ddlRole.DataBind();
-                ddlRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "RoleName"));
+                ddlRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "RoleId"));
             }
             DropDownList ddlTeamSize = (DropDownList)e.Item.FindControl("ddlTeamSize");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -202,6 +201,11 @@ namespace JobFair.Forms.JobSeeker
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 ddlDegree.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Degree"));
+            }
+            DropDownList ddlProjectFor = (DropDownList)e.Item.FindControl("ddlProjectFor");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                ddlProjectFor.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "ProjectFor"));
             }
         }
 
@@ -226,11 +230,9 @@ namespace JobFair.Forms.JobSeeker
             //BindRepeater();
         }
 
-
-
-
-
-
+        /// <summary>
+        /// Bind Functional roles.
+        /// </summary>
         private void GetRole()
         {
             try
@@ -246,10 +248,10 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
+
         private void CheckAuthorised(string candidateId)
         {
             if (string.IsNullOrEmpty(candidateId))
@@ -266,6 +268,11 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Add project to GridView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             AddNewRecordRowToGrid();
@@ -307,7 +314,7 @@ namespace JobFair.Forms.JobSeeker
                             drCurrentRow["ProjectFor"] = rbtProjectTypeList.SelectedItem.Text;
                             drCurrentRow["ProjectTitle"] = txtProjectTitle.Text.Trim();
                             drCurrentRow["CompanyName"] = txtCompanyName.Text.Trim();
-                            drCurrentRow["Role"] = ddlRole.SelectedItem.Text;
+                            drCurrentRow["RoleId"] = ddlRole.SelectedValue;
                             drCurrentRow["ClientName"] = txtClientName.Text.Trim();
                             drCurrentRow["Duration"] = Convert.ToInt32(days);
                             drCurrentRow["ProjectLocation"] = txtLocation.Text.Trim();
@@ -373,7 +380,7 @@ namespace JobFair.Forms.JobSeeker
                 dt.Columns.Add(new DataColumn("ProjectFor", typeof(string)));
                 dt.Columns.Add(new DataColumn("ProjectTitle", typeof(string)));
                 dt.Columns.Add(new DataColumn("CompanyName", typeof(string)));
-                dt.Columns.Add(new DataColumn("Role", typeof(string)));
+                dt.Columns.Add(new DataColumn("RoleId", typeof(int)));
                 dt.Columns.Add(new DataColumn("ClientName", typeof(string)));
                 dt.Columns.Add(new DataColumn("Duration", typeof(int)));
                 dt.Columns.Add(new DataColumn("ProjectLocation", typeof(string)));
