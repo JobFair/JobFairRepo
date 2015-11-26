@@ -240,7 +240,7 @@
         </tr>
     </table>
 </div>
-<div id="divDesireJobDetails" runat="server" visible="false">
+<div id="divDesireJobDetails" runat="server">
     <table id="TableDesiredJob" runat="server">
         <tr>
             <td colspan="2">
@@ -343,7 +343,7 @@
                         <tr>
                             <td colspan="2">
                                 <div id="divJobPostLookingForRepeater" runat="server">
-                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand">
+                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand" OnItemDataBound="rptrJobPostLookinFor_ItemDataBound">
                                         <HeaderTemplate>
                                              <table>
                                                  <tr>
@@ -369,21 +369,21 @@
 <td>
 <b>Industry</b>
 <asp:Label ID="lblIndustry" runat="server" Text='<%#Eval("IndustryName") %>'/>
-<asp:DropDownList ID="ddlIndustry123" runat="server" SelectedValue='<%#Eval("IndustryName") %>' Visible="false"></asp:DropDownList>
+<asp:DropDownList ID="ddlIndustry123" runat="server" Visible="false"></asp:DropDownList>
 </td>
 </tr>
 <tr>
 <td>
 <b>Department</b>
 <asp:Label ID="lblDepartment" runat="server"  Text='<%#Eval("DepartmentName") %>'/>
-<asp:DropDownList ID="ddlDepartment123" DataTextField="DepartmentName" DataValueField="DepartmentId" runat="server"  SelectedValue='<%#Eval("DepartmentId") %>' Visible="false"></asp:DropDownList>
+<asp:DropDownList ID="ddlDepartment123" DataTextField="DepartmentName" DataValueField="DepartmentId" runat="server"  SelectedValue='<%#Eval("Department") %>' Visible="false"></asp:DropDownList>
 </td>
 </tr>
 <tr>
 <td>
 <b>Functional Role</b>
 <asp:Label ID="lblFunctionalRole" runat="server" Text='<%#Eval("FunctionalArea") %>'/>
-<asp:DropDownList ID="ddlFunctionalRole" DataValueField="FunctionalAreaId" DataTextField="FunctionalArea" runat="server" Text='<%#Eval("FunctionalAreaId") %>' Visible="false"></asp:DropDownList>
+<asp:DropDownList ID="ddlFunctionalRole" DataValueField="FunctionalAreaId" DataTextField="FunctionalArea" runat="server" Text='<%#Eval("FunctionalArea") %>' Visible="false"></asp:DropDownList>
 </td>
     </tr>
     <tr>

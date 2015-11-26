@@ -305,5 +305,24 @@ namespace DAL
             }
             
         }
+
+        public DataSet ViewRepeaterJobPostLookingBAL(string candidateId)
+        {
+            try
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+            connection.Open();
+           
+           SqlParameter [] sparams ={ new SqlParameter("@candidateId", candidateId)};
+          
+
+            return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_SelectJobPostLookingFor", sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

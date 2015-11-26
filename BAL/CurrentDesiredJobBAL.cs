@@ -315,6 +315,21 @@ CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             }
         }
 
-       
+
+
+        public DataSet ViewRepeaterJobPostLookingBAL(string candidateId)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.ViewRepeaterJobPostLookingBAL(candidateId);
+
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
