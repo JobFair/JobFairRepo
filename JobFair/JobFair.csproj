@@ -100,6 +100,7 @@
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
+    <Content Include="Forms\JobSeeker\JSViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\ProjectDetails.aspx" />
     <Content Include="Forms\JobSeeker\Refference.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\JobSeekerHome.Master.designer.cs">
       <DependentUpon>JobSeekerHome.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JSViewProfile.aspx.cs">
+      <DependentUpon>JSViewProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JSViewProfile.aspx.designer.cs">
+      <DependentUpon>JSViewProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>

@@ -45,7 +45,7 @@ namespace JobFair.UserControls.JobSeeker
                         DataSet dsPersonalDetails = new DataSet();
                         PersonalDetailsJSBAL personalDetailsJSBAL = new PersonalDetailsJSBAL();
                         dsPersonalDetails = personalDetailsJSBAL.ViewPersonalDetailsBAL(candidateId);
-
+                        FileUploadPhoto.Visible = false;
                         DataSet dsPersentState = new DataSet();
                         int countryId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PresentCountryId"]);
                         dsPersentState = personalDetailsJSBAL.GetState(countryId);
@@ -94,7 +94,7 @@ namespace JobFair.UserControls.JobSeeker
                         ddlAreaPerm.DataValueField = "AreaId";
                         ddlAreaPerm.DataBind();
 
-                        Image1.ImageUrl = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["photo"]);
+                        imgPersonalPhoto.ImageUrl = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["photo"]);
                         txtPresentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentAddress"]);
                         ddlCountryPresent.SelectedValue = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentCountryId"]);
                         ddlStatePresent.SelectedValue = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentStateId"]);
@@ -222,6 +222,10 @@ namespace JobFair.UserControls.JobSeeker
                     {
                         objPersonalDetailsEntity.photo = Path.GetFileName(FileUploadPhoto.PostedFile.FileName);
                         FileUploadPhoto.SaveAs(Server.MapPath("~/UploadImages/" + objPersonalDetailsEntity.photo));
+                    }
+                    else
+                    {
+                        objPersonalDetailsEntity.photo = Path.GetFileName(imgPersonalPhoto.ImageUrl);
                     }
 
                     // Check if radio button check.
@@ -498,6 +502,22 @@ namespace JobFair.UserControls.JobSeeker
             {
                 throw;
             }
+        }
+
+        protected void lnkbtnEdit_Click(object sender, EventArgs e)
+        {
+            lnkbtnCancel.Visible = true;
+            FileUploadPhoto.Visible = true;
+            lnkbtnEdit.Visible = false;
+            imgPersonalPhoto.Visible = false;
+        }
+
+        protected void lnkbtnCancel_Click(object sender, EventArgs e)
+        {
+            FileUploadPhoto.Visible = false;
+            lnkbtnEdit.Visible = true;
+            imgPersonalPhoto.Visible = true;
+            lnkbtnCancel.Visible = false;
         }
     }
 }

@@ -7,11 +7,6 @@
 
 
 
-
-
-
-
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,7 +20,7 @@
     <form runat="server">
        
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <uc1:ProfessionalDetails runat="server" id="ProfessionalDetails" />
+        <uc1:ProfessionalDetails runat="server" ID="ProfessionalDetails" />
         </form>
 </body>
 </html>

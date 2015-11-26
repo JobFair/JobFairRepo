@@ -70,5 +70,6 @@ namespace DAL
         public const string sp_JS_UpdateProjectDetails = "sp_JS_UpdateProjectDetails";
         public const string sp_JS_DeleteProjectDetails = "sp_JS_DeleteProjectDetails";
         public const string sp_FunctionalRoles = "sp_FunctionalRoles";
+        public const string sp_JS_ViewProfile = "sp_JS_ViewProfile";
     }
 }

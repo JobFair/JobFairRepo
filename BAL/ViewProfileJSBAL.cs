@@ -5,19 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using System.Data;
+using Entities.JobSeeker;
 namespace BAL
 {
     public class ViewProfileJSBAL
     {
-        ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
-        public DataSet ViewProfileBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        
+        public DataSet ViewProfileBAL(string candidateId)
         {
-
-            return viewProfileJSDAL.ViewProfileDAL(viewProfileEntity);
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+            return viewProfileJSDAL.ViewProfileDAL(candidateId);
         }
 
         public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
             return viewProfileJSDAL.ChangeConatctNoDAL(viewProfileEntity);
         }
 
@@ -25,11 +27,13 @@ namespace BAL
 
         public int ResumeDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
             return viewProfileJSDAL.ResumeDetailsDAL(viewProfileEntity);
         }
 
         public int ChangePersonalDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
             return viewProfileJSDAL.ChangePersonalDetailsDAL(viewProfileEntity);
         }
 

@@ -13,8 +13,10 @@
             <asp:Label ID="lblPhoto" runat="server" Text="Photo"></asp:Label>
         </td>
         <td colspan="2">
-            <asp:FileUpload ID="FileUploadPhoto" runat="server" />
-            <asp:Image ID="Image1" runat="server" Height="100px" Width="100px" ImageAlign="Top" />
+            <asp:FileUpload ID="FileUploadPhoto" runat="server" Visible="true" />
+            <asp:Image ID="imgPersonalPhoto" runat="server" Height="100px" Width="100px" ImageAlign="Top" />
+            <asp:LinkButton ID="lnkbtnEdit" runat="server" OnClick="lnkbtnEdit_Click">Edit Photo</asp:LinkButton>
+            <asp:LinkButton ID="lnkbtnCancel" runat="server" Visible="false" OnClick="lnkbtnCancel_Click">Cancel</asp:LinkButton>
         </td>
     </tr>
     <tr>
@@ -142,8 +144,8 @@
         <td colspan="2">
             <asp:TextBox ID="txtDOB" runat="server" onblur="return IsValidDate(this.id);"></asp:TextBox>
             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDOB" PopupButtonID="txtDOB" Format="yyyy/MM/dd" />
-            <asp:RequiredFieldValidator ID="rfvDOB" runat="server" ControlToValidate="txtDOB" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="revDOB" runat="server" ControlToValidate="txtDOB" ErrorMessage="*" ForeColor="Red" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"></asp:RegularExpressionValidator>
+           <%-- <asp:RequiredFieldValidator ID="rfvDOB" runat="server" ControlToValidate="txtDOB" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="revDOB" runat="server" ControlToValidate="txtDOB" ErrorMessage="*" ForeColor="Red" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"></asp:RegularExpressionValidator>--%>
         </td>
     </tr>
     <tr>
