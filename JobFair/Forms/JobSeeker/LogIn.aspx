@@ -12,7 +12,7 @@
      
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="form-horizontal",role="form">
+    <%--<div class="form-horizontal",role="form">
         <div class="form-group">
             <asp:Label ID="Label1" runat="server" Text="User Name" CssClass="col-md-2 control-label"></asp:Label>
             <div class="col-md-10">
@@ -30,7 +30,7 @@
                 <asp:Button ID="Button1" runat="server" CssClass="btn btn-default" Text="Login" />
             </div>
         </div>
-    </div>
+    </div>--%>
 
 
     <table>
