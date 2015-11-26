@@ -285,14 +285,14 @@ namespace BAL
             }
         }
 
-      
 
-        public void UpdateJobLookingBAL(string candidateId)
+
+        public void UpdateJobLookingBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
             {
                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                 currentDesiredJobDAL.UpdateJobLookingDAL(candidateId);
+                currentDesiredJobDAL.UpdateJobLookingDAL(currentDesiredJobEntity);
             }
             catch (System.Exception)
             {
@@ -301,12 +301,12 @@ namespace BAL
             }
         }
 
-        public void DeleteJobPostLookingForBAL(string candidateId)
+        public void DeleteJobPostLookingForBAL(int JobpostlookingId)
         {
             try
             {
 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
- currentDesiredJobDAL.DeleteJobPostLookingForDAL(candidateId);
+currentDesiredJobDAL.DeleteJobPostLookingForDAL(JobpostlookingId);
             }
             catch (System.Exception)
             {
@@ -324,6 +324,50 @@ CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
                 return currentDesiredJobDAL.ViewRepeaterJobPostLookingBAL(candidateId);
 
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public DataSet ViewRepeaterCurrentPastJobDetailsBAL(string candidateId)
+        {
+            try
+            {
+                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.ViewRepeaterCurrentPastJobDetailsDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public void UpdateCurrentPastExpDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                 currentDesiredJobDAL.UpdateCurrentPastExpDetailsDAL(currentDesiredJobEntity);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+           
+        }
+
+        public void DeleteCurrentPastJobDetailsBAL(int expId)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                currentDesiredJobDAL.DeleteCurrentPastJobDetailsDAL(expId);
+               
             }
             catch (System.Exception)
             {

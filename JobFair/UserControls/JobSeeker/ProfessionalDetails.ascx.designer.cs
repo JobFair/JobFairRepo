@@ -247,6 +247,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.GridView gvExperience;
         
         /// <summary>
+        /// rptrPastCurrentJobDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrPastCurrentJobDetails;
+        
+        /// <summary>
         /// btnSaveCurrentJob control.
         /// </summary>
         /// <remarks>
@@ -281,15 +290,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPastCurrentJobDetails;
-        
-        /// <summary>
-        /// rptrPastCurrentJobDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrPastCurrentJobDetails;
         
         /// <summary>
         /// divDesireJobDetails control.

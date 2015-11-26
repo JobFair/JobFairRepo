@@ -259,24 +259,24 @@ namespace DAL
             }
         }
 
-       
 
-        public void UpdateJobLookingDAL(string candidateId)
+
+        public void UpdateJobLookingDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
             {
 
-                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                
             connection.Open();
             SqlParameter[] sparams = new SqlParameter[6];
-            sparams[0] = new SqlParameter("@candidateId", candidateId);
+            sparams[0] = new SqlParameter("@JobpostlookingId", currentDesiredJobEntity.JobPostLookingId);
             sparams[1] = new SqlParameter("@jobPostLookingFor", currentDesiredJobEntity.JobPostLookingFor);
             sparams[2] = new SqlParameter("@industry", currentDesiredJobEntity.Industry);
             sparams[3] = new SqlParameter("@department", currentDesiredJobEntity.Department);
             sparams[4] = new SqlParameter("@functionalRole", currentDesiredJobEntity.FunctionalRole);
             sparams[5] = new SqlParameter("@relevantExp", Convert.ToDouble(currentDesiredJobEntity.RelevantExp));
 
-            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_UpdateJobPostLookingFor", sparams);
+            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateJobPostLookingFor, sparams);
             }
             catch (Exception)
             {
@@ -285,18 +285,18 @@ namespace DAL
             }
         }
 
-        public void DeleteJobPostLookingForDAL(string candidateId)
+        public void DeleteJobPostLookingForDAL(int JobpostlookingId)
         {
             try
             {
                 
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
             connection.Open();
-           
-           SqlParameter [] sparams ={ new SqlParameter("@candidateId", candidateId)};
-          
 
-            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_DeleteJobPostLookingFor", sparams);
+            SqlParameter[] sparams = { new SqlParameter("@JobpostlookingId", JobpostlookingId) };
+
+
+            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteJobPostLookingFor, sparams);
             }
             catch (Exception)
             {
@@ -312,11 +312,82 @@ namespace DAL
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
             connection.Open();
-           
-           SqlParameter [] sparams ={ new SqlParameter("@candidateId", candidateId)};
-          
 
-            return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_SelectJobPostLookingFor", sparams);
+            SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+
+
+            return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectJobPostLookingFor, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public DataSet ViewRepeaterCurrentPastJobDetailsDAL(string candidateId)
+        {
+            try
+            {
+                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+            connection.Open();
+
+            SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+
+
+           return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentPastJobDeatails, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public void UpdateCurrentPastExpDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {
+
+
+                connection.Open();
+                SqlParameter[] sparams = new SqlParameter[14];
+                sparams[0] = new SqlParameter("@id", currentDesiredJobEntity.ExpId);
+                sparams[1] = new SqlParameter("@companyCurrentOrPast", currentDesiredJobEntity.CurrentCompanyOrNot);
+                sparams[2] = new SqlParameter("@companyName", currentDesiredJobEntity.CompanyName);
+                sparams[3] = new SqlParameter("@rolesResponsibilities", currentDesiredJobEntity.RolesResponsibility);
+                sparams[4] = new SqlParameter("@fromMonth", currentDesiredJobEntity.FromMonth);
+                sparams[5] = new SqlParameter("@fromYear", currentDesiredJobEntity.FromYear);
+                sparams[6] = new SqlParameter("@tillMonth", currentDesiredJobEntity.TillMonth);
+                sparams[7] = new SqlParameter("@tillYear", currentDesiredJobEntity.TillYear);
+                sparams[8] = new SqlParameter("@industry", currentDesiredJobEntity.Industry);
+                sparams[9] = new SqlParameter("@department", currentDesiredJobEntity.Department);
+                sparams[10] = new SqlParameter("@employmentStatus", currentDesiredJobEntity.CurrentEmploymentStatus);
+                sparams[11] = new SqlParameter("@jobType", currentDesiredJobEntity.JobType);
+                sparams[12] = new SqlParameter("@companyType", currentDesiredJobEntity.CompanyType);
+                sparams[13] = new SqlParameter("@reason", currentDesiredJobEntity.ReasonForJobChange);
+               
+
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateCurrentPastExpDetails, sparams);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void DeleteCurrentPastJobDetailsDAL(int expId)
+        {
+            try
+            {
+                  CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+            connection.Open();
+
+            SqlParameter[] sparams = { new SqlParameter("@id", expId) };
+
+
+            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteCurrentPastJobDetails, sparams);
             }
             catch (Exception)
             {

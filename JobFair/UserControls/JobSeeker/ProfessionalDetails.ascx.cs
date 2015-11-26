@@ -139,6 +139,7 @@ namespace JobFair.UserControls.JobSeeker
                         BindFunctionalArea();
                         hfCandidateId.Value = "JS3";
                         BindRepeaterJobPostLooking();
+                        BindRepeaterCurrentPastExp();
                     }
                     catch (Exception)
                     {
@@ -161,6 +162,19 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
+        private void BindRepeaterCurrentPastExp()
+        {
+            DataSet ds = new DataSet();
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            ds = currentDesiredJobBAL.ViewRepeaterCurrentPastJobDetailsBAL(candidateId);
+
+
+            rptrPastCurrentJobDetails.DataSource = ds;
+
+            rptrPastCurrentJobDetails.DataBind();
+            
+        }
+
        
 
         private void BindRepeaterJobPostLooking()
@@ -169,9 +183,7 @@ namespace JobFair.UserControls.JobSeeker
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             ds = currentDesiredJobBAL.ViewRepeaterJobPostLookingBAL(candidateId);
 
-            ddlIndustry123.SelectedValue =Convert.ToString(ds.Tables[0].Rows[0]["Industry"]);
-            ddlDepartment123.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["Department"]);
-            ddlFunctionalRole.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["FunctionalRole"]);
+           
             rptrJobPostLookinFor.DataSource = ds;
 
             rptrJobPostLookinFor.DataBind();
@@ -635,8 +647,8 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtEmployed_CheckedChanged(object sender, EventArgs e)
         {
-            divDesireJobDetails.Visible = true;
-            divCurrentEmployer.Visible = true;
+            //divDesireJobDetails.Visible = true;
+            //divCurrentEmployer.Visible = true;
         }
 
         /// <summary>
@@ -684,47 +696,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             Panelcity.Visible = true;
 
-            //DataSet dsPersentCity = new DataSet();
-            //int stateId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PresentStateId"]);
-            //dsPersentCity = personalDetailsJSBAL.GetCity(stateId);
-            //ddlCityPresent.DataSource = dsPersentCity;
-            //ddlCityPresent.DataTextField = "CityName";
-            //ddlCityPresent.DataValueField = "CityId";
-            //ddlCityPresent.DataBind();
-
-            //DataSet ds = new DataSet();
-            //bindState();
-            //CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            //ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-            //ddlState.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PreferredState"]);
-            //string format = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCity"]);
-           
-
-           
-            //int count = 0;
-            ////Array[] arraylist = new Array[10];
-            //List<string> listofCity = new List<string>(format.Split(','));
-            //listofCity.RemoveAll(x => x == "");
-            //List<int> intList = listofCity.ConvertAll(s => Int32.Parse(s));
-            
-           
-            //foreach (var mylist in intList)
-            //{
-            //    count += 1;
-            //    if (count >= 1)
-            //    {
-
-            //        //var values = chklCity.Items.Cast<ListItem>().Where(n => n.Selected).Select(n => n.Value).ToList();
-
-            //        //var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-            //        chklCity.SelectedItem.Value= Convert.ToString(mylist);
-            //        chklCity.Items.Add(chklCity.SelectedValue);
-            //        //txtCity.Text = string.Join(",", selectedcity.Select(x => x.Text));
-                    
-                  
-            //    }
-               
-            //}
+          
            
            
         }
@@ -782,79 +754,201 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void rptrPastCurrentJobDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            
+      
+   
+     
+            Label lblCurrentComapny = (Label)e.Item.FindControl("lblCurrentComapny");
+            CheckBox chkCurrentYes = (CheckBox)e.Item.FindControl("chkCurrentYes");
+            Label lblCompanyName = (Label)e.Item.FindControl("lblCompanyName");
+            TextBox txtComapnyName = (TextBox)e.Item.FindControl("txtComapnyName");
+            Label lblDesignation = (Label)e.Item.FindControl("lblDesignation");
+            TextBox txtDesignation = (TextBox)e.Item.FindControl("txtDesignation");
+            Label lblRolesResponsibility = (Label)e.Item.FindControl("lblRolesResponsibility");
+            TextBox txtRolesResponsibility = (TextBox)e.Item.FindControl("txtRolesResponsibility");
+            Label lblFromMonth = (Label)e.Item.FindControl("lblFromMonth");
+            Label lblFromYear = (Label)e.Item.FindControl("lblFromYear");
+            Label lblTillMonth = (Label)e.Item.FindControl("lblTillMonth");
+            Label lblTillYear = (Label)e.Item.FindControl("lblTillYear");
+            DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
+            DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
+            DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
+            DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
+            Label lbltillword = (Label)e.Item.FindControl("lbltillword");
+            Label lblIndustry = (Label)e.Item.FindControl("lblIndustry");
+            Label lblDepartment = (Label)e.Item.FindControl("lblDepartment");
+            DropDownList ddlIndustry = (DropDownList)e.Item.FindControl("ddlIndustry");
+            DropDownList ddlDepartment = (DropDownList)e.Item.FindControl("ddlDepartment");
+            Label lblEmploymentStatus = (Label)e.Item.FindControl("lblEmploymentStatus");
+            RadioButtonList rbtlEmployementStatus = (RadioButtonList)e.Item.FindControl("rbtlEmployementStatus");
+            Label lblJobType = (Label)e.Item.FindControl("lblJobType");
+            RadioButtonList rblJobType = (RadioButtonList)e.Item.FindControl("rblJobType");
+            Label lblCompanyType = (Label)e.Item.FindControl("lblCompanyType");
+            RadioButtonList rblCompanyType = (RadioButtonList)e.Item.FindControl("rblCompanyType");
+            Label lblReasonforjobchange = (Label)e.Item.FindControl("lblReasonforjobchange");
+            TextBox txtReasonforJobchange = (TextBox)e.Item.FindControl("txtReasonforJobchange");
+
+            LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
+            LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
+            LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
+            LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
+
+            if (e.CommandName == "edit")
+            {
+                lblCurrentComapny.Visible = false;
+                chkCurrentYes.Visible = true;
+                lblCompanyName.Visible = false;
+                txtComapnyName.Visible = true;
+                lblDesignation.Visible = false;
+                txtDesignation.Visible = true;
+                lblRolesResponsibility.Visible = false;
+                txtRolesResponsibility.Visible = true;
+                lblFromMonth.Visible = false;
+                lblFromYear.Visible = false;
+                lblTillMonth.Visible = false;
+                lblTillYear.Visible = false;
+                ddlFromMonth.Visible = true;
+                ddlFromYear.Visible = true;
+                ddlTillMonth.Visible = true;
+                ddlTillYear.Visible = true;
+                lbltillword.Visible = true;
+                lblEmploymentStatus.Visible = false;
+                rbtlEmployementStatus.Visible = true;
+                lblJobType.Visible = false;
+                rblJobType.Visible = true;
+                lblCompanyType.Visible = false;
+                rblCompanyType.Visible = true;
+                lblReasonforjobchange.Visible = false;
+                txtReasonforJobchange.Visible = true;
+
+                lblIndustry.Visible = false;
+                lblDepartment.Visible = false;
+              
+                ddlIndustry.Visible = true;
+                ddlDepartment.Visible = true;             
+               
+                lnkEdit.Visible = false;
+                lnkDelete.Visible = false;
+                lnkUpdate.Visible = true;
+                lnkCancel.Visible = true;
+            }
+            if (e.CommandName == "update")
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                currentDesiredJobEntity.CurrentCompanyOrNot = chkCurrentYes.Checked.ToString();
+                currentDesiredJobEntity.CompanyName = txtComapnyName.Text.Trim();
+                currentDesiredJobEntity.Designation = txtDesignation.Text.Trim();
+                currentDesiredJobEntity.Industry = ddlIndustry.SelectedValue;
+                currentDesiredJobEntity.RolesResponsibility = lblRolesResponsibility.Text.Trim();
+                currentDesiredJobEntity.FromMonth = ddlFromMonth.SelectedItem.Value;
+                currentDesiredJobEntity.FromYear = ddlFromYear.SelectedItem.Value;
+                currentDesiredJobEntity.TillMonth = ddlTillMonth.SelectedItem.Value;
+                currentDesiredJobEntity.TillYear = ddlTillYear.SelectedItem.Value;
+                currentDesiredJobEntity.CurrentEmploymentStatus = rbtlEmployementStatus.Text;
+                currentDesiredJobEntity.JobType = rblJobType.Text;
+                currentDesiredJobEntity.CompanyType = rblCompanyType.Text;
+                currentDesiredJobEntity.ReasonForJobChange = txtReasonforJobchange.Text.Trim();
+
+
+                currentDesiredJobEntity.Department = ddlDepartment.SelectedValue;
+               
+                currentDesiredJobEntity.ExpId = Convert.ToInt32(e.CommandArgument);
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                currentDesiredJobBAL.UpdateCurrentPastExpDetailsBAL(currentDesiredJobEntity);
+
+                BindRepeaterCurrentPastExp();
+            }
+            if (e.CommandName == "delete")
+            {
+                int expId = Convert.ToInt32(e.CommandArgument);
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                currentDesiredJobBAL.DeleteCurrentPastJobDetailsBAL(expId);
+
+                BindRepeaterCurrentPastExp();
+            }
+            if (e.CommandName == "cancel")
+            {
+                BindRepeaterCurrentPastExp();
+            }
         }
 
        
 
         protected void rptrJobPostLookinFor_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            Label lblJobPostLooking = (Label)e.Item.FindControl("lblJobPostLooking");
+            Label lblIndustry = (Label)e.Item.FindControl("lblIndustry");
+            Label lblDepartment = (Label)e.Item.FindControl("lblDepartment");
+            Label lblFunctionalRole = (Label)e.Item.FindControl("lblFunctionalRole");
+            Label lblRelevantExperience = (Label)e.Item.FindControl("lblRelevantExperience");
+            TextBox txtJobPostLooking = (TextBox)e.Item.FindControl("txtJobPostLooking");
+            DropDownList ddlIndustry123 = (DropDownList)e.Item.FindControl("ddlIndustry123");
+            DropDownList ddlDepartment123 = (DropDownList)e.Item.FindControl("ddlDepartment123");
+            DropDownList ddlFunctionalRole = (DropDownList)e.Item.FindControl("ddlFunctionalRole");
+            TextBox txtRelevantExperience = (TextBox)e.Item.FindControl("txtRelevantExperience");
+            LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
+            LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
+            LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
+            LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
+
             if (e.CommandName == "edit")
             {
-                ((Label)e.Item.FindControl("lblJobPostLooking")).Visible = false;
-                ((Label)e.Item.FindControl("lblIndustry")).Visible = false;
-                ((Label)e.Item.FindControl("lblDepartment")).Visible = false;
-                ((Label)e.Item.FindControl("lblFunctionalRole")).Visible = false;
-                ((Label)e.Item.FindControl("lblRelevantExperience")).Visible = false;
-                ((TextBox)e.Item.FindControl("txtJobPostLooking")).Visible = true;
-                ((DropDownList)e.Item.FindControl("ddlIndustry123")).Visible = true;
-                ((DropDownList)e.Item.FindControl("ddlDepartment123")).Visible = true;
-                ((DropDownList)e.Item.FindControl("ddlFunctionalRole")).Visible = true;
-                ((TextBox)e.Item.FindControl("txtRelevantExperience")).Visible = true;
-                ((LinkButton)e.Item.FindControl("lnkEdit")).Visible = false;
-                ((LinkButton)e.Item.FindControl("lnkDelete")).Visible = false;
-                ((LinkButton)e.Item.FindControl("lnkUpdate")).Visible = true;
-                ((LinkButton)e.Item.FindControl("lnkCancel")).Visible = true;
+                lblJobPostLooking.Visible = false;
+                lblIndustry.Visible = false;
+                lblDepartment.Visible = false;
+                lblFunctionalRole.Visible = false;
+                lblRelevantExperience.Visible = false;
+                txtJobPostLooking.Visible = true;
+                ddlIndustry123.Visible = true;
+                ddlDepartment123.Visible = true;
+                ddlFunctionalRole.Visible = true;
+                txtRelevantExperience.Visible = true;
+                lnkEdit.Visible = false;
+                lnkDelete.Visible = false;
+                lnkUpdate.Visible = true;
+                lnkCancel.Visible = true;
             }
             if (e.CommandName == "update")
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
-                currentDesiredJobEntity.JobPostLookingFor = ((TextBox)e.Item.FindControl("txtJobPostLooking")).Text;
-                currentDesiredJobEntity.Industry = ((DropDownList)e.Item.FindControl("ddlIndustryRep")).SelectedItem.Value;
+                currentDesiredJobEntity.JobPostLookingFor = txtJobPostLooking.Text;
+                currentDesiredJobEntity.Industry = ddlIndustry123.SelectedValue;
 
-                currentDesiredJobEntity.Department = ((DropDownList)e.Item.FindControl("ddlDepartmentRep")).SelectedItem.Value;
-                currentDesiredJobEntity.FunctionalRole = ((DropDownList)e.Item.FindControl("ddlFunctionalRoleRep")).SelectedItem.Value;
-                currentDesiredJobEntity.RelevantExp = ((TextBox)e.Item.FindControl("txtRelevantExperience")).Text;
+                currentDesiredJobEntity.Department = ddlDepartment123.SelectedValue;
+                currentDesiredJobEntity.FunctionalRole = ddlFunctionalRole.SelectedValue;
+                currentDesiredJobEntity.RelevantExp = txtRelevantExperience.Text;
+                currentDesiredJobEntity.JobPostLookingId = Convert.ToInt32(e.CommandArgument);
                 DataSet ds = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                currentDesiredJobBAL.UpdateJobLookingBAL(candidateId);
+                currentDesiredJobBAL.UpdateJobLookingBAL(currentDesiredJobEntity);
 
                 BindRepeaterJobPostLooking();
             }
             if (e.CommandName == "delete")
             {
+                int JobpostlookingId = Convert.ToInt32(e.CommandArgument);
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                currentDesiredJobBAL.DeleteJobPostLookingForBAL(candidateId);
+                currentDesiredJobBAL.DeleteJobPostLookingForBAL(JobpostlookingId);
 
                 BindRepeaterJobPostLooking();
             }
             if (e.CommandName == "cancel")
             {
-                ((Label)e.Item.FindControl("lblJobPostLooking")).Visible = true;
-                ((Label)e.Item.FindControl("lblIndustry")).Visible = true;
-                ((Label)e.Item.FindControl("lblDepartment")).Visible = true;
-                ((Label)e.Item.FindControl("lblFunctionalRole")).Visible = true;
-                ((Label)e.Item.FindControl("lblRelevantExperience")).Visible = true;
-                ((TextBox)e.Item.FindControl("txtJobPostLooking")).Visible = false;
-                ((DropDownList)e.Item.FindControl("ddlIndustry123")).Visible = false;
-                ((DropDownList)e.Item.FindControl("ddlDepartment123")).Visible = false;
-                ((DropDownList)e.Item.FindControl("ddlFunctionalRole")).Visible = false;
-                ((TextBox)e.Item.FindControl("txtRelevantExperience")).Visible = false;
-                ((LinkButton)e.Item.FindControl("lnkEdit")).Visible = true;
-                ((LinkButton)e.Item.FindControl("lnkDelete")).Visible = true;
-                ((LinkButton)e.Item.FindControl("lnkUpdate")).Visible = false;
-                ((LinkButton)e.Item.FindControl("lnkCancel")).Visible = false;
+                BindRepeaterJobPostLooking();
             }
         }
 
         protected void rptrJobPostLookinFor_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
              DropDownList ddlIndustry123 = (DropDownList)e.Item.FindControl("ddlIndustry123");
            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
            {
-               DataSet ds1 = new DataSet();
-               CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-               ds1 = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-               bindState();
+               //DataSet ds1 = new DataSet();
+              
+               //ds1 = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
+               //bindState();
               
                DataSet ds = new DataSet();
                ds = currentDesiredJobBAL.GetIndustry();
@@ -864,7 +958,131 @@ namespace JobFair.UserControls.JobSeeker
                ddlIndustry123.DataBind();
                ddlIndustry123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Industry"));
            }
+           DropDownList ddlDepartment123 = (DropDownList)e.Item.FindControl("ddlDepartment123");
+           if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+           {
+               DataSet ds1 = new DataSet();
+               ds1 = currentDesiredJobBAL.GetDepartment();
+               ddlDepartment123.DataSource = ds1;
+               ddlDepartment123.DataTextField = "DepartmentName";
+               ddlDepartment123.DataValueField = "DepartmentId";
+               ddlDepartment123.DataBind();
+               ddlDepartment123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Department"));
+           }
+            DropDownList ddlFunctionalRole=(DropDownList)e.Item.FindControl("ddlFunctionalRole");
+            if(e.Item.ItemType==ListItemType.Item || e.Item.ItemType== ListItemType.AlternatingItem)
+            {
+               DataSet ds2 = new DataSet();
+              
+               ds2 = currentDesiredJobBAL.GetFunctionalArea();
+               ddlFunctionalRole.DataSource = ds2;
+               ddlFunctionalRole.DataTextField = "FunctionalArea";
+               ddlFunctionalRole.DataValueField = "FunctionalAreaId";
+               ddlFunctionalRole.DataBind();
+               ddlFunctionalRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FunctionalRole"));
+           }
            
+        }
+
+        protected void rptrPastCurrentJobDetails_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            DropDownList ddlIndustry = (DropDownList)e.Item.FindControl("ddlIndustry");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                //DataSet ds1 = new DataSet();
+
+                //ds1 = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
+                //bindState();
+
+                DataSet ds = new DataSet();
+                ds = currentDesiredJobBAL.GetIndustry();
+                ddlIndustry.DataSource = ds;
+                ddlIndustry.DataTextField = "IndustryName";
+                ddlIndustry.DataValueField = "IndustryId";
+                ddlIndustry.DataBind();
+                ddlIndustry.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Industry"));
+            }
+            DropDownList ddlDepartment = (DropDownList)e.Item.FindControl("ddlDepartment");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DataSet ds1 = new DataSet();
+                ds1 = currentDesiredJobBAL.GetDepartment();
+                ddlDepartment.DataSource = ds1;
+                ddlDepartment.DataTextField = "DepartmentName";
+                ddlDepartment.DataValueField = "DepartmentId";
+                ddlDepartment.DataBind();
+                ddlDepartment.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Department"));
+            }
+
+            DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
+             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+             {
+                 List<string> monthList = CommonUtil.Utility.GetMonths();
+                 ddlFromMonth.DataSource = monthList;
+                
+                 ddlFromMonth.DataBind();
+                
+                 ddlFromMonth.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FromMonth"));
+                
+             }
+
+             DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
+             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+             {
+                 List<string> monthList = CommonUtil.Utility.GetMonths();
+                 ddlTillMonth.DataSource = monthList;
+
+                 ddlTillMonth.DataBind();
+
+                 ddlTillMonth.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "TillMonth"));
+
+             }
+
+             DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
+             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+             {
+                 List<string> yearList = CommonUtil.Utility.GetYears();
+                 ddlFromYear.DataSource = yearList;
+                 ddlFromYear.DataBind();
+
+
+                 ddlFromYear.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FromYear"));
+
+             }
+
+             DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
+             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+             {
+                 List<string> yearList = CommonUtil.Utility.GetYears();
+                 ddlTillYear.DataSource = yearList;
+                 ddlTillYear.DataBind();
+
+
+                 ddlTillYear.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "TillYear"));
+
+             }
+
+            RadioButtonList rbtlEmployementStatus = (RadioButtonList)e.Item.FindControl("rbtlEmployementStatus");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                rbtlEmployementStatus.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "EmploymentStatus"));
+            }
+
+            RadioButtonList rblCompanyType = (RadioButtonList)e.Item.FindControl("rblCompanyType");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                rblCompanyType.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "CompanyType"));
+            }
+
+
+            RadioButtonList rblJobType = (RadioButtonList)e.Item.FindControl("rblJobType");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                rblJobType.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "JobType"));
+            }
+
+
         }
     }
 }

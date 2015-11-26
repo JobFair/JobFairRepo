@@ -40,5 +40,29 @@
         public string FunctionalRole { get; set; }
 
         public string RelevantExp { get; set; }
+
+        public int JobPostLookingId { get; set; }
+
+        public string CurrentCompanyOrNot { get; set; }
+
+        public string CompanyName { get; set; }
+
+        public string Designation { get; set; }
+
+        public string RolesResponsibility { get; set; }
+
+        public string FromMonth { get; set; }
+
+        public string FromYear { get; set; }
+
+        public string TillMonth { get; set; }
+
+        public string TillYear { get; set; }
+
+        public string CurrentEmploymentStatus { get; set; }
+
+        public string ReasonForJobChange { get; set; }
+
+        public int ExpId { get; set; }
     }
 }

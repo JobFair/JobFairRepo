@@ -70,5 +70,13 @@ namespace DAL
         public const string sp_JS_UpdateProjectDetails = "sp_JS_UpdateProjectDetails";
         public const string sp_JS_DeleteProjectDetails = "sp_JS_DeleteProjectDetails";
         public const string sp_FunctionalRoles = "sp_FunctionalRoles";
+        public const string sp_JS_SelectCurrentPastJobDeatails = "sp_JS_SelectCurrentPastJobDeatails";
+        public const string sp_JS_SelectJobPostLookingFor = "sp_JS_SelectJobPostLookingFor";
+        public const string sp_JS_DeleteJobPostLookingFor = "sp_JS_DeleteJobPostLookingFor";
+        public const string sp_JS_UpdateJobPostLookingFor = "sp_JS_UpdateJobPostLookingFor";
+
+        public static string sp_JS_UpdateCurrentPastExpDetails = "sp_JS_UpdateCurrentPastExpDetails";
+
+        public static string sp_JS_DeleteCurrentPastJobDetails = "sp_JS_DeleteCurrentPastJobDetails";
     }
 }
