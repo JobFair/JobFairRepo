@@ -1,7 +1,9 @@
 ﻿using BAL;
+using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace JobFair.UserControls.JobSeeker
@@ -13,6 +15,9 @@ namespace JobFair.UserControls.JobSeeker
     {
         private DataSet ds = new DataSet();
         private TechnicalSkillsDetailsBAL technicalSkillsBAL = new TechnicalSkillsDetailsBAL();
+        private static double Temp = 0;
+        private bool isCheck = true;
+        string candidateId = "JS3";
         /// <summary>
         /// Handles the Load event of Page
         /// </summary>
@@ -20,15 +25,35 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>      
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
-                BindTechnicalSkills();
-                BindMonth();
-                BindYears();
-                hfCandidateId.Value = "JS3";
-                AddTechnicalSkills();
+                if (isCheck)
+                {
+                    string candidateId="JS3";
+                    BindRepeaterTechnicalSkills();
+                }
+                else
+                {
+                    BindTechnicalSkills();
+                    BindMonth();
+                    BindYears();
+                    hfCandidateId.Value = "JS3";
+                    AddTechnicalSkills();
+                }
                
             }
+        }
+
+        private void BindRepeaterTechnicalSkills()
+        {
+            DataSet ds = new DataSet();
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            ds = currentDesiredJobBAL.ViewRepeaterTechSkillDetailsBAL(candidateId);
+
+            rptrTechnicalSkills.DataSource = ds;
+
+            rptrTechnicalSkills.DataBind();
         }
         /// <summary>
         /// Method to Create Skills Record Table for gvSkillsDetails Control
@@ -148,9 +173,9 @@ namespace JobFair.UserControls.JobSeeker
                             datarow = datatable.NewRow();
                             datarow["CandidateId"] = hfCandidateId.Value.Trim();
                             datarow["TechnicalSkills"] = ddlTechnicalSkills.SelectedItem.Value;
-                            datarow["FromDate"] = ddlFromMonth.SelectedItem.Text +" "+ ddlFromYear.SelectedItem.Text;
-                            datarow["TillDate"] = ddlTillMonth.SelectedItem.Text+" "+ddlTillYear.SelectedItem.Text;
-                            datarow["Proficiency"] = ddlProficiency.SelectedItem.Text;
+                            datarow["FromDate"] = ddlFromMonth.SelectedItem.Text.Trim() +"/"+ ddlFromYear.SelectedItem.Text.Trim();
+                            datarow["TillDate"] = ddlTillMonth.SelectedItem.Text.Trim()+"/"+ddlTillYear.SelectedItem.Text.Trim();
+                            datarow["Proficiency"] = ddlProficiency.SelectedItem.Text.Trim();
 
                             // Calculate Year
                             
@@ -216,6 +241,181 @@ namespace JobFair.UserControls.JobSeeker
                 dt = null;
                 currentDesiredJobBAL = null;
             }
+        }
+
+        protected void rptrTechnicalSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+           
+
+            Label lblTechnicalSkill = (Label)e.Item.FindControl("lblTechnicalSkill");
+            Label lblFromDate = (Label)e.Item.FindControl("lblFromDate");
+            Label lblTillDate = (Label)e.Item.FindControl("lblTillDate");
+            Label lblProficiency = (Label)e.Item.FindControl("lblProficiency");
+
+
+            DropDownList ddlTechnicalSkill = (DropDownList)e.Item.FindControl("ddlTechnicalSkill");
+            DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
+            DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
+            DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
+            DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
+            DropDownList ddlProficiency = (DropDownList)e.Item.FindControl("ddlProficiency");
+
+
+           
+            LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
+            LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
+            LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
+            LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
+
+            if (e.CommandName == "edit")
+            {
+                lblTechnicalSkill.Visible = false;
+                lblFromDate.Visible = false;
+                lblTillDate.Visible = false;
+                lblProficiency.Visible = false;
+
+                ddlTechnicalSkill.Visible = true;
+                ddlFromMonth.Visible = true;
+                ddlFromYear.Visible = true;
+                ddlTillMonth.Visible = true;
+                ddlTillYear.Visible = true;
+                ddlProficiency.Visible = true;
+
+                lnkEdit.Visible = false;
+                lnkDelete.Visible = false;
+                lnkUpdate.Visible = true;
+                lnkCancel.Visible = true;
+            }
+            if (e.CommandName == "update")
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                currentDesiredJobEntity.TechnicalSkills = ddlTechnicalSkill.SelectedItem.Text.Trim();
+                currentDesiredJobEntity.FromDate = ddlFromMonth.SelectedItem.Text.Trim() +"/"+ ddlFromYear.SelectedItem.Text.Trim();
+
+                currentDesiredJobEntity.TillDate = ddlTillMonth.SelectedItem.Text.Trim() +"/"+ddlTillYear.SelectedItem.Text.Trim();
+
+                currentDesiredJobEntity.Proficiency = ddlProficiency.SelectedItem.Text.Trim();
+                               
+                currentDesiredJobEntity.SkillId = Convert.ToInt32(e.CommandArgument);
+                currentDesiredJobEntity.TotalExperience = TotalYears();
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                currentDesiredJobBAL.UpdateTechnicalSkillsBAL(currentDesiredJobEntity);
+
+                BindRepeaterTechnicalSkills();
+            }
+            if (e.CommandName == "delete")
+            {
+                int SkillId = Convert.ToInt32(e.CommandArgument);
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                currentDesiredJobBAL.DeleteTechnicalSkillBAL(SkillId);
+
+                BindRepeaterTechnicalSkills();
+            }
+            if (e.CommandName == "cancel")
+            {
+                BindRepeaterTechnicalSkills();
+            }
+
+        }
+
+        protected void rptrTechnicalSkills_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+          
+            DataSet ds1 = new DataSet();
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            ds1 = currentDesiredJobBAL.ViewRepeaterTechSkillDetailsBAL(candidateId);
+
+            string format = Convert.ToString(ds1.Tables[0].Rows[0]["FromDate"]); ;
+            string[] Words = format.Split(new char[] { '/' });
+            int count = 0;
+            string format1 = Convert.ToString(ds1.Tables[0].Rows[0]["TillDate"]); ;
+            string[] Words1 = format1.Split(new char[] { '/' });
+            int count1 = 0;
+            
+            DropDownList ddlTechnicalSkill = (DropDownList)e.Item.FindControl("ddlTechnicalSkill");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                //DataSet ds1 = new DataSet();
+
+                //ds1 = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
+                //bindState();
+
+                DataSet ds = new DataSet();
+                ds = currentDesiredJobBAL.GetTechnicalSkillsDetailsBAL();
+                ddlTechnicalSkill.DataSource = ds;
+                ddlTechnicalSkill.DataTextField = "TechnicalSkillName";
+                ddlTechnicalSkill.DataValueField = "TechnicalSkillTypeId";
+                ddlTechnicalSkill.DataBind();
+                ddlTechnicalSkill.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "TechnicalSkills"));
+            }
+            DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
+            DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                List<string> monthList = CommonUtil.Utility.GetMonths();
+                ddlFromMonth.DataSource = monthList;
+
+                ddlFromMonth.DataBind();
+
+                List<string> yearList = CommonUtil.Utility.GetYears();
+                ddlFromYear.DataSource = yearList;
+                ddlFromYear.DataBind();
+
+                foreach (string Word in Words)
+                {
+                    count += 1;
+                    if (count == 1)
+                    { ddlFromMonth.SelectedValue = Word; }
+                    if (count == 2)
+                    {
+                        ddlFromYear.SelectedValue = Word;
+                    }
+                }
+            }
+            DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
+            DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                List<string> monthList = CommonUtil.Utility.GetMonths();
+                ddlTillMonth.DataSource = monthList;
+
+                ddlTillMonth.DataBind();
+                List<string> yearList = CommonUtil.Utility.GetYears();
+                ddlTillYear.DataSource = yearList;
+                ddlTillYear.DataBind();
+
+
+                foreach (string Word in Words1)
+                {
+                    count1 += 1;
+                    if (count1 == 1)
+                    {
+                        ddlTillMonth.SelectedValue = Word;
+                    }
+                         if (count1 == 2)
+                    {
+                        ddlTillYear.SelectedValue = Word;
+                    }
+                }
+                
+            }
+
+            DropDownList ddlProficiency = (DropDownList)e.Item.FindControl("ddlProficiency");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                ddlProficiency.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Proficiency"));
+            }
+           
+
+
+           
+          
+
+           
+
+           
+         
         }
 
        

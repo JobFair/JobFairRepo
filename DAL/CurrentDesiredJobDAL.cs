@@ -126,7 +126,7 @@ namespace DAL
             try
             {
                 connection.Open();
-                SqlParameter[] sparams = new SqlParameter[12];
+                SqlParameter[] sparams = new SqlParameter[19];
                 sparams[0] = new SqlParameter("@candidateid", currentDesiredJobEntity.Candidateid);
                 sparams[1] = new SqlParameter("@currentWorkingStatus", currentDesiredJobEntity.CurrentWorkingStatus);
                 sparams[2] = new SqlParameter("@currentanualSal", currentDesiredJobEntity.CurrentAnualSal);
@@ -136,9 +136,18 @@ namespace DAL
                 sparams[6] = new SqlParameter("@jobtype", currentDesiredJobEntity.JobType);
                 sparams[7] = new SqlParameter("@companyType", currentDesiredJobEntity.CompanyType);
                 sparams[8] = new SqlParameter("@availabilityForInterview", currentDesiredJobEntity.Availabilityforinterview);
-                sparams[9] = new SqlParameter("@timeInWeekdays", currentDesiredJobEntity.TimeInWeekdays);
+                sparams[9] = new SqlParameter("@preferredState", currentDesiredJobEntity.PreferredState);
                 sparams[10] = new SqlParameter("@preferredcity", currentDesiredJobEntity.PreferredCity);
                 sparams[11] = new SqlParameter("@preferredarea", currentDesiredJobEntity.PreferrefArea);
+                sparams[12] = new SqlParameter("@beforeHours", currentDesiredJobEntity.BeforeHours);
+                sparams[13] = new SqlParameter("@beforeMinutes", currentDesiredJobEntity.BeforeMinutes);
+                sparams[14] = new SqlParameter("@beforeTime", currentDesiredJobEntity.BeforeTime);
+                sparams[15] = new SqlParameter("@afterHours", currentDesiredJobEntity.AfterHours);
+                sparams[16] = new SqlParameter("@afterMinutes", currentDesiredJobEntity.AfterMinutes);
+                sparams[17] = new SqlParameter("@afterTime", currentDesiredJobEntity.AfterTime);
+                sparams[18] = new SqlParameter("@timeISTETE", currentDesiredJobEntity.TimeISTETE);
+              
+
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertDesiredJobDetails", sparams);
             }
             catch (Exception)
@@ -388,6 +397,94 @@ namespace DAL
 
 
             SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteCurrentPastJobDetails, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public DataSet ViewRepeaterTechSkillDetailsDAL(string candidateId)
+        {
+            try
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                connection.Open();
+
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+
+
+                return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectTechnicalSkills, sparams);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void UpdateTechnicalSkillsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {          
+                 try
+            {
+                connection.Open();
+                SqlParameter[] sparams = new SqlParameter[6];
+                sparams[0] = new SqlParameter("@skillId", currentDesiredJobEntity.SkillId);
+                sparams[1] = new SqlParameter("@technicalSkill", currentDesiredJobEntity.TechnicalSkills);
+                sparams[2] = new SqlParameter("@fromDate", currentDesiredJobEntity.FromDate);
+                sparams[3] = new SqlParameter("@tillDate", currentDesiredJobEntity.TillDate);
+                sparams[4] = new SqlParameter("@proficiency", currentDesiredJobEntity.Proficiency);
+                sparams[5] = new SqlParameter("@totalYear", currentDesiredJobEntity.TotalExperience);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateTechnicalSkills, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public void DeleteTechnicalSkillDAL(int SkillId)
+        {
+            try
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                connection.Open();
+
+                SqlParameter[] sparams = { new SqlParameter("@id", SkillId) };
+
+
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteTechnicalSkill, sparams);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+       // Pending
+        public DataSet ViewRepeaterRoleSkillDetailsDAL(string candidateId)
+        {
+            try
+            {
+                 try
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                connection.Open();
+
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+
+
+                return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectTechnicalSkills, sparams);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             }
             catch (Exception)
             {

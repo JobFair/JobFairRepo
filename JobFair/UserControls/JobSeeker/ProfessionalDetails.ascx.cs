@@ -23,21 +23,29 @@ namespace JobFair.UserControls.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
             //candidateId = Convert.ToString(Session["candidateId"]);
-            candidateId = "JS3";
+            candidateId = "JS2";
             if (!IsPostBack)
             {
-                if (isCheck)
+                if (!isCheck)
                 {
                     try
                     {
+                        BindIndustry();
+                        BindDepartment();
+                        BindFunctionalArea();
+                        hfCandidateId.Value = "JS2";
+                        BindRepeaterJobPostLooking();
+                        BindRepeaterCurrentPastExp();
+
                         DataSet ds = new DataSet();
                         DataSet ds2 = new DataSet();
                         CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                         ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-                        bindState();
+                      
+                        BindCountry();
 
                         DataSet getcityDataSet = new DataSet();
-                        int stateId =Convert.ToInt32(ds.Tables[0].Rows[0]["PreferredState"]);
+                        int stateId = Convert.ToInt32(ds.Tables[0].Rows[0]["PreferredState"]);
                         getcityDataSet = currentDesiredJobBAL.GetCity(stateId);
                         chklCity.DataSource = getcityDataSet;
                         chklCity.DataTextField = "cityName";
@@ -45,41 +53,27 @@ namespace JobFair.UserControls.JobSeeker
                         chklCity.DataBind();
 
                         int count = 0;
-                        string format = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCity"]);
-                        List<string> listofCity = new List<string>(format.Split(','));
+                        string cityId = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCity"]);
+                        List<string> listofCity = new List<string>(cityId.Split(','));
                         listofCity.RemoveAll(x => x == "");
-                        //List<int> intList = listofCity.ConvertAll(s => Int32.Parse(s));
-
-                        
-                        foreach (var mylist in listofCity)
+                        // List<int> intList = listofCity.ConvertAll(s => Int32.Parse(s));
+                        foreach (var list in listofCity)
                         {
-
-                            //count += 1;
-                            //if (count >= 1)
-                            //{
-
-                                //var values = chklCity.Items.Cast<ListItem>().Where(n => n.Selected).Select(n => n.Value).ToList();
-
-                                //var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-
-                                chklCity.SelectedValue =mylist;
-                                
-                               
-                                
-                               
-                                //txtCity.Text = string.Join(",", selectedcity.Select(x => x.Text));
-                            //}
+                            chklCity.SelectedValue = list;
                         }
-                        
-                        //foreach (ListItem li in chklCity.Items)
-                        //{
-                        //    li.Selected = true; 
-                        //}
-
                         var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
                         txtCity.Text = string.Join(",", selectedcity.Select(x => x.Text));
-                        //var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                        //txtCity.Text = string.Join(",", selectedcity.Select(x => x.Text));
+                        DataSet getAreaDataSet = new DataSet();
+                        string areaId = Convert.ToString(ds.Tables[0].Rows[0]["PreferredArea"]);
+                        List<string> listofArea = new List<string>(areaId.Split(','));
+                        listofArea.RemoveAll(x => x == "");
+                        foreach (var list in listofArea)
+                        {
+                            chklArea.SelectedValue = list;
+                        }
+                        var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                        txtCity.Text = string.Join(",", selectedarea.Select(x => x.Text));
+                       
 
                         txtResumeHeadline.Text = Convert.ToString(ds.Tables[0].Rows[0]["ResumeHeadline"]);
                         txtObjective.Text = Convert.ToString(ds.Tables[0].Rows[0]["Objective"]);
@@ -87,59 +81,21 @@ namespace JobFair.UserControls.JobSeeker
                         lblTotalExp.Text = Convert.ToString(ds.Tables[0].Rows[0]["TotalExpriance"]);
                         txtcurrentannualsalary.Text = Convert.ToString(ds.Tables[0].Rows[0]["CurrentAnualSalary"]);
                         txtexpectedsalary.Text = Convert.ToString(ds.Tables[0].Rows[0]["ExpectedAnualSalary"]);
-                        ddlState.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PreferredState"]);
-
+                       
+                        ddlWorkStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CurrentWorkingStatus"]);
+                        ddlNoticePeriod.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["NoticePeriod"]);
+                        rblEmploymentStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
+                        rblJobType123.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
+                        rblCompanyType123.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
+                        rblYesNo.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AvailabilityForInterview"]);
+                        ddlBeforeHours.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BeforeHours"]);
+                        ddlBeforeMinutes.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BeforeMinutes"]);
+                        ddlBeforeTime.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BeforeTime"]);
+                        ddlAfterHours.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AfterHours"]);
+                        ddlAfterMinutes.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AfterMinutes"]);
+                        ddlAfterTime.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AfterTime"]);
+                        ddlISTETE.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["TimeISTETE"]);
                       
-                        //string format = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCity"]);
-
-
-
-                        //int count = 0;
-                        ////Array[] arraylist = new Array[10];
-                        //List<string> listofCity = new List<string>(format.Split(','));
-                        //listofCity.RemoveAll(x => x == "");
-                        //List<int> intList = listofCity.ConvertAll(s => Int32.Parse(s));
-
-
-                        //foreach (var mylist in intList)
-                        //{
-                        //    count += 1;
-                        //    if (count >= 1)
-                        //    {
-
-                        //        //var values = chklCity.Items.Cast<ListItem>().Where(n => n.Selected).Select(n => n.Value).ToList();
-
-                        //        //var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                        //        chklCity.SelectedItem.Value = Convert.ToString(mylist);
-                        //        chklCity.Items.Add(chklCity.SelectedValue);
-                        //        //txtCity.Text = string.Join(",", selectedcity.Select(x => x.Text));
-
-
-                        //    }
-
-                        //}
-           
-
-
-
-                        //string format = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCity"]); ;
-                        //string[] Words = format.Split(new char[] { ',' });
-                        //int count = 0;
-                        //foreach (string Word in Words)
-                        //{
-                        //    count += 1;
-                        //    if (count == 1)
-                        //    { chklCity.SelectedValue = Word; }
-
-                        //}
-                        //int stateId = Convert.ToInt32(ds.Tables[0].Rows[0]["PreferredState"]);
-
-                        BindIndustry();
-                        BindDepartment();
-                        BindFunctionalArea();
-                        hfCandidateId.Value = "JS3";
-                        BindRepeaterJobPostLooking();
-                        BindRepeaterCurrentPastExp();
                     }
                     catch (Exception)
                     {
@@ -148,7 +104,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 else
                 {
-                    bindState();
+                    BindCountry();
                     BindMonth();
                     BindYear();
 
@@ -162,20 +118,35 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
+        private void BindCountry()
+        {
+            CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
+            DataSet ds = new DataSet();
+            try
+            {
+                ds = currentjobBAL.GetCountryBAL();
+                ddlPreferredCountry.DataSource = ds;
+                ddlPreferredCountry.DataTextField = "CountryName";
+                ddlPreferredCountry.DataValueField = "CountryId";
+                ddlPreferredCountry.DataBind();
+                ddlPreferredCountry.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         private void BindRepeaterCurrentPastExp()
         {
             DataSet ds = new DataSet();
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             ds = currentDesiredJobBAL.ViewRepeaterCurrentPastJobDetailsBAL(candidateId);
 
-
             rptrPastCurrentJobDetails.DataSource = ds;
 
             rptrPastCurrentJobDetails.DataBind();
-            
         }
-
-       
 
         private void BindRepeaterJobPostLooking()
         {
@@ -183,33 +154,12 @@ namespace JobFair.UserControls.JobSeeker
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             ds = currentDesiredJobBAL.ViewRepeaterJobPostLookingBAL(candidateId);
 
-           
             rptrJobPostLookinFor.DataSource = ds;
 
             rptrJobPostLookinFor.DataBind();
         }
 
-        /// <summary>
-        /// Method Bind state to the ddlState control
-        /// </summary>
-        private void bindState()
-        {
-            CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
-            DataSet ds = new DataSet();
-            try
-            {
-                ds = currentjobBAL.GetStateBAL();
-                ddlState.DataSource = ds;
-                ddlState.DataTextField = "StateName";
-                ddlState.DataValueField = "StateId";
-                ddlState.DataBind();
-                ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+      
 
         /// <summary>
         /// Method to Add Job Looking for to gvJobsLookingFor control
@@ -597,6 +547,8 @@ namespace JobFair.UserControls.JobSeeker
             CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
             var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+            var selectedstate = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+          
 
             try
             {
@@ -622,8 +574,16 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobEntity.CompanyType = rblCompanyType123.SelectedItem.Text;
                 currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
                 currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
+                currentDesiredJobEntity.PreferredState = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
                 currentDesiredJobEntity.PreferredCity = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
                 currentDesiredJobEntity.PreferrefArea = "," + string.Join(",", selectedarea.Select(x => x.Value)) + ",";
+                currentDesiredJobEntity.BeforeHours = ddlBeforeHours.SelectedItem.Text;
+                currentDesiredJobEntity.BeforeMinutes = ddlBeforeMinutes.SelectedItem.Text;
+                currentDesiredJobEntity.BeforeTime = ddlBeforeTime.SelectedItem.Text;
+                currentDesiredJobEntity.AfterHours = ddlAfterHours.SelectedItem.Text;
+                currentDesiredJobEntity.AfterMinutes = ddlAfterMinutes.SelectedItem.Text;
+                currentDesiredJobEntity.AfterTime = ddlAfterTime.SelectedItem.Text;
+                currentDesiredJobEntity.TimeISTETE = ddlISTETE.SelectedItem.Text;
                 currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
                 currentDesiredJobBAL.SaveDesiredJobDetailsBAL(currentDesiredJobEntity);
                 currentDesiredJobBAL.SaveJobDetailsBAL(currentDesiredJobEntity);
@@ -662,30 +622,7 @@ namespace JobFair.UserControls.JobSeeker
             divCurrentEmployer.Visible = false;
         }
 
-        /// <summary>
-        /// Handles the SelectedIndexChanged event of ddlState control
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                int stateId = Convert.ToInt32(ddlState.SelectedValue);
-                ds = currentDesiredJobBAL.GetCity(stateId);
-                chklCity.DataSource = ds;
-                chklCity.DataTextField = "cityName";
-                chklCity.DataValueField = "cityID";
-                chklCity.DataBind();
-                chklCity.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+       
 
         /// <summary>
         /// Handles the Click event of btnCity control
@@ -695,10 +632,6 @@ namespace JobFair.UserControls.JobSeeker
         protected void btnCity_Click(object sender, EventArgs e)
         {
             Panelcity.Visible = true;
-
-          
-           
-           
         }
 
         /// <summary>
@@ -754,10 +687,6 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void rptrPastCurrentJobDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            
-      
-   
-     
             Label lblCurrentComapny = (Label)e.Item.FindControl("lblCurrentComapny");
             CheckBox chkCurrentYes = (CheckBox)e.Item.FindControl("chkCurrentYes");
             Label lblCompanyName = (Label)e.Item.FindControl("lblCompanyName");
@@ -823,10 +752,10 @@ namespace JobFair.UserControls.JobSeeker
 
                 lblIndustry.Visible = false;
                 lblDepartment.Visible = false;
-              
+
                 ddlIndustry.Visible = true;
-                ddlDepartment.Visible = true;             
-               
+                ddlDepartment.Visible = true;
+
                 lnkEdit.Visible = false;
                 lnkDelete.Visible = false;
                 lnkUpdate.Visible = true;
@@ -849,9 +778,8 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobEntity.CompanyType = rblCompanyType.Text;
                 currentDesiredJobEntity.ReasonForJobChange = txtReasonforJobchange.Text.Trim();
 
-
                 currentDesiredJobEntity.Department = ddlDepartment.SelectedValue;
-               
+
                 currentDesiredJobEntity.ExpId = Convert.ToInt32(e.CommandArgument);
                 DataSet ds = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
@@ -872,8 +800,6 @@ namespace JobFair.UserControls.JobSeeker
                 BindRepeaterCurrentPastExp();
             }
         }
-
-       
 
         protected void rptrJobPostLookinFor_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -941,47 +867,46 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void rptrJobPostLookinFor_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-             DropDownList ddlIndustry123 = (DropDownList)e.Item.FindControl("ddlIndustry123");
-           if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-           {
-               //DataSet ds1 = new DataSet();
-              
-               //ds1 = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-               //bindState();
-              
-               DataSet ds = new DataSet();
-               ds = currentDesiredJobBAL.GetIndustry();
-               ddlIndustry123.DataSource = ds;
-               ddlIndustry123.DataTextField = "IndustryName";
-               ddlIndustry123.DataValueField = "IndustryId";
-               ddlIndustry123.DataBind();
-               ddlIndustry123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Industry"));
-           }
-           DropDownList ddlDepartment123 = (DropDownList)e.Item.FindControl("ddlDepartment123");
-           if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-           {
-               DataSet ds1 = new DataSet();
-               ds1 = currentDesiredJobBAL.GetDepartment();
-               ddlDepartment123.DataSource = ds1;
-               ddlDepartment123.DataTextField = "DepartmentName";
-               ddlDepartment123.DataValueField = "DepartmentId";
-               ddlDepartment123.DataBind();
-               ddlDepartment123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Department"));
-           }
-            DropDownList ddlFunctionalRole=(DropDownList)e.Item.FindControl("ddlFunctionalRole");
-            if(e.Item.ItemType==ListItemType.Item || e.Item.ItemType== ListItemType.AlternatingItem)
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            DropDownList ddlIndustry123 = (DropDownList)e.Item.FindControl("ddlIndustry123");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-               DataSet ds2 = new DataSet();
-              
-               ds2 = currentDesiredJobBAL.GetFunctionalArea();
-               ddlFunctionalRole.DataSource = ds2;
-               ddlFunctionalRole.DataTextField = "FunctionalArea";
-               ddlFunctionalRole.DataValueField = "FunctionalAreaId";
-               ddlFunctionalRole.DataBind();
-               ddlFunctionalRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FunctionalRole"));
-           }
-           
+                //DataSet ds1 = new DataSet();
+
+                //ds1 = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
+                //bindState();
+
+                DataSet ds = new DataSet();
+                ds = currentDesiredJobBAL.GetIndustry();
+                ddlIndustry123.DataSource = ds;
+                ddlIndustry123.DataTextField = "IndustryName";
+                ddlIndustry123.DataValueField = "IndustryId";
+                ddlIndustry123.DataBind();
+                ddlIndustry123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Industry"));
+            }
+            DropDownList ddlDepartment123 = (DropDownList)e.Item.FindControl("ddlDepartment123");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DataSet ds1 = new DataSet();
+                ds1 = currentDesiredJobBAL.GetDepartment();
+                ddlDepartment123.DataSource = ds1;
+                ddlDepartment123.DataTextField = "DepartmentName";
+                ddlDepartment123.DataValueField = "DepartmentId";
+                ddlDepartment123.DataBind();
+                ddlDepartment123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Department"));
+            }
+            DropDownList ddlFunctionalRole = (DropDownList)e.Item.FindControl("ddlFunctionalRole");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DataSet ds2 = new DataSet();
+
+                ds2 = currentDesiredJobBAL.GetFunctionalArea();
+                ddlFunctionalRole.DataSource = ds2;
+                ddlFunctionalRole.DataTextField = "FunctionalArea";
+                ddlFunctionalRole.DataValueField = "FunctionalAreaId";
+                ddlFunctionalRole.DataBind();
+                ddlFunctionalRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FunctionalRole"));
+            }
         }
 
         protected void rptrPastCurrentJobDetails_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -1016,52 +941,46 @@ namespace JobFair.UserControls.JobSeeker
             }
 
             DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
-             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-             {
-                 List<string> monthList = CommonUtil.Utility.GetMonths();
-                 ddlFromMonth.DataSource = monthList;
-                
-                 ddlFromMonth.DataBind();
-                
-                 ddlFromMonth.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FromMonth"));
-                
-             }
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                List<string> monthList = CommonUtil.Utility.GetMonths();
+                ddlFromMonth.DataSource = monthList;
 
-             DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
-             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-             {
-                 List<string> monthList = CommonUtil.Utility.GetMonths();
-                 ddlTillMonth.DataSource = monthList;
+                ddlFromMonth.DataBind();
 
-                 ddlTillMonth.DataBind();
+                ddlFromMonth.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FromMonth"));
+            }
 
-                 ddlTillMonth.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "TillMonth"));
+            DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                List<string> monthList = CommonUtil.Utility.GetMonths();
+                ddlTillMonth.DataSource = monthList;
 
-             }
+                ddlTillMonth.DataBind();
 
-             DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
-             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-             {
-                 List<string> yearList = CommonUtil.Utility.GetYears();
-                 ddlFromYear.DataSource = yearList;
-                 ddlFromYear.DataBind();
+                ddlTillMonth.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "TillMonth"));
+            }
 
+            DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                List<string> yearList = CommonUtil.Utility.GetYears();
+                ddlFromYear.DataSource = yearList;
+                ddlFromYear.DataBind();
 
-                 ddlFromYear.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FromYear"));
+                ddlFromYear.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FromYear"));
+            }
 
-             }
+            DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                List<string> yearList = CommonUtil.Utility.GetYears();
+                ddlTillYear.DataSource = yearList;
+                ddlTillYear.DataBind();
 
-             DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
-             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-             {
-                 List<string> yearList = CommonUtil.Utility.GetYears();
-                 ddlTillYear.DataSource = yearList;
-                 ddlTillYear.DataBind();
-
-
-                 ddlTillYear.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "TillYear"));
-
-             }
+                ddlTillYear.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "TillYear"));
+            }
 
             RadioButtonList rbtlEmployementStatus = (RadioButtonList)e.Item.FindControl("rbtlEmployementStatus");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -1075,14 +994,70 @@ namespace JobFair.UserControls.JobSeeker
                 rblCompanyType.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "CompanyType"));
             }
 
-
             RadioButtonList rblJobType = (RadioButtonList)e.Item.FindControl("rblJobType");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 rblJobType.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "JobType"));
             }
-
-
         }
+
+        protected void ddlPreferredCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                int countryId = Convert.ToInt32(ddlPreferredCountry.SelectedValue);
+                ds = currentDesiredJobBAL.GetState(countryId);
+                chklState.DataSource = ds;
+                chklState.DataTextField = "StateName";
+                chklState.DataValueField = "StateId";
+                chklState.DataBind();
+                chklState.Items.Insert(0, new ListItem("--Select--", "0"));
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+          
+        }
+
+
+       
+       
+
+        protected void btnState_Click(object sender, EventArgs e)
+        {
+            PanelState.Visible = true;
+        }
+
+        protected void chklState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedstate = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                txtCity.Text = string.Join(",", selectedstate.Select(x => x.Text));
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+
+                string stateId = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
+                ds = currentDesiredJobBAL.GetCityBAL(stateId);
+                chklCity.DataSource = ds;
+                chklCity.DataTextField = "CityName";
+                chklCity.DataValueField = "CityId";
+                chklCity.DataBind();
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+       
     }
 }

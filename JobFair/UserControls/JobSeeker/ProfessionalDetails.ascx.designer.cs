@@ -481,13 +481,49 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.UpdatePanel panelLocation;
         
         /// <summary>
-        /// ddlState control.
+        /// ddlPreferredCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlState;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPreferredCountry;
+        
+        /// <summary>
+        /// txtPreferredState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPreferredState;
+        
+        /// <summary>
+        /// btnState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnState;
+        
+        /// <summary>
+        /// PanelState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelState;
+        
+        /// <summary>
+        /// chklState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList chklState;
         
         /// <summary>
         /// txtCity control.

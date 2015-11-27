@@ -64,5 +64,31 @@
         public string ReasonForJobChange { get; set; }
 
         public int ExpId { get; set; }
+
+        public string PreferredState { get; set; }
+
+        public string BeforeHours { get; set; }
+
+        public string BeforeMinutes { get; set; }
+
+        public string BeforeTime { get; set; }
+
+        public string AfterHours { get; set; }
+
+        public string AfterMinutes { get; set; }
+
+        public string AfterTime { get; set; }
+
+        public string TimeISTETE { get; set; }
+
+        public string TechnicalSkills { get; set; }
+
+        public string Proficiency { get; set; }
+
+        public int SkillId { get; set; }
+
+        public string FromDate { get; set; }
+
+        public string TillDate { get; set; }
     }
 }

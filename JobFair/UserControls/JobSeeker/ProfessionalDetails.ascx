@@ -618,14 +618,22 @@
                     <ContentTemplate>
                         <table style="width: 688px">
                             <tr>
-                                <td class="auto-style3">&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style3">Preferred Country</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlPreferredCountry" OnSelectedIndexChanged="ddlPreferredCountry_SelectedIndexChanged" runat="server">
+                                    </asp:DropDownList>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="auto-style3">Preferred State</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" onrowdatabound="ddlState_onrowdatabound" OnSelectedIndexChanged="ddlState_SelectedIndexChanged">
-                                    </asp:DropDownList>
+                                    <br />
+                                    <asp:TextBox ID="txtPreferredState" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button ID="btnState" runat="server" Text="Select State" OnClick="btnState_Click" />
+                                    <asp:Panel ID="PanelState" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklState" runat="server" OnSelectedIndexChanged="chklState_SelectedIndexChanged" AutoPostBack="True">
+                                        </asp:CheckBoxList>
+                                    </asp:Panel>
                                 </td>
                             </tr>
                             <tr>
@@ -659,7 +667,7 @@
         </tr>
 
         <tr>
-            <td>Availability for the Personal Round on Working Day</td>
+            <td>Availability for these Personal Round on Working Day</td>
             <td>
                 <asp:RadioButtonList ID="rblYesNo" runat="server">
                     <asp:ListItem>Yes</asp:ListItem>
@@ -743,7 +751,6 @@
                     <asp:ListItem>57</asp:ListItem>
                     <asp:ListItem>58</asp:ListItem>
                     <asp:ListItem>59</asp:ListItem>
-                    <asp:ListItem>60</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlBeforeTime" runat="server">
                     <asp:ListItem>AM</asp:ListItem>
@@ -822,7 +829,6 @@
                     <asp:ListItem>57</asp:ListItem>
                     <asp:ListItem>58</asp:ListItem>
                     <asp:ListItem>59</asp:ListItem>
-                    <asp:ListItem>60</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlAfterTime" runat="server">
                     <asp:ListItem>AM</asp:ListItem>

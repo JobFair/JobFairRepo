@@ -79,5 +79,10 @@ namespace DAL
         public static string sp_JS_UpdateCurrentPastExpDetails = "sp_JS_UpdateCurrentPastExpDetails";
 
         public static string sp_JS_DeleteCurrentPastJobDetails = "sp_JS_DeleteCurrentPastJobDetails";
+        public static string sp_JS_SelectTechnicalSkills="sp_JS_SelectTechnicalSkills";
+
+        public static string sp_JS_UpdateTechnicalSkills = "sp_JS_UpdateTechnicalSkills";
+        public static string sp_JS_DeleteTechnicalSkill = "sp_JS_DeleteTechnicalSkill";
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BAL;
+using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,17 +12,41 @@ namespace JobFair.UserControls.JobSeeker
     /// </summary>
     public partial class RoleSkillsDetails : System.Web.UI.UserControl
     {
+        private DataSet ds = new DataSet();
+        private TechnicalSkillsDetailsBAL technicalSkillsBAL = new TechnicalSkillsDetailsBAL();
+        private static double Temp = 0;
+        private bool isCheck = true;
+        string candidateId = "JS3";
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
-                BindRoleSkills();
-                BindMonth();
-                BindYears();
-                hfCandidateId.Value = "JS3";
-                AddRoleSkills();
-
+                if (isCheck)
+                {
+                    string candidateId = "JS3";
+                    BindRepeaterRoleSkills();
+                }
+                else
+                {
+                    BindRoleSkills();
+                    BindMonth();
+                    BindYears();
+                    hfCandidateId.Value = "JS3";
+                    AddRoleSkills();
+                }
             }
+        }
+
+        private void BindRepeaterRoleSkills()
+        {
+            DataSet ds = new DataSet();
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            ds = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
+
+            rptrRoleSkills.DataSource = ds;
+
+            rptrRoleSkills.DataBind();
         }
         /// <summary>
         /// Method to Bind Role Skills to ddlRoleSkills Control
@@ -208,6 +233,86 @@ namespace JobFair.UserControls.JobSeeker
                 dt = null;
                 currentDesiredJobBAL = null;
             }
+        }
+
+       
+
+        protected void rptrRoleSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            Label lblTechnicalSkill = (Label)e.Item.FindControl("lblTechnicalSkill");
+            Label lblFromDate = (Label)e.Item.FindControl("lblFromDate");
+            Label lblTillDate = (Label)e.Item.FindControl("lblTillDate");
+            Label lblProficiency = (Label)e.Item.FindControl("lblProficiency");
+
+
+            DropDownList ddlTechnicalSkill = (DropDownList)e.Item.FindControl("ddlTechnicalSkill");
+            DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
+            DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
+            DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
+            DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
+            DropDownList ddlProficiency = (DropDownList)e.Item.FindControl("ddlProficiency");
+
+
+
+            LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
+            LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
+            LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
+            LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
+
+            if (e.CommandName == "edit")
+            {
+                lblTechnicalSkill.Visible = false;
+                lblFromDate.Visible = false;
+                lblTillDate.Visible = false;
+                lblProficiency.Visible = false;
+
+                ddlTechnicalSkill.Visible = true;
+                ddlFromMonth.Visible = true;
+                ddlFromYear.Visible = true;
+                ddlTillMonth.Visible = true;
+                ddlTillYear.Visible = true;
+                ddlProficiency.Visible = true;
+
+                lnkEdit.Visible = false;
+                lnkDelete.Visible = false;
+                lnkUpdate.Visible = true;
+                lnkCancel.Visible = true;
+            }
+            if (e.CommandName == "update")
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                currentDesiredJobEntity.TechnicalSkills = ddlTechnicalSkill.SelectedItem.Text.Trim();
+                currentDesiredJobEntity.FromDate = ddlFromMonth.SelectedItem.Text.Trim() + "/" + ddlFromYear.SelectedItem.Text.Trim();
+
+                currentDesiredJobEntity.TillDate = ddlTillMonth.SelectedItem.Text.Trim() + "/" + ddlTillYear.SelectedItem.Text.Trim();
+
+                currentDesiredJobEntity.Proficiency = ddlProficiency.SelectedItem.Text.Trim();
+
+                currentDesiredJobEntity.SkillId = Convert.ToInt32(e.CommandArgument);
+                currentDesiredJobEntity.TotalExperience = TotalYears();
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                currentDesiredJobBAL.UpdateTechnicalSkillsBAL(currentDesiredJobEntity);
+
+                BindRepeaterTechnicalSkills();
+            }
+            if (e.CommandName == "delete")
+            {
+                int SkillId = Convert.ToInt32(e.CommandArgument);
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                currentDesiredJobBAL.DeleteTechnicalSkillBAL(SkillId);
+
+                BindRepeaterTechnicalSkills();
+            }
+            if (e.CommandName == "cancel")
+            {
+                BindRepeaterTechnicalSkills();
+            }
+        }
+
+        protected void rptrRoleSkills_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+
         }
 
     }
