@@ -53,7 +53,74 @@ namespace DAL
             }
         }
 
-       
+       public DataSet ViewContactDetailsDAL(string candidateId)
+        {
+            try
+            {
+                DataSet dsContactDetails = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsContactDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectContactDetails, sparams);
+                return dsContactDetails;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+       }
+
+        public DataSet ViewPersonalDetailsDAL(string candidateId)
+       {
+           try
+           {
+               DataSet dsPersonalDetails = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsPersonalDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectPersonalDetails, sparams);
+                return dsPersonalDetails;
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
+
+        public DataSet ViewAffirmativeDetailsDAL(string candidateId)
+        {
+            try
+            {
+                 DataSet dsAffirmativeDetails = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsAffirmativeDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectAffirmativeDetails, sparams);
+                return dsAffirmativeDetails;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public DataSet ViewProjectDetailsDAL(string candidateId)
+        {
+            try
+            {
+                 DataSet dsProjectDetails = new DataSet();
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsProjectDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectProjectDetails, sparams);
+                return dsProjectDetails;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataSet ViewTechnicalSkillsDAL(string candidateId)
+        {
+            DataSet dsViewTechnicalSkills = new DataSet();
+            SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+            dsViewTechnicalSkills = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectTechnicalSkills, sparams);
+            return dsViewTechnicalSkills;
+        }
         public int ChangeConatctNoDAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {
             SqlParameter[] sparams =new SqlParameter[2];
