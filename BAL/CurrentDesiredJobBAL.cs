@@ -375,5 +375,84 @@ currentDesiredJobDAL.DeleteJobPostLookingForDAL(JobpostlookingId);
                 throw;
             }
         }
+
+        public DataSet GetCountryBAL()
+        {
+            try
+            {
+                return Utility.GetCountry();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+     
+
+      
+
+        public DataSet GetCityBAL(string stateId)
+        {
+            return Utility.GetCity(stateId);
+        }
+
+        public DataSet ViewRepeaterTechSkillDetailsBAL(string candidateId)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.ViewRepeaterTechSkillDetailsDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void UpdateTechnicalSkillsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {
+                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                 currentDesiredJobDAL.UpdateTechnicalSkillsDAL(currentDesiredJobEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public void DeleteTechnicalSkillBAL(int SkillId)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                currentDesiredJobDAL.DeleteTechnicalSkillDAL(SkillId);
+
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public DataSet ViewRepeaterRoleSkillDetailsBAL(string candidateId)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                return currentDesiredJobDAL.ViewRepeaterRoleSkillDetailsDAL(candidateId);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }  
+        }
     }
 }
