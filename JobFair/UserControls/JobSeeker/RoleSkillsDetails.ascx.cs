@@ -294,7 +294,7 @@ namespace JobFair.UserControls.JobSeeker
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                 currentDesiredJobBAL.UpdateTechnicalSkillsBAL(currentDesiredJobEntity);
 
-                BindRepeaterTechnicalSkills();
+                BindRepeaterRoleSkills();
             }
             if (e.CommandName == "delete")
             {
@@ -302,11 +302,11 @@ namespace JobFair.UserControls.JobSeeker
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                 currentDesiredJobBAL.DeleteTechnicalSkillBAL(SkillId);
 
-                BindRepeaterTechnicalSkills();
+                BindRepeaterRoleSkills();
             }
             if (e.CommandName == "cancel")
             {
-                BindRepeaterTechnicalSkills();
+                BindRepeaterRoleSkills();
             }
         }
 
