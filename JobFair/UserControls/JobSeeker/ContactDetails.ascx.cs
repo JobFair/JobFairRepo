@@ -38,7 +38,7 @@ namespace JobFair.UserControls.JobSeeker
                     }
                     catch (Exception)
                     {
-                        throw;
+                     //   throw;
                     }
                 }
             }

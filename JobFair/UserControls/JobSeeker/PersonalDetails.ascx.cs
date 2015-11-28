@@ -107,13 +107,17 @@ namespace JobFair.UserControls.JobSeeker
                         ddlCityPerm.SelectedValue = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantCityId"]);
                         ddlAreaPerm.SelectedValue = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantArea"]);
                         txtPincodePerm.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantPincode"]);
+                        
                         string date = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["DateOfBirth"]);
                         txtDOB.Text = DateTime.Parse(date).ToShortDateString();
+                        
                         string gender = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["Gender"]);
                         rbtGender.Items.FindByValue(gender).Selected = true;
+                        
                         string maritalStatus = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["MaritalStatus"]);
                         ddlMaritalStatus.Items.FindByValue(maritalStatus).Selected = true;
                         txtPassportNo.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportNumber"]);
+                        
                         string format = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]); ;
                         string[] Words = format.Split(new char[] { '/' });
                         int count = 0;

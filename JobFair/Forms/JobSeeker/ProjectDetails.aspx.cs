@@ -13,38 +13,50 @@ namespace JobFair.Forms.JobSeeker
     /// </summary>
     public partial class ProjectDetails : System.Web.UI.Page
     {
-        public string candidateId;
-        private bool isCheck = true;
+        private bool isCheck = false;
+        private string candidateId;
 
         // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId = Convert.ToString(Session["candidateId"]);
-            //CheckAuthorised(candidateId);
-
-            if (!IsPostBack)
+            if (Session["candidateId"] != null)
             {
-                GetRole();
-                // Take Candidate Id from Session
-                hfCandidateId.Value = candidateId;
-                AddDefaultFirstRecord();
-                if (isCheck)
+                if (Session["candidateId"].ToString() != "")
                 {
-                    pnlEdit.Visible = true;
-                    BindRepeater();
-                }
-                else
-                {
-                    pnlInsert.Visible = true;
+                    //CheckAuthorised(candidateId);
+                    candidateId = Convert.ToString(Session["candidateId"]);
+                    if (!IsPostBack)
+                    {
+                        try
+                        {
+                            GetRole();
+
+                            hfCandidateId.Value = candidateId;
+                            AddDefaultFirstRecord();
+
+                            if (isCheck)
+                            {
+                                pnlEdit.Visible = true;
+                                BindRepeater();
+                            }
+                            else
+                            {
+                                pnlInsert.Visible = true;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            //  throw;
+                        }
+                    }
+                    if (rbtYes.Checked)
+                    {
+                        panelProjectLink.Visible = true;
+                        return;
+                    }
+                    panelProjectLink.Visible = false;
                 }
             }
-
-            if (rbtYes.Checked)
-            {
-                panelProjectLink.Visible = true;
-                return;
-            }
-            panelProjectLink.Visible = false;
         }
 
         /// <summary>
@@ -52,11 +64,21 @@ namespace JobFair.Forms.JobSeeker
         /// </summary>
         private void BindRepeater()
         {
-            DataSet ds = new DataSet();
-            ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
-            ds = projectDetailsBAL.ViewProjectDetailsBAL(candidateId);
-            rptrProjectDetails.DataSource = ds;
-            rptrProjectDetails.DataBind();
+            try
+            {
+                DataSet ds = new DataSet();
+                ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
+                ds = projectDetailsBAL.ViewProjectDetailsBAL(candidateId);
+                if (ds != null)
+                {
+                    rptrProjectDetails.DataSource = ds;
+                    rptrProjectDetails.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
 
         protected void rptrProjectDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -155,9 +177,9 @@ namespace JobFair.Forms.JobSeeker
                     projectDetailsEntity.ProjectId = Convert.ToInt32(e.CommandArgument);
                     projectDetailsBAL.UpdateProjectDetailsBAL(projectDetailsEntity);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    //  throw;
                 }
 
                 BindRepeater();
@@ -172,7 +194,7 @@ namespace JobFair.Forms.JobSeeker
                 }
                 catch (Exception)
                 {
-                    throw;
+                    // throw;
                 }
                 BindRepeater();
             }
@@ -183,14 +205,24 @@ namespace JobFair.Forms.JobSeeker
             DropDownList ddlRole = (DropDownList)e.Item.FindControl("ddlRole");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
-                DataSet ds = new DataSet();
-                ds = projectDetailsBAL.GetRole();
-                ddlRole.DataSource = ds;
-                ddlRole.DataTextField = "RoleName";
-                ddlRole.DataValueField = "RoleId";
-                ddlRole.DataBind();
-                ddlRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "RoleId"));
+                try
+                {
+                    ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
+                    DataSet ds = new DataSet();
+                    ds = projectDetailsBAL.GetRole();
+                    if (ds != null)
+                    {
+                        ddlRole.DataSource = ds;
+                        ddlRole.DataTextField = "RoleName";
+                        ddlRole.DataValueField = "RoleId";
+                        ddlRole.DataBind();
+                        ddlRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "RoleId"));
+                    }
+                }
+                catch (Exception)
+                {
+                    // throw;
+                }
             }
             DropDownList ddlTeamSize = (DropDownList)e.Item.FindControl("ddlTeamSize");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -240,15 +272,18 @@ namespace JobFair.Forms.JobSeeker
                 ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
                 DataSet ds = new DataSet();
                 ds = projectDetailsBAL.GetRole();
-                ddlRole.DataSource = ds;
-                ddlRole.DataTextField = "RoleName";
-                ddlRole.DataValueField = "RoleId";
-                ddlRole.DataBind();
-                ddlRole.Items.Insert(0, new ListItem("--Select--", "0"));
+                if (ds != null)
+                {
+                    ddlRole.DataSource = ds;
+                    ddlRole.DataTextField = "RoleName";
+                    ddlRole.DataValueField = "RoleId";
+                    ddlRole.DataBind();
+                    ddlRole.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -363,7 +398,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -401,7 +436,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -412,13 +447,20 @@ namespace JobFair.Forms.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnsubmitProject_Click(object sender, EventArgs e)
         {
-            ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
-            DataTable dtProjectDetails = (DataTable)ViewState["ProjectDetails"];
-            projectDetailsBAL.SaveProjectDetailsBAL(dtProjectDetails);
-            grdProjectDetails.DataSource = null;
-            grdProjectDetails.DataBind();
-            ViewState["ProjectDetails"] = null;
-            Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+            try
+            {
+                ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
+                DataTable dtProjectDetails = (DataTable)ViewState["ProjectDetails"];
+                projectDetailsBAL.SaveProjectDetailsBAL(dtProjectDetails);
+                grdProjectDetails.DataSource = null;
+                grdProjectDetails.DataBind();
+                ViewState["ProjectDetails"] = null;
+                Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
 
         protected void rbtProjectTypeList_SelectedIndexChanged(object sender, EventArgs e)
@@ -434,7 +476,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                //  throw;
             }
         }
     }
