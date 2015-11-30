@@ -126,7 +126,7 @@ namespace DAL
             try
             {
                 connection.Open();
-                SqlParameter[] sparams = new SqlParameter[19];
+                SqlParameter[] sparams = new SqlParameter[15];
                 sparams[0] = new SqlParameter("@candidateid", currentDesiredJobEntity.Candidateid);
                 sparams[1] = new SqlParameter("@currentWorkingStatus", currentDesiredJobEntity.CurrentWorkingStatus);
                 sparams[2] = new SqlParameter("@currentanualSal", currentDesiredJobEntity.CurrentAnualSal);
@@ -136,16 +136,15 @@ namespace DAL
                 sparams[6] = new SqlParameter("@jobtype", currentDesiredJobEntity.JobType);
                 sparams[7] = new SqlParameter("@companyType", currentDesiredJobEntity.CompanyType);
                 sparams[8] = new SqlParameter("@availabilityForInterview", currentDesiredJobEntity.Availabilityforinterview);
-                sparams[9] = new SqlParameter("@preferredState", currentDesiredJobEntity.PreferredState);
-                sparams[10] = new SqlParameter("@preferredcity", currentDesiredJobEntity.PreferredCity);
-                sparams[11] = new SqlParameter("@preferredarea", currentDesiredJobEntity.PreferrefArea);
-                sparams[12] = new SqlParameter("@beforeHours", currentDesiredJobEntity.BeforeHours);
-                sparams[13] = new SqlParameter("@beforeMinutes", currentDesiredJobEntity.BeforeMinutes);
-                sparams[14] = new SqlParameter("@beforeTime", currentDesiredJobEntity.BeforeTime);
-                sparams[15] = new SqlParameter("@afterHours", currentDesiredJobEntity.AfterHours);
-                sparams[16] = new SqlParameter("@afterMinutes", currentDesiredJobEntity.AfterMinutes);
-                sparams[17] = new SqlParameter("@afterTime", currentDesiredJobEntity.AfterTime);
-                sparams[18] = new SqlParameter("@timeISTETE", currentDesiredJobEntity.TimeISTETE);
+                sparams[9] = new SqlParameter("@preferredCountry", currentDesiredJobEntity.PreferredCountry);
+                sparams[10] = new SqlParameter("@preferredState", currentDesiredJobEntity.PreferredState);
+                sparams[11] = new SqlParameter("@preferredcity", currentDesiredJobEntity.PreferredCity);
+                sparams[12] = new SqlParameter("@preferredarea", currentDesiredJobEntity.PreferrefArea);          
+              
+                sparams[13] = new SqlParameter("@beforeTime", currentDesiredJobEntity.BeforeTime);               
+               
+                sparams[14] = new SqlParameter("@afterTime", currentDesiredJobEntity.AfterTime);
+               
               
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertDesiredJobDetails", sparams);

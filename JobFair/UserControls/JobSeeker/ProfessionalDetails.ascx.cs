@@ -36,12 +36,14 @@ namespace JobFair.UserControls.JobSeeker
                         hfCandidateId.Value = "JS2";
                         BindRepeaterJobPostLooking();
                         BindRepeaterCurrentPastExp();
+                        divCurrentEmployer.Visible = false;
+                        
 
                         DataSet ds = new DataSet();
                         DataSet ds2 = new DataSet();
                         CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                         ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-                      
+
                         BindCountry();
 
                         DataSet getcityDataSet = new DataSet();
@@ -73,7 +75,6 @@ namespace JobFair.UserControls.JobSeeker
                         }
                         var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
                         txtCity.Text = string.Join(",", selectedarea.Select(x => x.Text));
-                       
 
                         txtResumeHeadline.Text = Convert.ToString(ds.Tables[0].Rows[0]["ResumeHeadline"]);
                         txtObjective.Text = Convert.ToString(ds.Tables[0].Rows[0]["Objective"]);
@@ -81,7 +82,7 @@ namespace JobFair.UserControls.JobSeeker
                         lblTotalExp.Text = Convert.ToString(ds.Tables[0].Rows[0]["TotalExpriance"]);
                         txtcurrentannualsalary.Text = Convert.ToString(ds.Tables[0].Rows[0]["CurrentAnualSalary"]);
                         txtexpectedsalary.Text = Convert.ToString(ds.Tables[0].Rows[0]["ExpectedAnualSalary"]);
-                       
+
                         ddlWorkStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CurrentWorkingStatus"]);
                         ddlNoticePeriod.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["NoticePeriod"]);
                         rblEmploymentStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
@@ -95,7 +96,6 @@ namespace JobFair.UserControls.JobSeeker
                         ddlAfterMinutes.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AfterMinutes"]);
                         ddlAfterTime.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AfterTime"]);
                         ddlISTETE.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["TimeISTETE"]);
-                      
                     }
                     catch (Exception)
                     {
@@ -158,8 +158,6 @@ namespace JobFair.UserControls.JobSeeker
 
             rptrJobPostLookinFor.DataBind();
         }
-
-      
 
         /// <summary>
         /// Method to Add Job Looking for to gvJobsLookingFor control
@@ -547,8 +545,7 @@ namespace JobFair.UserControls.JobSeeker
             CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
             var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-            var selectedstate = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-          
+            var selectedstate = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
 
             try
             {
@@ -574,16 +571,15 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobEntity.CompanyType = rblCompanyType123.SelectedItem.Text;
                 currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
                 currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
+                currentDesiredJobEntity.PreferredCountry = Convert.ToInt32(ddlPreferredCountry.SelectedValue);
                 currentDesiredJobEntity.PreferredState = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
                 currentDesiredJobEntity.PreferredCity = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
                 currentDesiredJobEntity.PreferrefArea = "," + string.Join(",", selectedarea.Select(x => x.Value)) + ",";
-                currentDesiredJobEntity.BeforeHours = ddlBeforeHours.SelectedItem.Text;
-                currentDesiredJobEntity.BeforeMinutes = ddlBeforeMinutes.SelectedItem.Text;
-                currentDesiredJobEntity.BeforeTime = ddlBeforeTime.SelectedItem.Text;
-                currentDesiredJobEntity.AfterHours = ddlAfterHours.SelectedItem.Text;
-                currentDesiredJobEntity.AfterMinutes = ddlAfterMinutes.SelectedItem.Text;
-                currentDesiredJobEntity.AfterTime = ddlAfterTime.SelectedItem.Text;
-                currentDesiredJobEntity.TimeISTETE = ddlISTETE.SelectedItem.Text;
+
+                currentDesiredJobEntity.BeforeTime = ddlBeforeHours.SelectedItem.Text + ":" + ddlBeforeMinutes.SelectedItem.Text + ":" + ddlBeforeTime.SelectedItem.Text;
+               
+                currentDesiredJobEntity.AfterTime = ddlAfterHours.SelectedItem.Text+":"+ddlAfterMinutes.SelectedItem.Text+":"+ddlAfterTime.SelectedItem.Text+":"+ddlISTETE.SelectedItem.Text;
+               
                 currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
                 currentDesiredJobBAL.SaveDesiredJobDetailsBAL(currentDesiredJobEntity);
                 currentDesiredJobBAL.SaveJobDetailsBAL(currentDesiredJobEntity);
@@ -622,8 +618,6 @@ namespace JobFair.UserControls.JobSeeker
             divCurrentEmployer.Visible = false;
         }
 
-       
-
         /// <summary>
         /// Handles the Click event of btnCity control
         /// </summary>
@@ -647,16 +641,13 @@ namespace JobFair.UserControls.JobSeeker
                 txtCity.Text = string.Join(",", selectedcity.Select(x => x.Text));
                 DataSet ds = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                //for(int i=1;i<=chklCity.Items.Cast<ListItem>().Count(li => li.Selected);i++)
-                //{
-                //int cityId = Convert.ToInt32(chklCity.SelectedValue);
+
                 string cityId = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
                 ds = currentDesiredJobBAL.GetArea(cityId);
                 chklArea.DataSource = ds;
                 chklArea.DataTextField = "AreaName";
                 chklArea.DataValueField = "AreaId";
                 chklArea.DataBind();
-                //}
             }
             catch (Exception)
             {
@@ -1003,7 +994,6 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void ddlPreferredCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             try
             {
                 DataSet ds = new DataSet();
@@ -1021,13 +1011,7 @@ namespace JobFair.UserControls.JobSeeker
             {
                 throw;
             }
-
-          
         }
-
-
-       
-       
 
         protected void btnState_Click(object sender, EventArgs e)
         {
@@ -1036,10 +1020,13 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void chklState_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+            //txtCity.Text = string.Join(",", selectedcity.Select(x => x.Text));
+
             try
             {
-                var selectedstate = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                txtCity.Text = string.Join(",", selectedstate.Select(x => x.Text));
+                var selectedstate = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                txtPreferredState.Text = string.Join(",", selectedstate.Select(x => x.Text));
                 DataSet ds = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
 
@@ -1056,8 +1043,5 @@ namespace JobFair.UserControls.JobSeeker
                 throw;
             }
         }
-
-
-       
     }
 }
