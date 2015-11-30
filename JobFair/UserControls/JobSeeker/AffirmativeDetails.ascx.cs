@@ -13,14 +13,41 @@ namespace JobFair.UserControls.JobSeeker
         private AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
         private int languageCount = 0;
         private string candidateId;
-        private bool isCheck = true;
+        private bool isCheck = false;
         // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId = Convert.ToString(Session["candidateId"]);
+            if (Session["candidateId"] != null)
+            {
+                if(Session["candidateId"].ToString() != "")
+                {
+                    candidateId = Convert.ToString(Session["candidateId"]);
 
-            if (!IsPostBack)
+                    if (!IsPostBack)
+                    {
+                        BindLanguages();
+
+                        if (isCheck)
+                        {
+                            try
+                            {
+                                BindAffirmativeDetails(candidateId);
+                            }
+                            catch (Exception)
+                            {
+                                //  throw;
+                            }
+                        }
+                    }
+                }
+            }
+           
+        }
+
+        private void BindLanguages()
+        {
+            try
             {
                 DataSet ds = new DataSet();
                 ds = affirmativeDetailsBAL.GetLanguageBAL();
@@ -46,94 +73,106 @@ namespace JobFair.UserControls.JobSeeker
                     ddlLanguageThird.DataBind();
                     ddlLanguageThird.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
 
-
-                if (isCheck)
+        private void BindAffirmativeDetails(string candidateId)
+        {
+            try
+            {
+                DataSet dsAffirmativeDetails = new DataSet();
+                dsAffirmativeDetails = affirmativeDetailsBAL.viewAffirmativeDetailsBAL(candidateId);
+                if (dsAffirmativeDetails != null)
                 {
-                    try
+                    if (dsAffirmativeDetails.Tables.Count > 0)
                     {
-                        DataSet dsAffirmativeDetails = new DataSet();
-                        dsAffirmativeDetails = affirmativeDetailsBAL.viewAffirmativeDetailsBAL(candidateId);
-                        ddlLanguageFirst.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageId"]);
-                        ddlProficiencyFirst.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["ProficiencyLevel"]);
-                        bool isSelected = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageRead"]);
-                        if (isSelected == true)
+                        if (dsAffirmativeDetails.Tables[0].Rows.Count > 0)
                         {
-                            chkReadFirst.Checked = true;
-                        }
+                            ddlLanguageFirst.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageId"]);
+                            ddlProficiencyFirst.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["ProficiencyLevel"]);
+                            bool isSelected = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageRead"]);
+                            if (isSelected == true)
+                            {
+                                chkReadFirst.Checked = true;
+                            }
 
-                        bool languageWrite = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageWrite"]);
-                        if (languageWrite == true)
-                        {
-                            chkWriteFirst.Checked = true;
-                        }
+                            bool languageWrite = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageWrite"]);
+                            if (languageWrite == true)
+                            {
+                                chkWriteFirst.Checked = true;
+                            }
 
-                        bool languageSpeak = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageSpeak"]);
-                        if (languageSpeak == true)
-                        {
-                            chkSpeakFirst.Checked = true;
-                        }
+                            bool languageSpeak = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageSpeak"]);
+                            if (languageSpeak == true)
+                            {
+                                chkSpeakFirst.Checked = true;
+                            }
 
-                        ddlLanguageSecond.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageId"]);
-                        ddlProficiencySecond.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[1]["ProficiencyLevel"]);
-                        bool languageSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageRead"]);
-                        if (languageSecond == true)
-                        {
-                            chkReadSecond.Checked = true;
-                        }
+                            ddlLanguageSecond.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageId"]);
+                            ddlProficiencySecond.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[1]["ProficiencyLevel"]);
+                            bool languageSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageRead"]);
+                            if (languageSecond == true)
+                            {
+                                chkReadSecond.Checked = true;
+                            }
 
-                        bool writeSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageWrite"]);
-                        if (writeSecond == true)
-                        {
-                            chkWriteSecond.Checked = true;
-                        }
+                            bool writeSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageWrite"]);
+                            if (writeSecond == true)
+                            {
+                                chkWriteSecond.Checked = true;
+                            }
 
-                        bool speakSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageSpeak"]);
-                        if (speakSecond == true)
-                        {
-                            chkSpeakSecond.Checked = true;
-                        }
+                            bool speakSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageSpeak"]);
+                            if (speakSecond == true)
+                            {
+                                chkSpeakSecond.Checked = true;
+                            }
 
-                        ddlLanguageThird.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageId"]);
-                        ddlProficiencyThird.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[2]["ProficiencyLevel"]);
-                        bool languageThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageRead"]);
-                        if (languageThird == true)
-                        {
-                            chkReadThird.Checked = true;
-                        }
+                            ddlLanguageThird.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageId"]);
+                            ddlProficiencyThird.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[2]["ProficiencyLevel"]);
+                            bool languageThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageRead"]);
+                            if (languageThird == true)
+                            {
+                                chkReadThird.Checked = true;
+                            }
 
-                        bool writeThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageWrite"]);
-                        if (writeThird == true)
-                        {
-                            chkWriteThird.Checked = true;
-                        }
+                            bool writeThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageWrite"]);
+                            if (writeThird == true)
+                            {
+                                chkWriteThird.Checked = true;
+                            }
 
-                        bool speakThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageSpeak"]);
-                        if (speakThird == true)
-                        {
-                            chkSpeakThird.Checked = true;
-                        }
+                            bool speakThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageSpeak"]);
+                            if (speakThird == true)
+                            {
+                                chkSpeakThird.Checked = true;
+                            }
 
-                        string physicallyChallenged = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["PhysicallyChallenged"]);
-                        rbtPhysicallyChallenged.Items.FindByText(physicallyChallenged).Selected = true;
-                        if (physicallyChallenged == "Yes")
-                        {
-                            upPhysicallyChallenged.Visible = true;
+                            string physicallyChallenged = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["PhysicallyChallenged"]);
+                            rbtPhysicallyChallenged.Items.FindByText(physicallyChallenged).Selected = true;
+                            if (physicallyChallenged == "Yes")
+                            {
+                                upPhysicallyChallenged.Visible = true;
+                            }
+                            txtDescription.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Description"]);
+                            txtSports.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Sports"]);
+                            txtSportsDescription.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["SportsDescription"]);
+                            txtHobbies.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Hobbies"]);
+                            txtExtraActivity.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["ExtraActivity"]);
+                            string USApermit = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["USApermit"]);
+                            rbtUSAPermit.Items.FindByValue(USApermit).Selected = true;
+                            txtOtherPermit.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["OtherPermits"]);
                         }
-                        txtDescription.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Description"]);
-                        txtSports.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Sports"]);
-                        txtSportsDescription.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["SportsDescription"]);
-                        txtHobbies.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Hobbies"]);
-                        txtExtraActivity.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["ExtraActivity"]);
-                        string USApermit = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["USApermit"]);
-                        rbtUSAPermit.Items.FindByValue(USApermit).Selected = true;
-                        txtOtherPermit.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["OtherPermits"]);
-                    }
-                    catch (Exception)
-                    {
-                        throw;
                     }
                 }
+            }
+            catch (Exception)
+            {
+                // throw;
             }
         }
 
@@ -214,7 +253,7 @@ namespace JobFair.UserControls.JobSeeker
                     affirmativeDetailsEntity.OtherPermits = txtOtherPermit.Text.Trim();
 
                     // Save language details
-                    bool isLanguageSaved = affirmativeDetailsBAL.UpdateLanguageDetailsBAL(languageDetailsList,candidateId);
+                    bool isLanguageSaved = affirmativeDetailsBAL.UpdateLanguageDetailsBAL(languageDetailsList, candidateId);
                     // Save affermative Details.
                     bool isOtherDetailsSaved = affirmativeDetailsBAL.UpdateAffirmativeDetailsBAL(affirmativeDetailsEntity);
 
@@ -229,7 +268,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 catch (Exception)
                 {
-                    throw;
+                    // throw;
                 }
             }
             else
@@ -317,19 +356,26 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 catch (Exception)
                 {
-                    throw;
+                    // throw;
                 }
             }
         }
 
         protected void rbtPhysicallyChallenged_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rbtPhysicallyChallenged.SelectedValue == "1")
+            try
             {
-                upPhysicallyChallenged.Visible = true;
-                return;
+                if (rbtPhysicallyChallenged.SelectedValue == "1")
+                {
+                    upPhysicallyChallenged.Visible = true;
+                    return;
+                }
+                upPhysicallyChallenged.Visible = false;
             }
-            upPhysicallyChallenged.Visible = false;
+            catch (Exception)
+            {
+                //  throw;
+            }
         }
     }
 }

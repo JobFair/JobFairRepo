@@ -65,6 +65,7 @@
     <Compile Include="QuestionrieDAL.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />
     <Compile Include="RegisterRecruiterDAL.cs" />
+    <Compile Include="RequestEmailJSDAL.cs" />
     <Compile Include="SearchRecord.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="TechnicalSkillsDetailsDAL.cs" />

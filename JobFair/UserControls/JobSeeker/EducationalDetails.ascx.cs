@@ -588,6 +588,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
             }
         }
+
         protected void btnSSCUpdate_Click(object sender, EventArgs e)
         {
             EducationalDetailsBAL educationalDetails = new EducationalDetailsBAL();

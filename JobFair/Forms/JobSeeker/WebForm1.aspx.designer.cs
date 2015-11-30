@@ -22,12 +22,12 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// RoleSkillsDetails control.
+        /// AffirmativeDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.RoleSkillsDetails RoleSkillsDetails;
+        protected global::JobFair.UserControls.JobSeeker.AffirmativeDetails AffirmativeDetails;
     }
 }
