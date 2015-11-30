@@ -478,7 +478,7 @@ namespace DAL
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
 
 
-                return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectTechnicalSkills, sparams);
+                return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectRoleSkills, sparams);
             }
             catch (Exception)
             {
@@ -491,6 +491,46 @@ namespace DAL
                 
                 throw;
             }
+        }
+
+        public void UpdateRoleSkillsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlParameter[] sparams = new SqlParameter[6];
+                sparams[0] = new SqlParameter("@skillId", currentDesiredJobEntity.SkillId);
+                sparams[1] = new SqlParameter("@roleSkill", currentDesiredJobEntity.RoleSkills);
+                sparams[2] = new SqlParameter("@fromDate", currentDesiredJobEntity.FromDate);
+                sparams[3] = new SqlParameter("@tillDate", currentDesiredJobEntity.TillDate);
+                sparams[4] = new SqlParameter("@proficiency", currentDesiredJobEntity.Proficiency);
+                sparams[5] = new SqlParameter("@totalYear", currentDesiredJobEntity.TotalExperience);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateRoleSkills, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public void DeleteRoleSkillBAL(int SkillId)
+        {
+            try
+            {
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                connection.Open();
+
+                SqlParameter[] sparams = { new SqlParameter("@id", SkillId) };
+
+
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteRoleSkill, sparams);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            } 
         }
     }
 }

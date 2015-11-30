@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RoleSkillsDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.RoleSkillsDetails" %>
 <div style="border: solid; margin-left: 150px; margin-right: 150px">
-    <div style="margin-left: 60px; margin-right: 60px">
+    <div style="margin-left: 60px; margin-right: 60px" id="divRoleSkillsInsert" runat="server">
         <h3>Role Skills</h3>
         <table>
             <tr>
@@ -76,6 +76,18 @@
             </tr>
             <tr>
                 <td colspan="4">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:Button ID="btnSaveSkills" runat="server" Text="Save" OnClick="btnSaveSkills_Click" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="divRoleSkillsEdit" runat="server" visible="false">
+
                     <asp:Repeater ID="rptrRoleSkills" runat="server" OnItemCommand="rptrRoleSkills_ItemCommand" OnItemDataBound="rptrRoleSkills_ItemDataBound">
                         <HeaderTemplate>
                             <table>
@@ -92,7 +104,7 @@
                                     <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; width: 300px">
                                         <tr>
                                             <td>
-                                                <b>Technical Skill</b>
+                                                <b>Role Skill</b>
                                                 <asp:Label ID="lblRoleSkill" runat="server" Text='<%#Eval("RoleSkills") %>' />
                                                 <asp:DropDownList ID="ddlRoleSkill" runat="server" Visible="false"></asp:DropDownList>
                                             </td>
@@ -101,23 +113,23 @@
                                             <td>
                                                 <b>FromDate</b>
                                                 <asp:Label ID="lblFromDate" runat="server" Text='<%#Eval("FromDate") %>' />
-                                                <asp:DropDownList ID="ddlFromMonth0" runat="server" Visible="false"></asp:DropDownList>
-                                                <asp:DropDownList ID="ddlFromYear0" runat="server" Visible="false"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlFromMonth" runat="server" Visible="false"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlFromYear" runat="server" Visible="false"></asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <b>TillDate</b>
                                                 <asp:Label ID="lblTillDate" runat="server" Text='<%#Eval("TillDate") %>' />
-                                                <asp:DropDownList ID="ddlTillMonth0" runat="server" Visible="false"></asp:DropDownList>
-                                                <asp:DropDownList ID="ddlTillYear0" runat="server" Visible="false"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlTillMonth" runat="server" Visible="false"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlTillYear" runat="server" Visible="false"></asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <b>Proficiency</b>
                                                 <asp:Label ID="lblProficiency" runat="server" Text='<%#Eval("Proficiency") %>' />
-                                                <asp:DropDownList ID="ddlProficiency0" runat="server" Visible="false">
+                                                <asp:DropDownList ID="ddlProficiency" runat="server" Visible="false">
                                                     <asp:ListItem>Select</asp:ListItem>
                                                     <asp:ListItem>Beginner</asp:ListItem>
                                                     <asp:ListItem>Intermediate</asp:ListItem>
@@ -148,13 +160,6 @@
                             </table>
                         </ItemTemplate>
                     </asp:Repeater>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="4">
-                    <asp:Button ID="btnSaveSkills" runat="server" Text="Save" OnClick="btnSaveSkills_Click" />
-                </td>
-            </tr>
-        </table>
+
     </div>
 </div>
