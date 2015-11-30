@@ -14,6 +14,7 @@ namespace JobFair.Forms.JobSeeker
        
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             candidateId = Convert.ToString(Session["candidateId"]);
             //if (candidateId == "")
             //{
@@ -27,11 +28,13 @@ namespace JobFair.Forms.JobSeeker
             //    //script += "'; }";
             //    //ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
             //     Response.Redirect("LogIn.aspx");
+        
             //}
+          
+            
 
             if (!IsPostBack)
             {
-                BindDepartment();
                 BindState();
                 BindIndustry();
             }
@@ -95,23 +98,7 @@ namespace JobFair.Forms.JobSeeker
         /// Bind industry to dropdown and stored in database
         /// </summary>
        
-        private void BindDepartment()
-        {
-            try
-            {
-                object ds;
-                ds = AdvanceJobSearchBAL.GetFunctionalArea();
-                ddlJobCategory.DataSource = ds;
-                ddlJobCategory.DataTextField = "FunctionalArea";
-                ddlJobCategory.DataValueField = "FunctionalAreaId";
-                ddlJobCategory.DataBind();
-                ddlJobCategory.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+      
 
         private void BindState()
         {
@@ -131,43 +118,49 @@ namespace JobFair.Forms.JobSeeker
                 throw;
             }
         }
-
+        /// <summary>
+        ///  Searchrecord on click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-            AdvanceSearchDetailsEntity advanceSearch = new AdvanceSearchDetailsEntity();
-            advanceSearch.City = ddlCity.SelectedValue.Trim();
-            advanceSearch.Freshness = ddlJobFreshness.SelectedValue.Trim();
-            advanceSearch.KeySkill = txtkeyskill.Text.Trim();
-            advanceSearch.State = ddlState.SelectedValue.Trim();
-            advanceSearch.MinSalary = ddlMinSalary.SelectedItem.Text.Trim();
-            advanceSearch.MaxSalary = ddlMaxSalary.SelectedItem.Text.Trim();
-            advanceSearch.WorkExp = ddlWorkExperience.SelectedItem.Text.Trim();
-            advanceSearch.JobCategory = ddlJobCategory.SelectedValue.Trim();
-            //IEnumerable<int> allChecked = (from item in ddlLocation.Items 
-            //                   where item.Selected 
-            //                   select int.Parse(item.Value));
-
-            //advanceSearch.Area.AddRange(ddl)
-
-            Response.Redirect("jobSearch.aspx?keySkills=" + this.txtkeyskill.Text.Trim() + "&city=" + ddlCity.SelectedItem.Text + "&experience=" + ddlWorkExperience.SelectedItem.Text + "&minSalary=" + ddlMinSalary.SelectedItem.Text + "&maxSalary=" + ddlMaxSalary.SelectedItem.Text + "&functionalArea=" + ddlJobCategory.SelectedValue);
+            AdvanceSearchDetailsEntity advanceSearchEntity = new AdvanceSearchDetailsEntity();
+            advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
+            advanceSearchEntity.State = ddlState.SelectedValue.Trim();
+            advanceSearchEntity.City = ddlCity.SelectedValue.Trim();
+            advanceSearchEntity.Area = chkarea.SelectedValue.Trim();
+            advanceSearchEntity.WorkExp = ddlWorkExperience.SelectedItem.Text.Trim();
+            advanceSearchEntity.MinSalary = ddlMinSalary.SelectedItem.Text.Trim();
+            advanceSearchEntity.MaxSalary = ddlMaxSalary.SelectedItem.Text.Trim();
+            advanceSearchEntity.Industry = Convert.ToInt32(chkIndustry.SelectedValue.Trim());
+            advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedItem.Text.Trim();
+            advanceSearchEntity.JobType = chkJobType.SelectedItem.Text.Trim();
+            advanceSearchEntity.RecruitmentType = chkRecruitmentType.SelectedItem.Text.Trim();
+           // AdvanceJobSearchBAL advancesearchBAL = new AdvanceJobSearchBAL();
+           // DataSet result = advancesearchBAL.GetSearch(advanceSearchEntity);
+            AdvanceSearchDetailsEntity  search = new AdvanceSearchDetailsEntity();
+            Session["myObject"] = advanceSearchEntity;
+            Response.Redirect("jobSearch.aspx");
         }
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
-        public static List<string> GetKeySkills(string prefixText)
+        public static List<string>GetRoles(string prefixText)
         {
             DataTable dt = new DataTable();
 
             AdvanceJobSearchBAL advanceSearchBAL = new AdvanceJobSearchBAL();
-            dt = advanceSearchBAL.GetTechnicalSkillBAL(prefixText);
-            List<string> TechnicalSkillName = new List<string>();
+            dt = advanceSearchBAL.GetRoles(prefixText);
+            List<string> rolename = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                TechnicalSkillName.Add(dt.Rows[i][2].ToString());
+                rolename.Add(dt.Rows[i][1].ToString());
             }
-            return TechnicalSkillName;
+            return rolename;
         }
 
+       
         protected void btnReset_Click(object sender, EventArgs e)
         {
             Response.Redirect(Request.RawUrl);
@@ -200,7 +193,6 @@ namespace JobFair.Forms.JobSeeker
         {
             Panelarea.Visible = true;
    }
-
         
    }
                     

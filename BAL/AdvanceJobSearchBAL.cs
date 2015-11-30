@@ -105,5 +105,11 @@ namespace BAL
                 throw;
             }
         }
+
+        public DataTable GetRoles(string prefixText)
+        {
+            AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
+            return advancesearchDAL.GetRoles(prefixText);
+        }
     }
 }
