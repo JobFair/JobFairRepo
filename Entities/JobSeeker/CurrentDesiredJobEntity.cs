@@ -92,5 +92,7 @@
         public string TillDate { get; set; }
 
         public string RoleSkills { get; set; }
+
+        public int PreferredCountry { get; set; }
     }
 }

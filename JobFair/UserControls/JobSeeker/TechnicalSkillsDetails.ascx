@@ -68,9 +68,11 @@
                                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                 </td>
+                
             </tr>
             <tr>
                 <td colspan="4">
+                    <div id="divTechnicalRepeater" runat="server" visible="false">
                                     <asp:Repeater ID="rptrTechnicalSkills" runat="server" OnItemCommand="rptrTechnicalSkills_ItemCommand" OnItemDataBound="rptrTechnicalSkills_ItemDataBound">
                                         <HeaderTemplate>
                                             <table>
@@ -144,6 +146,7 @@
                                             </table>
                                         </ItemTemplate>
                                     </asp:Repeater>
+                        </div>
                 </td>
             </tr>
             <tr>
@@ -153,5 +156,5 @@
                 </td>
             </tr>
             </table>
-    </div>
+   </div>
 </div>

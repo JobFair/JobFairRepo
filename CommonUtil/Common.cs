@@ -379,7 +379,7 @@ namespace CommonUtil
             {
                 SqlParameter[] sparams = new SqlParameter[1];
                 sparams[0] = new SqlParameter("@stateId", stateId);
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_JS_SelectState", sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_JS_SelectCity", sparams);
                 return ds;
             }
             catch (Exception)
