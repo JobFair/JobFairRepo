@@ -90,5 +90,7 @@
         public string FromDate { get; set; }
 
         public string TillDate { get; set; }
+
+        public string RoleSkills { get; set; }
     }
 }

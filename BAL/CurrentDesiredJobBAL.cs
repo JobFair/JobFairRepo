@@ -454,5 +454,33 @@ currentDesiredJobDAL.DeleteJobPostLookingForDAL(JobpostlookingId);
                 throw;
             }  
         }
+
+        public void UpdateRoleSkillsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                 currentDesiredJobDAL.UpdateRoleSkillsDAL(currentDesiredJobEntity);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public void DeleteRoleSkillBAL(int SkillId)
+        {
+            try
+            {
+                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+                currentDesiredJobDAL.DeleteRoleSkillBAL(SkillId);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
