@@ -137,8 +137,8 @@ namespace JobFair.Forms.JobSeeker
             advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedItem.Text.Trim();
             advanceSearchEntity.JobType = chkJobType.SelectedItem.Text.Trim();
             advanceSearchEntity.RecruitmentType = chkRecruitmentType.SelectedItem.Text.Trim();
-           // AdvanceJobSearchBAL advancesearchBAL = new AdvanceJobSearchBAL();
-           // DataSet result = advancesearchBAL.GetSearch(advanceSearchEntity);
+            //AdvanceJobSearchBAL advancesearchBAL = new AdvanceJobSearchBAL();
+           //DataSet result = advancesearchBAL.GetSearch(advanceSearchEntity);
             AdvanceSearchDetailsEntity  search = new AdvanceSearchDetailsEntity();
             Session["myObject"] = advanceSearchEntity;
             Response.Redirect("jobSearch.aspx");
@@ -174,10 +174,9 @@ namespace JobFair.Forms.JobSeeker
         /// <param name="e"></param>
         protected void chkarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-       var  selectedArea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-
-        txtarea.Text = string.Join(",", selectedArea.Select(x=>x.Text));
-            }
+            var  selectedArea = chkarea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+             txtarea.Text = string.Join(",", selectedArea.Select(x=>x.Text));
+        }
         /// <summary>
         /// Bind industry to checkboxlist 
         /// </summary>
@@ -192,7 +191,7 @@ namespace JobFair.Forms.JobSeeker
         protected void btnarea_Click(object sender, EventArgs e)
         {
             Panelarea.Visible = true;
-   }
+         }
         
    }
                     

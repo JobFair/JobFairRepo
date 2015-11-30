@@ -47,13 +47,22 @@ namespace DAL
 
         public DataTable GetRoles(string prefixText)
         {
-            DataTable dt = new DataTable();
-            connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from RoleSkills  where RoleName like @RoleName+'%'", connection);
-            cmd.Parameters.AddWithValue("@RoleName", prefixText);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            adp.Fill(dt);
-            return dt;
+            try
+            {
+                DataTable dt = new DataTable();
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("select * from RoleSkills  where RoleName like @RoleName+'%'", connection);
+                cmd.Parameters.AddWithValue("@RoleName", prefixText);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         public DataSet Getsearch(Entities.JobSeeker.AdvanceSearchDetailsEntity advanceSearchEntity)
@@ -84,7 +93,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw ex;
+               throw ex;
             }
             finally
             {

@@ -24,23 +24,27 @@
                 }
             }
         );
-        $(document).ready(function () {
-            var checkboxlist_selector = '#chkIndustry  input[type = checkbox]';
-            alert(checkboxlist_selector);
-            $(checkboxlist_selector).click(function () {
-                if ($($(this).is(':checked'))) {
-                    $(checkboxlist_selector).attr('disabled', 'disabled');
-                    $($(this)).removeAttr('disabled');
+       
+        //$(document).ready(function () {
+        //    var checkboxlist_selector = '#chkIndustry  input[type = checkbox]';
+        //    alert(checkboxlist_selector);
+        //    $(checkboxlist_selector).click(function () {
+        //        if ($($(this).is(':checked'))) {
+        //            $(checkboxlist_selector).attr('disabled', 'disabled');
+        //            $($(this)).removeAttr('disabled');
 
-                } else {
-                    $(checkboxlist_selector).removeAttr('disabled');
-                }
-            });
+        //        } else {
+        //            $(checkboxlist_selector).removeAttr('disabled');
+        //        }
+        //    });
 
-        });
+        //});
        // JSON.stringify(checkboxlist_selector);
-
-
+       <%-- var valuesIndustryName = "";
+        $j("#<%=chkIndustry.ClientID%>input[type=checkbox]:checked").each(function () {
+            varIndustryName = $j(this).parent().attr('IndustryNamevalue');
+            valuesIndustryName += varIndustryName + ",";
+        });--%>
     </script>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -68,7 +72,6 @@
                     <asp:CheckBoxList ID="chkLocation" runat="server" OnSelectedIndexChanged="chkLocation_SelectedIndexChanged"></asp:CheckBoxList>
                 </div>
                 <hr />
-
                 <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#PanelRole">Role</button>
                 <div id="PanelRole" class="collapse">
                     <asp:CheckBoxList ID="chkRole" runat="server" OnSelectedIndexChanged="chkRole_SelectedIndexChanged"></asp:CheckBoxList>
@@ -93,7 +96,7 @@
                 <hr />
                 <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#PanelIndustry">Industry</button>
                 <div id="PanelIndustry" class="collapse">
-                    <asp:CheckBoxList ID="chkIndustry" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkIndustry_SelectedIndexChanged"></asp:CheckBoxList>
+                    <asp:CheckBoxList ID="chkIndustry" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkIndustry_SelectedIndexChanged" ></asp:CheckBoxList>
                 </div>
                 <hr />
                 <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#PanelSalary">Salary</button>
@@ -152,11 +155,11 @@
                                 <table>
                                     <tr>
                                         <td>
-                                 <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" ForeColor="#09c" />
+                                 <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" ForeColor="#09c" />
                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <asp:Label ID="Label4" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
-                                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
-                                             <asp:Label ID="Label2" runat="server" Text='<%#Eval("StateName")%>'></asp:Label>
+                                            <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
+                                         <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
+                                             <asp:Label ID="lblstatename" runat="server" Text='<%#Eval("StateName")%>'></asp:Label>
                                             </td>
                                         </tr>
                                     </table>
@@ -166,7 +169,7 @@
                                     <table>
                                         <tr>
                                             <td>
-                                             <asp:Label ID="Label3" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
+                                             <asp:Label ID="lblcompanyname" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                  </td>
                                         </tr>
@@ -191,7 +194,7 @@
                                                 <tr>
                                                    <td> 
                                                          Key Skill &nbsp;&nbsp;&nbsp;
-                                   <asp:Label ID="lblWorkExperience" runat="server" Text='<%#Eval("KeywordsTechnical")%>'></asp:Label>
+                                   <asp:Label ID="lblkeywordstechnical" runat="server" Text='<%#Eval("KeywordsTechnical")%>'></asp:Label>
                                                        </td>
                                                 </tr>
                                             </table>
@@ -202,13 +205,13 @@
                                                     <table>
                                                         <tr>
                                                             <td>Functional Area &nbsp;&nbsp;&nbsp;
-                                                                 <asp:Label ID="lblKeySkills" runat="server" Text='<%#Eval("FunctionalArea") %>' ></asp:Label>
+                                                                 <asp:Label ID="lblfunctionalarea" runat="server" Text='<%#Eval("FunctionalArea") %>' ></asp:Label>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                     </td>
-                                                </tr>
-                                         <tr>
+                                               </tr>       
+                                    <tr>
                             <td>
                                 <table>
                                     <tr>
