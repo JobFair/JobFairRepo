@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-   <%--  <link href="../../Css/bootstrap.min.css" rel="stylesheet" />
+    <%--  <link href="../../Css/bootstrap.min.css" rel="stylesheet" />
       <script src="../../Scripts/bootstrap.min.js"></script>
       <script src="../../Scripts/jquery.min.js"></script>--%>
 </head>
@@ -24,12 +24,13 @@
             <tr>
                 <td>Subject</td>
                 <td>
-                    <asp:DropDownList ID="ddlSubject" runat="server">
-                        <asp:ListItem>Career Counseling</asp:ListItem>
-                        <asp:ListItem>Resume Guideline</asp:ListItem>
-                        <asp:ListItem>Aptitude Test</asp:ListItem>
-                        <asp:ListItem>Other Help</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlSubject" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">
+                        <asp:ListItem Value="Career Counseling">Career Counseling</asp:ListItem>
+                        <asp:ListItem Value="Resume Guideline">Resume Guideline</asp:ListItem>
+                        <asp:ListItem Value="Aptitude Test">Aptitude Test</asp:ListItem>
+                        <asp:ListItem Value="Other Help">Other Help</asp:ListItem>
+                    </asp:DropDownList><br />
+                    <asp:TextBox ID="txtSubject" runat="server" Visible="false" placeholder="Your Subject" Height="25px" Width="382px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -39,15 +40,17 @@
                 </td>
             </tr>
             <tr>
-                <td>Topic</td>
                 <td>
-                    <asp:TextBox ID="txtTopic" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" />
+                </td>
+                <td>
+                    <asp:TextBox ID="txtName" runat="server" Visible="False"></asp:TextBox>
+                    <asp:TextBox ID="txtMobNo" runat="server" Visible="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" />
-                </td>
+                    &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>

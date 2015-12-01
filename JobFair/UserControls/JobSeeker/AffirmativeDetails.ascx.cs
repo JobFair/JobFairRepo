@@ -20,7 +20,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             if (Session["candidateId"] != null)
             {
-                if(Session["candidateId"].ToString() != "")
+                if (Session["candidateId"].ToString() != "")
                 {
                     candidateId = Convert.ToString(Session["candidateId"]);
 
@@ -42,7 +42,7 @@ namespace JobFair.UserControls.JobSeeker
                     }
                 }
             }
-           
+
         }
 
         private void BindLanguages()
