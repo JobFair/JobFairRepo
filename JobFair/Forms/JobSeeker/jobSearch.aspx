@@ -155,7 +155,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                 <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" ForeColor="#09c" />
+                                           <div class="divjobtitle"> <asp:HyperLink ID="HyperLink1"  runat="server" Text='<%#Eval("JobTitle")%>' NavigateUrl="ViewAllJobPost.aspx"></asp:HyperLink></div>
                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
                                          <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
@@ -240,7 +240,9 @@
                         <tr>
                             <td colspan="2">&nbsp;</td>
                         </tr>
+                  </asp:HyperLink>
                     </ItemTemplate>
+              
                     <FooterTemplate>
                         </table>
                     </FooterTemplate>
