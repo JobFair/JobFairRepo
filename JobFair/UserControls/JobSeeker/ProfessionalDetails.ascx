@@ -800,22 +800,22 @@
                                                         <tr>
                                                             <td>
                                                                 <b>Industry</b>
-                                                                <asp:Label ID="lblIndustry0" runat="server" Text='<%#Eval("IndustryName") %>' />
-                                                                <asp:DropDownList ID="ddlIndustry124" runat="server" Visible="false"></asp:DropDownList>
+                                                                <asp:Label ID="lblIndustry" runat="server" Text='<%#Eval("IndustryName") %>' />
+                                                                <asp:DropDownList ID="ddlIndustry123" runat="server" Visible="false"></asp:DropDownList>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
                                                                 <b>Department</b>
-                                                                <asp:Label ID="lblDepartment0" runat="server" Text='<%#Eval("DepartmentName") %>' />
-                                                                <asp:DropDownList ID="ddlDepartment124" runat="server" Visible="false"></asp:DropDownList>
+                                                                <asp:Label ID="lblDepartment" runat="server" Text='<%#Eval("DepartmentName") %>' />
+                                                                <asp:DropDownList ID="ddlDepartment123" runat="server" Visible="false"></asp:DropDownList>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
                                                                 <b>Functional Role</b>
                                                                 <asp:Label ID="lblFunctionalRole" runat="server" Text='<%#Eval("FunctionalArea") %>' />
-                                                                <asp:DropDownList ID="ddlFunctionalRole0" runat="server" Visible="false"></asp:DropDownList>
+                                                                <asp:DropDownList ID="ddlFunctionalRole" runat="server" Visible="false"></asp:DropDownList>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -833,10 +833,10 @@
                                                     <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; border-bottom: 1px solid #c1650f; width: 300px">
                                                         <tr>
                                                             <td>
-                                                                <asp:LinkButton ID="lnkEdit0" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="edit">Edit</asp:LinkButton>
-                                                                <asp:LinkButton ID="lnkDelete0" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
-                                                                <asp:LinkButton ID="lnkUpdate0" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
-                                                                <asp:LinkButton ID="lnkCancel0" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="edit">Edit</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
                                                             </td>
                                                         </tr>
                                                     </table>

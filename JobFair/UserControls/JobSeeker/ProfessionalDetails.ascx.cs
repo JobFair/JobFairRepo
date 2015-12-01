@@ -26,7 +26,7 @@ namespace JobFair.UserControls.JobSeeker
             candidateId = "JS2";
             if (!IsPostBack)
             {
-                if (!isCheck)
+                if (isCheck)
                 {
                     try
                     {
@@ -44,10 +44,20 @@ namespace JobFair.UserControls.JobSeeker
                         CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                         ds = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
 
-                        BindCountry();
+                       
+
+                        DataSet datasetCountry = new DataSet();
+                       
+                        datasetCountry = currentDesiredJobBAL.GetCountry();
+                        ddlPreferredCountry.DataSource = datasetCountry;
+                        ddlPreferredCountry.DataTextField = "CountryName";
+                        ddlPreferredCountry.DataValueField = "CountryId";
+                        ddlPreferredCountry.DataBind();
+
+                        ddlPreferredCountry.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCountry"]);
 
                         DataSet getcityDataSet = new DataSet();
-                        int stateId = Convert.ToInt32(ds.Tables[0].Rows[0]["PreferredState"]);
+                        string stateId = Convert.ToString(ds.Tables[0].Rows[0]["PreferredState"]);
                         getcityDataSet = currentDesiredJobBAL.GetCity(stateId);
                         chklCity.DataSource = getcityDataSet;
                         chklCity.DataTextField = "cityName";
@@ -89,13 +99,39 @@ namespace JobFair.UserControls.JobSeeker
                         rblJobType123.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
                         rblCompanyType123.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
                         rblYesNo.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AvailabilityForInterview"]);
-                        ddlBeforeHours.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BeforeHours"]);
-                        ddlBeforeMinutes.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BeforeMinutes"]);
-                        ddlBeforeTime.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BeforeTime"]);
-                        ddlAfterHours.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AfterHours"]);
-                        ddlAfterMinutes.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AfterMinutes"]);
-                        ddlAfterTime.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AfterTime"]);
-                        ddlISTETE.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["TimeISTETE"]);
+
+                        string format = Convert.ToString(ds.Tables[0].Rows[0]["BeforeTime"]); ;
+                        string[] Words = format.Split(new char[] { ':' });
+                        int count1 = 0;
+                        string format1 = Convert.ToString(ds.Tables[0].Rows[0]["AfterTime"]); ;
+                        string[] Words1 = format1.Split(new char[] { ':' });
+                        int count2 = 0;
+
+                        foreach (string Word in Words)
+                        {
+                            count1 += 1;
+                            if (count1 == 1)
+                            { ddlBeforeHours.SelectedValue = Word; }
+                            if (count1 == 2)
+                            { ddlBeforeMinutes.SelectedValue = Word; }
+                            if (count1 == 3)
+                            { ddlBeforeTime.SelectedValue = Word; }
+
+                        }
+
+                        foreach(string word in Words1)
+                        {
+                            count2 += 1;
+                            if (count2 == 1)
+                            { ddlAfterHours.SelectedValue = word; }
+                            if (count2 == 2)
+                            { ddlAfterMinutes.SelectedValue = word; }
+                            if (count2 == 3)
+                            { ddlAfterTime.SelectedValue = word; }
+                            if (count2 == 4)
+                            { ddlISTETE.SelectedValue = word; }
+                        }
+                       
                     }
                     catch (Exception)
                     {

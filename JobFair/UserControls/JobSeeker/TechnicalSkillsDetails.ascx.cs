@@ -28,7 +28,7 @@ namespace JobFair.UserControls.JobSeeker
             
             if (!IsPostBack)
             {
-                if (!isCheck)
+                if (isCheck)
                 {
                     string candidateId="JS3";
                     BindRepeaterTechnicalSkills();

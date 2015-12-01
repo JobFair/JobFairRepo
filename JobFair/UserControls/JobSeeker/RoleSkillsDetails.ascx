@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RoleSkillsDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.RoleSkillsDetails" %>
-<div style="border: solid; margin-left: 150px; margin-right: 150px">
+
     <div style="margin-left: 60px; margin-right: 60px" id="divRoleSkillsInsert" runat="server">
         <h3>Role Skills</h3>
         <table>
@@ -105,7 +105,7 @@
                                         <tr>
                                             <td>
                                                 <b>Role Skill</b>
-                                                <asp:Label ID="lblRoleSkill" runat="server" Text='<%#Eval("RoleSkills") %>' />
+                                                <asp:Label ID="lblRoleSkill" runat="server" Text='<%#Eval("RoleName") %>' />
                                                 <asp:DropDownList ID="ddlRoleSkill" runat="server" Visible="false"></asp:DropDownList>
                                             </td>
                                         </tr>
@@ -162,4 +162,3 @@
                     </asp:Repeater>
 
     </div>
-</div>
