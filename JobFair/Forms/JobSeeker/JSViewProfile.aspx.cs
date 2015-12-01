@@ -265,7 +265,7 @@ namespace JobFair.Forms.JobSeeker
             {
                 DataSet dsViewProfile = new DataSet();
                 dsViewProfile = objViewProfile.ViewProfileBAL(candidateId);
-
+                string firstName, lastName, before, after;
                 if (dsViewProfile != null)
                 {
                     if (dsViewProfile.Tables.Count > 0)
@@ -274,8 +274,8 @@ namespace JobFair.Forms.JobSeeker
                         {
                             lblCandidateID.Text = candidateId;
                             imgProfilePhoto.ImageUrl = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["photo"]);
-                            string firstName = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["FirstName"]);
-                            string lastName = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["LastName"]);
+                            firstName = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["FirstName"]);
+                            lastName = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["LastName"]);
                             lblName.Text = firstName + " " + lastName;
                             lblEmailId.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["EmailId"]);
                             lblMobNo.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["MobileNo"]);
@@ -294,7 +294,9 @@ namespace JobFair.Forms.JobSeeker
                             lblExperience.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["TotalExpriance"]);
                             lblJobPostLooking.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["JobPostLookingFor"]);
                             lblWorkStatus.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CurrentWorkingStatus"]);
-                            lblAvailabilityInWeek.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["TimeInWeekday"]);
+                            before = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["BeforeTime"]);
+                            after = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["AfterTime"]);
+                            lblAvailabilityInWeek.Text = before + " To " + after;
                         }
                         else
                         {
@@ -335,6 +337,21 @@ namespace JobFair.Forms.JobSeeker
             {
                 //   throw;
             }
+        }
+
+        protected void lnkEditProject_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ProjectDetails.aspx?isCheck=true");
+        }
+
+        protected void lnkEditConacts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm1.aspx/ContactDetails.ascx?isCheck=true");
+        }
+
+        protected void lnkEditPersonalDetails_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm1.aspx/PersonalDetails.ascx?isCheck=true");
         }
     }
 }

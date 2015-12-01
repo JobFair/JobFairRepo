@@ -1,16 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestEmail.aspx.cs" Inherits="JobFair.Forms.JobSeeker.RequestEmail" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="RequestEmail.aspx.cs" Inherits="JobFair.Forms.JobSeeker.RequestEmail" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <%--  <link href="../../Css/bootstrap.min.css" rel="stylesheet" />
-      <script src="../../Scripts/bootstrap.min.js"></script>
-      <script src="../../Scripts/jquery.min.js"></script>--%>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <table class="nav-justified">
             <tr>
                 <td colspan="2"><h2>Email Request</h2></td>
@@ -48,12 +39,6 @@
                     <asp:TextBox ID="txtMobNo" runat="server" Visible="False"></asp:TextBox>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
+         
         </table>
-    </form>
-</body>
-</html>
+   </asp:Content>

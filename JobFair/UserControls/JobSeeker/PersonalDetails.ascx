@@ -14,8 +14,8 @@
         </td>
         <td colspan="2">
             <asp:FileUpload ID="FileUploadPhoto" runat="server" Visible="true" />
-            <asp:Image ID="imgPersonalPhoto" runat="server" Height="100px" Width="100px" ImageAlign="Top" />
-            <asp:LinkButton ID="lnkbtnEdit" runat="server" OnClick="lnkbtnEdit_Click">Edit Photo</asp:LinkButton>
+            <asp:Image ID="imgPersonalPhoto" runat="server" Height="100px" Width="100px" ImageAlign="Top" Visible="false" />
+            <asp:LinkButton ID="lnkbtnEdit" runat="server" OnClick="lnkbtnEdit_Click" Visible="false">Edit Photo</asp:LinkButton>
             <asp:LinkButton ID="lnkbtnCancel" runat="server" Visible="false" OnClick="lnkbtnCancel_Click">Cancel</asp:LinkButton>
         </td>
     </tr>
@@ -146,20 +146,6 @@
             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtDOB" PopupButtonID="txtDOB" Format="yyyy/MM/dd" />
            <%-- <asp:RequiredFieldValidator ID="rfvDOB" runat="server" ControlToValidate="txtDOB" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="revDOB" runat="server" ControlToValidate="txtDOB" ErrorMessage="*" ForeColor="Red" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"></asp:RegularExpressionValidator>--%>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
-        </td>
-        <td colspan="2">
-            <asp:RadioButtonList ID="rbtGender" runat="server" RepeatDirection="Horizontal">
-                <asp:ListItem>Female</asp:ListItem>
-                <asp:ListItem>Male</asp:ListItem>
-            </asp:RadioButtonList>
-            <asp:RequiredFieldValidator ID="rfvGender" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rbtGender"></asp:RequiredFieldValidator>
-            <%-- <asp:RadioButton ID="rbtMale" runat="server" GroupName="gender" Text="Male" />
-            <asp:RadioButton ID="rbtFemale" runat="server" GroupName="gender" Text="Female" />--%>
         </td>
     </tr>
     <tr>

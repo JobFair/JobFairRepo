@@ -83,7 +83,7 @@
                                 <h1>JOB FAIR</h1>                           
                         </div>
                         <div class="col-md-2 pull-left text-center">
-                            <img src="../../Images/Jobseeker/Profile.jpg" height="100px" width="100px" />
+                         <a href="JSViewProfile.aspx"> <img src="../../Images/Jobseeker/Profile.jpg" height="100px" width="100px" /></a>  
                         </div>
                         <div class="col-md-2 pull-left">
                             <img src="../../Images/Jobseeker/Job Search.jpg" height="100px" width="100px" />
@@ -129,7 +129,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-1 text-left pull-left">                    
-                    <img src="../../Images/Jobseeker/Expert advice.png" height="80px" width="80px" /></br><span class="text-center">Expert Advice</span></br>
+               <a href="RequestEmail.aspx"> <img src="../../Images/Jobseeker/Expert advice.png" height="80px" width="80px" /></br><span class="text-center">Expert Advice</span></a></br>
                     <img src="../../Images/Jobseeker/setting.jpg" height="80px" width="80px" /></br><span class="text-center">Settings</span></br>
                     <img src="../../Images/Jobseeker/updates.jpg" height="80px" width="80px" /></br><span class="text-center">Updates</span></br>
                     <img src="../../Images/Jobseeker/chat.png" height="80px" width="80px" /></br><span class="text-center">Chat</span></br>
