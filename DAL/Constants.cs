@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DAL
+﻿namespace DAL
 {
     //Contains all stored procedure of database
     public static class Constants
@@ -79,8 +73,6 @@ namespace DAL
         public static string sp_JS_UpdateCurrentPastExpDetails = "sp_JS_UpdateCurrentPastExpDetails";
         public static string sp_JS_DeleteCurrentPastJobDetails = "sp_JS_DeleteCurrentPastJobDetails";
 
-
-
         public static string sp_JS_UpdateTechnicalSkills = "sp_JS_UpdateTechnicalSkills";
         public static string sp_JS_DeleteTechnicalSkill = "sp_JS_DeleteTechnicalSkill";
 
@@ -88,6 +80,6 @@ namespace DAL
 
         public static string sp_JS_UpdateRoleSkills = "sp_JS_UpdateRoleSkills";
         public static string sp_JS_DeleteRoleSkill = "sp_JS_DeleteRoleSkill";
-
+        public static string sp_JS_SelectRegisterDetails = "sp_JS_SelectRegisterDetails";
     }
 }

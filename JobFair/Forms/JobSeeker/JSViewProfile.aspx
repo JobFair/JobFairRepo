@@ -11,16 +11,16 @@
 <script src="../../Scripts/bootstrap.min.js"></script>
 <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
     <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
 </script>
 </head>
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
-            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="5" Width="900px">
+            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="900px">
                 <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Profile Summary">
                     <ContentTemplate><table><tr><td><h1>Profile Summary</h1>&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Image ID="imgProfilePhoto" runat="server" Height="100px" Width="100px" ImageAlign="Top" />&nbsp;</td></tr><tr><td>Name</td><td><asp:Label ID="lblName" runat="server"></asp:Label></td></tr><tr><td>Candidate ID (Reference ID)</td><td><asp:Label ID="lblCandidateID" runat="server"  data-toggle="tooltip" data-placement="right" title="Use this ID to refer your friend for job!" ></asp:Label></td></tr><tr><td>Primary Email ID</td><td><asp:Label ID="lblEmailId" runat="server"></asp:Label></td></tr><tr><td>Primary Mobile No</td><td><asp:Label ID="lblMobNo" runat="server"></asp:Label></td></tr><tr><td>Gender</td><td><asp:Label ID="lblGender" runat="server"></asp:Label></td></tr><tr><td>Higest Qualification</td><td><asp:Label ID="lblQualification" runat="server"></asp:Label></td></tr><tr><td>Work Status</td><td><asp:Label ID="lblWorkStatus" runat="server"></asp:Label></td></tr><tr><td>Total Experience</td><td><asp:Label ID="lblExperience" runat="server"></asp:Label></td></tr><tr><td>Current City</td><td><asp:Label ID="lblCurrentCity" runat="server"></asp:Label></td></tr><tr><td>Prefered City</td><td><asp:Label ID="lblPreferedCity" runat="server"></asp:Label></td></tr><tr><td>Current CTC</td><td><asp:Label ID="lblCurrentCTC" runat="server"></asp:Label></td></tr><tr><td>Expected CTC</td><td><asp:Label ID="lblExpectedCTC" runat="server"></asp:Label></td></tr><tr><td>Notice Period</td><td><asp:Label ID="lblNoticePeriod" runat="server"></asp:Label></td></tr><tr><td>Availability for the Personal Round on Working Day</td><td><asp:Label ID="lblInterview" runat="server"></asp:Label></td></tr><tr><td>Availabilty in Week Days(Monday to Friday)</td><td><asp:Label ID="lblAvailabilityInWeek" runat="server"></asp:Label></td></tr><tr><td>Job Post looking for</td><td><asp:Label ID="lblJobPostLooking" runat="server"></asp:Label></td></tr><tr><td>Employee Status</td><td><asp:Label ID="lblEmployeeStatus" runat="server"></asp:Label></td></tr><tr><td>Job Type</td><td><asp:Label ID="lblJobType" runat="server"></asp:Label></td></tr><tr><td>Company Type</td><td><asp:Label ID="lblCompanyType" runat="server"></asp:Label></td></tr></table></ContentTemplate>
                 </cc1:TabPanel>

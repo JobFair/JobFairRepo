@@ -249,7 +249,6 @@ namespace JobFair.Forms.JobSeeker
                         }
                         else
                         {
-                            // ClearProfileInfo();
                         }
                     }
                 }
@@ -315,6 +314,22 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 lblName.Text = String.Empty;
+                lblEmailId.Text = String.Empty;
+                lblMobNo.Text = String.Empty;
+                lblGender.Text = String.Empty;
+                lblCurrentCity.Text = String.Empty;
+                lblPreferedCity.Text = String.Empty;
+                lblCurrentCTC.Text = String.Empty;
+                lblExpectedCTC.Text = String.Empty;
+                lblNoticePeriod.Text = String.Empty;
+                lblInterview.Text = String.Empty;
+                lblEmployeeStatus.Text = String.Empty;
+                lblJobType.Text = String.Empty;
+                lblCompanyType.Text = String.Empty;
+                lblExperience.Text = String.Empty;
+                lblJobPostLooking.Text = String.Empty;
+                lblWorkStatus.Text = String.Empty;
+                lblAvailabilityInWeek.Text = String.Empty;
             }
             catch (Exception ex)
             {
