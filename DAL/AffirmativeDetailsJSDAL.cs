@@ -104,17 +104,17 @@ namespace DAL
 
         public DataSet ViewAffirmativeDetialsDAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectAffirmativeDetails, sparams);
-                return ds;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         public bool UpdateAffirmativeDetailsDAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
@@ -143,10 +143,9 @@ namespace DAL
             {
                 throw;
             }
-          
         }
 
-        public bool UpdateLanguageDetailsDAL(List<LanguageEntity> languageEntity,string candidateId)
+        public bool UpdateLanguageDetailsDAL(List<LanguageEntity> languageEntity, string candidateId)
         {
             try
             {
@@ -154,7 +153,6 @@ namespace DAL
                 string languageDetails = CreateXML(languageEntity);
 
                 SqlParameter[] sqlparams = { new SqlParameter("@adEntity", languageDetails)
-                                           
                                             };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateLanguageDetails, sqlparams);
                 if (result > 0)

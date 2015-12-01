@@ -13,12 +13,14 @@ namespace JobFair.Forms.JobSeeker
     /// </summary>
     public partial class ProjectDetails : System.Web.UI.Page
     {
-        private bool isCheck = false;
+      
+        private bool isCheck;
         private string candidateId;
 
-        // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+     
         protected void Page_Load(object sender, EventArgs e)
         {
+            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
             if (Session["candidateId"] != null)
             {
                 if (Session["candidateId"].ToString() != "")
@@ -78,7 +80,7 @@ namespace JobFair.Forms.JobSeeker
             catch (Exception)
             {
                 // throw;
-            }
+            } 
         }
 
         protected void rptrProjectDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -111,7 +113,6 @@ namespace JobFair.Forms.JobSeeker
             TextBox txtSkillUsed = (TextBox)e.Item.FindControl("txtSkillUsed");
             TextBox txtProjectLive = (TextBox)e.Item.FindControl("txtProjectLive");
             TextBox txtProjectLink = (TextBox)e.Item.FindControl("txtProjectLink");
-
             DropDownList ddlRole = (DropDownList)e.Item.FindControl("ddlRole");
             DropDownList ddlTeamSize = (DropDownList)e.Item.FindControl("ddlTeamSize");
             DropDownList ddlProjectFor = (DropDownList)e.Item.FindControl("ddlProjectFor");

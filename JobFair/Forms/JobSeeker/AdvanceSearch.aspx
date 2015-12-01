@@ -231,20 +231,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <asp:Label ID="lblSortBy" runat="server" Text="Job Freshness"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:DropDownList ID="ddlJobFreshness" runat="server">
-                            <asp:ListItem>1 month</asp:ListItem>
-                            <asp:ListItem>2 months</asp:ListItem>
-                            <asp:ListItem>3 months</asp:ListItem>
-                            <asp:ListItem>4 months</asp:ListItem>
-                            <asp:ListItem>5 months</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
                     <td colspan="2">
                         <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Width="97px" />
                         <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" />

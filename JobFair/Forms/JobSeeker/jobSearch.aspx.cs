@@ -74,54 +74,101 @@ namespace JobFair.Forms.JobSeeker
 
         private void BindIndustry()
         {
-            DataSet ds = new DataSet();
-            ds = JobSearchBAL.GetIndustry();
-            chkIndustry.DataSource = ds;
-            chkIndustry.DataTextField = "IndustryName";
-            chkIndustry.DataValueField = "IndustryId";
-            chkIndustry.DataBind();
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = JobSearchBAL.GetIndustry();
+                chkIndustry.DataSource = ds;
+                chkIndustry.DataTextField = "IndustryName";
+                chkIndustry.DataValueField = "IndustryId";
+                chkIndustry.DataBind();
+
+            }
+            catch (Exception)
+            {
+                
+              //  throw;
+            }
+           
+           
         }
 
         private void BindRoles()
         {
-            DataSet ds = new DataSet();
-            ds = JobSearchBAL.GetRoles();
-            chkRole.DataSource = ds;
-            chkRole.DataTextField = "TechnicalSkillName";
-            chkRole.DataValueField = "TechnicalSkillId";
-            chkRole.DataBind();
+
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = JobSearchBAL.GetRoles();
+                chkRole.DataSource = ds;
+                chkRole.DataTextField = "TechnicalSkillName";
+                chkRole.DataValueField = "TechnicalSkillId";
+                chkRole.DataBind();
+            }
+            catch (Exception)
+            {
+                
+               // throw;
+            }
+           
         }
 
         private void BindFunctionalArea()
         {
-            DataSet ds = new DataSet();
-            ds = JobSearchBAL.GetFunctionalArea();
-            chkFunctArea.DataSource = ds;
-            chkFunctArea.DataTextField = "FunctionalArea";
-            chkFunctArea.DataValueField = "FunctionalAreaId";
-            chkFunctArea.DataBind();
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = JobSearchBAL.GetFunctionalArea();
+                chkFunctArea.DataSource = ds;
+                chkFunctArea.DataTextField = "FunctionalArea";
+                chkFunctArea.DataValueField = "FunctionalAreaId";
+                chkFunctArea.DataBind();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
 
         private void BindLocation()
         {
-            DataSet ds = new DataSet();
+            try
+            {
+             DataSet ds = new DataSet();
             ds = JobSearchBAL.GetLocation();
             chkLocation.DataSource = ds;
             chkLocation.DataTextField = "location";
             chkLocation.DataValueField = "locationId";
             chkLocation.DataBind();
+            }
+            catch (Exception)
+            {
+                
+               // throw;
+            }
         }
 
         private void BindEducation()
         {
-            educationalDetails = new EducationalDetailsBAL();
-            DataSet degreeData = new DataSet();
-            // Get educational degree type details
-            degreeData = educationalDetails.GetEducationalDegreeTypeBAL();
-            chkEducation.DataSource = degreeData;
-            chkEducation.DataTextField = "degreeType";
-            chkEducation.DataValueField = "degreeId";
-            chkEducation.DataBind();
+            try
+            {
+                educationalDetails = new EducationalDetailsBAL();
+                DataSet degreeData = new DataSet();
+                // Get educational degree type details
+                degreeData = educationalDetails.GetEducationalDegreeTypeBAL();
+                chkEducation.DataSource = degreeData;
+                chkEducation.DataTextField = "degreeType";
+                chkEducation.DataValueField = "degreeId";
+                chkEducation.DataBind();
+            }
+            catch (Exception)
+            {
+                
+               // throw;
+            }
+           
         }
     
         protected void chkFreshness_SelectedIndexChanged(object sender, EventArgs e)
@@ -226,5 +273,6 @@ namespace JobFair.Forms.JobSeeker
         //{
         //   this.BindreptIndustry();
         //}
+       
     }
 }

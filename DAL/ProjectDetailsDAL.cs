@@ -16,16 +16,16 @@ namespace DAL
         /// <returns></returns>
         public DataSet GetRole()
         {
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_FunctionalRoles);
-                return ds;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         /// <summary>
@@ -61,12 +61,12 @@ namespace DAL
                 objbulk.ColumnMappings.Add("Degree", "Degree");
                 // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dtProjectDetails);
-                return dtProjectDetails;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return dtProjectDetails;
         }
 
         /// <summary>
@@ -76,17 +76,17 @@ namespace DAL
         /// <returns></returns>
         public DataSet ViewProjectDetailsDAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectProjectDetails, sparams);
-                return ds;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         /// <summary>
@@ -96,6 +96,7 @@ namespace DAL
         /// <returns></returns>
         public int UpdateProjectDetailsDAL(ProjectDetailsEntity projectDetailsEntity)
         {
+            int result = 0;
             try
             {
                 connection.Open();
@@ -120,14 +121,13 @@ namespace DAL
                                               new SqlParameter("@degree",projectDetailsEntity.Degree),
                                               new SqlParameter("@projectFor",projectDetailsEntity.ProjectFor),
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateProjectDetails, sqlparams);
-
-                return result;
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateProjectDetails, sqlparams);
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return result;
         }
 
         /// <summary>
@@ -137,17 +137,17 @@ namespace DAL
         /// <returns></returns>
         public DataSet DeleteProjectDetailsDAL(int projectId)
         {
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@projectId", projectId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteProjectDetails, sparams);
-                return ds;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return ds;
         }
     }
 }

@@ -17,17 +17,17 @@ namespace DAL
         /// <returns></returns>
         public DataSet ViewPersonalDetailsDAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectPersonalDetails, sparams);
-                return ds;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         /// <summary>
@@ -37,6 +37,7 @@ namespace DAL
         /// <returns>System.Int32</returns>
         public int SavePersonalDetails(PersonalDetailsJSEntity personalDetailsEntity)
         {
+            int result = 0;
             try
             {
                 connection.Open();
@@ -57,24 +58,18 @@ namespace DAL
                                               new SqlParameter("@permantArea",personalDetailsEntity.permantArea),
                                               new SqlParameter("@permantPincode",personalDetailsEntity.permantPincode),
                                               new SqlParameter("@dateOfBirth", personalDetailsEntity.dateOfBirth.Date),
-                                              new SqlParameter("@gender",personalDetailsEntity.gender),
                                               new SqlParameter("@maritialStatus",personalDetailsEntity.maritialStatus),
                                               new SqlParameter("@passportNumber", personalDetailsEntity.passportNumber),
                                               new SqlParameter("@passportValidity",personalDetailsEntity.passportValidity),
                                               new SqlParameter("@photo", "~/UploadImages/"+personalDetailsEntity.photo)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertPersonalDetails, sqlparams);
-
-                return result;
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertPersonalDetails, sqlparams);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                // throw ;
             }
-            finally
-            {
-                connection.Close();
-            }
+            return result;
         }
 
         /// <summary>
@@ -84,6 +79,7 @@ namespace DAL
         /// <returns>System.Int32</returns>
         public int UpdatePersonalDetailsDAL(PersonalDetailsJSEntity personalDetailsEntity)
         {
+            int result = 0;
             try
             {
                 connection.Open();
@@ -104,24 +100,18 @@ namespace DAL
                                               new SqlParameter("@permantArea",personalDetailsEntity.permantArea),
                                               new SqlParameter("@permantPincode",personalDetailsEntity.permantPincode),
                                               new SqlParameter("@dateOfBirth", personalDetailsEntity.dateOfBirth.Date),
-                                              new SqlParameter("@gender",personalDetailsEntity.gender),
                                               new SqlParameter("@maritalStatus",personalDetailsEntity.maritialStatus),
                                               new SqlParameter("@passportNumber", personalDetailsEntity.passportNumber),
                                               new SqlParameter("@passportValidity",personalDetailsEntity.passportValidity),
                                               new SqlParameter("@photo", "~/UploadImages/"+personalDetailsEntity.photo)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdatePersonalDetails, sqlparams);
-
-                return result;
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdatePersonalDetails, sqlparams);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                //  throw ;
             }
-            finally
-            {
-                connection.Close();
-            }
+            return result;
         }
     }
 }

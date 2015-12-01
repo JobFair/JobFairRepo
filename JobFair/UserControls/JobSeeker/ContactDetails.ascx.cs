@@ -11,36 +11,63 @@ namespace JobFair.UserControls.JobSeeker
     public partial class ContactDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isCheck = true;
+        private bool isCheck;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId = Convert.ToString(Session["candidateId"]);
-            if (!IsPostBack)
+            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+            if (Session["candidateId"] != null)
             {
-                // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
-                if (isCheck)
+                if (Session["candidateId"].ToString() != "")
                 {
-                    try
+                    candidateId = Convert.ToString(Session["candidateId"]);
+                    if (!IsPostBack)
                     {
-                        DataSet ds = new DataSet();
-                        ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
-                        ds = contactDetailsBAL.ViewContactDetailsBAL(candidateId);
-                        txtAltNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["AltMobile"]);
-                        txtLandno.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandLine"]);
-                        txtWhatsappNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["WhatsapNo"]);
-                        txtLinkedIn.Text = Convert.ToString(ds.Tables[0].Rows[0]["LinkedId"]);
-                        txtFacebook.Text = Convert.ToString(ds.Tables[0].Rows[0]["FaceBookId"]);
-                        txtTwitter.Text = Convert.ToString(ds.Tables[0].Rows[0]["TwitterId"]);
-                        txtGTalk.Text = Convert.ToString(ds.Tables[0].Rows[0]["GtalkId"]);
-                        txtSkype.Text = Convert.ToString(ds.Tables[0].Rows[0]["skypeId"]);
-                        txtGooglePlus.Text = Convert.ToString(ds.Tables[0].Rows[0]["GoogleP"]);
-                    }
-                    catch (Exception)
-                    {
-                     //   throw;
+                        if (isCheck)
+                        {
+                            try
+                            {
+                                BindContactDetails();
+                            }
+                            catch (Exception)
+                            {
+                                //   throw;
+                            }
+                        }
                     }
                 }
+            }
+        }
+
+        private void BindContactDetails()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
+                ds = contactDetailsBAL.ViewContactDetailsBAL(candidateId);
+                if (ds != null)
+                {
+                    if (ds.Tables.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            txtAltNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["AltMobile"]);
+                            txtLandno.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandLine"]);
+                            txtWhatsappNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["WhatsapNo"]);
+                            txtLinkedIn.Text = Convert.ToString(ds.Tables[0].Rows[0]["LinkedId"]);
+                            txtFacebook.Text = Convert.ToString(ds.Tables[0].Rows[0]["FaceBookId"]);
+                            txtTwitter.Text = Convert.ToString(ds.Tables[0].Rows[0]["TwitterId"]);
+                            txtGTalk.Text = Convert.ToString(ds.Tables[0].Rows[0]["GtalkId"]);
+                            txtSkype.Text = Convert.ToString(ds.Tables[0].Rows[0]["skypeId"]);
+                            txtGooglePlus.Text = Convert.ToString(ds.Tables[0].Rows[0]["GoogleP"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //  throw;
             }
         }
 
@@ -81,7 +108,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 catch (Exception)
                 {
-                    throw;
+                    //  throw;
                 }
             }
             else
@@ -114,7 +141,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 catch (Exception)
                 {
-                    throw;
+                    //  throw;
                 }
             }
         }

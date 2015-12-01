@@ -108,8 +108,19 @@ namespace BAL
 
         public DataTable GetRoles(string prefixText)
         {
-            AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
-            return advancesearchDAL.GetRoles(prefixText);
+            try
+            {
+                AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
+                return advancesearchDAL.GetRoles(prefixText);
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
+
+
     }
 }

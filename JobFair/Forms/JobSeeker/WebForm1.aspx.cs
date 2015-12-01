@@ -11,9 +11,11 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        private bool isCheck;
         //string candidateId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
             //candidateId = Convert.ToString(Session["candidateId"]);
             //if (candidateId == "")
             //{

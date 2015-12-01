@@ -110,9 +110,18 @@ namespace BAL
 
         public DataSet GetSearch(AdvanceSearchDetailsEntity advanceSearchEntity)
         {
-            AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
-            return advancesearchDAL.Getsearch(advanceSearchEntity);
+            try
+            {
+                AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
+                return advancesearchDAL.Getsearch(advanceSearchEntity);
             
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
         }
     }
 }

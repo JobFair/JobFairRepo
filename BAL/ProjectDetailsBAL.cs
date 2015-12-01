@@ -12,15 +12,8 @@ namespace BAL
         /// <returns></returns>
         public DataSet GetRole()
         {
-            try
-            {
-                ProjectDetailsDAL pdDAL = new ProjectDetailsDAL();
-                return pdDAL.GetRole();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            ProjectDetailsDAL pdDAL = new ProjectDetailsDAL();
+            return pdDAL.GetRole();
         }
 
         /// <summary>
@@ -30,15 +23,8 @@ namespace BAL
         /// <returns></returns>
         public DataTable SaveProjectDetailsBAL(DataTable dtProjectDetails)
         {
-            try
-            {
-                ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
-                return projectDetailsDAL.SaveProjectDetailsDAL(dtProjectDetails);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+            return projectDetailsDAL.SaveProjectDetailsDAL(dtProjectDetails);
         }
 
         /// <summary>
@@ -48,15 +34,8 @@ namespace BAL
         /// <returns></returns>
         public DataSet ViewProjectDetailsBAL(string candidateId)
         {
-            try
-            {
-                ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
-                return projectDetailsDAL.ViewProjectDetailsDAL(candidateId);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+            return projectDetailsDAL.ViewProjectDetailsDAL(candidateId);
         }
 
         /// <summary>
@@ -66,15 +45,8 @@ namespace BAL
         /// <returns></returns>
         public int UpdateProjectDetailsBAL(ProjectDetailsEntity projectDetailsEntity)
         {
-            try
-            {
-                ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
-                return projectDetailsDAL.UpdateProjectDetailsDAL(projectDetailsEntity);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+            return projectDetailsDAL.UpdateProjectDetailsDAL(projectDetailsEntity);
         }
 
         /// <summary>
@@ -84,15 +56,8 @@ namespace BAL
         /// <returns></returns>
         public DataSet DeleteProjectDetailsBAL(int projectId)
         {
-            try
-            {
-                ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
-                return projectDetailsDAL.DeleteProjectDetailsDAL(projectId);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
+            return projectDetailsDAL.DeleteProjectDetailsDAL(projectId);
         }
     }
 }
