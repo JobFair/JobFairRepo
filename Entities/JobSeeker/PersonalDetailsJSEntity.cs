@@ -20,7 +20,6 @@ namespace Entities
         public int permantArea { get; set; }
         public int permantPincode { get; set; }
         public DateTime dateOfBirth { get; set; }
-        public string gender { get; set; }
         public string maritialStatus { get; set; }
         public int passportNumber { get; set; }
         public string passportValidity { get; set; }

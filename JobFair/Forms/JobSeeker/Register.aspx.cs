@@ -22,6 +22,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                string uploadFolder, result;
                 RegisterEntity jobSeekerEntity = new RegisterEntity();
                 string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
 
@@ -36,12 +37,12 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.CurrentCity = txtCurrCity.Text.Trim();
                 jobSeekerEntity.CurrentAddress = txtCurrAddress.Text.Trim();
                 jobSeekerEntity.RefCandidateId = txtRefCandidateId.Text;
-                string uploadFolder = Request.PhysicalApplicationPath + "UploadFiles\\";
+                uploadFolder = Request.PhysicalApplicationPath + "UploadFiles\\";
 
                 jobSeekerEntity.UploadResumepath = uploadFolder.ToString();
                 RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
 
-                string result = jobSeekerBAL.SaveRegisterNewJobSeekerBAL(jobSeekerEntity);
+                result = jobSeekerBAL.SaveRegisterNewJobSeekerBAL(jobSeekerEntity);
                 if (result != null)
                 {
                     // Check if fileupload control has a file.

@@ -10,69 +10,78 @@
 namespace JobFair.Forms.JobSeeker {
     
     
-    public partial class RequestEmail {
+    public partial class CompleteProfile {
         
         /// <summary>
-        /// txtFrom control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFrom;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ddlSubject control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSubject;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// txtSubject control.
+        /// AffirmativeDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSubject;
+        protected global::JobFair.UserControls.JobSeeker.AffirmativeDetails AffirmativeDetails;
         
         /// <summary>
-        /// txtEmailContent control.
+        /// ContactDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailContent;
+        protected global::JobFair.UserControls.JobSeeker.ContactDetails ContactDetails;
         
         /// <summary>
-        /// btnSend control.
+        /// TechnicalSkillsDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSend;
+        protected global::JobFair.UserControls.JobSeeker.TechnicalSkillsDetails TechnicalSkillsDetails;
         
         /// <summary>
-        /// txtName control.
+        /// PersonalDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::JobFair.UserControls.JobSeeker.PersonalDetails PersonalDetails;
         
         /// <summary>
-        /// txtMobNo control.
+        /// RoleSkillsDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMobNo;
+        protected global::JobFair.UserControls.JobSeeker.RoleSkillsDetails RoleSkillsDetails;
+        
+        /// <summary>
+        /// ProfessionalDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JobFair.UserControls.JobSeeker.ProfessionalDetails ProfessionalDetails;
     }
 }

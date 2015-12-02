@@ -11,9 +11,8 @@ namespace JobFair.UserControls.JobSeeker
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isCheck = true;
+        private bool isCheck;
 
-        // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
         /// <summary>
         /// Class PersonalDetails
         /// </summary>
@@ -31,7 +30,7 @@ namespace JobFair.UserControls.JobSeeker
                         GetCountryPerm();
                         GetMonths();
                         GetYear();
-
+                        isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
                         if (isCheck)
                         {
                             try
@@ -52,7 +51,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                string date, gender, maritalStatus, format;
+                string date, maritalStatus, format;
                 DataSet dsPersonalDetails = new DataSet();
                 PersonalDetailsJSBAL personalDetailsJSBAL = new PersonalDetailsJSBAL();
                 dsPersonalDetails = personalDetailsJSBAL.ViewPersonalDetailsBAL(candidateId);
@@ -147,9 +146,6 @@ namespace JobFair.UserControls.JobSeeker
 
                             date = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["DateOfBirth"]);
                             txtDOB.Text = DateTime.Parse(date).ToShortDateString();
-
-                            gender = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["Gender"]);
-                            rbtGender.Items.FindByValue(gender).Selected = true;
 
                             maritalStatus = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["MaritalStatus"]);
                             ddlMaritalStatus.Items.FindByValue(maritalStatus).Selected = true;
@@ -307,9 +303,6 @@ namespace JobFair.UserControls.JobSeeker
                         objPersonalDetailsEntity.photo = Path.GetFileName(imgPersonalPhoto.ImageUrl);
                     }
 
-                    // Check if radio button check.
-                    objPersonalDetailsEntity.gender = rbtGender.SelectedItem.Text;
-
                     if (rbtPassportYes.Checked)
                     {
                         string validity = ddlMonth.SelectedItem.Text + '/' + ddlYear.SelectedItem.Text;
@@ -367,9 +360,6 @@ namespace JobFair.UserControls.JobSeeker
                         personalDetailsEntity.photo = Path.GetFileName(FileUploadPhoto.PostedFile.FileName);
                         FileUploadPhoto.SaveAs(Server.MapPath("~/UploadImages/" + personalDetailsEntity.photo));
                     }
-
-                    // Check if radio button check.
-                    personalDetailsEntity.gender = rbtGender.SelectedItem.Text;
 
                     if (rbtPassportYes.Checked)
                     {

@@ -17,7 +17,7 @@ namespace JobFair.UserControls.JobSeeker
         private TechnicalSkillsDetailsBAL technicalSkillsBAL = new TechnicalSkillsDetailsBAL();
         private static double Temp = 0;
         private bool isCheck = true;
-        string candidateId = "JS3";
+        string candidateId = "JS2";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,14 +25,14 @@ namespace JobFair.UserControls.JobSeeker
             {
                 if (isCheck)
                 {
-                    string candidateId = "JS3";
+                   
                     BindRepeaterRoleSkills();
                     divRoleSkillsEdit.Visible = true;
                     divRoleSkillsInsert.Visible = false;
                 }
                 else
                 {
-                    hfCandidateId.Value = "JS3";
+                    hfCandidateId.Value = "JS2";
                     BindRoleSkills();
                     BindMonth();
                     BindYears();
@@ -213,6 +213,11 @@ namespace JobFair.UserControls.JobSeeker
             double year = Math.Abs((double)months / 12);
             return year.ToString();
         }
+
+
+
+
+     
         /// <summary>
         /// Handles the Click event of btnSaveSkills Control
         /// </summary>

@@ -11,10 +11,11 @@ namespace JobFair.UserControls.JobSeeker
     public partial class ContactDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isCheck = true;
+        private bool isCheck;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
             if (Session["candidateId"] != null)
             {
                 if (Session["candidateId"].ToString() != "")
@@ -22,7 +23,6 @@ namespace JobFair.UserControls.JobSeeker
                     candidateId = Convert.ToString(Session["candidateId"]);
                     if (!IsPostBack)
                     {
-                        // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
                         if (isCheck)
                         {
                             try
