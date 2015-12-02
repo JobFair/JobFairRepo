@@ -68,7 +68,7 @@
         <tr>
             <td colspan="2">
 
-                <div id="divCurrentEmployer" runat="server" >
+                <div id="divCurrentEmployer" runat="server" visible="false" >
                     <table>
                         <tr>
                             <td colspan="2">
@@ -208,7 +208,7 @@
                         <tr>
                             <td colspan="2">
 
-                                <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemDataBound="rptrPastCurrentJobDetails_ItemDataBound" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand">
+                                <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemDataBound="rptrPastCurrentJobDetails_ItemDataBound" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand" Visible="false">
                                     <HeaderTemplate>
                                         <table>
                                             <tr>
@@ -365,7 +365,7 @@
         </tr>
     </table>
 </div>
-<div id="divDesireJobDetails" runat="server">
+<div id="divDesireJobDetails" runat="server" visible="false">
     <table id="TableDesiredJob" runat="server">
         <tr>
             <td colspan="2">
