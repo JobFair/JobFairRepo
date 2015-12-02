@@ -16,6 +16,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string v = Request.QueryString["id"];
             if (Session["myObject"] != null)
             {
                 DataSet ds = new DataSet();
@@ -232,6 +233,9 @@ namespace JobFair.Forms.JobSeeker
         {
 
         }
+
+       
+     
 
 
         /// <summary>

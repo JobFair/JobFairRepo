@@ -68,7 +68,6 @@ namespace JobFair.UserControls.JobSeeker
                         listofState.RemoveAll(x => x == "");
                         foreach (var list in listofState)
                         {
-                            
                             chklState.SelectedValue = list;
                         }
 
@@ -112,8 +111,6 @@ namespace JobFair.UserControls.JobSeeker
 
                         var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
                         txtarea.Text = string.Join(",", selectedarea.Select(x => x.Text));
-
-                       
 
                         txtResumeHeadline.Text = Convert.ToString(ds.Tables[0].Rows[0]["ResumeHeadline"]);
                         txtObjective.Text = Convert.ToString(ds.Tables[0].Rows[0]["Objective"]);
@@ -188,38 +185,59 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 ds = currentjobBAL.GetCountryBAL();
-                ddlPreferredCountry.DataSource = ds;
-                ddlPreferredCountry.DataTextField = "CountryName";
-                ddlPreferredCountry.DataValueField = "CountryId";
-                ddlPreferredCountry.DataBind();
-                ddlPreferredCountry.Items.Insert(0, new ListItem("--Select--", "0"));
+                if (ds != null)
+                {
+                    ddlPreferredCountry.DataSource = ds;
+                    ddlPreferredCountry.DataTextField = "CountryName";
+                    ddlPreferredCountry.DataValueField = "CountryId";
+                    ddlPreferredCountry.DataBind();
+                    ddlPreferredCountry.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
         private void BindRepeaterCurrentPastExp()
         {
-            DataSet ds = new DataSet();
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            ds = currentDesiredJobBAL.ViewRepeaterCurrentPastJobDetailsBAL(candidateId);
+            try
+            {
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                ds = currentDesiredJobBAL.ViewRepeaterCurrentPastJobDetailsBAL(candidateId);
+                if (ds != null)
+                {
+                    rptrPastCurrentJobDetails.DataSource = ds;
 
-            rptrPastCurrentJobDetails.DataSource = ds;
-
-            rptrPastCurrentJobDetails.DataBind();
+                    rptrPastCurrentJobDetails.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
 
         private void BindRepeaterJobPostLooking()
         {
-            DataSet ds = new DataSet();
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            ds = currentDesiredJobBAL.ViewRepeaterJobPostLookingBAL(candidateId);
+            try
+            {
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                ds = currentDesiredJobBAL.ViewRepeaterJobPostLookingBAL(candidateId);
+                if (ds != null)
+                {
+                    rptrJobPostLookinFor.DataSource = ds;
 
-            rptrJobPostLookinFor.DataSource = ds;
-
-            rptrJobPostLookinFor.DataBind();
+                    rptrJobPostLookinFor.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                //  throw;
+            }
         }
 
         /// <summary>
@@ -248,7 +266,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -268,7 +286,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -287,7 +305,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -301,15 +319,18 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 ds = currentjobBAL.GetFunctionalArea();
-                ddlFunctionalRole.DataSource = ds;
-                ddlFunctionalRole.DataTextField = "FunctionalArea";
-                ddlFunctionalRole.DataValueField = "FunctionalAreaId";
-                ddlFunctionalRole.DataBind();
-                ddlFunctionalRole.Items.Insert(0, new ListItem("--Select--", "0"));
+                if (ds != null)
+                {
+                    ddlFunctionalRole.DataSource = ds;
+                    ddlFunctionalRole.DataTextField = "FunctionalArea";
+                    ddlFunctionalRole.DataValueField = "FunctionalAreaId";
+                    ddlFunctionalRole.DataBind();
+                    ddlFunctionalRole.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -349,7 +370,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -363,20 +384,23 @@ namespace JobFair.UserControls.JobSeeker
             {
                 DataSet ds = new DataSet();
                 ds = currentjobBAL.GetDepartment();
-                ddlDepartment.DataSource = ds;
-                ddlDepartment123.DataSource = ds;
-                ddlDepartment.DataTextField = "DepartmentName";
-                ddlDepartment.DataValueField = "DepartmentId";
-                ddlDepartment123.DataTextField = "DepartmentName";
-                ddlDepartment123.DataValueField = "DepartmentId";
-                ddlDepartment.DataBind();
-                ddlDepartment123.DataBind();
-                ddlDepartment123.Items.Insert(0, new ListItem("--Select--", "0"));
-                ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
+                if (ds != null)
+                {
+                    ddlDepartment.DataSource = ds;
+                    ddlDepartment123.DataSource = ds;
+                    ddlDepartment.DataTextField = "DepartmentName";
+                    ddlDepartment.DataValueField = "DepartmentId";
+                    ddlDepartment123.DataTextField = "DepartmentName";
+                    ddlDepartment123.DataValueField = "DepartmentId";
+                    ddlDepartment.DataBind();
+                    ddlDepartment123.DataBind();
+                    ddlDepartment123.Items.Insert(0, new ListItem("--Select--", "0"));
+                    ddlDepartment.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -390,20 +414,23 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 ds = currentjobBAL.GetIndustry();
-                ddlIndustry.DataSource = ds;
-                ddlIndustry123.DataSource = ds;
-                ddlIndustry.DataTextField = "IndustryName";
-                ddlIndustry.DataValueField = "IndustryId";
-                ddlIndustry123.DataTextField = "IndustryName";
-                ddlIndustry123.DataValueField = "IndustryId";
-                ddlIndustry.DataBind();
-                ddlIndustry123.DataBind();
-                ddlIndustry123.Items.Insert(0, new ListItem("--Select--", "0"));
-                ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+                if (ds != null)
+                {
+                    ddlIndustry.DataSource = ds;
+                    ddlIndustry123.DataSource = ds;
+                    ddlIndustry.DataTextField = "IndustryName";
+                    ddlIndustry.DataValueField = "IndustryId";
+                    ddlIndustry123.DataTextField = "IndustryName";
+                    ddlIndustry123.DataValueField = "IndustryId";
+                    ddlIndustry.DataBind();
+                    ddlIndustry123.DataBind();
+                    ddlIndustry123.Items.Insert(0, new ListItem("--Select--", "0"));
+                    ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
             finally
             {
@@ -431,7 +458,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                //  throw;
             }
             finally
             {
@@ -457,7 +484,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -519,7 +546,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                //  throw;
             }
         }
 
@@ -529,11 +556,18 @@ namespace JobFair.UserControls.JobSeeker
         /// <returns>System.Double</returns>
         private double MonthDifference()
         {
-            DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
-            DateTime d2 = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
-            int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
-            double year = Math.Abs((double)months / 12);
-            Temp = Temp + year;
+            try
+            {
+                DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
+                DateTime d2 = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
+                int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
+                double year = Math.Abs((double)months / 12);
+                Temp = Temp + year;
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
             return Temp;
         }
 
@@ -544,7 +578,14 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAddMoreJobPost_Click(object sender, EventArgs e)
         {
-            AddMoreJobs();
+            try
+            {
+                AddMoreJobs();
+            }
+            catch (Exception)
+            {
+                //  throw;
+            }
         }
 
         /// <summary>
@@ -592,7 +633,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -650,7 +691,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
             finally
             {
@@ -707,14 +748,17 @@ namespace JobFair.UserControls.JobSeeker
 
                 string cityId = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
                 ds = currentDesiredJobBAL.GetArea(cityId);
-                chklArea.DataSource = ds;
-                chklArea.DataTextField = "AreaName";
-                chklArea.DataValueField = "AreaId";
-                chklArea.DataBind();
+                if (ds != null)
+                {
+                    chklArea.DataSource = ds;
+                    chklArea.DataTextField = "AreaName";
+                    chklArea.DataValueField = "AreaId";
+                    chklArea.DataBind();
+                }
             }
             catch (Exception)
             {
-                throw;
+                //  throw;
             }
         }
 
@@ -725,8 +769,15 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void chklArea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-            txtarea.Text = string.Join(",", selectedarea.Select(x => x.Text));
+            try
+            {
+                var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                txtarea.Text = string.Join(",", selectedarea.Select(x => x.Text));
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
 
         /// <summary>
@@ -932,22 +983,28 @@ namespace JobFair.UserControls.JobSeeker
 
                 DataSet ds = new DataSet();
                 ds = currentDesiredJobBAL.GetIndustry();
-                ddlIndustry123.DataSource = ds;
-                ddlIndustry123.DataTextField = "IndustryName";
-                ddlIndustry123.DataValueField = "IndustryId";
-                ddlIndustry123.DataBind();
-                ddlIndustry123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Industry"));
+                if (ds != null)
+                {
+                    ddlIndustry123.DataSource = ds;
+                    ddlIndustry123.DataTextField = "IndustryName";
+                    ddlIndustry123.DataValueField = "IndustryId";
+                    ddlIndustry123.DataBind();
+                    ddlIndustry123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Industry"));
+                }
             }
             DropDownList ddlDepartment123 = (DropDownList)e.Item.FindControl("ddlDepartment123");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 DataSet ds1 = new DataSet();
                 ds1 = currentDesiredJobBAL.GetDepartment();
-                ddlDepartment123.DataSource = ds1;
-                ddlDepartment123.DataTextField = "DepartmentName";
-                ddlDepartment123.DataValueField = "DepartmentId";
-                ddlDepartment123.DataBind();
-                ddlDepartment123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Department"));
+                if (ds1 != null)
+                {
+                    ddlDepartment123.DataSource = ds1;
+                    ddlDepartment123.DataTextField = "DepartmentName";
+                    ddlDepartment123.DataValueField = "DepartmentId";
+                    ddlDepartment123.DataBind();
+                    ddlDepartment123.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Department"));
+                }
             }
             DropDownList ddlFunctionalRole = (DropDownList)e.Item.FindControl("ddlFunctionalRole");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -955,11 +1012,14 @@ namespace JobFair.UserControls.JobSeeker
                 DataSet ds2 = new DataSet();
 
                 ds2 = currentDesiredJobBAL.GetFunctionalArea();
-                ddlFunctionalRole.DataSource = ds2;
-                ddlFunctionalRole.DataTextField = "FunctionalArea";
-                ddlFunctionalRole.DataValueField = "FunctionalAreaId";
-                ddlFunctionalRole.DataBind();
-                ddlFunctionalRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FunctionalRole"));
+                if (ds2 != null)
+                {
+                    ddlFunctionalRole.DataSource = ds2;
+                    ddlFunctionalRole.DataTextField = "FunctionalArea";
+                    ddlFunctionalRole.DataValueField = "FunctionalAreaId";
+                    ddlFunctionalRole.DataBind();
+                    ddlFunctionalRole.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "FunctionalRole"));
+                }
             }
         }
 
@@ -976,22 +1036,28 @@ namespace JobFair.UserControls.JobSeeker
 
                 DataSet ds = new DataSet();
                 ds = currentDesiredJobBAL.GetIndustry();
-                ddlIndustry.DataSource = ds;
-                ddlIndustry.DataTextField = "IndustryName";
-                ddlIndustry.DataValueField = "IndustryId";
-                ddlIndustry.DataBind();
-                ddlIndustry.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Industry"));
+                if (ds != null)
+                {
+                    ddlIndustry.DataSource = ds;
+                    ddlIndustry.DataTextField = "IndustryName";
+                    ddlIndustry.DataValueField = "IndustryId";
+                    ddlIndustry.DataBind();
+                    ddlIndustry.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Industry"));
+                }
             }
             DropDownList ddlDepartment = (DropDownList)e.Item.FindControl("ddlDepartment");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 DataSet ds1 = new DataSet();
                 ds1 = currentDesiredJobBAL.GetDepartment();
-                ddlDepartment.DataSource = ds1;
-                ddlDepartment.DataTextField = "DepartmentName";
-                ddlDepartment.DataValueField = "DepartmentId";
-                ddlDepartment.DataBind();
-                ddlDepartment.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Department"));
+                if (ds1 != null)
+                {
+                    ddlDepartment.DataSource = ds1;
+                    ddlDepartment.DataTextField = "DepartmentName";
+                    ddlDepartment.DataValueField = "DepartmentId";
+                    ddlDepartment.DataBind();
+                    ddlDepartment.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Department"));
+                }
             }
 
             DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
@@ -1063,16 +1129,20 @@ namespace JobFair.UserControls.JobSeeker
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                 int countryId = Convert.ToInt32(ddlPreferredCountry.SelectedValue);
                 ds = currentDesiredJobBAL.GetState(countryId);
-                chklState.DataSource = ds;
-                chklState.DataTextField = "StateName";
-                chklState.DataValueField = "StateId";
-                chklState.DataBind();
-                chklState.Items.Insert(0, new ListItem("--Select--", "0"));
+                if (ds != null)
+                {
+                    chklState.DataSource = ds;
+                    chklState.DataTextField = "StateName";
+                    chklState.DataValueField = "StateId";
+                    chklState.DataBind();
+                    chklState.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+
                 //}
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -1095,15 +1165,19 @@ namespace JobFair.UserControls.JobSeeker
 
                 string stateId = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
                 ds = currentDesiredJobBAL.GetCityBAL(stateId);
-                chklCity.DataSource = ds;
-                chklCity.DataTextField = "CityName";
-                chklCity.DataValueField = "CityId";
-                chklCity.DataBind();
+                if (ds != null)
+                {
+                    chklCity.DataSource = ds;
+                    chklCity.DataTextField = "CityName";
+                    chklCity.DataValueField = "CityId";
+                    chklCity.DataBind();
+                }
+
                 //}
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
     }

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
+
 namespace DAL
 {
     public class FeedbackJSDAL
@@ -15,8 +13,10 @@ namespace DAL
         /// <param name="feedbackEntity">Object for inserting data into database</param>
         /// <returns>System.String</returns>
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         public int FeedbackDAL(Entities.FeedbackEntity feedbackEntity)
         {
+            int result = 0;
             try
             {
                 connection.Open();
@@ -26,18 +26,13 @@ namespace DAL
                                              new SqlParameter("@Subject",feedbackEntity.Subject),
                                              new SqlParameter("@Feedback ",feedbackEntity.Feedback)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure,Constants.sp_JS_insertfeedback);
-                return result;
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_insertfeedback);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                // throw ;
             }
-            finally
-            {
-                connection.Close();
-            }
-
+            return result;
         }
     }
 }

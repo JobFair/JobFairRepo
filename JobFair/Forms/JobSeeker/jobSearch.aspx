@@ -149,8 +149,7 @@
                             </tr>
                         </table>
                     </HeaderTemplate>
-                     <ItemTemplate>
-                        <tr>
+                     <ItemTemplate>   <tr>
                             <td>
                                 <table>
                                     <tr>
@@ -224,7 +223,7 @@
                     </table>
                         <tr>
                             <td>
-                                <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                                <table >
                                     <tr>
                                         <td>$
                                            [<asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />/
@@ -240,12 +239,22 @@
                         <tr>
                             <td colspan="2">&nbsp;</td>
                         </tr>
-                  </asp:HyperLink>
-                    </ItemTemplate>
+                   <tr>
+                       <td>
+                           <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                               <tr>
+                                   <td>
+                                       <asp:Button ID="btnapply" runat="server" Text="Apply" target="_blank"  PostBackUrl="~/Forms/JobSeeker/ViewAllJobPost.aspx" />
+                                   </td>
+                               </tr>
+                           </table>
+                       </td>
+                   </tr>                   </ItemTemplate>
               
                     <FooterTemplate>
                         </table>
                     </FooterTemplate>
+                 
                 </asp:Repeater>
             </div>
            

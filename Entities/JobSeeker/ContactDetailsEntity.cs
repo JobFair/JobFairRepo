@@ -12,5 +12,6 @@
         public string GtalkId { get; set; }
         public string SkypeId { get; set; }
         public string GooglePlus { get; set; }
+        public string AltEmailId { get; set; }
     }
 }
