@@ -80,7 +80,7 @@ namespace BAL
         /// </summary>
         /// <param name="StateId">Parameter of State table to get City accordingly</param>
         /// <returns>System.Data.DataSet</returns>
-        public System.Data.DataSet GetCity(int StateId)
+        public System.Data.DataSet GetCity(string StateId)
         {
             try
             {
@@ -482,5 +482,7 @@ currentDesiredJobDAL.DeleteJobPostLookingForDAL(JobpostlookingId);
                 throw;
             }
         }
+
+       
     }
 }
