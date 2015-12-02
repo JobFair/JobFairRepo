@@ -139,7 +139,7 @@
                 </div>
             </div>
             <div class="col-md-10">
-                <asp:Repeater ID="rptrJobPost" runat="server" OnItemCommand="rptrJobPost_ItemCommand">
+                <asp:Repeater ID="rptrJobPost" runat="server">
                     <HeaderTemplate>
                     <table style="border: 1px solid #0000FF">
                             <tr style="font-size: large; font-weight: bold; margin-bottom: 5px">
@@ -149,8 +149,7 @@
                             </tr>
                         </table>
                     </HeaderTemplate>
-                     <ItemTemplate>
-                         <asp:LinkButton ID="LinkButton1" runat="server">   <tr>
+                     <ItemTemplate>   <tr>
                             <td>
                                 <table>
                                     <tr>
@@ -224,7 +223,7 @@
                     </table>
                         <tr>
                             <td>
-                                <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                                <table >
                                     <tr>
                                         <td>$
                                            [<asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />/
@@ -240,9 +239,17 @@
                         <tr>
                             <td colspan="2">&nbsp;</td>
                         </tr>
-                                       </asp:LinkButton>
-                 
-                    </ItemTemplate>
+                   <tr>
+                       <td>
+                           <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                               <tr>
+                                   <td>
+                                       <asp:Button ID="btnapply" runat="server" Text="Apply" target="_blank"  PostBackUrl="~/Forms/JobSeeker/ViewAllJobPost.aspx" />
+                                   </td>
+                               </tr>
+                           </table>
+                       </td>
+                   </tr>                   </ItemTemplate>
               
                     <FooterTemplate>
                         </table>
