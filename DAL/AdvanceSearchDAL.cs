@@ -11,66 +11,60 @@ namespace DAL
 
         public DataSet GetStateDAL()
         {
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from State");
-                return ds;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                // throw ;
             }
+            return ds;
         }
 
         public DataTable GetTechnicalSkillDAL(string prefixText)
         {
+            DataTable dt = new DataTable();
             try
             {
-                DataTable dt = new DataTable();
                 connection.Open();
                 SqlCommand cmd = new SqlCommand("select * from TechnicalSkillsDetails where TechnicalSkillName like @KeySkills+'%'", connection);
                 cmd.Parameters.AddWithValue("@KeySkills", prefixText);
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 adp.Fill(dt);
-                return dt;
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
-            
+            return dt;
         }
-
-
 
         public DataTable GetRoles(string prefixText)
         {
+            DataTable dt = new DataTable();
             try
             {
-                DataTable dt = new DataTable();
                 connection.Open();
                 SqlCommand cmd = new SqlCommand("select * from RoleSkills  where RoleName like @RoleName+'%'", connection);
                 cmd.Parameters.AddWithValue("@RoleName", prefixText);
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 adp.Fill(dt);
-                return dt;
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
-           
+            return dt;
         }
 
         public DataSet Getsearch(Entities.JobSeeker.AdvanceSearchDetailsEntity advanceSearchEntity)
         {
             connection.Open();
+            DataSet dsAdvancesearch = new DataSet();
             try
             {
-                DataSet dsAdvancesearch = new DataSet();
                 SqlCommand cmd = new SqlCommand("sp_JS_SelectAdvanceSearch", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@KeywordsTechnical", advanceSearchEntity.KeySkill);
@@ -86,19 +80,12 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@RecruitmentType", advanceSearchEntity.RecruitmentType);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dsAdvancesearch);
-                return dsAdvancesearch;
-
-
-
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-               throw ex;
+                //throw ex;
             }
-            finally
-            {
-                connection.Close();
-            }
+            return dsAdvancesearch;
         }
     }
 }

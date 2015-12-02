@@ -112,6 +112,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblWorkStatus;
         
         /// <summary>
+        /// lnkbtnWorkStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnWorkStatus;
+        
+        /// <summary>
         /// lblExperience control.
         /// </summary>
         /// <remarks>
@@ -254,6 +263,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkEditConacts;
+        
+        /// <summary>
+        /// lblAltEmailId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAltEmailId;
         
         /// <summary>
         /// lblAltMobNo control.

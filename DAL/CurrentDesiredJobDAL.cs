@@ -13,8 +13,6 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
-
-
         /// <summary>
         /// Method to Save Experience details in Database in CurrentDesiredJobDAL class
         /// </summary>
@@ -51,13 +49,14 @@ namespace DAL
 
                 // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dt);
-                return dt;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return dt;
         }
+
         /// <summary>
         /// Method to Save Job Looking Details of Jobseeker in Database in CurrentDesiredJobDAL class
         /// </summary>
@@ -85,13 +84,14 @@ namespace DAL
 
                 // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dt);
-                return dt;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return dt;
         }
+
         /// <summary>
         /// Method to Save Job Details in Database in CurrentDesiredJobDAL class
         /// </summary>
@@ -112,8 +112,7 @@ namespace DAL
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
         }
 
@@ -139,20 +138,17 @@ namespace DAL
                 sparams[9] = new SqlParameter("@preferredCountry", currentDesiredJobEntity.PreferredCountry);
                 sparams[10] = new SqlParameter("@preferredState", currentDesiredJobEntity.PreferredState);
                 sparams[11] = new SqlParameter("@preferredcity", currentDesiredJobEntity.PreferredCity);
-                sparams[12] = new SqlParameter("@preferredarea", currentDesiredJobEntity.PreferrefArea);          
-              
-                sparams[13] = new SqlParameter("@beforeTime", currentDesiredJobEntity.BeforeTime);               
-               
+                sparams[12] = new SqlParameter("@preferredarea", currentDesiredJobEntity.PreferrefArea);
+
+                sparams[13] = new SqlParameter("@beforeTime", currentDesiredJobEntity.BeforeTime);
+
                 sparams[14] = new SqlParameter("@afterTime", currentDesiredJobEntity.AfterTime);
-               
-              
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_InsertDesiredJobDetails", sparams);
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
         }
 
@@ -163,20 +159,18 @@ namespace DAL
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from TechnicalSkillsDetails order by TechnicalSkillName asc");
-                return ds;
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         public DataTable SaveTechnicalSkillsDAL(DataTable dt)
         {
             try
             {
-
                 connection.Open();
 
                 // Creating object of SqlBulkCopy
@@ -195,12 +189,12 @@ namespace DAL
 
                 // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dt);
-                return dt;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return dt;
         }
 
         public DataSet GetRoleSkillsDAL()
@@ -210,20 +204,18 @@ namespace DAL
             try
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from RoleSkills order by RoleName asc");
-                return ds;
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         public DataTable SaveRoleSkillsDAL(DataTable dt)
         {
             try
             {
-
                 connection.Open();
 
                 // Creating object of SqlBulkCopy
@@ -242,54 +234,47 @@ namespace DAL
 
                 // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dt);
-                return dt;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return dt;
         }
 
         public DataSet ViewCurrentJobDetailsDAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candiadteId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentDesiredJobDetails, sparams);
-               
-                return ds;
             }
             catch (Exception)
             {
-                
-                throw;
+                //  throw;
             }
+            return ds;
         }
-
-
 
         public void UpdateJobLookingDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
             {
+                connection.Open();
+                SqlParameter[] sparams = new SqlParameter[6];
+                sparams[0] = new SqlParameter("@JobpostlookingId", currentDesiredJobEntity.JobPostLookingId);
+                sparams[1] = new SqlParameter("@jobPostLookingFor", currentDesiredJobEntity.JobPostLookingFor);
+                sparams[2] = new SqlParameter("@industry", currentDesiredJobEntity.Industry);
+                sparams[3] = new SqlParameter("@department", currentDesiredJobEntity.Department);
+                sparams[4] = new SqlParameter("@functionalRole", currentDesiredJobEntity.FunctionalRole);
+                sparams[5] = new SqlParameter("@relevantExp", Convert.ToDouble(currentDesiredJobEntity.RelevantExp));
 
-                
-            connection.Open();
-            SqlParameter[] sparams = new SqlParameter[6];
-            sparams[0] = new SqlParameter("@JobpostlookingId", currentDesiredJobEntity.JobPostLookingId);
-            sparams[1] = new SqlParameter("@jobPostLookingFor", currentDesiredJobEntity.JobPostLookingFor);
-            sparams[2] = new SqlParameter("@industry", currentDesiredJobEntity.Industry);
-            sparams[3] = new SqlParameter("@department", currentDesiredJobEntity.Department);
-            sparams[4] = new SqlParameter("@functionalRole", currentDesiredJobEntity.FunctionalRole);
-            sparams[5] = new SqlParameter("@relevantExp", Convert.ToDouble(currentDesiredJobEntity.RelevantExp));
-
-            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateJobPostLookingFor, sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateJobPostLookingFor, sparams);
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
         }
 
@@ -297,67 +282,61 @@ namespace DAL
         {
             try
             {
-                
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
-            connection.Open();
+                connection.Open();
 
-            SqlParameter[] sparams = { new SqlParameter("@JobpostlookingId", JobpostlookingId) };
+                SqlParameter[] sparams = { new SqlParameter("@JobpostlookingId", JobpostlookingId) };
 
-
-            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteJobPostLookingFor, sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteJobPostLookingFor, sparams);
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
-            
         }
 
         public DataSet ViewRepeaterJobPostLookingBAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
-            connection.Open();
+                connection.Open();
 
-            SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
 
-
-            return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectJobPostLookingFor, sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectJobPostLookingFor, sparams);
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         public DataSet ViewRepeaterCurrentPastJobDetailsDAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
             {
-                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
-            connection.Open();
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                connection.Open();
 
-            SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
 
-
-           return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentPastJobDeatails, sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentPastJobDeatails, sparams);
             }
             catch (Exception)
             {
-                
-                throw;
+                //  throw;
             }
+            return ds;
         }
 
         public void UpdateCurrentPastExpDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
             {
-
-
                 connection.Open();
                 SqlParameter[] sparams = new SqlParameter[14];
                 sparams[0] = new SqlParameter("@id", currentDesiredJobEntity.ExpId);
@@ -374,14 +353,12 @@ namespace DAL
                 sparams[11] = new SqlParameter("@jobType", currentDesiredJobEntity.JobType);
                 sparams[12] = new SqlParameter("@companyType", currentDesiredJobEntity.CompanyType);
                 sparams[13] = new SqlParameter("@reason", currentDesiredJobEntity.ReasonForJobChange);
-               
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateCurrentPastExpDetails, sparams);
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
         }
 
@@ -389,23 +366,22 @@ namespace DAL
         {
             try
             {
-                  CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
-            connection.Open();
+                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+                connection.Open();
 
-            SqlParameter[] sparams = { new SqlParameter("@id", expId) };
+                SqlParameter[] sparams = { new SqlParameter("@id", expId) };
 
-
-            SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteCurrentPastJobDetails, sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteCurrentPastJobDetails, sparams);
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
         }
 
         public DataSet ViewRepeaterTechSkillDetailsDAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
@@ -413,19 +389,18 @@ namespace DAL
 
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
 
-
-                return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectTechnicalSkills, sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectTechnicalSkills, sparams);
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         public void UpdateTechnicalSkillsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
-        {          
-                 try
+        {
+            try
             {
                 connection.Open();
                 SqlParameter[] sparams = new SqlParameter[6];
@@ -439,8 +414,7 @@ namespace DAL
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
         }
 
@@ -453,43 +427,32 @@ namespace DAL
 
                 SqlParameter[] sparams = { new SqlParameter("@id", SkillId) };
 
-
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteTechnicalSkill, sparams);
             }
             catch (Exception)
             {
-
-                throw;
+                //  throw;
             }
         }
 
-
-       // Pending
+        // Pending
         public DataSet ViewRepeaterRoleSkillDetailsDAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
-            {
-                 try
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
                 connection.Open();
 
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
 
-
-                return SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectRoleSkills, sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectRoleSkills, sparams);
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
+            return ds;
         }
 
         public void UpdateRoleSkillsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
@@ -508,8 +471,7 @@ namespace DAL
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
         }
 
@@ -522,14 +484,12 @@ namespace DAL
 
                 SqlParameter[] sparams = { new SqlParameter("@id", SkillId) };
 
-
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteRoleSkill, sparams);
             }
             catch (Exception)
             {
-
-                throw;
-            } 
+                // throw;
+            }
         }
     }
 }

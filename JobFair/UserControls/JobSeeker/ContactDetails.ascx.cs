@@ -52,6 +52,7 @@ namespace JobFair.UserControls.JobSeeker
                     {
                         if (ds.Tables[0].Rows.Count > 0)
                         {
+                            txtAltEmailId.Text = Convert.ToString(ds.Tables[0].Rows[0]["AltEmailId"]);
                             txtAltNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["AltMobile"]);
                             txtLandno.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandLine"]);
                             txtWhatsappNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["WhatsapNo"]);
@@ -96,6 +97,7 @@ namespace JobFair.UserControls.JobSeeker
                     objContactDetailsEntity.GtalkId = txtGTalk.Text.Trim();
                     objContactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                     objContactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
+                    objContactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
                     int result = contactDetailsBAL.UpdateContactDetailsBAL(objContactDetailsEntity);
                     if (result > 0)
                     {
@@ -129,6 +131,7 @@ namespace JobFair.UserControls.JobSeeker
                     contactDetailsEntity.GtalkId = txtGTalk.Text.Trim();
                     contactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                     contactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
+                    contactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
                     int result = contactDetailsBAL.SaveContactDetailsBAL(contactDetailsEntity);
                     if (result > 0)
                     {
