@@ -52,7 +52,8 @@ namespace DAL
                                               new SqlParameter("@twitterId", contactDetailsEntity.TwitterId),
                                               new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
                                               new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
-                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus)
+                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus),
+                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId)
                                             };
                 result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertContactDetails, sqlparams);
             }
@@ -85,7 +86,8 @@ namespace DAL
                                               new SqlParameter("@twitterId", contactDetailsEntity.TwitterId),
                                               new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
                                               new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
-                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus)
+                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus),
+                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId)
                                             };
                 result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateContactDetails, sqlparams);
             }

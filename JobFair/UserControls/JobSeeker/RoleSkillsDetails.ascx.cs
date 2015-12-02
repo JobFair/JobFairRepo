@@ -13,45 +13,59 @@ namespace JobFair.UserControls.JobSeeker
     /// </summary>
     public partial class RoleSkillsDetails : System.Web.UI.UserControl
     {
-        private DataSet ds = new DataSet();
-        private TechnicalSkillsDetailsBAL technicalSkillsBAL = new TechnicalSkillsDetailsBAL();
         private static double Temp = 0;
         private bool isCheck = true;
-        string candidateId = "JS2";
+        private string candidateId = "JS2";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
+            try
             {
-                if (isCheck)
+                if (!IsPostBack)
                 {
-                   
-                    BindRepeaterRoleSkills();
-                    divRoleSkillsEdit.Visible = true;
-                    divRoleSkillsInsert.Visible = false;
+                    if (isCheck)
+                    {
+                        BindRepeaterRoleSkills();
+                        divRoleSkillsEdit.Visible = true;
+                        divRoleSkillsInsert.Visible = false;
+                    }
+                    else
+                    {
+                        hfCandidateId.Value = "JS2";
+                        BindRoleSkills();
+                        BindMonth();
+                        BindYears();
+
+                        AddRoleSkills();
+                    }
                 }
-                else
-                {
-                    hfCandidateId.Value = "JS2";
-                    BindRoleSkills();
-                    BindMonth();
-                    BindYears();
-                  
-                    AddRoleSkills();
-                }
+            }
+            catch (Exception)
+            {
+                //  throw;
             }
         }
 
         private void BindRepeaterRoleSkills()
         {
-            DataSet ds = new DataSet();
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            ds = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
+            try
+            {
+                DataSet ds = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                ds = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
+                if (ds != null)
+                {
+                    rptrRoleSkills.DataSource = ds;
 
-            rptrRoleSkills.DataSource = ds;
-
-            rptrRoleSkills.DataBind();
+                    rptrRoleSkills.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
+
         /// <summary>
         /// Method to Bind Role Skills to ddlRoleSkills Control
         /// </summary>
@@ -62,17 +76,21 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 ds = currentDesiredJobBAL.GetRoleSkillsBAL();
-                ddlRoleSkills.DataSource = ds;
-                ddlRoleSkills.DataTextField = "RoleName";
-                ddlRoleSkills.DataValueField = "RoleId";
-                ddlRoleSkills.DataBind();
-                ddlRoleSkills.Items.Insert(0, new ListItem("--Select--", "0"));
+                if (ds != null)
+                {
+                    ddlRoleSkills.DataSource = ds;
+                    ddlRoleSkills.DataTextField = "RoleName";
+                    ddlRoleSkills.DataValueField = "RoleId";
+                    ddlRoleSkills.DataBind();
+                    ddlRoleSkills.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
+
         /// <summary>
         /// Method to Create Skills Records Table for gvSkillsDetails Control
         /// </summary>
@@ -99,56 +117,65 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
+
         /// <summary>
         /// Method Bind Year List to ddlFromYear Control
         /// </summary>
         private void BindYears()
         {
             try
-            {           
-            List<string> yearlist = CommonUtil.Utility.GetYears();
-            ddlFromYear.DataSource = yearlist;
-            ddlTillYear.DataSource = yearlist;
-            ddlFromYear.DataBind();
-            ddlTillYear.DataBind();
+            {
+                List<string> yearlist = CommonUtil.Utility.GetYears();
+                ddlFromYear.DataSource = yearlist;
+                ddlTillYear.DataSource = yearlist;
+                ddlFromYear.DataBind();
+                ddlTillYear.DataBind();
             }
             catch (Exception)
             {
-
-                throw;
+                // throw;
             }
         }
+
         /// <summary>
         /// Method to Bind Month List to ddlFromMonth Control
         /// </summary>
         private void BindMonth()
         {
             try
-            {           
-            List<string> monthlist = CommonUtil.Utility.GetMonths();
-            ddlFromMonth.DataSource = monthlist;
-            ddlTillMonth.DataSource = monthlist;
-            ddlFromMonth.DataBind();
-            ddlTillMonth.DataBind();
+            {
+                List<string> monthlist = CommonUtil.Utility.GetMonths();
+                ddlFromMonth.DataSource = monthlist;
+                ddlTillMonth.DataSource = monthlist;
+                ddlFromMonth.DataBind();
+                ddlTillMonth.DataBind();
             }
             catch (Exception)
             {
-
-                throw;
+                //  throw;
             }
         }
+
         /// <summary>
         /// Handles Click event of btnAddMoreSkills Control
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>       
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAddMoreSkills_Click(object sender, EventArgs e)
         {
-            AddMoreSkills();
+            try
+            {
+                AddMoreSkills();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
+
         /// <summary>
         /// Method to Insert Data into gvSkillsDetails Control
         /// </summary>
@@ -198,31 +225,36 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
+
         /// <summary>
-        /// Method to Get Total Years of Experience 
+        /// Method to Get Total Years of Experience
         /// </summary>
         /// <returns>System.String</returns>
         private string TotalYears()
         {
-            DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
-            DateTime d2 = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
-            int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
-            double year = Math.Abs((double)months / 12);
+            double year = 0.0;
+            try
+            {
+                DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
+                DateTime d2 = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
+                int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
+                year = Math.Abs((double)months / 12);
+            }
+            catch (Exception)
+            {
+                //  throw;
+            }
             return year.ToString();
         }
 
-
-
-
-     
         /// <summary>
         /// Handles the Click event of btnSaveSkills Control
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>  
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSaveSkills_Click(object sender, EventArgs e)
         {
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
@@ -235,7 +267,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
             finally
             {
@@ -244,16 +276,12 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-       
-
         protected void rptrRoleSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            
             Label lblRoleSkill = (Label)e.Item.FindControl("lblRoleSkill");
             Label lblFromDate = (Label)e.Item.FindControl("lblFromDate");
             Label lblTillDate = (Label)e.Item.FindControl("lblTillDate");
             Label lblProficiency = (Label)e.Item.FindControl("lblProficiency");
-
 
             DropDownList ddlRoleSkill = (DropDownList)e.Item.FindControl("ddlRoleSkill");
             DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
@@ -261,8 +289,6 @@ namespace JobFair.UserControls.JobSeeker
             DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
             DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
             DropDownList ddlProficiency = (DropDownList)e.Item.FindControl("ddlProficiency");
-
-
 
             LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
             LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
@@ -343,11 +369,14 @@ namespace JobFair.UserControls.JobSeeker
 
                 DataSet ds = new DataSet();
                 ds = currentDesiredJobBAL.GetRoleSkillsBAL();
-                ddlRoleSkill.DataSource = ds;
-                ddlRoleSkill.DataTextField = "RoleName";
-                ddlRoleSkill.DataValueField = "RoleId";
-                ddlRoleSkill.DataBind();
-                ddlRoleSkill.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "RoleSkills"));
+                if (ds != null)
+                {
+                    ddlRoleSkill.DataSource = ds;
+                    ddlRoleSkill.DataTextField = "RoleName";
+                    ddlRoleSkill.DataValueField = "RoleId";
+                    ddlRoleSkill.DataBind();
+                    ddlRoleSkill.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "RoleSkills"));
+                }
             }
             DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
             DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
@@ -385,7 +414,6 @@ namespace JobFair.UserControls.JobSeeker
                 ddlTillYear.DataSource = yearList;
                 ddlTillYear.DataBind();
 
-
                 foreach (string Word in Words1)
                 {
                     count1 += 1;
@@ -398,7 +426,6 @@ namespace JobFair.UserControls.JobSeeker
                         ddlTillYear.SelectedValue = Word;
                     }
                 }
-
             }
 
             DropDownList ddlProficiency = (DropDownList)e.Item.FindControl("ddlProficiency");
@@ -406,9 +433,6 @@ namespace JobFair.UserControls.JobSeeker
             {
                 ddlProficiency.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Proficiency"));
             }
-           
-
         }
-
     }
 }

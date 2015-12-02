@@ -16,14 +16,7 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetCountry()
         {
-            try
-            {
-                return Utility.GetCountry();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return Utility.GetCountry();
         }
 
         /// <summary>
@@ -32,14 +25,7 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetDepartment()
         {
-            try
-            {
-                return Utility.GetDepartment();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return Utility.GetDepartment();
         }
 
         /// <summary>
@@ -48,14 +34,7 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetIndustry()
         {
-            try
-            {
-                return Utility.GetIndustry();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return Utility.GetIndustry();
         }
 
         /// <summary>
@@ -65,14 +44,7 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetState(int CountryId)
         {
-            try
-            {
-                return Utility.GetState(CountryId);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return Utility.GetState(CountryId);
         }
 
         /// <summary>
@@ -82,14 +54,7 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetCity(string StateId)
         {
-            try
-            {
-                return Utility.GetCity(StateId);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return Utility.GetCity(StateId);
         }
 
         /// <summary>
@@ -99,15 +64,8 @@ namespace BAL
         /// <returns>System.Data.DataTable</returns>
         public DataTable SaveExperienceDetailsBAL(System.Data.DataTable dt)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.SaveExperienceDetailsDAL(dt);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.SaveExperienceDetailsDAL(dt);
         }
 
         /// <summary>
@@ -116,14 +74,7 @@ namespace BAL
         /// <returns>System.DataSet</returns>
         public DataSet GetFunctionalArea()
         {
-            try
-            {
-                return Utility.GetFunctionalArea();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return Utility.GetFunctionalArea();
         }
 
         /// <summary>
@@ -133,15 +84,8 @@ namespace BAL
         /// <returns>System.Data.DataTable</returns>
         public DataTable SaveJobLookingDetailsBAL(DataTable dt)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.SaveJobLookingDetailsDAL(dt);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.SaveJobLookingDetailsDAL(dt);
         }
 
         /// <summary>
@@ -150,15 +94,8 @@ namespace BAL
         /// <param name="currentDesiredJobEntity">Object of CurrentDesiredJobEntity class</param>
         public void SaveJobDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                currentDesiredJobDAL.SaveJobDetailsDAL(currentDesiredJobEntity);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.SaveJobDetailsDAL(currentDesiredJobEntity);
         }
 
         /// <summary>
@@ -167,15 +104,8 @@ namespace BAL
         /// <param name="currentDesiredJobEntity">Object of CurrentDesiredJobEntity class</param>
         public void SaveDesiredJobDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                currentDesiredJobDAL.SaveDesiredJobDetailsDAL(currentDesiredJobEntity);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.SaveDesiredJobDetailsDAL(currentDesiredJobEntity);
         }
 
         /// <summary>
@@ -184,14 +114,7 @@ namespace BAL
         /// <returns>System.DataSet</returns>
         public DataSet GetStateBAL()
         {
-            try
-            {
-                return Utility.GetState();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return Utility.GetState();
         }
 
         /// <summary>
@@ -201,14 +124,7 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public DataSet GetArea(string cityId)
         {
-            try
-            {
-                return Utility.GetArea(cityId);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            return Utility.GetArea(cityId);
         }
 
         /// <summary>
@@ -217,181 +133,79 @@ namespace BAL
         /// <returns>System.Data.DataSet</returns>
         public DataSet GetTechnicalSkillsDetailsBAL()
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.GetTechnicalSkillsDetailsDAL();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.GetTechnicalSkillsDetailsDAL();
         }
+
         /// <summary>
-        /// Method to Save Technical 
+        /// Method to Save Technical
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
         public DataTable SaveTechnicalSkillsBAL(DataTable dt)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.SaveTechnicalSkillsDAL(dt);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.SaveTechnicalSkillsDAL(dt);
         }
 
         public DataSet GetRoleSkillsBAL()
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.GetRoleSkillsDAL();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.GetRoleSkillsDAL();
         }
 
         public DataTable SaveRoleSkillsBAL(DataTable dt)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.SaveRoleSkillsDAL(dt);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.SaveRoleSkillsDAL(dt);
         }
 
         public DataSet ViewCurrentJobDetailsBAL(string candidateId)
         {
-            try
-            {
-                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                 return currentDesiredJobDAL.ViewCurrentJobDetailsDAL(candidateId);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.ViewCurrentJobDetailsDAL(candidateId);
         }
-
-
 
         public void UpdateJobLookingBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                currentDesiredJobDAL.UpdateJobLookingDAL(currentDesiredJobEntity);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.UpdateJobLookingDAL(currentDesiredJobEntity);
         }
 
         public void DeleteJobPostLookingForBAL(int JobpostlookingId)
         {
-            try
-            {
-CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-currentDesiredJobDAL.DeleteJobPostLookingForDAL(JobpostlookingId);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.DeleteJobPostLookingForDAL(JobpostlookingId);
         }
-
-
 
         public DataSet ViewRepeaterJobPostLookingBAL(string candidateId)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.ViewRepeaterJobPostLookingBAL(candidateId);
-
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.ViewRepeaterJobPostLookingBAL(candidateId);
         }
 
         public DataSet ViewRepeaterCurrentPastJobDetailsBAL(string candidateId)
         {
-            try
-            {
-                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.ViewRepeaterCurrentPastJobDetailsDAL(candidateId);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.ViewRepeaterCurrentPastJobDetailsDAL(candidateId);
         }
 
         public void UpdateCurrentPastExpDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                 currentDesiredJobDAL.UpdateCurrentPastExpDetailsDAL(currentDesiredJobEntity);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
-           
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.UpdateCurrentPastExpDetailsDAL(currentDesiredJobEntity);
         }
 
         public void DeleteCurrentPastJobDetailsBAL(int expId)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                currentDesiredJobDAL.DeleteCurrentPastJobDetailsDAL(expId);
-               
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.DeleteCurrentPastJobDetailsDAL(expId);
         }
 
         public DataSet GetCountryBAL()
         {
-            try
-            {
-                return Utility.GetCountry();
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            return Utility.GetCountry();
         }
-
-     
-
-      
 
         public DataSet GetCityBAL(string stateId)
         {
@@ -400,89 +214,38 @@ currentDesiredJobDAL.DeleteJobPostLookingForDAL(JobpostlookingId);
 
         public DataSet ViewRepeaterTechSkillDetailsBAL(string candidateId)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.ViewRepeaterTechSkillDetailsDAL(candidateId);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.ViewRepeaterTechSkillDetailsDAL(candidateId);
         }
 
         public void UpdateTechnicalSkillsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
-            try
-            {
-                 CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                 currentDesiredJobDAL.UpdateTechnicalSkillsDAL(currentDesiredJobEntity);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.UpdateTechnicalSkillsDAL(currentDesiredJobEntity);
         }
 
         public void DeleteTechnicalSkillBAL(int SkillId)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                currentDesiredJobDAL.DeleteTechnicalSkillDAL(SkillId);
-
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.DeleteTechnicalSkillDAL(SkillId);
         }
 
         public DataSet ViewRepeaterRoleSkillDetailsBAL(string candidateId)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                return currentDesiredJobDAL.ViewRepeaterRoleSkillDetailsDAL(candidateId);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }  
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            return currentDesiredJobDAL.ViewRepeaterRoleSkillDetailsDAL(candidateId);
         }
 
         public void UpdateRoleSkillsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                 currentDesiredJobDAL.UpdateRoleSkillsDAL(currentDesiredJobEntity);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.UpdateRoleSkillsDAL(currentDesiredJobEntity);
         }
 
         public void DeleteRoleSkillBAL(int SkillId)
         {
-            try
-            {
-                CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-                currentDesiredJobDAL.DeleteRoleSkillBAL(SkillId);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.DeleteRoleSkillBAL(SkillId);
         }
-
-       
     }
 }

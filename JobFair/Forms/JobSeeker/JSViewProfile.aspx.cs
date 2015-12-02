@@ -237,6 +237,7 @@ namespace JobFair.Forms.JobSeeker
                     {
                         if (dsContactDetails.Tables[0].Rows.Count > 0)
                         {
+                            lblAltEmailId.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["AltEmailId"]);
                             lblAltMobNo.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["AltMobile"]);
                             lblLandLineNo.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["LandLine"]);
                             lblWhatsAppNo.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["WhatsapNo"]);

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.JobSeeker
+﻿namespace Entities.JobSeeker
 {
     public class AdvanceSearchDetailsEntity
     {
-
         public string KeySkill { get; set; }
         public string State { get; set; }
         public string City { get; set; }
