@@ -139,7 +139,7 @@
                 </div>
             </div>
             <div class="col-md-10">
-                <asp:Repeater ID="rptrJobPost" runat="server">
+                <asp:Repeater ID="rptrJobPost" runat="server" OnItemCommand="rptrJobPost_ItemCommand">
                     <HeaderTemplate>
                     <table style="border: 1px solid #0000FF">
                             <tr style="font-size: large; font-weight: bold; margin-bottom: 5px">
@@ -150,7 +150,7 @@
                         </table>
                     </HeaderTemplate>
                      <ItemTemplate>
-                        <tr>
+                         <asp:LinkButton ID="LinkButton1" runat="server">   <tr>
                             <td>
                                 <table>
                                     <tr>
@@ -240,12 +240,14 @@
                         <tr>
                             <td colspan="2">&nbsp;</td>
                         </tr>
-                  </asp:HyperLink>
+                                       </asp:LinkButton>
+                 
                     </ItemTemplate>
               
                     <FooterTemplate>
                         </table>
                     </FooterTemplate>
+                 
                 </asp:Repeater>
             </div>
            

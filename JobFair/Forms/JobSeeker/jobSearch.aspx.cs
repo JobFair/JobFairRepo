@@ -233,6 +233,16 @@ namespace JobFair.Forms.JobSeeker
 
         }
 
+        protected void rptrJobPost_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.Item.ItemType.ToString().ToLower() == "item")
+            {
+                LinkButton l = (LinkButton)e.Item.FindControl("LinkButton1");
+                l.PostBackUrl = "ViewAllJobPost.aspx";
+
+            }
+        }
+
 
         /// <summary>
         /// Filter used for Industry
