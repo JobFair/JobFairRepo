@@ -81,5 +81,13 @@
         public static string sp_JS_UpdateRoleSkills = "sp_JS_UpdateRoleSkills";
         public static string sp_JS_DeleteRoleSkill = "sp_JS_DeleteRoleSkill";
         public static string sp_JS_SelectRegisterDetails = "sp_JS_SelectRegisterDetails";
+        public static string sp_JS_SelectLoginDetails = "sp_JS_SelectLoginDetails";
+        public static string sp_JS_ChangePrimaryMailID = "sp_JS_ChangePrimaryMailID";
+        public static string sp_JS_ChangePrimaryMobileNo="sp_JS_ChangePrimaryMobileNo";
+        public static string sp_JS_ChangeEmailId = "sp_JS_ChangeEmailId";
+        public static string sp_JS_ChangeMobileNo = "sp_JS_ChangeMobileNo";
+
+
+
     }
 }

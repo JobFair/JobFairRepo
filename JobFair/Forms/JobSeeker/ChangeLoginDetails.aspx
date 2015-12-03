@@ -35,9 +35,10 @@
         </tr>
         <tr>
             <td>
-                Add one more Email ID</td>
+                Add Email ID</td>
             <td>
                 <asp:TextBox ID="txtEmailId" runat="server"></asp:TextBox>
+                <asp:Button ID="btnAddMailId" runat="server" Text="Add New Mail Id" OnClick="btnAddMailId_Click" />
             </td>
         </tr>
         <tr>
@@ -65,9 +66,10 @@
 
         <tr>
             <td>
-                Add one more Mobile Number</td>
+                Add Mobile Number</td>
             <td>
                 <asp:TextBox ID="txtMobileNumber" runat="server"></asp:TextBox>
+                <asp:Button ID="btnAddMobileNo" runat="server" Text="Add New Mobile No" OnClick="btnAddMobileNo_Click" />
             </td>
         </tr>
 
