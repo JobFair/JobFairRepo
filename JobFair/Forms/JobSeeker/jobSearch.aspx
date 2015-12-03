@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="jobSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.jobSearch" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="jobSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.jobSearch" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
@@ -139,7 +139,7 @@
                 </div>
             </div>
             <div class="col-md-10">
-                <asp:Repeater ID="rptrJobPost" runat="server">
+                <asp:Repeater ID="rptrJobPost" runat="server" OnItemCommand="rptrJobPost_ItemCommand">
                     <HeaderTemplate>
                     <table style="border: 1px solid #0000FF">
                             <tr style="font-size: large; font-weight: bold; margin-bottom: 5px">
@@ -156,6 +156,7 @@
                                         <td>
                                            <div class="divjobtitle"> <asp:HyperLink ID="HyperLink1"  runat="server" Text='<%#Eval("JobTitle")%>' NavigateUrl="ViewAllJobPost.aspx"></asp:HyperLink></div>
                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>,
                                             <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
                                          <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
                                              <asp:Label ID="lblstatename" runat="server" Text='<%#Eval("StateName")%>'></asp:Label>
@@ -244,7 +245,7 @@
                            <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
                                <tr>
                                    <td>
-                                       <asp:Button ID="btnapply" runat="server" Text="Apply" target="_blank"  PostBackUrl="~/Forms/JobSeeker/ViewAllJobPost.aspx" />
+                                       <asp:Button ID="btnapply"  OnClientClick="document.forms[0].target='_blank';" runat="server" Text="Apply"  CommandName="Contact" UseSubmitBehavior="false" />
                                    </td>
                                </tr>
                            </table>

@@ -14,39 +14,43 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            int id =Convert.ToInt32(Request.QueryString["jid"]);
+           // Label1.Text = Session["jobid"].ToString();
             if (!IsPostBack)
             {
-                if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
-                {
+                //if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
+                //{
 
-                    int JobId = 0;
-                    int.TryParse(Request.QueryString["id"], out JobId);
-                    if(!JobId.Equals(0))
-                    {
+                //    int JobId = 0;
+                //    int.TryParse(Request.QueryString["id"], out JobId);
+                //    if(!JobId.Equals(0))
+                //    {
 
-                        GetData(JobId);
-                    }
-                }
+                //       
+                //    }
+                //}
+                GetData(id);
             
             }
              //BindReapetor();
-
+          
         }
 
-        private void GetData(int JobId)
+        private void GetData(int id)
         {
             try
             {
-                DataTable dt = new DataTable();
+                DataSet dsviewalljobpost = new DataSet();
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                string sql = "select  JobId JobTitle,JobDescription,OfferedAnnualSalaryMin,OfferedAnnualSalaryMax,KeywordsTechnical,CompanyName from RE_JobPost where JobId =  JobId order by id";
-                SqlCommand cmd = new SqlCommand(sql, connection);
+                SqlCommand cmd = new SqlCommand("select  JobId ,JobTitle,JobDescription,OfferedAnnualSalaryMin,OfferedAnnualSalaryMax,KeywordsTechnical,CompanyName from RE_JobPost where JobId = @jid", connection);
+                cmd.Parameters.AddWithValue("@jid", id);
+                //SqlCommand cmd = new SqlCommand("sp_JS_SelectJobpost", connection);
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@JobId", id);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                SqlParameter prm = new SqlParameter("JobId", SqlDbType.Int);
-                prm.Value = ("id");
-                cmd.Parameters.Add(prm);
-                da.Fill(dt);
-                rptrviewpost.DataSource = dt;
+                da.Fill(dsviewalljobpost);
+                rptrviewpost.DataSource = dsviewalljobpost;
                 rptrviewpost.DataBind();
             }
             catch (Exception)
