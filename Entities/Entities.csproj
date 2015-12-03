@@ -47,6 +47,7 @@
     <Compile Include="JobSeeker\AdvanceSearchDetailsEntity.cs" />
     <Compile Include="JobSeeker\AdvanceSearchEntity.cs" />
     <Compile Include="JobSeeker\CertificationEntity.cs" />
+    <Compile Include="JobSeeker\ChangeLoginDetailsEntity.cs" />
     <Compile Include="JobSeeker\ProjectDetailsEntity.cs" />
     <Compile Include="JobSeeker\AffirmativeDetailsEntity.cs" />
     <Compile Include="JobSeeker\ContactDetailsEntity.cs" />
