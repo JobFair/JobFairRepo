@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 using Entities.JobSeeker;
+using System.Web.UI;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -16,6 +17,8 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             if (Session["myObject"] != null)
             {
                 DataSet ds = new DataSet();
@@ -24,8 +27,9 @@ namespace JobFair.Forms.JobSeeker
                 ds = jobsearchBAL.GetSearch(advanceSearchEntity);
                 rptrJobPost.DataSource = ds;
                 rptrJobPost.DataBind();
-             //   ds.Tables[0].Rows.Clear();
-              //  Session["myObject"] = ds;
+
+                //   ds.Tables[0].Rows.Clear();
+                //  Session["myObject"] = ds;
             }
 
             candidateId = Convert.ToString(Session["candidateId"]);
@@ -42,7 +46,7 @@ namespace JobFair.Forms.JobSeeker
                 ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
                 // Response.Redirect("LogIn.aspx");
             }
-        
+
             //GetDataFromSession();
             if (!Page.IsPostBack)
             {
@@ -53,14 +57,14 @@ namespace JobFair.Forms.JobSeeker
                 BindEducation();
             }
 
-        //    keySkill = Request.QueryString["keySkills"];
-        //    city = Request.QueryString["city"];
-        //    experience = Request.QueryString["experience"];
-        //    minSalary = Request.QueryString["minSalary"];
-        //    maxSalary = Request.QueryString["maxSalary"];
-        //    functionalArea = Convert.ToInt32(Request.QueryString["functionalArea"]);
-        //    rptr_bind();
-        //    rptrJobPost.Visible = true;
+            //    keySkill = Request.QueryString["keySkills"];
+            //    city = Request.QueryString["city"];
+            //    experience = Request.QueryString["experience"];
+            //    minSalary = Request.QueryString["minSalary"];
+            //    maxSalary = Request.QueryString["maxSalary"];
+            //    functionalArea = Convert.ToInt32(Request.QueryString["functionalArea"]);
+            //    rptr_bind();
+            //    rptrJobPost.Visible = true;
         }
 
         //private void rptr_bind()
@@ -86,11 +90,11 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
-              //  throw;
+
+                //  throw;
             }
-           
-           
+
+
         }
 
         private void BindRoles()
@@ -107,10 +111,10 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
-               // throw;
+
+                // throw;
             }
-           
+
         }
 
         private void BindFunctionalArea()
@@ -126,27 +130,27 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-           
+
         }
 
         private void BindLocation()
         {
             try
             {
-             DataSet ds = new DataSet();
-            ds = JobSearchBAL.GetLocation();
-            chkLocation.DataSource = ds;
-            chkLocation.DataTextField = "location";
-            chkLocation.DataValueField = "locationId";
-            chkLocation.DataBind();
+                DataSet ds = new DataSet();
+                ds = JobSearchBAL.GetLocation();
+                chkLocation.DataSource = ds;
+                chkLocation.DataTextField = "location";
+                chkLocation.DataValueField = "locationId";
+                chkLocation.DataBind();
             }
             catch (Exception)
             {
-                
-               // throw;
+
+                // throw;
             }
         }
 
@@ -165,26 +169,26 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
-               // throw;
+
+                // throw;
             }
-           
+
         }
-    
+
         protected void chkFreshness_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //  Response.Write((sender as CheckBoxList).SelectedValue);
+            //  Response.Write((sender as CheckBoxList).SelectedValue);
         }
 
         protected void chkLocation_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
 
         protected void chkRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
 
@@ -225,7 +229,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void chkCompanyLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
-         //   this.BindRept();
+            //   this.BindRept();
         }
 
         protected void chkIndustry_SelectedIndexChanged(object sender, EventArgs e)
@@ -235,13 +239,30 @@ namespace JobFair.Forms.JobSeeker
 
         protected void rptrJobPost_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.Item.ItemType.ToString().ToLower() == "item")
+            if (e.CommandName == "Contact")
             {
-                LinkButton l = (LinkButton)e.Item.FindControl("LinkButton1");
-                l.PostBackUrl = "ViewAllJobPost.aspx";
 
+                Label lbl = (Label)e.Item.FindControl("lblid");
+                //Session["jobid"] = lbl.Text;
+                //Server.Transfer("ViewAllJobPost.aspx");
+                int jid = Convert.ToInt32(lbl.Text);
+                //ScriptManager1.GetRegisteredStartupScripts(Page, typeof(Page), "OpenWindow", "Window.Open('ViewAllJobPost.aspx?jid=" + jid + "');");
+                //string script = string.Format("window.Open('{0}');", "ViewAllJobPost.aspx?jid=" + jid);
+                //Page.ClientScript.RegisterStartupScript(this.GetType(), "newPage", script, true);
+                Response.Redirect("ViewAllJobPost.aspx?jid=" + jid);
             }
         }
+
+        //protected void btnapply_Click(object sender, EventArgs e)
+        //
+        //    System.Web.UI.WebControls.Label la = (System.Web.UI.WebControls.Label)rptrJobPost.FindControl("Label1");
+        //    int jid =Convert.ToInt32( la.Text);
+        // // int jobId= Convert.ToString(ds.Tables[0].Rows[0]["JobId"]);
+        // Response.Redirect("ViewAllJobPost.aspx?jid=" + la);
+        //}
+
+
+
 
 
         /// <summary>
@@ -283,6 +304,6 @@ namespace JobFair.Forms.JobSeeker
         //{
         //   this.BindreptIndustry();
         //}
-       
+
     }
 }

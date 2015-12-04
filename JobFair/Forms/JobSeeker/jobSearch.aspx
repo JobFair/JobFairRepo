@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="jobSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.jobSearch" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="jobSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.jobSearch" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
@@ -149,14 +149,14 @@
                             </tr>
                         </table>
                     </HeaderTemplate>
-                     <ItemTemplate>
-                         <asp:LinkButton ID="LinkButton1" runat="server">   <tr>
+                     <ItemTemplate>   <tr>
                             <td>
                                 <table>
                                     <tr>
                                         <td>
                                            <div class="divjobtitle"> <asp:HyperLink ID="HyperLink1"  runat="server" Text='<%#Eval("JobTitle")%>' NavigateUrl="ViewAllJobPost.aspx"></asp:HyperLink></div>
                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>,
                                             <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
                                          <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
                                              <asp:Label ID="lblstatename" runat="server" Text='<%#Eval("StateName")%>'></asp:Label>
@@ -224,7 +224,7 @@
                     </table>
                         <tr>
                             <td>
-                                <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                                <table >
                                     <tr>
                                         <td>$
                                            [<asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />/
@@ -240,9 +240,17 @@
                         <tr>
                             <td colspan="2">&nbsp;</td>
                         </tr>
-                                       </asp:LinkButton>
-                 
-                    </ItemTemplate>
+                   <tr>
+                       <td>
+                           <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                               <tr>
+                                   <td>
+                                       <asp:Button ID="btnapply"  OnClientClick="document.forms[0].target='_blank';" runat="server" Text="Apply"  CommandName="Contact" UseSubmitBehavior="false" />
+                                   </td>
+                               </tr>
+                           </table>
+                       </td>
+                   </tr>                   </ItemTemplate>
               
                     <FooterTemplate>
                         </table>
