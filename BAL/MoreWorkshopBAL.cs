@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities.JobSeeker;
-using DAL;
+﻿using DAL;
 using System.Data;
-
 
 namespace BAL
 {
@@ -19,16 +12,8 @@ namespace BAL
         /// <returns>System.Int32.</returns>
         public DataTable SaveMoreCertificationBAL(DataTable workshopEntity)
         {
-            try
-            {
-                MoreWorkshopDAL workDAL = new MoreWorkshopDAL();
-                return workDAL.SaveMoreWorkshopDAL(workshopEntity);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
+            MoreWorkshopDAL workDAL = new MoreWorkshopDAL();
+            return workDAL.SaveMoreWorkshopDAL(workshopEntity);
         }
     }
 }

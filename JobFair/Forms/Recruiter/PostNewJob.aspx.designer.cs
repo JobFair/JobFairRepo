@@ -58,13 +58,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblState;
         
         /// <summary>
-        /// pnlState control.
+        /// pnlstate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel pnlState;
+        protected global::System.Web.UI.UpdatePanel pnlstate;
         
         /// <summary>
         /// ddlState control.
@@ -85,13 +85,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblCity;
         
         /// <summary>
-        /// phlstate control.
+        /// pnlCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel phlstate;
+        protected global::System.Web.UI.UpdatePanel pnlCity;
         
         /// <summary>
         /// ddlCity control.
@@ -110,6 +110,15 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblArea;
+        
+        /// <summary>
+        /// pnlarea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel pnlarea;
         
         /// <summary>
         /// ddllocation control.
@@ -524,15 +533,6 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList chkcompanyname;
-        
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
         
         /// <summary>
         /// btnPostJob control.

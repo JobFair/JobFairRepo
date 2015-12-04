@@ -1,13 +1,7 @@
 ﻿using BAL;
-using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
-using System.Globalization;
 
 namespace JobFair.UserControls.JobSeeker
 {
@@ -17,46 +11,86 @@ namespace JobFair.UserControls.JobSeeker
     public partial class MoreWorkshops : System.Web.UI.UserControl
     {
         private MoreWorkshopBAL workshopDetails = null;
+        private string candidateId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["candidateId"] != null)
             {
-                workshopDetails = new MoreWorkshopBAL();
+                if (Session["candidateId"].ToString() != "")
+                {
+                    candidateId = Convert.ToString(Session["candidateId"]);
 
-                //Declration For ALL
-                List<string> YearList = CommonUtil.Utility.GetYears();
+                    if (!IsPostBack)
+                    {
+                        try
+                        {
+                            workshopDetails = new MoreWorkshopBAL();
+                            BindMonth();
+                            BindYear();
+                            AddDefaultFirstRecord();
+                        }
+                        catch (Exception)
+                        {
+                           // throw;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void BindMonth()
+        {
+            try
+            {
                 List<string> MonthList = CommonUtil.Utility.GetMonths();
-
-                // Bind Year List
-                ddlYearFrom.DataSource = YearList;
-                ddlYearFrom.DataBind();
-                ddlYearTo.DataSource = YearList;
-                ddlYearTo.DataBind();
-
-                // Bind Month List
                 ddlMonthFrom.DataSource = MonthList;
                 ddlMonthFrom.DataBind();
                 ddlMonthTo.DataSource = MonthList;
                 ddlMonthTo.DataBind();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
 
-
-                AddDefaultFirstRecord();
+        private void BindYear()
+        {
+            try
+            {
+                List<string> YearList = CommonUtil.Utility.GetYears();
+                ddlYearFrom.DataSource = YearList;
+                ddlYearFrom.DataBind();
+                ddlYearTo.DataSource = YearList;
+                ddlYearTo.DataBind();
+            }
+            catch (Exception)
+            {
+                // throw;
             }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            AddNewRecordRowToGrid();
-            txtWorkshopName.Text = "";
-            txtWorkshopInstitute.Text = "";
-            txtWorkshopDuration.Text = "";
-            ddlMonthFrom.SelectedIndex = 0;
-            ddlYearFrom.SelectedIndex = 0;
-            ddlMonthTo.SelectedIndex = 0;
-            ddlYearTo.SelectedIndex = 0;
-            txtworkspGrade.Text = "";
+            try
+            {
+                AddNewRecordRowToGrid();
+                txtWorkshopName.Text = "";
+                txtWorkshopInstitute.Text = "";
+                txtWorkshopDuration.Text = "";
+                ddlMonthFrom.SelectedIndex = 0;
+                ddlYearFrom.SelectedIndex = 0;
+                ddlMonthTo.SelectedIndex = 0;
+                ddlYearTo.SelectedIndex = 0;
+                txtworkspGrade.Text = "";
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
+
         private void AddNewRecordRowToGrid()
         {
             try
@@ -76,7 +110,7 @@ namespace JobFair.UserControls.JobSeeker
 
                         //Creating new row and assigning values
                         drCurrentRow = dtCurrentTable.NewRow();
-                        drCurrentRow["CandidateId"] = "JS9";//hfCandidateId.Value.Trim();
+                        drCurrentRow["CandidateId"] = candidateId;//hfCandidateId.Value.Trim();
                         drCurrentRow["WorkshopName"] = txtWorkshopName.Text.Trim();
                         drCurrentRow["Institute"] = txtWorkshopInstitute.Text.Trim();
                         drCurrentRow["Duration"] = txtWorkshopDuration.Text.Trim();
@@ -102,7 +136,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -131,17 +165,25 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
+
         protected void btnsubmitWorkshops_Click(object sender, EventArgs e)
         {
-            MoreWorkshopBAL workshopDetailsBAL = new MoreWorkshopBAL();
-            DataTable dtworkshopDetails = (DataTable)ViewState["EducationalDetails"];
-            workshopDetailsBAL.SaveMoreCertificationBAL(dtworkshopDetails);
-            grvAddMore.DataSource = null;
-            grvAddMore.DataBind();
-            Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+            try
+            {
+                MoreWorkshopBAL workshopDetailsBAL = new MoreWorkshopBAL();
+                DataTable dtworkshopDetails = (DataTable)ViewState["EducationalDetails"];
+                workshopDetailsBAL.SaveMoreCertificationBAL(dtworkshopDetails);
+                grvAddMore.DataSource = null;
+                grvAddMore.DataBind();
+                Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
     }
 }
