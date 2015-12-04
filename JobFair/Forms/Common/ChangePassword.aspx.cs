@@ -24,7 +24,7 @@ namespace JobFair.Forms.Common
                 cpentity.OldPassword = txtOldpwd.Text;
                 cpentity.NewPassword = txtNewpwd.Text;
 
-                cpentity.UserId = "JS9";
+                cpentity.UserId = "RE10";
 
                 int result = Utility.ChangePassword(cpentity);
                 if (result > 0)
