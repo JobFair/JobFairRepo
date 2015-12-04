@@ -13,7 +13,7 @@ namespace JobFair.UserControls.JobSeeker
         private AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
         private int languageCount = 0;
         private string candidateId;
-        private bool isCheck = false;
+        private bool isCheck = true;
         // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
 
         protected void Page_Load(object sender, EventArgs e)

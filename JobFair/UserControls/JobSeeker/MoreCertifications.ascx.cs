@@ -18,37 +18,62 @@ namespace JobFair.UserControls.JobSeeker
             {
                 certificationDetails = new MoreCertificationBAL();
 
-                //Declration For ALL
-                List<string> YearList = CommonUtil.Utility.GetYears();
-                List<string> MonthList = CommonUtil.Utility.GetMonths();
+                BindYear();
+                BindMonth();
+                AddDefaultFirstRecord();
+            }
+        }
 
-                // Bind Year List
+        private void BindYear()
+        {
+            try
+            {
+                List<string> YearList = CommonUtil.Utility.GetYears();
                 ddlYearFrom.DataSource = YearList;
                 ddlYearFrom.DataBind();
                 ddlYearTo.DataSource = YearList;
                 ddlYearTo.DataBind();
+            }
+            catch (Exception)
+            {
+                //  throw;
+            }
+        }
 
-                // Bind Month List
+        private void BindMonth()
+        {
+            try
+            {
+                List<string> MonthList = CommonUtil.Utility.GetMonths();
                 ddlMonthFrom.DataSource = MonthList;
                 ddlMonthFrom.DataBind();
                 ddlMonthTo.DataSource = MonthList;
                 ddlMonthTo.DataBind();
-
-                AddDefaultFirstRecord();
+            }
+            catch (Exception)
+            {
+                // throw;
             }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            AddNewRecordRowToGrid();
-            txtCertificationName.Text = "";
-            txtCertificationInstitute.Text = "";
-            txtCertificationDuration.Text = "";
-            ddlMonthFrom.SelectedIndex = 0;
-            ddlYearFrom.SelectedIndex = 0;
-            ddlMonthTo.SelectedIndex = 0;
-            ddlYearTo.SelectedIndex = 0;
-            txtCertificationGrade.Text = "";
+            try
+            {
+                AddNewRecordRowToGrid();
+                txtCertificationName.Text = "";
+                txtCertificationInstitute.Text = "";
+                txtCertificationDuration.Text = "";
+                ddlMonthFrom.SelectedIndex = 0;
+                ddlYearFrom.SelectedIndex = 0;
+                ddlMonthTo.SelectedIndex = 0;
+                ddlYearTo.SelectedIndex = 0;
+                txtCertificationGrade.Text = "";
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
 
         private void AddNewRecordRowToGrid()
@@ -96,7 +121,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -125,18 +150,25 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
         protected void btnsubmitCertifications_Click(object sender, EventArgs e)
         {
-            MoreCertificationBAL certificationDetailsBAL = new MoreCertificationBAL();
-            DataTable dtcertificationDetails = (DataTable)ViewState["EducationalDetails"];
-            certificationDetailsBAL.SaveMoreCertificationBAL(dtcertificationDetails);
-            grvAddMore.DataSource = null;
-            grvAddMore.DataBind();
-            Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+            try
+            {
+                MoreCertificationBAL certificationDetailsBAL = new MoreCertificationBAL();
+                DataTable dtcertificationDetails = (DataTable)ViewState["EducationalDetails"];
+                certificationDetailsBAL.SaveMoreCertificationBAL(dtcertificationDetails);
+                grvAddMore.DataSource = null;
+                grvAddMore.DataBind();
+                Response.Write("<script language='javascript'>alert('Project Details Inserted')</script>");
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
     }
 }
