@@ -38,7 +38,7 @@ namespace JobFair.Forms.Common
                     email.From = new MailAddress(txtEmailId.Text); //Enter sender email address
                     email.To.Add(txtEmailId.Text); //Destination Recipient e-mail address.
                     email.Subject = "Your Forrget Password:";//Subject for your request
-                    email.Body = "Hi,<br/>Your Username is: " + ds.Tables[0].Rows[0]["UserId"] + "<br/><br/>Your Password is: " + ds.Tables[0].Rows[0]["Password"] + "<br/>";
+                    email.Body = "Hi,<br/>Your Username is: " + ds.Tables[0].Rows[0]["EmailId"] + "<br/><br/>Your Password is: " + ds.Tables[0].Rows[0]["Password"] + "<br/>";
                     email.IsBodyHtml = true;
                     //SMTP SERVER DETAILS
                     SmtpClient smtpc = new SmtpClient("smtp.gmail.com");

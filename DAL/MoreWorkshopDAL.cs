@@ -1,15 +1,7 @@
-﻿using Entities.JobSeeker;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -41,13 +33,12 @@ namespace DAL
                 objbulk.ColumnMappings.Add("Grade", "Grade");
                 //inserting bulk Records into DataBase
                 objbulk.WriteToServer(workEntity);
-                return workEntity;
             }
             catch (Exception)
             {
-                throw;
+                //  throw;
             }
+            return workEntity;
         }
-
     }
 }

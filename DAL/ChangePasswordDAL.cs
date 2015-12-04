@@ -29,13 +29,13 @@ namespace DAL
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand();
-                SqlParameter[] sqlparams = {
-                                             new SqlParameter("@userId",changepasswordEntity.UserId),
-                                             new SqlParameter("@newPassword",changepasswordEntity.NewPassword),
-                                             new SqlParameter("@oldPassword",changepasswordEntity.OldPassword)
-                                            };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_ChangePassword, sqlparams);
+              
+                SqlParameter[] sparams = new SqlParameter[3];
+                sparams[0]=new SqlParameter("@userId",changepasswordEntity.UserId);
+                sparams[1] = new SqlParameter("@newPassword", changepasswordEntity.NewPassword);
+                sparams[2] = new SqlParameter("@oldPassword", changepasswordEntity.OldPassword);
+
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_ChangePassword, sparams);
 
                 return result;
             }
@@ -45,7 +45,7 @@ namespace DAL
             }
             finally
             {
-                connection.Close();
+                //connection.Close();
             }
         }
     }
