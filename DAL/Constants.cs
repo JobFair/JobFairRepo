@@ -86,6 +86,9 @@
         public static string sp_JS_ChangePrimaryMobileNo="sp_JS_ChangePrimaryMobileNo";
         public static string sp_JS_ChangeEmailId = "sp_JS_ChangeEmailId";
         public static string sp_JS_ChangeMobileNo = "sp_JS_ChangeMobileNo";
+        public static string sp_RE_InsertClientDetails = "sp_RE_InsertClientDetails";
+
+        public static string sp_RE_InsertFunctionalArea = "sp_RE_InsertFunctionalArea";
 
 
 
