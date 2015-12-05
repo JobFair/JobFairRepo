@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BAL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,29 +13,48 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
+        string email,jobtitle;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+       
             int id =Convert.ToInt32(Request.QueryString["jid"]);
            // Label1.Text = Session["jobid"].ToString();
             if (!IsPostBack)
             {
-                //if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
-                //{
+                if (Session["candidateId"] != null)
+                {
+                    if (Session["candidateId"].ToString() !="")
+                    {
+                    try
+                    {
+                        string candidateId  = Convert.ToString(Session["candidateId"]);
+                        BindRequestEmail(candidateId);
+                    }
+                    catch (Exception)
+                    {
+                        
+                        throw;
+                    }
+                    
+                    }
+                    
+                }
 
-                //    int JobId = 0;
-                //    int.TryParse(Request.QueryString["id"], out JobId);
-                //    if(!JobId.Equals(0))
-                //    {
 
-                //       
-                //    }
-                //}
+
                 GetData(id);
             
             }
              //BindReapetor();
           
+        }
+
+        private void BindRequestEmail(string candidateId)
+        {
+            DataSet ds = new DataSet();
+            RequestEmailJSBAL requestEmailJSBAL = new RequestEmailJSBAL();
+            ds = requestEmailJSBAL.GetEmailBAL(candidateId);
+            email = Convert.ToString(ds.Tables[0].Rows[0]["EmailId"]);
         }
 
         private void GetData(int id)
@@ -63,6 +83,23 @@ namespace JobFair.Forms.JobSeeker
 
         }
 
+        protected void btnapply_Click(object sender, EventArgs e)
+        {
+            string from = email;
+            string subject =" You applied for"+jobtitle+"at Logos Job Fair on"+DateTime.Now.ToString();
+           
+        }
+
+        protected void rptrviewpost_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "apply")
+            {
+
+                Label lbl = (Label)e.Item.FindControl("Label2");
+                jobtitle = lbl.Text;
+            }
+        }
+
         //private void BindReapetor()
         //{
         //    try
@@ -83,6 +120,7 @@ namespace JobFair.Forms.JobSeeker
         //    }
         //}
 
-      
-    }
+
+
+          }
 }

@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
      <div class="col-md-10">
-                <asp:Repeater ID="rptrviewpost" runat="server">
+                <asp:Repeater ID="rptrviewpost" runat="server" OnItemCommand="rptrviewpost_ItemCommand">
                     <HeaderTemplate>
                     <table style="border: 1px solid #0000FF">
                             <tr style="font-size: large; font-weight: bold; margin-bottom: 5px">
@@ -130,10 +130,7 @@
                                  <table>
                                      <tr>
                                          <td>
-                                             <asp:Button ID="btnapply" runat="server" Text="Login/Apply"  PostBackUrl="~/Forms/JobSeeker/LogIn.aspx" />
-                                         </td>
-                                         <td>
-                                             <asp:Button ID="btnregister" runat="server" Text="Register/Apply"  />
+                                             <asp:Button ID="btnapply" runat="server" Text="Apply" OnClick="btnapply_Click" CommandName="apply"/>
                                          </td>
                                      </tr>
                                  </table>
