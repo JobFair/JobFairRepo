@@ -8,7 +8,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="../../Css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/jquery.min.js"></script>
 </head>
+<script type="text/javascript">
+    $(function () {
+        $('#DropDownCheckBoxes1').multiselect({
+            includeSelectAllOption: true
+        });
+    });
+</script>
 <body>
     <form id="form1" runat="server">
         <div>
@@ -35,7 +45,6 @@
                     <td>
                         <asp:UpdatePanel ID="pnlstate" runat="server">
                             <ContentTemplate>
-
                                 <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                             </ContentTemplate>
@@ -363,24 +372,24 @@
                         <tr>
 
                             <td>
-                                <asp:DropDownCheckBoxes ID="DropDownCheckBoxes1" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="DropDownCheckBoxes1_SelectedIndexChanged" AutoPostBack="true">
-                                    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                                    <Items>
+                                <%-- <asp:DropDownCheckBoxes ID="DropDownCheckBoxes1" runat="server" UseSelectAllNode="false">
+                                    <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />--%>
+                                <%-- <Items>--%>
+                                <asp:TextBox ID="txtHSC" runat="server" ReadOnly="true" TextMode="MultiLine"></asp:TextBox>
+                                <asp:Button ID="btnHSC" runat="server" Text="Select Stream" OnClick="btnHSC_Click" />
+
+                                <asp:Panel ID="pnlHSC" runat="server" Visible="false">
+                                    <asp:CheckBoxList ID="chklstHSC" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstHSC_SelectedIndexChanged">
                                         <asp:ListItem Value="0">Select</asp:ListItem>
                                         <asp:ListItem Value="1" Text="Arts"></asp:ListItem>
                                         <asp:ListItem Value="2" Text="Commerce"></asp:ListItem>
                                         <asp:ListItem Value="3" Text="Science"></asp:ListItem>
                                         <asp:ListItem Value="4" Text="Others"></asp:ListItem>
-                                    </Items>
-                                </asp:DropDownCheckBoxes>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Panel ID="selectedItemspanel" runat="server"></asp:Panel>
-                            </td>
-                            <td>
-                                <asp:LinkButton ID="lbHSC" runat="server" OnClick="lbHSC_Click">Remove All</asp:LinkButton>
+                                    </asp:CheckBoxList>
+                                </asp:Panel>
+                                <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" TargetControlID="pnlHSC" TextLabelID="btnHSC" CollapseControlID="btnHSC" ExpandControlID="btnHSC" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
+                                <%-- </Items>--%>
+                                <%-- </asp:DropDownCheckBoxes>--%>
                             </td>
                         </tr>
 
@@ -401,19 +410,18 @@
                         <asp:Label ID="lblUGDHead" runat="server" Text="Specify UG Diploma Qualification"></asp:Label>
                         <tr>
                             <td>
-                                <asp:DropDownCheckBoxes ID="ddlUGDiploma" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlUGDiploma_SelectedIndexChanged" AutoPostBack="true">
+                                <%-- <asp:DropDownCheckBoxes ID="ddlUGDiploma" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlUGDiploma_SelectedIndexChanged" AutoPostBack="true">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                                </asp:DropDownCheckBoxes>
+                                </asp:DropDownCheckBoxes>--%>
+                                <asp:TextBox ID="txtUGD" runat="server"></asp:TextBox>
+                                <asp:Button ID="btnUGD" runat="server" Text="Select UG Diploma" OnClick="btnUGD_Click" />
+                                <asp:Panel ID="pnlUGD" runat="server">
+                                    <asp:CheckBoxList ID="chklstUGD" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstUGD_SelectedIndexChanged"></asp:CheckBoxList>
+                                </asp:Panel>
+                                <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender2" runat="server" TargetControlID="pnlUGD" TextLabelID="btnUGD" CollapseControlID="btnUGD" ExpandControlID="btnUGD" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <asp:Panel ID="panel1" runat="server"></asp:Panel>
-                            </td>
-                            <td>
-                                <asp:LinkButton ID="lbUGD" runat="server" OnClick="lbUGD_Click">Remove All</asp:LinkButton>
-                            </td>
-                        </tr>
+
                         <tr>
                             <td>
                                 <asp:RadioButtonList ID="rblUGD" runat="server" RepeatDirection="Horizontal">
@@ -431,24 +439,18 @@
                         <asp:Label ID="lblBDHead" runat="server" Text="Specify Bachelors Degree Qualification"></asp:Label>
                         <tr>
                             <td>
-                                <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlBachelorsDegree_SelectedIndexChanged" AutoPostBack="true" style="top: -1px; left: 2px">
+                                <%-- <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlBachelorsDegree_SelectedIndexChanged" AutoPostBack="true" style="top: -1px; left: 2px">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                                </asp:DropDownCheckBoxes>
+                                </asp:DropDownCheckBoxes>--%>
+                                <asp:TextBox ID="txtBachelorsDegree" runat="server"></asp:TextBox>
+                                <asp:Button ID="btnBachelorsDegree" runat="server" Text="Select Bachelors Degree" OnClick="btnBachelorsDegree_Click" />
+                                <asp:Panel ID="pnlBachelorsDegree" runat="server">
+                                    <asp:CheckBoxList ID="chklstBachelorsDegree" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstBachelorsDegree_SelectedIndexChanged"></asp:CheckBoxList>
+                                </asp:Panel>
+                                <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender3" runat="server" TargetControlID="pnlBachelorsDegree" TextLabelID="btnBachelorsDegree" CollapseControlID="btnBachelorsDegree" ExpandControlID="btnBachelorsDegree" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <asp:Panel ID="panel2" runat="server"></asp:Panel>
-                            </td>
-                            <td>
-                                <asp:LinkButton ID="lbBD" runat="server" OnClick="lbBD_Click">Remove All</asp:LinkButton>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Label ID="lblBDTag" runat="server" CssClass="label">Empty</asp:Label>
-                            </td>
-                        </tr>
+
                         <tr>
                             <td>
                                 <asp:RadioButtonList ID="rblBD" runat="server" RepeatDirection="Horizontal">
@@ -466,19 +468,18 @@
                         <asp:Label ID="lblPGDHead" runat="server" Text="Specify PG Deploma Qualification"></asp:Label>
                         <tr>
                             <td>
-                                <asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlPGDiploma_SelectedIndexChanged" AutoPostBack="true">
+                                <%--<asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlPGDiploma_SelectedIndexChanged" AutoPostBack="true">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                                </asp:DropDownCheckBoxes>
+                                </asp:DropDownCheckBoxes>--%>
+                                <asp:TextBox ID="txtPGDiploma" runat="server"></asp:TextBox>
+                                <asp:Button ID="btnPGDiploma" runat="server" Text="Select PG Diploma" OnClick="btnPGDiploma_Click" />
+                                <asp:Panel ID="pnlPGDiploma" runat="server">
+                                    <asp:CheckBoxList ID="chklstPGDiploma" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstPGDiploma_SelectedIndexChanged"></asp:CheckBoxList>
+                                </asp:Panel>
+                                <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender4" runat="server" TargetControlID="pnlPGDiploma" TextLabelID="btnPGDiploma" CollapseControlID="btnPGDiploma" ExpandControlID="btnPGDiploma" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <asp:Panel ID="panel3" runat="server"></asp:Panel>
-                            </td>
-                            <td>
-                                <asp:LinkButton ID="lbPGD" runat="server" OnClick="lbPGD_Click">Remove All</asp:LinkButton>
-                            </td>
-                        </tr>
+
                         <tr>
                             <td>
                                 <asp:RadioButtonList ID="rblPGD" runat="server" RepeatDirection="Horizontal">
@@ -496,19 +497,18 @@
                         <asp:Label ID="lblMDHead" runat="server" Text="Specify Master Degree Qualification"></asp:Label>
                         <tr>
                             <td>
-                                <asp:DropDownCheckBoxes ID="ddlMasterDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlMasterDegree_SelectedIndexChanged" AutoPostBack="true">
+                                <%--<asp:DropDownCheckBoxes ID="ddlMasterDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlMasterDegree_SelectedIndexChanged" AutoPostBack="true">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                                </asp:DropDownCheckBoxes>
+                                </asp:DropDownCheckBoxes>--%>
+                                <asp:TextBox ID="txtMasterDegree" runat="server"></asp:TextBox>
+                                <asp:Button ID="btnMasterDegree" runat="server" Text="Select Master Degree" OnClick="btnMasterDegree_Click" />
+                                <asp:Panel ID="pnlMasterDegree" runat="server">
+                                    <asp:CheckBoxList ID="chklstMasterDegree" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstMasterDegree_SelectedIndexChanged"></asp:CheckBoxList>
+                                </asp:Panel>
+                                <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender5" runat="server" TargetControlID="pnlMasterDegree" TextLabelID="btnMasterDegree" CollapseControlID="btnMasterDegree" ExpandControlID="btnMasterDegree" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <asp:Panel ID="panel4" runat="server"></asp:Panel>
-                            </td>
-                            <td>
-                                <asp:LinkButton ID="lbMD" runat="server" OnClick="lbMD_Click">Remove All</asp:LinkButton>
-                            </td>
-                        </tr>
+
                         <tr>
                             <td>
                                 <asp:RadioButtonList ID="rblMD" runat="server" RepeatDirection="Horizontal">
@@ -526,28 +526,30 @@
                         <asp:Label ID="lblPHDHead" runat="server" Text="Specify Doctorate / PHD Qualification"></asp:Label>
                         <tr>
                             <td>
-                                <asp:DropDownCheckBoxes ID="ddlPHD" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlPHD_SelectedIndexChanged" AutoPostBack="true">
+                                <%-- <asp:DropDownCheckBoxes ID="ddlPHD" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlPHD_SelectedIndexChanged" AutoPostBack="true">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
-                                </asp:DropDownCheckBoxes>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Panel ID="panel5" runat="server"></asp:Panel>
-                            </td>
-                            <td>
-                                <asp:LinkButton ID="lbPHD" runat="server" OnClick="lbPHD_Click">Remove All</asp:LinkButton>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:RadioButtonList ID="rblPHDHead" runat="server" RepeatDirection="Horizontal">
-                                    <asp:ListItem>And</asp:ListItem>
-                                    <asp:ListItem>Or</asp:ListItem>
-                                </asp:RadioButtonList>
+                                </asp:DropDownCheckBoxes>--%>
+                                <asp:TextBox ID="txtPHD" runat="server"></asp:TextBox>
+                                <asp:Button ID="btnPHD" runat="server" Text="Select PHD" OnClick="btnPHD_Click" />
+                                <asp:Panel ID="pnlPHD" runat="server">
+                                    <asp:CheckBoxList ID="chklstPHD" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstPHD_SelectedIndexChanged"></asp:CheckBoxList>
+                                </asp:Panel>
+                                <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender6" runat="server" TargetControlID="pnlPHD" TextLabelID="btnPHD" CollapseControlID="btnPHD" ExpandControlID="btnPHD" Collapsed="true" ScrollContents="true" ExpandedText="Hide" />
                             </td>
                         </tr>
                     </table>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+        <div>
+            <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                <ContentTemplate>
+                    <asp:CheckBox ID="chkCandidateProfile" runat="server" Text="Describe Candidate Profile" AutoPostBack="True" OnCheckedChanged="chkCandidateProfile_CheckedChanged" />
+                    <div>
+                        <asp:Panel ID="pnlCandidateProfile" runat="server" Visible="false">
+                            Candidate Profile :<asp:TextBox ID="txtCandidateProfile" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        </asp:Panel>
+                    </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
@@ -558,10 +560,15 @@
                     <td>
                         <asp:Label ID="lblselectquestionrie" runat="server" Text="Select  Questionnaire"></asp:Label>
                     </td>
-
-                    <td>
-                        <asp:DropDownList ID="ddlquestionnaire" runat="server" Style="margin-left: 47px"></asp:DropDownList>
-                    </td>
+                    <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+                        <ContentTemplate>
+                            <td>
+                                <asp:DropDownList ID="ddlquestionnaire" runat="server" Style="margin-left: 47px"></asp:DropDownList>
+                                <asp:LinkButton ID="lnkbtnRefresh" runat="server" OnClick="lnkbtnRefresh_Click"><span class="glyphicon glyphicon-refresh"></span></asp:LinkButton>
+                                <asp:LinkButton ID="lnkbtnQuestionary" runat="server" OnClick="LinkButton1_Click">Create Your Questionary</asp:LinkButton>
+                            </td>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </tr>
             </table>
         </div>

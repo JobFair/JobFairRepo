@@ -242,5 +242,7 @@ namespace JobFair.Forms.JobSeeker
         {
             Panelarea.Visible = true;
         }
+
+      
     }
 }
