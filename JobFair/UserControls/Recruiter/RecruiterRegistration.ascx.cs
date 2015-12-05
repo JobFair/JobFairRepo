@@ -2,6 +2,7 @@
 using Entities.Recruiter;
 using System;
 using System.IO;
+using System.Net.Mail;
 
 namespace JobFair.UserControls.Recruiter
 {
@@ -33,6 +34,7 @@ namespace JobFair.UserControls.Recruiter
                 string uploadphoto = Request.PhysicalApplicationPath + "Images\\";
                 registerRecruiterEntity.PhotoPath = uploadphoto.ToString();
                 string result = registerRecruiterBAL.SaveNewRecruiterBAL(registerRecruiterEntity);
+
                 if (result != null)
                 {
                     if (FileUploadRecruiterPhoto.HasFile)
@@ -46,6 +48,23 @@ namespace JobFair.UserControls.Recruiter
                 {
                     Label1.Text = "Not registerd";
                 }
+                string from = txtFullName.Text;
+                string subject = "Logged In";
+                string content = "Helllo....";
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress(from);
+                msg.To.Add("saurabh.logossolutions@gmail.com");
+                msg.Subject = subject;
+                msg.Body = "Hi,<br/>New Recruiter is: " + txtFullName.Text + "<br/><br/> " + "Registered Now" + "<br/>";
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.Credentials = new System.Net.NetworkCredential("jyoti.logossolutions@gmail.com", "@jacksparow");
+                smtp.EnableSsl = true;
+                smtp.Send(msg);
+                msg = null;
+                Response.Write("<script language='javascript'>alert('Email Send to Super Admin ...');</script>");               
             }
             catch (Exception ex)
             {

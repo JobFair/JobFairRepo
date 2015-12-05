@@ -39,7 +39,7 @@ namespace DAL
                 sparam[12] = new SqlParameter("@duedate", clientdetailsEntity.DueDate.Date);
                 sparam[13] = new SqlParameter("@paymentDetails", clientdetailsEntity.PaymentDetails);
                 sparam[14] = new SqlParameter("@paymentterms", clientdetailsEntity.PaymentTerms);
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertClientDetails", sparam);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertClientDetails, sparam);
                 return result;
             }
             catch (System.Exception)
@@ -60,7 +60,7 @@ namespace DAL
                 SqlParameter[] sparams = new SqlParameter[1];
                 //Add parameter for stored procedure
                 sparams[0] = new SqlParameter("@FunctionalareaName", clientDetailsEntity.AddFunctionalArea);
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertFunctionalArea", sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertFunctionalArea, sparams);
             }
             catch (System.Exception)
             {
