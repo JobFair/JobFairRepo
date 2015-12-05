@@ -26,7 +26,7 @@ namespace JobFair.UserControls.JobSeeker
             candidateId = "JS2";
             if (!IsPostBack)
             {
-                if (!isCheck)
+                if (isCheck)
                 {
                     try
                     {
@@ -89,6 +89,37 @@ namespace JobFair.UserControls.JobSeeker
                         {
                             chklCity.SelectedValue = list;
                         }
+
+                        //foreach (var list in listofCity)
+                        //{
+                        //   // chklCity.SelectedValue = list;
+                        //    foreach(CheckBox chk in chklCity)
+                        //    {
+                        //        if (chk. == list)
+                        //          {
+                        //               chklCity.SetItemChecked(i, true);
+                        //          }
+                        //    }
+
+                        //    //for(int i = 0; i < chklCity.Items.Cast<CheckBox>().Count(); i++)
+                        //    //{
+                        //    //    if (chklCity.Items[i]. == list)
+                        //    //      {
+                        //    //           chklCity.SetItemChecked(i, true);
+                        //    //      }
+                        //    // }
+                        //    //chklCity.Items.Cast<ListItem>(). //.Where(x=>x.Selected=true
+                        //    //Select(x=>x.Selected=true).Where()
+
+                        //    //var t = (from item in chklCity.Items.Cast<ListItem>()
+                        //    //   where
+                        //    //   select int.Parse(item.Value));
+                        //    (from i in chklCity.Items.Cast<CheckBox>()
+                        //     where i.sel = list
+                        //     select i)
+
+                        //    //ToList().ForEach(i => i.Selected = true)
+                        //}
 
                         var selectedCity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
                         txtCity.Text = string.Join(",", selectedCity.Select(x => x.Text));

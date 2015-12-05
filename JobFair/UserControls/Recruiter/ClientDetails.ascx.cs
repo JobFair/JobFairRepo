@@ -35,8 +35,8 @@ namespace JobFair.Forms.Recruiter
             ddlFunctionalArea.DataValueField = "FunctionalAreaId";
             ddlFunctionalArea.DataTextField = "FunctionalArea";
             ddlFunctionalArea.DataBind();
-
-            ddlFunctionalArea.Items.Insert(Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count - 1].Value), new ListItem("----Other----", ""));
+          //  ddlDualBD.Items.Insert(Convert.ToInt32(ddlDualBD.Items[ddlDualBD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+            ddlFunctionalArea.Items.Insert(Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count-1].Value), new ListItem("----Other----", ""));
             ddlFunctionalArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
@@ -177,5 +177,7 @@ namespace JobFair.Forms.Recruiter
             clientDetailsBAL.AddFunctionalAreaBAL(clientDetailsEntity);
             lblmsg2.Text = "Your data is added now";
         }
+
+       
     }
 }
