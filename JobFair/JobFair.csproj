@@ -93,6 +93,7 @@
     <Content Include="Css\Common.css" />
     <Content Include="Css\Style.css" />
     <Content Include="Css\ValidationEngine.css" />
+    <Content Include="EmailPage.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
