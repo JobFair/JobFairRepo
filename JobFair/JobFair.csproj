@@ -117,6 +117,7 @@
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
     <Content Include="Forms\Recruiter\searchrecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
+    <Content Include="Images\logoitch.jpg" />
     <Content Include="NewFolder1\jquery-1.11.1.min %281%29.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -133,6 +134,7 @@
     <Content Include="Scripts\jquery.validationEngine-en.js" />
     <Content Include="Scripts\jquery.validationEngine.js" />
     <Content Include="Scripts\ValidationAll.js" />
+    <Content Include="SendMail.html" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
@@ -175,7 +177,9 @@
     <Content Include="UserControls\Recruiter\RecruiterForgetPwd.ascx" />
     <Content Include="UserControls\Recruiter\RecruiterRegistration.ascx" />
     <Content Include="UserControls\Recruiter\AddOfferedCandidates.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\Common\ChangePassword.aspx.cs">
