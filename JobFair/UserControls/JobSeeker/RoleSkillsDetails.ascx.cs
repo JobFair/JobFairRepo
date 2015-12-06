@@ -13,50 +13,65 @@ namespace JobFair.UserControls.JobSeeker
     /// </summary>
     public partial class RoleSkillsDetails : System.Web.UI.UserControl
     {
-        private static double Temp = 0;
         private bool isCheck = true;
-        private string candidateId = "JS2";
+        private string candidateId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            // Check session is not null
+            if (Session["candidateId"] != null)
             {
-                if (!IsPostBack)
+                if (Session["candidateId"].ToString() != "")
                 {
-                    if (isCheck)
+                    candidateId = Convert.ToString(Session["candidateId"]);
+                    // Check page is not post back
+                    if (!IsPostBack)
                     {
-                        BindRepeaterRoleSkills();
-                        divRoleSkillsEdit.Visible = true;
-                        divRoleSkillsInsert.Visible = false;
-                    }
-                    else
-                    {
-                        hfCandidateId.Value = "JS2";
-                        BindRoleSkills();
-                        BindMonth();
-                        BindYears();
-
-                        AddRoleSkills();
+                        try
+                        {
+                            // Check the isCheck is true for edit
+                            if (isCheck)
+                            {
+                                BindRepeaterRoleSkills();
+                                divRoleSkillsEdit.Visible = true;
+                                divRoleSkillsInsert.Visible = false;
+                            }
+                            else
+                            {
+                                hfCandidateId.Value = candidateId;
+                                BindRoleSkills();
+                                BindMonth();
+                                BindYears();
+                                AddRoleSkills();
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            // throw;
+                        }
                     }
                 }
             }
-            catch (Exception)
+            else
             {
-                //  throw;
+                Response.Redirect("LogIn.aspx");
             }
         }
 
+        /// <summary>
+        /// Bind repeater for roleskills
+        /// </summary>
         private void BindRepeaterRoleSkills()
         {
             try
             {
-                DataSet ds = new DataSet();
+                DataSet dsRoleSkills = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                ds = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
-                if (ds != null)
+                dsRoleSkills = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
+                // Check dataset is not null
+                if (dsRoleSkills != null)
                 {
-                    rptrRoleSkills.DataSource = ds;
-
+                    rptrRoleSkills.DataSource = dsRoleSkills;
                     rptrRoleSkills.DataBind();
                 }
             }
@@ -71,14 +86,15 @@ namespace JobFair.UserControls.JobSeeker
         /// </summary>
         private void BindRoleSkills()
         {
-            DataSet ds = new DataSet();
+            DataSet dsRoles = new DataSet();
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             try
             {
-                ds = currentDesiredJobBAL.GetRoleSkillsBAL();
-                if (ds != null)
+                dsRoles = currentDesiredJobBAL.GetRoleSkillsBAL();
+                // Check dataset is not null
+                if (dsRoles != null)
                 {
-                    ddlRoleSkills.DataSource = ds;
+                    ddlRoleSkills.DataSource = dsRoles;
                     ddlRoleSkills.DataTextField = "RoleName";
                     ddlRoleSkills.DataValueField = "RoleId";
                     ddlRoleSkills.DataBind();
@@ -184,10 +200,12 @@ namespace JobFair.UserControls.JobSeeker
             string year = TotalYears();
             try
             {
+                // Check if viewstate is not null
                 if (ViewState["SkillDetails"] != null)
                 {
                     DataTable datatable = (DataTable)ViewState["SkillDetails"];
                     DataRow datarow = null;
+                    // Check rows greater than zero
                     if (datatable.Rows.Count > 0)
                     {
                         for (int i = 1; i <= datatable.Rows.Count; i++)
@@ -236,11 +254,13 @@ namespace JobFair.UserControls.JobSeeker
         private string TotalYears()
         {
             double year = 0.0;
+            DateTime fromYear, tillYear;
+            int months;
             try
             {
-                DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
-                DateTime d2 = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
-                int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
+                fromYear = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
+                tillYear = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
+                months = (tillYear.Month - fromYear.Month) + 12 * (tillYear.Year - fromYear.Year);
                 year = Math.Abs((double)months / 12);
             }
             catch (Exception)
@@ -262,7 +282,6 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 currentDesiredJobBAL.SaveRoleSkillsBAL(dt);
-
                 Response.Write("<script language='javascript'>alert('Role Skills Details saved successfully')</script>");
             }
             catch (Exception)
@@ -294,7 +313,7 @@ namespace JobFair.UserControls.JobSeeker
             LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
             LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
             LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
-
+            // Check repeater commond for edit
             if (e.CommandName == "edit")
             {
                 lblRoleSkill.Visible = false;
@@ -314,6 +333,7 @@ namespace JobFair.UserControls.JobSeeker
                 lnkUpdate.Visible = true;
                 lnkCancel.Visible = true;
             }
+            // Check repeater commond for update
             if (e.CommandName == "update")
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
@@ -332,6 +352,7 @@ namespace JobFair.UserControls.JobSeeker
 
                 BindRepeaterRoleSkills();
             }
+            // Check repeater commond for delete
             if (e.CommandName == "delete")
             {
                 int SkillId = Convert.ToInt32(e.CommandArgument);
@@ -340,6 +361,7 @@ namespace JobFair.UserControls.JobSeeker
 
                 BindRepeaterRoleSkills();
             }
+            // Check repeater commond for cancel
             if (e.CommandName == "cancel")
             {
                 BindRepeaterRoleSkills();
@@ -348,30 +370,25 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void rptrRoleSkills_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            DataSet ds1 = new DataSet();
+            DataSet dsRoleSkill = new DataSet();
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            ds1 = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
+            dsRoleSkill = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
 
-            string format = Convert.ToString(ds1.Tables[0].Rows[0]["FromDate"]); ;
+            string format = Convert.ToString(dsRoleSkill.Tables[0].Rows[0]["FromDate"]); ;
             string[] Words = format.Split(new char[] { '/' });
             int count = 0;
-            string format1 = Convert.ToString(ds1.Tables[0].Rows[0]["TillDate"]); ;
+            string format1 = Convert.ToString(dsRoleSkill.Tables[0].Rows[0]["TillDate"]); ;
             string[] Words1 = format1.Split(new char[] { '/' });
             int count1 = 0;
 
             DropDownList ddlRoleSkill = (DropDownList)e.Item.FindControl("ddlRoleSkill");
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                //DataSet ds1 = new DataSet();
-
-                //ds1 = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-                //bindState();
-
-                DataSet ds = new DataSet();
-                ds = currentDesiredJobBAL.GetRoleSkillsBAL();
-                if (ds != null)
+                DataSet dsRoles = new DataSet();
+                dsRoles = currentDesiredJobBAL.GetRoleSkillsBAL();
+                if (dsRoles != null)
                 {
-                    ddlRoleSkill.DataSource = ds;
+                    ddlRoleSkill.DataSource = dsRoles;
                     ddlRoleSkill.DataTextField = "RoleName";
                     ddlRoleSkill.DataValueField = "RoleId";
                     ddlRoleSkill.DataBind();

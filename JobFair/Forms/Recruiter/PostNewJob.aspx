@@ -413,7 +413,7 @@
                                 <%-- <asp:DropDownCheckBoxes ID="ddlUGDiploma" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlUGDiploma_SelectedIndexChanged" AutoPostBack="true">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>--%>
-                                <asp:TextBox ID="txtUGD" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtUGD" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 <asp:Button ID="btnUGD" runat="server" Text="Select UG Diploma" OnClick="btnUGD_Click" />
                                 <asp:Panel ID="pnlUGD" runat="server">
                                     <asp:CheckBoxList ID="chklstUGD" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstUGD_SelectedIndexChanged"></asp:CheckBoxList>
@@ -442,7 +442,7 @@
                                 <%-- <asp:DropDownCheckBoxes ID="ddlBachelorsDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlBachelorsDegree_SelectedIndexChanged" AutoPostBack="true" style="top: -1px; left: 2px">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>--%>
-                                <asp:TextBox ID="txtBachelorsDegree" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtBachelorsDegree" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 <asp:Button ID="btnBachelorsDegree" runat="server" Text="Select Bachelors Degree" OnClick="btnBachelorsDegree_Click" />
                                 <asp:Panel ID="pnlBachelorsDegree" runat="server">
                                     <asp:CheckBoxList ID="chklstBachelorsDegree" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstBachelorsDegree_SelectedIndexChanged"></asp:CheckBoxList>
@@ -471,7 +471,7 @@
                                 <%--<asp:DropDownCheckBoxes ID="ddlPGDiploma" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlPGDiploma_SelectedIndexChanged" AutoPostBack="true">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>--%>
-                                <asp:TextBox ID="txtPGDiploma" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPGDiploma" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 <asp:Button ID="btnPGDiploma" runat="server" Text="Select PG Diploma" OnClick="btnPGDiploma_Click" />
                                 <asp:Panel ID="pnlPGDiploma" runat="server">
                                     <asp:CheckBoxList ID="chklstPGDiploma" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstPGDiploma_SelectedIndexChanged"></asp:CheckBoxList>
@@ -500,7 +500,7 @@
                                 <%--<asp:DropDownCheckBoxes ID="ddlMasterDegree" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlMasterDegree_SelectedIndexChanged" AutoPostBack="true">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>--%>
-                                <asp:TextBox ID="txtMasterDegree" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtMasterDegree" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 <asp:Button ID="btnMasterDegree" runat="server" Text="Select Master Degree" OnClick="btnMasterDegree_Click" />
                                 <asp:Panel ID="pnlMasterDegree" runat="server">
                                     <asp:CheckBoxList ID="chklstMasterDegree" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstMasterDegree_SelectedIndexChanged"></asp:CheckBoxList>
@@ -529,7 +529,7 @@
                                 <%-- <asp:DropDownCheckBoxes ID="ddlPHD" runat="server" UseSelectAllNode="false" OnSelectedIndexChanged="ddlPHD_SelectedIndexChanged" AutoPostBack="true">
                                     <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
                                 </asp:DropDownCheckBoxes>--%>
-                                <asp:TextBox ID="txtPHD" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPHD" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 <asp:Button ID="btnPHD" runat="server" Text="Select PHD" OnClick="btnPHD_Click" />
                                 <asp:Panel ID="pnlPHD" runat="server">
                                     <asp:CheckBoxList ID="chklstPHD" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chklstPHD_SelectedIndexChanged"></asp:CheckBoxList>
@@ -554,24 +554,25 @@
             </asp:UpdatePanel>
         </div>
         <div>
-            <h2>Select Questionnaire</h2>
-            <table>
-                <tr>
-                    <td>
-                        <asp:Label ID="lblselectquestionrie" runat="server" Text="Select  Questionnaire"></asp:Label>
-                    </td>
-                    <asp:UpdatePanel ID="UpdatePanel8" runat="server">
-                        <ContentTemplate>
-                            <td>
-                                <asp:DropDownList ID="ddlquestionnaire" runat="server" Style="margin-left: 47px"></asp:DropDownList>
-                                <asp:LinkButton ID="lnkbtnRefresh" runat="server" OnClick="lnkbtnRefresh_Click"><span class="glyphicon glyphicon-refresh"></span></asp:LinkButton>
-                                <asp:LinkButton ID="lnkbtnQuestionary" runat="server" OnClick="LinkButton1_Click">Create Your Questionary</asp:LinkButton>
-                            </td>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </tr>
-            </table>
-        </div>
+            <h2>Select Questionnaireable</h2>
+
+            <div>
+                <asp:Label ID="lblselectquestionrie" runat="server" Text="Select  Questionnaire"></asp:Label>
+            </div>
+             <div>
+            <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+                <ContentTemplate>
+                   
+                        <asp:DropDownList ID="ddlquestionnaire" runat="server" Style="margin-left: 47px"></asp:DropDownList>
+                        <asp:LinkButton ID="lnkbtnRefresh" runat="server" OnClick="lnkbtnRefresh_Click"><span class="glyphicon glyphicon-refresh"></span></asp:LinkButton>
+                        
+                   
+                </ContentTemplate>
+            </asp:UpdatePanel>
+          
+                 <asp:LinkButton ID="lnkbtnQuestionary" runat="server" OnClick="lnkbtnQuestionary_Click1">Create Your Questionary</asp:LinkButton>
+             </div>
+       </div>
     </form>
 </body>
 </html>
