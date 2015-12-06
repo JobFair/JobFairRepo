@@ -33,40 +33,24 @@ namespace BAL
         /// <summary>
         /// Load Languages
         /// </summary>
-        /// <returns>dataset</returns>
+        /// <returns></returns>
         public DataSet GetLanguageBAL()
         {
             return Utility.GetLanguage();
         }
 
-        /// <summary>
-        /// View affirmative details of jobseeker bal
-        /// </summary>
-        /// <param name="candidateId">candidateId</param>
-        /// <returns>dataset</returns>
         public DataSet viewAffirmativeDetailsBAL(string candidateId)
         {
             AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
             return affirmativeDetailsDAL.ViewAffirmativeDetialsDAL(candidateId);
         }
 
-        /// <summary>
-        /// Update affirmative details of jobseeker bal
-        /// </summary>
-        /// <param name="affirmativeDetailsEntity">AffirmativeDetailsEntity</param>
-        /// <returns>bool</returns>
         public bool UpdateAffirmativeDetailsBAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
         {
             AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
             return affirmativeDetailsDAL.UpdateAffirmativeDetailsDAL(affirmativeDetailsEntity);
         }
 
-        /// <summary>
-        /// Update language details of jobseeker bal
-        /// </summary>
-        /// <param name="languageEntity">languageEntity</param>
-        /// <param name="candidateId">candidateId</param>
-        /// <returns>bool</returns>
         public bool UpdateLanguageDetailsBAL(List<LanguageEntity> languageEntity, string candidateId)
         {
             AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();

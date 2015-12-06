@@ -14,7 +14,7 @@ namespace DAL
         /// View Contact Details.
         /// </summary>
         /// <param name="candidateId">for selecting data into database</param>
-        /// <returns>dataset</returns>
+        /// <returns></returns>
         public DataSet ViewContactDetailsDAL(string candidateId)
         {
             DataSet ds = new DataSet();
@@ -61,10 +61,6 @@ namespace DAL
             {
                 //throw;
             }
-            finally
-            {
-                connection.Close();
-            }
             return result;
         }
 
@@ -98,10 +94,6 @@ namespace DAL
             catch (Exception)
             {
                 //throw;
-            }
-            finally
-            {
-                connection.Close();
             }
             return result;
         }

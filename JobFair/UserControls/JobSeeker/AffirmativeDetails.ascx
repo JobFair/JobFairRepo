@@ -98,7 +98,7 @@
         </td>
     </tr>
     <tr>
-         <asp:Panel id="pnlPhysicallyChallenged" runat="server" Visible="false">
+         <asp:Panel id="upPhysicallyChallenged" runat="server" Visible="false">
             <asp:Label ID="lblDescription" runat="server" Text="Description" Visible="false"></asp:Label>
             <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Visible="false"></asp:TextBox>
     </asp:Panel>

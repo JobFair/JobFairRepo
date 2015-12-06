@@ -18,22 +18,12 @@ namespace BAL
             return pdDAL.SavePersonalDetails(personalDetailsEntity);
         }
 
-        /// <summary>
-        /// Update personal details bal
-        /// </summary>
-        /// <param name="personalDetailsEntity">PersonalDetailsJSEntity</param>
-        /// <returns>System.Int32</returns>
         public int UpdatePersonalDetailsBAL(PersonalDetailsJSEntity personalDetailsEntity)
         {
             PersonalDetailsJSDAL pdDAL = new PersonalDetailsJSDAL();
             return pdDAL.UpdatePersonalDetailsDAL(personalDetailsEntity);
         }
 
-        /// <summary>
-        /// View personal details of job seeker bal
-        /// </summary>
-        /// <param name="candidateId">candidateId</param>
-        /// <returns>dataset</returns>
         public DataSet ViewPersonalDetailsBAL(string candidateId)
         {
             PersonalDetailsJSDAL personalDetailsDAL = new PersonalDetailsJSDAL();
@@ -43,8 +33,8 @@ namespace BAL
         /// <summary>
         /// Get Country
         /// </summary>
-        /// <returns>dataset</returns>
-       
+        /// <returns></returns>
+
         public DataSet GetCountry()
         {
             return Utility.GetCountry();
@@ -53,8 +43,8 @@ namespace BAL
         /// <summary>
         /// Get state
         /// </summary>
-        /// <param name="CountryId">CountryId</param>
-        /// <returns>dataset</returns>
+        /// <param name="CountryId"></param>
+        /// <returns></returns>
         public DataSet GetState(int CountryId)
         {
             return Utility.GetState(CountryId);
@@ -63,18 +53,13 @@ namespace BAL
         /// <summary>
         /// Get City
         /// </summary>
-        /// <param name="stateId">StateId</param>
-        /// <returns>dataset</returns>
-        public DataSet GetCity(int stateId)
+        /// <param name="StateId"></param>
+        /// <returns></returns>
+        public DataSet GetCity(int StateId)
         {
-            return Utility.GetCity(stateId);
+            return Utility.GetCity(StateId);
         }
 
-        /// <summary>
-        /// Get area
-        /// </summary>
-        /// <param name="cityId">cityId</param>
-        /// <returns>dataset</returns>
         public DataSet GetArea(int cityId)
         {
             return Utility.GetArea(cityId);

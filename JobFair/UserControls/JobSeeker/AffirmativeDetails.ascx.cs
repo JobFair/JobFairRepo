@@ -9,23 +9,25 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class AffirmativeDetails : System.Web.UI.UserControl
     {
+        private AffirmativeDetailsJSBAL affirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
+        private AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
+        private int languageCount = 0;
         private string candidateId;
         private bool isCheck = true;
         // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check session is not null
             if (Session["candidateId"] != null)
             {
                 if (Session["candidateId"].ToString() != "")
                 {
                     candidateId = Convert.ToString(Session["candidateId"]);
-                    // Check page is not post back
+
                     if (!IsPostBack)
                     {
                         BindLanguages();
-                        // Check the isCheck is true for edit
+
                         if (isCheck)
                         {
                             try
@@ -40,41 +42,32 @@ namespace JobFair.UserControls.JobSeeker
                     }
                 }
             }
-            else
-            {
-                Response.Redirect("LogIn.aspx");
-            }
+
         }
 
-        /// <summary>
-        /// Bind languages
-        /// </summary>
         private void BindLanguages()
         {
             try
             {
-                AffirmativeDetailsJSBAL affirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
+                DataSet ds = new DataSet();
+                ds = affirmativeDetailsBAL.GetLanguageBAL();
 
-                DataSet dsLanguagDetails = new DataSet();
-                dsLanguagDetails = affirmativeDetailsBAL.GetLanguageBAL();
-                int languageCount = 0;
-                // Check dataset is not null
-                if (dsLanguagDetails != null)
+                if (ds != null)
                 {
-                    languageCount = dsLanguagDetails.Tables[0].Rows.Count;
-                    ddlLanguageFirst.DataSource = dsLanguagDetails;
+                    languageCount = ds.Tables[0].Rows.Count;
+                    ddlLanguageFirst.DataSource = ds;
                     ddlLanguageFirst.DataTextField = "LanguageName";
                     ddlLanguageFirst.DataValueField = "LanguageId";
                     ddlLanguageFirst.DataBind();
                     ddlLanguageFirst.Items.Insert(0, new ListItem("--Select--", "0"));
 
-                    ddlLanguageSecond.DataSource = dsLanguagDetails;
+                    ddlLanguageSecond.DataSource = ds;
                     ddlLanguageSecond.DataTextField = "LanguageName";
                     ddlLanguageSecond.DataValueField = "LanguageId";
                     ddlLanguageSecond.DataBind();
                     ddlLanguageSecond.Items.Insert(0, new ListItem("--Select--", "0"));
 
-                    ddlLanguageThird.DataSource = dsLanguagDetails;
+                    ddlLanguageThird.DataSource = ds;
                     ddlLanguageThird.DataTextField = "LanguageName";
                     ddlLanguageThird.DataValueField = "LanguageId";
                     ddlLanguageThird.DataBind();
@@ -87,47 +80,33 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Bind affirmative details for edit
-        /// </summary>
-        /// <param name="candidateId">candidateId</param>
         private void BindAffirmativeDetails(string candidateId)
         {
             try
             {
-                AffirmativeDetailsJSBAL affirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
-                AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
                 DataSet dsAffirmativeDetails = new DataSet();
                 dsAffirmativeDetails = affirmativeDetailsBAL.viewAffirmativeDetailsBAL(candidateId);
-                bool isSelected, languageWrite, languageSpeak, languageSecond, writeSecond, speakSecond, languageThird, writeThird, speakThird;
-                string physicallyChallenged, USApermit;
-                // Check dataset is not null
                 if (dsAffirmativeDetails != null)
                 {
-                    // Check the count than zero
                     if (dsAffirmativeDetails.Tables.Count > 0)
                     {
-                        // Check rows greater than zero
                         if (dsAffirmativeDetails.Tables[0].Rows.Count > 0)
                         {
                             ddlLanguageFirst.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageId"]);
                             ddlProficiencyFirst.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["ProficiencyLevel"]);
-                            isSelected = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageRead"]);
-                            // Check if isSelected is true
+                            bool isSelected = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageRead"]);
                             if (isSelected == true)
                             {
                                 chkReadFirst.Checked = true;
                             }
 
-                            languageWrite = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageWrite"]);
-                            // Check if languageWrite is true
+                            bool languageWrite = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageWrite"]);
                             if (languageWrite == true)
                             {
                                 chkWriteFirst.Checked = true;
                             }
 
-                            languageSpeak = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageSpeak"]);
-                            // Check if languageSpeck is true
+                            bool languageSpeak = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[0]["LanguageSpeak"]);
                             if (languageSpeak == true)
                             {
                                 chkSpeakFirst.Checked = true;
@@ -135,22 +114,19 @@ namespace JobFair.UserControls.JobSeeker
 
                             ddlLanguageSecond.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageId"]);
                             ddlProficiencySecond.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[1]["ProficiencyLevel"]);
-                            languageSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageRead"]);
-                            // Check if secondLanguage is true
+                            bool languageSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageRead"]);
                             if (languageSecond == true)
                             {
                                 chkReadSecond.Checked = true;
                             }
 
-                            writeSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageWrite"]);
-                            //  Check if WriteSecond is true
+                            bool writeSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageWrite"]);
                             if (writeSecond == true)
                             {
                                 chkWriteSecond.Checked = true;
                             }
 
-                            speakSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageSpeak"]);
-                            // Check if speakSecond is true
+                            bool speakSecond = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[1]["LanguageSpeak"]);
                             if (speakSecond == true)
                             {
                                 chkSpeakSecond.Checked = true;
@@ -158,40 +134,36 @@ namespace JobFair.UserControls.JobSeeker
 
                             ddlLanguageThird.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageId"]);
                             ddlProficiencyThird.SelectedValue = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[2]["ProficiencyLevel"]);
-                            languageThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageRead"]);
-                            //  Check if languageThird is true
+                            bool languageThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageRead"]);
                             if (languageThird == true)
                             {
                                 chkReadThird.Checked = true;
                             }
 
-                            writeThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageWrite"]);
-                            // Check if writeThird is true
+                            bool writeThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageWrite"]);
                             if (writeThird == true)
                             {
                                 chkWriteThird.Checked = true;
                             }
 
-                            speakThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageSpeak"]);
-                            // Check if speakThird is true
+                            bool speakThird = Convert.ToBoolean(dsAffirmativeDetails.Tables[0].Rows[2]["LanguageSpeak"]);
                             if (speakThird == true)
                             {
                                 chkSpeakThird.Checked = true;
                             }
 
-                            physicallyChallenged = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["PhysicallyChallenged"]);
+                            string physicallyChallenged = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["PhysicallyChallenged"]);
                             rbtPhysicallyChallenged.Items.FindByText(physicallyChallenged).Selected = true;
-                            // Check if physicallychallenge is true
                             if (physicallyChallenged == "Yes")
                             {
-                                pnlPhysicallyChallenged.Visible = true;
+                                upPhysicallyChallenged.Visible = true;
                             }
                             txtDescription.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Description"]);
                             txtSports.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Sports"]);
                             txtSportsDescription.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["SportsDescription"]);
                             txtHobbies.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Hobbies"]);
                             txtExtraActivity.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["ExtraActivity"]);
-                            USApermit = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["USApermit"]);
+                            string USApermit = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["USApermit"]);
                             rbtUSAPermit.Items.FindByValue(USApermit).Selected = true;
                             txtOtherPermit.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["OtherPermits"]);
                         }
@@ -211,14 +183,12 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Check if isCheck is true for update
             if (isCheck)
             {
                 try
                 {
                     List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
-                    AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
-                    AffirmativeDetailsJSBAL affirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
+
                     //set the value of AffirmativeDetailsJSEntity
                     affirmativeDetailsEntity.CandidateId = candidateId;
 
@@ -260,8 +230,11 @@ namespace JobFair.UserControls.JobSeeker
 
                     affirmativeDetailsEntity.PhysicallyChallenged = string.Empty;
                     affirmativeDetailsEntity.PhysicallyChallenged = rbtPhysicallyChallenged.SelectedItem.Text;
-                    // Check if PhysicallyChallenged is visible
-                    if (pnlPhysicallyChallenged.Visible = true)
+                    //if (rbtYes.Checked)
+                    //    affirmativeDetailsEntity.PhysicallyChallenged = "Yes";
+                    //else
+                    //    affirmativeDetailsEntity.PhysicallyChallenged = "No";
+                    if (upPhysicallyChallenged.Visible = true)
                     {
                         affirmativeDetailsEntity.PhysicallyChallenged = rbtPhysicallyChallenged.SelectedItem.Text;
                     }
@@ -283,7 +256,7 @@ namespace JobFair.UserControls.JobSeeker
                     bool isLanguageSaved = affirmativeDetailsBAL.UpdateLanguageDetailsBAL(languageDetailsList, candidateId);
                     // Save affermative Details.
                     bool isOtherDetailsSaved = affirmativeDetailsBAL.UpdateAffirmativeDetailsBAL(affirmativeDetailsEntity);
-                    //
+
                     if (isLanguageSaved == isOtherDetailsSaved)
                     {
                         Response.Write("<script language='javascript'>alert('Affirmative Details Updated')</script>");
@@ -303,8 +276,7 @@ namespace JobFair.UserControls.JobSeeker
                 try
                 {
                     List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
-                    AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
-                    AffirmativeDetailsJSBAL affirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
+
                     //set the value of AffirmativeDetailsJSEntity
                     affirmativeDetailsEntity.CandidateId = candidateId;
 
@@ -346,8 +318,11 @@ namespace JobFair.UserControls.JobSeeker
 
                     affirmativeDetailsEntity.PhysicallyChallenged = string.Empty;
                     affirmativeDetailsEntity.PhysicallyChallenged = rbtPhysicallyChallenged.SelectedItem.Text;
-                    // Check if PhysicallyChallenged is visible
-                    if (pnlPhysicallyChallenged.Visible = true)
+                    //if (rbtYes.Checked)
+                    //    affirmativeDetailsEntity.PhysicallyChallenged = "Yes";
+                    //else
+                    //    affirmativeDetailsEntity.PhysicallyChallenged = "No";
+                    if (upPhysicallyChallenged.Visible = true)
                     {
                         affirmativeDetailsEntity.PhysicallyChallenged = rbtPhysicallyChallenged.SelectedItem.Text;
                     }
@@ -390,13 +365,12 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                // Check if physicallyChallenged selected value equal 1
                 if (rbtPhysicallyChallenged.SelectedValue == "1")
                 {
-                    pnlPhysicallyChallenged.Visible = true;
+                    upPhysicallyChallenged.Visible = true;
                     return;
                 }
-                pnlPhysicallyChallenged.Visible = false;
+                upPhysicallyChallenged.Visible = false;
             }
             catch (Exception)
             {

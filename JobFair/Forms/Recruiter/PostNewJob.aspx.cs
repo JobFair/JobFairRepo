@@ -546,7 +546,18 @@ namespace JobFair.Forms.Recruiter
             pnlCandidateProfile.Visible = false;
         }
 
-       
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            string url = "Questionrie.aspx";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<script type = 'text/javascript'>");
+            sb.Append("window.open('");
+            sb.Append(url);
+            sb.Append("');");
+            sb.Append("</script>");
+            ClientScript.RegisterStartupScript(this.GetType(),
+                    "script", sb.ToString());
+        }
 
         protected void lnkbtnRefresh_Click(object sender, EventArgs e)
         {
@@ -660,22 +671,5 @@ namespace JobFair.Forms.Recruiter
         {
             pnlPHD.Visible = true;
         }
-
-      
-
-        protected void lnkbtnQuestionary_Click1(object sender, EventArgs e)
-        {
-            string url = "Questionrie.aspx";
-            StringBuilder sb = new StringBuilder();
-            sb.Append("<script type = 'text/javascript'>");
-            sb.Append("window.open('");
-            sb.Append(url);
-            sb.Append("');");
-            sb.Append("</script>");
-            ClientScript.RegisterStartupScript(this.GetType(),
-                    "script", sb.ToString());
-        }
-
-       
     }
 }

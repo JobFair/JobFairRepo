@@ -12,20 +12,18 @@ namespace JobFair.UserControls.JobSeeker
     {
         private string candidateId;
         private bool isCheck;
-        private DataSet dsCountry = null;
 
         /// <summary>
         /// Class PersonalDetails
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check session is not null
             if (Session["candidateId"] != null)
             {
                 if (Session["candidateId"].ToString() != "")
                 {
                     candidateId = Convert.ToString(Session["candidateId"]);
-                    // Check page is not post back
+
                     if (!IsPostBack)
                     {
                         GetCountryPresent();
@@ -33,7 +31,6 @@ namespace JobFair.UserControls.JobSeeker
                         GetMonths();
                         GetYear();
                         isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
-                        // Check the isCheck is true for edit
                         if (isCheck)
                         {
                             try
@@ -48,41 +45,28 @@ namespace JobFair.UserControls.JobSeeker
                     }
                 }
             }
-            else
-            {
-                Response.Redirect("LogIn.aspx");
-            }
         }
 
-        /// <summary>
-        /// Bind personal details for edit
-        /// </summary>
         private void BindPersonalDetails()
         {
             try
             {
                 string date, maritalStatus, format;
-                int countryId, stateId, cityId, permCountryId, permStateId, permCityId, count = 0;
                 DataSet dsPersonalDetails = new DataSet();
                 PersonalDetailsJSBAL personalDetailsJSBAL = new PersonalDetailsJSBAL();
                 dsPersonalDetails = personalDetailsJSBAL.ViewPersonalDetailsBAL(candidateId);
-                // Check dataset is not null
                 if (dsPersonalDetails != null)
                 {
-                    // Check the count than zero
                     if (dsPersonalDetails.Tables.Count > 0)
                     {
-                        // Check rows greater than zero
                         if (dsPersonalDetails.Tables[0].Rows.Count > 0)
                         {
                             FileUploadPhoto.Visible = false;
                             imgPersonalPhoto.Visible = true;
                             lnkbtnEdit.Visible = true;
-
                             DataSet dsPersentState = new DataSet();
-                            countryId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PresentCountryId"]);
+                            int countryId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PresentCountryId"]);
                             dsPersentState = personalDetailsJSBAL.GetState(countryId);
-                            // Check dsPresentState is not null
                             if (dsPersentState != null)
                             {
                                 ddlStatePresent.DataSource = dsPersentState;
@@ -92,9 +76,8 @@ namespace JobFair.UserControls.JobSeeker
                             }
 
                             DataSet dsPersentCity = new DataSet();
-                            stateId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PresentStateId"]);
+                            int stateId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PresentStateId"]);
                             dsPersentCity = personalDetailsJSBAL.GetCity(stateId);
-                            // Check dsPresentCity is not null
                             if (dsPersentCity != null)
                             {
                                 ddlCityPresent.DataSource = dsPersentCity;
@@ -104,9 +87,8 @@ namespace JobFair.UserControls.JobSeeker
                             }
 
                             DataSet dsPersentArea = new DataSet();
-                            cityId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PresentCityId"]);
+                            int cityId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PresentCityId"]);
                             dsPersentArea = personalDetailsJSBAL.GetArea(cityId);
-                            // Check dsPresentArea is not null
                             if (dsPersentArea != null)
                             {
                                 ddlAreaPresent.DataSource = dsPersentArea;
@@ -116,9 +98,8 @@ namespace JobFair.UserControls.JobSeeker
                             }
 
                             DataSet dsPermanentState = new DataSet();
-                            permCountryId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PermantCountryId"]);
+                            int permCountryId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PermantCountryId"]);
                             dsPermanentState = personalDetailsJSBAL.GetState(permCountryId);
-                            // Check dsPermanentState is not null
                             if (dsPermanentState != null)
                             {
                                 ddlStatePerm.DataSource = dsPermanentState;
@@ -128,9 +109,8 @@ namespace JobFair.UserControls.JobSeeker
                             }
 
                             DataSet dsPermanentCity = new DataSet();
-                            permStateId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PermantStateId"]);
+                            int permStateId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PermantStateId"]);
                             dsPermanentCity = personalDetailsJSBAL.GetCity(permStateId);
-                            // Check dsPermanentCity is not null
                             if (dsPermanentCity != null)
                             {
                                 ddlCityPerm.DataSource = dsPermanentCity;
@@ -140,9 +120,8 @@ namespace JobFair.UserControls.JobSeeker
                             }
 
                             DataSet dsPermanentArea = new DataSet();
-                            permCityId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PermantCityId"]);
+                            int permCityId = Convert.ToInt32(dsPersonalDetails.Tables[0].Rows[0]["PermantCityId"]);
                             dsPermanentArea = personalDetailsJSBAL.GetArea(permCityId);
-                            // Check dsPermanentArea is not null
                             if (dsPermanentArea != null)
                             {
                                 ddlAreaPerm.DataSource = dsPermanentArea;
@@ -174,7 +153,7 @@ namespace JobFair.UserControls.JobSeeker
 
                             format = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]); ;
                             string[] Words = format.Split(new char[] { '/' });
-
+                            int count = 0;
                             foreach (string Word in Words)
                             {
                                 count += 1;
@@ -193,9 +172,6 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Bind Years
-        /// </summary>
         private void GetYear()
         {
             try
@@ -211,9 +187,6 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Bind Months
-        /// </summary>
         private void GetMonths()
         {
             try
@@ -229,10 +202,6 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Get years in List
-        /// </summary>
-        /// <returns></returns>
         private static List<string> GetYears()
         {
             try
@@ -249,19 +218,16 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Bind Country to ddlCountryPresent list
-        /// </summary>
         private void GetCountryPresent()
         {
             try
             {
                 PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
-                dsCountry = personalDetailsBAL.GetCountry();
-                // Check dataset is not null
-                if (dsCountry != null)
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetCountry();
+                if (ds != null)
                 {
-                    ddlCountryPresent.DataSource = dsCountry;
+                    ddlCountryPresent.DataSource = ds;
                     ddlCountryPresent.DataTextField = "CountryName";
                     ddlCountryPresent.DataValueField = "CountryId";
                     ddlCountryPresent.DataBind();
@@ -274,19 +240,16 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Bind country to ddlCountryPerm list
-        /// </summary>
         private void GetCountryPerm()
         {
             try
             {
                 PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
-                dsCountry = personalDetailsBAL.GetCountry();
-                // Check dataset is not null
-                if (dsCountry != null)
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetCountry();
+                if (ds != null)
                 {
-                    ddlCountryPerm.DataSource = dsCountry;
+                    ddlCountryPerm.DataSource = ds;
                     ddlCountryPerm.DataTextField = "CountryName";
                     ddlCountryPerm.DataValueField = "CountryId";
                     ddlCountryPerm.DataBind();
@@ -306,7 +269,6 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Check isCheck is true for update personal details
             if (isCheck)
             {
                 try
@@ -340,7 +302,7 @@ namespace JobFair.UserControls.JobSeeker
                     {
                         objPersonalDetailsEntity.photo = Path.GetFileName(imgPersonalPhoto.ImageUrl);
                     }
-                    // Check if radio button checked
+
                     if (rbtPassportYes.Checked)
                     {
                         string validity = ddlMonth.SelectedItem.Text + '/' + ddlYear.SelectedItem.Text;
@@ -354,7 +316,6 @@ namespace JobFair.UserControls.JobSeeker
                     }
                     objPersonalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
                     int result = personalDetailsBAL.UpdatePersonalDetailsBAL(objPersonalDetailsEntity);
-                    // Check if result is greater than zero or not
                     if (result > 0)
                     {
                         Response.Write("<script language='javascript'>alert('Personal Details Updated')</script>");
@@ -371,7 +332,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             else
             {
-              
+                //bool validated = false;
                 try
                 {
                     PersonalDetailsJSEntity personalDetailsEntity = new PersonalDetailsJSEntity();
@@ -399,7 +360,7 @@ namespace JobFair.UserControls.JobSeeker
                         personalDetailsEntity.photo = Path.GetFileName(FileUploadPhoto.PostedFile.FileName);
                         FileUploadPhoto.SaveAs(Server.MapPath("~/UploadImages/" + personalDetailsEntity.photo));
                     }
-                    // Check if radio button checked
+
                     if (rbtPassportYes.Checked)
                     {
                         string validity = ddlMonth.SelectedItem.Text + '/' + ddlYear.SelectedItem.Text;
@@ -413,7 +374,6 @@ namespace JobFair.UserControls.JobSeeker
                     }
                     personalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
                     int result = personalDetailsBAL.SavePersonalDetailsBAL(personalDetailsEntity);
-                    // Check if result is greater than zero or not
                     if (result > 0)
                     {
                         Response.Write("<script language='javascript'>alert('Personal Details Inserted')</script>");
@@ -425,7 +385,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 catch (Exception ex)
                 {
-                    // throw;
+                    //throw;
                 }
             }
         }
@@ -441,12 +401,11 @@ namespace JobFair.UserControls.JobSeeker
             {
                 PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int CountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
-                DataSet dsStatePresent = new DataSet();
-                dsStatePresent = personalDetailsBAL.GetState(CountryId);
-                // Check if dataset is not null
-                if (dsStatePresent != null)
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetState(CountryId);
+                if (ds != null)
                 {
-                    ddlStatePresent.DataSource = dsStatePresent;
+                    ddlStatePresent.DataSource = ds;
                     ddlStatePresent.DataTextField = "StateName";
                     ddlStatePresent.DataValueField = "StateId";
                     ddlStatePresent.DataBind();
@@ -470,12 +429,11 @@ namespace JobFair.UserControls.JobSeeker
             {
                 PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int StateId = Convert.ToInt32(ddlStatePresent.SelectedValue);
-                DataSet dsCityPresent = new DataSet();
-                dsCityPresent = personalDetailsBAL.GetCity(StateId);
-                // Check if dataset is not null
-                if (dsCityPresent != null)
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetCity(StateId);
+                if (ds != null)
                 {
-                    ddlCityPresent.DataSource = dsCityPresent;
+                    ddlCityPresent.DataSource = ds;
                     ddlCityPresent.DataTextField = "cityName";
                     ddlCityPresent.DataValueField = "cityID";
                     ddlCityPresent.DataBind();
@@ -499,12 +457,11 @@ namespace JobFair.UserControls.JobSeeker
             {
                 PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int CountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);
-                DataSet dsStatePerm = new DataSet();
-                dsStatePerm = personalDetailsBAL.GetState(CountryId);
-                // Check if dataset is not null
-                if (dsStatePerm != null)
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetState(CountryId);
+                if (ds != null)
                 {
-                    ddlStatePerm.DataSource = dsStatePerm;
+                    ddlStatePerm.DataSource = ds;
                     ddlStatePerm.DataTextField = "StateName";
                     ddlStatePerm.DataValueField = "StateId";
                     ddlStatePerm.DataBind();
@@ -528,12 +485,11 @@ namespace JobFair.UserControls.JobSeeker
             {
                 PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int StateId = Convert.ToInt32(ddlStatePerm.SelectedValue);
-                DataSet dsCityPerm = new DataSet();
-                dsCityPerm = personalDetailsBAL.GetCity(StateId);
-                // Check if dataset is not null
-                if (dsCityPerm != null)
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetCity(StateId);
+                if (ds != null)
                 {
-                    ddlCityPerm.DataSource = dsCityPerm;
+                    ddlCityPerm.DataSource = ds;
                     ddlCityPerm.DataTextField = "cityName";
                     ddlCityPerm.DataValueField = "cityID";
                     ddlCityPerm.DataBind();
@@ -594,12 +550,11 @@ namespace JobFair.UserControls.JobSeeker
             {
                 PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int cityId = Convert.ToInt32(ddlCityPresent.SelectedValue);
-                DataSet dsAreaPresent = new DataSet();
-                dsAreaPresent = personalDetailsBAL.GetArea(cityId);
-                // Check if dataset is not null
-                if (dsAreaPresent != null)
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetArea(cityId);
+                if (ds != null)
                 {
-                    ddlAreaPresent.DataSource = dsAreaPresent;
+                    ddlAreaPresent.DataSource = ds;
                     ddlAreaPresent.DataTextField = "AreaName";
                     ddlAreaPresent.DataValueField = "AreaID";
                     ddlAreaPresent.DataBind();
@@ -618,12 +573,11 @@ namespace JobFair.UserControls.JobSeeker
             {
                 PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
                 int cityId = Convert.ToInt32(ddlCityPerm.SelectedValue);
-                DataSet dsAreaPerm = new DataSet();
-                dsAreaPerm = personalDetailsBAL.GetArea(cityId);
-                // Check if dataset is not null
-                if (dsAreaPerm != null)
+                DataSet ds = new DataSet();
+                ds = personalDetailsBAL.GetArea(cityId);
+                if (ds != null)
                 {
-                    ddlAreaPerm.DataSource = dsAreaPerm;
+                    ddlAreaPerm.DataSource = ds;
                     ddlAreaPerm.DataTextField = "AreaName";
                     ddlAreaPerm.DataValueField = "AreaID";
                     ddlAreaPerm.DataBind();
