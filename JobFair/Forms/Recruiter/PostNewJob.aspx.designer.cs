@@ -616,31 +616,49 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblHSCHead;
         
         /// <summary>
-        /// DropDownCheckBoxes1 control.
+        /// txtHSC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes DropDownCheckBoxes1;
+        protected global::System.Web.UI.WebControls.TextBox txtHSC;
         
         /// <summary>
-        /// selectedItemspanel control.
+        /// btnHSC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel selectedItemspanel;
+        protected global::System.Web.UI.WebControls.Button btnHSC;
         
         /// <summary>
-        /// lbHSC control.
+        /// pnlHSC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbHSC;
+        protected global::System.Web.UI.WebControls.Panel pnlHSC;
+        
+        /// <summary>
+        /// chklstHSC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList chklstHSC;
+        
+        /// <summary>
+        /// CollapsiblePanelExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender1;
         
         /// <summary>
         /// rblHSC control.
@@ -670,31 +688,49 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblUGDHead;
         
         /// <summary>
-        /// ddlUGDiploma control.
+        /// txtUGD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes ddlUGDiploma;
+        protected global::System.Web.UI.WebControls.TextBox txtUGD;
         
         /// <summary>
-        /// panel1 control.
+        /// btnUGD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel1;
+        protected global::System.Web.UI.WebControls.Button btnUGD;
         
         /// <summary>
-        /// lbUGD control.
+        /// pnlUGD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbUGD;
+        protected global::System.Web.UI.WebControls.Panel pnlUGD;
+        
+        /// <summary>
+        /// chklstUGD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList chklstUGD;
+        
+        /// <summary>
+        /// CollapsiblePanelExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender2;
         
         /// <summary>
         /// rblUGD control.
@@ -724,40 +760,49 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblBDHead;
         
         /// <summary>
-        /// ddlBachelorsDegree control.
+        /// txtBachelorsDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes ddlBachelorsDegree;
+        protected global::System.Web.UI.WebControls.TextBox txtBachelorsDegree;
         
         /// <summary>
-        /// panel2 control.
+        /// btnBachelorsDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel2;
+        protected global::System.Web.UI.WebControls.Button btnBachelorsDegree;
         
         /// <summary>
-        /// lbBD control.
+        /// pnlBachelorsDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbBD;
+        protected global::System.Web.UI.WebControls.Panel pnlBachelorsDegree;
         
         /// <summary>
-        /// lblBDTag control.
+        /// chklstBachelorsDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBDTag;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklstBachelorsDegree;
+        
+        /// <summary>
+        /// CollapsiblePanelExtender3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender3;
         
         /// <summary>
         /// rblBD control.
@@ -787,31 +832,49 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblPGDHead;
         
         /// <summary>
-        /// ddlPGDiploma control.
+        /// txtPGDiploma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes ddlPGDiploma;
+        protected global::System.Web.UI.WebControls.TextBox txtPGDiploma;
         
         /// <summary>
-        /// panel3 control.
+        /// btnPGDiploma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel3;
+        protected global::System.Web.UI.WebControls.Button btnPGDiploma;
         
         /// <summary>
-        /// lbPGD control.
+        /// pnlPGDiploma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbPGD;
+        protected global::System.Web.UI.WebControls.Panel pnlPGDiploma;
+        
+        /// <summary>
+        /// chklstPGDiploma control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList chklstPGDiploma;
+        
+        /// <summary>
+        /// CollapsiblePanelExtender4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender4;
         
         /// <summary>
         /// rblPGD control.
@@ -841,31 +904,49 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblMDHead;
         
         /// <summary>
-        /// ddlMasterDegree control.
+        /// txtMasterDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes ddlMasterDegree;
+        protected global::System.Web.UI.WebControls.TextBox txtMasterDegree;
         
         /// <summary>
-        /// panel4 control.
+        /// btnMasterDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel4;
+        protected global::System.Web.UI.WebControls.Button btnMasterDegree;
         
         /// <summary>
-        /// lbMD control.
+        /// pnlMasterDegree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbMD;
+        protected global::System.Web.UI.WebControls.Panel pnlMasterDegree;
+        
+        /// <summary>
+        /// chklstMasterDegree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList chklstMasterDegree;
+        
+        /// <summary>
+        /// CollapsiblePanelExtender5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender5;
         
         /// <summary>
         /// rblMD control.
@@ -895,40 +976,85 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblPHDHead;
         
         /// <summary>
-        /// ddlPHD control.
+        /// txtPHD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Saplin.Controls.DropDownCheckBoxes ddlPHD;
+        protected global::System.Web.UI.WebControls.TextBox txtPHD;
         
         /// <summary>
-        /// panel5 control.
+        /// btnPHD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel5;
+        protected global::System.Web.UI.WebControls.Button btnPHD;
         
         /// <summary>
-        /// lbPHD control.
+        /// pnlPHD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbPHD;
+        protected global::System.Web.UI.WebControls.Panel pnlPHD;
         
         /// <summary>
-        /// rblPHDHead control.
+        /// chklstPHD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblPHDHead;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklstPHD;
+        
+        /// <summary>
+        /// CollapsiblePanelExtender6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender6;
+        
+        /// <summary>
+        /// UpdatePanel7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel7;
+        
+        /// <summary>
+        /// chkCandidateProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkCandidateProfile;
+        
+        /// <summary>
+        /// pnlCandidateProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCandidateProfile;
+        
+        /// <summary>
+        /// txtCandidateProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCandidateProfile;
         
         /// <summary>
         /// lblselectquestionrie control.
@@ -940,6 +1066,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblselectquestionrie;
         
         /// <summary>
+        /// UpdatePanel8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel8;
+        
+        /// <summary>
         /// ddlquestionnaire control.
         /// </summary>
         /// <remarks>
@@ -947,5 +1082,23 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlquestionnaire;
+        
+        /// <summary>
+        /// lnkbtnRefresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnRefresh;
+        
+        /// <summary>
+        /// lnkbtnQuestionary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnQuestionary;
     }
 }

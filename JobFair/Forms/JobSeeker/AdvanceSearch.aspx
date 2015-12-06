@@ -50,7 +50,7 @@
                               <div>
                                      
                                     <%--<asp:TextBox runat="server" ID="txtarea" ReadOnly="true"/>--%>
-                                   <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px"></asp:TextBox>
+                                   <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px" ></asp:TextBox>
                                      <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click"/>
                                   <asp:Panel ID="Panelarea" runat="server" Visible="false">
                                       <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chkarea_SelectedIndexChanged"></asp:CheckBoxList>

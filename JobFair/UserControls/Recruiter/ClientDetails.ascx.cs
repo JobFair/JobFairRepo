@@ -3,6 +3,7 @@ using Entities.Recruiter;
 using System;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Linq;
 
 namespace JobFair.Forms.Recruiter
 {
@@ -35,9 +36,10 @@ namespace JobFair.Forms.Recruiter
             ddlFunctionalArea.DataValueField = "FunctionalAreaId";
             ddlFunctionalArea.DataTextField = "FunctionalArea";
             ddlFunctionalArea.DataBind();
-          //  ddlDualBD.Items.Insert(Convert.ToInt32(ddlDualBD.Items[ddlDualBD.Items.Count - 1].Value), new ListItem("----Other----", ""));
-            ddlFunctionalArea.Items.Insert(Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count-1].Value), new ListItem("----Other----", ""));
             ddlFunctionalArea.Items.Insert(0, new ListItem("--Select--", "0"));
+            // ddlDualBD.Items.Insert(Convert.ToInt32(ddlDualBD.Items[ddlDualBD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+          //  ddlFunctionalArea.Items.Insert(Convert.ToInt32(ddlFunctionalArea.Items[ddlFunctionalArea.Items.Count-1].Value), new ListItem("----Other----", ""));
+            
         }
 
         /// <summary>
@@ -83,7 +85,7 @@ namespace JobFair.Forms.Recruiter
         }
 
         /// <summary>
-        ///ddlCountry_SelectedIndexChanged for selection of state on basis of Countryid
+        /// ddlCountry_SelectedIndexChanged for selection of state on basis of Countryid
         /// </summary>
         /// <param name="sender">The soure of event</param>
         /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
@@ -99,7 +101,7 @@ namespace JobFair.Forms.Recruiter
         }
 
         /// <summary>
-        ///
+        /// Click event of btnCancel control
         /// </summary>
         /// <param name="sender">The soure of event</param>
         /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
@@ -131,7 +133,11 @@ namespace JobFair.Forms.Recruiter
                 clientDetailsEntity.ContactDetails = txtOfficialContact.Text.Trim();
                 clientDetailsEntity.AgreementDate = Convert.ToDateTime(txtAgreementdate.Text);
                 clientDetailsEntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
-                clientDetailsEntity.PaymentDetails = chklistPaymentDetails.SelectedItem.Value;
+
+                var paymentdetails = chklistPaymentDetails.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                string payment = "," + string.Join(",", paymentdetails.Select(x => x.Text)) + ",";
+
+                clientDetailsEntity.PaymentDetails = payment;
                 clientDetailsEntity.PaymentTerms = txtPaymentTerms.Text.Trim();
                 //Saving data to the database
                 int result = clientDetailsBAL.SaveClientDetailsBAL(clientDetailsEntity);
@@ -166,7 +172,7 @@ namespace JobFair.Forms.Recruiter
         }
 
         /// <summary>
-        ///Adding new Functional Area in database
+        /// Adding new Functional Area in database
         /// </summary>
         /// <param name="sender">The source of event</param>
         /// <param name="e">the<see cref="EventArgs"/>containing event data</param>
