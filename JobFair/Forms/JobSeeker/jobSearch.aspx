@@ -180,7 +180,7 @@
                                                 <tr>
                                                <td>
                                             Work Experience&nbsp;&nbsp;
-                                        <asp:Label ID="lblJobDescription" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                                        <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                       
                                                </td>
@@ -250,13 +250,12 @@
                                </tr>
                            </table>
                        </td>
-                   </tr>                   </ItemTemplate>
-              
-                    <FooterTemplate>
-                        </table>
+                   </tr>    
+                     </ItemTemplate>
+                   <FooterTemplate>
+                    </table>
                     </FooterTemplate>
-                 
-                </asp:Repeater>
+                   </asp:Repeater>
             </div>
            
         </div>
