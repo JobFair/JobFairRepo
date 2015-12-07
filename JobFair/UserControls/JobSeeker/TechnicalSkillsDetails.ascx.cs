@@ -28,7 +28,7 @@ namespace JobFair.UserControls.JobSeeker
             {
                 if (!IsPostBack)
                 {
-                    if (isCheck)
+                    if (!isCheck)
                     {
                         string candidateId = "JS3";
                         BindRepeaterTechnicalSkills();
@@ -246,7 +246,6 @@ namespace JobFair.UserControls.JobSeeker
             }
             return year.ToString();
         }
-
         /// <summary>
         /// Handles the Click event of btnSaveSkills Control
         /// </summary>
