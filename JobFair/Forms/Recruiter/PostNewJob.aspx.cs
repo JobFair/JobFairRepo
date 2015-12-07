@@ -27,6 +27,7 @@ namespace JobFair.Forms.Recruiter
                     BindBachelorDegree();
                     BindQuestions();
                     BindState();
+                    BindClientName();
                 }
                 catch (Exception)
                 {
@@ -102,6 +103,31 @@ namespace JobFair.Forms.Recruiter
             //    }
 
             // }
+        }
+
+        private void BindClientName()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
+                ds = postnewjobBAL.GetClientName();
+                if (ds != null)
+                {
+                    ddlclientname.DataSource = ds;
+                    ddlclientname.DataTextField = "ClientName";
+                    ddlclientname.DataValueField = "ClientId";
+                    ddlclientname.DataBind();
+                    ddlclientname.Items.Insert(0, new ListItem("-----select--------", "0"));
+
+
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         private void BindState()

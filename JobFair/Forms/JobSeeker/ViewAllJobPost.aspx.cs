@@ -87,7 +87,7 @@ namespace JobFair.Forms.JobSeeker
                 throw;
             }
            
-           
+          
 
         }
 
@@ -96,27 +96,25 @@ namespace JobFair.Forms.JobSeeker
             
             try
             {
-
-                string from = ("harshal.logossolutions@gmail.com");
-                string subject = " You applied for" + jobtitle + "at Logos Job Fair on" + DateTime.Now.ToString();
+                string from = "jyoti.logossolutions@gmail.com";
+                string subject = " You applied for "  + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 MailMessage Msg = new MailMessage();
                 Msg.From = new MailAddress(from);
                 Msg.To.Add("saurabh.logossolutions@gmail.com");
-                //StreamReader reader = new StreamReader(Server.MapPath("~/SendMail.html"));
-                //string readFile = reader.ReadToEnd();
-                //string strContent = "Welcome";
-                //strContent = readFile;
-                //strContent = strContent.Replace("[CandidateID]",candidateId);
+                StreamReader reader = new StreamReader(Server.MapPath("~/SendMail.html"));
+                string readFile = reader.ReadToEnd();
+                string strContent = "";
+                strContent = readFile;
+                strContent = strContent.Replace("[CandidateID]", candidateId);
                 Msg.Subject = subject;
-                Msg.Body = content.ToString();
-                //Msg.IsBodyHtml = true;
+                Msg.Body = strContent.ToString();
+                Msg.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
-                smtp.Credentials = new System.Net.NetworkCredential("harshal.logossolutions@gmail.com", "7758892808");
-                smtp.UseDefaultCredentials = true;
                 smtp.Port = 587;
-                smtp.EnableSsl = true;
+                smtp.Credentials = new System.Net.NetworkCredential("jyoti.logossolutions@gmail.com", "@jacksparow");
+              smtp.EnableSsl = true;
                 smtp.Send(Msg);
                 Msg =null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
@@ -134,7 +132,7 @@ namespace JobFair.Forms.JobSeeker
             if (e.CommandName == "apply")
             {
 
-                Label lbl = (Label)e.Item.FindControl("Label2");
+                Label lbl = (Label)e.Item.FindControl("lbljobtitle");
                 jobtitle = lbl.Text;
             }
         }

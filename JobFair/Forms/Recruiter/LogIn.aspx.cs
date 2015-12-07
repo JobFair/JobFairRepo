@@ -24,6 +24,8 @@ namespace JobFair.Forms.Recruiter
                 loginEntity.UserName = txtLoginid.Text.Trim();
                 loginEntity.Password = txtPassword.Text.Trim();
                 string recruiterid = loginBAL.RecruiterLoginBAL(loginEntity);
+
+
                 string from = txtLoginid.Text;
                 string subject = "Logged In";
                 string content = "Helllo....";
