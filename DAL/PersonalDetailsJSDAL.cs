@@ -14,7 +14,7 @@ namespace DAL
         /// Pesonal Details of job seeker
         /// </summary>
         /// <param name="candidateId">Object for view data</param>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet ViewPersonalDetailsDAL(string candidateId)
         {
             DataSet ds = new DataSet();
@@ -69,6 +69,10 @@ namespace DAL
             {
                 // throw ;
             }
+            finally
+            {
+                connection.Close();
+            }
             return result;
         }
 
@@ -110,6 +114,10 @@ namespace DAL
             catch (Exception)
             {
                 //  throw ;
+            }
+            finally
+            {
+                connection.Close();
             }
             return result;
         }

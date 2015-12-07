@@ -17,8 +17,8 @@ namespace DAL
         /// <summary>
         /// Method for converting the object to XML.
         /// </summary>
-        /// <param name="languageDetails"></param>
-        /// <returns></returns>
+        /// <param name="languageDetails">languageDetails</param>
+        /// <returns>xml</returns>
         private string CreateXML(List<LanguageEntity> languageDetails)
         {
             XmlDocument xmlDoc = new XmlDocument();

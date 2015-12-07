@@ -46,7 +46,7 @@
                                 <center><b>Jobs Details</b></center>
                             </td>
                             <td style="float: right; width: 20%">
-                                <center><b>Manage Profile</b></center>
+                                <center><b>Manage Post</b></center>
                             </td>
                         </tr>
                     </table>
