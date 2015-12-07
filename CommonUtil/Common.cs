@@ -368,6 +368,10 @@ namespace CommonUtil
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return ds;
         }
 
@@ -384,6 +388,10 @@ namespace CommonUtil
             catch (Exception)
             {
                 //throw;
+            }
+            finally
+            {
+                connection.Close();
             }
             return ds;
         }

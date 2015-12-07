@@ -13,9 +13,8 @@ namespace JobFair.UserControls.JobSeeker
     /// </summary>
     public partial class TechnicalSkillsDetails : System.Web.UI.UserControl
     {
-        private static double Temp = 0;
         private bool isCheck = true;
-        private string candidateId = "JS3";
+        private string candidateId;
 
         /// <summary>
         /// Handles the Load event of Page
@@ -24,42 +23,62 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check session is not null
+            if (Session["candidateId"] != null)
+            {
+                if (Session["candidateId"].ToString() != "")
+                {
+                    candidateId = Convert.ToString(Session["candidateId"]);
+                    // Check page is not post back
+
+                    if (!IsPostBack)
+                    {
+                        try
+                        {
+                            // Check the isCheck is true for edit
+                            if (isCheck)
+                            {
+                                BindRepeaterTechnicalSkills();
+                                divTechnicalRepeater.Visible = true;
+                            }
+                            else
+                            {
+                                BindTechnicalSkills();
+                                BindMonth();
+                                BindYears();
+                                hfCandidateId.Value = candidateId;
+                                AddTechnicalSkills();
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            //  throw;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Bind repeater to technical skills details
+        /// </summary>
+        private void BindRepeaterTechnicalSkills()
+        {
             try
             {
-                if (!IsPostBack)
+                DataSet dsTechnicalSkills = new DataSet();
+                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+                dsTechnicalSkills = currentDesiredJobBAL.ViewTechnicalSkillDetailsBAL(candidateId);
+                // Check dataset is not null
+                if (dsTechnicalSkills != null)
                 {
-                    if (isCheck)
-                    {
-                        string candidateId = "JS3";
-                        BindRepeaterTechnicalSkills();
-                        divTechnicalRepeater.Visible = true;
-                    }
-                    else
-                    {
-                        BindTechnicalSkills();
-                        BindMonth();
-                        BindYears();
-                        hfCandidateId.Value = "JS3";
-                        AddTechnicalSkills();
-                    }
+                    rptrTechnicalSkills.DataSource = dsTechnicalSkills;
+                    rptrTechnicalSkills.DataBind();
                 }
             }
             catch (Exception)
             {
                 // throw;
-            }
-        }
-
-        private void BindRepeaterTechnicalSkills()
-        {
-            DataSet ds = new DataSet();
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            ds = currentDesiredJobBAL.ViewRepeaterTechSkillDetailsBAL(candidateId);
-            if (ds != null)
-            {
-                rptrTechnicalSkills.DataSource = ds;
-
-                rptrTechnicalSkills.DataBind();
             }
         }
 
@@ -138,12 +157,13 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DataSet ds = new DataSet();
+                DataSet dsTechnicalSkill = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                ds = currentDesiredJobBAL.GetTechnicalSkillsDetailsBAL();
-                if (ds != null)
+                dsTechnicalSkill = currentDesiredJobBAL.GetTechnicalSkillsDetailsBAL();
+                // Check dataset is not null
+                if (dsTechnicalSkill != null)
                 {
-                    ddlTechnicalSkills.DataSource = ds;
+                    ddlTechnicalSkills.DataSource = dsTechnicalSkill;
                     ddlTechnicalSkills.DataValueField = "TechnicalSkillId";
                     ddlTechnicalSkills.DataTextField = "TechnicalSkillName";
                     ddlTechnicalSkills.DataBind();
@@ -181,10 +201,12 @@ namespace JobFair.UserControls.JobSeeker
             string year = TotalYears();
             try
             {
+                // Check if viewstate is not null
                 if (ViewState["SkillDetails"] != null)
                 {
                     DataTable datatable = (DataTable)ViewState["SkillDetails"];
                     DataRow datarow = null;
+                    // Check rows greater than zero
                     if (datatable.Rows.Count > 0)
                     {
                         for (int i = 1; i <= datatable.Rows.Count; i++)
@@ -233,11 +255,12 @@ namespace JobFair.UserControls.JobSeeker
         private string TotalYears()
         {
             double year = 0.0;
+            DateTime fromMonth, tillMonth;
             try
             {
-                DateTime d1 = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
-                DateTime d2 = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
-                int months = (d2.Month - d1.Month) + 12 * (d2.Year - d1.Year);
+                fromMonth = new DateTime(Convert.ToInt32(ddlFromYear.SelectedItem.Text), Convert.ToInt32(ddlFromMonth.SelectedIndex + 1), 1);
+                tillMonth = new DateTime(Convert.ToInt32(ddlTillYear.SelectedItem.Text), Convert.ToInt32(ddlTillMonth.SelectedIndex + 1), 1);
+                int months = (tillMonth.Month - fromMonth.Month) + 12 * (tillMonth.Year - fromMonth.Year);
                 year = Math.Abs((double)months / 12);
             }
             catch (Exception)
@@ -259,7 +282,6 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 currentDesiredJobBAL.SaveTechnicalSkillsBAL(dt);
-
                 Response.Write("<script language='javascript'>alert('Technical Skills Details saved successfully')</script>");
             }
             catch (Exception)
@@ -291,7 +313,7 @@ namespace JobFair.UserControls.JobSeeker
             LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
             LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
             LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
-
+            // Check repeater commond for edit
             if (e.CommandName == "edit")
             {
                 lblTechnicalSkill.Visible = false;
@@ -311,6 +333,7 @@ namespace JobFair.UserControls.JobSeeker
                 lnkUpdate.Visible = true;
                 lnkCancel.Visible = true;
             }
+            // Check repeater commond for update
             if (e.CommandName == "update")
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
@@ -329,6 +352,7 @@ namespace JobFair.UserControls.JobSeeker
 
                 BindRepeaterTechnicalSkills();
             }
+            // Check repeater commond for delete
             if (e.CommandName == "delete")
             {
                 int SkillId = Convert.ToInt32(e.CommandArgument);
@@ -337,42 +361,43 @@ namespace JobFair.UserControls.JobSeeker
 
                 BindRepeaterTechnicalSkills();
             }
+            // Check repeater commond for cancel
             if (e.CommandName == "cancel")
             {
                 BindRepeaterTechnicalSkills();
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void rptrTechnicalSkills_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             try
             {
-                string format, format1;
-                int count, count1;
-                DataSet ds1 = new DataSet();
+                string fromDate, tillDate;
+                int count = 0, count1 = 0;
+                DataSet dsViewTechnicalSkills = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                ds1 = currentDesiredJobBAL.ViewRepeaterTechSkillDetailsBAL(candidateId);
+                dsViewTechnicalSkills = currentDesiredJobBAL.ViewTechnicalSkillDetailsBAL(candidateId);
 
-                format = Convert.ToString(ds1.Tables[0].Rows[0]["FromDate"]); ;
-                string[] Words = format.Split(new char[] { '/' });
-                count = 0;
-                format1 = Convert.ToString(ds1.Tables[0].Rows[0]["TillDate"]); ;
-                string[] Words1 = format1.Split(new char[] { '/' });
-                count1 = 0;
+                fromDate = Convert.ToString(dsViewTechnicalSkills.Tables[0].Rows[0]["FromDate"]); ;
+                string[] Words = fromDate.Split(new char[] { '/' });
+
+                tillDate = Convert.ToString(dsViewTechnicalSkills.Tables[0].Rows[0]["TillDate"]); ;
+                string[] Words1 = tillDate.Split(new char[] { '/' });
 
                 DropDownList ddlTechnicalSkill = (DropDownList)e.Item.FindControl("ddlTechnicalSkill");
                 if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
                 {
-                    //DataSet ds1 = new DataSet();
-
-                    //ds1 = currentDesiredJobBAL.ViewCurrentJobDetailsBAL(candidateId);
-                    //bindState();
-
-                    DataSet ds = new DataSet();
-                    ds = currentDesiredJobBAL.GetTechnicalSkillsDetailsBAL();
-                    if (ds != null)
+                    DataSet dsTechnicalSkills = new DataSet();
+                    dsTechnicalSkills = currentDesiredJobBAL.GetTechnicalSkillsDetailsBAL();
+                    // Check dataset is not null
+                    if (dsTechnicalSkills != null)
                     {
-                        ddlTechnicalSkill.DataSource = ds;
+                        ddlTechnicalSkill.DataSource = dsTechnicalSkills;
                         ddlTechnicalSkill.DataTextField = "TechnicalSkillName";
                         ddlTechnicalSkill.DataValueField = "TechnicalSkillTypeId";
                         ddlTechnicalSkill.DataBind();

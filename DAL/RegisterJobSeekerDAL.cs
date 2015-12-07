@@ -20,6 +20,7 @@ namespace DAL
         /// <returns>System.String</returns>
         public string SaveRegisterNewJobSeekerDAL(RegisterEntity registerEntity)
         {
+            string candidateId = "";
             try
             {
                 connection.Open();
@@ -27,7 +28,7 @@ namespace DAL
                 //Parameters to pass to the stored procedure
 
                 SqlParameter[] sparams = new SqlParameter[11];
-                 
+
                 sparams[0] = new SqlParameter("@fname", registerEntity.FirstName);
                 sparams[1] = new SqlParameter("@lname", registerEntity.LastName);
                 sparams[2] = new SqlParameter("@emailId", registerEntity.EmailId);
@@ -43,21 +44,21 @@ namespace DAL
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRegisterUser, sparams);
 
-                string candidateId = Convert.ToString(sparams[10].Value);
+                candidateId = Convert.ToString(sparams[10].Value);
                 if (string.IsNullOrEmpty(candidateId))
                 {
                     return null;
                 }
-                return candidateId;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                // throw;
             }
             finally
             {
                 connection.Close();
             }
+            return candidateId;
         }
     }
 }

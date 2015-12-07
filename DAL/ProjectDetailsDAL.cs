@@ -13,7 +13,7 @@ namespace DAL
         /// <summary>
         /// Get the functional roles
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet GetRole()
         {
             DataSet ds = new DataSet();
@@ -32,7 +32,7 @@ namespace DAL
         ///  Insert Project Details
         /// </summary>
         /// <param name="dtProjectDetails">Object for inserting data into database</param>
-        /// <returns></returns>
+        /// <returns>datatable</returns>
         public DataTable SaveProjectDetailsDAL(DataTable dtProjectDetails)
         {
             try
@@ -66,6 +66,10 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return dtProjectDetails;
         }
 
@@ -73,7 +77,7 @@ namespace DAL
         /// View Project Details
         /// </summary>
         /// <param name="candidateId">For view specific record from database</param>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet ViewProjectDetailsDAL(string candidateId)
         {
             DataSet ds = new DataSet();
@@ -93,7 +97,7 @@ namespace DAL
         /// Update Project Details
         /// </summary>
         /// <param name="projectDetailsEntity">Object for update data into database</param>
-        /// <returns></returns>
+        /// <returns>system.int32</returns>
         public int UpdateProjectDetailsDAL(ProjectDetailsEntity projectDetailsEntity)
         {
             int result = 0;
@@ -127,6 +131,10 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return result;
         }
 
@@ -134,7 +142,7 @@ namespace DAL
         /// Delete Project Details.
         /// </summary>
         /// <param name="projectId">for delete spefic record from database</param>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet DeleteProjectDetailsDAL(int projectId)
         {
             DataSet ds = new DataSet();

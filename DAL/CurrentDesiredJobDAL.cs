@@ -54,6 +54,10 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return dt;
         }
 
@@ -89,6 +93,10 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return dt;
         }
 
@@ -113,6 +121,10 @@ namespace DAL
             catch (Exception)
             {
                 // throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -150,8 +162,16 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
+        /// <summary>
+        /// Get technical skills details DAL
+        /// </summary>
+        /// <returns>dataset</returns>
         public DataSet GetTechnicalSkillsDetailsDAL()
         {
             DataSet ds = new DataSet();
@@ -164,9 +184,18 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return ds;
         }
 
+        /// <summary>
+        /// Save technical skills DAL
+        /// </summary>
+        /// <param name="dt">dt</param>
+        /// <returns>datatable</returns>
         public DataTable SaveTechnicalSkillsDAL(DataTable dt)
         {
             try
@@ -194,9 +223,17 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return dt;
         }
 
+        /// <summary>
+        /// Get role skills DAL
+        /// </summary>
+        /// <returns>dataset</returns>
         public DataSet GetRoleSkillsDAL()
         {
             DataSet ds = new DataSet();
@@ -209,9 +246,18 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return ds;
         }
 
+        /// <summary>
+        /// Save role skills DAL
+        /// </summary>
+        /// <param name="dt">dt</param>
+        /// <returns>datatable</returns>
         public DataTable SaveRoleSkillsDAL(DataTable dt)
         {
             try
@@ -239,9 +285,18 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return dt;
         }
 
+        /// <summary>
+        /// View current job details DAL
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewCurrentJobDetailsDAL(string candidateId)
         {
             DataSet ds = new DataSet();
@@ -257,7 +312,11 @@ namespace DAL
             return ds;
         }
 
-        public void UpdateJobLookingDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        /// <summary>
+        /// Update job looking for DAL
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">CurrentDesiredJobEntity</param>
+        public void UpdateJobLookingForDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
             {
@@ -276,16 +335,24 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        public void DeleteJobPostLookingForDAL(int JobpostlookingId)
+        /// <summary>
+        /// Delete job post looking for DAL
+        /// </summary>
+        /// <param name="jobPostlookingId">JobpostlookingId</param>
+        public void DeleteJobPostLookingForDAL(int jobPostlookingId)
         {
             try
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
                 connection.Open();
 
-                SqlParameter[] sparams = { new SqlParameter("@JobpostlookingId", JobpostlookingId) };
+                SqlParameter[] sparams = { new SqlParameter("@JobpostlookingId", jobPostlookingId) };
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteJobPostLookingFor, sparams);
             }
@@ -293,9 +360,18 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        public DataSet ViewRepeaterJobPostLookingBAL(string candidateId)
+        /// <summary>
+        /// View jobpost looking for DAL
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewJobPostLookingForDAL(string candidateId)
         {
             DataSet ds = new DataSet();
             try
@@ -311,10 +387,19 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return ds;
         }
 
-        public DataSet ViewRepeaterCurrentPastJobDetailsDAL(string candidateId)
+        /// <summary>
+        /// View current and past job details DAL
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>candidateId</returns>
+        public DataSet ViewCurrentPastJobDetailsDAL(string candidateId)
         {
             DataSet ds = new DataSet();
             try
@@ -330,10 +415,18 @@ namespace DAL
             {
                 //  throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return ds;
         }
 
-        public void UpdateCurrentPastExpDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        /// <summary>
+        /// Update current and past experience details DAL
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">CurrentDesiredJobEntity</param>
+        public void UpdateCurrentPastExperienceDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
             {
@@ -360,8 +453,16 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
+        /// <summary>
+        /// Delete current and past job details DAL
+        /// </summary>
+        /// <param name="expId">expId</param>
         public void DeleteCurrentPastJobDetailsDAL(int expId)
         {
             try
@@ -377,9 +478,18 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        public DataSet ViewRepeaterTechSkillDetailsDAL(string candidateId)
+        /// <summary>
+        /// View technical skills details DAL
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewTechSkillDetailsDAL(string candidateId)
         {
             DataSet ds = new DataSet();
             try
@@ -395,9 +505,17 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return ds;
         }
 
+        /// <summary>
+        /// Update technical skills DAL
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">CurrentDesiredJobEntity</param>
         public void UpdateTechnicalSkillsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
@@ -416,8 +534,16 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
+        /// <summary>
+        /// Delete technical skills DAL
+        /// </summary>
+        /// <param name="SkillId">SkillId</param>
         public void DeleteTechnicalSkillDAL(int SkillId)
         {
             try
@@ -433,10 +559,18 @@ namespace DAL
             {
                 //  throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        // Pending
-        public DataSet ViewRepeaterRoleSkillDetailsDAL(string candidateId)
+        /// <summary>
+        /// View roles skills details DAL
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns></returns>
+        public DataSet ViewRoleSkillDetailsDAL(string candidateId)
         {
             DataSet ds = new DataSet();
             try
@@ -452,9 +586,17 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return ds;
         }
 
+        /// <summary>
+        /// Update roles skills DAL
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">CurrentDesiredJobEntity</param>
         public void UpdateRoleSkillsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
@@ -473,22 +615,34 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        public void DeleteRoleSkillBAL(int SkillId)
+        /// <summary>
+        /// Delete role skills DAL
+        /// </summary>
+        /// <param name="skillId">SkillId</param>
+        public void DeleteRoleSkillDAL(int skillId)
         {
             try
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
                 connection.Open();
 
-                SqlParameter[] sparams = { new SqlParameter("@id", SkillId) };
+                SqlParameter[] sparams = { new SqlParameter("@id", skillId) };
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_DeleteRoleSkill, sparams);
             }
             catch (Exception)
             {
                 // throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

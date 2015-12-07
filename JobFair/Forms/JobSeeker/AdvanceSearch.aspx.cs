@@ -10,15 +10,16 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class AdvanceSearch : System.Web.UI.Page
     {
-        private string candidateId;
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            string candidateId;
+            // Check session is not null
             if (Session["candidateId"] != null)
             {
                 if (Session["candidateId"].ToString() != "")
                 {
                     candidateId = Convert.ToString(Session["candidateId"]);
+                    // Check page is not post back
                     if (!IsPostBack)
                     {
                         try
@@ -33,31 +34,25 @@ namespace JobFair.Forms.JobSeeker
                     }
                 }
             }
-            //if (candidateId == "")
-            //{
-            //    //string message = "Sorry your session has been expired !!!!";
-            //    //string url = "LogIn.aspx";
-            //    //string script = "window.onload = function(){ alert('";
-            //    //script += message;
-            //    //script += "');";
-            //    //script += "window.location = '";
-            //    //script += url;
-            //    //script += "'; }";
-            //    //ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
-            //     Response.Redirect("LogIn.aspx");
-
-            //}
+            else
+            {
+                Response.Redirect("LogIn.aspx");
+            }
         }
 
+        /// <summary>
+        /// Bind industry to chkIndustry
+        /// </summary>
         private void BindIndustry()
         {
             try
             {
-                object ds;
-                ds = AdvanceJobSearchBAL.GetIndustry();
-                if (ds != null)
+                object dsIndustry;
+                dsIndustry = AdvanceJobSearchBAL.GetIndustry();
+                // Check dataset is not null
+                if (dsIndustry != null)
                 {
-                    chkIndustry.DataSource = ds;
+                    chkIndustry.DataSource = dsIndustry;
                     chkIndustry.DataTextField = "IndustryName";
                     chkIndustry.DataValueField = "IndustryId";
                     chkIndustry.DataBind();
@@ -69,16 +64,22 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// On selected index change bind area
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                object ds;
+                object dsArea;
                 int cityId = Convert.ToInt32(ddlCity.SelectedValue);
-                ds = AdvanceJobSearchBAL.GetArea(cityId);
-                if (ds != null)
+                dsArea = AdvanceJobSearchBAL.GetArea(cityId);
+                // Check dataset is not null
+                if (dsArea != null)
                 {
-                    chkarea.DataSource = ds;
+                    chkarea.DataSource = dsArea;
                     chkarea.DataTextField = "AreaName";
                     chkarea.DataValueField = "AreaId";
                     chkarea.DataBind();
@@ -90,16 +91,22 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// On selected index change bind city
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                object ds;
+                object dsCity;
                 int stateId = Convert.ToInt32(ddlState.SelectedValue);
-                ds = AdvanceJobSearchBAL.GetCity(stateId);
-                if (ds != null)
+                dsCity = AdvanceJobSearchBAL.GetCity(stateId);
+                // Check dataset is not null
+                if (dsCity != null)
                 {
-                    ddlCity.DataSource = ds;
+                    ddlCity.DataSource = dsCity;
                     ddlCity.DataTextField = "cityName";
                     ddlCity.DataValueField = "cityID";
                     ddlCity.DataBind();
@@ -120,12 +127,13 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                object ds;
+                object dsState;
                 AdvanceJobSearchBAL advaceJobSearchBAL = new AdvanceJobSearchBAL();
-                ds = advaceJobSearchBAL.GetState();
-                if (ds != null)
+                dsState = advaceJobSearchBAL.GetState();
+                // Check dataset is not null
+                if (dsState != null)
                 {
-                    ddlState.DataSource = ds;
+                    ddlState.DataSource = dsState;
                     ddlState.DataTextField = "StateName";
                     ddlState.DataValueField = "StateId";
                     ddlState.DataBind();
@@ -175,18 +183,19 @@ namespace JobFair.Forms.JobSeeker
         [System.Web.Services.WebMethod]
         public static List<string> GetRoles(string prefixText)
         {
-            DataTable dt = new DataTable();
+            DataTable dtRoles = new DataTable();
 
             AdvanceJobSearchBAL advanceSearchBAL = new AdvanceJobSearchBAL();
-            dt = advanceSearchBAL.GetRoles(prefixText);
+            dtRoles = advanceSearchBAL.GetRoles(prefixText);
             List<string> rolename = new List<string>();
             try
             {
-                if (dt != null)
+                // Check datatable is not null
+                if (dtRoles != null)
                 {
-                    for (int i = 0; i < dt.Rows.Count; i++)
+                    for (int i = 0; i < dtRoles.Rows.Count; i++)
                     {
-                        rolename.Add(dt.Rows[i][1].ToString());
+                        rolename.Add(dtRoles.Rows[i][1].ToString());
                     }
                 }
             }
@@ -203,7 +212,7 @@ namespace JobFair.Forms.JobSeeker
         }
 
         /// <summary>
-        ///  Bind area to checkboxlist
+        ///  On selected index change add area to textbox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -221,7 +230,7 @@ namespace JobFair.Forms.JobSeeker
         }
 
         /// <summary>
-        /// Bind industry to checkboxlist
+        ///  On selected index change add industry to textbox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -242,7 +251,5 @@ namespace JobFair.Forms.JobSeeker
         {
             Panelarea.Visible = true;
         }
-
-      
     }
 }

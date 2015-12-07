@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities.JobSeeker;
-using System.Data.SqlClient;
+﻿using Entities.JobSeeker;
+using System;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     public class ChangeLoginDetailsDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         /// <summary>
         /// Method in ChangeLoginDetailsDAL class to get login details
         /// </summary>
@@ -20,21 +17,24 @@ namespace DAL
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetLoginDetailsDAL(string candidateId)
         {
+            DataSet datasetLoginDetails = new DataSet();
             try
             {
                 connection.Open();
-                DataSet datasetLoginDetails = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
                 datasetLoginDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectLoginDetails, sparams);
-
-                return datasetLoginDetails;
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
+            return datasetLoginDetails;
         }
+
         /// <summary>
         /// Method in ChangeLoginDetailsDAL class to change Primary Mail ID
         /// </summary>
@@ -47,16 +47,20 @@ namespace DAL
                 SqlParameter[] sparams = new SqlParameter[2];
                 sparams[0] = new SqlParameter("@candidateId", changeLoginDetailsEntity.CandidateId);
                 sparams[1] = new SqlParameter("@mailId", changeLoginDetailsEntity.MailId);
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_ChangePrimaryMailID,sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_ChangePrimaryMailID, sparams);
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
+
         /// <summary>
-        /// Method in ChangeLoginDetailsDAL class to change Primary mobile number 
+        /// Method in ChangeLoginDetailsDAL class to change Primary mobile number
         /// </summary>
         /// <param name="changeLoginDetailsEntity">Entity of of change login details</param>
         public void ChangePrimaryMobileNoDAL(ChangeLoginDetailsEntity changeLoginDetailsEntity)
@@ -67,14 +71,18 @@ namespace DAL
                 SqlParameter[] sparams = new SqlParameter[2];
                 sparams[0] = new SqlParameter("@candidateId", changeLoginDetailsEntity.CandidateId);
                 sparams[1] = new SqlParameter("@mobileNo", changeLoginDetailsEntity.MobileNo);
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_ChangePrimaryMobileNo,sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_ChangePrimaryMobileNo, sparams);
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
+
         /// <summary>
         /// Method in ChangeLoginDetailsDAL class to Add New Mail ID
         /// </summary>
@@ -82,39 +90,51 @@ namespace DAL
         /// <returns>System.Int32</returns>
         public int NewMailIdDAL(ChangeLoginDetailsEntity changeLoginDetailsEntity)
         {
+            int result = 0;
             try
             {
-                 connection.Open();
+                connection.Open();
                 SqlParameter[] sparams = new SqlParameter[2];
                 sparams[0] = new SqlParameter("@candidateId", changeLoginDetailsEntity.CandidateId);
                 sparams[1] = new SqlParameter("@mailId", changeLoginDetailsEntity.MailId);
-                return SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_ChangeEmailId,sparams);
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_ChangeEmailId, sparams);
             }
             catch (Exception)
-            {                
-                throw;
+            {
+                // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
         }
+
         /// <summary>
-        /// Method in ChangeLoginDetailsDAL class to Add new Mobile number 
+        /// Method in ChangeLoginDetailsDAL class to Add new Mobile number
         /// </summary>
         /// <param name="changeLoginDetailsEntity">Entity of of change login details</param>
         /// <returns>System.Int32</returns>
         public int NewMoblieNoDAL(ChangeLoginDetailsEntity changeLoginDetailsEntity)
         {
+            int result = 0;
             try
             {
-                 connection.Open();
+                connection.Open();
                 SqlParameter[] sparams = new SqlParameter[2];
                 sparams[0] = new SqlParameter("@candidateId", changeLoginDetailsEntity.CandidateId);
                 sparams[1] = new SqlParameter("@mobileNo", changeLoginDetailsEntity.MobileNo);
-                return SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_ChangeMobileNo,sparams);
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_ChangeMobileNo, sparams);
             }
             catch (Exception)
             {
-                
-                throw;
+                // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
         }
     }
 }

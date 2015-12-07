@@ -1,5 +1,4 @@
 ﻿using DAL;
-using System.Data.SqlClient;
 
 namespace BAL
 {
@@ -15,19 +14,10 @@ namespace BAL
         /// <returns>System.String</returns>
         public string JobSeekerLogIn(Entities.LoginEnitity loginEntity)
         {
-            try
-            {
-                LogInJobSeekerDAL loginDAL = new LogInJobSeekerDAL();
-                return loginDAL.LoginJSDAL(loginEntity);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-         
-           
+            LogInJobSeekerDAL loginDAL = new LogInJobSeekerDAL();
+            return loginDAL.LoginJSDAL(loginEntity);
         }
+
         /// <summary>
         /// Login for recruiter
         /// </summary>
@@ -35,17 +25,8 @@ namespace BAL
         /// <returns>System.String</returns>
         public string RecruiterLoginBAL(Entities.LoginEnitity lnEntity)
         {
-            try
-            {
-                LoginRecruiterDAL loginDAL = new LoginRecruiterDAL();
-                return loginDAL.LoginRecruDAL(lnEntity);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-            
+            LoginRecruiterDAL loginDAL = new LoginRecruiterDAL();
+            return loginDAL.LoginRecruDAL(lnEntity);
         }
     }
 }
