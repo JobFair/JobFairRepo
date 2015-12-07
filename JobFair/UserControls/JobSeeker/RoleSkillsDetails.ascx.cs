@@ -98,6 +98,8 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
+
+
                 // Creating DataTable
                 DataTable datatable = new DataTable();
                 DataRow datarow;

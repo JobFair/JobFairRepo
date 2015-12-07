@@ -17,6 +17,9 @@
                                 <td>
                                     <b>Job Post</b>
                                 </td>
+                                <td>
+                                     <asp:Label ID="lblId" runat="server" Text='<%#Eval("candidateId")%>' Visible="false"></asp:Label>,
+                                </td>
                             </tr>
                         </table>
                     </HeaderTemplate>
