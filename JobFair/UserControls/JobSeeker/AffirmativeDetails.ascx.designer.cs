@@ -220,13 +220,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButtonList rbtPhysicallyChallenged;
         
         /// <summary>
-        /// upPhysicallyChallenged control.
+        /// pnlPhysicallyChallenged control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel upPhysicallyChallenged;
+        protected global::System.Web.UI.WebControls.Panel pnlPhysicallyChallenged;
         
         /// <summary>
         /// lblDescription control.
