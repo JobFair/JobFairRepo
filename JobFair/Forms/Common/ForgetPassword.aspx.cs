@@ -38,7 +38,7 @@ namespace JobFair.Forms.Common
                         email.Subject = "Your Forrget Password:";//Subject for your request
                         email.Body = "Hi,<br/>Your Username is: " + dsForgetPassword.Tables[0].Rows[0]["EmailId"] + "<br/><br/>Your Password is: " + dsForgetPassword.Tables[0].Rows[0]["Password"] + "<br/>";
                         email.IsBodyHtml = true;
-                        //SMTP SERVER DETAILS
+                        // SMTP SERVER DETAILS
                         SmtpClient smtpc = new SmtpClient("smtp.gmail.com");
                         smtpc.Port = 587;
                         smtpc.UseDefaultCredentials = false;

@@ -12,6 +12,11 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// View profile summary dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewProfileDAL(string candidateId)
         {
             // try
@@ -45,6 +50,11 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// View contact details dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewContactDetailsDAL(string candidateId)
         {
             DataSet dsContactDetails = new DataSet();
@@ -60,6 +70,11 @@ namespace DAL
             return dsContactDetails;
         }
 
+        /// <summary>
+        /// View personal details dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewPersonalDetailsDAL(string candidateId)
         {
             DataSet dsPersonalDetails = new DataSet();
@@ -75,6 +90,11 @@ namespace DAL
             return dsPersonalDetails;
         }
 
+        /// <summary>
+        /// View affirmative details dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewAffirmativeDetailsDAL(string candidateId)
         {
             DataSet dsAffirmativeDetails = new DataSet();
@@ -90,6 +110,11 @@ namespace DAL
             return dsAffirmativeDetails;
         }
 
+        /// <summary>
+        /// View project details dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewProjectDetailsDAL(string candidateId)
         {
             DataSet dsProjectDetails = new DataSet();
@@ -105,6 +130,11 @@ namespace DAL
             return dsProjectDetails;
         }
 
+        /// <summary>
+        /// View technical skills dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewTechnicalSkillsDAL(string candidateId)
         {
             DataSet dsViewTechnicalSkills = new DataSet();

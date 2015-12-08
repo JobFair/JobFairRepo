@@ -64,7 +64,6 @@
     <Compile Include="RegisterRecruiterBAL.cs" />
     <Compile Include="RequestEmailJSBAL.cs" />
     <Compile Include="searchRecordBAL.cs" />
-    <Compile Include="TechnicalSkillsDetailsBAL.cs" />
     <Compile Include="ViewProfileJSBAL.cs" />
     <Compile Include="ViewProfileREBAL.cs" />
   </ItemGroup>

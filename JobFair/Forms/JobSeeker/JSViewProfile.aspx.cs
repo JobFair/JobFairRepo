@@ -8,8 +8,10 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check page is not post back
             if (!IsPostBack)
             {
+                // Check session is not null
                 if (Session["candidateId"] != null)
                 {
                     if (Session["candidateId"].ToString() != "")
@@ -19,7 +21,7 @@ namespace JobFair.Forms.JobSeeker
                             string candidateId = Convert.ToString(Session["candidateId"]);
                             BindAllUserDetails(candidateId);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                         }
                     }
@@ -27,6 +29,10 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Bind all users details
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
         private void BindAllUserDetails(string candidateId)
         {
             try
@@ -53,15 +59,21 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Bind technical skills rptrTechnicalSkills control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindTechnicalDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
             {
-                DataSet dsTechnicalSills = new DataSet();
-                dsTechnicalSills = objViewProfile.ViewTechnicalSkillBAL(candidateId);
-                if (dsTechnicalSills != null)
+                DataSet dsTechnicalSkills = new DataSet();
+                dsTechnicalSkills = objViewProfile.ViewTechnicalSkillBAL(candidateId);
+                // Check if dataset is not null
+                if (dsTechnicalSkills != null)
                 {
-                    rptrTechnicalSkills.DataSource = dsTechnicalSills;
+                    rptrTechnicalSkills.DataSource = dsTechnicalSkills;
                     rptrTechnicalSkills.DataBind();
                 }
             }
@@ -71,12 +83,18 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Bind project details to rptrProjectDetails control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindProjectDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
             {
                 DataSet dsProjectDetails = new DataSet();
                 dsProjectDetails = objViewProfile.ViewProjectDetailsBAL(candidateId);
+                // Check if dataset is not null
                 if (dsProjectDetails != null)
                 {
                     rptrProjectDetails.DataSource = dsProjectDetails;
@@ -89,12 +107,18 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// View affirmative details
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindAffirmativeDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
             {
                 DataSet dsAffirmativeDetails = new DataSet();
                 dsAffirmativeDetails = objViewProfile.ViewAffirmativeDetailsBAL(candidateId);
+                // Check if dataset is not null
                 if (dsAffirmativeDetails != null)
                 {
                     if (dsAffirmativeDetails.Tables.Count > 0)
@@ -180,13 +204,18 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// View personal details
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindPersonalDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
             {
                 DataSet dsPersonalDetails = new DataSet();
                 dsPersonalDetails = objViewProfile.ViewPersonalDetailsBAL(candidateId);
-
+                // Check if dataset is not null
                 if (dsPersonalDetails != null)
                 {
                     if (dsPersonalDetails.Tables.Count > 0)
@@ -224,13 +253,18 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// View contact details
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindContactDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
             {
                 DataSet dsContactDetails = new DataSet();
                 dsContactDetails = objViewProfile.ViewContactDetailsBAL(candidateId);
-
+                // Check if dataset is not null
                 if (dsContactDetails != null)
                 {
                     if (dsContactDetails.Tables.Count > 0)
@@ -260,6 +294,11 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// View profile summary
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindProfileDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
@@ -267,6 +306,7 @@ namespace JobFair.Forms.JobSeeker
                 DataSet dsViewProfile = new DataSet();
                 dsViewProfile = objViewProfile.ViewProfileBAL(candidateId);
                 string firstName, lastName, before, after;
+                // Check if dataset is not null
                 if (dsViewProfile != null)
                 {
                     if (dsViewProfile.Tables.Count > 0)

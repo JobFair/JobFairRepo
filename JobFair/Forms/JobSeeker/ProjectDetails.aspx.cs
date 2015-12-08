@@ -47,7 +47,7 @@ namespace JobFair.Forms.JobSeeker
                                 pnlInsert.Visible = true;
                             }
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             //  throw;
                         }
@@ -282,6 +282,7 @@ namespace JobFair.Forms.JobSeeker
                 ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
 
                 dsRoles = projectDetailsBAL.GetRole();
+                // Check if dataset is not null
                 if (dsRoles != null)
                 {
                     ddlRole.DataSource = dsRoles;
@@ -369,7 +370,7 @@ namespace JobFair.Forms.JobSeeker
                             {
                                 drCurrentRow["EmploymentType"] = "FullTime";
                             }
-                            else if (rbtPartTime.Checked)
+                            else
                             {
                                 drCurrentRow["EmploymentType"] = "PartTime";
                             }
@@ -383,7 +384,7 @@ namespace JobFair.Forms.JobSeeker
                             {
                                 drCurrentRow["ProjectLive"] = "Yes";
                             }
-                            else if (rbtNo.Checked)
+                            else
                             {
                                 drCurrentRow["ProjectLive"] = "No";
                             }
@@ -474,10 +475,16 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// On selected index change of rbtProjectTypeList control visible panel
+        /// </summary>
+        /// <param name="sender">The source of the event</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtProjectTypeList_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                // Check if rbtProjectTypeList control value equal to one
                 if (rbtProjectTypeList.SelectedValue == "1")
                 {
                     panelAcademicLevel.Visible = true;
