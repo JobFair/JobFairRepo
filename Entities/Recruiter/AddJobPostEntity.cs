@@ -11,6 +11,7 @@ namespace Entities.Recruiter
     /// </summary>
     public class AddJobPostEntity
     {
+
        
         public string RecruiterID { get; set; }
         public string JobTitle { get; set; }
