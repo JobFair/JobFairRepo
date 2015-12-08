@@ -121,6 +121,7 @@ namespace JobFair.Forms.Recruiter
                 ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
                 ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
                 // Assign values to the entities
+                clientDetailsEntity.RecruiterId = "RE12";
                 clientDetailsEntity.ClientName = txtClientName.Text.Trim();
                 clientDetailsEntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
                 clientDetailsEntity.FunctionalArea = Convert.ToInt32(ddlFunctionalArea.SelectedValue);

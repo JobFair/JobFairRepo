@@ -24,7 +24,7 @@ namespace DAL
                 connection.Open();
                 SqlParameter[] sparam = new SqlParameter[15];
                 //Add parameter for stored procedure
-                sparam[0] = new SqlParameter("@rercruiterid", "RE2");
+                sparam[0] = new SqlParameter("@rercruiterid", clientdetailsEntity.RecruiterId);
                 sparam[1] = new SqlParameter("@clientName", clientdetailsEntity.ClientName);
                 sparam[2] = new SqlParameter("@industry", clientdetailsEntity.Industry);
                 sparam[3] = new SqlParameter("@functuionalarea", clientdetailsEntity.FunctionalArea);

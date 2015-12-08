@@ -20,6 +20,8 @@ namespace Entities.Recruiter
         public string PaymentTerms { get; set; }
 
         public string AddFunctionalArea { get; set; }
-       
+
+
+        public string RecruiterId { get; set; }
     }
 }

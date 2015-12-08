@@ -43,6 +43,7 @@
     <Compile Include="AdvanceSearchDAL.cs" />
     <Compile Include="ChangeLoginDetailsDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />
+    <Compile Include="ManageResponsesDAL.cs" />
     <Compile Include="MoreCertificationDAL.cs" />
     <Compile Include="MoreWorkshopDAL.cs" />
     <Compile Include="PostNewJobDAL.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="RequestEmailJSDAL.cs" />
     <Compile Include="SearchRecord.cs" />
     <Compile Include="SqlHelper.cs" />
-    <Compile Include="TechnicalSkillsDetailsDAL.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
     <Compile Include="ViewProfileJSDAL.cs" />
     <Compile Include="ViewProfileREDAL.cs" />

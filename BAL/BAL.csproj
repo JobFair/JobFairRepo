@@ -51,6 +51,7 @@
     <Compile Include="FeedbackBAL.cs" />
     <Compile Include="JobSearchBAL.cs" />
     <Compile Include="LoginBAL.cs" />
+    <Compile Include="ManageResponsesBAL.cs" />
     <Compile Include="MoreCertificationBAL.cs" />
     <Compile Include="MoreWorkshopBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />
@@ -64,7 +65,6 @@
     <Compile Include="RegisterRecruiterBAL.cs" />
     <Compile Include="RequestEmailJSBAL.cs" />
     <Compile Include="searchRecordBAL.cs" />
-    <Compile Include="TechnicalSkillsDetailsBAL.cs" />
     <Compile Include="ViewProfileJSBAL.cs" />
     <Compile Include="ViewProfileREBAL.cs" />
   </ItemGroup>

@@ -89,7 +89,7 @@
         public static string sp_RE_InsertClientDetails = "sp_RE_InsertClientDetails";
 
         public static string sp_RE_InsertFunctionalArea = "sp_RE_InsertFunctionalArea";
-
+        public static string sp_RE_SelectClients = "sp_RE_SelectClients";
 
 
     }
