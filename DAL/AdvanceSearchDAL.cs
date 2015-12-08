@@ -8,7 +8,10 @@ namespace DAL
     public class AdvanceSearchDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-
+        /// <summary>
+        /// Get state DAL
+        /// </summary>
+        /// <returns>dataset</returns>
         public DataSet GetStateDAL()
         {
             DataSet ds = new DataSet();
@@ -22,7 +25,11 @@ namespace DAL
             }
             return ds;
         }
-
+        /// <summary>
+        /// Get technical skills DAL
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>datatable</returns>
         public DataTable GetTechnicalSkillDAL(string prefixText)
         {
             DataTable dt = new DataTable();
@@ -38,9 +45,17 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return dt;
         }
-
+        /// <summary>
+        /// Get roles DAL
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>datatable</returns>
         public DataTable GetRoles(string prefixText)
         {
             DataTable dt = new DataTable();
@@ -56,10 +71,18 @@ namespace DAL
             {
                 // throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return dt;
         }
-
-        public DataSet Getsearch(Entities.JobSeeker.AdvanceSearchDetailsEntity advanceSearchEntity)
+        /// <summary>
+        /// Search for job
+        /// </summary>
+        /// <param name="advanceSearchEntity">AdvanceSearchDetailsEntity</param>
+        /// <returns>dataset</returns>
+        public DataSet Search(Entities.JobSeeker.AdvanceSearchDetailsEntity advanceSearchEntity)
         {
             connection.Open();
             DataSet dsAdvancesearch = new DataSet();
@@ -84,6 +107,10 @@ namespace DAL
             catch (Exception)
             {
                 //throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
             return dsAdvancesearch;
         }

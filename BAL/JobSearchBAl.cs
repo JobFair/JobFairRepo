@@ -113,7 +113,7 @@ namespace BAL
             try
             {
                 AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
-                return advancesearchDAL.Getsearch(advanceSearchEntity);
+                return advancesearchDAL.Search(advanceSearchEntity);
             
             }
             catch (System.Exception)

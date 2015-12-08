@@ -1,13 +1,14 @@
 ﻿using BAL;
+using Entities.JobSeeker;
 using System;
 using System.Data;
-using Entities.JobSeeker;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class ChangeLoginDetails : System.Web.UI.Page
     {
         private string candidateId;
+
         /// <summary>
         /// Handles Load event of ChangeLoginDetails page
         /// </summary>
@@ -15,26 +16,42 @@ namespace JobFair.Forms.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check session is not null
             if (Session["candidateId"] != null)
             {
                 if (Session["candidateId"].ToString() != "")
                 {
                     candidateId = Convert.ToString(Session["candidateId"]);
-
+                    // Check page is not post back
                     if (!IsPostBack)
                     {
-                     
-                        DataSet datasetLoginDetails = new DataSet();
-                        ChangeLoginDetailsBAL changeLoginDetailsBAL = new ChangeLoginDetailsBAL();
-                        datasetLoginDetails = changeLoginDetailsBAL.GetLoginDetailsBAL(candidateId);
-                        lblLoginMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["EmailId"]);
-                        lblAlternateMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltEmailId"]);
-                        lblPrimaryMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["MobileNo"]);
-                        lblAlternateMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltMobile"]);
+                        try
+                        {
+                            DataSet datasetLoginDetails = new DataSet();
+                            ChangeLoginDetailsBAL changeLoginDetailsBAL = new ChangeLoginDetailsBAL();
+                            datasetLoginDetails = changeLoginDetailsBAL.GetLoginDetailsBAL(candidateId);
+                            // Check dataset is not null
+                            if (datasetLoginDetails != null)
+                            {
+                                lblLoginMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["EmailId"]);
+                                lblAlternateMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltEmailId"]);
+                                lblPrimaryMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["MobileNo"]);
+                                lblAlternateMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltMobile"]);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            //  throw;
+                        }
                     }
                 }
             }
+            else
+            {
+                Response.Redirect("LogIn.aspx");
+            }
         }
+
         /// <summary>
         /// Handles Click event of lnkbtnMakeLoginId control
         /// </summary>
@@ -42,26 +59,28 @@ namespace JobFair.Forms.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void lnkbtnMakeLoginId_Click(object sender, EventArgs e)
         {
-            
             try
             {
-                DataSet datasetLoginDetails = new DataSet();
-                //DataSet datasetUpdateDetails = new DataSet();
+                DataSet dsLoginDetails = new DataSet();
                 ChangeLoginDetailsBAL changeLoginDetailsBAL = new ChangeLoginDetailsBAL();
                 ChangeLoginDetailsEntity changeLoginDetailsEntity = new ChangeLoginDetailsEntity();
-                datasetLoginDetails = changeLoginDetailsBAL.GetLoginDetailsBAL(candidateId);
-                lblLoginMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["EmailId"]);
-                changeLoginDetailsEntity.CandidateId = candidateId;
-                changeLoginDetailsEntity.MailId = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltEmailId"]);
-                changeLoginDetailsBAL.ChangePrimaryMailIdBAL(changeLoginDetailsEntity);
-                Response.Write("<script language='javascript'>alert('Your Primary Mail id changed successfully. Please Refresh Page.')</script>");
-
+                dsLoginDetails = changeLoginDetailsBAL.GetLoginDetailsBAL(candidateId);
+                // Check dataset is not null
+                if (dsLoginDetails != null)
+                {
+                    lblLoginMailId.Text = Convert.ToString(dsLoginDetails.Tables[0].Rows[0]["EmailId"]);
+                    changeLoginDetailsEntity.CandidateId = candidateId;
+                    changeLoginDetailsEntity.MailId = Convert.ToString(dsLoginDetails.Tables[0].Rows[0]["AltEmailId"]);
+                    changeLoginDetailsBAL.ChangePrimaryMailIdBAL(changeLoginDetailsEntity);
+                    Response.Write("<script language='javascript'>alert('Your Primary Mail id changed successfully. Please Refresh Page.')</script>");
+                }
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
+
         /// <summary>
         /// Handles Click event of lnkbtnAlternateMobNo control
         /// </summary>
@@ -71,25 +90,27 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                DataSet datasetLoginDetails = new DataSet();
+                DataSet datasetLoginDetail = new DataSet();
                 //DataSet datasetUpdateMobileDetails = new DataSet();
                 ChangeLoginDetailsBAL changeLoginDetailsBAL = new ChangeLoginDetailsBAL();
                 ChangeLoginDetailsEntity changeLoginDetailsEntity = new ChangeLoginDetailsEntity();
-                datasetLoginDetails = changeLoginDetailsBAL.GetLoginDetailsBAL(candidateId);
-                lblPrimaryMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["MobileNo"]);
-                changeLoginDetailsEntity.CandidateId = candidateId;
-                changeLoginDetailsEntity.MobileNo = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltMobile"]);
-                changeLoginDetailsBAL.ChangePrimaryMobileNoBAL(changeLoginDetailsEntity);
-                Response.Write("<script language='javascript'>alert('Your Primary Mobile number changed successfully. Please Refresh Page.')</script>");
-
-
+                datasetLoginDetail = changeLoginDetailsBAL.GetLoginDetailsBAL(candidateId);
+                // Check dataset is not null
+                if (datasetLoginDetail != null)
+                {
+                    lblPrimaryMobNo.Text = Convert.ToString(datasetLoginDetail.Tables[0].Rows[0]["MobileNo"]);
+                    changeLoginDetailsEntity.CandidateId = candidateId;
+                    changeLoginDetailsEntity.MobileNo = Convert.ToString(datasetLoginDetail.Tables[0].Rows[0]["AltMobile"]);
+                    changeLoginDetailsBAL.ChangePrimaryMobileNoBAL(changeLoginDetailsEntity);
+                    Response.Write("<script language='javascript'>alert('Your Primary Mobile number changed successfully. Please Refresh Page.')</script>");
+                }
             }
             catch (Exception)
             {
-                
-                throw;
+                //  throw;
             }
         }
+
         /// <summary>
         /// Handles Click event of btnAddMailId control
         /// </summary>
@@ -107,10 +128,11 @@ namespace JobFair.Forms.JobSeeker
                 Response.Write("<script language='javascript'>alert('Your New Email Id saved successfully. Please Refresh Page.')</script>");
             }
             catch (Exception)
-            {                
-                throw;
+            {
+                //  throw;
             }
         }
+
         /// <summary>
         /// Handles Click event of btnAddMobileNo control
         /// </summary>
@@ -129,7 +151,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
     }

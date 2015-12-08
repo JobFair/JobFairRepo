@@ -11,7 +11,8 @@ namespace JobFair.Forms.JobSeeker
     public partial class JobSeekerRegister : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        { }
+        { 
+        }
 
         /// <summary>
         /// Handles the Click event of the btnSubmit control.
@@ -22,9 +23,9 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                string uploadFolder, result;
+                string uploadFolder, result, path, extension;
                 RegisterEntity jobSeekerEntity = new RegisterEntity();
-                string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
+                path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
 
                 // Set value to job seeker entity
                 jobSeekerEntity.FirstName = txtFirstName.Text.Trim();
@@ -43,12 +44,13 @@ namespace JobFair.Forms.JobSeeker
                 RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
 
                 result = jobSeekerBAL.SaveRegisterNewJobSeekerBAL(jobSeekerEntity);
+                // Check if result not null
                 if (result != null)
                 {
                     // Check if fileupload control has a file.
                     if (FileUploadResume.HasFile)
                     {
-                        string extension = Path.GetExtension(FileUploadResume.PostedFile.FileName);
+                        extension = Path.GetExtension(FileUploadResume.PostedFile.FileName);
                         FileUploadResume.SaveAs(uploadFolder + result.ToString() + extension);
                         lblMessage.Text = "File uploaded successfully as: " + result.ToString() + extension;
                     }

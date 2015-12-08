@@ -131,5 +131,11 @@ namespace BAL
             NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
             return newjobpostDAL.GetSkill(prefixText);
         }
+
+        public DataSet GetClientName()
+        {
+            NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
+            return newjobpostDAL.GetClientname();
+        }
     }
 }

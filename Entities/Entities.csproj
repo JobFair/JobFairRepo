@@ -45,7 +45,6 @@
     <Compile Include="Common\CityEntity.cs" />
     <Compile Include="JobSeeker\AcademicProjectDetailsEntity.cs" />
     <Compile Include="JobSeeker\AdvanceSearchDetailsEntity.cs" />
-    <Compile Include="JobSeeker\AdvanceSearchEntity.cs" />
     <Compile Include="JobSeeker\CertificationEntity.cs" />
     <Compile Include="JobSeeker\ChangeLoginDetailsEntity.cs" />
     <Compile Include="JobSeeker\ProjectDetailsEntity.cs" />

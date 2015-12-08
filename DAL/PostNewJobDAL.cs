@@ -123,5 +123,21 @@ namespace DAL
             adp.Fill(dt);
             return dt;
         }
+
+        public DataSet GetClientname()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select ClientId,ClientName from RE_ClientDetails");
+                return ds;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+
+        }
     }
 }

@@ -18,7 +18,7 @@
                                     <b>Job Post</b>
                                 </td>
                                 <td>
-                                     <asp:Label ID="lblId" runat="server" Text='<%#Eval("candidateId")%>' Visible="false"></asp:Label>,
+                                     <asp:Label ID="lblId" runat="server" Text='<%#Eval("candidateId")%>' Visible="false"></asp:Label>
                                 </td>
                             </tr>
                         </table>
@@ -27,8 +27,8 @@
                             <td>
                                 <table>
                                     <tr>
-                                        <td>     <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>,
-                                          <asp:Label ID="Label2" runat="server" Text='<%#Eval("JobTitle")%>' Visible="false"></asp:Label>
+                                        <td>     <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
+                                          <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle")%>' Visible="false"></asp:Label>
                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                            <%-- <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
                                          <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
@@ -41,7 +41,7 @@
                                 <td>
                                     <table>
                                         <tr>
-                                            <td>
+                                            <td>Company Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                              <asp:Label ID="lblcompanyname" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                  </td>
@@ -55,18 +55,17 @@
                                         <td>
                                             <table>
                                                 <tr>
-                                                    <td>
-                                                          <%--<asp:Label ID="Label4" runat="server" Text='<%#Eval("DepartmentName")%>'></asp:Label>--%>
+                                                    <td>JobDescription&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                          <asp:Label ID="Label4" runat="server" Text='<%#Eval("JobDescription")%>'></asp:Label>
                                                     </td>
 
                                                     <td>
-                                                         <td>Functional Area &nbsp;&nbsp;&nbsp;
+                                                         <td> &nbsp;&nbsp;&nbsp;
                                                                  <%--<asp:Label ID="lblfunctionalarea" runat="server" Text='<%#Eval("FunctionalArea") %>' ></asp:Label>--%>
                                                          </td>
                                                     </td>
                                                <td>
-                                            Work Experience&nbsp;&nbsp;
-                                        <%--<asp:Label ID="lblJobDescription" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>--%>
+                            <%--<asp:Label ID="lblJobDescription" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>--%>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                       
                                                </td>
@@ -83,7 +82,7 @@
                                                          <%--<asp:Label ID="Label5" runat="server" Text='<%#Eval("Gender")%>'></asp:Label>--%>
                                                     </td>
                                                    <td> 
-                                                         Key Skill &nbsp;&nbsp;&nbsp;
+                                                         Key Skill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                    <asp:Label ID="lblkeywordstechnical" runat="server" Text='<%#Eval("KeywordsTechnical")%>'></asp:Label>
                                                        </td>
                                                 </tr>
@@ -92,7 +91,7 @@
                             <td>
                                 <table >
                                     <tr>
-                                        <td>$
+                                        <td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                            [<asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />/
                                         <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>]
                                             </tr>
@@ -103,7 +102,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                       Number of Vacancies&nbsp;&nbsp;&nbsp;
+                                   &nbsp;&nbsp;&nbsp;
                              <%--<asp:Label ID="lblvacancies" runat="server" Text='<%#Eval("JobType")%>'></asp:Label> </td>--%>
                                         <td>
                                <%-- <asp:Label ID="Label6" runat="server" Text='<%#Eval("EmploymentStatus")%>'></asp:Label> </td>--%>
@@ -111,8 +110,8 @@
                             </tr>
                         </tr>
                        </td>
-                                            </table>
-                                            </td>
+                          </table>
+                                 </td>
                                         </tr>
                                             <tr>
                                                 <td>
@@ -120,17 +119,14 @@
                                                         <tr>
                                                             <td>
                                                               <%--<asp:Label ID="Label7" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label> </td>--%>
-                                                            <td>
-
-                                                            </td>
-
-                                                        </tr>
-                                                    </table>
-                                                    </td>
-                                               </tr>                   
+                                                            <td>   </td>
+                                         </tr>
+                                  </table>
+                              </td>
+                           </tr>                   
                          <tr>
                              <td>
-                                 <table>
+                                 <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
                                      <tr>
                                          <td>
                                              <asp:Button ID="btnapply" runat="server" Text="Apply" OnClick="btnapply_Click" CommandName="apply"/>

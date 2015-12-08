@@ -148,104 +148,179 @@ namespace BAL
             return currentDesiredJobDAL.SaveTechnicalSkillsDAL(dt);
         }
 
+        /// <summary>
+        /// Get roles skills bal
+        /// </summary>
+        /// <returns>dataset</returns>
         public DataSet GetRoleSkillsBAL()
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             return currentDesiredJobDAL.GetRoleSkillsDAL();
         }
 
+        /// <summary>
+        /// Save roles skills bal
+        /// </summary>
+        /// <param name="dt">dt</param>
+        /// <returns>datatable</returns>
         public DataTable SaveRoleSkillsBAL(DataTable dt)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             return currentDesiredJobDAL.SaveRoleSkillsDAL(dt);
         }
 
+        /// <summary>
+        /// View current job details bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewCurrentJobDetailsBAL(string candidateId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             return currentDesiredJobDAL.ViewCurrentJobDetailsDAL(candidateId);
         }
 
+        /// <summary>
+        /// Update job looking for bal
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">CurrentDesiredJobEntity</param>
         public void UpdateJobLookingBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            currentDesiredJobDAL.UpdateJobLookingDAL(currentDesiredJobEntity);
+            currentDesiredJobDAL.UpdateJobLookingForDAL(currentDesiredJobEntity);
         }
 
+        /// <summary>
+        /// Delete job looking for bal
+        /// </summary>
+        /// <param name="JobpostlookingId">JobpostlookingId</param>
         public void DeleteJobPostLookingForBAL(int JobpostlookingId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             currentDesiredJobDAL.DeleteJobPostLookingForDAL(JobpostlookingId);
         }
 
-        public DataSet ViewRepeaterJobPostLookingBAL(string candidateId)
+        /// <summary>
+        /// View  job looking for bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewJobPostLookingBAL(string candidateId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            return currentDesiredJobDAL.ViewRepeaterJobPostLookingBAL(candidateId);
+            return currentDesiredJobDAL.ViewJobPostLookingForDAL(candidateId);
         }
 
-        public DataSet ViewRepeaterCurrentPastJobDetailsBAL(string candidateId)
+        /// <summary>
+        /// View current and past job details bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewCurrentPastJobDetailsBAL(string candidateId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            return currentDesiredJobDAL.ViewRepeaterCurrentPastJobDetailsDAL(candidateId);
+            return currentDesiredJobDAL.ViewCurrentPastJobDetailsDAL(candidateId);
         }
 
-        public void UpdateCurrentPastExpDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        /// <summary>
+        /// Update current and past experience details bal
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">CurrentDesiredJobEntity</param>
+        public void UpdateCurrentPastExperienceDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            currentDesiredJobDAL.UpdateCurrentPastExpDetailsDAL(currentDesiredJobEntity);
+            currentDesiredJobDAL.UpdateCurrentPastExperienceDetailsDAL(currentDesiredJobEntity);
         }
 
+        /// <summary>
+        /// Delete current and past job details
+        /// </summary>
+        /// <param name="expId">expId</param>
         public void DeleteCurrentPastJobDetailsBAL(int expId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             currentDesiredJobDAL.DeleteCurrentPastJobDetailsDAL(expId);
         }
 
+        /// <summary>
+        /// Get country bal
+        /// </summary>
+        /// <returns>dataset</returns>
         public DataSet GetCountryBAL()
         {
             return Utility.GetCountry();
         }
 
+        /// <summary>
+        /// Get city bal
+        /// </summary>
+        /// <param name="stateId">stateId</param>
+        /// <returns>dataset</returns>
         public DataSet GetCityBAL(string stateId)
         {
             return Utility.GetCity(stateId);
         }
 
-        public DataSet ViewRepeaterTechSkillDetailsBAL(string candidateId)
+        /// <summary>
+        /// View technical skills details bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewTechnicalSkillDetailsBAL(string candidateId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            return currentDesiredJobDAL.ViewRepeaterTechSkillDetailsDAL(candidateId);
+            return currentDesiredJobDAL.ViewTechSkillDetailsDAL(candidateId);
         }
 
+        /// <summary>
+        /// Update technical skills bal
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">CurrentDesiredJobEntity</param>
         public void UpdateTechnicalSkillsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             currentDesiredJobDAL.UpdateTechnicalSkillsDAL(currentDesiredJobEntity);
         }
 
-        public void DeleteTechnicalSkillBAL(int SkillId)
+        /// <summary>
+        /// Delete technical skills bal
+        /// </summary>
+        /// <param name="skillId">SkillId</param>
+        public void DeleteTechnicalSkillBAL(int skillId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            currentDesiredJobDAL.DeleteTechnicalSkillDAL(SkillId);
+            currentDesiredJobDAL.DeleteTechnicalSkillDAL(skillId);
         }
 
-        public DataSet ViewRepeaterRoleSkillDetailsBAL(string candidateId)
+        /// <summary>
+        /// View roles skills details bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewRoleSkillDetailsBAL(string candidateId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            return currentDesiredJobDAL.ViewRepeaterRoleSkillDetailsDAL(candidateId);
+            return currentDesiredJobDAL.ViewRoleSkillDetailsDAL(candidateId);
         }
 
+        /// <summary>
+        /// Update roles skills bal
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">CurrentDesiredJobEntity</param>
         public void UpdateRoleSkillsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             currentDesiredJobDAL.UpdateRoleSkillsDAL(currentDesiredJobEntity);
         }
 
-        public void DeleteRoleSkillBAL(int SkillId)
+        /// <summary>
+        /// Delete role skills bal
+        /// </summary>
+        /// <param name="skillId">SkillId</param>
+        public void DeleteRoleSkillBAL(int skillId)
         {
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
-            currentDesiredJobDAL.DeleteRoleSkillBAL(SkillId);
+            currentDesiredJobDAL.DeleteRoleSkillDAL(skillId);
         }
     }
 }

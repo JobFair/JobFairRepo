@@ -9,7 +9,7 @@ namespace BAL
         /// <summary>
         /// Get fuctional role bal.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet GetRole()
         {
             ProjectDetailsDAL pdDAL = new ProjectDetailsDAL();
@@ -20,7 +20,7 @@ namespace BAL
         /// Project Details of job seeker
         /// </summary>
         /// <param name="dtProjectDetails">dtProjectDetails</param>
-        /// <returns></returns>
+        /// <returns>datatable</returns>
         public DataTable SaveProjectDetailsBAL(DataTable dtProjectDetails)
         {
             ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
@@ -31,7 +31,7 @@ namespace BAL
         /// View projectDetails of Job Seeker
         /// </summary>
         /// <param name="candidateId">candidateId</param>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet ViewProjectDetailsBAL(string candidateId)
         {
             ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
@@ -42,7 +42,7 @@ namespace BAL
         /// Update Project Details
         /// </summary>
         /// <param name="projectDetailsEntity">ProjectDetailsEntity</param>
-        /// <returns></returns>
+        /// <returns>system.Int32</returns>
         public int UpdateProjectDetailsBAL(ProjectDetailsEntity projectDetailsEntity)
         {
             ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();
@@ -53,7 +53,7 @@ namespace BAL
         /// Delete specific Project
         /// </summary>
         /// <param name="projectId">projectId</param>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet DeleteProjectDetailsBAL(int projectId)
         {
             ProjectDetailsDAL projectDetailsDAL = new ProjectDetailsDAL();

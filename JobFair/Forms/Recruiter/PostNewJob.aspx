@@ -334,6 +334,18 @@
                         </asp:UpdatePanel>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="Label3" runat="server" Text="Client Name"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:UpdatePanel runat="server">
+                            <ContentTemplate>
+                            <asp:DropDownList ID="ddlclientname" runat="server"></asp:DropDownList>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
+                </tr>
 
                 <tr>
                     <td>&nbsp;</td>

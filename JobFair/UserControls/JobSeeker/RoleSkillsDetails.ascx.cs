@@ -18,6 +18,7 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
             // Check session is not null
             if (Session["candidateId"] != null)
             {
@@ -67,7 +68,7 @@ namespace JobFair.UserControls.JobSeeker
             {
                 DataSet dsRoleSkills = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                dsRoleSkills = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
+                dsRoleSkills = currentDesiredJobBAL.ViewRoleSkillDetailsBAL(candidateId);
                 // Check dataset is not null
                 if (dsRoleSkills != null)
                 {
@@ -339,17 +340,12 @@ namespace JobFair.UserControls.JobSeeker
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
                 currentDesiredJobEntity.RoleSkills = ddlRoleSkill.SelectedItem.Text.Trim();
                 currentDesiredJobEntity.FromDate = ddlFromMonth.SelectedItem.Text.Trim() + "/" + ddlFromYear.SelectedItem.Text.Trim();
-
                 currentDesiredJobEntity.TillDate = ddlTillMonth.SelectedItem.Text.Trim() + "/" + ddlTillYear.SelectedItem.Text.Trim();
-
                 currentDesiredJobEntity.Proficiency = ddlProficiency.SelectedItem.Text.Trim();
-
                 currentDesiredJobEntity.SkillId = Convert.ToInt32(e.CommandArgument);
                 currentDesiredJobEntity.TotalExperience = TotalYears();
-                DataSet ds = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                 currentDesiredJobBAL.UpdateRoleSkillsBAL(currentDesiredJobEntity);
-
                 BindRepeaterRoleSkills();
             }
             // Check repeater commond for delete
@@ -358,7 +354,6 @@ namespace JobFair.UserControls.JobSeeker
                 int SkillId = Convert.ToInt32(e.CommandArgument);
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
                 currentDesiredJobBAL.DeleteRoleSkillBAL(SkillId);
-
                 BindRepeaterRoleSkills();
             }
             // Check repeater commond for cancel
@@ -372,13 +367,13 @@ namespace JobFair.UserControls.JobSeeker
         {
             DataSet dsRoleSkill = new DataSet();
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            dsRoleSkill = currentDesiredJobBAL.ViewRepeaterRoleSkillDetailsBAL(candidateId);
-
-            string format = Convert.ToString(dsRoleSkill.Tables[0].Rows[0]["FromDate"]); ;
-            string[] Words = format.Split(new char[] { '/' });
+            dsRoleSkill = currentDesiredJobBAL.ViewRoleSkillDetailsBAL(candidateId);
+            string fromDate,tillDate;
+            fromDate = Convert.ToString(dsRoleSkill.Tables[0].Rows[0]["FromDate"]); ;
+            string[] Words = fromDate.Split(new char[] { '/' });
             int count = 0;
-            string format1 = Convert.ToString(dsRoleSkill.Tables[0].Rows[0]["TillDate"]); ;
-            string[] Words1 = format1.Split(new char[] { '/' });
+            tillDate = Convert.ToString(dsRoleSkill.Tables[0].Rows[0]["TillDate"]); ;
+            string[] Words1 = tillDate.Split(new char[] { '/' });
             int count1 = 0;
 
             DropDownList ddlRoleSkill = (DropDownList)e.Item.FindControl("ddlRoleSkill");

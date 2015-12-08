@@ -5,8 +5,6 @@ using System.Data;
 using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Linq;
-
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -15,20 +13,21 @@ namespace JobFair.Forms.JobSeeker
     /// </summary>
     public partial class ProjectDetails : System.Web.UI.Page
     {
-      
         private bool isCheck;
         private string candidateId;
+        private DataSet dsRoles = null;
 
-     
         protected void Page_Load(object sender, EventArgs e)
         {
             isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+            // Check session is not null
             if (Session["candidateId"] != null)
             {
                 if (Session["candidateId"].ToString() != "")
                 {
                     //CheckAuthorised(candidateId);
                     candidateId = Convert.ToString(Session["candidateId"]);
+                    // Check page is not post back
                     if (!IsPostBack)
                     {
                         try
@@ -37,7 +36,7 @@ namespace JobFair.Forms.JobSeeker
 
                             hfCandidateId.Value = candidateId;
                             AddDefaultFirstRecord();
-
+                            // Check the isCheck is true for edit
                             if (isCheck)
                             {
                                 pnlEdit.Visible = true;
@@ -48,7 +47,7 @@ namespace JobFair.Forms.JobSeeker
                                 pnlInsert.Visible = true;
                             }
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             //  throw;
                         }
@@ -61,6 +60,10 @@ namespace JobFair.Forms.JobSeeker
                     panelProjectLink.Visible = false;
                 }
             }
+            else
+            {
+                Response.Redirect("LogIn.aspx");
+            }
         }
 
         /// <summary>
@@ -70,19 +73,19 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                DataSet ds = new DataSet();
+                DataSet dsProjectDetails = new DataSet();
                 ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
-                ds = projectDetailsBAL.ViewProjectDetailsBAL(candidateId);
-                if (ds != null)
+                dsProjectDetails = projectDetailsBAL.ViewProjectDetailsBAL(candidateId);
+                if (dsProjectDetails != null)
                 {
-                    rptrProjectDetails.DataSource = ds;
+                    rptrProjectDetails.DataSource = dsProjectDetails;
                     rptrProjectDetails.DataBind();
                 }
             }
             catch (Exception)
             {
                 // throw;
-            } 
+            }
         }
 
         protected void rptrProjectDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -120,7 +123,7 @@ namespace JobFair.Forms.JobSeeker
             DropDownList ddlProjectFor = (DropDownList)e.Item.FindControl("ddlProjectFor");
             DropDownList ddlDegree = (DropDownList)e.Item.FindControl("ddlDegree");
             CheckBox chkDelete = (CheckBox)e.Item.FindControl("chkDelete");
-
+            // Check commond for edit
             if (e.CommandName == "edit")
             {
                 lnkCancel.Visible = true;
@@ -152,10 +155,12 @@ namespace JobFair.Forms.JobSeeker
                 lblProjectLive.Visible = false;
                 lblProjectLink.Visible = false;
             }
+            // Check commond for update
             if (e.CommandName == "cancel")
             {
                 BindRepeater();
             }
+            // Check  commond for update
             if (e.CommandName == "update")
             {
                 try
@@ -187,6 +192,7 @@ namespace JobFair.Forms.JobSeeker
 
                 BindRepeater();
             }
+            // Check commond for delete
             if (e.CommandName == "delete")
             {
                 try
@@ -211,11 +217,12 @@ namespace JobFair.Forms.JobSeeker
                 try
                 {
                     ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
-                    DataSet ds = new DataSet();
-                    ds = projectDetailsBAL.GetRole();
-                    if (ds != null)
+
+                    dsRoles = projectDetailsBAL.GetRole();
+                    // Check if dataset is not null
+                    if (dsRoles != null)
                     {
-                        ddlRole.DataSource = ds;
+                        ddlRole.DataSource = dsRoles;
                         ddlRole.DataTextField = "RoleName";
                         ddlRole.DataValueField = "RoleId";
                         ddlRole.DataBind();
@@ -273,11 +280,12 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 ProjectDetailsBAL projectDetailsBAL = new ProjectDetailsBAL();
-                DataSet ds = new DataSet();
-                ds = projectDetailsBAL.GetRole();
-                if (ds != null)
+
+                dsRoles = projectDetailsBAL.GetRole();
+                // Check if dataset is not null
+                if (dsRoles != null)
                 {
-                    ddlRole.DataSource = ds;
+                    ddlRole.DataSource = dsRoles;
                     ddlRole.DataTextField = "RoleName";
                     ddlRole.DataValueField = "RoleId";
                     ddlRole.DataBind();
@@ -332,20 +340,21 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                // Check if viewstate is not null
                 if (ViewState["ProjectDetails"] != null)
                 {
                     DataTable dtCurrentTable = (DataTable)ViewState["ProjectDetails"];
                     DataRow drCurrentRow = null;
-
+                    // Check datatable rows greater than zero
                     if (dtCurrentTable.Rows.Count > 0)
                     {
                         for (int i = 1; i <= dtCurrentTable.Rows.Count; i++)
                         {
-                            TimeSpan o = new TimeSpan(0, 0, 0);
+                            TimeSpan span = new TimeSpan(0, 0, 0);
                             DateTime startDate = Convert.ToDateTime(this.txtFromDate.Text.Trim(), new CultureInfo("en-Gb"));
                             DateTime endDate = Convert.ToDateTime(this.txtTodate.Text.Trim(), new CultureInfo("en-Gb"));
-                            o += endDate.Subtract(startDate);
-                            int days = o.Days;
+                            span += endDate.Subtract(startDate);
+                            int days = span.Days;
                             // Creating new row and assigning values
                             drCurrentRow = dtCurrentTable.NewRow();
                             drCurrentRow["CandidateId"] = hfCandidateId.Value.Trim();
@@ -356,12 +365,12 @@ namespace JobFair.Forms.JobSeeker
                             drCurrentRow["ClientName"] = txtClientName.Text.Trim();
                             drCurrentRow["Duration"] = Convert.ToInt32(days);
                             drCurrentRow["ProjectLocation"] = txtLocation.Text.Trim();
-
+                            // Check if rbtFullTime cotrol is check
                             if (rbtFullTime.Checked)
                             {
                                 drCurrentRow["EmploymentType"] = "FullTime";
                             }
-                            else if (rbtPartTime.Checked)
+                            else
                             {
                                 drCurrentRow["EmploymentType"] = "PartTime";
                             }
@@ -375,7 +384,7 @@ namespace JobFair.Forms.JobSeeker
                             {
                                 drCurrentRow["ProjectLive"] = "Yes";
                             }
-                            else if (rbtNo.Checked)
+                            else
                             {
                                 drCurrentRow["ProjectLive"] = "No";
                             }
@@ -466,10 +475,16 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// On selected index change of rbtProjectTypeList control visible panel
+        /// </summary>
+        /// <param name="sender">The source of the event</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtProjectTypeList_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                // Check if rbtProjectTypeList control value equal to one
                 if (rbtProjectTypeList.SelectedValue == "1")
                 {
                     panelAcademicLevel.Visible = true;
