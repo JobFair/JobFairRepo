@@ -9,13 +9,15 @@
 
 
 <div id="divMain" runat="server">
+    <h3>Educational Details</h3>
+
 
     <h2>Highest Qualification&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="ddlHQ" runat="server">
         </asp:DropDownList>
     </h2>
     <p>
-        <asp:Label ID="lblInfo" runat="server" Text="Kindly select checkboxes for the Degrees you have completed*" ForeColor="Red"></asp:Label>
+        <asp:Label ID="lblInfo" runat="server" Text="Kindly select the check boxes for Degrees you have completed*" ForeColor="Red"></asp:Label>
     </p>
     <asp:Panel ID="pnlEducatioList" runat="server" Visible="True" CssClass="pnlCSS">
     <table>

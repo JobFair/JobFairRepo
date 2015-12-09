@@ -40,7 +40,7 @@
             <tr>
                 <td colspan="4">
                     <asp:Button ID="btnAddMoreSkills" runat="server" Text="Add More Skills" OnClick="btnAddMoreSkills_Click" />
-                    <br />
+                    Hint: If your Skills are not available in this List, Select &quot;Other&quot; and add your Skills. Add your all the Skillsets for better performance<br />
                                 <asp:HiddenField ID="hfCandidateId" Visible="false" runat="server" />
                 </td>
             </tr>

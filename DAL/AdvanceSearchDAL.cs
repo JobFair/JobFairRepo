@@ -98,7 +98,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@OfferedAnnualSalaryMin", advanceSearchEntity.MinSalary);
                 cmd.Parameters.AddWithValue("@OfferedAnnualSalaryMax", advanceSearchEntity.MaxSalary);
                 cmd.Parameters.AddWithValue("@IndustryId", advanceSearchEntity.Industry);
-                cmd.Parameters.AddWithValue("@EmploymentStatus", advanceSearchEntity.EmpStatus);
+                //cmd.Parameters.AddWithValue("@EmploymentStatus", advanceSearchEntity.EmpStatus);
                 cmd.Parameters.AddWithValue("@JobType", advanceSearchEntity.JobType);
                 cmd.Parameters.AddWithValue("@RecruitmentType", advanceSearchEntity.RecruitmentType);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
