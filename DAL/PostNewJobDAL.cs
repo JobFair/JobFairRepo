@@ -80,12 +80,7 @@ namespace DAL
             return ds;
         }
 
-
-
-
-
-
-        public DataSet GetStateDAL()
+    public DataSet GetStateDAL()
         {
             try
             {

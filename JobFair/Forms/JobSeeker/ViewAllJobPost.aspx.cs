@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.IO;
 using System.Net;
-
+using System.Net.Mime;
 namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
@@ -22,7 +22,7 @@ namespace JobFair.Forms.JobSeeker
         {
             
        
-            int id =Convert.ToInt32(Request.QueryString["jid"]);
+            string id = Request.QueryString["jid"];
               
            // Label1.Text = Session["jobid"].ToString();
             if (!IsPostBack)
@@ -65,7 +65,7 @@ namespace JobFair.Forms.JobSeeker
 
         }
 
-        private void GetData(int id)
+        private void GetData(string id)
         {
             try
             {
@@ -99,6 +99,8 @@ namespace JobFair.Forms.JobSeeker
                 string from = "jyoti.logossolutions@gmail.com";
                 string subject = " You applied for "  + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
+                //string contentId = "image1";
+                //string path = Server.MapPath(@"/Images");
                 MailMessage Msg = new MailMessage();
                 Msg.From = new MailAddress(from);
                 Msg.To.Add("saurabh.logossolutions@gmail.com");
@@ -108,6 +110,11 @@ namespace JobFair.Forms.JobSeeker
                 strContent = readFile;
                 strContent = strContent.Replace("[CandidateID]", candidateId);
                 Msg.Subject = subject;
+                //LinkedResource logo = new LinkedResource(path);
+                //logo.ContentId = "companylogo";
+                //AlternateView av1 = AlternateView.CreateAlternateViewFromString("<html><body><img src=../../Images/logoitch.jpg/><br></body></html>" + strContent, null, MediaTypeNames.Text.Html);
+                //av1.LinkedResources.Add(logo);
+                //Msg.AlternateViews.Add(av1);
                 Msg.Body = strContent.ToString();
                 Msg.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Mail;
+using System.Web.Mail;
 using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
@@ -12,6 +14,9 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+          
+           
             string candidateId;
             // Check session is not null
             if (Session["candidateId"] != null)
