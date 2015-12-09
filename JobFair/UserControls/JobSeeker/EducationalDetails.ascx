@@ -17,7 +17,7 @@
     <p>
         <asp:Label ID="lblInfo" runat="server" Text="Kindly select checkboxes for the Degrees you have completed*" ForeColor="Red"></asp:Label>
     </p>
-    <asp:Panel ID="pnlEducatioList" runat="server" Visible="True" CssClass="pnlCSS">
+    <asp:Panel ID="pnlEducatioList" runat="server" Visible="True" CssClass="pnlCSS" style="width:100%">
     <table>
         <tr>
             <td>
@@ -25,7 +25,7 @@
                     <%--<asp:ListItem runat="server" Text="  Certifications" Value="8" AutoPostBack="True"></asp:ListItem>
                     <asp:ListItem runat="server" Text="  Workshops" Value="9" AutoPostBack="True"></asp:ListItem>--%>
                 </asp:CheckBoxList></td>
-            <td style="padding-left: 25px;">
+            <td style="min-height: 500px; padding: 17px">
                 <asp:Button ID="btnGo" runat="server" Text="Go" OnClick="btnGo_Click" CssClass="button" /></td>
         </tr>
     </table>
@@ -35,7 +35,7 @@
     <hr />
     <br />
 
-    <asp:Panel ID="pnlCollapsableSSC" runat="server" Visible="True" CssClass="pnlCSS">
+    <asp:Panel ID="pnlCollapsableSSC" runat="server" Visible="False" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblSSCHead" runat="server" Text=" SSC / 10th Details" CssClass="label"></asp:Label>
             <caption>
