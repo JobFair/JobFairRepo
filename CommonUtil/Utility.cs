@@ -11,7 +11,6 @@ namespace CommonUtil
     /// </summary>
     public static class Utility
     {
-
         /// <summary>
         /// Forget password method in Utility class
         /// </summary>
@@ -19,9 +18,9 @@ namespace CommonUtil
         /// <returns>System.Data.DataSet.</returns>
         public static DataSet ForgetPasswordJobSeeker(ForgetPasswordEntity forgotPasswordEntity)
         {
-            ForgetPasswordDAL jobSeekerDAL = new ForgetPasswordDAL();
             try
             {
+                ForgetPasswordDAL jobSeekerDAL = new ForgetPasswordDAL();
                 return jobSeekerDAL.GetEmailDetailsDAL(forgotPasswordEntity);
             }
             catch (Exception ex)
@@ -44,10 +43,8 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
 
         /// <summary>
@@ -64,11 +61,8 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
-            
         }
 
         /// <summary>
@@ -85,10 +79,8 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
 
         /// <summary>
@@ -105,11 +97,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
+
         public static DataSet GetArea(int cityId)
         {
             try
@@ -119,11 +110,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
+
         public static DataSet GetFunctionalArea()
         {
             try
@@ -133,10 +123,8 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
 
         /// <summary>
@@ -152,11 +140,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
+
         /// <summary>
         /// Get Departments
         /// </summary>
@@ -170,11 +157,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-            
         }
+
         /// <summary>
         /// GetEducationalDegreeTypeDAL() method of Utility class
         /// </summary>
@@ -188,11 +174,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
+
         /// <summary>
         /// GetLanguage() method of Utility class
         /// </summary>
@@ -206,11 +191,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-          
         }
+
         /// <summary>
         /// GetClientName() method of Utility class
         /// </summary>
@@ -224,11 +208,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-          
         }
+
         /// <summary>
         /// GetUnderGraduateDiploma() method of Utility class
         /// </summary>
@@ -242,11 +225,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
+
         /// <summary>
         /// GetBachelorDegree() method of Utility class
         /// </summary>
@@ -260,11 +242,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
+
         /// <summary>
         /// GetPostGraduateDiploma() method of Utility class
         /// </summary>
@@ -277,10 +258,11 @@ namespace CommonUtil
                 return common.GetPostGraduateDiplomaDAL();
             }
             catch (Exception)
-            {                
+            {
                 throw;
-            }           
+            }
         }
+
         /// <summary>
         /// GetMasterDegree() method of Utility class
         /// </summary>
@@ -293,11 +275,11 @@ namespace CommonUtil
                 return common.GetMasterDegreeDAL();
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
-           
         }
+
         /// <summary>
         /// GetDoctorOfPhilosophy() method of Utility class
         /// </summary>
@@ -311,11 +293,10 @@ namespace CommonUtil
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
+
         /// <summary>
         /// Method to Get Roles in utility Class
         /// </summary>
@@ -328,10 +309,11 @@ namespace CommonUtil
                 return common.GetRole();
             }
             catch (Exception)
-            {                
+            {
                 throw;
-            }           
+            }
         }
+
         /// <summary>
         /// Method to Get Location in Utility Class
         /// </summary>
@@ -344,10 +326,11 @@ namespace CommonUtil
                 return common.GetLocation();
             }
             catch (Exception)
-            {                
+            {
                 throw;
-            }          
+            }
         }
+
         /// <summary>
         /// Mwthod to Get Years in Utility Class
         /// </summary>
@@ -363,9 +346,9 @@ namespace CommonUtil
                 return yearList;
             }
             catch (Exception)
-            {                
+            {
                 throw;
-            }          
+            }
         }
 
         /// <summary>
@@ -383,14 +366,13 @@ namespace CommonUtil
                 return monthList;
             }
             catch (Exception)
-            {                
+            {
                 throw;
-            }           
+            }
         }
 
-       
         /// <summary>
-        /// Method to Get Area in Utility Class  
+        /// Method to Get Area in Utility Class
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
         public static DataSet GetArea()
@@ -401,11 +383,11 @@ namespace CommonUtil
                 return common.GetAreaDAL();
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
-           
         }
+
         /// <summary>
         /// Method to Get State in Utility Class
         /// </summary>
@@ -441,29 +423,17 @@ namespace CommonUtil
             }
         }
 
-       
-       
-
         public static DataSet GetCity(string stateId)
         {
             try
             {
-                 Common common = new Common();
+                Common common = new Common();
                 return common.GetCityDAL(stateId);
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
-
-       
-
-
-
-
-
-
     }
-    }
+}

@@ -9,8 +9,10 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check if page not is postback
             if (!IsPostBack)
             {
+                // Check if session is not null
                 if (Session["candidateId"] != null)
                 {
                     if (Session["candidateId"].ToString() != "")
@@ -29,24 +31,30 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Bind name, email,mobile number to textbox
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
         private void BindRequestEmail(string candidateId)
         {
             try
             {
-                DataSet ds = new DataSet();
+                DataSet dsRequestEmail = new DataSet();
                 RequestEmailJSBAL requestEmailJSBAL = new RequestEmailJSBAL();
-                ds = requestEmailJSBAL.GetEmailBAL(candidateId);
-                if (ds != null)
+                dsRequestEmail = requestEmailJSBAL.GetEmailBAL(candidateId);
+                string firstName, lastName;
+                // Check if dataset is not null
+                if (dsRequestEmail != null)
                 {
-                    if (ds.Tables.Count > 0)
+                    if (dsRequestEmail.Tables.Count > 0)
                     {
-                        if (ds.Tables[0].Rows.Count > 0)
+                        if (dsRequestEmail.Tables[0].Rows.Count > 0)
                         {
-                            txtFrom.Text = Convert.ToString(ds.Tables[0].Rows[0]["EmailId"]);
-                            string firstName = Convert.ToString(ds.Tables[0].Rows[0]["FirstName"]);
-                            string lastName = Convert.ToString(ds.Tables[0].Rows[0]["LastName"]);
+                            txtFrom.Text = Convert.ToString(dsRequestEmail.Tables[0].Rows[0]["EmailId"]);
+                            firstName = Convert.ToString(dsRequestEmail.Tables[0].Rows[0]["FirstName"]);
+                            lastName = Convert.ToString(dsRequestEmail.Tables[0].Rows[0]["LastName"]);
                             txtName.Text = firstName + " " + lastName;
-                            txtMobNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["MobileNo"]);
+                            txtMobNo.Text = Convert.ToString(dsRequestEmail.Tables[0].Rows[0]["MobileNo"]);
                         }
                     }
                 }
@@ -57,17 +65,24 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Handles Click event of btnSend Control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSend_Click(object sender, EventArgs e)
         {
+            string from, subject, content;
             try
             {
-                string from = txtFrom.Text;
-                string subject = ddlSubject.SelectedValue;
-                string content = txtEmailContent.Text;
+                from = txtFrom.Text;
+                subject = ddlSubject.SelectedValue;
+                content = txtEmailContent.Text;
                 MailMessage msg = new MailMessage();
                 msg.From = new MailAddress(from);
                 msg.To.Add("logos.expertadvice@gmail.com");
                 msg.Subject = subject;
+                // Check if selected value equal to Other Help
                 if (ddlSubject.SelectedValue == "Other Help")
                 {
                     msg.Body = "Name :" + txtName.Text + "\nEmail ID :" + from + "\nMobile Number :" + txtMobNo.Text + "\nSubject :" + txtSubject.Text + "\nEmail Content/Matter :" + content;
@@ -91,10 +106,16 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Handles index change event of ddlSubject Control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void ddlSubject_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                // Check if selected value equal to Other Help
                 if (ddlSubject.SelectedValue == "Other Help")
                 {
                     txtSubject.Visible = true;

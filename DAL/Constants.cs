@@ -72,25 +72,18 @@
         public const string sp_JS_UpdateJobPostLookingFor = "sp_JS_UpdateJobPostLookingFor";
         public static string sp_JS_UpdateCurrentPastExpDetails = "sp_JS_UpdateCurrentPastExpDetails";
         public static string sp_JS_DeleteCurrentPastJobDetails = "sp_JS_DeleteCurrentPastJobDetails";
-
         public static string sp_JS_UpdateTechnicalSkills = "sp_JS_UpdateTechnicalSkills";
         public static string sp_JS_DeleteTechnicalSkill = "sp_JS_DeleteTechnicalSkill";
-
         public static string sp_JS_SelectRoleSkills = "sp_JS_SelectRoleSkills";
-
         public static string sp_JS_UpdateRoleSkills = "sp_JS_UpdateRoleSkills";
         public static string sp_JS_DeleteRoleSkill = "sp_JS_DeleteRoleSkill";
         public static string sp_JS_SelectRegisterDetails = "sp_JS_SelectRegisterDetails";
         public static string sp_JS_SelectLoginDetails = "sp_JS_SelectLoginDetails";
         public static string sp_JS_ChangePrimaryMailID = "sp_JS_ChangePrimaryMailID";
-        public static string sp_JS_ChangePrimaryMobileNo="sp_JS_ChangePrimaryMobileNo";
+        public static string sp_JS_ChangePrimaryMobileNo = "sp_JS_ChangePrimaryMobileNo";
         public static string sp_JS_ChangeEmailId = "sp_JS_ChangeEmailId";
         public static string sp_JS_ChangeMobileNo = "sp_JS_ChangeMobileNo";
         public static string sp_RE_InsertClientDetails = "sp_RE_InsertClientDetails";
-
         public static string sp_RE_InsertFunctionalArea = "sp_RE_InsertFunctionalArea";
-
-
-
     }
 }

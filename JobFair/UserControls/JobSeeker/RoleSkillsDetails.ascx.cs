@@ -83,7 +83,7 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        /// Method to Bind Role Skills to ddlRoleSkills Control
+        /// Method to bind role skills to ddlRoleSkills Control
         /// </summary>
         private void BindRoleSkills()
         {
@@ -109,7 +109,7 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        /// Method to Create Skills Records Table for gvSkillsDetails Control
+        /// Method to create skills records table for gvSkillsDetails control
         /// </summary>
         private void AddRoleSkills()
         {
@@ -139,7 +139,7 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        /// Method Bind Year List to ddlFromYear Control
+        /// Method bind year list to ddlFromYear control
         /// </summary>
         private void BindYears()
         {
@@ -158,7 +158,7 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        /// Method to Bind Month List to ddlFromMonth Control
+        /// Method to bind month list to ddlFromMonth control
         /// </summary>
         private void BindMonth()
         {
@@ -194,7 +194,7 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        /// Method to Insert Data into gvSkillsDetails Control
+        /// Method to insert data into gvSkillsDetails control
         /// </summary>
         private void AddMoreSkills()
         {

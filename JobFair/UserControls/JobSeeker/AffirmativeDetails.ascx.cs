@@ -184,7 +184,7 @@ namespace JobFair.UserControls.JobSeeker
                             // Check if physicallychallenge is true
                             if (physicallyChallenged == "Yes")
                             {
-                                pnlPhysicallyChallenged.Visible = true;
+                                pnlPhysicallyChallenged.Visible = true; 
                             }
                             txtDescription.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Description"]);
                             txtSports.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Sports"]);
