@@ -30,18 +30,10 @@
             <td><asp:TextBox ID="txtPosition" runat="server" Width="100px"></asp:TextBox></td>
         </tr>           
         <tr>
-            <td><asp:Label ID="lblJobDescription" runat="server" Text="Job Description" CssClass="label"></asp:Label></td>
-            <td><asp:TextBox ID="txtJobDescription" runat="server" Width="100px"></asp:TextBox></td>
+            <td><asp:Label ID="lblJobpost" runat="server" Text="Job Post" CssClass="label"></asp:Label></td>
+            <td><asp:TextBox ID="txtjobpost" runat="server" Width="100px"></asp:TextBox></td>
         </tr>
-            <tr>
-                <td><asp:Label ID="lblGender" runat="server" Text="Gender" CssClass="label"></asp:Label></td>
-                <td>
-                    <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal" CssClass="MultipleSelectionDDL" Width="100px">
-                    <asp:ListItem>Male</asp:ListItem>
-                    <asp:ListItem>Female</asp:ListItem>
-                    </asp:RadioButtonList>
-                </td>
-            </tr>
+         
             <tr>
                 <td><asp:Label ID="lblDateOfReqSent" runat="server" Text="Date of Requirement Sent" CssClass="label"></asp:Label></td>
                 <td><asp:TextBox ID="txtDateOfReqSent" runat="server" Width="100px"></asp:TextBox>

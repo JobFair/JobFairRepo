@@ -107,5 +107,21 @@ namespace BAL
             }
           
         }
+
+        public DataSet GetSearch(AdvanceSearchDetailsEntity advanceSearchEntity)
+        {
+            try
+            {
+                AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
+                return advancesearchDAL.Search(advanceSearchEntity);
+            
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+           
+        }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DAL
+﻿namespace DAL
 {
     //Contains all stored procedure of database
     public static class Constants
@@ -66,5 +60,37 @@ namespace DAL
         public const string sp_JS_SelectAffirmativeDetails = "sp_JS_SelectAffirmativeDetails";
         public const string sp_JS_UpdateAffirmativeDetails = "sp_JS_UpdateAffirmativeDetails";
         public const string sp_JS_UpdateLanguageDetails = "sp_JS_UpdateLanguageDetails";
+        public const string sp_JS_SelectProjectDetails = "sp_JS_SelectProjectDetails";
+        public const string sp_JS_UpdateProjectDetails = "sp_JS_UpdateProjectDetails";
+        public const string sp_JS_DeleteProjectDetails = "sp_JS_DeleteProjectDetails";
+        public const string sp_FunctionalRoles = "sp_FunctionalRoles";
+        public const string sp_JS_ViewProfile = "sp_JS_ViewProfile";
+        public const string sp_JS_SelectTechnicalSkills = "sp_JS_SelectTechnicalSkills";
+        public const string sp_JS_SelectCurrentPastJobDeatails = "sp_JS_SelectCurrentPastJobDeatails";
+        public const string sp_JS_SelectJobPostLookingFor = "sp_JS_SelectJobPostLookingFor";
+        public const string sp_JS_DeleteJobPostLookingFor = "sp_JS_DeleteJobPostLookingFor";
+        public const string sp_JS_UpdateJobPostLookingFor = "sp_JS_UpdateJobPostLookingFor";
+        public static string sp_JS_UpdateCurrentPastExpDetails = "sp_JS_UpdateCurrentPastExpDetails";
+        public static string sp_JS_DeleteCurrentPastJobDetails = "sp_JS_DeleteCurrentPastJobDetails";
+
+        public static string sp_JS_UpdateTechnicalSkills = "sp_JS_UpdateTechnicalSkills";
+        public static string sp_JS_DeleteTechnicalSkill = "sp_JS_DeleteTechnicalSkill";
+
+        public static string sp_JS_SelectRoleSkills = "sp_JS_SelectRoleSkills";
+
+        public static string sp_JS_UpdateRoleSkills = "sp_JS_UpdateRoleSkills";
+        public static string sp_JS_DeleteRoleSkill = "sp_JS_DeleteRoleSkill";
+        public static string sp_JS_SelectRegisterDetails = "sp_JS_SelectRegisterDetails";
+        public static string sp_JS_SelectLoginDetails = "sp_JS_SelectLoginDetails";
+        public static string sp_JS_ChangePrimaryMailID = "sp_JS_ChangePrimaryMailID";
+        public static string sp_JS_ChangePrimaryMobileNo="sp_JS_ChangePrimaryMobileNo";
+        public static string sp_JS_ChangeEmailId = "sp_JS_ChangeEmailId";
+        public static string sp_JS_ChangeMobileNo = "sp_JS_ChangeMobileNo";
+        public static string sp_RE_InsertClientDetails = "sp_RE_InsertClientDetails";
+
+        public static string sp_RE_InsertFunctionalArea = "sp_RE_InsertFunctionalArea";
+        public static string sp_RE_SelectClients = "sp_RE_SelectClients";
+
+
     }
 }

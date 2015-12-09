@@ -11,36 +11,77 @@ namespace JobFair.UserControls.JobSeeker
     public partial class ContactDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isCheck = true;
+        private bool isCheck;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId = Convert.ToString(Session["candidateId"]);
-            if (!IsPostBack)
+            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+            // Check session is not null
+            if (Session["candidateId"] != null)
             {
-                // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
-                if (isCheck)
+                if (Session["candidateId"].ToString() != "")
                 {
-                    try
+                    candidateId = Convert.ToString(Session["candidateId"]);
+                    // Check page is not post back
+                    if (!IsPostBack)
                     {
-                        DataSet ds = new DataSet();
-                        ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
-                        ds = contactDetailsBAL.ViewContactDetailsBAL(candidateId);
-                        txtAltNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["AltMobile"]);
-                        txtLandno.Text = Convert.ToString(ds.Tables[0].Rows[0]["LandLine"]);
-                        txtWhatsappNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["WhatsapNo"]);
-                        txtLinkedIn.Text = Convert.ToString(ds.Tables[0].Rows[0]["LinkedId"]);
-                        txtFacebook.Text = Convert.ToString(ds.Tables[0].Rows[0]["FaceBookId"]);
-                        txtTwitter.Text = Convert.ToString(ds.Tables[0].Rows[0]["TwitterId"]);
-                        txtGTalk.Text = Convert.ToString(ds.Tables[0].Rows[0]["GtalkId"]);
-                        txtSkype.Text = Convert.ToString(ds.Tables[0].Rows[0]["skypeId"]);
-                        txtGooglePlus.Text = Convert.ToString(ds.Tables[0].Rows[0]["GoogleP"]);
-                    }
-                    catch (Exception)
-                    {
-                        throw;
+                        // Check the isCheck is true for edit
+                        if (isCheck)
+                        {
+                            try
+                            {
+                                BindContactDetails();
+                            }
+                            catch (Exception)
+                            {
+                                //   throw;
+                            }
+                        }
                     }
                 }
+            }
+            else
+            {
+                Response.Redirect("LogIn.aspx");
+            }
+        }
+
+        /// <summary>
+        /// Bind Contact Details for edit
+        /// </summary>
+        private void BindContactDetails()
+        {
+            try
+            {
+                DataSet dsConatctDetails = new DataSet();
+                ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
+                dsConatctDetails = contactDetailsBAL.ViewContactDetailsBAL(candidateId);
+                // Check dataset is not null
+                if (dsConatctDetails != null)
+                {
+                    // Check number of tables greater than zero
+                    if (dsConatctDetails.Tables.Count > 0)
+                    {
+                        // Check rows greater than zero
+                        if (dsConatctDetails.Tables[0].Rows.Count > 0)
+                        {
+                            txtAltEmailId.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["AltEmailId"]);
+                            txtAltNo.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["AltMobile"]);
+                            txtLandno.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["LandLine"]);
+                            txtWhatsappNo.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["WhatsapNo"]);
+                            txtLinkedIn.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["LinkedId"]);
+                            txtFacebook.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["FaceBookId"]);
+                            txtTwitter.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["TwitterId"]);
+                            txtGTalk.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["GtalkId"]);
+                            txtSkype.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["skypeId"]);
+                            txtGooglePlus.Text = Convert.ToString(dsConatctDetails.Tables[0].Rows[0]["GoogleP"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //  throw;
             }
         }
 
@@ -51,6 +92,7 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            // Check isCheck is true for update contact details
             if (isCheck)
             {
                 try
@@ -69,7 +111,9 @@ namespace JobFair.UserControls.JobSeeker
                     objContactDetailsEntity.GtalkId = txtGTalk.Text.Trim();
                     objContactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                     objContactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
+                    objContactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
                     int result = contactDetailsBAL.UpdateContactDetailsBAL(objContactDetailsEntity);
+                    // Check result is greater than zero or not
                     if (result > 0)
                     {
                         Response.Write("<script language='javascript'>alert('Contact Details Updated')</script>");
@@ -81,7 +125,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 catch (Exception)
                 {
-                    throw;
+                    //  throw;
                 }
             }
             else
@@ -102,7 +146,9 @@ namespace JobFair.UserControls.JobSeeker
                     contactDetailsEntity.GtalkId = txtGTalk.Text.Trim();
                     contactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                     contactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
+                    contactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
                     int result = contactDetailsBAL.SaveContactDetailsBAL(contactDetailsEntity);
+                    // Check result is greater than zero or not
                     if (result > 0)
                     {
                         Response.Write("<script language='javascript'>alert('Contact Details Inserted')</script>");
@@ -114,7 +160,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 catch (Exception)
                 {
-                    throw;
+                    //  throw;
                 }
             }
         }

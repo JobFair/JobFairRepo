@@ -94,6 +94,24 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.GridView gvSkillsDetails;
         
         /// <summary>
+        /// divTechnicalRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTechnicalRepeater;
+        
+        /// <summary>
+        /// rptrTechnicalSkills control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrTechnicalSkills;
+        
+        /// <summary>
         /// btnSaveSkills control.
         /// </summary>
         /// <remarks>

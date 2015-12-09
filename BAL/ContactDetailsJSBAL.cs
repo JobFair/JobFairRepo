@@ -13,15 +13,8 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int SaveContactDetailsBAL(ContactDetailsEntity contactDetailsEntity)
         {
-            try
-            {
-                ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
-                return contactDetailsDAL.SaveContactDetailsDAL(contactDetailsEntity);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
+            return contactDetailsDAL.SaveContactDetailsDAL(contactDetailsEntity);
         }
 
         /// <summary>
@@ -31,15 +24,8 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int UpdateContactDetailsBAL(ContactDetailsEntity contactDetailsEntity)
         {
-            try
-            {
-                ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
-                return contactDetailsDAL.UpdateContactDetailsDAL(contactDetailsEntity);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
+            return contactDetailsDAL.UpdateContactDetailsDAL(contactDetailsEntity);
         }
 
         /// <summary>
@@ -49,15 +35,8 @@ namespace BAL
         /// <returns></returns>
         public DataSet ViewContactDetailsBAL(string candidateId)
         {
-            try
-            {
-                ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
-                return contactDetailsDAL.ViewContactDetailsDAL(candidateId);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
+            return contactDetailsDAL.ViewContactDetailsDAL(candidateId);
         }
     }
 }

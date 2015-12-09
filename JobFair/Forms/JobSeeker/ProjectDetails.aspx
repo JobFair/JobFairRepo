@@ -8,9 +8,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+       
+    <script src="../../Scripts/ValidationAll.js"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Panel ID="pnlInsert" runat="server" Visible="false">
         <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <table>
@@ -50,7 +54,7 @@
                         <asp:Label ID="lblRole" runat="server" Text="Your Role"></asp:Label>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlRole" runat="server"  OnBlur="return IsSelectedDDL(this.id,'Radio Button')">
+                            <asp:DropDownList ID="ddlRole" runat="server" OnBlur="return IsSelectedDDL(this.id,'Radio Button')">
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="rfvRole" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlRole"></asp:RequiredFieldValidator>
                     </td>
@@ -159,7 +163,7 @@
                         <asp:RadioButton ID="rbtYes" runat="server" GroupName="Live" Text="Yes" AutoPostBack="True" />
                         <asp:RadioButton ID="rbtNo" runat="server" GroupName="Live" Text="No" AutoPostBack="True" /></td>
                 </tr>
-                <asp:Panel id="panelProjectLink" runat="server" Visible="false">
+                    <asp:Panel ID="panelProjectLink" runat="server" Visible="false">
                 <tr>
                     <td>
                         <asp:Label ID="lblLinkUrl" runat="server" Text="Project Link/URL"></asp:Label>
@@ -171,7 +175,7 @@
                     </td>
                 </tr>
                 </asp:Panel>
-                <asp:Panel id="panelAcademicLevel" runat="server" Visible="false">
+                    <asp:Panel ID="panelAcademicLevel" runat="server" Visible="false">
                 <tr>
                     <td>
                         <asp:Label ID="lblAcademicLevel" runat="server" Text="Academic Level"></asp:Label>
@@ -210,7 +214,7 @@
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Project For" DataField="ProjectFor" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Project Title" DataField="ProjectTitle" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Company Name" DataField="CompanyName" />
-                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Role" DataField="Role" />
+                        <asp:BoundField HeaderStyle-Width="120px" HeaderText="RoleId" DataField="RoleId" Visible="false" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Client Name" DataField="ClientName" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Duration" DataField="Duration" />
                     <asp:BoundField HeaderStyle-Width="120px" HeaderText="Project Location" DataField="ProjectLocation" />
@@ -239,6 +243,203 @@
             <asp:Button ID="btnsubmitProject" runat="server" Style="color: White"
                 Text="Save Project" BackColor="#999966" OnClick="btnsubmitProject_Click" />
         </div>
+        </asp:Panel>
+        <asp:Panel ID="pnlEdit" runat="server" Visible="false">
+            <div>
+                <asp:Repeater ID="rptrProjectDetails" runat="server"
+                    OnItemCommand="rptrProjectDetails_ItemCommand"
+                    OnItemDataBound="rptrProjectDetails_ItemDataBound">
+                    <HeaderTemplate>
+                        <table width="500px" border="1px">
+                            <tr style="background-color: #fb7700">
+                                <%-- <td>Check</td>
+                            <td>Project For</td>
+                            <td>Project Title</td>
+                            <td>Company Name</td>
+                            <td>Role</td>
+                            <td>Client Name</td>
+                            <td>Duration</td>
+                            <td>Project Location</td>
+                            <td>Employment Type</td>
+                            <td>Project Details</td>
+                            <td>Roles and Responsibility</td>
+                            <td>Team Size</td>
+                            <td>Skill Used</td>
+                            <td>Project Live</td>
+                            <td>Project Link</td>
+                            <td>Degree</td>
+                            <td>Options</td>--%>
+                                <h1>Project Details</h1>
+                            </tr>
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <tr style="background-color: #ffffff">
+                            <%--<td>
+                          <center>  <asp:CheckBox ID="chkDelete" runat="server" /></center>
+                        </td></tr>--%>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>Project For </td>
+                                        <td>
+                                            <asp:Label ID="lblID" Visible="false" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectId") %>'></asp:Label>
+                                            <asp:Label ID="lblProjectFor" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectFor")%>'></asp:Label>
+                                            <asp:DropDownList ID="ddlProjectFor" runat="server" Visible="false">
+                                                <asp:ListItem Value="Academic">Academic</asp:ListItem>
+                                                <asp:ListItem Value="Intern">Intern</asp:ListItem>
+                                                <asp:ListItem Value="Professional">Professional</asp:ListItem>
+                                                <asp:ListItem Value="FreeLancing">FreeLancing</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Project Title</td>
+                                        <td>
+                                            <asp:Label ID="lblProjectTiltle" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectTitle")%>'></asp:Label>
+                                            <asp:TextBox ID="txtProjectTiltle" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectTitle")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Company Name</td>
+                                        <td>
+                                            <asp:Label ID="lblCompanyName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CompanyName")%>'></asp:Label>
+                                            <asp:TextBox ID="txtCompanyName" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CompanyName")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Role </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddlRole" runat="server">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Client Name </td>
+                                        <td>
+                                            <asp:Label ID="lblClientName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientName")%>'></asp:Label>
+                                            <asp:TextBox ID="txtClientName" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientName")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Duration </td>
+                                        <td>
+                                            <asp:Label ID="lblDuration" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Duration")%>'></asp:Label>
+                                            <asp:TextBox ID="txtDuration" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Duration")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Project Location </td>
+                                        <td>
+                                            <asp:Label ID="lblProjectLocation" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectLocation")%>'></asp:Label>
+                                            <asp:TextBox ID="txtProjectLocation" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectLocation")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Employment Type </td>
+                                        <td>
+                                            <asp:Label ID="lblEmploymentType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "EmploymentType")%>'></asp:Label>
+                                            <asp:TextBox ID="txtEmploymentType" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "EmploymentType")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Project Details </td>
+                                        <td>
+                                            <asp:Label ID="lblProjectDetails" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectDetails")%>'></asp:Label>
+                                            <asp:TextBox ID="txtProjectDetails" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectDetails")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Roles and Responsibility </td>
+                                        <td>
+                                            <asp:Label ID="lblRolesandResponsibility" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "RolesandResponsibility")%>'></asp:Label>
+                                            <asp:TextBox ID="txtRolesandResponsibility" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "RolesandResponsibility")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Team Size </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddlTeamSize" runat="server">
+                                                <asp:ListItem>Select</asp:ListItem>
+                                                <asp:ListItem>1</asp:ListItem>
+                                                <asp:ListItem>2</asp:ListItem>
+                                                <asp:ListItem>3</asp:ListItem>
+                                                <asp:ListItem>4</asp:ListItem>
+                                                <asp:ListItem>5</asp:ListItem>
+                                                <asp:ListItem>6</asp:ListItem>
+                                                <asp:ListItem>7</asp:ListItem>
+                                                <asp:ListItem>8</asp:ListItem>
+                                                <asp:ListItem>9</asp:ListItem>
+                                                <asp:ListItem>10</asp:ListItem>
+                                                <asp:ListItem>11</asp:ListItem>
+                                                <asp:ListItem>12</asp:ListItem>
+                                                <asp:ListItem>13</asp:ListItem>
+                                                <asp:ListItem>14</asp:ListItem>
+                                                <asp:ListItem>15</asp:ListItem>
+                                                <asp:ListItem>16</asp:ListItem>
+                                                <asp:ListItem>17</asp:ListItem>
+                                                <asp:ListItem>18</asp:ListItem>
+                                                <asp:ListItem>19</asp:ListItem>
+                                                <asp:ListItem>20</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Skill Used </td>
+                                        <td>
+                                            <asp:Label ID="lblSkillUsed" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "SkillUsed")%>'></asp:Label>
+                                            <asp:TextBox ID="txtSkillUsed" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "SkillUsed")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Project Live </td>
+                                        <td>
+                                            <asp:Label ID="lblProjectLive" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectLive")%>'></asp:Label>
+                                            <asp:TextBox ID="txtProjectLive" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectLive")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Project Link </td>
+                                        <td>
+                                            <asp:Label ID="lblProjectLink" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectLink")%>'></asp:Label>
+                                            <asp:TextBox ID="txtProjectLink" BackColor="#d4d0c8" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ProjectLink")%>' Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Degree </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddlDegree" runat="server">
+                                                <asp:ListItem>Select</asp:ListItem>
+                                                <asp:ListItem>PG Project</asp:ListItem>
+                                                <asp:ListItem>UG Project</asp:ListItem>
+                                                <asp:ListItem>PG Diploma</asp:ListItem>
+                                                <asp:ListItem>Diploma</asp:ListItem>
+                                                <asp:ListItem>Certification</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+
+                                    <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                                        <tr>
+                                            <td>
+                                                <asp:LinkButton ID="lnkEdit" runat="server" CommandName="edit" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ProjectId") %>'>Edit</asp:LinkButton>
+                                                <asp:LinkButton Visible="false" ID="lnkUpdate" runat="server" CommandName="update" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ProjectId") %>'>Update</asp:LinkButton>
+                                                <asp:LinkButton Visible="false" ID="lnkCancel" runat="server" CommandName="cancel" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ProjectId") %>'>Cancel</asp:LinkButton>
+                                                <asp:LinkButton ID="lnkDelete" runat="server" CommandName="delete" OnClientClick='javascript:return confirm("Are you sure you want to delete?")'
+                                                    CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ProjectId") %>'>Delete</asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <tr>
+                                        <td colspan="2">&nbsp;</td>
+                                    </tr>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </table>
+                    </FooterTemplate>
+                </asp:Repeater>
+                <%--<asp:LinkButton ID="lnkDelSelected" ForeColor="White" runat="server" OnClick="LinkButton1_Click" OnClientClick='javascript:return confirm("Are you sure you want to delete?")'>Delete Selected</asp:LinkButton>--%>
+            </div>
+        </asp:Panel>
     </form>
 </body>
 </html>

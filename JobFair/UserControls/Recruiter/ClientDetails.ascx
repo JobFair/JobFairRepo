@@ -8,8 +8,6 @@
 <table  >
     <tr>
         <td colspan="2"><h1>
-            <asp:ScriptManager ID="ScriptManager1" runat="server">
-            </asp:ScriptManager>
             Client Details</h1></td>
         
     </tr>
@@ -25,7 +23,7 @@
         <td>
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
-                    <asp:DropDownList ID="ddlIndustry" runat="server" >
+                    <asp:DropDownList ID="ddlIndustry" runat="server">
                     </asp:DropDownList>
                     <br />
                     <asp:DropDownList ID="ddlFunctionalArea" runat="server"  AutoPostBack="True" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlFunctionalArea_SelectedIndexChanged" >

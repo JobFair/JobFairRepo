@@ -58,15 +58,6 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.TextBox txtkeyskill;
         
         /// <summary>
-        /// rfvkeyskill control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvkeyskill;
-        
-        /// <summary>
         /// AutoCompleteExtender1 control.
         /// </summary>
         /// <remarks>
@@ -283,24 +274,6 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender1;
         
         /// <summary>
-        /// lbljobcategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbljobcategory;
-        
-        /// <summary>
-        /// ddlJobCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlJobCategory;
-        
-        /// <summary>
         /// lblEmploymentStatus control.
         /// </summary>
         /// <remarks>
@@ -353,24 +326,6 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList chkRecruitmentType;
-        
-        /// <summary>
-        /// lblSortBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSortBy;
-        
-        /// <summary>
-        /// ddlJobFreshness control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlJobFreshness;
         
         /// <summary>
         /// btnsearch control.

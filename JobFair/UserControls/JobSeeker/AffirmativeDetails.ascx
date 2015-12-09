@@ -88,7 +88,7 @@
             <asp:Label ID="lblPhysicallyChallenged" runat="server" Text="Physically Challenged"></asp:Label>
         </td>
         <td colspan="5">
-            <asp:RadioButtonList ID="rbtPhysicallyChallenged" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rbtPhysicallyChallenged_SelectedIndexChanged">
+            <asp:RadioButtonList ID="rbtPhysicallyChallenged" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rbtPhysicallyChallenged_SelectedIndexChanged" AutoPostBack="True">
                 <asp:ListItem Value="1">Yes</asp:ListItem>
                 <asp:ListItem Value="0">No</asp:ListItem>
             </asp:RadioButtonList>
@@ -97,10 +97,13 @@
                 <asp:RadioButton ID="rbtNo" runat="server" Text="No" GroupName="PhysicallyChallenged" AutoPostBack="true" />--%>
         </td>
     </tr>
-    <asp:Panel id="upPhysicallyChallenged" runat="server" Visible="false">
+    <tr>
+         <asp:Panel id="pnlPhysicallyChallenged" runat="server" Visible="false">
             <asp:Label ID="lblDescription" runat="server" Text="Description" Visible="false"></asp:Label>
             <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Visible="false"></asp:TextBox>
     </asp:Panel>
+    </tr>
+   
     <tr>
         <td>
             <asp:Label ID="lblSports" runat="server" Text="Sports"></asp:Label>

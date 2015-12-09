@@ -30,7 +30,25 @@
             <asp:DropDownList ID="ddlSubject" runat="server">
                 <asp:ListItem>Ask a question</asp:ListItem>
                 <asp:ListItem>Report a bug</asp:ListItem>
-                <asp:ListItem>Customer support ticket</asp:ListItem>
+                <asp:ListItem>Customer support ticket</asp:ListItem>   
+                <asp:ListItem>Forgot username and password</asp:ListItem>
+                <asp:ListItem>How To Block Companies</asp:ListItem>
+                <asp:ListItem>How To Create and Edit Job messenger</asp:ListItem>
+                <asp:ListItem>How To Create Cover Letter</asp:ListItem>
+                <asp:ListItem>How to create edit and delete search agents</asp:ListItem>
+                <asp:ListItem>How to change password</asp:ListItem>
+                <asp:ListItem>How to register as a fresher</asp:ListItem>
+                <asp:ListItem>How to mark your CV as not searchable</asp:ListItem>
+                <asp:ListItem>How to search and apply</asp:ListItem>
+                <asp:ListItem>Unable to Login</asp:ListItem>
+                <asp:ListItem>How to create new profile</asp:ListItem>
+                <asp:ListItem>Problem in Recruiters Preview</asp:ListItem>
+                <asp:ListItem>Unable to attach resume</asp:ListItem>
+                <asp:ListItem>Getting run time/java script error</asp:ListItem>
+                <asp:ListItem>Suggestions</asp:ListItem>
+                <asp:ListItem>How to delete my account</asp:ListItem>
+                <asp:ListItem>Not getting job alerts</asp:ListItem>
+                <asp:ListItem>Mobile/email verification</asp:ListItem>
                 <asp:ListItem>Other</asp:ListItem>
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="rfvSubject" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject"></asp:RequiredFieldValidator>

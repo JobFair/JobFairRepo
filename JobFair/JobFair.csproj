@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,6 +38,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
@@ -49,38 +52,22 @@
       <HintPath>..\packages\Highlight.4.0.0\lib\net40\Highlight.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxControlToolkit.dll" />
@@ -93,24 +80,32 @@
     <Content Include="Css\Common.css" />
     <Content Include="Css\Style.css" />
     <Content Include="Css\ValidationEngine.css" />
+    <Content Include="EmailPage.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\Employer\Register.aspx" />
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
+    <Content Include="Forms\JobSeeker\ChangeLoginDetails.aspx" />
+    <Content Include="Forms\JobSeeker\CompleteProfile.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
+    <Content Include="Forms\JobSeeker\JSViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\ProjectDetails.aspx" />
     <Content Include="Forms\JobSeeker\Refference.aspx" />
+    <Content Include="Forms\JobSeeker\RequestEmail.aspx" />
+    <Content Include="Forms\JobSeeker\ViewAllJobPost.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\ManageJobs.aspx" />
+    <Content Include="Forms\Recruiter\ManageResponses.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
     <Content Include="Forms\Recruiter\searchrecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
+    <Content Include="Images\logoitch.jpg" />
     <Content Include="NewFolder1\jquery-1.11.1.min %281%29.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -127,6 +122,7 @@
     <Content Include="Scripts\jquery.validationEngine-en.js" />
     <Content Include="Scripts\jquery.validationEngine.js" />
     <Content Include="Scripts\ValidationAll.js" />
+    <Content Include="SendMail.html" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
     <Content Include="UserControls\JobSeeker\MoreWorkshops.ascx" />
@@ -169,7 +165,9 @@
     <Content Include="UserControls\Recruiter\RecruiterForgetPwd.ascx" />
     <Content Include="UserControls\Recruiter\RecruiterRegistration.ascx" />
     <Content Include="UserControls\Recruiter\AddOfferedCandidates.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\Common\ChangePassword.aspx.cs">
@@ -207,6 +205,20 @@
     <Compile Include="Forms\JobSeeker\AdvanceSearch.aspx.designer.cs">
       <DependentUpon>AdvanceSearch.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JobSeeker\CompleteProfile.aspx.cs">
+      <DependentUpon>CompleteProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\CompleteProfile.aspx.designer.cs">
+      <DependentUpon>CompleteProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ChangeLoginDetails.aspx.cs">
+      <DependentUpon>ChangeLoginDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ChangeLoginDetails.aspx.designer.cs">
+      <DependentUpon>ChangeLoginDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeeker\Feedback.aspx.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,6 +239,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\JobSeekerHome.Master.designer.cs">
       <DependentUpon>JobSeekerHome.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JSViewProfile.aspx.cs">
+      <DependentUpon>JSViewProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\JSViewProfile.aspx.designer.cs">
+      <DependentUpon>JSViewProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
@@ -256,12 +275,26 @@
     <Compile Include="Forms\JobSeeker\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JobSeeker\RequestEmail.aspx.cs">
+      <DependentUpon>RequestEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\RequestEmail.aspx.designer.cs">
+      <DependentUpon>RequestEmail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeeker\UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\JobSeeker\UserDetails.aspx.designer.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ViewAllJobPost.aspx.cs">
+      <DependentUpon>ViewAllJobPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ViewAllJobPost.aspx.designer.cs">
+      <DependentUpon>ViewAllJobPost.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\ViewProfile.aspx.cs">
       <DependentUpon>ViewProfile.aspx</DependentUpon>
@@ -297,6 +330,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\ManageJobs.aspx.designer.cs">
       <DependentUpon>ManageJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ManageResponses.aspx.cs">
+      <DependentUpon>ManageResponses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ManageResponses.aspx.designer.cs">
+      <DependentUpon>ManageResponses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>

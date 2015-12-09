@@ -1,34 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL;
 using Entities;
-using DAL;
 
 namespace BAL
 {
     public class FeedbackBAL
     {
-   /// <summary>
-   /// create method in BAl for 
-   /// </summary>
-        /// <param name="feedbackEntity"></param>
-   /// <returns></returns>
+        /// <summary>
+        /// create method in BAL for feedback
+        /// </summary>
+        /// <param name="feedbackEntity">FeedbackEntity</param>
+        /// <returns>System.Int32</returns>
 
-        public int feedbackNewJobseekerBAL(FeedbackEntity feedbackEntity)
+        public int FeedbackNewJobseekerBAL(FeedbackEntity feedbackEntity)
         {
-            try
-            {
-                FeedbackJSDAL feedbackDAL = new FeedbackJSDAL();
-                return feedbackDAL.FeedbackDAL(feedbackEntity);
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-            
+            FeedbackJSDAL feedbackDAL = new FeedbackJSDAL();
+            return feedbackDAL.FeedbackDAL(feedbackEntity);
         }
     }
 }

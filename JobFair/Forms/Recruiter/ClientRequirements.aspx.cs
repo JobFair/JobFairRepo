@@ -40,8 +40,7 @@ namespace JobFair.Forms.Recruiter
             clientReq.RecruiterID = "RE11";
             clientReq.ClientId = 1;
             clientReq.Position = txtPosition.Text.Trim();
-            clientReq.JobDescription = txtJobDescription.Text.Trim();
-            clientReq.Gender = rblGender.SelectedValue;
+            clientReq.JobDescription = txtjobpost.Text.Trim();
             clientReq.DateOfRequirementSent = Convert.ToDateTime(txtDateOfReqSent.Text);
             clientReq.DueDate = Convert.ToDateTime(txtDueDate.Text);
             clientReq.NumberOfVacancies = Convert.ToInt32(txtNumberOfVacancy.Text.Trim());

@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Entities;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
-using Entities;
 
 namespace DAL
 {
     /// <summary>
     /// ChangePasswordDAL class
     /// </summary>
-    /// 
+    ///
     public class ChangePasswordDAL
     {
-
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
         /// <summary>
         /// Change password method from DAL layer
         /// </summary>
@@ -25,28 +21,27 @@ namespace DAL
         /// <returns>System.Int32</returns>
         public int ChangePasswordDALMethod(ChangePasswordEnitity changepasswordEntity)
         {
-
+            int result = 0;
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand();
-                SqlParameter[] sqlparams = {
-                                             new SqlParameter("@userId",changepasswordEntity.UserId),
-                                             new SqlParameter("@newPassword",changepasswordEntity.NewPassword),
-                                             new SqlParameter("@oldPassword",changepasswordEntity.OldPassword)
-                                            };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_ChangePassword, sqlparams);
 
-                return result;
+                SqlParameter[] sparams = new SqlParameter[3];
+                sparams[0] = new SqlParameter("@userId", changepasswordEntity.UserId);
+                sparams[1] = new SqlParameter("@newPassword", changepasswordEntity.NewPassword);
+                sparams[2] = new SqlParameter("@oldPassword", changepasswordEntity.OldPassword);
+
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_ChangePassword, sparams);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                //  throw;
             }
             finally
             {
                 connection.Close();
             }
+            return result;
         }
     }
 }

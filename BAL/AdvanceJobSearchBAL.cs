@@ -1,109 +1,74 @@
 ﻿using CommonUtil;
 using DAL;
-using Entities.Recruiter;
 using System.Data;
+
 namespace BAL
 {
     public class AdvanceJobSearchBAL
     {
+       
         /// <summary>
-        /// create method in BAL
+        /// Get industry bal
         /// </summary>
-        /// <returns></returns>
-        AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
+        /// <returns>dataset</returns>
         public static object GetIndustry()
         {
-            try
-            {
-                return Utility.GetIndustry();
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-            
+            return Utility.GetIndustry();
         }
+        /// <summary>
+        /// Get functional area bal
+        /// </summary>
+        /// <returns>dataset</returns>
         public static object GetFunctionalArea()
         {
-            try
-            {
-                return Utility.GetFunctionalArea();
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-           
+            return Utility.GetFunctionalArea();
         }
-       
+        /// <summary>
+        /// Get area bal
+        /// </summary>
+        /// <param name="cityId">cityId</param>
+        /// <returns>dataset</returns>
         public static object GetArea(int cityId)
         {
-            try
-            {
-                return Utility.GetArea(cityId);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-            
+            return Utility.GetArea(cityId);
         }
+        /// <summary>
+        /// Get state bal
+        /// </summary>
+        /// <returns>dataset</returns>
         public DataSet GetState()
         {
-            try
-            {
-                return advanceSearchDAL.GetStateDAL();
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-           
+            AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
+            return advanceSearchDAL.GetStateDAL();
         }
+        /// <summary>
+        /// Get technical skill bal
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>datatable</returns>
         public DataTable GetTechnicalSkillBAL(string prefixText)
         {
-            try
-            {
-                return advanceSearchDAL.GetTechnicalSkillDAL(prefixText);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-           
+            AdvanceSearchDAL advanceSearchDAL = new AdvanceSearchDAL();
+            return advanceSearchDAL.GetTechnicalSkillDAL(prefixText);
         }
-
-
-
+        /// <summary>
+        /// Get city bal
+        /// </summary>
+        /// <param name="stateId">stateId</param>
+        /// <returns>datset</returns>
         public static object GetCity(int stateId)
         {
-            try
-            {
-                return Utility.GetCity(stateId);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
+            return Utility.GetCity(stateId);
         }
-
-        public static object GetArea()
+        /// <summary>
+        /// Get roles bal
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>datatable</returns>
+        public DataTable GetRoles(string prefixText)
         {
-            try
-            {
-                return Utility.GetArea();
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
+            return advancesearchDAL.GetRoles(prefixText);
         }
     }
 }

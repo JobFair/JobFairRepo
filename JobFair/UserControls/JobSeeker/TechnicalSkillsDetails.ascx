@@ -68,6 +68,86 @@
                                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                 </td>
+                
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <div id="divTechnicalRepeater" runat="server" visible="false">
+                                    <asp:Repeater ID="rptrTechnicalSkills" runat="server" OnItemCommand="rptrTechnicalSkills_ItemCommand" OnItemDataBound="rptrTechnicalSkills_ItemDataBound">
+                                        <HeaderTemplate>
+                                            <table>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h1>Your Technical Skills</h1>
+                                                    </td>
+                                                </tr>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+
+                                            <tr style="background-color: #EBEFF0">
+                                                <td>
+                                                    <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; width: 300px">
+                                                        <tr>
+                                                            <td>
+                                                                <b>Technical Skill</b>
+                                                                <asp:Label ID="lblTechnicalSkill" runat="server" Text='<%#Eval("TechnicalSkillName") %>' />
+                                                                <asp:DropDownList ID="ddlTechnicalSkill" runat="server" Visible="false"></asp:DropDownList>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>FromDate</b>
+                                                                <asp:Label ID="lblFromDate" runat="server" Text='<%#Eval("FromDate") %>' />
+                                                                <asp:DropDownList ID="ddlFromMonth" runat="server" Visible="false"></asp:DropDownList>
+                                                                 <asp:DropDownList ID="ddlFromYear" runat="server" Visible="false"></asp:DropDownList>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>TillDate</b>
+                                                                <asp:Label ID="lblTillDate" runat="server" Text='<%#Eval("TillDate") %>' />
+                                                                <asp:DropDownList ID="ddlTillMonth" runat="server" Visible="false"></asp:DropDownList>
+                                                                 <asp:DropDownList ID="ddlTillYear" runat="server" Visible="false"></asp:DropDownList>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>Proficiency</b>
+                                                                <asp:Label ID="lblProficiency" runat="server" Text='<%#Eval("Proficiency") %>' />
+                                                                <asp:DropDownList ID="ddlProficiency" runat="server" Visible="false">
+                                                                     <asp:ListItem>Select</asp:ListItem>
+                        <asp:ListItem>Beginner</asp:ListItem>
+                        <asp:ListItem>Intermediate</asp:ListItem>
+                        <asp:ListItem>Expert</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                        </tr>
+                                                       
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; border-bottom: 1px solid #c1650f; width: 300px">
+                                                        <tr>
+                                                            <td>
+                                                                <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="edit">Edit</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">&nbsp;</td>
+                                            </tr>
+                                            </table>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                        </div>
+                </td>
             </tr>
             <tr>
                 <td colspan="4">
@@ -76,5 +156,5 @@
                 </td>
             </tr>
             </table>
-    </div>
+   </div>
 </div>

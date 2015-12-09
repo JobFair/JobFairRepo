@@ -14,20 +14,20 @@ namespace DAL
         /// View Contact Details.
         /// </summary>
         /// <param name="candidateId">for selecting data into database</param>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet ViewContactDetailsDAL(string candidateId)
         {
+            DataSet ds = new DataSet();
             try
             {
-                DataSet ds = new DataSet();
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectContactDetails, sparams);
-                return ds;
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
+            return ds;
         }
 
         /// <summary>
@@ -37,6 +37,7 @@ namespace DAL
         /// <returns>System.Int32</returns>
         public int SaveContactDetailsDAL(ContactDetailsEntity contactDetailsEntity)
         {
+            int result = 0;
             try
             {
                 connection.Open();
@@ -51,20 +52,20 @@ namespace DAL
                                               new SqlParameter("@twitterId", contactDetailsEntity.TwitterId),
                                               new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
                                               new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
-                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus)
+                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus),
+                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertContactDetails, sqlparams);
-
-                return result;
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertContactDetails, sqlparams);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                //throw;
             }
             finally
             {
                 connection.Close();
             }
+            return result;
         }
 
         /// <summary>
@@ -74,6 +75,7 @@ namespace DAL
         /// <returns>System.Int32</returns>
         public int UpdateContactDetailsDAL(ContactDetailsEntity contactDetailsEntity)
         {
+            int result = 0;
             try
             {
                 connection.Open();
@@ -88,16 +90,20 @@ namespace DAL
                                               new SqlParameter("@twitterId", contactDetailsEntity.TwitterId),
                                               new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
                                               new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
-                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus)
+                                              new SqlParameter("@googleP",contactDetailsEntity.GooglePlus),
+                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId)
                                             };
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateContactDetails, sqlparams);
-
-                return result;
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateContactDetails, sqlparams);
             }
             catch (Exception)
             {
-                throw;
+                //throw;
             }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
         }
     }
 }

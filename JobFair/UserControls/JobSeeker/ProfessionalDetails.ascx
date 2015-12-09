@@ -48,8 +48,7 @@
             <td>
                 <asp:Label ID="lblTotalExp" runat="server"></asp:Label>
                 &nbsp;Years
-                </td>
-               
+            </td>
         </tr>
         <tr>
             <td>Currently You Are?</td>
@@ -69,7 +68,7 @@
         <tr>
             <td colspan="2">
 
-                <div id="divCurrentEmployer" runat="server" visible="false">
+                <div id="divCurrentEmployer" runat="server" visible="false" >
                     <table>
                         <tr>
                             <td colspan="2">
@@ -85,6 +84,7 @@
                             <td>
                                 <asp:TextBox ID="txtCurrentEmployer" runat="server"></asp:TextBox>
                                 <asp:CheckBox ID="chkCurrentYes" runat="server" Text="Current Company" />
+
                             </td>
                         </tr>
                         <tr>
@@ -206,6 +206,145 @@
                             </td>
                         </tr>
                         <tr>
+                            <td colspan="2">
+
+                                <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemDataBound="rptrPastCurrentJobDetails_ItemDataBound" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand" Visible="false">
+                                    <HeaderTemplate>
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <h1>Your Past & Current Experience</h1>
+                                                </td>
+                                            </tr>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr style="background-color: #EBEFF0">
+                                            <td>
+                                                <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; width: 300px">
+                                                    <tr>
+                                                        <td>
+                                                            <b>Current Company</b>
+                                                            <asp:Label ID="lblCurrentComapny" runat="server" Text='<%#Eval("CompanyCurrentOrPast") %>'></asp:Label>
+                                                            <asp:CheckBox ID="chkCurrentYes" runat="server" Text="Current Company" Visible="false" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Employer/Company Name</b>
+                                                            <asp:Label ID="lblCompanyName" runat="server" Text='<%#Eval("ComapnyName") %>' />
+                                                            <asp:TextBox ID="txtComapnyName" runat="server" Text='<%#Eval("ComapnyName") %>' Visible="false"></asp:TextBox>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Designation</b>
+                                                            <asp:Label ID="lblDesignation" runat="server" Text='<%#Eval("Designation") %>' />
+                                                            <asp:TextBox ID="txtDesignation" runat="server" Text='<%#Eval("Designation") %>' Visible="false"></asp:TextBox>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Roles & Responsibilities</b>
+                                                            <asp:Label ID="lblRolesResponsibility" runat="server" Text='<%#Eval("RolesResponsibilities") %>' />
+                                                            <asp:TextBox ID="txtRolesResponsibility" runat="server" Text='<%#Eval("RolesResponsibilities") %>' Visible="false"></asp:TextBox>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Duration</b>
+                                                            <asp:Label ID="lblFromMonth" runat="server" Text='<%#Eval("FromMonth") %>' />
+                                                            <asp:Label ID="lblFromYear" runat="server" Text='<%#Eval("FromYear") %>'></asp:Label>
+                                                            Till
+                                                                 <asp:Label ID="lblTillMonth" runat="server" Text='<%#Eval("TillMonth") %>' />
+                                                            <asp:Label ID="lblTillYear" runat="server" Text='<%#Eval("TillYear") %>'></asp:Label>
+
+                                                            <asp:DropDownList ID="ddlFromMonth" runat="server" Visible="false">
+                                                            </asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlFromYear" runat="server" Visible="false">
+                                                            </asp:DropDownList>
+                                                            <asp:Label ID="lbltillword" runat="server" Text="Till" Visible="false"></asp:Label>
+                                                            <asp:DropDownList ID="ddlTillMonth" runat="server" Visible="false">
+                                                            </asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlTillYear" runat="server" Visible="false">
+                                                            </asp:DropDownList>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Industry</b>
+                                                            <asp:Label ID="lblIndustry" runat="server" Text='<%#Eval("IndustryName") %>' />
+                                                            <asp:DropDownList ID="ddlIndustry" runat="server" Visible="false"></asp:DropDownList>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Department</b>
+                                                            <asp:Label ID="lblDepartment" runat="server" Text='<%#Eval("DepartmentName") %>' />
+                                                            <asp:DropDownList ID="ddlDepartment" runat="server" Visible="false"></asp:DropDownList>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Employment Status</b>
+                                                            <asp:Label ID="lblEmploymentStatus" runat="server" Text='<%#Eval("EmploymentStatus") %>'></asp:Label>
+                                                            <asp:RadioButtonList ID="rbtlEmployementStatus" runat="server" Visible="false">
+                                                                <asp:ListItem>Full Time</asp:ListItem>
+                                                                <asp:ListItem>Part Time</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Job Type
+                                                            </b>
+                                                            <asp:Label ID="lblJobType" runat="server" Text='<%#Eval("JobType") %>'></asp:Label>
+                                                            <asp:RadioButtonList ID="rblJobType" runat="server" Visible="false">
+                                                                <asp:ListItem>Permanent</asp:ListItem>
+                                                                <asp:ListItem>Temporary</asp:ListItem>
+                                                                <asp:ListItem>Freelancing</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Company Type
+                                                            </b>
+                                                            <asp:Label ID="lblCompanyType" runat="server" Text='<%#Eval("CompanyType") %>'></asp:Label>
+                                                            <asp:RadioButtonList ID="rblCompanyType" runat="server" Visible="false">
+                                                                <asp:ListItem>Small</asp:ListItem>
+                                                                <asp:ListItem>Middle</asp:ListItem>
+                                                                <asp:ListItem>MNC</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Reason For JobChange
+                                                            </b>
+                                                            <asp:Label ID="lblReasonforjobchange" runat="server"></asp:Label>
+                                                            <asp:TextBox ID="txtReasonforJobchange" runat="server" TextMode="MultiLine" Text='<%#Eval("Reason") %>' Visible="false"></asp:TextBox>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; border-bottom: 1px solid #c1650f; width: 300px">
+                                                    <tr>
+                                                        <td>
+                                                            <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("Id") %>' CommandName="edit">Edit</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("Id") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("Id") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("Id") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>&nbsp;</td>
                             <td>
                                 <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSaveCurrentJob_Click" />
@@ -216,20 +355,6 @@
                         <tr>
                             <td colspan="2">
                                 <div id="divPastCurrentJobDetails" runat="server">
-                                    <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand">
-                                        <HeaderTemplate>
-                                            <h1>Your Past & Current Experience</h1>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <table>
-                                                <tr>
-                                                    <td>
-
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
                                     <!--Textboxes will be added here -->
                                 </div>
                             </td>
@@ -342,85 +467,9 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <div id="divJobPostLookingForRepeater" runat="server">
-                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand">
-                                        <HeaderTemplate>
-                                             <table>
-                                                 <tr>
-                                                     <td colspan="2">
-                                                         <h1>Your are looking for this Jobs</h1>
-                                                     </td>
-                                                 </tr>
-                                            
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            
-                                           <tr style="background-color:#EBEFF0">
-<td>
-<table style="background-color:#EBEFF0;border-top:1px dotted #c1650f; width:300px" >
-<tr>
-<td>
-<b>Job Post Looking For</b>
-<asp:Label ID="lblJobPostLooking" runat="server" Text='<%#Eval("JobPostLookingFor") %>'/>
- <asp:TextBox ID="txtJobPostLooking" runat="server" Text='<%#Eval("JobPostLookingFor") %>' Visible="false"></asp:TextBox>
-</td>
-</tr>
-<tr>
-<td>
-<b>Industry</b>
-<asp:Label ID="lblIndustry" runat="server" Text='<%#Eval("IndustryName") %>'/>
-<asp:DropDownList ID="ddlIndustry123" runat="server" SelectedValue='<%#Eval("IndustryName") %>' Visible="false"></asp:DropDownList>
-</td>
-</tr>
-<tr>
-<td>
-<b>Department</b>
-<asp:Label ID="lblDepartment" runat="server"  Text='<%#Eval("DepartmentName") %>'/>
-<asp:DropDownList ID="ddlDepartment123" DataTextField="DepartmentName" DataValueField="DepartmentId" runat="server"  SelectedValue='<%#Eval("DepartmentId") %>' Visible="false"></asp:DropDownList>
-</td>
-</tr>
-<tr>
-<td>
-<b>Functional Role</b>
-<asp:Label ID="lblFunctionalRole" runat="server" Text='<%#Eval("FunctionalArea") %>'/>
-<asp:DropDownList ID="ddlFunctionalRole" DataValueField="FunctionalAreaId" DataTextField="FunctionalArea" runat="server" Text='<%#Eval("FunctionalAreaId") %>' Visible="false"></asp:DropDownList>
-</td>
-    </tr>
-    <tr>
-    <td>
-<b>Relevant Experience</b>
-<asp:Label ID="lblRelevantExperience" runat="server" Text='<%#Eval("RelevantExperience") %>'/>
-<asp:TextBox ID="txtRelevantExperience" runat="server" Text='<%#Eval("RelevantExperience") %>' Visible="false"></asp:TextBox>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<table style="background-color:#EBEFF0;border-top:1px dotted #c1650f;border-bottom:1px solid #c1650f; width:300px" >
-<tr>
-   <td>
-        <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("CandidateId") %>' CommandName="edit">Edit</asp:LinkButton>
-            <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("CandidateId") %>' CommandName="delete" onclientclick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
-            <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("CandidateId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
-            <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("CandidateId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
-   </td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td colspan="2">&nbsp;</td>
-</tr>
-                                        </table>
-                                        </ItemTemplate>
-                                       
-                                    </asp:Repeater>
-
+                                <div id="divJobPostLookingForRepeater" runat="server" visible="false">
                                 </div>
                             </td>
-                            
                         </tr>
                     </table>
                 </div>
@@ -494,53 +543,59 @@
         <tr>
             <td colspan="2">
                 <asp:UpdatePanel ID="panelLocation" runat="server">
-            <ContentTemplate>   
-                <table style="width: 688px">       
-        <tr>
-            <td class="auto-style3">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-                    <tr>
-                        <td class="auto-style3">Preferred State</td>
-                        <td>
-                            <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" onrowdatabound="ddlState_onrowdatabound" OnSelectedIndexChanged="ddlState_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            PreferredCity
-                        </td>
-                        <td>
-                            <br />
-                            <asp:TextBox ID="txtCity" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
-                            <asp:Button ID="btnCity" runat="server" Text="Select City" OnClick="btnCity_Click" />
-                            <asp:Panel ID="Panelcity" runat="server" Visible="false" Width="444px">
-                                <asp:CheckBoxList ID="chklCity" runat="server" OnSelectedIndexChanged="chklCity_SelectedIndexChanged" AutoPostBack="True">
-                                </asp:CheckBoxList>
-                            </asp:Panel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            PreferredArea
-                        </td>
-                        <td>
-                             <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px"></asp:TextBox>
-                                     <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click" />
-                                  <asp:Panel ID="PanelArea" runat="server" Visible="false" Width="444px">
-                                      <asp:CheckBoxList ID="chklArea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chklArea_SelectedIndexChanged" ></asp:CheckBoxList>
-                                </asp:Panel>
-                        </td>
-                    </tr>
-</table>
-          </ContentTemplate>
-        </asp:UpdatePanel>
+                    <ContentTemplate>
+                        <table style="width: 688px">
+                            <tr>
+                                <td class="auto-style3">Preferred Country</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlPreferredCountry" OnSelectedIndexChanged="ddlPreferredCountry_SelectedIndexChanged" runat="server">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style3">Preferred State</td>
+                                <td>
+                                    <br />
+                                    <asp:TextBox ID="txtPreferredState" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button ID="btnState" runat="server" Text="Select State" OnClick="btnState_Click" />
+                                    <asp:Panel ID="PanelState" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklState" runat="server" OnSelectedIndexChanged="chklState_SelectedIndexChanged" AutoPostBack="True">
+                                        </asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PreferredCity
+                                </td>
+                                <td>
+                                    <br />
+                                    <asp:TextBox ID="txtCity" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button ID="btnCity" runat="server" Text="Select City" OnClick="btnCity_Click" />
+                                    <asp:Panel ID="Panelcity" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklCity" runat="server" OnSelectedIndexChanged="chklCity_SelectedIndexChanged" AutoPostBack="True">
+                                        </asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PreferredArea
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click" />
+                                    <asp:Panel ID="PanelArea" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklArea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chklArea_SelectedIndexChanged"></asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                        </table>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </td>
         </tr>
-        
+
         <tr>
-            <td>Availability for the Personal Round on Working Day</td>
+            <td>Availability for these Personal Round on Working Day</td>
             <td>
                 <asp:RadioButtonList ID="rblYesNo" runat="server">
                     <asp:ListItem>Yes</asp:ListItem>
@@ -624,7 +679,6 @@
                     <asp:ListItem>57</asp:ListItem>
                     <asp:ListItem>58</asp:ListItem>
                     <asp:ListItem>59</asp:ListItem>
-                    <asp:ListItem>60</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlBeforeTime" runat="server">
                     <asp:ListItem>AM</asp:ListItem>
@@ -703,7 +757,6 @@
                     <asp:ListItem>57</asp:ListItem>
                     <asp:ListItem>58</asp:ListItem>
                     <asp:ListItem>59</asp:ListItem>
-                    <asp:ListItem>60</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlAfterTime" runat="server">
                     <asp:ListItem>AM</asp:ListItem>
@@ -722,9 +775,82 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;&nbsp;&nbsp;
-            </td>
+            <td colspan="2">
+                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand" OnItemDataBound="rptrJobPostLookinFor_ItemDataBound" Visible="false">
+                                        <HeaderTemplate>
+                                            <table>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h1>Your are looking for this Jobs</h1>
+                                                    </td>
+                                                </tr>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+
+                                            <tr style="background-color: #EBEFF0">
+                                                <td>
+                                                    <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; width: 300px">
+                                                        <tr>
+                                                            <td>
+                                                                <b>Job Post Looking For</b>
+                                                                <asp:Label ID="lblJobPostLooking" runat="server" Text='<%#Eval("JobPostLookingFor") %>' />
+                                                                <asp:TextBox ID="txtJobPostLooking" runat="server" Text='<%#Eval("JobPostLookingFor") %>' Visible="false"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>Industry</b>
+                                                                <asp:Label ID="lblIndustry" runat="server" Text='<%#Eval("IndustryName") %>' />
+                                                                <asp:DropDownList ID="ddlIndustry123" runat="server" Visible="false"></asp:DropDownList>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>Department</b>
+                                                                <asp:Label ID="lblDepartment" runat="server" Text='<%#Eval("DepartmentName") %>' />
+                                                                <asp:DropDownList ID="ddlDepartment123" runat="server" Visible="false"></asp:DropDownList>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>Functional Role</b>
+                                                                <asp:Label ID="lblFunctionalRole" runat="server" Text='<%#Eval("FunctionalArea") %>' />
+                                                                <asp:DropDownList ID="ddlFunctionalRole" runat="server" Visible="false"></asp:DropDownList>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <b>Relevant Experience</b>
+                                                                <asp:Label ID="lblRelevantExperience" runat="server" Text='<%#Eval("RelevantExperience") %>' />
+                                                                <asp:TextBox ID="txtRelevantExperience" runat="server" Text='<%#Eval("RelevantExperience") %>' Visible="false"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; border-bottom: 1px solid #c1650f; width: 300px">
+                                                        <tr>
+                                                            <td>
+                                                                <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="edit">Edit</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("JobPostLookingForId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">&nbsp;</td>
+                                            </tr>
+                                            </table>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </td>
+
+           
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -732,6 +858,11 @@
                 <asp:Button ID="btnSaveMoreJobs" runat="server" Text="Save" OnClick="btnSaveMoreJobs_Click" Style="height: 26px" />
                 <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
             </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                                    &nbsp;</td>
+            
         </tr>
     </table>
 </div>

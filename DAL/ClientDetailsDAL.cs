@@ -24,7 +24,7 @@ namespace DAL
                 connection.Open();
                 SqlParameter[] sparam = new SqlParameter[15];
                 //Add parameter for stored procedure
-                sparam[0] = new SqlParameter("@rercruiterid", "RE2");
+                sparam[0] = new SqlParameter("@rercruiterid", clientdetailsEntity.RecruiterId);
                 sparam[1] = new SqlParameter("@clientName", clientdetailsEntity.ClientName);
                 sparam[2] = new SqlParameter("@industry", clientdetailsEntity.Industry);
                 sparam[3] = new SqlParameter("@functuionalarea", clientdetailsEntity.FunctionalArea);
@@ -39,7 +39,7 @@ namespace DAL
                 sparam[12] = new SqlParameter("@duedate", clientdetailsEntity.DueDate.Date);
                 sparam[13] = new SqlParameter("@paymentDetails", clientdetailsEntity.PaymentDetails);
                 sparam[14] = new SqlParameter("@paymentterms", clientdetailsEntity.PaymentTerms);
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertClientDetails", sparam);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertClientDetails, sparam);
                 return result;
             }
             catch (System.Exception)
@@ -60,7 +60,7 @@ namespace DAL
                 SqlParameter[] sparams = new SqlParameter[1];
                 //Add parameter for stored procedure
                 sparams[0] = new SqlParameter("@FunctionalareaName", clientDetailsEntity.AddFunctionalArea);
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_RE_InsertFunctionalArea", sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertFunctionalArea, sparams);
             }
             catch (System.Exception)
             {

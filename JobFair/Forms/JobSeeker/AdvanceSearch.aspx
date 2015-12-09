@@ -28,11 +28,9 @@
                         <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtkeyskill" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvkeyskill" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtkeyskill"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtkeyskill" runat="server"></asp:TextBox>
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
-                            EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetKeySkills">
-                        </cc1:AutoCompleteExtender>
+                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRoles"></cc1:AutoCompleteExtender>
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +50,7 @@
                               <div>
                                      
                                     <%--<asp:TextBox runat="server" ID="txtarea" ReadOnly="true"/>--%>
-                                   <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px"></asp:TextBox>
+                                   <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine"  Width="300px" ></asp:TextBox>
                                      <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click"/>
                                   <asp:Panel ID="Panelarea" runat="server" Visible="false">
                                       <asp:CheckBoxList ID="chkarea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chkarea_SelectedIndexChanged"></asp:CheckBoxList>
@@ -199,21 +197,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lbljobcategory" runat="server" Text="JobCategory"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:DropDownList ID="ddlJobCategory" runat="server">
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
                         <asp:Label ID="lblEmploymentStatus" runat="server" Text="Employement Status"></asp:Label>
                     </td>
                     <td>
                         <asp:CheckBoxList ID="chkEmploymentStatus" runat="server">
-                            <asp:ListItem Value="0">Full Time</asp:ListItem>
-                            <asp:ListItem Value="1">Part Time</asp:ListItem>
+                           
+                                 <asp:ListItem>Temporarily</asp:ListItem>
+                            <asp:ListItem>Permanant</asp:ListItem>
+                            <asp:ListItem>Freelancing</asp:ListItem>
                         </asp:CheckBoxList>
                     </td>
                 </tr>
@@ -223,9 +214,8 @@
                     </td>
                     <td>
                         <asp:CheckBoxList ID="chkJobType" runat="server">
-                            <asp:ListItem Value="0">Permanant</asp:ListItem>
-                            <asp:ListItem Value="1">Temporary</asp:ListItem>
-                            <asp:ListItem Value="2">Freelancing</asp:ListItem>
+                              <asp:ListItem>Part Time</asp:ListItem>
+                            <asp:ListItem>Full Time</asp:ListItem>
                         </asp:CheckBoxList>
                     </td>
                 </tr>
@@ -235,23 +225,9 @@
                     </td>
                     <td>
                         <asp:CheckBoxList ID="chkRecruitmentType" runat="server">
-                            <asp:ListItem Value="0">Inhouse</asp:ListItem>
+                            <asp:ListItem Value="0">In-House</asp:ListItem>
                             <asp:ListItem Value="1">Client</asp:ListItem>
                         </asp:CheckBoxList>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label ID="lblSortBy" runat="server" Text="Job Freshness"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:DropDownList ID="ddlJobFreshness" runat="server">
-                            <asp:ListItem>1 month</asp:ListItem>
-                            <asp:ListItem>2 months</asp:ListItem>
-                            <asp:ListItem>3 months</asp:ListItem>
-                            <asp:ListItem>4 months</asp:ListItem>
-                            <asp:ListItem>5 months</asp:ListItem>
-                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>

@@ -15,17 +15,8 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public bool SaveAffirmaiveDetailsBAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
         {
-            try
-            {
-                AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
-                return affirmativeDetailsDAL.SaveAffirmativeDetailsDAL(affirmativeDetailsEntity);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-           
+            AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
+            return affirmativeDetailsDAL.SaveAffirmativeDetailsDAL(affirmativeDetailsEntity);
         }
 
         /// <summary>
@@ -35,74 +26,51 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public bool SaveLanguageDetailsBAL(List<LanguageEntity> languageEntity)
         {
-            try
-            {
-                AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
-                return affirmativeDetailsBAL.SaveLanguageDetailsDAL(languageEntity);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-          
+            AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
+            return affirmativeDetailsBAL.SaveLanguageDetailsDAL(languageEntity);
         }
 
         /// <summary>
         /// Load Languages
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         public DataSet GetLanguageBAL()
         {
-            try
-            {
-                return Utility.GetLanguage();
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
-           
+            return Utility.GetLanguage();
         }
+
+        /// <summary>
+        /// View affirmative details of jobseeker bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet viewAffirmativeDetailsBAL(string candidateId)
         {
-            try
-            {
-                AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
-                return affirmativeDetailsDAL.ViewAffirmativeDetialsDAL(candidateId);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
+            return affirmativeDetailsDAL.ViewAffirmativeDetialsDAL(candidateId);
         }
+
+        /// <summary>
+        /// Update affirmative details of jobseeker bal
+        /// </summary>
+        /// <param name="affirmativeDetailsEntity">AffirmativeDetailsEntity</param>
+        /// <returns>bool</returns>
         public bool UpdateAffirmativeDetailsBAL(AffirmativeDetailsEntity affirmativeDetailsEntity)
         {
-            try
-            {
-                 AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
-                return affirmativeDetailsDAL.UpdateAffirmativeDetailsDAL(affirmativeDetailsEntity);
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            AffirmativeDetailsJSDAL affirmativeDetailsDAL = new AffirmativeDetailsJSDAL();
+            return affirmativeDetailsDAL.UpdateAffirmativeDetailsDAL(affirmativeDetailsEntity);
         }
 
-        public bool UpdateLanguageDetailsBAL(List<LanguageEntity> languageEntity,string candidateId)
+        /// <summary>
+        /// Update language details of jobseeker bal
+        /// </summary>
+        /// <param name="languageEntity">languageEntity</param>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>bool</returns>
+        public bool UpdateLanguageDetailsBAL(List<LanguageEntity> languageEntity, string candidateId)
         {
-            try
-            {
-                AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
-                return affirmativeDetailsBAL.UpdateLanguageDetailsDAL(languageEntity,candidateId);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-
+            AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
+            return affirmativeDetailsBAL.UpdateLanguageDetailsDAL(languageEntity, candidateId);
         }
     }
 }

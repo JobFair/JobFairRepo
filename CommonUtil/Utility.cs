@@ -68,6 +68,7 @@ namespace CommonUtil
                 throw;
             }
             
+            
         }
 
         /// <summary>
@@ -439,5 +440,30 @@ namespace CommonUtil
                 throw;
             }
         }
+
+       
+       
+
+        public static DataSet GetCity(string stateId)
+        {
+            try
+            {
+                 Common common = new Common();
+                return common.GetCityDAL(stateId);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+       
+
+
+
+
+
+
     }
     }

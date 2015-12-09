@@ -1,8 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="jobSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.jobSearch" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" AutoEventWireup="true" CodeBehind="jobSearch.aspx.cs" Inherits="JobFair.Forms.JobSeeker.jobSearch" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="JobsearchCnt" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+    
+<script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
 
     <!DOCTYPE html>
     
@@ -22,7 +24,29 @@
                 }
             }
         );
+       
+        //$(document).ready(function () {
+        //    var checkboxlist_selector = '#chkIndustry  input[type = checkbox]';
+        //    alert(checkboxlist_selector);
+        //    $(checkboxlist_selector).click(function () {
+        //        if ($($(this).is(':checked'))) {
+        //            $(checkboxlist_selector).attr('disabled', 'disabled');
+        //            $($(this)).removeAttr('disabled');
+
+        //        } else {
+        //            $(checkboxlist_selector).removeAttr('disabled');
+        //        }
+        //    });
+
+        //});
+       // JSON.stringify(checkboxlist_selector);
+       <%-- var valuesIndustryName = "";
+        $j("#<%=chkIndustry.ClientID%>input[type=checkbox]:checked").each(function () {
+            varIndustryName = $j(this).parent().attr('IndustryNamevalue');
+            valuesIndustryName += varIndustryName + ",";
+        });--%>
     </script>
+
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
         <div class="row vdivide">
@@ -48,7 +72,6 @@
                     <asp:CheckBoxList ID="chkLocation" runat="server" OnSelectedIndexChanged="chkLocation_SelectedIndexChanged"></asp:CheckBoxList>
                 </div>
                 <hr />
-
                 <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#PanelRole">Role</button>
                 <div id="PanelRole" class="collapse">
                     <asp:CheckBoxList ID="chkRole" runat="server" OnSelectedIndexChanged="chkRole_SelectedIndexChanged"></asp:CheckBoxList>
@@ -73,7 +96,7 @@
                 <hr />
                 <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#PanelIndustry">Industry</button>
                 <div id="PanelIndustry" class="collapse">
-                    <asp:CheckBoxList ID="chkIndustry" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkIndustry_SelectedIndexChanged"></asp:CheckBoxList>
+                    <asp:CheckBoxList ID="chkIndustry" runat="server" AutoPostBack="true" OnSelectedIndexChanged="chkIndustry_SelectedIndexChanged" ></asp:CheckBoxList>
                 </div>
                 <hr />
                 <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#PanelSalary">Salary</button>
@@ -116,59 +139,100 @@
                 </div>
             </div>
             <div class="col-md-10">
-                <asp:Repeater ID="rptrJobPost" runat="server">
+                <asp:Repeater ID="rptrJobPost" runat="server" OnItemCommand="rptrJobPost_ItemCommand">
                     <HeaderTemplate>
-
-                        <table style="border: 1px solid #0000FF">
+                    <table style="border: 1px solid #0000FF">
                             <tr style="font-size: large; font-weight: bold; margin-bottom: 5px">
-                                <td colspan="2">
+                                <td>
                                     <b>Job Post</b>
                                 </td>
                             </tr>
+                        </table>
                     </HeaderTemplate>
-                    <ItemTemplate>
-                        <tr>
+                     <ItemTemplate>   <tr>
                             <td>
                                 <table>
                                     <tr>
-                                        <td>Job Title:
-                                 <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" ForeColor="#09c" />
-                                        </td>
-                                    </tr>
+                                        <td>
+                                           <div class="divjobtitle"> <asp:HyperLink ID="HyperLink1"  runat="server" Text='<%#Eval("JobTitle")%>' NavigateUrl="ViewAllJobPost.aspx"></asp:HyperLink></div>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>,
+                                            <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
+                                         <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
+                                             <asp:Label ID="lblstatename" runat="server" Text='<%#Eval("StateName")%>'></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>  <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                             <asp:Label ID="lblcompanyname" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 </td>
+                                        </tr>
+                                    </table>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
-                                            &nbsp; [<asp:Label ID="lblRecruitmentType" runat="server" Text='<%#Eval("RecruitmentType")%>'></asp:Label>]
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Label ID="lblWorkExperience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                                            <table>
+                                                <tr>
+                                               <td>
+                                            Work Experience&nbsp;&nbsp;
+                                        <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Label ID="lblComment" runat="server" Text='<%#Eval("JobLocationCity") %>' />
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Key Skills :
-                            <asp:Label ID="lblKeySkills" runat="server" Text='<%#Eval("KeywordsTechnical") %>' /><br />
-
-                                Job Description :
-                            <asp:Label ID="lblJobDescription" runat="server" Text='<%#Eval("JobDescription")%>'></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                                      
+                                               </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        </tr>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />-
-                                        <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>
+                                            <table>
+                                                <tr>
+                                                   <td> 
+                                                         Key Skill &nbsp;&nbsp;&nbsp;
+                                   <asp:Label ID="lblkeywordstechnical" runat="server" Text='<%#Eval("KeywordsTechnical")%>'></asp:Label>
+                                                       </td>
+                                                </tr>
+                                            </table>
+                                            </td>
+                                        </tr>
+                                            <tr>
+                                                <td>
+                                                    <table>
+                                                        <tr>
+                                                            <td>Functional Area &nbsp;&nbsp;&nbsp;
+                                                                 <asp:Label ID="lblfunctionalarea" runat="server" Text='<%#Eval("FunctionalArea") %>' ></asp:Label>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    </td>
+                                               </tr>       
+                                    <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                       Number of Vacancies&nbsp;&nbsp;&nbsp;
+                             <asp:Label ID="lblvacancies" runat="server" Text='<%#Eval("NumberOfVacancies")%>'></asp:Label> </td>
+                            </tr>
+                        </tr>
+                       </td>
+                    </table>
+                        <tr>
+                            <td>
+                                <table >
+                                    <tr>
+                                        <td>$
+                                           [<asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />/
+                                        <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>]
+                                       
+
                                         </td>
-                                        <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
+                                       <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
                                     </tr>
                                 </table>
                             </td>
@@ -176,12 +240,24 @@
                         <tr>
                             <td colspan="2">&nbsp;</td>
                         </tr>
-                    </ItemTemplate>
-                    <FooterTemplate>
-                        </table>
+                   <tr>
+                       <td>
+                           <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                               <tr>
+                                   <td>
+                                       <asp:Button ID="btnapply"  OnClientClick="document.forms[0].target='_blank';" runat="server" Text="Apply"  CommandName="Contact" UseSubmitBehavior="false" />
+                                   </td>
+                               </tr>
+                           </table>
+                       </td>
+                   </tr>    
+                     </ItemTemplate>
+                   <FooterTemplate>
+                    </table>
                     </FooterTemplate>
-                </asp:Repeater>
+                   </asp:Repeater>
             </div>
+           
         </div>
     </div>
 </asp:Content>
