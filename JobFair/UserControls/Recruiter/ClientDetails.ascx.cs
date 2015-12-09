@@ -121,6 +121,7 @@ namespace JobFair.Forms.Recruiter
                 ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
                 ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
                 // Assign values to the entities
+                clientDetailsEntity.RecruiterId = "RE12";
                 clientDetailsEntity.ClientName = txtClientName.Text.Trim();
                 clientDetailsEntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
                 clientDetailsEntity.FunctionalArea = Convert.ToInt32(ddlFunctionalArea.SelectedValue);
@@ -133,13 +134,14 @@ namespace JobFair.Forms.Recruiter
                 clientDetailsEntity.ContactDetails = txtOfficialContact.Text.Trim();
                 clientDetailsEntity.AgreementDate = Convert.ToDateTime(txtAgreementdate.Text);
                 clientDetailsEntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
+                clientDetailsEntity.Password = txtPassword.Text.Trim();
 
                 var paymentdetails = chklistPaymentDetails.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
                 string payment = "," + string.Join(",", paymentdetails.Select(x => x.Text)) + ",";
 
                 clientDetailsEntity.PaymentDetails = payment;
                 clientDetailsEntity.PaymentTerms = txtPaymentTerms.Text.Trim();
-                //Saving data to the database
+                // Saving data to the database
                 int result = clientDetailsBAL.SaveClientDetailsBAL(clientDetailsEntity);
                 if (result > 0)
                 {

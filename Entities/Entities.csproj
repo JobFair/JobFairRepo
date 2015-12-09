@@ -67,6 +67,7 @@
     <Compile Include="JobSeeker\RegisterEntity.cs" />
     <Compile Include="Recruiter\AddJobPostEntity.cs" />
     <Compile Include="Recruiter\CloneJobPostEntity.cs" />
+    <Compile Include="Recruiter\ManageResponsesEntity.cs" />
     <Compile Include="Recruiter\QuestionrieEntity.cs" />
     <Compile Include="Recruiter\ClientDetailsEntity.cs" />
     <Compile Include="Recruiter\ClientRequirementsEntitiy.cs" />

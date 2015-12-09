@@ -100,8 +100,8 @@
                     (If any)</td>
                 <td>
                     <asp:TextBox ID="txtRefCandidateId" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="revRefCandidateId" runat="server" ErrorMessage="Please Enter Valid Candidate Mail Id" ForeColor="Red" ControlToValidate="txtRefCandidateId" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                </td>
+
+                   </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>

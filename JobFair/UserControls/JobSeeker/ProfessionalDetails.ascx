@@ -19,7 +19,7 @@
     &nbsp;<table id="TableCurrentJob" runat="server">
         <tr>
             <td colspan="2">
-                <h1>&nbsp;Job Details</h1>
+                <h1>&nbsp;Professional Details</h1>
             </td>
         </tr>
         <tr>
@@ -128,7 +128,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Employment Status</td>
+                            <td>&nbsp;Employment Status</td>
                             <td>
                                 <asp:RadioButtonList ID="rblEmployeStatus" runat="server">
                                     <asp:ListItem>Full Time</asp:ListItem>
@@ -137,7 +137,7 @@
                                 &nbsp;</td>
                         </tr>
                         <tr>
-                            <td>Job Type</td>
+                            <td>&nbsp;Job Type</td>
                             <td>
                                 <asp:RadioButtonList ID="rblJobType" runat="server">
                                     <asp:ListItem>Permanent</asp:ListItem>
@@ -208,7 +208,7 @@
                         <tr>
                             <td colspan="2">
 
-                                <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemDataBound="rptrPastCurrentJobDetails_ItemDataBound" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand" Visible="false">
+                                <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemDataBound="rptrPastCurrentJobDetails_ItemDataBound" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand">
                                     <HeaderTemplate>
                                         <table>
                                             <tr>
@@ -486,7 +486,7 @@
             <td>Current Anual Salary(Yearly)</td>
             <td>
                 <asp:TextBox ID="txtcurrentannualsalary" runat="server"></asp:TextBox>
-                lpa</td>
+                lpa&nbsp; </td>
         </tr>
         <tr>
             <td>Expected Anual Salary(Yearly)</td>
@@ -512,7 +512,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>Employment status</td>
+            <td>Desired Employment status</td>
             <td>
                 <asp:RadioButtonList ID="rblEmploymentStatus" runat="server">
                     <asp:ListItem>Full Time</asp:ListItem>
@@ -521,7 +521,7 @@
             </td>
         </tr>
         <tr>
-            <td>Job Type</td>
+            <td>Desired Job Type</td>
             <td>
                 <asp:RadioButtonList ID="rblJobType123" runat="server">
                     <asp:ListItem>Permanent</asp:ListItem>
@@ -531,7 +531,7 @@
             </td>
         </tr>
         <tr>
-            <td>Company Type</td>
+            <td>Desired Company Type</td>
             <td>
                 <asp:RadioButtonList ID="rblCompanyType123" runat="server">
                     <asp:ListItem>Small</asp:ListItem>
@@ -595,7 +595,7 @@
         </tr>
 
         <tr>
-            <td>Availability for these Personal Round on Working Day</td>
+            <td>Availability for the Personal Round on Working Day</td>
             <td>
                 <asp:RadioButtonList ID="rblYesNo" runat="server">
                     <asp:ListItem>Yes</asp:ListItem>
@@ -605,7 +605,7 @@
         </tr>
 
         <tr>
-            <td>Availabilty in Week Days(Monday to Friday)</td>
+            <td>Availabilty in Week Days for Personal Round(Monday to Friday)</td>
             <td>Before<asp:DropDownList ID="ddlBeforeHours" runat="server">
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
@@ -776,7 +776,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand" OnItemDataBound="rptrJobPostLookinFor_ItemDataBound" Visible="false">
+                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand" OnItemDataBound="rptrJobPostLookinFor_ItemDataBound">
                                         <HeaderTemplate>
                                             <table>
                                                 <tr>

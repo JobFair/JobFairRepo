@@ -51,6 +51,7 @@
     <Compile Include="FeedbackBAL.cs" />
     <Compile Include="JobSearchBAL.cs" />
     <Compile Include="LoginBAL.cs" />
+    <Compile Include="ManageResponsesBAL.cs" />
     <Compile Include="MoreCertificationBAL.cs" />
     <Compile Include="MoreWorkshopBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />

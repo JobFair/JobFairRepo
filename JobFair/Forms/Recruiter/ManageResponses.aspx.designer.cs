@@ -49,40 +49,40 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.DropDownList ddlClientName;
         
         /// <summary>
-        /// ddlFromMonth control.
+        /// txtFromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFromMonth;
+        protected global::System.Web.UI.WebControls.TextBox txtFromDate;
         
         /// <summary>
-        /// ddlFromYear control.
+        /// txtFromDate_CalendarExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFromYear;
+        protected global::AjaxControlToolkit.CalendarExtender txtFromDate_CalendarExtender;
         
         /// <summary>
-        /// ddlTillMonth control.
+        /// txtTillDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTillMonth;
+        protected global::System.Web.UI.WebControls.TextBox txtTillDate;
         
         /// <summary>
-        /// ddlTillYear control.
+        /// txtTillDate_CalendarExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTillYear;
+        protected global::AjaxControlToolkit.CalendarExtender txtTillDate_CalendarExtender;
         
         /// <summary>
         /// rptrManageJobs control.

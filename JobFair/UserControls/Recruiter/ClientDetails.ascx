@@ -18,6 +18,12 @@
         </td>
     </tr>
     <tr>
+        <td >Set Password</td>
+        <td >
+            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
         <td >Industry<br />
             Functional Area</td>
         <td>
