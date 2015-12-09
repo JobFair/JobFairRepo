@@ -376,6 +376,16 @@ function IsSelected(ctrl, ctrlType, msg) {
         return false;
     }
 }
+function Dropdown_Validation(ddlId) {
+    var empty = document.getElementById(ddlId).value;
+
+    if (empty == "0") {
+        alert('Please select an item');
+        return false;
+    }
+    return true;
+}
+
 function ValidateDropdown() {
     var result = document.getElementById('<%=ddlTeamSize%>').value;
     if (result == "0") {

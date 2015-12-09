@@ -1,13 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ProjectDetails" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
+<script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-       
-    <script src="../../Scripts/ValidationAll.js"></script>
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,7 +24,7 @@
                             <asp:ListItem Value="3">Professional</asp:ListItem>
                             <asp:ListItem Value="4">FreeLancing</asp:ListItem>
                         </asp:RadioButtonList>
-                        <asp:RequiredFieldValidator ID="rfvProjectTypeList" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rbtProjectTypeList"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvProjectTypeList" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="rbtProjectTypeList"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtProjectTitle" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvProjectTitle" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtProjectTitle"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvProjectTitle" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtProjectTitle"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtCompanyName" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvCompanyName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtCompanyName"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvCompanyName" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtCompanyName"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +52,7 @@
                     <td>
                         <asp:DropDownList ID="ddlRole" runat="server"  OnBlur="return IsSelectedDDL(this.id,'Radio Button')">
                         </asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="rfvRole" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlRole"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvRole" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlRole"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -70,10 +70,10 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtFromDate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtFromDate" TargetControlID="txtFromDate" Format="dd/MM/yyyy" />
-                        <asp:RequiredFieldValidator ID="rfvFromDate" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtFromDate"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvFromDate" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtFromDate"></asp:RequiredFieldValidator>
 
                         To<asp:TextBox ID="txtTodate" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtTodate" TargetControlID="txtTodate" Format="dd/MM/yyyy" />
-                        <asp:RequiredFieldValidator ID="rfvTodate" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtTodate"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvTodate" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtTodate"></asp:RequiredFieldValidator>
                         <%--onblur="return CheckValidDate(this.id);"--%>
                     </td>
                 </tr>
@@ -83,7 +83,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtLocation" runat="server" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvLocation" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtLocation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvLocation" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtLocation"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -101,7 +101,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtProjectDetails" runat="server" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvProjectDetails" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtProjectDetails"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvProjectDetails" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtProjectDetails"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -110,7 +110,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtRolesAndResponsibility" runat="server" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvRolesAndResponsibility" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtRolesAndResponsibility"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvRolesAndResponsibility" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtRolesAndResponsibility"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -118,7 +118,7 @@
                         <asp:Label ID="lblTeamSize" runat="server" Text="Team Size"></asp:Label>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlTeamSize" runat="server" onchange="IsSelectedDDL(ddlTeamSize.id);">
+                        <asp:DropDownList ID="ddlTeamSize" runat="server">
                             <asp:ListItem>Select</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
@@ -141,7 +141,7 @@
                             <asp:ListItem>19</asp:ListItem>
                             <asp:ListItem>20</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="rfvTeamSize" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlTeamSize"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvTeamSize" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlTeamSize"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -150,7 +150,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtSkillUsed" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvSkillUsed" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtSkillUsed"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvSkillUsed" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtSkillUsed"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -166,8 +166,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtLink" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvLink" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtLink"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="revLink" runat="server" ErrorMessage="Please Enter Proper URL/Link" ForeColor="Red" ControlToValidate="txtLink" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?"></asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="rfvLink" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtLink"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="revLink" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="Please Enter Proper URL/Link" ForeColor="Red" ControlToValidate="txtLink" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 </asp:Panel>
@@ -185,7 +185,7 @@
                             <asp:ListItem Value="4">Diploma</asp:ListItem>
                             <asp:ListItem Value="5">Certification</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="rfvAcademicLevel" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlAcademicLevel"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvAcademicLevel" runat="server" ValidationGroup="vgProjectDetails" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlAcademicLevel"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 </asp:Panel>
@@ -194,7 +194,7 @@
                        <%-- <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#">Add More Projects</asp:HyperLink></td></tr>
                      <tr>--%>
                     <td colspan="2">
-                         <asp:Button ID="btnSubmit" runat="server" Text="Add Project" OnClick="btnSubmit_Click" OnClientClick="IsSelected(ddlTeamSize.id,DropDownList,'DropDownList');"/>
+                         <asp:Button ID="btnSubmit" runat="server" ValidationGroup="vgProjectDetails" Text="Add Project" OnClick="btnSubmit_Click"/>
                     </td>
                 </tr>
             </table>
