@@ -12,21 +12,21 @@
         <td > <asp:Label ID="lblWorkshop" runat="server" Text="Workshop Name"></asp:Label></td>
         <td>
               <asp:TextBox ID="txtWorkshopName" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-              <asp:RequiredFieldValidator ID="rfvWorkshopName" runat="server" ControlToValidate="txtWorkshopName" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+              <asp:RequiredFieldValidator ID="rfvWorkshopName" runat="server" ControlToValidate="txtWorkshopName" ValidationGroup="vgMoreWorkshops" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
         <td > <asp:Label ID="lblIns" runat="server" Text="Institute"></asp:Label></td>
         <td>
             <asp:TextBox ID="txtWorkshopInstitute" runat="server" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvWorkshopInstitute" runat="server" ControlToValidate="txtWorkshopInstitute" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvWorkshopInstitute" runat="server" ControlToValidate="txtWorkshopInstitute" ValidationGroup="vgMoreWorkshops" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
         <td > <asp:Label ID="lblDur" runat="server" Text="Duration"></asp:Label></td>
         <td>
             <asp:TextBox ID="txtWorkshopDuration" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvWorkshopDuration" runat="server" ControlToValidate="txtWorkshopDuration" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvWorkshopDuration" runat="server" ControlToValidate="txtWorkshopDuration" ValidationGroup="vgMoreWorkshops" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -35,9 +35,9 @@
         </td>
         <td>
             <asp:DropDownList ID="ddlMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlMonthFrom" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlMonthFrom" ValidationGroup="vgMoreWorkshops" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:DropDownList ID="ddlYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
-            <asp:RequiredFieldValidator ID="rfvYearFrom" runat="server" ControlToValidate="ddlYearFrom" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvYearFrom" runat="server" ControlToValidate="ddlYearFrom" ValidationGroup="vgMoreWorkshops" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -46,9 +46,9 @@
         </td>
         <td>
             <asp:DropDownList ID="ddlMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
-            <asp:RequiredFieldValidator ID="rfvMonthTo" runat="server" ControlToValidate="ddlMonthTo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvMonthTo" runat="server" ControlToValidate="ddlMonthTo" ValidationGroup="vgMoreWorkshops" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:DropDownList ID="ddlYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
-            <asp:RequiredFieldValidator ID="rfvYearTo" runat="server" ControlToValidate="ddlYearTo" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvYearTo" runat="server" ControlToValidate="ddlYearTo" ValidationGroup="vgMoreWorkshops" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -57,13 +57,13 @@
         </td>
         <td>
             <asp:TextBox ID="txtworkspGrade" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvworkspGrade" runat="server" ControlToValidate="txtworkspGrade" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvworkspGrade" runat="server" ControlToValidate="txtworkspGrade" ValidationGroup="vgMoreWorkshops" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
         </td>
         </tr>
           <tr>
         <td>
-            <asp:Button ID="btnAdd" runat="server" Text="Add WorkShop" OnClick ="btnAdd_Click" style="margin-top: 10px; margin-left: 150px" />
+            <asp:Button ID="btnAdd" runat="server" Text="Add WorkShop" ValidationGroup="vgMoreWorkshops" OnClick ="btnAdd_Click" style="margin-top: 10px; margin-left: 150px" />
         </td>
     </tr>
     </table>
