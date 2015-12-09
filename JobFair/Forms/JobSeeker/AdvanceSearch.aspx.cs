@@ -169,7 +169,7 @@ namespace JobFair.Forms.JobSeeker
                 advanceSearchEntity.MinSalary = ddlMinSalary.SelectedItem.Text.Trim();
                 advanceSearchEntity.MaxSalary = ddlMaxSalary.SelectedItem.Text.Trim();
                 advanceSearchEntity.Industry = Convert.ToInt32(chkIndustry.SelectedValue.Trim());
-                advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedItem.Text.Trim();
+                //advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedItem.Text.Trim();
                 advanceSearchEntity.JobType = chkJobType.SelectedItem.Text.Trim();
                 advanceSearchEntity.RecruitmentType = chkRecruitmentType.SelectedItem.Text.Trim();
                 //AdvanceJobSearchBAL advancesearchBAL = new AdvanceJobSearchBAL();
@@ -180,7 +180,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 

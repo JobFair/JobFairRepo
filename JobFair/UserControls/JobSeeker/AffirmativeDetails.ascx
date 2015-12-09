@@ -136,7 +136,7 @@
     </tr>
     <tr>
         <td>
-            <asp:Label ID="lblUSAPermit" runat="server" Text="USAPermit"></asp:Label>
+            <asp:Label ID="lblUSAPermit" runat="server" Text=" Permit For Other Countries"></asp:Label>
         </td>
         <td colspan="5">
             <asp:RadioButtonList ID="rbtUSAPermit" runat="server" RepeatDirection="Horizontal">
