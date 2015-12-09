@@ -31,7 +31,7 @@ namespace JobFair.UserControls.JobSeeker
                     // Check page is not post back
                     if (!IsPostBack)
                     {
-                        if (isCheck)
+                        if (!isCheck)
                         {
                             try
                             {
@@ -42,6 +42,7 @@ namespace JobFair.UserControls.JobSeeker
                                 BindRepeaterJobPostLooking();
                                 BindRepeaterCurrentPastExp();
                                 divCurrentEmployer.Visible = false;
+                                
 
                                 DataSet ds = new DataSet();
                                 DataSet ds2 = new DataSet();
