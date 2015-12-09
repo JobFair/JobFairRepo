@@ -577,7 +577,7 @@
                             <td>
                                 <asp:DropDownList ID="ddlquestionnaire" runat="server" Style="margin-left: 47px"></asp:DropDownList>
                                 <asp:LinkButton ID="lnkbtnRefresh" runat="server" OnClick="lnkbtnRefresh_Click"><span class="glyphicon glyphicon-refresh"></span></asp:LinkButton>
-                                <asp:LinkButton ID="lnkbtnQuestionary" runat="server" OnClick="LinkButton1_Click">Create Your Questionary</asp:LinkButton>
+                                <asp:LinkButton ID="lnkbtnQuestionary" runat="server" OnClick="lnkbtnQuestionary_Click1">Create Your Questionary</asp:LinkButton>
                             </td>
                         </ContentTemplate>
                     </asp:UpdatePanel>

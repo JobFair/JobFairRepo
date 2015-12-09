@@ -22,8 +22,10 @@ namespace DAL
         {
             try
             {
+               
                 Connection.Open();
                 SqlParameter[] sqlparams ={
+                                              
                                             new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
                                             new SqlParameter("@JobTitle",jobpostEntity.JobTitle),
                                             new SqlParameter("@JobLocationState",jobpostEntity.JobLocationState),
@@ -51,14 +53,21 @@ namespace DAL
                 SqlParameter[] sqlparams1 ={
                                                 new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
                                            };
-                int result = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
+             return   SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
             //    int result1 = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_InsertJobPostHistory, sqlparams1);
-                return result;
+              
+              
             }
             catch (Exception)
             {
                 throw;
             }
+
+              finally
+            {
+               
+            }
+          
         }
         /// <summary>
         /// DAL for GetQuestions 
@@ -71,12 +80,7 @@ namespace DAL
             return ds;
         }
 
-
-
-
-
-
-        public DataSet GetStateDAL()
+    public DataSet GetStateDAL()
         {
             try
             {
@@ -103,8 +107,8 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             Connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from JS_Roles  where rolename like @roleName+'%'", Connection);
-            cmd.Parameters.AddWithValue("@rolename", prefixText);
+            SqlCommand cmd = new SqlCommand("select * from RoleSkills  where RoleName like @RoleName+'%'", Connection);
+            cmd.Parameters.AddWithValue("@RoleName", prefixText);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             adp.Fill(dt);
             return dt;

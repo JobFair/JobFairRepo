@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Mail;
+using System.Web.Mail;
 using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
@@ -12,6 +14,9 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+          
+           
             string candidateId;
             // Check session is not null
             if (Session["candidateId"] != null)
@@ -164,7 +169,7 @@ namespace JobFair.Forms.JobSeeker
                 advanceSearchEntity.MinSalary = ddlMinSalary.SelectedItem.Text.Trim();
                 advanceSearchEntity.MaxSalary = ddlMaxSalary.SelectedItem.Text.Trim();
                 advanceSearchEntity.Industry = Convert.ToInt32(chkIndustry.SelectedValue.Trim());
-                advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedItem.Text.Trim();
+                //advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedItem.Text.Trim();
                 advanceSearchEntity.JobType = chkJobType.SelectedItem.Text.Trim();
                 advanceSearchEntity.RecruitmentType = chkRecruitmentType.SelectedItem.Text.Trim();
                 //AdvanceJobSearchBAL advancesearchBAL = new AdvanceJobSearchBAL();
@@ -175,7 +180,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 

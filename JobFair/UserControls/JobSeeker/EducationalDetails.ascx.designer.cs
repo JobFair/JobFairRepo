@@ -796,15 +796,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDipPercentage;
         
         /// <summary>
-        /// rvDipPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvDipPercentage;
-        
-        /// <summary>
         /// btnDipUpdate control.
         /// </summary>
         /// <remarks>
@@ -1064,15 +1055,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBDPercentage;
-        
-        /// <summary>
-        /// rvBDPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvBDPercentage;
         
         /// <summary>
         /// btnDualBD control.
@@ -1345,15 +1327,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDualBDPercentage;
         
         /// <summary>
-        /// rvDualBDPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvDualBDPercentage;
-        
-        /// <summary>
         /// pnlCollapsablePgd control.
         /// </summary>
         /// <remarks>
@@ -1604,15 +1577,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPgdPercentage;
-        
-        /// <summary>
-        /// rvPgdPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvPgdPercentage;
         
         /// <summary>
         /// btnPgdUpdate control.
@@ -1874,15 +1838,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMDPercentage;
-        
-        /// <summary>
-        /// rvMDPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvMDPercentage;
         
         /// <summary>
         /// btnDualMD control.
@@ -2155,15 +2110,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDualMDPercentage;
         
         /// <summary>
-        /// rvDualMDPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvDualMDPercentage;
-        
-        /// <summary>
         /// pnlCollapsablePHD control.
         /// </summary>
         /// <remarks>
@@ -2414,15 +2360,6 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPHDPercentage;
-        
-        /// <summary>
-        /// rvPHDPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvPHDPercentage;
         
         /// <summary>
         /// btnPHDUpdate control.
