@@ -23,5 +23,7 @@ namespace Entities.Recruiter
 
 
         public string RecruiterId { get; set; }
+
+        public string Password { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using CommonUtil;
+using DAL;
 using Entities;
 
 namespace BAL
@@ -14,6 +15,26 @@ namespace BAL
         {
             RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
             return jobSeekerDAL.SaveRegisterNewJobSeekerDAL(jobSeekerEntity);
+        }
+
+        public System.Data.DataSet GetCountry()
+        {
+            return Utility.GetCountry();
+        }
+
+        public System.Data.DataSet GetState(int CountryId)
+        {
+            return Utility.GetState(CountryId);
+        }
+
+        public System.Data.DataSet GetCity(int StateId)
+        {
+            return Utility.GetCity(StateId);
+        }
+
+        public System.Data.DataSet GetArea(int cityId)
+        {
+            return Utility.GetArea(cityId);
         }
     }
 }

@@ -152,7 +152,8 @@ namespace DAL
                 // Get xml string data from object
                 string languageDetails = CreateXML(languageEntity);
 
-                SqlParameter[] sqlparams = { new SqlParameter("@adEntity", languageDetails)
+                SqlParameter[] sqlparams = { new SqlParameter("@adEntity", languageDetails),
+                                               new SqlParameter("@candidateId",candidateId)
                                             };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateLanguageDetails, sqlparams);
                 if (result > 0)

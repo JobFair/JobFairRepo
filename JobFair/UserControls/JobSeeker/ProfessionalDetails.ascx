@@ -208,7 +208,7 @@
                         <tr>
                             <td colspan="2">
 
-                                <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemDataBound="rptrPastCurrentJobDetails_ItemDataBound" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand" Visible="false">
+                                <asp:Repeater ID="rptrPastCurrentJobDetails" runat="server" OnItemDataBound="rptrPastCurrentJobDetails_ItemDataBound" OnItemCommand="rptrPastCurrentJobDetails_ItemCommand">
                                     <HeaderTemplate>
                                         <table>
                                             <tr>
@@ -776,7 +776,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand" OnItemDataBound="rptrJobPostLookinFor_ItemDataBound" Visible="false">
+                                    <asp:Repeater ID="rptrJobPostLookinFor" runat="server" OnItemCommand="rptrJobPostLookinFor_ItemCommand" OnItemDataBound="rptrJobPostLookinFor_ItemDataBound">
                                         <HeaderTemplate>
                                             <table>
                                                 <tr>

@@ -32,7 +32,7 @@ namespace JobFair.Forms.JobSeeker
                 }
                 Session["Candidateid"] = candidateID;
 
-                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
+                Response.Redirect("WebForm1.aspx");
             }
             catch (Exception ex)
             {

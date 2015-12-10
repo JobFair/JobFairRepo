@@ -22,23 +22,24 @@ namespace DAL
             try
             {
                 connection.Open();
-                SqlParameter[] sparam = new SqlParameter[15];
+                SqlParameter[] sparam = new SqlParameter[16];
                 //Add parameter for stored procedure
                 sparam[0] = new SqlParameter("@rercruiterid", clientdetailsEntity.RecruiterId);
                 sparam[1] = new SqlParameter("@clientName", clientdetailsEntity.ClientName);
-                sparam[2] = new SqlParameter("@industry", clientdetailsEntity.Industry);
-                sparam[3] = new SqlParameter("@functuionalarea", clientdetailsEntity.FunctionalArea);
-                sparam[4] = new SqlParameter("@country", clientdetailsEntity.Country);
-                sparam[5] = new SqlParameter("@state", clientdetailsEntity.State);
-                sparam[6] = new SqlParameter("@city", clientdetailsEntity.City);
-                sparam[7] = new SqlParameter("@officialEmailid", clientdetailsEntity.OfficialEmailId);
-                sparam[8] = new SqlParameter("@website", clientdetailsEntity.Website);
-                sparam[9] = new SqlParameter("@officialcontact", clientdetailsEntity.ContactDetails);
-                sparam[10] = new SqlParameter("@officialaddress", clientdetailsEntity.OfficialAddress);
-                sparam[11] = new SqlParameter("@agreementdate", clientdetailsEntity.AgreementDate.Date);
-                sparam[12] = new SqlParameter("@duedate", clientdetailsEntity.DueDate.Date);
-                sparam[13] = new SqlParameter("@paymentDetails", clientdetailsEntity.PaymentDetails);
-                sparam[14] = new SqlParameter("@paymentterms", clientdetailsEntity.PaymentTerms);
+                sparam[2] = new SqlParameter("@password", clientdetailsEntity.Password);
+                sparam[3] = new SqlParameter("@industry", clientdetailsEntity.Industry);
+                sparam[4] = new SqlParameter("@functuionalarea", clientdetailsEntity.FunctionalArea);
+                sparam[5] = new SqlParameter("@country", clientdetailsEntity.Country);
+                sparam[6] = new SqlParameter("@state", clientdetailsEntity.State);
+                sparam[7] = new SqlParameter("@city", clientdetailsEntity.City);
+                sparam[8] = new SqlParameter("@officialEmailid", clientdetailsEntity.OfficialEmailId);
+                sparam[9] = new SqlParameter("@website", clientdetailsEntity.Website);
+                sparam[10] = new SqlParameter("@officialcontact", clientdetailsEntity.ContactDetails);
+                sparam[11] = new SqlParameter("@officialaddress", clientdetailsEntity.OfficialAddress);
+                sparam[12] = new SqlParameter("@agreementdate", clientdetailsEntity.AgreementDate.Date);
+                sparam[13] = new SqlParameter("@duedate", clientdetailsEntity.DueDate.Date);
+                sparam[14] = new SqlParameter("@paymentDetails", clientdetailsEntity.PaymentDetails);
+                sparam[15] = new SqlParameter("@paymentterms", clientdetailsEntity.PaymentTerms);
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertClientDetails, sparam);
                 return result;
             }
