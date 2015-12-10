@@ -8,7 +8,11 @@ namespace DAL
     public class RequestEmailJSDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-
+        /// <summary>
+        /// Get email id dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet GetEmailDAL(string candidateId)
         {
             DataSet ds = new DataSet();

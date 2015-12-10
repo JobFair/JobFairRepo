@@ -38,6 +38,10 @@ namespace DAL
             {
                 //  throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return workEntity;
         }
     }
