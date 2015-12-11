@@ -61,6 +61,7 @@ namespace JobFair.Forms.JobSeeker
                     chkIndustry.DataTextField = "IndustryName";
                     chkIndustry.DataValueField = "IndustryId";
                     chkIndustry.DataBind();
+                    chkIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
@@ -161,19 +162,99 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 AdvanceSearchDetailsEntity advanceSearchEntity = new AdvanceSearchDetailsEntity();
-                advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
-                advanceSearchEntity.State = ddlState.SelectedValue.Trim();
-                advanceSearchEntity.City = ddlCity.SelectedValue.Trim();
-                advanceSearchEntity.Area = chkarea.SelectedValue.Trim();
-                advanceSearchEntity.WorkExp = ddlWorkExperience.SelectedItem.Text.Trim();
-                advanceSearchEntity.MinSalary = ddlMinSalary.SelectedItem.Text.Trim();
-                advanceSearchEntity.MaxSalary = ddlMaxSalary.SelectedItem.Text.Trim();
-                advanceSearchEntity.Industry = Convert.ToInt32(chkIndustry.SelectedValue.Trim());
-                //advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedItem.Text.Trim();
-                advanceSearchEntity.JobType = chkJobType.SelectedItem.Text.Trim();
-                advanceSearchEntity.RecruitmentType = chkRecruitmentType.SelectedItem.Text.Trim();
-                //AdvanceJobSearchBAL advancesearchBAL = new AdvanceJobSearchBAL();
-                //DataSet result = advancesearchBAL.GetSearch(advanceSearchEntity);
+               // advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
+                if(txtkeyskill.Text=="")
+                {
+                    advanceSearchEntity.KeySkill = null;
+                }
+                else
+                {
+                    advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
+                }
+                if(ddlState.SelectedValue=="0")
+                {
+                    advanceSearchEntity.State = null;
+                }
+                else
+                {
+                    advanceSearchEntity.State = ddlState.SelectedValue.Trim();
+                }
+                if (ddlCity.SelectedValue == "0")
+                {
+                    advanceSearchEntity.City = null;
+                }
+                else
+                {
+                    advanceSearchEntity.City = ddlCity.SelectedValue.Trim();
+                }
+                if (chkarea.SelectedValue == "0")
+                {
+                    advanceSearchEntity.Area = null;
+                }
+                else
+                {
+                    advanceSearchEntity.Area = chkarea.SelectedValue.Trim();
+                }
+                if (ddlWorkExperience.SelectedValue == "0")
+                {
+                    advanceSearchEntity.WorkExp = null;
+
+                }
+                else
+                {
+                    advanceSearchEntity.WorkExp = ddlWorkExperience.SelectedValue.Trim();
+                
+                }
+                if (ddlMinSalary.SelectedValue == "0")
+                {
+                    advanceSearchEntity.MinSalary = null;
+                }
+                else
+                {
+                    advanceSearchEntity.MinSalary = ddlMinSalary.SelectedValue.Trim();
+                
+                }
+                if (ddlMaxSalary.SelectedValue == "0")
+                {
+
+                    advanceSearchEntity.MaxSalary = null;
+                }
+                else 
+                {
+                    advanceSearchEntity.MaxSalary = ddlMaxSalary.SelectedValue.Trim();
+
+                
+                }
+                if (chkIndustry.SelectedIndex ==  -1)
+                {
+                    advanceSearchEntity.Industry = Convert.ToInt32(null);
+                }
+                else 
+                {
+                    advanceSearchEntity.Industry = Convert.ToInt32(chkIndustry.SelectedValue.Trim());
+                }
+                if (chkEmploymentStatus.SelectedValue == "0")
+                {
+                    advanceSearchEntity.EmpStatus = null;
+                }
+                else 
+                {
+                    advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedValue.Trim();
+                    
+                    
+                }
+                if (chkJobType.SelectedValue == "0")
+                {
+                    advanceSearchEntity.JobType = null;
+                }
+                else
+                {
+                    advanceSearchEntity.JobType = chkJobType.SelectedValue.Trim();
+                }
+                if (chkRecruitmentType.SelectedValue == "0")
+                {
+                    advanceSearchEntity.RecruitmentType = chkRecruitmentType.SelectedValue.Trim();
+                }
                 AdvanceSearchDetailsEntity search = new AdvanceSearchDetailsEntity();
                 Session["myObject"] = advanceSearchEntity;
                 Response.Redirect("jobSearch.aspx");
@@ -258,3 +339,5 @@ namespace JobFair.Forms.JobSeeker
         }
     }
 }
+
+
