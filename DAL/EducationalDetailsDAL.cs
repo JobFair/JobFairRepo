@@ -49,6 +49,7 @@ namespace DAL
                 SqlParameter[] sqlparams ={
                                             new SqlParameter("@adEntity",adEntity)};
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertEducationalDetails, sqlparams);
+                // Check if result is greater than zero
                 if (result > 0)
                 {
                     return true;

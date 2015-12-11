@@ -10,6 +10,10 @@ namespace CommonUtil
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// Get country
+        /// </summary>
+        /// <returns>dataset</returns>
         public DataSet GetCountryDAL()
         {
             DataSet ds = new DataSet();
@@ -24,6 +28,11 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get state
+        /// </summary>
+        /// <param name="countryid">countryid</param>
+        /// <returns>dataset</returns>
         internal DataSet GetStateDAL(int countryid)
         {
             DataSet ds = new DataSet();
@@ -39,6 +48,11 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get city
+        /// </summary>
+        /// <param name="stateid">stateid</param>
+        /// <returns>dataset</returns>
         internal DataSet GetCityDAL(int stateid)
         {
             DataSet ds = new DataSet();
@@ -54,6 +68,11 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get area
+        /// </summary>
+        /// <param name="cityId">cityId</param>
+        /// <returns>dataset</returns>
         internal DataSet GetAreaDAL(int cityId)
         {
             DataSet ds = new DataSet();
@@ -71,6 +90,10 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get industry
+        /// </summary>
+        /// <returns>dataset</returns>
         internal DataSet GetIndustryDAL()
         {
             DataSet ds = new DataSet();
@@ -88,7 +111,7 @@ namespace CommonUtil
         /// <summary>
         /// Get Department
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetDepartmentDAL()
         {
             DataSet ds = new DataSet();
@@ -106,7 +129,7 @@ namespace CommonUtil
         /// <summary>
         /// functional area
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetFunctionalAreaDAL()
         {
             DataSet ds = new DataSet();
@@ -124,7 +147,7 @@ namespace CommonUtil
         /// <summary>
         /// Get Education Degrees Type
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetEducationalDegreeTypeDAL()
         {
             DataSet ds = new DataSet();
@@ -139,6 +162,10 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get languages
+        /// </summary>
+        /// <returns>dataset</returns>
         internal DataSet GetLanguagesDAL()
         {
             DataSet ds = new DataSet();
@@ -156,7 +183,7 @@ namespace CommonUtil
         /// <summary>
         /// Get Client Name
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetClientNameDAL()
         {
             DataSet ds = new DataSet();
@@ -174,7 +201,7 @@ namespace CommonUtil
         /// <summary>
         /// Get Under Graduate Diploma Details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetUnderGraduateDiplomaDAL()
         {
             DataSet ds = new DataSet();
@@ -192,7 +219,7 @@ namespace CommonUtil
         /// <summary>
         /// Get Bachelor Degree Details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetBachelorDegreeDAL()
         {
             DataSet ds = new DataSet();
@@ -210,7 +237,7 @@ namespace CommonUtil
         /// <summary>
         /// Get Post Graduate Diploma Details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetPostGraduateDiplomaDAL()
         {
             DataSet ds = new DataSet();
@@ -228,7 +255,7 @@ namespace CommonUtil
         /// <summary>
         /// Get Master Degree Details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetMasterDegreeDAL()
         {
             DataSet ds = new DataSet();
@@ -246,7 +273,7 @@ namespace CommonUtil
         /// <summary>
         /// Get Doctor Of Philosophy Details
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dataset</returns>
         internal DataSet GetDoctorOfPhilosophyDAL()
         {
             DataSet ds = new DataSet();
@@ -261,6 +288,10 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get role
+        /// </summary>
+        /// <returns>dataset</returns>
         internal DataSet GetRole()
         {
             DataSet ds = new DataSet();
@@ -275,6 +306,10 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get location
+        /// </summary>
+        /// <returns>dataset</returns>
         internal DataSet GetLocation()
         {
             DataSet ds = new DataSet();
@@ -289,6 +324,10 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get education
+        /// </summary>
+        /// <returns>dataset</returns>
         internal DataSet GetEducation()
         {
             DataSet ds = new DataSet();
@@ -303,6 +342,10 @@ namespace CommonUtil
             return ds;
         }
 
+        /// <summary>
+        /// Get city
+        /// </summary>
+        /// <returns>dataset</returns>
         internal DataSet GetCityDAL()
         {
             DataSet ds = new DataSet();

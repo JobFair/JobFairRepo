@@ -13,13 +13,13 @@ namespace JobFair.Forms.JobSeeker
     /// </summary>
     public partial class ProjectDetails : System.Web.UI.Page
     {
-        private bool isCheck;
+        private bool isCheck=true;
         private string candidateId;
         private DataSet dsRoles = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+           // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
             // Check session is not null
             if (Session["candidateId"] != null)
             {

@@ -10,8 +10,7 @@
         public string MinSalary { get; set; }
         public string MaxSalary { get; set; }
         public int Industry { get; set; }
-        //public string? EmpStatus { get; set; }
-        //public  System.Nullable<string> EmpStatus { get; set; }
+        public string EmpStatus { get; set; }
         public string JobType { get; set; }
         public string RecruitmentType { get; set; }
     }
