@@ -21,18 +21,21 @@
                         <asp:ListItem Value="Aptitude Test">Aptitude Test</asp:ListItem>
                         <asp:ListItem Value="Other Help">Other Help</asp:ListItem>
                     </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvddlSubject" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject" ValidationGroup="vgRequestEmail"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="txtSubject" runat="server" Visible="false" placeholder="Your Subject" Height="25px" Width="382px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvSubject" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtSubject" ValidationGroup="vgRequestEmail"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>Email Content/Matter</td>
                 <td>
                     <asp:TextBox ID="txtEmailContent" runat="server" TextMode="MultiLine" Height="178px" Width="382px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEmailContent" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtEmailContent" ValidationGroup="vgRequestEmail"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" />
+                    <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click"  ValidationGroup="vgRequestEmail" />
                 </td>
                 <td>
                     <asp:TextBox ID="txtName" runat="server" Visible="False"></asp:TextBox>

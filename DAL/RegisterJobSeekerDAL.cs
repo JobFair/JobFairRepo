@@ -27,38 +27,42 @@ namespace DAL
 
                 //Parameters to pass to the stored procedure
 
-                SqlParameter[] sparams = new SqlParameter[11];
+                SqlParameter[] sparams = new SqlParameter[15];
 
                 sparams[0] = new SqlParameter("@fname", registerEntity.FirstName);
                 sparams[1] = new SqlParameter("@lname", registerEntity.LastName);
                 sparams[2] = new SqlParameter("@emailId", registerEntity.EmailId);
                 sparams[3] = new SqlParameter("@gender", registerEntity.Gender);
                 sparams[4] = new SqlParameter("@mobNo", registerEntity.MobileNo);
-                sparams[5] = new SqlParameter("@currCity", registerEntity.CurrentCity);
-                sparams[6] = new SqlParameter("@address", registerEntity.CurrentAddress);
-                sparams[7] = new SqlParameter("@refCandidatelId", registerEntity.RefCandidateId);
-                sparams[8] = new SqlParameter("@password", registerEntity.Password);
-                sparams[9] = new SqlParameter("@uploadresumepath", registerEntity.UploadResumepath.ToString());
-                sparams[10] = new SqlParameter("@Newcandidateid", SqlDbType.VarChar, 500);
-                sparams[10].Direction = ParameterDirection.Output;
+                sparams[5] = new SqlParameter("@address", registerEntity.CurrentAddress);
+                sparams[6] = new SqlParameter("@countryId", registerEntity.Country);
+                sparams[7] = new SqlParameter("@stateId", registerEntity.State);
+                sparams[8] = new SqlParameter("@cityId", registerEntity.CityId);
+                sparams[9] = new SqlParameter("@cityArea", registerEntity.CityArea);
+                sparams[10] = new SqlParameter("@pincode", registerEntity.Pincode);
+                sparams[11] = new SqlParameter("@refCandidatelId", registerEntity.RefCandidateId);
+                sparams[12] = new SqlParameter("@password", registerEntity.Password);
+                sparams[13] = new SqlParameter("@uploadresumepath", registerEntity.UploadResumepath.ToString());
+                sparams[14] = new SqlParameter("@Newcandidateid", SqlDbType.VarChar, 500);
+                sparams[14].Direction = ParameterDirection.Output;
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRegisterUser, sparams);
 
-                candidateId = Convert.ToString(sparams[10].Value);
+                candidateId = Convert.ToString(sparams[14].Value);
                 if (string.IsNullOrEmpty(candidateId))
                 {
                     return null;
                 }
+                return candidateId;
             }
             catch (Exception)
             {
-                // throw;
+                throw;
             }
             finally
             {
                 connection.Close();
-            }
-            return candidateId;
+            }            
         }
     }
 }
