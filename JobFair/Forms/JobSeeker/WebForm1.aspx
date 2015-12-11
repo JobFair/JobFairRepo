@@ -2,15 +2,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Webform1.aspx.cs" Inherits="JobFair.Forms.JobSeeker.WebForm1" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<%@ Register Src="~/UserControls/JobSeeker/AffirmativeDetails.ascx" TagPrefix="uc1" TagName="AffirmativeDetails" %>
-
-
-
-
-
-
-
-
+<%@ Register Src="~/UserControls/JobSeeker/PersonalDetails.ascx" TagPrefix="uc1" TagName="PersonalDetails" %>
 
 
 <!DOCTYPE html>
@@ -26,7 +18,7 @@
     <form runat="server">
        
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <uc1:AffirmativeDetails runat="server" ID="AffirmativeDetails" />
+        <uc1:PersonalDetails runat="server" ID="PersonalDetails" />
         </form>
     
 </body>

@@ -109,7 +109,8 @@
                     <td>
                         <asp:TextBox ID="txtSSCPercentage" runat="server" onblur="return CheckRange(this.id);" Width="100px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvSSCPercentage" runat="server" ControlToValidate="txtSSCPercentage" ValidationGroup="vgEducationalDetails" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="rvSSCPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtSSCPercentage"></asp:RangeValidator>--%></td>
+                        <%--<asp:RangeValidator ID="rvSSCPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtSSCPercentage" ValidationGroup="vgEducationalDetails"></asp:RangeValidator>--%>
+                    </td>
                 </tr>
             </caption>
         </table>
@@ -834,6 +835,15 @@
     </asp:Panel>
     <br />
 </div>
+    <br />
+    <br />
+    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" ValidationGroup="vgEducationalDetails" Visible="false" CssClass="button"  style="margin-top: 10px; margin-left: 450px"/>
+    <br />
+    <br />
+    <div>
+        <asp:Label ID="lblSuccess" runat="server" Text="" ForeColor="Green" Font-Bold="true" Font-Size="14px" Visible="false"></asp:Label>
+        <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red" Font-Bold="true" Font-Size="14px" Visible="false"></asp:Label>
+    </div>
 <div id="footer" runat="server" visible="true">
      <table style="background-color: #C0C0C0">
         <tr>
@@ -853,13 +863,4 @@
             </td>
         </tr>
     </table>
-    <br />
-    <br />
-    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" ValidationGroup="vgEducationalDetails" Visible="false" CssClass="button"  style="margin-top: 10px; margin-left: 450px"/>
-    <br />
-    <br />
-    <div>
-        <asp:Label ID="lblSuccess" runat="server" Text="" ForeColor="Green" Font-Bold="true" Font-Size="14px" Visible="false"></asp:Label>
-        <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red" Font-Bold="true" Font-Size="14px" Visible="false"></asp:Label>
-    </div>
 </div>

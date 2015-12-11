@@ -53,15 +53,15 @@
             <td>User Name  </td>
             <td>
                 <asp:TextBox ID="txtUserName" runat="server" onblur="return CheckEmail(this.id)"></asp:TextBox>
-                <%--<asp:RequiredFieldValidator ID="rfvUserName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>--%>
-                <%--<asp:RegularExpressionValidator ID="revUserName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>--%>
+                <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName" ValidationGroup="vgLogIn"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="revUserName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtUserName" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="vgLogIn"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
             <td>Password</td>
             <td>
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="validate[required]"></asp:TextBox>
-                <%--<asp:RequiredFieldValidator ID="refPassword" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>--%>
+                <asp:RequiredFieldValidator ID="refPassword" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPassword" ValidationGroup="vgLogIn"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -75,7 +75,9 @@
         <tr>
             <td></td>
             <td>
-                <asp:Button ID="btnLogIn" runat="server" Text="LogIn" OnClick="btnLogIn_Click" /><asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
+                <asp:Button ID="btnLogIn" runat="server" Text="LogIn" OnClick="btnLogIn_Click" ValidationGroup="vgLogIn"/>
+                <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            </td>
         </tr>
         <tr>
             <td>
