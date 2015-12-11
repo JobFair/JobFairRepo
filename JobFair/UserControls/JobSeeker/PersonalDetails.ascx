@@ -19,6 +19,7 @@
             <asp:LinkButton ID="lnkbtnCancel" runat="server" Visible="false" OnClick="lnkbtnCancel_Click">Cancel</asp:LinkButton>
         </td>
     </tr>
+    <asp:Panel ID="pnlPresentAdd" runat="server" Visible="false">
     <tr>
         <td rowspan="6">
             <asp:Label ID="lblPresentAdd" runat="server" Text="Present Address"></asp:Label>
@@ -78,6 +79,7 @@
             <asp:RequiredFieldValidator ID="rfvPincodePresent" runat="server" ControlToValidate="txtPincodePresent" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
         </td>
     </tr>
+    </asp:Panel>
     <tr>
         <td rowspan="6">
             <asp:Label ID="lblPermAddress" runat="server" Text="Permanent Adrress"></asp:Label>
