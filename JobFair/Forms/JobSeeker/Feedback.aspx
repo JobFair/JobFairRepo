@@ -19,7 +19,7 @@
             Name:</td>
         <td>
             <asp:TextBox ID="txtName" runat="server" Columns="50" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtName"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtName" ValidationGroup="vgFeedback"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -51,7 +51,7 @@
                 <asp:ListItem>Mobile/email verification</asp:ListItem>
                 <asp:ListItem>Other</asp:ListItem>
             </asp:DropDownList>
-            <asp:RequiredFieldValidator ID="rfvSubject" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvSubject" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject" ValidationGroup="vgFeedback"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -60,13 +60,12 @@
         </td>
         <td>
             <asp:TextBox ID="txtMessage" runat="server" Columns="40" Rows="6" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvMessage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMessage"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvMessage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMessage" ValidationGroup="vgFeedback"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
         <td>
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit" 
-                onclick="btnSubmit_Click" />
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit" onclick="btnSubmit_Click"  ValidationGroup="vgFeedback"/>
         </td>
     </tr>
     <tr>
