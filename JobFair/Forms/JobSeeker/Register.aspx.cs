@@ -1,10 +1,12 @@
 ﻿using BAL;
 using Entities;
 using System;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Net.Mail;
 using System.Web.UI.WebControls;
+
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -13,8 +15,10 @@ namespace JobFair.Forms.JobSeeker
     /// </summary>
     public partial class JobSeekerRegister : System.Web.UI.Page
     {
+        private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 BindCountry();
@@ -81,8 +85,8 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.UploadResumepath = uploadFolder.ToString();
 
                 result = jobSeekerBAL.SaveRegisterNewJobSeekerBAL(jobSeekerEntity);
-
-                SendHTMLMail();
+                result = JobSeekerPrefix + result;
+                //SendHTMLMail();
 
                 //string from = "jyoti.logossolutions@gmail.com";
                 //string subject = "Cofirmation";
@@ -125,32 +129,32 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        private void SendHTMLMail()
-        {
-            StreamReader reader = new StreamReader(Server.MapPath("~/HTMLPage.htm"));
-            string readFile = reader.ReadToEnd();
-            string myString = "";
-            myString = readFile;
-            myString = myString.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());           
-            myString = myString.Replace("$$Email$$", txtEmailId.Text.Trim());
-            myString = myString.Replace("$$Website$$", "http://www.logossolutions.co.in/");
-            MailMessage Msg = new MailMessage();
-            MailAddress fromMail = new MailAddress("jyoti.logossolutions@gmail.com");
-            // Sender e-mail address.
-            Msg.From = fromMail;
-            // Recipient e-mail address.
-            Msg.To.Add(new MailAddress("jyoti.logossolutions@gmail.com"));
-            // Subject of e-mail
-            Msg.Subject = "Send Mail with HTML File";
-            Msg.Body = myString.ToString();
-            Msg.IsBodyHtml = true;
-            string sSmtpServer = "";
-            sSmtpServer = "10.2.69.121";
-            SmtpClient a = new SmtpClient();
-            a.Host = sSmtpServer;
-            a.Send(Msg);
-            reader.Dispose();
-        }
+        //private void SendHTMLMail()
+        //{
+        //    StreamReader reader = new StreamReader(Server.MapPath("~/RegistrationConfirmation.html"));
+        //    string readFile = reader.ReadToEnd();
+        //    string myString = "";
+        //    myString = readFile;
+        //    myString = myString.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());           
+        //    myString = myString.Replace("$$Email$$", txtEmailId.Text.Trim());
+        //    myString = myString.Replace("$$Website$$", "http://www.logossolutions.co.in/");
+        //    MailMessage Msg = new MailMessage();
+        //    MailAddress fromMail = new MailAddress("jyoti.logossolutions@gmail.com");
+        //    // Sender e-mail address.
+        //    Msg.From = fromMail;
+        //    // Recipient e-mail address.
+        //    Msg.To.Add(new MailAddress("jyoti.logossolutions@gmail.com"));
+        //    // Subject of e-mail
+        //    Msg.Subject = "Send Mail with HTML File";
+        //    Msg.Body = myString.ToString();
+        //    Msg.IsBodyHtml = true;
+        //    string sSmtpServer = "";
+        //    sSmtpServer = "10.2.69.121";
+        //    SmtpClient a = new SmtpClient();
+        //    a.Host = sSmtpServer;
+        //    a.Send(Msg);
+        //    reader.Dispose();
+        //}
 
         /// <summary>
         /// Handles SelectedIndexChanged event of ddlCountryPresent control

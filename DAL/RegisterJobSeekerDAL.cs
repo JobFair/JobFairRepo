@@ -43,7 +43,7 @@ namespace DAL
                 sparams[11] = new SqlParameter("@refCandidatelId", registerEntity.RefCandidateId);
                 sparams[12] = new SqlParameter("@password", registerEntity.Password);
                 sparams[13] = new SqlParameter("@uploadresumepath", registerEntity.UploadResumepath.ToString());
-                sparams[14] = new SqlParameter("@Newcandidateid", SqlDbType.VarChar, 500);
+                sparams[14] = new SqlParameter("@Newcandidateid", SqlDbType.BigInt, 500);
                 sparams[14].Direction = ParameterDirection.Output;
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRegisterUser, sparams);
