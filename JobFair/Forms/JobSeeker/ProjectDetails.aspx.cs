@@ -14,19 +14,19 @@ namespace JobFair.Forms.JobSeeker
     public partial class ProjectDetails : System.Web.UI.Page
     {
         private bool isCheck=true;
-        private string candidateId;
+        private string candidateId = "JS2";
         private DataSet dsRoles = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
            // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
             // Check session is not null
-            if (Session["candidateId"] != null)
-            {
-                if (Session["candidateId"].ToString() != "")
-                {
-                    //CheckAuthorised(candidateId);
-                    candidateId = Convert.ToString(Session["candidateId"]);
+            //if (Session["candidateId"] != null)
+            //{
+            //    if (Session["candidateId"].ToString() != "")
+            //    {
+            //        //CheckAuthorised(candidateId);
+            //        candidateId = Convert.ToString(Session["candidateId"]);
                     // Check page is not post back
                     if (!IsPostBack)
                     {
@@ -59,12 +59,12 @@ namespace JobFair.Forms.JobSeeker
                     }
                     panelProjectLink.Visible = false;
                 }
-            }
-            else
-            {
-                Response.Redirect("LogIn.aspx");
-            }
-        }
+        //  }
+        //    else
+        //    {
+        //        Response.Redirect("LogIn.aspx");
+        //    }
+        //}
 
         /// <summary>
         /// Bind Repeater for ProjectDetails.

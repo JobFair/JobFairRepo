@@ -838,6 +838,7 @@
     <br />
     <br />
     <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" ValidationGroup="vgEducationalDetails" Visible="false" CssClass="button"  style="margin-top: 10px; margin-left: 450px"/>
+    <asp:Button ID="BtnAddNewEducation" runat="server" Text="Add New Education" ValidationGroup="vgEducationalDetails" Visible="false" CssClass="button"  style="margin-top: 10px; margin-left: 450px" OnClick="BtnAddNewEducation_Click"/>
     <br />
     <br />
     <div>
