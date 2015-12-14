@@ -131,11 +131,11 @@ namespace JobFair.Forms.JobSeeker
 
         //private void SendHTMLMail()
         //{
-        //    StreamReader reader = new StreamReader(Server.MapPath("~/RegistrationConfirmation.html"));
+        //    StreamReader reader = new StreamReader(Server.MapPath("~/JobSeeker/RegistrationConfirmation.htm"));
         //    string readFile = reader.ReadToEnd();
         //    string myString = "";
         //    myString = readFile;
-        //    myString = myString.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());           
+        //    myString = myString.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());
         //    myString = myString.Replace("$$Email$$", txtEmailId.Text.Trim());
         //    myString = myString.Replace("$$Website$$", "http://www.logossolutions.co.in/");
         //    MailMessage Msg = new MailMessage();
