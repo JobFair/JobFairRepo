@@ -8,24 +8,21 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check page is not post back
-            if (!IsPostBack)
+            try
             {
-                // Check session is not null
-                if (Session["candidateId"] != null)
+                // Check page is not post back
+                if (!IsPostBack)
                 {
-                    if (Session["candidateId"].ToString() != "")
+                    string candidateId = Convert.ToString(Session["candidateId"]);
+                    // Check session is not null
+                    if (string.IsNullOrEmpty(candidateId))
                     {
-                        try
-                        {
-                            string candidateId = Convert.ToString(Session["candidateId"]);
-                            BindAllUserDetails(candidateId);
-                        }
-                        catch (Exception)
-                        {
-                        }
+                        BindAllUserDetails(candidateId);
                     }
                 }
+            }
+            catch (Exception)
+            {
             }
         }
 

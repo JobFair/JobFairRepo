@@ -9,25 +9,22 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if page not is postback
-            if (!IsPostBack)
+            try
             {
-                // Check if session is not null
-                if (Session["candidateId"] != null)
+                // Check if page not is postback
+                if (!IsPostBack)
                 {
-                    if (Session["candidateId"].ToString() != "")
+                    string candidateId = Convert.ToString(Session["candidateId"]);
+                    // Check if session is not null
+                    if (string.IsNullOrEmpty(candidateId))
                     {
-                        try
-                        {
-                            string candidateId = Convert.ToString(Session["candidateId"]);
-                            BindRequestEmail(candidateId);
-                        }
-                        catch (Exception)
-                        {
-                            // throw;
-                        }
+                        BindRequestEmail(candidateId);
                     }
                 }
+            }
+            catch (Exception)
+            {
+                // throw;
             }
         }
 

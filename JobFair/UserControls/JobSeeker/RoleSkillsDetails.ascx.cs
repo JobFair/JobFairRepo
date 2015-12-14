@@ -18,44 +18,41 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
-            // Check session is not null
-            if (Session["candidateId"] != null)
+            try
             {
-                if (Session["candidateId"].ToString() != "")
+                isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+                candidateId = Convert.ToString(Session["candidateId"]);
+                // Check session is not null
+                if (string.IsNullOrEmpty(candidateId))
                 {
-                    candidateId = Convert.ToString(Session["candidateId"]);
                     // Check page is not post back
                     if (!IsPostBack)
                     {
-                        try
+                        // Check the isCheck is true for edit
+                        if (isCheck)
                         {
-                            // Check the isCheck is true for edit
-                            if (isCheck)
-                            {
-                                BindRepeaterRoleSkills();
-                                divRoleSkillsEdit.Visible = true;
-                                divRoleSkillsInsert.Visible = false;
-                            }
-                            else
-                            {
-                                hfCandidateId.Value = candidateId;
-                                BindRoleSkills();
-                                BindMonth();
-                                BindYears();
-                                AddRoleSkills();
-                            }
+                            BindRepeaterRoleSkills();
+                            divRoleSkillsEdit.Visible = true;
+                            divRoleSkillsInsert.Visible = false;
                         }
-                        catch (Exception)
+                        else
                         {
-                            // throw;
+                            hfCandidateId.Value = candidateId;
+                            BindRoleSkills();
+                            BindMonth();
+                            BindYears();
+                            AddRoleSkills();
                         }
                     }
                 }
+                else
+                {
+                    Response.Redirect("LogIn.aspx");
+                }
             }
-            else
+            catch (Exception)
             {
-                Response.Redirect("LogIn.aspx");
+                // throw;
             }
         }
 
@@ -368,7 +365,7 @@ namespace JobFair.UserControls.JobSeeker
             DataSet dsRoleSkill = new DataSet();
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             dsRoleSkill = currentDesiredJobBAL.ViewRoleSkillDetailsBAL(candidateId);
-            string fromDate,tillDate;
+            string fromDate, tillDate;
             fromDate = Convert.ToString(dsRoleSkill.Tables[0].Rows[0]["FromDate"]); ;
             string[] Words = fromDate.Split(new char[] { '/' });
             int count = 0;

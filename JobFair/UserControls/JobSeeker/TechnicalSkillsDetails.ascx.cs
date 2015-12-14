@@ -26,34 +26,24 @@ namespace JobFair.UserControls.JobSeeker
             // Check session is not null
             if (Session["candidateId"] != null)
             {
-                if (Session["candidateId"].ToString() != "")
-                {
-                    candidateId = Convert.ToString(Session["candidateId"]);
-                    // Check page is not post back
+                candidateId = Convert.ToString(Session["candidateId"]);
+                // Check page is not post back
 
-                    if (!IsPostBack)
+                if (!IsPostBack)
+                {
+                    // Check the isCheck is true for edit
+                    if (isCheck)
                     {
-                        try
-                        {
-                            // Check the isCheck is true for edit
-                            if (isCheck)
-                            {
-                                BindRepeaterTechnicalSkills();
-                                divTechnicalRepeater.Visible = true;
-                            }
-                            else
-                            {
-                                BindTechnicalSkills();
-                                BindMonth();
-                                BindYears();
-                                hfCandidateId.Value = candidateId;
-                                AddTechnicalSkills();
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            //  throw;
-                        }
+                        BindRepeaterTechnicalSkills();
+                        divTechnicalRepeater.Visible = true;
+                    }
+                    else
+                    {
+                        BindTechnicalSkills();
+                        BindMonth();
+                        BindYears();
+                        hfCandidateId.Value = candidateId;
+                        AddTechnicalSkills();
                     }
                 }
             }

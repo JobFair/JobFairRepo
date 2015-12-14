@@ -90,10 +90,10 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            // Check isEdit is true for update contact details
-            if (isEdit)
+            try
             {
-                try
+                // Check isEdit is true for update contact details
+                if (isEdit)
                 {
                     ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
                     ContactDetailsEntity objContactDetailsEntity = new ContactDetailsEntity();
@@ -121,14 +121,7 @@ namespace JobFair.UserControls.JobSeeker
                         Response.Write("<script language='javascript'>alert('Sorry')</script>");
                     }
                 }
-                catch (Exception)
-                {
-                    //  throw;
-                }
-            }
-            else
-            {
-                try
+                else
                 {
                     ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
                     ContactDetailsEntity contactDetailsEntity = new ContactDetailsEntity();
@@ -156,10 +149,10 @@ namespace JobFair.UserControls.JobSeeker
                         Response.Write("<script language='javascript'>alert('Sorry')</script>");
                     }
                 }
-                catch (Exception)
-                {
-                    //  throw;
-                }
+            }
+            catch (Exception)
+            {
+                //  throw;
             }
         }
     }
