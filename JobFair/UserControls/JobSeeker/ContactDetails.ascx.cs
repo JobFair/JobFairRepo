@@ -11,38 +11,36 @@ namespace JobFair.UserControls.JobSeeker
     public partial class ContactDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isCheck;
+        private bool isEdit;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
-            // Check session is not null
-            if (Session["candidateId"] != null)
+            try
             {
-                if (Session["candidateId"].ToString() != "")
+                isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
+                candidateId = Convert.ToString(Session["candidateId"]);
+
+                // Check session is not null
+                if (string.IsNullOrEmpty(candidateId))
                 {
-                    candidateId = Convert.ToString(Session["candidateId"]);
                     // Check page is not post back
                     if (!IsPostBack)
                     {
-                        // Check the isCheck is true for edit
-                        if (isCheck)
+                        // Check the isEdit is true for edit
+                        if (isEdit)
                         {
-                            try
-                            {
-                                BindContactDetails();
-                            }
-                            catch (Exception)
-                            {
-                                //   throw;
-                            }
+                            BindContactDetails();
                         }
                     }
                 }
+                else
+                {
+                    Response.Redirect("LogIn.aspx");
+                }
             }
-            else
+            catch (Exception)
             {
-                Response.Redirect("LogIn.aspx");
+                //  throw;
             }
         }
 
@@ -92,8 +90,8 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            // Check isCheck is true for update contact details
-            if (isCheck)
+            // Check isEdit is true for update contact details
+            if (isEdit)
             {
                 try
                 {

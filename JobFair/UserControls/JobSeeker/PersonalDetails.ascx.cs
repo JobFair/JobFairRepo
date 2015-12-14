@@ -11,7 +11,7 @@ namespace JobFair.UserControls.JobSeeker
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isCheck;
+        private bool isEdit;
         private DataSet dsCountry = null;
 
         /// <summary>
@@ -19,31 +19,28 @@ namespace JobFair.UserControls.JobSeeker
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
             // Check session is not null
-            if (Session["candidateId"] != null)
+            if (string.IsNullOrEmpty(candidateId))
             {
-                if (Session["candidateId"].ToString() != "")
+                // Check page is not post back
+                if (!IsPostBack)
                 {
-                    candidateId = Convert.ToString(Session["candidateId"]);
-                    // Check page is not post back
-                    if (!IsPostBack)
+                    GetCountryPresent();
+                    GetCountryPerm();
+                    GetMonths();
+                    GetYear();
+                    isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
+                    // Check the isEdit is true for edit
+                    if (isEdit)
                     {
-                        GetCountryPresent();
-                        GetCountryPerm();
-                        GetMonths();
-                        GetYear();
-                        isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
-                        // Check the isCheck is true for edit
-                        if (isCheck)
+                        try
                         {
-                            try
-                            {
-                                BindPersonalDetails();
-                            }
-                            catch (Exception)
-                            {
-                                //  throw;
-                            }
+                            BindPersonalDetails();
+                        }
+                        catch (Exception)
+                        {
+                            //  throw;
                         }
                     }
                 }
@@ -306,8 +303,8 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Check isCheck is true for update personal details
-            if (isCheck)
+            // Check isEdit is true for update personal details
+            if (isEdit)
             {
                 try
                 {

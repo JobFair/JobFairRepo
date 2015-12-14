@@ -10,32 +10,29 @@ namespace JobFair.UserControls.JobSeeker
     public partial class AffirmativeDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isCheck = true;
-        // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+        private bool isEdit = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
+            // isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
             // Check session is not null
-            if (Session["candidateId"] != null)
+            if (string.IsNullOrEmpty(candidateId))
             {
-                if (Session["candidateId"].ToString() != "")
+                // Check page is not post back
+                if (!IsPostBack)
                 {
-                    candidateId = Convert.ToString(Session["candidateId"]);
-                    // Check page is not post back
-                    if (!IsPostBack)
+                    BindLanguages();
+                    // Check the isEdit is true for edit
+                    if (isEdit)
                     {
-                        BindLanguages();
-                        // Check the isCheck is true for edit
-                        if (isCheck)
+                        try
                         {
-                            try
-                            {
-                                BindAffirmativeDetails(candidateId);
-                            }
-                            catch (Exception)
-                            {
-                                //  throw;
-                            }
+                            BindAffirmativeDetails(candidateId);
+                        }
+                        catch (Exception)
+                        {
+                            //  throw;
                         }
                     }
                 }
@@ -184,7 +181,7 @@ namespace JobFair.UserControls.JobSeeker
                             // Check if physicallychallenge is true
                             if (physicallyChallenged == "Yes")
                             {
-                                pnlPhysicallyChallenged.Visible = true; 
+                                pnlPhysicallyChallenged.Visible = true;
                             }
                             txtDescription.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Description"]);
                             txtSports.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Sports"]);
@@ -211,8 +208,8 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Check if isCheck is true for update
-            if (isCheck)
+            // Check if isEdit is true for update
+            if (isEdit)
             {
                 try
                 {
@@ -281,9 +278,9 @@ namespace JobFair.UserControls.JobSeeker
 
                     // Save language details
                     bool isLanguageSaved = affirmativeDetailsBAL.UpdateLanguageDetailsBAL(languageDetailsList, candidateId);
-                    // Save affermative Details.
+                    // Save affirmative Details.
                     bool isOtherDetailsSaved = affirmativeDetailsBAL.UpdateAffirmativeDetailsBAL(affirmativeDetailsEntity);
-                    //
+                    // Check if isLanguageDetails and isOtherDetails are equal
                     if (isLanguageSaved == isOtherDetailsSaved)
                     {
                         Response.Write("<script language='javascript'>alert('Affirmative Details Updated')</script>");
