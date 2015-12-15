@@ -181,15 +181,15 @@ namespace JobFair.UserControls.JobSeeker
 
                                 ddlWorkStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CurrentWorkingStatus"]);
                                 ddlNoticePeriod.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["NoticePeriod"]);
-                                rblEmploymentStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
-                                rblJobType123.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
-                                rblCompanyType123.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
+                                chklEmploymentStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
+                                chklJobType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
+                                chklCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
                                 rblYesNo.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AvailabilityForInterview"]);
 
-                                string format = Convert.ToString(ds.Tables[0].Rows[0]["BeforeTime"]); ;
+                                string format = Convert.ToString(ds.Tables[0].Rows[0]["BeforeTime"]); 
                                 string[] Words = format.Split(new char[] { ':' });
                                 int count1 = 0;
-                                string format1 = Convert.ToString(ds.Tables[0].Rows[0]["AfterTime"]); ;
+                                string format1 = Convert.ToString(ds.Tables[0].Rows[0]["AfterTime"]);
                                 string[] Words1 = format1.Split(new char[] { ':' });
                                 int count2 = 0;
 
@@ -733,9 +733,16 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobEntity.CurrentAnualSal = Convert.ToDouble(txtcurrentannualsalary.Text);
                 currentDesiredJobEntity.ExpectedAnualSal = Convert.ToDouble(txtexpectedsalary.Text);
                 currentDesiredJobEntity.NoticePeriod = ddlNoticePeriod.SelectedItem.Text.Trim();
-                currentDesiredJobEntity.EmploymentStatus = rblEmploymentStatus.Text;
-                currentDesiredJobEntity.JobType = rblJobType123.SelectedItem.Text;
-                currentDesiredJobEntity.CompanyType = rblCompanyType123.SelectedItem.Text;
+
+                var selectedStatus = chklEmploymentStatus.Items.Cast<ListItem>().Where(li => li.Selected).ToList();            
+                currentDesiredJobEntity.EmploymentStatus = string.Join(",", selectedStatus.Select(x => x.Text));
+
+                var selectedJobType = chklJobType.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                currentDesiredJobEntity.JobType = string.Join(",",selectedJobType.Select(x=>x.Text));
+
+                var selectedCompanyType = chklCompanyType.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                currentDesiredJobEntity.CompanyType = string.Join(",",selectedCompanyType.Select(x=>x.Text));
+
                 currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
                 currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
                 currentDesiredJobEntity.PreferredCountry = Convert.ToInt32(ddlPreferredCountry.SelectedValue);

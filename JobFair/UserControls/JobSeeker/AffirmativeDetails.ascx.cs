@@ -21,6 +21,10 @@ namespace JobFair.UserControls.JobSeeker
                 // Check session is not null
                 if (string.IsNullOrEmpty(candidateId))
                 {
+                    Response.Redirect("LogIn.aspx");
+                }
+                else
+                {
                     // Check page is not post back
                     if (!IsPostBack)
                     {
@@ -31,10 +35,7 @@ namespace JobFair.UserControls.JobSeeker
                             BindAffirmativeDetails(candidateId);
                         }
                     }
-                }
-                else
-                {
-                    Response.Redirect("LogIn.aspx");
+                   
                 }
             }
             catch (Exception)
@@ -211,7 +212,7 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 // Check if isEdit is true for update
-                if (isEdit)
+                if (!isEdit)
                 {
                     List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
                     AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
