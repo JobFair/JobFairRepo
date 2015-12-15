@@ -55,6 +55,8 @@
             <tr>
                 <td>Mobile No</td>
                 <td>
+                    <asp:DropDownList ID="ddlCountryCode" runat="server">
+                    </asp:DropDownList>
                     <asp:TextBox ID="txtMobileNo" runat="server" onblur="return IsValidMobNumber(this.id);"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvMobileNo" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMobileNo" ValidationGroup="vgRegister"></asp:RequiredFieldValidator>
                 </td>

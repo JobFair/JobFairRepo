@@ -514,30 +514,30 @@
         <tr>
             <td>Desired Employment status</td>
             <td>
-                <asp:RadioButtonList ID="rblEmploymentStatus" runat="server">
+                <asp:CheckBoxList ID="chklEmploymentStatus" runat="server">
                     <asp:ListItem>Full Time</asp:ListItem>
                     <asp:ListItem>Part Time</asp:ListItem>
-                </asp:RadioButtonList>
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
             <td>Desired Job Type</td>
             <td>
-                <asp:RadioButtonList ID="rblJobType123" runat="server">
+                <asp:CheckBoxList ID="chklJobType" runat="server">
                     <asp:ListItem>Permanent</asp:ListItem>
                     <asp:ListItem>Temporary</asp:ListItem>
                     <asp:ListItem>Freelancing</asp:ListItem>
-                </asp:RadioButtonList>
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
             <td>Desired Company Type</td>
             <td>
-                <asp:RadioButtonList ID="rblCompanyType123" runat="server">
+                <asp:CheckBoxList ID="chklCompanyType" runat="server">
                     <asp:ListItem>Small</asp:ListItem>
                     <asp:ListItem>Middle</asp:ListItem>
                     <asp:ListItem>MNC</asp:ListItem>
-                </asp:RadioButtonList>
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>

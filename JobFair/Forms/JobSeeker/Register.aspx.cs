@@ -19,14 +19,40 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                if (!IsPostBack)
-                {
-                    BindCountry();
-                }
+            if (!IsPostBack)
+            {
+                BindCountryCode();
+                BindCountry();
+            }
             }
             catch (Exception)
             {
                 //  throw;
+        }
+        /// <summary>
+        /// Bind Country code to ddlCountryCode control
+        /// </summary>
+        private void BindCountryCode()
+        {
+            try
+            {
+                RegisterJobSeekerBAL registerJobSeekerBAL = new RegisterJobSeekerBAL();
+                DataSet datasetCountryCode = new DataSet();
+                datasetCountryCode = registerJobSeekerBAL.GetCountryCode();
+                if (datasetCountryCode != null)
+                {
+                    ddlCountryCode.DataSource = datasetCountryCode;
+                    ddlCountryCode.DataTextField = "CountryCode";
+                    ddlCountryCode.DataValueField = "ID";
+                    ddlCountryCode.DataBind();
+                    ddlCountryCode.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -66,6 +92,7 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
+                 
                 string uploadFolder, result, path, extension;
                 RegisterEntity jobSeekerEntity = new RegisterEntity();
                 path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
@@ -76,7 +103,22 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.EmailId = txtEmailId.Text.Trim();
 
                 jobSeekerEntity.Gender = rblGender.SelectedItem.Text;
-                jobSeekerEntity.MobileNo = txtMobileNo.Text.Trim();
+
+                 string format = ddlCountryCode.SelectedItem.Text.Trim();
+                                string[] Words = format.Split(new char[] { '+' });
+                                int count1 = 0;
+                 foreach (string Word in Words)
+                                {
+                                    count1 += 1;
+                                    if (count1 == 2)
+                                    {
+                                        jobSeekerEntity.MobileNo =Word.Trim();
+                                    }
+                                }
+
+               
+
+                jobSeekerEntity.MobileNo += txtMobileNo.Text.Trim();
                 jobSeekerEntity.Password = txtPassword.Text.Trim();
                 jobSeekerEntity.Country = Convert.ToInt32(ddlCountryPresent.SelectedValue);
                 jobSeekerEntity.State = Convert.ToInt32(ddlStatePresent.SelectedValue);
