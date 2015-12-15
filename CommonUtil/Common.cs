@@ -438,5 +438,21 @@ namespace CommonUtil
             }
             return ds;
         }
+
+        internal DataSet GetCountryCode()
+        {
+            connection.Open();
+            DataSet datasetCountryCode = new DataSet();
+            try
+            {
+                datasetCountryCode = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from CountryCode");
+                return datasetCountryCode;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

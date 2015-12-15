@@ -51,5 +51,10 @@ namespace BAL
         {
             return Utility.GetArea(cityId);
         }
+
+        public System.Data.DataSet GetCountryCode()
+        {
+            return Utility.GetCountryCode();
+        }
     }
 }
