@@ -68,7 +68,7 @@
         </div>--%>
 
     <div>
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="900px">
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" Width="900px">
             <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Profile Summary">
                 <ContentTemplate>
                     <table>
@@ -182,7 +182,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel2" runat="server" HeaderText="Personal Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer2" runat="server" ActiveTabIndex="0" Width="500px">
+                    <cc1:TabContainer ID="TabContainer2" runat="server" ActiveTabIndex="1" Width="500px">
                         <cc1:TabPanel ID="TabPanel7" runat="server" HeaderText="Contact Details">
                             <ContentTemplate>
                                 <table>

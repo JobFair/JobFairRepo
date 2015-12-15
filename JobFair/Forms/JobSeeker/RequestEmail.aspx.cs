@@ -18,6 +18,10 @@ namespace JobFair.Forms.JobSeeker
                     // Check if session is not null
                     if (string.IsNullOrEmpty(candidateId))
                     {
+                        Response.Redirect("LogIn.aspx");
+                    }
+                    else
+                    {
                         BindRequestEmail(candidateId);
                     }
                 }

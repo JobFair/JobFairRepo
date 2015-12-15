@@ -25,6 +25,10 @@ namespace JobFair.UserControls.JobSeeker
                 // Check session is not null
                 if (string.IsNullOrEmpty(candidateId))
                 {
+                    Response.Redirect("LogIn.aspx");
+                }
+                else
+                {
                     // Check page is not post back
                     if (!IsPostBack)
                     {
@@ -44,10 +48,6 @@ namespace JobFair.UserControls.JobSeeker
                             AddRoleSkills();
                         }
                     }
-                }
-                else
-                {
-                    Response.Redirect("LogIn.aspx");
                 }
             }
             catch (Exception)

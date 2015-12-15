@@ -16,39 +16,36 @@ namespace JobFair.Forms.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check session is not null
-            if (Session["candidateId"] != null)
+            try
             {
-                if (Session["candidateId"].ToString() != "")
+                candidateId = Convert.ToString(Session["candidateId"]);
+                // Check session is not null
+                if (string.IsNullOrEmpty(candidateId))
                 {
-                    candidateId = Convert.ToString(Session["candidateId"]);
+                    Response.Redirect("LogIn.aspx");
+                }
+                else
+                {
                     // Check page is not post back
                     if (!IsPostBack)
                     {
-                        try
+                        DataSet datasetLoginDetails = new DataSet();
+                        ChangeLoginDetailsBAL changeLoginDetailsBAL = new ChangeLoginDetailsBAL();
+                        datasetLoginDetails = changeLoginDetailsBAL.GetLoginDetailsBAL(candidateId);
+                        // Check dataset is not null
+                        if (datasetLoginDetails != null)
                         {
-                            DataSet datasetLoginDetails = new DataSet();
-                            ChangeLoginDetailsBAL changeLoginDetailsBAL = new ChangeLoginDetailsBAL();
-                            datasetLoginDetails = changeLoginDetailsBAL.GetLoginDetailsBAL(candidateId);
-                            // Check dataset is not null
-                            if (datasetLoginDetails != null)
-                            {
-                                lblLoginMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["EmailId"]);
-                                lblAlternateMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltEmailId"]);
-                                lblPrimaryMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["MobileNo"]);
-                                lblAlternateMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltMobile"]);
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            //  throw;
+                            lblLoginMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["EmailId"]);
+                            lblAlternateMailId.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltEmailId"]);
+                            lblPrimaryMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["MobileNo"]);
+                            lblAlternateMobNo.Text = Convert.ToString(datasetLoginDetails.Tables[0].Rows[0]["AltMobile"]);
                         }
                     }
                 }
             }
-            else
+            catch (Exception)
             {
-                Response.Redirect("LogIn.aspx");
+                // throw;
             }
         }
 
