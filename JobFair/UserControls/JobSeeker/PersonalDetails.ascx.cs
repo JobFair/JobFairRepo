@@ -25,6 +25,10 @@ namespace JobFair.UserControls.JobSeeker
                 // Check session is not null
                 if (string.IsNullOrEmpty(candidateId))
                 {
+                    Response.Redirect("LogIn.aspx");
+                }
+                else
+                {
                     // Check page is not post back
                     if (!IsPostBack)
                     {
@@ -39,10 +43,6 @@ namespace JobFair.UserControls.JobSeeker
                             BindPersonalDetails();
                         }
                     }
-                }
-                else
-                {
-                    Response.Redirect("LogIn.aspx");
                 }
             }
             catch (Exception)
@@ -83,7 +83,7 @@ namespace JobFair.UserControls.JobSeeker
                             if (dsPersentState != null)
                             {
                                 ddlStatePresent.DataSource = dsPersentState;
-                                ddlStatePresent.DataTextField = "StateName";
+                                ddlStatePresent.DataTextField = "StateName"; 
                                 ddlStatePresent.DataValueField = "StateId";
                                 ddlStatePresent.DataBind();
                             }

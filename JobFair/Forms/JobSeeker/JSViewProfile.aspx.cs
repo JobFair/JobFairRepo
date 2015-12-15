@@ -17,6 +17,10 @@ namespace JobFair.Forms.JobSeeker
                     // Check session is not null
                     if (string.IsNullOrEmpty(candidateId))
                     {
+                        Response.Redirect("LogIn.aspx");
+                    }
+                    else
+                    {
                         BindAllUserDetails(candidateId);
                     }
                 }
@@ -216,16 +220,16 @@ namespace JobFair.Forms.JobSeeker
                 if (dsPersonalDetails != null)
                 {
                     if (dsPersonalDetails.Tables.Count > 0)
-                    {
+                    { 
                         if (dsPersonalDetails.Tables[0].Rows.Count > 0)
                         {
                             Image1.ImageUrl = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["photo"]);
-                            lblPresentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentAddress"]);
-                            lblPresentCountry.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentCountryName"]);
-                            lblPresentState.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentStateName"]);
-                            lblPresentCity.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentCityName"]);
-                            lblPresentArea.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentAreaName"]);
-                            lblPresentPincode.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PresentPincode"]);
+                            lblPresentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["CurrentAddress"]);
+                            lblPresentCountry.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentCountryName"]);
+                            lblPresentState.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentStateName"]);
+                            lblPresentCity.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentCityName"]);
+                            lblPresentArea.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentAreaName"]);
+                            lblPresentPincode.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PinCode"]);
                             lblPermanentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantAddress"]);
                             lblPermanentCountry.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantCountryName"]);
                             lblPermanentState.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantStateName"]);
@@ -318,7 +322,7 @@ namespace JobFair.Forms.JobSeeker
                             lblEmailId.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["EmailId"]);
                             lblMobNo.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["MobileNo"]);
                             lblGender.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["Gender"]);
-                            lblCurrentCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CurrentCity"]);
+                            lblCurrentCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CityName"]);
 
                             lblPreferedCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["PreferredCity"]);
                             lblCurrentCTC.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CurrentAnualSalary"]);

@@ -4,9 +4,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.IO;
-using System.Net.Mail;
 using System.Web.UI.WebControls;
-
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -16,12 +14,19 @@ namespace JobFair.Forms.JobSeeker
     public partial class JobSeekerRegister : System.Web.UI.Page
     {
         private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (!IsPostBack)
+            try
             {
-                BindCountry();
+                if (!IsPostBack)
+                {
+                    BindCountry();
+                }
+            }
+            catch (Exception)
+            {
+                //  throw;
             }
         }
 
@@ -47,7 +52,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -181,7 +186,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -210,7 +215,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 
@@ -239,7 +244,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
     }
