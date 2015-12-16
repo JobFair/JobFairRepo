@@ -166,7 +166,7 @@ namespace JobFair.Forms.JobSeeker
                 if(txtkeyskill.Text=="")
                 {
                     advanceSearchEntity.KeySkill = null;
-                }
+                } 
                 else
                 {
                     advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
