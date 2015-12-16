@@ -99,7 +99,7 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.EmailId = txtEmailId.Text.Trim();
 
                 jobSeekerEntity.Gender = rblGender.SelectedItem.Text;
-
+                jobSeekerEntity.MobileNo += "+";
                  string format = ddlCountryCode.SelectedItem.Text.Trim();
                                 string[] Words = format.Split(new char[] { '+' });
                                 int count1 = 0;
@@ -108,13 +108,14 @@ namespace JobFair.Forms.JobSeeker
                                     count1 += 1;
                                     if (count1 == 2)
                                     {
-                                        jobSeekerEntity.MobileNo =Word.Trim();
+                                        jobSeekerEntity.MobileNo += Word.Trim();
                                     }
                                 }
 
                
 
-                jobSeekerEntity.MobileNo += txtMobileNo.Text.Trim();
+                jobSeekerEntity.MobileNo +=  txtMobileNo.Text.Trim();
+                
                 jobSeekerEntity.Password = txtPassword.Text.Trim();
                 jobSeekerEntity.Country = Convert.ToInt32(ddlCountryPresent.SelectedValue);
                 jobSeekerEntity.State = Convert.ToInt32(ddlStatePresent.SelectedValue);

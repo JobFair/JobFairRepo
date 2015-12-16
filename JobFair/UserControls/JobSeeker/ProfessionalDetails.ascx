@@ -61,6 +61,16 @@
 
         <tr>
             <td colspan="2">
+                <div id="divFresher" runat="server" visible="false">
+                    You Are? <asp:RadioButton ID="rbFresher" runat="server" Text="Fresher" AutoPostBack="true" GroupName="FresherORExperienced" OnCheckedChanged="rbFresher_CheckedChanged" />
+                    <asp:RadioButton ID="rbExperienced" runat="server" Text="Experienced" AutoPostBack="true" GroupName="FresherORExperienced" OnCheckedChanged="rbExperienced_CheckedChanged" />
+                </div>
+            </td>
+            
+        </tr>
+
+        <tr>
+            <td colspan="2">
                 <hr />
             </td>
         </tr>
@@ -650,6 +660,7 @@
                     <asp:ListItem>27</asp:ListItem>
                     <asp:ListItem>28</asp:ListItem>
                     <asp:ListItem>29</asp:ListItem>
+                    <asp:ListItem>30</asp:ListItem>
                     <asp:ListItem>31</asp:ListItem>
                     <asp:ListItem>32</asp:ListItem>
                     <asp:ListItem>33</asp:ListItem>
@@ -728,6 +739,7 @@
                     <asp:ListItem>27</asp:ListItem>
                     <asp:ListItem>28</asp:ListItem>
                     <asp:ListItem>29</asp:ListItem>
+                    <asp:ListItem>30</asp:ListItem>
                     <asp:ListItem>31</asp:ListItem>
                     <asp:ListItem>32</asp:ListItem>
                     <asp:ListItem>33</asp:ListItem>
