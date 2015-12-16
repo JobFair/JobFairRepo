@@ -1,6 +1,7 @@
 ﻿using BAL;
 using System;
 using System.Data;
+using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -52,11 +53,40 @@ namespace JobFair.Forms.JobSeeker
                 BindTechnicalDetails(viewProfileJSBAL, candidateId);
                 //BindProfessionalDetals(candidateId);
 
-                //BindEducationDetails(candidateId);
+                BindEducationDetails(viewProfileJSBAL, candidateId);
             }
             catch (Exception ex)
             {
                 //   throw;
+            }
+        }
+
+        private void BindEducationDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsEducationDetails = new DataSet();
+                dsEducationDetails = objViewProfile.ViewEducationDetailsBAL(candidateId);
+                if (dsEducationDetails != null)
+                {
+                    Repeat1.DataSource = dsEducationDetails;
+                    Repeat1.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        protected void rptrProjectDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            // Check commond for edit
+            if (e.CommandName == "edit")
+            {
+                Label lbl = (Label)e.Item.FindControl("lblDegreeId");
+                int degreeId = Convert.ToInt32(lbl.Text);
+                Response.Redirect("WebForm1.aspx?dId=" + degreeId);
             }
         }
 
@@ -78,7 +108,7 @@ namespace JobFair.Forms.JobSeeker
                     rptrTechnicalSkills.DataBind();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // throw;
             }
@@ -220,7 +250,7 @@ namespace JobFair.Forms.JobSeeker
                 if (dsPersonalDetails != null)
                 {
                     if (dsPersonalDetails.Tables.Count > 0)
-                    { 
+                    {
                         if (dsPersonalDetails.Tables[0].Rows.Count > 0)
                         {
                             Image1.ImageUrl = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["photo"]);

@@ -131,6 +131,26 @@ namespace DAL
         }
 
         /// <summary>
+        ///
+        /// </summary>
+        /// <param name="candidateId"></param>
+        /// <returns></returns>
+        public DataSet ViewEducationalDetailsDAL(string candidateId)
+        {
+            DataSet dsEducationalDetails = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsEducationalDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Test", sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dsEducationalDetails;
+        }
+
+        /// <summary>
         /// View technical skills dal
         /// </summary>
         /// <param name="candidateId">candidateId</param>
