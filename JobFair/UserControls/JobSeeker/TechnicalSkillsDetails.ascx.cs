@@ -23,10 +23,14 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
             // Check session is not null
             if (Session["candidateId"] != null)
             {
-                candidateId = Convert.ToString(Session["candidateId"]);
+                Response.Redirect("LogIn.aspx");
+            }
+            else
+            {
                 // Check page is not post back
 
                 if (!IsPostBack)

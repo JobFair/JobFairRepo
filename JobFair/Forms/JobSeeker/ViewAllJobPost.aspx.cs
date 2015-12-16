@@ -1,68 +1,57 @@
 ﻿using BAL;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Net.Mail;
 using System.IO;
-using System.Net;
-using System.Net.Mime;
+using System.Net.Mail;
+using System.Web.UI.WebControls;
+
 namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
-        
-        string email,jobtitle, candidateId;
+        private string email, jobtitle, candidateId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-       
-            string id = Request.QueryString["jid"];
-              
-           // Label1.Text = Session["jobid"].ToString();
-            if (!IsPostBack)
+            try
             {
-                if (Session["candidateId"] != null)
+                string id = Request.QueryString["jid"];
+
+                // Label1.Text = Session["jobid"].ToString();
+                if (!IsPostBack)
                 {
-                    if (Session["candidateId"].ToString() !="")
-                    {
-                    try
-                    {
-                        candidateId  = Convert.ToString(Session["candidateId"]);
-                        BindRequestEmail(candidateId);
-                    }
-                    catch (Exception)
-                    {
-                        
-                        throw;
-                    }
-                    
-                    }
-                    
+                    candidateId = Convert.ToString(Session["candidateId"]);
+
+                    BindRequestEmail(candidateId);
+
+                    GetData(id);
                 }
-
-
-
-                GetData(id);
-            
+                //BindReapetor();
             }
-             //BindReapetor();
-          
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void BindRequestEmail(string candidateId)
         {
-            DataSet ds = new DataSet();
-            RequestEmailJSBAL requestEmailJSBAL = new RequestEmailJSBAL();
-            ds = requestEmailJSBAL.GetEmailBAL(candidateId);
-            email = Convert.ToString(ds.Tables[0].Rows[0]["EmailId"]);
-           
-
+            try
+            {
+                DataSet dsRequestEmail = new DataSet();
+                RequestEmailJSBAL requestEmailJSBAL = new RequestEmailJSBAL();
+                dsRequestEmail = requestEmailJSBAL.GetEmailBAL(candidateId);
+                if (dsRequestEmail != null)
+                {
+                    email = Convert.ToString(dsRequestEmail.Tables[0].Rows[0]["EmailId"]);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void GetData(string id)
@@ -83,21 +72,16 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
-          
-
         }
 
         protected void btnapply_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 string from = "jyoti.logossolutions@gmail.com";
-                string subject = " You applied for "  + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
+                string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";
                 //string path = Server.MapPath(@"/Images");
@@ -121,24 +105,21 @@ namespace JobFair.Forms.JobSeeker
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.Credentials = new System.Net.NetworkCredential("jyoti.logossolutions@gmail.com", "@jacksparow");
-              smtp.EnableSsl = true;
+                smtp.EnableSsl = true;
                 smtp.Send(Msg);
-                Msg =null;
+                Msg = null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
             }
             catch (Exception)
             {
-                
                 throw;
             }
-           
         }
 
         protected void rptrviewpost_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "apply")
             {
-
                 Label lbl = (Label)e.Item.FindControl("lbljobtitle");
                 jobtitle = lbl.Text;
             }
@@ -155,16 +136,12 @@ namespace JobFair.Forms.JobSeeker
         //        da.Fill(ds, "data");
         //       rptrviewpost.DataSource  = ds.Tables[0].DefaultView;
         //        rptrviewpost.DataBind();
-                
+
         //    }
         //    catch (Exception)
         //    {
-                
         //        throw;
         //    }
         //}
-
-
-
-          }
+    }
 }
