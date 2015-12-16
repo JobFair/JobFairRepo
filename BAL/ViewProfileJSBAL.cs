@@ -61,6 +61,17 @@ namespace BAL
         }
 
         /// <summary>
+        ///
+        /// </summary>
+        /// <param name="candidateId"></param>
+        /// <returns></returns>
+        public DataSet ViewEducationDetailsBAL(string candidateId)
+        {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+            return viewProfileJSDAL.ViewEducationalDetailsDAL(candidateId);
+        }
+
+        /// <summary>
         /// View technical skills bal
         /// </summary>
         /// <param name="candidateId">candidateId</param>
