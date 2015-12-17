@@ -101,6 +101,7 @@ namespace DAL
 
                 SqlParameter[] sqlparams = {
                                               new SqlParameter("@CandidateId",educationalDetailsEntity.CandidateId),
+                                              new SqlParameter("@HighestQualificationId",educationalDetailsEntity.HighestQualificationId),
                                               new SqlParameter("@DegreeId",educationalDetailsEntity.DegreeId),
                                               new SqlParameter("@MediumOfEducation",educationalDetailsEntity.MediumOfEducation),
                                               new SqlParameter("@Status",educationalDetailsEntity.Status),

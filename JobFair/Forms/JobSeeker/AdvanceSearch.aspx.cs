@@ -226,11 +226,11 @@ namespace JobFair.Forms.JobSeeker
                 }
                 if (chkIndustry.SelectedValue  == "" || chkIndustry.Text == "---select---")
                 {
-                    advanceSearchEntity.Industry =Convert.ToInt32( null);
+                    advanceSearchEntity.Industry =( null);
                 }
                 else
                 {
-                    advanceSearchEntity.Industry = Convert.ToInt32(chkIndustry.SelectedValue.Trim());
+                    advanceSearchEntity.Industry = (chkIndustry.SelectedValue.Trim());
                 }
                 if (chkEmploymentStatus.SelectedValue == "" || chkEmploymentStatus.Text == "--select--")
                 {
