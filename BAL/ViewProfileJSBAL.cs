@@ -61,10 +61,10 @@ namespace BAL
         }
 
         /// <summary>
-        ///
+        /// View educational details bal
         /// </summary>
-        /// <param name="candidateId"></param>
-        /// <returns></returns>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewEducationDetailsBAL(string candidateId)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
@@ -80,6 +80,17 @@ namespace BAL
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
             return viewProfileJSDAL.ViewTechnicalSkillsDAL(candidateId);
+        }
+
+        /// <summary>
+        /// View role skills bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewRoleSkillsBAL(string candidateId)
+        {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+            return viewProfileJSDAL.ViewRoleSkillsDAL(candidateId);
         }
 
         public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)

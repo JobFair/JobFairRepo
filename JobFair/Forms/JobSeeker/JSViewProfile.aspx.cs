@@ -51,6 +51,8 @@ namespace JobFair.Forms.JobSeeker
                 BindAffirmativeDetails(viewProfileJSBAL, candidateId);
 
                 BindTechnicalDetails(viewProfileJSBAL, candidateId);
+
+                BindRoleSkillDetails(viewProfileJSBAL, candidateId);
                 //BindProfessionalDetals(candidateId);
 
                 BindEducationDetails(viewProfileJSBAL, candidateId);
@@ -58,6 +60,30 @@ namespace JobFair.Forms.JobSeeker
             catch (Exception ex)
             {
                 //   throw;
+            }
+        }
+
+        /// <summary>
+        ///  Bind role skills to rptrRoleSkills control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindRoleSkillDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsRoleSkills = new DataSet();
+                dsRoleSkills = objViewProfile.ViewRoleSkillsBAL(candidateId);
+                // Check if dataset is not null
+                if (dsRoleSkills != null)
+                {
+                    rptrRoleSkills.DataSource = dsRoleSkills;
+                    rptrRoleSkills.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+               // throw;
             }
         }
 
@@ -81,7 +107,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-               // throw;
+                // throw;
             }
         }
 

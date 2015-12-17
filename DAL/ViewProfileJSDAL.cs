@@ -19,24 +19,6 @@ namespace DAL
         /// <returns>dataset</returns>
         public DataSet ViewProfileDAL(string candidateId)
         {
-            // try
-            // {
-            //ds= SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from JS_RegisterDetails where CandidateId='JS12'");
-            //viewProfileEntity.FirstName = ds.Tables[0].Rows[0]["FirstName"].ToString();
-            //viewProfileEntity.LastName = ds.Tables[0].Rows[0]["LastName"].ToString();
-            //viewProfileEntity.MobileNumber = ds.Tables[0].Rows[0]["MobileNo"].ToString();
-            //viewProfileEntity.EmailId = ds.Tables[0].Rows[0]["EmailId"].ToString();
-            //   SqlParameter[] sparams1=new SqlParameter[1];
-            //     sparams1[0]=new SqlParameter("@id","JS12");
-            //ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_JS_SelectPersonalDetails",sparams1);
-            //     viewProfileEntity.Birthdate=Convert.ToDateTime(ds.Tables[0].Rows[0]["DateOfBirth"].ToString());
-            //     viewProfileEntity.Address=ds.Tables[0].Rows[0]["CurrentAddress"].ToString();
-            // }
-            // catch (Exception)
-            // {
-            //     throw;
-            // }
-            //return ds;
             DataSet ds = new DataSet();
             try
             {
@@ -131,21 +113,21 @@ namespace DAL
         }
 
         /// <summary>
-        ///
+        /// View educational details dal
         /// </summary>
-        /// <param name="candidateId"></param>
-        /// <returns></returns>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewEducationalDetailsDAL(string candidateId)
         {
             DataSet dsEducationalDetails = new DataSet();
             try
             {
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
-                dsEducationalDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Test", sparams);
+                dsEducationalDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_ViewEducationalDetails, sparams);
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
             return dsEducationalDetails;
         }
@@ -158,9 +140,36 @@ namespace DAL
         public DataSet ViewTechnicalSkillsDAL(string candidateId)
         {
             DataSet dsViewTechnicalSkills = new DataSet();
-            SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
-            dsViewTechnicalSkills = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectTechnicalSkills, sparams);
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsViewTechnicalSkills = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectTechnicalSkills, sparams);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
             return dsViewTechnicalSkills;
+        }
+
+        /// <summary>
+        /// View role skills dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewRoleSkillsDAL(string candidateId)
+        {
+            DataSet dsRoleSkills = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsRoleSkills = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectRoleSkills, sparams);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            return dsRoleSkills;
         }
 
         public int ChangeConatctNoDAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)

@@ -796,6 +796,42 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel5;
         
         /// <summary>
+        /// TabContainer3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabContainer TabContainer3;
+        
+        /// <summary>
+        /// TabPanel10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel10;
+        
+        /// <summary>
+        /// rptrRoleSkills control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrRoleSkills;
+        
+        /// <summary>
+        /// TabPanel11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel11;
+        
+        /// <summary>
         /// LinkButton1 control.
         /// </summary>
         /// <remarks>
