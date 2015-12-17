@@ -4,7 +4,9 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.IO;
+using System.Net.Mail;
 using System.Web.UI.WebControls;
+
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -14,23 +16,15 @@ namespace JobFair.Forms.JobSeeker
     public partial class JobSeekerRegister : System.Web.UI.Page
     {
         private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            
+            if (!IsPostBack)
             {
-                if (!IsPostBack)
-                {
-                    BindCountryCode();
-                    BindCountry();
-                }
-            }
-            catch (Exception)
-            {
-                //  throw;
+                BindCountryCode();
+                BindCountry();
             }
         }
-
         /// <summary>
         /// Bind Country code to ddlCountryCode control
         /// </summary>
@@ -49,9 +43,11 @@ namespace JobFair.Forms.JobSeeker
                     ddlCountryCode.DataBind();
                     ddlCountryCode.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
+
             }
             catch (Exception)
             {
+                
                 throw;
             }
         }
@@ -78,7 +74,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                throw;
             }
         }
 
@@ -92,7 +88,7 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
-
+                 
                 string uploadFolder, result, path, extension;
                 RegisterEntity jobSeekerEntity = new RegisterEntity();
                 path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
@@ -103,20 +99,23 @@ namespace JobFair.Forms.JobSeeker
                 jobSeekerEntity.EmailId = txtEmailId.Text.Trim();
 
                 jobSeekerEntity.Gender = rblGender.SelectedItem.Text;
+                jobSeekerEntity.MobileNo += "+";
+                 string format = ddlCountryCode.SelectedItem.Text.Trim();
+                                string[] Words = format.Split(new char[] { '+' });
+                                int count1 = 0;
+                 foreach (string Word in Words)
+                                {
+                                    count1 += 1;
+                                    if (count1 == 2)
+                                    {
+                                        jobSeekerEntity.MobileNo += Word.Trim();
+                                    }
+                                }
 
-                string format = ddlCountryCode.SelectedItem.Text.Trim();
-                string[] Words = format.Split(new char[] { '+' });
-                int count1 = 0;
-                foreach (string Word in Words)
-                {
-                    count1 += 1;
-                    if (count1 == 2)
-                    {
-                        jobSeekerEntity.MobileNo = Word.Trim();
-                    }
-                }
+               
 
-                jobSeekerEntity.MobileNo += txtMobileNo.Text.Trim();
+                jobSeekerEntity.MobileNo +=  txtMobileNo.Text.Trim();
+                
                 jobSeekerEntity.Password = txtPassword.Text.Trim();
                 jobSeekerEntity.Country = Convert.ToInt32(ddlCountryPresent.SelectedValue);
                 jobSeekerEntity.State = Convert.ToInt32(ddlStatePresent.SelectedValue);
@@ -132,7 +131,7 @@ namespace JobFair.Forms.JobSeeker
                 result = jobSeekerBAL.SaveRegisterNewJobSeekerBAL(jobSeekerEntity);
                 result = JobSeekerPrefix + result;
                 //SendHTMLMail();
-
+                
                 //string from = "jyoti.logossolutions@gmail.com";
                 //string subject = "Cofirmation";
                 //string content = "Helllo....";
@@ -226,7 +225,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                throw;
             }
         }
 
@@ -255,7 +254,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                throw;
             }
         }
 
@@ -284,7 +283,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                throw;
             }
         }
     }

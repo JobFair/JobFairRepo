@@ -788,8 +788,8 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtUnEmployed_CheckedChanged(object sender, EventArgs e)
         {
-            divDesireJobDetails.Visible = true;
-            divCurrentEmployer.Visible = false;
+            divFresher.Visible = true;
+           
         }
 
         /// <summary>
@@ -1249,6 +1249,18 @@ namespace JobFair.UserControls.JobSeeker
             {
                 // throw;
             }
+        }
+
+        protected void rbFresher_CheckedChanged(object sender, EventArgs e)
+        {
+            divDesireJobDetails.Visible = true;
+            divCurrentEmployer.Visible = false;
+        }
+
+        protected void rbExperienced_CheckedChanged(object sender, EventArgs e)
+        {
+            divCurrentEmployer.Visible = true;
+            divDesireJobDetails.Visible = true;
         }
     }
 }
