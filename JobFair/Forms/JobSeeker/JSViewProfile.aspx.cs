@@ -61,32 +61,38 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Bind educational details to rptrEducationalDetails control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindEducationDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
             {
                 DataSet dsEducationDetails = new DataSet();
                 dsEducationDetails = objViewProfile.ViewEducationDetailsBAL(candidateId);
+                // Check if dataset is not null
                 if (dsEducationDetails != null)
                 {
-                    Repeat1.DataSource = dsEducationDetails;
-                    Repeat1.DataBind();
+                    rptrEducationalDetails.DataSource = dsEducationDetails;
+                    rptrEducationalDetails.DataBind();
                 }
             }
             catch (Exception)
             {
-                throw;
+               // throw;
             }
         }
 
-        protected void rptrProjectDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void rptrEducationalDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             // Check commond for edit
             if (e.CommandName == "edit")
             {
                 Label lbl = (Label)e.Item.FindControl("lblDegreeId");
                 int degreeId = Convert.ToInt32(lbl.Text);
-                Response.Redirect("WebForm1.aspx?dId=" + degreeId);
+                Response.Redirect("DemoEducationalDetails.aspx?dId=" + degreeId);
             }
         }
 

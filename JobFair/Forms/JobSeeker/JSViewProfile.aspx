@@ -545,8 +545,8 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="Educational Details">
                 <ContentTemplate>
-                     <asp:Repeater ID="Repeat1" runat="server" 
-                         OnItemCommand="rptrProjectDetails_ItemCommand">
+                     <asp:Repeater ID="rptrEducationalDetails" runat="server" 
+                         OnItemCommand="rptrEducationalDetails_ItemCommand">
                         <HeaderTemplate>
                             <table border="1px">
                                 <tr style="background-color: #fb7700">

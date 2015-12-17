@@ -249,7 +249,7 @@ namespace JobFair.Forms.JobSeeker
                 //ScriptManager1.GetRegisteredStartupScripts(Page, typeof(Page), "OpenWindow", "Window.Open('ViewAllJobPost.aspx?jid=" + jid + "');");
                 //string script = string.Format("window.Open('{0}');", "ViewAllJobPost.aspx?jid=" + jid);
                 //Page.ClientScript.RegisterStartupScript(this.GetType(), "newPage", script, true);
-                Response.Redirect("ViewAllJobPost.aspx?jid=" + jid);
+                Response.Redirect("ViewAllJobPost.aspx?jid=" + jid); 
             }
         }
 
