@@ -75,17 +75,47 @@
                 </td>
             </tr>
             <tr>
-                <td>Current City</td>
+                <td>&nbsp;</td>
                 <td>
-                    <asp:TextBox ID="txtCurrCity" runat="server" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvCurrentCity" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtCurrCity" ValidationGroup="vgRegister"></asp:RequiredFieldValidator>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td>Current Address</td>
                 <td>
                     <asp:TextBox ID="txtCurrAddress" runat="server" TextMode="MultiLine" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvCurrentAddress" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtCurrAddress" ValidationGroup="vgRegister"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>Country<br />
+                    State<br />
+                    City<br />
+                    City Area</td>
+                <td>
+                    <asp:UpdatePanel ID="pnlPresentAddress" runat="server">
+                <ContentTemplate>
+                    <asp:DropDownList ID="ddlCountryPresent" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCountryPresent_SelectedIndexChanged">
+                    </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvCountryPresent" runat="server" ControlToValidate="ddlCountryPresent" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                    <asp:DropDownList ID="ddlStatePresent" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlStatePresent_SelectedIndexChanged">
+                    </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvStatePresent" runat="server" ControlToValidate="ddlStatePresent" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                    <asp:DropDownList ID="ddlCityPresent" runat="server" OnSelectedIndexChanged="ddlCityPresent_SelectedIndexChanged" AutoPostBack="True">
+                    </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvCityPresent" runat="server" ControlToValidate="ddlCityPresent" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                    <asp:DropDownList ID="ddlAreaPresent" runat="server">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvAreaPresent" runat="server" ControlToValidate="ddlAreaPresent" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                </ContentTemplate>
+            </asp:UpdatePanel></td>
+            </tr>
+            <tr>
+                <td>Pin Code</td>
+                <td>
+                    <asp:TextBox ID="txtPincode" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>

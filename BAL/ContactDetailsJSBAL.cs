@@ -31,8 +31,8 @@ namespace BAL
         /// <summary>
         /// View ContactDetails of job seeker.
         /// </summary>
-        /// <param name="candidateId"></param>
-        /// <returns></returns>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>DataSet</returns>
         public DataSet ViewContactDetailsBAL(string candidateId)
         {
             ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();

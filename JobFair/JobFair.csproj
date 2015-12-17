@@ -93,6 +93,7 @@
     <Content Include="Forms\JobSeeker\JSViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\ProjectDetails.aspx" />
     <Content Include="Forms\JobSeeker\Refference.aspx" />
+    <Content Include="Forms\JobSeeker\RegistrationConfirmation.html" />
     <Content Include="Forms\JobSeeker\RequestEmail.aspx" />
     <Content Include="Forms\JobSeeker\ViewAllJobPost.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />

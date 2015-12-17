@@ -45,12 +45,6 @@ namespace DAL
 
                 SqlParameter[] sqlparams = {
                                               new SqlParameter("@candidateId",personalDetailsEntity.candidateId),
-                                              new SqlParameter("@pressentAddress",personalDetailsEntity.presentAddress),
-                                              new SqlParameter("@presentCountryId",personalDetailsEntity.presentCountryId),
-                                              new SqlParameter("@presentStateId",personalDetailsEntity.presentStateId),
-                                              new SqlParameter("@presentCityId",personalDetailsEntity.presentCityId),
-                                              new SqlParameter("@presentArea",personalDetailsEntity.presentArea),
-                                              new SqlParameter("@presentPincode",personalDetailsEntity.presentPincode),
                                               new SqlParameter("@permantAddress",personalDetailsEntity.permantAddress),
                                               new SqlParameter("@permantCountryId",personalDetailsEntity.permantCountryId),
                                               new SqlParameter("@permantStateId",personalDetailsEntity.permantStateId),

@@ -2,6 +2,7 @@
 using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web.UI;
@@ -11,6 +12,7 @@ namespace JobFair.UserControls.JobSeeker
 {
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
+        private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
         private string candidateId;
         private bool isCheck = true;
 
@@ -31,7 +33,7 @@ namespace JobFair.UserControls.JobSeeker
                     // Check page is not post back
                     if (!IsPostBack)
                     {
-                        if (!isCheck)
+                        if (isCheck)
                         {
                             try
                             {
@@ -74,11 +76,22 @@ namespace JobFair.UserControls.JobSeeker
                                 listofState.RemoveAll(x => x == "");
                                 foreach (var list in listofState)
                                 {
-                                    chklState.SelectedValue = list;
+                                    
+                                    string k = "";
+                                    for (int i = 0; i < chklState.Items.Count; i++)
+                                    {
+                                       
+                                        if (chklState.Items[i].Selected)
+                                        {
+                                            chklState.SelectedValue = list;
+                                            var selectedState = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                                            txtPreferredState.Text = string.Join(",", selectedState.Select(x => x.Text));
+                                        }
+                                    }  
                                 }
 
-                                var selectedState = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                                txtPreferredState.Text = string.Join(",", selectedState.Select(x => x.Text));
+                                //var selectedState = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                                //txtPreferredState.Text = string.Join(",", selectedState.Select(x => x.Text));
 
                                 // Bind City
                                 DataSet getcityDataSet = new DataSet();
@@ -93,6 +106,16 @@ namespace JobFair.UserControls.JobSeeker
                                 listofCity.RemoveAll(x => x == "");
                                 foreach (var list in listofCity)
                                 {
+                                    string k = "";
+                                    for (int i = 0; i < chklCity.Items.Count; i++)
+                                    {
+                                        if (chklCity.Items[i].Selected)
+                                        {
+
+                                            k = k + chklCity.Items[i].Text + "</br>";
+                                        }
+
+                                    }  
                                     chklCity.SelectedValue = list;
                                 }
 
