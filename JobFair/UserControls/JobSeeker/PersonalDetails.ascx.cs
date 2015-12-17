@@ -19,35 +19,35 @@ namespace JobFair.UserControls.JobSeeker
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId = Convert.ToString(Session["candidateId"]);
-            // Check session is not null
-            if (string.IsNullOrEmpty(candidateId))
+            try
             {
-                // Check page is not post back
-                if (!IsPostBack)
+                candidateId = Convert.ToString(Session["candidateId"]);
+                // Check session is not null
+                if (string.IsNullOrEmpty(candidateId))
                 {
-                    GetCountryPresent();
-                    GetCountryPerm();
-                    GetMonths();
-                    GetYear();
-                    isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
-                    // Check the isEdit is true for edit
-                    if (isEdit)
+                    Response.Redirect("LogIn.aspx");
+                }
+                else
+                {
+                    // Check page is not post back
+                    if (!IsPostBack)
                     {
-                        try
+                        GetCountryPresent();
+                        GetCountryPerm();
+                        GetMonths();
+                        GetYear();
+                        isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
+                        // Check the isEdit is true for edit
+                        if (isEdit)
                         {
                             BindPersonalDetails();
-                        }
-                        catch (Exception)
-                        {
-                            //  throw;
                         }
                     }
                 }
             }
-            else
+            catch (Exception)
             {
-                Response.Redirect("LogIn.aspx");
+                //  throw;
             }
         }
 
@@ -83,7 +83,7 @@ namespace JobFair.UserControls.JobSeeker
                             if (dsPersentState != null)
                             {
                                 ddlStatePresent.DataSource = dsPersentState;
-                                ddlStatePresent.DataTextField = "StateName";
+                                ddlStatePresent.DataTextField = "StateName"; 
                                 ddlStatePresent.DataValueField = "StateId";
                                 ddlStatePresent.DataBind();
                             }
@@ -303,10 +303,10 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Check isEdit is true for update personal details
-            if (isEdit)
+            try
             {
-                try
+                // Check isEdit is true for update personal details
+                if (isEdit)
                 {
                     PersonalDetailsJSEntity objPersonalDetailsEntity = new PersonalDetailsJSEntity();
                     PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
@@ -361,14 +361,7 @@ namespace JobFair.UserControls.JobSeeker
                         Response.Write("<script language='javascript'>alert('Sorry')</script>");
                     }
                 }
-                catch (Exception)
-                {
-                    // throw;
-                }
-            }
-            else
-            {
-                try
+                else
                 {
                     PersonalDetailsJSEntity personalDetailsEntity = new PersonalDetailsJSEntity();
                     PersonalDetailsJSBAL personalDetailsBAL = new PersonalDetailsJSBAL();
@@ -413,10 +406,10 @@ namespace JobFair.UserControls.JobSeeker
                         Response.Write("<script language='javascript'>alert('Sorry')</script>");
                     }
                 }
-                catch (Exception ex)
-                {
-                    // throw;
-                }
+            }
+            catch (Exception ex)
+            {
+                // throw;
             }
         }
 

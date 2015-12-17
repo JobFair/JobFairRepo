@@ -195,7 +195,7 @@
                      <tr>--%>
                         <td colspan="2">
                             <asp:Button ID="btnSubmit" runat="server" Text="Add Project" ValidationGroup="vgProjectDetails" OnClick="btnSubmit_Click" OnClientClick="IsSelected(ddlTeamSize.id,DropDownList,'DropDownList');" />
-                            Kindly save the project once you add the project</td>
+                          <p style="color:red"> Kindly save the project once you add the project</p> </td>
                     </tr>
                 </table>
             </div>

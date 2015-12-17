@@ -13,43 +13,40 @@ namespace JobFair.Forms.JobSeeker
     /// </summary>
     public partial class ProjectDetails : System.Web.UI.Page
     {
-        private bool isCheck=true;
-        private string candidateId = "JS2";
+        private bool isCheck;
+        private string candidateId;
         private DataSet dsRoles = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           // isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
-            // Check session is not null
-            //if (Session["candidateId"] != null)
-            //{
-            //    if (Session["candidateId"].ToString() != "")
-            //    {
-            //        //CheckAuthorised(candidateId);
-            //        candidateId = Convert.ToString(Session["candidateId"]);
+            try
+            {
+                //CheckAuthorised(candidateId);
+                candidateId = Convert.ToString(Session["candidateId"]);
+                isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+                // Check session is not null
+                if (string.IsNullOrEmpty(candidateId))
+                {
+                    Response.Redirect("LogIn.aspx");
+                }
+                else
+                {
                     // Check page is not post back
                     if (!IsPostBack)
                     {
-                        try
-                        {
-                            GetRole();
+                        GetRole();
 
-                            hfCandidateId.Value = candidateId;
-                            AddDefaultFirstRecord();
-                            // Check the isCheck is true for edit
-                            if (isCheck)
-                            {
-                                pnlEdit.Visible = true;
-                                BindRepeater();
-                            }
-                            else
-                            {
-                                pnlInsert.Visible = true;
-                            }
-                        }
-                        catch (Exception)
+                        hfCandidateId.Value = candidateId;
+                        AddDefaultFirstRecord();
+                        // Check the isCheck is true for edit
+                        if (isCheck)
                         {
-                            //  throw;
+                            pnlEdit.Visible = true;
+                            BindRepeater();
+                        }
+                        else
+                        {
+                            pnlInsert.Visible = true;
                         }
                     }
                     if (rbtYes.Checked)
@@ -59,12 +56,12 @@ namespace JobFair.Forms.JobSeeker
                     }
                     panelProjectLink.Visible = false;
                 }
-        //  }
-        //    else
-        //    {
-        //        Response.Redirect("LogIn.aspx");
-        //    }
-        //}
+            }
+            catch (Exception)
+            {
+                //  throw;
+            }
+        }
 
         /// <summary>
         /// Bind Repeater for ProjectDetails.

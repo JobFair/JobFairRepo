@@ -23,37 +23,31 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            candidateId = Convert.ToString(Session["candidateId"]);
             // Check session is not null
             if (Session["candidateId"] != null)
             {
-                if (Session["candidateId"].ToString() != "")
-                {
-                    candidateId = Convert.ToString(Session["candidateId"]);
-                    // Check page is not post back
+                Response.Redirect("LogIn.aspx");
+            }
+            else
+            {
+                // Check page is not post back
 
-                    if (!IsPostBack)
+                if (!IsPostBack)
+                {
+                    // Check the isCheck is true for edit
+                    if (isCheck)
                     {
-                        try
-                        {
-                            // Check the isCheck is true for edit
-                            if (isCheck)
-                            {
-                                BindRepeaterTechnicalSkills();
-                                divTechnicalRepeater.Visible = true;
-                            }
-                            else
-                            {
-                                BindTechnicalSkills();
-                                BindMonth();
-                                BindYears();
-                                hfCandidateId.Value = candidateId;
-                                AddTechnicalSkills();
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            //  throw;
-                        }
+                        BindRepeaterTechnicalSkills();
+                        divTechnicalRepeater.Visible = true;
+                    }
+                    else
+                    {
+                        BindTechnicalSkills();
+                        BindMonth();
+                        BindYears();
+                        hfCandidateId.Value = candidateId;
+                        AddTechnicalSkills();
                     }
                 }
             }

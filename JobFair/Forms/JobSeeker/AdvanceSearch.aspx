@@ -78,7 +78,7 @@
                         <asp:Label ID="lblworkexprience" runat="server" Text="Work Exprience"></asp:Label>
                     </td>
                     <td>&nbsp;<asp:DropDownList ID="ddlWorkExperience" runat="server">
-                        <asp:ListItem>Select</asp:ListItem>
+                        <asp:ListItem Value="">Select </asp:ListItem>
                         <asp:ListItem>0</asp:ListItem>
                         <asp:ListItem>1</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
@@ -129,7 +129,7 @@
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlMinSalary" runat="server">
-                            <asp:ListItem>Min</asp:ListItem>
+                            <asp:ListItem Value="">Min</asp:ListItem>
                             <asp:ListItem>50,000</asp:ListItem>
                             <asp:ListItem>1,00,000</asp:ListItem>
                             <asp:ListItem>1,50,000</asp:ListItem>
@@ -153,7 +153,7 @@
                         </asp:DropDownList>
                         &nbsp;To
                         <asp:DropDownList ID="ddlMaxSalary" runat="server">
-                            <asp:ListItem>Max</asp:ListItem>
+                            <asp:ListItem Value="">Max</asp:ListItem>
                             <asp:ListItem>&lt;50,000</asp:ListItem>
                             <asp:ListItem>1,00,000</asp:ListItem>
                             <asp:ListItem>1,50,000</asp:ListItem>
@@ -204,7 +204,7 @@
                     <td>
                         <asp:CheckBoxList ID="chkEmploymentStatus" runat="server">
                            
-                                 <asp:ListItem>Temporarily</asp:ListItem>
+                                 <asp:ListItem Value="">Temporarily</asp:ListItem>
                             <asp:ListItem>Permanant</asp:ListItem>
                             <asp:ListItem>Freelancing</asp:ListItem>
                         </asp:CheckBoxList>
@@ -216,7 +216,7 @@
                     </td>
                     <td>
                         <asp:CheckBoxList ID="chkJobType" runat="server">
-                              <asp:ListItem>Part Time</asp:ListItem>
+                              <asp:ListItem Value="">Part Time</asp:ListItem>
                             <asp:ListItem>Full Time</asp:ListItem>
                         </asp:CheckBoxList>
                     </td>
@@ -227,8 +227,8 @@
                     </td>
                     <td>
                         <asp:CheckBoxList ID="chkRecruitmentType" runat="server">
-                            <asp:ListItem Value="0">In-House</asp:ListItem>
-                            <asp:ListItem Value="1">Client</asp:ListItem>
+                            <asp:ListItem Value="">In-House</asp:ListItem>
+                            <asp:ListItem Value="">Client</asp:ListItem>
                         </asp:CheckBoxList>
                     </td>
                 </tr>

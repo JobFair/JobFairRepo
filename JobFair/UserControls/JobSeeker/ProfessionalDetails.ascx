@@ -61,6 +61,16 @@
 
         <tr>
             <td colspan="2">
+                <div id="divFresher" runat="server" visible="false">
+                    You Are? <asp:RadioButton ID="rbFresher" runat="server" Text="Fresher" AutoPostBack="true" GroupName="FresherORExperienced" OnCheckedChanged="rbFresher_CheckedChanged" />
+                    <asp:RadioButton ID="rbExperienced" runat="server" Text="Experienced" AutoPostBack="true" GroupName="FresherORExperienced" OnCheckedChanged="rbExperienced_CheckedChanged" />
+                </div>
+            </td>
+            
+        </tr>
+
+        <tr>
+            <td colspan="2">
                 <hr />
             </td>
         </tr>
@@ -514,30 +524,30 @@
         <tr>
             <td>Desired Employment status</td>
             <td>
-                <asp:RadioButtonList ID="rblEmploymentStatus" runat="server">
+                <asp:CheckBoxList ID="chklEmploymentStatus" runat="server">
                     <asp:ListItem>Full Time</asp:ListItem>
                     <asp:ListItem>Part Time</asp:ListItem>
-                </asp:RadioButtonList>
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
             <td>Desired Job Type</td>
             <td>
-                <asp:RadioButtonList ID="rblJobType123" runat="server">
+                <asp:CheckBoxList ID="chklJobType" runat="server">
                     <asp:ListItem>Permanent</asp:ListItem>
                     <asp:ListItem>Temporary</asp:ListItem>
                     <asp:ListItem>Freelancing</asp:ListItem>
-                </asp:RadioButtonList>
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
             <td>Desired Company Type</td>
             <td>
-                <asp:RadioButtonList ID="rblCompanyType123" runat="server">
+                <asp:CheckBoxList ID="chklCompanyType" runat="server">
                     <asp:ListItem>Small</asp:ListItem>
                     <asp:ListItem>Middle</asp:ListItem>
                     <asp:ListItem>MNC</asp:ListItem>
-                </asp:RadioButtonList>
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>
@@ -650,6 +660,7 @@
                     <asp:ListItem>27</asp:ListItem>
                     <asp:ListItem>28</asp:ListItem>
                     <asp:ListItem>29</asp:ListItem>
+                    <asp:ListItem>30</asp:ListItem>
                     <asp:ListItem>31</asp:ListItem>
                     <asp:ListItem>32</asp:ListItem>
                     <asp:ListItem>33</asp:ListItem>
@@ -728,6 +739,7 @@
                     <asp:ListItem>27</asp:ListItem>
                     <asp:ListItem>28</asp:ListItem>
                     <asp:ListItem>29</asp:ListItem>
+                    <asp:ListItem>30</asp:ListItem>
                     <asp:ListItem>31</asp:ListItem>
                     <asp:ListItem>32</asp:ListItem>
                     <asp:ListItem>33</asp:ListItem>

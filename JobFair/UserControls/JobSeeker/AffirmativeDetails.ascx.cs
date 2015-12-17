@@ -14,32 +14,33 @@ namespace JobFair.UserControls.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            candidateId = Convert.ToString(Session["candidateId"]);
-            // isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
-            // Check session is not null
-            if (string.IsNullOrEmpty(candidateId))
+            try
             {
-                // Check page is not post back
-                if (!IsPostBack)
+                candidateId = Convert.ToString(Session["candidateId"]);
+                // isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
+                // Check session is not null
+                if (string.IsNullOrEmpty(candidateId))
                 {
-                    BindLanguages();
-                    // Check the isEdit is true for edit
-                    if (isEdit)
+                    Response.Redirect("LogIn.aspx");
+                }
+                else
+                {
+                    // Check page is not post back
+                    if (!IsPostBack)
                     {
-                        try
+                        BindLanguages();
+                        // Check the isEdit is true for edit
+                        if (isEdit)
                         {
                             BindAffirmativeDetails(candidateId);
                         }
-                        catch (Exception)
-                        {
-                            //  throw;
-                        }
                     }
+                   
                 }
             }
-            else
+            catch (Exception)
             {
-                Response.Redirect("LogIn.aspx");
+                //  throw;
             }
         }
 
@@ -208,10 +209,10 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Check if isEdit is true for update
-            if (isEdit)
+            try
             {
-                try
+                // Check if isEdit is true for update
+                if (!isEdit)
                 {
                     List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
                     AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
@@ -290,14 +291,7 @@ namespace JobFair.UserControls.JobSeeker
                         Response.Write("<script language='javascript'>alert('Sorry')</script>");
                     }
                 }
-                catch (Exception)
-                {
-                    // throw;
-                }
-            }
-            else
-            {
-                try
+                else
                 {
                     List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
                     AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
@@ -376,10 +370,10 @@ namespace JobFair.UserControls.JobSeeker
                         Response.Write("<script language='javascript'>alert('Sorry')</script>");
                     }
                 }
-                catch (Exception)
-                {
-                    // throw;
-                }
+            }
+            catch (Exception)
+            {
+                // throw;
             }
         }
 

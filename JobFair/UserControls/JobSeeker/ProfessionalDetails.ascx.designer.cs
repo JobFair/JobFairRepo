@@ -76,6 +76,33 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButton rbtUnEmployed;
         
         /// <summary>
+        /// divFresher control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFresher;
+        
+        /// <summary>
+        /// rbFresher control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbFresher;
+        
+        /// <summary>
+        /// rbExperienced control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbExperienced;
+        
+        /// <summary>
         /// divCurrentEmployer control.
         /// </summary>
         /// <remarks>
@@ -436,31 +463,31 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlNoticePeriod;
         
         /// <summary>
-        /// rblEmploymentStatus control.
+        /// chklEmploymentStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblEmploymentStatus;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklEmploymentStatus;
         
         /// <summary>
-        /// rblJobType123 control.
+        /// chklJobType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblJobType123;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklJobType;
         
         /// <summary>
-        /// rblCompanyType123 control.
+        /// chklCompanyType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblCompanyType123;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklCompanyType;
         
         /// <summary>
         /// panelLocation control.

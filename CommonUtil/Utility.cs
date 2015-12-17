@@ -435,5 +435,19 @@ namespace CommonUtil
                 throw;
             }
         }
+
+        public static DataSet GetCountryCode()
+        {
+            try
+            {
+                Common common = new Common();
+                return common.GetCountryCode();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
