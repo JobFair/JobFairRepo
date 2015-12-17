@@ -1327,6 +1327,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDualBDPercentage;
         
         /// <summary>
+        /// btnDualBDUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDualBDUpdate;
+        
+        /// <summary>
         /// pnlCollapsablePgd control.
         /// </summary>
         /// <remarks>
@@ -2110,6 +2119,15 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDualMDPercentage;
         
         /// <summary>
+        /// btnDualMDUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDualMDUpdate;
+        
+        /// <summary>
         /// pnlCollapsablePHD control.
         /// </summary>
         /// <remarks>
@@ -2378,6 +2396,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnSubmit;
+        
+        /// <summary>
+        /// BtnAddNewEducation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddNewEducation;
         
         /// <summary>
         /// lblSuccess control.

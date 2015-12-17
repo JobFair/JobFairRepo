@@ -14,28 +14,35 @@ namespace JobFair.UserControls.JobSeeker
     public partial class EducationalDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isCheck = false;
-        private int degreeId = 1;
+        private bool isEdit = true;
+        private bool isAddNewEducation = false;
+        private int degreeId = 4;
 
         private EducationalDetailsBAL educationalDetails = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
             if (Session["candidateId"] != null)
             {
                 if (Session["candidateId"].ToString() != "")
                 {
                     //CheckAuthorised(candidateId);
                     candidateId = Convert.ToString(Session["candidateId"]);
+                    degreeId =Convert.ToInt32(Request.QueryString["dId"]);
                     if (!IsPostBack)
                     {
                         try
                         {
                             BindAllEducationalDetails();
-
-                            if (isCheck)
+                            
+                            if (isEdit)
                             {
                                 BindEducationalDetails();
+                            }
+                            if (isAddNewEducation)
+                            {
+                                BtnAddNewEducation_Click(sender,e);
                             }
                         }
                         catch (Exception)
@@ -113,6 +120,9 @@ namespace JobFair.UserControls.JobSeeker
                 dsEducationalDetails = educationalDetails.ViewEducationalDetailsBAL(candidateId);
                 if (dsEducationalDetails != null)
                 {
+                   // var listofDegrees = Convert.ToString(degreeIdS);
+                   // foreach (var list in listofDegrees)
+                   // for (; ; degreeIdS++)
                     {
                         switch (degreeId)
                         {
@@ -122,9 +132,12 @@ namespace JobFair.UserControls.JobSeeker
                                 pnlCollapsableSSC.Visible = true;
                                 EducationalDetailsEntity sscDetails = new EducationalDetailsEntity();
                                 sscDetails.CandidateId = candidateId;
+                                //ddlHQ.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["HighestQualificationId"]);
                                 //dsEducationalDetails = educationalDetails.UpdateEducationalDetailsBAL(CandidateId);
                                 sscDetails.DegreeId = Convert.ToInt32(degreeId); ;
-                                txtSSCMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                               // txtSSCMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                                //txtSSCMedium.Text = (from DataRow row in dsEducationalDetails.Tables[0].Rows from ["MediumOfEducation"] in row.MediumOfEducation where degreeId == "1" select row);
+                                txtSSCMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].DefaultView.RowFilter = "(Select MediumOfEducation  where degreeId == 1);");
                                 string sscStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblSSCStat.Items.FindByValue(sscStatus).Selected = true;
                                 sscDetails.Specialization = "Null";
@@ -161,6 +174,7 @@ namespace JobFair.UserControls.JobSeeker
                                 // Add object to the education details collection
                                 //educationDetailsList.Add(sscDetails);
                                 btnSSCUpdate.Visible = true;
+                                //goto default;
                                 break;
 
                             case 2://"HSC / 12th"
@@ -262,7 +276,8 @@ namespace JobFair.UserControls.JobSeeker
                                 EducationalDetailsEntity bachelorDegreeDetails = new EducationalDetailsEntity();
                                 bachelorDegreeDetails.CandidateId = candidateId;
                                 bachelorDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
-                                txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                                //txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                                txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].DefaultView.RowFilter = "(Select MediumOfEducation where degreeId == 4);");
                                 string bdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblBDStat.Items.FindByValue(bdStatus).Selected = true;
                                 ddlBD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
@@ -296,11 +311,13 @@ namespace JobFair.UserControls.JobSeeker
                                 txtBDCollege.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["College"]);
                                 txtBDUniversity.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["University"]);
                                 txtBDPercentage.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Percantage"]);
+                                btnBDUpdate.Visible = true;
                                 // Add object to the education details collection
                                 //educationDetailsList.Add(bachelorDegreeDetails);
                                 // functionality for adding records for Dual Bachelore Degree
-                                if (pnlCollapsableDualBD.Visible == true)
+                                if (degreeId == 4)
                                 {
+                                    pnlCollapsableDualBD.Visible = true;
                                     EducationalDetailsEntity dualBachelorDegreeDetails = new EducationalDetailsEntity();
                                     dualBachelorDegreeDetails.CandidateId = candidateId;
                                     dualBachelorDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
@@ -340,6 +357,7 @@ namespace JobFair.UserControls.JobSeeker
                                     txtDualBDPercentage.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Percantage"]);
                                     // Add object to the education details collection
                                     //educationDetailsList.Add(dualBachelorDegreeDetails);
+                                    btnDualBD.Visible = false;
                                     btnBDUpdate.Visible = true;
                                 }
                                 break;
@@ -431,10 +449,11 @@ namespace JobFair.UserControls.JobSeeker
                                 txtMDCollege.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["College"]);
                                 txtMDUniversity.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["University"]);
                                 txtMDPercentage.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Percantage"]);
+                                btnMDUpdate.Visible = true;
                                 // Add object to the education details collection
                                 //educationDetailsList.Add(masterDegreeDetails);
                                 // functionality for adding records for Dual Master Degree
-                                if (pnlCollapsableDualMD.Visible == true)
+                                if (degreeId == 6)
                                 {
                                     EducationalDetailsEntity dualMasterDegreeDetails = new EducationalDetailsEntity();
                                     dualMasterDegreeDetails.CandidateId = candidateId;
@@ -475,7 +494,8 @@ namespace JobFair.UserControls.JobSeeker
                                     txtDualMDPercentage.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Percantage"]);
                                     // Add object to the education details collection
                                     //educationDetailsList.Add(dualMasterDegreeDetails);
-                                    btnMDUpdate.Visible = true;
+                                    btnDualMD.Visible = false;
+                                    btnDualMDUpdate.Visible = true;
                                 }
                                 break;
 
@@ -525,8 +545,9 @@ namespace JobFair.UserControls.JobSeeker
                                 btnPHDUpdate.Visible = true;
                                 break;
 
-                            default:
-                                break;
+                            //default:
+                               // BtnAddNewEducation.Visible = true;
+                              //  break;
                         }
                     }
                 }
@@ -951,6 +972,35 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
+
+        protected void btnDualBDUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (pnlCollapsableDualBD.Visible == true)
+                {
+                    EducationalDetailsEntity dualBachelorDegreeDetails = new EducationalDetailsEntity();
+                    dualBachelorDegreeDetails.CandidateId = candidateId;
+                    dualBachelorDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
+                    dualBachelorDegreeDetails.MediumOfEducation = txtDualBDMedium.Text.Trim();
+                    dualBachelorDegreeDetails.Status = rblDualBDStat.SelectedValue.Trim();
+                    dualBachelorDegreeDetails.Specialization = ddlDualBD.SelectedValue.Trim();
+                    dualBachelorDegreeDetails.FromYear = ddlDualBDMonthFrom.Text + '/' + ddlDualBDYearFrom.Text;
+                    dualBachelorDegreeDetails.ToYear = ddlDualBDMonthTo.Text + '/' + ddlDualBDYearTo.Text;
+                    dualBachelorDegreeDetails.College = txtDualBDCollege.Text.Trim();
+                    dualBachelorDegreeDetails.University = txtDualBDUniversity.Text.Trim();
+                    dualBachelorDegreeDetails.Percantage = txtDualBDPercentage.Text.Trim();
+                    // Add object to the update education details
+                    educationalDetails.UpdateEducationalDetailsBAL(dualBachelorDegreeDetails);
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+
+
         protected void btnPgdUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -993,6 +1043,33 @@ namespace JobFair.UserControls.JobSeeker
                 // Add object to the update education details
                 educationalDetails.UpdateEducationalDetailsBAL(masterDegreeDetails);
                 // functionality for updating records for Dual Master Degree
+                if (pnlCollapsableDualMD.Visible == true)
+                {
+                    EducationalDetailsEntity dualMasterDegreeDetails = new EducationalDetailsEntity();
+                    dualMasterDegreeDetails.CandidateId = candidateId;
+                    dualMasterDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
+                    dualMasterDegreeDetails.MediumOfEducation = txtDualMDMedium.Text.Trim();
+                    dualMasterDegreeDetails.Specialization = ddlDualMD.SelectedValue.Trim();
+                    dualMasterDegreeDetails.Status = rblDualMDStat.SelectedValue.Trim();
+                    dualMasterDegreeDetails.FromYear = ddlDualMDMonthFrom.Text + '/' + ddlDualMDYearFrom.Text;
+                    dualMasterDegreeDetails.ToYear = ddlDualMDMonthTo.Text + '/' + ddlDualMDYearTo.Text;
+                    dualMasterDegreeDetails.College = txtDualMDCollege.Text.Trim();
+                    dualMasterDegreeDetails.University = txtDualMDUniversity.Text.Trim();
+                    dualMasterDegreeDetails.Percantage = txtDualMDPercentage.Text.Trim();
+                    // Add object to the update education details
+                    educationalDetails.UpdateEducationalDetailsBAL(dualMasterDegreeDetails);
+                }
+            }
+            catch (Exception)
+            {
+                //  throw;
+            }
+        }
+
+        protected void btnDualMDUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 if (pnlCollapsableDualMD.Visible == true)
                 {
                     EducationalDetailsEntity dualMasterDegreeDetails = new EducationalDetailsEntity();
@@ -1061,6 +1138,7 @@ namespace JobFair.UserControls.JobSeeker
                         case "SSC / 10th":
                             EducationalDetailsEntity sscDetails = new EducationalDetailsEntity();
                             sscDetails.CandidateId = candidateId;
+                            sscDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             sscDetails.DegreeId = Convert.ToInt32(item.Value);
                             sscDetails.MediumOfEducation = txtSSCMedium.Text.Trim();
                             sscDetails.Specialization = "Null";
@@ -1077,6 +1155,7 @@ namespace JobFair.UserControls.JobSeeker
                         case "HSC / 12th":
                             EducationalDetailsEntity hscDetails = new EducationalDetailsEntity();
                             hscDetails.CandidateId = candidateId;
+                            hscDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             hscDetails.DegreeId = Convert.ToInt32(item.Value);
                             hscDetails.MediumOfEducation = txtHSCMedium.Text.Trim();
                             hscDetails.Specialization = ddlHSC.SelectedValue.Trim();
@@ -1093,6 +1172,7 @@ namespace JobFair.UserControls.JobSeeker
                         case "UG Diploma":
                             EducationalDetailsEntity ugDiplomaDetails = new EducationalDetailsEntity();
                             ugDiplomaDetails.CandidateId = candidateId;
+                            ugDiplomaDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             ugDiplomaDetails.DegreeId = Convert.ToInt32(item.Value);
                             ugDiplomaDetails.MediumOfEducation = txtDipMedium.Text.Trim();
                             ugDiplomaDetails.Specialization = ddlDip.SelectedValue.Trim();
@@ -1109,6 +1189,7 @@ namespace JobFair.UserControls.JobSeeker
                         case "Bachelors Degree":
                             EducationalDetailsEntity bachelorDegreeDetails = new EducationalDetailsEntity();
                             bachelorDegreeDetails.CandidateId = candidateId;
+                            bachelorDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             bachelorDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
                             bachelorDegreeDetails.MediumOfEducation = txtBDMedium.Text.Trim();
                             bachelorDegreeDetails.Status = rblBDStat.SelectedValue.Trim();
@@ -1125,6 +1206,7 @@ namespace JobFair.UserControls.JobSeeker
                             {
                                 EducationalDetailsEntity dualBachelorDegreeDetails = new EducationalDetailsEntity();
                                 dualBachelorDegreeDetails.CandidateId = candidateId;
+                                dualBachelorDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                                 dualBachelorDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
                                 dualBachelorDegreeDetails.MediumOfEducation = txtDualBDMedium.Text.Trim();
                                 dualBachelorDegreeDetails.Status = rblDualBDStat.SelectedValue.Trim();
@@ -1142,6 +1224,7 @@ namespace JobFair.UserControls.JobSeeker
                         case "PG Diploma":
                             EducationalDetailsEntity pgDiplomaDetails = new EducationalDetailsEntity();
                             pgDiplomaDetails.CandidateId = candidateId;
+                            pgDiplomaDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             pgDiplomaDetails.DegreeId = Convert.ToInt32(item.Value);
                             pgDiplomaDetails.MediumOfEducation = txtPgdMedium.Text.Trim();
                             pgDiplomaDetails.Status = rblPgdStat.SelectedValue.Trim();
@@ -1158,6 +1241,7 @@ namespace JobFair.UserControls.JobSeeker
                         case "Masters Degree":
                             EducationalDetailsEntity masterDegreeDetails = new EducationalDetailsEntity();
                             masterDegreeDetails.CandidateId = candidateId;
+                            masterDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             masterDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
                             masterDegreeDetails.MediumOfEducation = txtMDMedium.Text.Trim();
                             masterDegreeDetails.Specialization = ddlMD.SelectedValue.Trim();
@@ -1174,6 +1258,7 @@ namespace JobFair.UserControls.JobSeeker
                             {
                                 EducationalDetailsEntity dualMasterDegreeDetails = new EducationalDetailsEntity();
                                 dualMasterDegreeDetails.CandidateId = candidateId;
+                                dualMasterDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                                 dualMasterDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
                                 dualMasterDegreeDetails.MediumOfEducation = txtDualMDMedium.Text.Trim();
                                 dualMasterDegreeDetails.Specialization = ddlDualMD.SelectedValue.Trim();
@@ -1191,6 +1276,7 @@ namespace JobFair.UserControls.JobSeeker
                         case "Doctorate/ PHD Degree":
                             EducationalDetailsEntity phdDetails = new EducationalDetailsEntity();
                             phdDetails.CandidateId = candidateId;
+                            phdDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             phdDetails.DegreeId = Convert.ToInt32(item.Value);
                             phdDetails.MediumOfEducation = txtPHDMedium.Text.Trim();
                             phdDetails.Specialization = ddlPHD.SelectedValue.Trim();
@@ -1237,6 +1323,25 @@ namespace JobFair.UserControls.JobSeeker
                 {
                     lblError.Text = "Data was not saved successfuly";
                     lblError.Visible = true;
+                }
+            }
+            catch (Exception)
+            {
+                //  throw;
+            }
+        }
+
+        protected void BtnAddNewEducation_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //educationalDetails = new EducationalDetailsBAL();
+                //DataSet dsEducationalDetails = new DataSet();
+                //dsEducationalDetails = educationalDetails.ViewEducationalDetailsBAL(candidateId);
+                //if (dsEducationalDetails != null)
+                {
+                    isAddNewEducation = true;
+                    Response.Redirect("DemoEducationalDetails.aspx?isAddNewEducation=" + isAddNewEducation );
                 }
             }
             catch (Exception)
