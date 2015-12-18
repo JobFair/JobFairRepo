@@ -15,7 +15,11 @@ namespace JobFair.UserControls.JobSeeker
     {
         private bool isCheck = true;
         private string candidateId;
-
+        /// <summary>
+        /// Handles Load event of Page
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -96,6 +100,8 @@ namespace JobFair.UserControls.JobSeeker
                     ddlRoleSkills.DataTextField = "RoleName";
                     ddlRoleSkills.DataValueField = "RoleId";
                     ddlRoleSkills.DataBind();
+
+                    ddlRoleSkills.Items.Insert(Convert.ToInt32(ddlRoleSkills.Items[ddlRoleSkills.Items.Count - 1].Value), new ListItem("----Other----", ""));
                     ddlRoleSkills.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
@@ -292,7 +298,11 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobBAL = null;
             }
         }
-
+        /// <summary>
+        /// Handles ItemCommand event of rptrRoleSkills control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrRoleSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Label lblRoleSkill = (Label)e.Item.FindControl("lblRoleSkill");
@@ -359,7 +369,11 @@ namespace JobFair.UserControls.JobSeeker
                 BindRepeaterRoleSkills();
             }
         }
-
+        /// <summary>
+        /// Handles ItemDataBound event of rptrRoleSkills control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrRoleSkills_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             DataSet dsRoleSkill = new DataSet();
@@ -442,6 +456,39 @@ namespace JobFair.UserControls.JobSeeker
             {
                 ddlProficiency.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Proficiency"));
             }
+        }
+        /// <summary>
+        /// Handles SelectedIndexChanged of ddlRoleSkills control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void ddlRoleSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRoleSkills.SelectedItem.ToString() == "----Other----")
+                {
+
+                    divAddMoreSkills.Visible = true;
+                }              
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            // Checking item of dropdown
+        }
+        /// <summary>
+        /// Handles Click event of btnAdd control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+            currentDesiredJobEntity.RoleSkills = txtAddSkill.Text.Trim();
+            currentDesiredJobBAL.AddRoleSkillsDetailsBAL(currentDesiredJobEntity);
         }
     }
 }

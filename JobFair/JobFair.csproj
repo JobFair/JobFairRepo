@@ -532,6 +532,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Email Templates\" />
     <Folder Include="Images\JobSeeker\" />
     <Folder Include="UploadFiles\" />
     <Folder Include="UploadImages\" />
