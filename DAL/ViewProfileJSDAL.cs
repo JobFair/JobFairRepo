@@ -171,6 +171,30 @@ namespace DAL
             }
             return dsRoleSkills;
         }
+        /// <summary>
+        /// View workshop dal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewWorkshopDAL(string candidateId)
+        {
+            DataSet dsWorkshop = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsWorkshop = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectMoreWorkshop, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dsWorkshop;
+        }
+
+        //public DataSet ViewCertificationDAL(string candidateId)
+        //{
+        //    try
+        //}
 
         public int ChangeConatctNoDAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {

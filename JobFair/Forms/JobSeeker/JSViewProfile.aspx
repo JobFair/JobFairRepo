@@ -13,6 +13,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <%-- <div class="container">
+
             <h2>Complete Your Profile</h2>
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#menu0">Profile Summary</a></li>
@@ -545,87 +546,198 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="Educational Details">
                 <ContentTemplate>
-                    <asp:Repeater ID="rptrEducationalDetails" runat="server"
-                        OnItemCommand="rptrEducationalDetails_ItemCommand">
-                        <HeaderTemplate>
-                            <table border="1px">
-                                <tr style="background-color: #fb7700">
-                                    <h1>Educational Details</h1>
-                                </tr>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <tr style="background-color: #ffffff">
-                                <td>
-                                    <table>
-                                       
-                                        <tr>
-                                            <td>Degree Name </td>
-                                            <td>
-                                                <asp:Label ID="lblDegreeType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "DegreeName")%>'></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Medium of Education </td>
-                                            <td>
-                                                <asp:Label ID="lblEducation" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "MediumOfEducation") %>'></asp:Label>
-                                        </tr>
-                                        <tr>
-                                            <td>Status</td>
-                                            <td>
-                                                <asp:Label ID="lblStatus" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Status")%>'></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>From</td>
-                                            <td>
-                                                <asp:Label ID="lblFrom" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FromYear")%>'></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>To </td>
-                                            <td>
-                                                <asp:Label ID="lblTo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ToYear") %>'></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>School/College </td>
-                                            <td>
-                                                <asp:Label ID="lblCollege" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "College")%>'></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Board/University </td>
-                                            <td>
-                                                <asp:Label ID="lblBoard" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "University")%>'></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Percentage </td>
-                                            <td>
-                                                <asp:Label ID="lblPercentage" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Percantage")%>'></asp:Label></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td></td>
-                                            <td>
-                                                <asp:Label ID="lblDegreeId" Visible="false" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "DegreeId")%>'></asp:Label></td>
-                                        </tr>
-
-                                        <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
-                                            <tr>
-                                                <td>
-                                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="edit" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "DegreeId") %>'>Edit</asp:LinkButton>
-                                                </td>
+                    <cc1:TabContainer ID="TabContainer4" runat="server">
+                        <cc1:TabPanel ID="TabPanel12" runat="server" HeaderText="Educational">
+                            <ContentTemplate>
+                                <asp:Repeater ID="rptrEducationalDetails" runat="server"
+                                    OnItemCommand="rptrEducationalDetails_ItemCommand">
+                                    <HeaderTemplate>
+                                        <table border="1px">
+                                            <tr style="background-color: #fb7700">
+                                                <h1>Educational Details</h1>
                                             </tr>
-                                        </table>
-                                    </table>
-                                    <tr>
-                                        <td colspan="2">&nbsp;</td>
-                                    </tr>
-                        </ItemTemplate>
-                        <FooterTemplate></table></FooterTemplate>
-                    </asp:Repeater>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr style="background-color: #ffffff">
+                                            <td>
+                                                <table>
+
+                                                    <tr>
+                                                        <td>Degree Name </td>
+                                                        <td>
+                                                            <asp:Label ID="lblDegreeType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "DegreeName")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Medium of Education </td>
+                                                        <td>
+                                                            <asp:Label ID="lblEducation" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "MediumOfEducation") %>'></asp:Label>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Status</td>
+                                                        <td>
+                                                            <asp:Label ID="lblStatus" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Status")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>From</td>
+                                                        <td>
+                                                            <asp:Label ID="lblFrom" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FromYear")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>To </td>
+                                                        <td>
+                                                            <asp:Label ID="lblTo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ToYear") %>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>School/College </td>
+                                                        <td>
+                                                            <asp:Label ID="lblCollege" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "College")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Board/University </td>
+                                                        <td>
+                                                            <asp:Label ID="lblBoard" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "University")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Percentage </td>
+                                                        <td>
+                                                            <asp:Label ID="lblPercentage" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Percantage")%>'></asp:Label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>
+                                                            <asp:Label ID="lblDegreeId" Visible="false" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "DegreeId")%>'></asp:Label></td>
+                                                    </tr>
+
+                                                    <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                                                        <tr>
+                                                            <td>
+                                                                <asp:LinkButton ID="lnkEdit" runat="server" CommandName="edit" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "DegreeId") %>'>Edit</asp:LinkButton>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </table>
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>
+                                    </ItemTemplate>
+                                    <FooterTemplate></table></FooterTemplate>
+                                </asp:Repeater>
+                            </ContentTemplate>
+                        </cc1:TabPanel>
+                        <cc1:TabPanel ID="TabPanel13" runat="server" HeaderText="Workshop">
+                            <ContentTemplate>
+                                <asp:Repeater ID="rptrWorkshop" runat="server">
+
+                                    <HeaderTemplate>
+                                        <table border="1px">
+                                            <tr style="background-color: #fb7700">
+                                                <h1>Workshops</h1>
+                                            </tr>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr style="background-color: #ffffff">
+                                            <td>
+                                                <table>
+
+                                                    <tr>
+                                                        <td>Workshop Name </td>
+                                                        <td>
+                                                            <asp:Label ID="lblWorkshopName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "WorkshopName")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Institute </td>
+                                                        <td>
+                                                            <asp:Label ID="lblInstitute" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Institute") %>'></asp:Label>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Status</td>
+                                                        <td>
+                                                            <asp:Label ID="lblDuration" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Duration")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>From</td>
+                                                        <td>
+                                                            <asp:Label ID="lblFrom" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FromYear")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>To </td>
+                                                        <td>
+                                                            <asp:Label ID="lblTo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ToYear") %>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Grade </td>
+                                                        <td>
+                                                            <asp:Label ID="lblGrade" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Grade")%>'></asp:Label></td>
+                                                    </tr>
+                                                </table>
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>
+                                    </ItemTemplate>
+                                    <FooterTemplate></table></FooterTemplate>
+                                </asp:Repeater>
+                            </ContentTemplate>
+                        </cc1:TabPanel>
+                        <cc1:TabPanel ID="TabPanel14" runat="server" HeaderText="Certification">
+                            <ContentTemplate>
+                                 <asp:Repeater ID="rptrCertification" runat="server">
+
+                                    <HeaderTemplate>
+                                        <table border="1px">
+                                            <tr style="background-color: #fb7700">
+                                                <h1>Certifications</h1>
+                                            </tr>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr style="background-color: #ffffff">
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Certification Name </td>
+                                                        <td>
+                                                            <asp:Label ID="lblCertificationName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CertificationName")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Institute </td>
+                                                        <td>
+                                                            <asp:Label ID="lblInstitute" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Institute") %>'></asp:Label>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Status</td>
+                                                        <td>
+                                                            <asp:Label ID="lblDuration" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Duration")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>From</td>
+                                                        <td>
+                                                            <asp:Label ID="lblFrom" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FromYear")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>To </td>
+                                                        <td>
+                                                            <asp:Label ID="lblTo" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ToYear") %>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Grade </td>
+                                                        <td>
+                                                            <asp:Label ID="lblGrade" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Grade")%>'></asp:Label></td>
+                                                    </tr>
+                                                </table>
+                                               
+                                    </ItemTemplate>
+                                    <FooterTemplate></table></FooterTemplate>
+                                </asp:Repeater>
+                            </ContentTemplate>
+                        </cc1:TabPanel>
+                    </cc1:TabContainer>
                 </ContentTemplate>
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel5" runat="server" HeaderText="Skill Sets">
                 <ContentTemplate>
                     <cc1:TabContainer ID="TabContainer3" runat="server">
                         <cc1:TabPanel ID="TabPanel10" runat="server" HeaderText="Role skills">
-                             <ContentTemplate>
+                            <ContentTemplate>
                                 <asp:Repeater ID="rptrRoleSkills" runat="server">
                                     <HeaderTemplate>
                                         <table width="500px" border="1px">
@@ -657,7 +769,6 @@
                                     </FooterTemplate>
                                 </asp:Repeater>
                             </ContentTemplate>
-                           
                         </cc1:TabPanel>
                         <cc1:TabPanel ID="TabPanel11" runat="server" HeaderText="Technical Skills">
                             <ContentTemplate>

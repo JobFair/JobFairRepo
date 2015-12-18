@@ -93,6 +93,17 @@ namespace BAL
             return viewProfileJSDAL.ViewRoleSkillsDAL(candidateId);
         }
 
+        /// <summary>
+        /// View workshop bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewWorksopBAL(string candidateId)
+        {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+            return viewProfileJSDAL.ViewWorkshopDAL(candidateId);
+        }
+
         public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();

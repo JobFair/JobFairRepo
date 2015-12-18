@@ -87,5 +87,7 @@
         public static string sp_RE_InsertFunctionalArea = "sp_RE_InsertFunctionalArea";
         public static string sp_RE_SelectClients = "sp_RE_SelectClients";
         public static string sp_JS_ViewEducationalDetails = "sp_JS_ViewEducationalDetails";
+        public static string sp_JS_SelectMoreWorkshop = "sp_JS_SelectMoreWorkshop";
+        public static string sp_JS_SelectCertification = "sp_JS_SelectCertification";
     }
 }
