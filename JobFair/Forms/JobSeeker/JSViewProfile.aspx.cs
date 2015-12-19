@@ -56,10 +56,35 @@ namespace JobFair.Forms.JobSeeker
                 //BindProfessionalDetals(candidateId);
 
                 BindEducationDetails(viewProfileJSBAL, candidateId);
+                BindWorkshopDetails(viewProfileJSBAL, candidateId);
             }
             catch (Exception ex)
             {
                 //   throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind workshps to rptrWorkshop control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindWorkshopDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsWorkshop = new DataSet();
+                dsWorkshop = objViewProfile.ViewWorksopBAL(candidateId);
+                // Check if dataset is not null
+                if (dsWorkshop != null)
+                {
+                    rptrWorkshop.DataSource = dsWorkshop;
+                    rptrWorkshop.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -83,7 +108,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-               // throw;
+                // throw;
             }
         }
 
