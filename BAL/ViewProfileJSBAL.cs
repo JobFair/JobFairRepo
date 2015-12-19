@@ -104,22 +104,33 @@ namespace BAL
             return viewProfileJSDAL.ViewWorkshopDAL(candidateId);
         }
 
-        public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        /// <summary>
+        /// View certification bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewCertificationBAL(string candidateId)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
-            return viewProfileJSDAL.ChangeConatctNoDAL(viewProfileEntity);
+            return viewProfileJSDAL.ViewCertificationDAL(candidateId);
         }
 
-        public int ResumeDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
-        {
-            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
-            return viewProfileJSDAL.ResumeDetailsDAL(viewProfileEntity);
-        }
+        //public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        //{
+        //    ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+        //    return viewProfileJSDAL.ChangeConatctNoDAL(viewProfileEntity);
+        //}
 
-        public int ChangePersonalDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
-        {
-            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
-            return viewProfileJSDAL.ChangePersonalDetailsDAL(viewProfileEntity);
-        }
+        //public int ResumeDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        //{
+        //    ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+        //    return viewProfileJSDAL.ResumeDetailsDAL(viewProfileEntity);
+        //}
+
+        //public int ChangePersonalDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        //{
+        //    ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+        //    return viewProfileJSDAL.ChangePersonalDetailsDAL(viewProfileEntity);
+        //}
     }
 }

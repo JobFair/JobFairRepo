@@ -56,11 +56,37 @@ namespace JobFair.Forms.JobSeeker
                 //BindProfessionalDetals(candidateId);
 
                 BindEducationDetails(viewProfileJSBAL, candidateId);
+
                 BindWorkshopDetails(viewProfileJSBAL, candidateId);
+
+                BindCertificationDetails(viewProfileJSBAL, candidateId);
             }
             catch (Exception ex)
             {
                 //   throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind certification to rptrCertification control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindCertificationDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsCertification = new DataSet();
+                dsCertification = objViewProfile.ViewCertificationBAL(candidateId);
+                if (dsCertification != null)
+                {
+                    rptrCertification.DataSource = dsCertification;
+                    rptrCertification.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
             }
         }
 
@@ -84,7 +110,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-                throw;
+                // throw;
             }
         }
 

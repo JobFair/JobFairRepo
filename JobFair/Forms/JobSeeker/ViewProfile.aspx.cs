@@ -3,8 +3,6 @@ using Entities.JobSeeker;
 using System;
 using System.Data;
 using System.IO;
-using System.Text;
-using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
@@ -16,38 +14,38 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + "JS4.txt" ;
-         //   UploadFile(path);
+            string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + "JS4.txt";
+            //   UploadFile(path);
 
             byte[] arraycontent = ReadFileData(path);
             txtResumeDetails.Text = System.Text.Encoding.UTF8.GetString(arraycontent);
 
-
             LoadUploadedImages();
 
-          //  JobseekerRegisterDetails();
-          //  JobSeekerPersonalDetails();
-          //  JobSeekerProfessionalDetails();
-          //  string filename = "JS12.jpg";
-          ////  string path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + filename;
-          //  // Please change the value of path which used to store the file.
-          //  string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
-          //  this.FileUploadResume.SaveAs(path);
-          //  this.txtResume.Text = ShowContent(path);
-            
+            //  JobseekerRegisterDetails();
+            //  JobSeekerPersonalDetails();
+            //  JobSeekerProfessionalDetails();
+            //  string filename = "JS12.jpg";
+            ////  string path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + filename;
+            //  // Please change the value of path which used to store the file.
+            //  string path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
+            //  this.FileUploadResume.SaveAs(path);
+            //  this.txtResume.Text = ShowContent(path);
         }
-         private void LoadUploadedImages() {
-                
-                DirectoryInfo di = new DirectoryInfo(Server.MapPath("~/Images/"));
-              
-                             foreach (FileInfo fi in di.GetFiles()) {
-                                 if (fi.Name == "JS12.jpg") { 
-                   
+
+        private void LoadUploadedImages()
+        {
+            DirectoryInfo di = new DirectoryInfo(Server.MapPath("~/Images/"));
+
+            foreach (FileInfo fi in di.GetFiles())
+            {
+                if (fi.Name == "JS12.jpg")
+                {
                     imgCandidate.ImageUrl = "~/Images/" + fi.Name;
-                   
-                                 }
-               }
-           }
+                }
+            }
+        }
+
         public byte[] ReadFileData(String fileName)
         {
             byte[] buff = null;
@@ -60,6 +58,7 @@ namespace JobFair.Forms.JobSeeker
             buff = br.ReadBytes((int)numBytes);
             return buff;
         }
+
         //private void UploadFile(string path)
         //{
         //    try
@@ -326,7 +325,5 @@ namespace JobFair.Forms.JobSeeker
         //    this.FileUploadResume.SaveAs(path);
         //    this.txtResume.Text = ShowContent(path);
         //}
-
-       
     }
 }
