@@ -148,6 +148,33 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.GridView gvSkillsDetails;
         
         /// <summary>
+        /// divAddMoreSkills control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAddMoreSkills;
+        
+        /// <summary>
+        /// txtAddSkill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddSkill;
+        
+        /// <summary>
+        /// btnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+        
+        /// <summary>
         /// btnSaveSkills control.
         /// </summary>
         /// <remarks>
