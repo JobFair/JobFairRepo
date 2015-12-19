@@ -89,5 +89,8 @@
         public static string sp_JS_ViewEducationalDetails = "sp_JS_ViewEducationalDetails";
         public static string sp_JS_SelectMoreWorkshop = "sp_JS_SelectMoreWorkshop";
         public static string sp_JS_SelectCertification = "sp_JS_SelectCertification";
+        public static string sp_JS_InsertRoleSkill = "sp_JS_InsertRoleSkill";
+
+
     }
 }

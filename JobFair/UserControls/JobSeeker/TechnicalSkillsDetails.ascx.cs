@@ -161,6 +161,7 @@ namespace JobFair.UserControls.JobSeeker
                     ddlTechnicalSkills.DataValueField = "TechnicalSkillId";
                     ddlTechnicalSkills.DataTextField = "TechnicalSkillName";
                     ddlTechnicalSkills.DataBind();
+                    ddlTechnicalSkills.Items.Insert(Convert.ToInt32(ddlTechnicalSkills.Items[ddlTechnicalSkills.Items.Count - 1].Value), new ListItem("----Other----", ""));
                     ddlTechnicalSkills.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
@@ -288,7 +289,11 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobBAL = null;
             }
         }
-
+        /// <summary>
+        /// Handles ItemCommand event of rptrTechnicalSkills control 
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrTechnicalSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Label lblTechnicalSkill = (Label)e.Item.FindControl("lblTechnicalSkill");
@@ -363,10 +368,10 @@ namespace JobFair.UserControls.JobSeeker
         }
 
         /// <summary>
-        ///
+        /// Handles ItemDataBound event of rptrTechnicalSkills control
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrTechnicalSkills_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             try
@@ -458,6 +463,35 @@ namespace JobFair.UserControls.JobSeeker
             {
                 //  throw;
             }
+        }
+        /// <summary>
+        /// Handles SelectedIndexChanged event of ddlTechnicalSkills control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void ddlTechnicalSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlTechnicalSkills.SelectedItem.Text == "----Other----")
+                {
+                    divAddMoreSkills.Visible = true;
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+        /// <summary>
+        /// Handles click event of btnAdd control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

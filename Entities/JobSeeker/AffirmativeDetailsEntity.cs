@@ -4,7 +4,6 @@
     {
         // AffirmativeDetailsEntity
         public string CandidateId { get; set; }
-
         public string PhysicallyChallenged { get; set; }
         public string Description { get; set; }
         public string Sports { get; set; }

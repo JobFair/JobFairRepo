@@ -645,5 +645,19 @@ namespace DAL
                 connection.Close();
             }
         }
+
+        public void AddRoleSkillsDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {               
+                connection.Open();
+                SqlParameter[] sparams = { new SqlParameter("@SkillName", currentDesiredJobEntity.RoleSkills) };
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRoleSkill, sparams);
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
+        }
     }
 }

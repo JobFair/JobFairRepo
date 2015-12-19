@@ -322,5 +322,11 @@ namespace BAL
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             currentDesiredJobDAL.DeleteRoleSkillDAL(skillId);
         }
+
+        public void AddRoleSkillsDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.AddRoleSkillsDetailsDAL(currentDesiredJobEntity);
+        }
     }
 }

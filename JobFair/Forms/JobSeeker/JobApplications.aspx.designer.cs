@@ -10,24 +10,24 @@
 namespace JobFair.Forms.JobSeeker {
     
     
-    public partial class WebForm1 {
+    public partial class JobApplications {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// RoleSkillsDetails control.
+        /// jobapplicationrptr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.RoleSkillsDetails RoleSkillsDetails;
+        protected global::System.Web.UI.WebControls.Repeater jobapplicationrptr;
     }
 }
