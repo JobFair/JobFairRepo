@@ -83,7 +83,7 @@
                             <td>
                                 <asp:TextBox ID="txtAddSkill" runat="server"></asp:TextBox>
                                 <asp:Button ID="btnAdd" runat="server" Text="Add Skill" OnClick="btnAdd_Click" />
-                            </td>
+                            &nbsp;</td>
                         </tr>
                     </table>
                 </div>

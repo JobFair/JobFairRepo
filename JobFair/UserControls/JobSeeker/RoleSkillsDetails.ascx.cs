@@ -15,6 +15,7 @@ namespace JobFair.UserControls.JobSeeker
     {
         private bool isCheck = true;
         private string candidateId;
+
         /// <summary>
         /// Handles Load event of Page
         /// </summary>
@@ -101,7 +102,7 @@ namespace JobFair.UserControls.JobSeeker
                     ddlRoleSkills.DataValueField = "RoleId";
                     ddlRoleSkills.DataBind();
 
-                    ddlRoleSkills.Items.Insert(Convert.ToInt32(ddlRoleSkills.Items[ddlRoleSkills.Items.Count - 1].Value), new ListItem("----Other----", ""));
+                    ddlRoleSkills.Items.Insert(Convert.ToInt32(ddlRoleSkills.Items.Count), new ListItem("----Other----", ""));
                     ddlRoleSkills.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
@@ -149,8 +150,10 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 List<string> yearlist = CommonUtil.Utility.GetYears();
+
                 ddlFromYear.DataSource = yearlist;
                 ddlTillYear.DataSource = yearlist;
+
                 ddlFromYear.DataBind();
                 ddlTillYear.DataBind();
             }
@@ -168,8 +171,10 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 List<string> monthlist = CommonUtil.Utility.GetMonths();
+
                 ddlFromMonth.DataSource = monthlist;
                 ddlTillMonth.DataSource = monthlist;
+
                 ddlFromMonth.DataBind();
                 ddlTillMonth.DataBind();
             }
@@ -298,6 +303,7 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobBAL = null;
             }
         }
+
         /// <summary>
         /// Handles ItemCommand event of rptrRoleSkills control
         /// </summary>
@@ -369,6 +375,7 @@ namespace JobFair.UserControls.JobSeeker
                 BindRepeaterRoleSkills();
             }
         }
+
         /// <summary>
         /// Handles ItemDataBound event of rptrRoleSkills control
         /// </summary>
@@ -457,6 +464,7 @@ namespace JobFair.UserControls.JobSeeker
                 ddlProficiency.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "Proficiency"));
             }
         }
+
         /// <summary>
         /// Handles SelectedIndexChanged of ddlRoleSkills control
         /// </summary>
@@ -468,9 +476,8 @@ namespace JobFair.UserControls.JobSeeker
             {
                 if (ddlRoleSkills.SelectedItem.ToString() == "----Other----")
                 {
-
                     divAddMoreSkills.Visible = true;
-                }              
+                }
             }
             catch (Exception)
             {
@@ -478,6 +485,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             // Checking item of dropdown
         }
+
         /// <summary>
         /// Handles Click event of btnAdd control
         /// </summary>
@@ -489,6 +497,7 @@ namespace JobFair.UserControls.JobSeeker
             CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
             currentDesiredJobEntity.RoleSkills = txtAddSkill.Text.Trim();
             currentDesiredJobBAL.AddRoleSkillsDetailsBAL(currentDesiredJobEntity);
+            AddMoreSkills();
         }
     }
 }
