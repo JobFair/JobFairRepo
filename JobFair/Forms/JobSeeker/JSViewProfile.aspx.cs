@@ -53,7 +53,10 @@ namespace JobFair.Forms.JobSeeker
                 BindTechnicalDetails(viewProfileJSBAL, candidateId);
 
                 BindRoleSkillDetails(viewProfileJSBAL, candidateId);
-                //BindProfessionalDetals(candidateId);
+
+                BindProfessionalDetails(viewProfileJSBAL, candidateId);
+
+                BindCurrentPastJobDetails(viewProfileJSBAL, candidateId);
 
                 BindEducationDetails(viewProfileJSBAL, candidateId);
 
@@ -64,6 +67,43 @@ namespace JobFair.Forms.JobSeeker
             catch (Exception ex)
             {
                 //   throw;
+            }
+        }
+
+        private void BindCurrentPastJobDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsCurrentPastJobDetails = new DataSet();
+                dsCurrentPastJobDetails = objViewProfile.ViewCurrentPastJobBAL(candidateId);
+                if (dsCurrentPastJobDetails != null)
+                {
+                    rptrEmployer.DataSource = dsCurrentPastJobDetails;
+                    rptrEmployer.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void BindProfessionalDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsProfessionalDetails = new DataSet();
+                dsProfessionalDetails = objViewProfile.ViewProfessionalDetailsBAL(candidateId);
+                // Check if dataset is not null
+                if (dsProfessionalDetails != null)
+                {
+                    rptrProfessionalSummary.DataSource = dsProfessionalDetails;
+                    rptrProfessionalSummary.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 

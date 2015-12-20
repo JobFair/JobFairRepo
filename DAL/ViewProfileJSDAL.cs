@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 namespace DAL
 {
     /// <summary>
-    /// Class ViewProfileJSDAL 
+    /// Class ViewProfileJSDAL
     /// </summary>
     public class ViewProfileJSDAL
     {
@@ -187,7 +187,7 @@ namespace DAL
             }
             catch (Exception)
             {
-               // throw;
+                // throw;
             }
             return dsWorkshop;
         }
@@ -207,9 +207,40 @@ namespace DAL
             }
             catch (Exception)
             {
-               // throw;
+                // throw;
             }
             return dsCertification;
+        }
+
+        public DataSet ViewProfessionalDetailsDAL(string candidateId)
+        {
+            DataSet dsProfessionalDetails = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsProfessionalDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentDesiredJobDetails, sparams);
+            }
+            catch (Exception)
+            {
+                 throw;
+            }
+            return dsProfessionalDetails;
+        }
+
+        public DataSet ViewCurrentPastJobDetailsDAL(string candidateId)
+        {
+            DataSet dsCurrentPastJobDetails = new DataSet();
+            try
+            {
+                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsCurrentPastJobDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentPastJobDeatails, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return dsCurrentPastJobDetails;
         }
 
         //public int ChangeConatctNoDAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
