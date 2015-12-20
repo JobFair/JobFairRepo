@@ -35,6 +35,7 @@ namespace JobFair.Forms.JobSeeker
                    DataSet  dsjobapplication = new DataSet();
                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
                    SqlCommand cmd = new SqlCommand("select JobTitle,  where candidateId = @candidateId", connection);
+
             }
             catch (Exception)
             {
