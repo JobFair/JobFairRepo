@@ -80,7 +80,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                string from = "jyoti.logossolutions@gmail.com";
+                 string from = "jyoti.logossolutions@gmail.com";
                 string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";
@@ -110,6 +110,9 @@ namespace JobFair.Forms.JobSeeker
                 Msg = null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
             }
+               
+
+            
             catch (Exception)
             {
                 throw;
