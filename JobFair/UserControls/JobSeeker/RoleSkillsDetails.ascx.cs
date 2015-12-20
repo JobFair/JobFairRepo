@@ -221,8 +221,8 @@ namespace JobFair.UserControls.JobSeeker
                         {
                             // Creating new row
                             datarow = datatable.NewRow();
-                            datarow["CandidateId"] = hfCandidateId.Value.Trim();
-                            datarow["RoleSkills"] = ddlRoleSkills.SelectedItem.Value;
+                            datarow["CandidateId"] = hfCandidateId.Value.Trim();                           
+                            datarow["RoleSkills"] = ddlRoleSkills.SelectedItem.Value;                          
                             datarow["FromDate"] = ddlFromMonth.SelectedItem.Text + "/" + ddlFromYear.SelectedItem.Text;
                             datarow["TillDate"] = ddlTillMonth.SelectedItem.Text + "/" + ddlTillYear.SelectedItem.Text;
                             datarow["Proficiency"] = ddlProficiency.SelectedItem.Text;
@@ -317,6 +317,7 @@ namespace JobFair.UserControls.JobSeeker
             Label lblProficiency = (Label)e.Item.FindControl("lblProficiency");
 
             DropDownList ddlRoleSkill = (DropDownList)e.Item.FindControl("ddlRoleSkill");
+            //TextBox txtAddSkill = (TextBox)e.Item.FindControl("txtAddSkill");
             DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
             DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
             DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
@@ -497,7 +498,7 @@ namespace JobFair.UserControls.JobSeeker
             CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
             currentDesiredJobEntity.RoleSkills = txtAddSkill.Text.Trim();
             currentDesiredJobBAL.AddRoleSkillsDetailsBAL(currentDesiredJobEntity);
-            AddMoreSkills();
+            divAddMoreSkills.Visible = false;
         }
     }
 }
