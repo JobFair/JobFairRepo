@@ -14,9 +14,6 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-          
-           
             string candidateId;
             // Check session is not null
             if (Session["candidateId"] != null)
@@ -266,6 +263,7 @@ namespace JobFair.Forms.JobSeeker
                 throw;
             }
         }
+
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]

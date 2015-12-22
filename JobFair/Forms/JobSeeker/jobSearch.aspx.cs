@@ -190,8 +190,6 @@ namespace JobFair.Forms.JobSeeker
         {
 
         }
-
-
         /// <summary>
         /// Filter used for Company Level
         /// </summary>
