@@ -7,6 +7,8 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class JSViewProfile : System.Web.UI.Page
     {
+        private DataSet dsProfessionalDetails = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -58,6 +60,10 @@ namespace JobFair.Forms.JobSeeker
 
                 BindCurrentPastJobDetails(viewProfileJSBAL, candidateId);
 
+                BindJobPostLookingFor(viewProfileJSBAL, candidateId);
+
+                BindDesireJobDetails(viewProfileJSBAL, candidateId);
+
                 BindEducationDetails(viewProfileJSBAL, candidateId);
 
                 BindWorkshopDetails(viewProfileJSBAL, candidateId);
@@ -70,6 +76,58 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Bind desire job details to rptrDesireJob control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindDesireJobDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                dsProfessionalDetails = objViewProfile.ViewProfessionalDetailsBAL(candidateId);
+                // Check if dataset is not null
+                if (dsProfessionalDetails != null)
+                {
+                    rptrDesireJob.DataSource = dsProfessionalDetails;
+                    rptrDesireJob.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind job post looking to rptrJobLookingFor control
+        /// </summary>
+        /// <param name="viewProfileJSBAL">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindJobPostLookingFor(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsJobPostLooking = new DataSet();
+                dsJobPostLooking = objViewProfile.ViewJobPostLookingBAL(candidateId);
+                // Check if dataset is not null
+                if (dsJobPostLooking != null)
+                {
+                    rptrJobLookingFor.DataSource = dsJobPostLooking;
+                    rptrJobLookingFor.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind current past job details to rptrEmployer control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindCurrentPastJobDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
@@ -88,11 +146,15 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Bind professional summary to rptrProfessionalSummary control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
         private void BindProfessionalDetails(ViewProfileJSBAL objViewProfile, string candidateId)
         {
             try
             {
-                DataSet dsProfessionalDetails = new DataSet();
                 dsProfessionalDetails = objViewProfile.ViewProfessionalDetailsBAL(candidateId);
                 // Check if dataset is not null
                 if (dsProfessionalDetails != null)

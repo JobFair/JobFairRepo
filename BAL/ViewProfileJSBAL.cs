@@ -115,16 +115,37 @@ namespace BAL
             return viewProfileJSDAL.ViewCertificationDAL(candidateId);
         }
 
+        /// <summary>
+        /// View professional summary bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewProfessionalDetailsBAL(string candidateId)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
             return viewProfileJSDAL.ViewProfessionalDetailsDAL(candidateId);
         }
 
+        /// <summary>
+        /// View current past job details bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewCurrentPastJobBAL(string candidateId)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
             return viewProfileJSDAL.ViewCurrentPastJobDetailsDAL(candidateId);
+        }
+
+        /// <summary>
+        /// View job post looking
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewJobPostLookingBAL(string candidateId)
+        {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+            return viewProfileJSDAL.ViewJobPostLookingDAL(candidateId);
         }
 
         //public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
