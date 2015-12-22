@@ -491,7 +491,11 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-
+            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
+            currentDesiredJobEntity.TechnicalSkills = txtAddSkill.Text.Trim();
+            currentDesiredJobBAL.AddTechnicalSkillsDetailsBAL(currentDesiredJobEntity);
+            divAddMoreSkills.Visible = false;
         }
     }
 }

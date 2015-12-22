@@ -302,7 +302,7 @@ namespace DAL
             DataSet ds = new DataSet();
             try
             {
-                SqlParameter[] sparams = { new SqlParameter("@candiadteId", candidateId) };
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCurrentDesiredJobDetails, sparams);
             }
             catch (Exception)
@@ -645,7 +645,10 @@ namespace DAL
                 connection.Close();
             }
         }
-
+        /// <summary>
+        /// Method in CurrentDesiredJobDAL class to add new role skill in table
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Entity of CurrentDesiredJobEntity</param>
         public void AddRoleSkillsDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
@@ -656,6 +659,63 @@ namespace DAL
             }
             catch (Exception)
             {                
+                throw;
+            }
+        }
+        /// <summary>
+        /// Method in CurrentDesiredJobDAL class to add new technical skill in table
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Entity of CurrentDesiredJobEntity</param>
+        public void AddTechnicalSkillsDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlParameter[] sparams = { new SqlParameter("@skillName", currentDesiredJobEntity.TechnicalSkills) };
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertTechnicalSkills, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+        /// <summary>
+        /// Method in CurrentDesiredJobDAL class to update Desired Details in Database
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Entity of CurrentDesiredJobEntity</param>
+        public void UpdateProfessionalDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlParameter[] sparams = new SqlParameter[20];
+                sparams[0] = new SqlParameter("@candidateid", currentDesiredJobEntity.Candidateid);
+                sparams[1] = new SqlParameter("@currentWorkingStatus", currentDesiredJobEntity.CurrentWorkingStatus);
+                sparams[2] = new SqlParameter("@currentanualSal", currentDesiredJobEntity.CurrentAnualSal);
+                sparams[3] = new SqlParameter("@expectedanualSal", currentDesiredJobEntity.ExpectedAnualSal);
+                sparams[4] = new SqlParameter("@noticeperiod", currentDesiredJobEntity.NoticePeriod);
+                sparams[5] = new SqlParameter("@employmentstatus", currentDesiredJobEntity.EmploymentStatus);
+                sparams[6] = new SqlParameter("@jobtype", currentDesiredJobEntity.JobType);
+                sparams[7] = new SqlParameter("@companyType", currentDesiredJobEntity.CompanyType);
+                sparams[8] = new SqlParameter("@availabilityForInterview", currentDesiredJobEntity.Availabilityforinterview);
+                sparams[9] = new SqlParameter("@preferredCountry", currentDesiredJobEntity.PreferredCountry);
+                sparams[10] = new SqlParameter("@preferredState", currentDesiredJobEntity.PreferredState);
+                sparams[11] = new SqlParameter("@preferredcity", currentDesiredJobEntity.PreferredCity);
+                sparams[12] = new SqlParameter("@preferredarea", currentDesiredJobEntity.PreferrefArea);
+                sparams[13] = new SqlParameter("@beforeTime", currentDesiredJobEntity.BeforeTime);
+                sparams[14] = new SqlParameter("@afterTime", currentDesiredJobEntity.AfterTime);
+                sparams[15] = new SqlParameter("@resumeHeadline", currentDesiredJobEntity.ResumeHeadline);
+                sparams[16] = new SqlParameter("@objective", currentDesiredJobEntity.Objective);
+                sparams[17] = new SqlParameter("@profileSummary", currentDesiredJobEntity.ProfileSummary);
+                sparams[18] = new SqlParameter("@employeedOrNot", currentDesiredJobEntity.CurrentEmployeedUnemployeed);
+                sparams[19] = new SqlParameter("@totalExperiecnce", currentDesiredJobEntity.TotalExperience);
+
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_UpdateDesiredJobDetails", sparams);
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }
