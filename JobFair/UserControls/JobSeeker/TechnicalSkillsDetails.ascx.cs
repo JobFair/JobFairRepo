@@ -25,7 +25,7 @@ namespace JobFair.UserControls.JobSeeker
         {
             candidateId = Convert.ToString(Session["candidateId"]);
             // Check session is not null
-            if (Session["candidateId"] != null)
+            if (string.IsNullOrEmpty(candidateId))
             {
                 Response.Redirect("LogIn.aspx");
             }
@@ -289,8 +289,9 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobBAL = null;
             }
         }
+
         /// <summary>
-        /// Handles ItemCommand event of rptrTechnicalSkills control 
+        /// Handles ItemCommand event of rptrTechnicalSkills control
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -464,6 +465,7 @@ namespace JobFair.UserControls.JobSeeker
                 //  throw;
             }
         }
+
         /// <summary>
         /// Handles SelectedIndexChanged event of ddlTechnicalSkills control
         /// </summary>
@@ -480,10 +482,10 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
+
         /// <summary>
         /// Handles click event of btnAdd control
         /// </summary>
@@ -491,7 +493,6 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
