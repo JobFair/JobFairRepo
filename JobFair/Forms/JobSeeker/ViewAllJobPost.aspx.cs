@@ -71,7 +71,7 @@ namespace JobFair.Forms.JobSeeker
                 rptrviewpost.DataBind();
             }
             catch (Exception)
-            {
+            {  
                 throw;
             }
         }
