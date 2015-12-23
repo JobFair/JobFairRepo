@@ -134,39 +134,27 @@ namespace JobFair.UserControls.JobSeeker
 
                                 string employmentstatus = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
                                 List<string> listofemploymentstatus = new List<string>(employmentstatus.Split(','));
-                                foreach (var list in listofemploymentstatus)
+                                foreach (ListItem list in chklEmploymentStatus.Items)
                                 {
-                                    for (int i = 0; i < chklEmploymentStatus.Items.Count; i++)
-                                    {
-                                        chklEmploymentStatus.SelectedValue = list;
-                                        break;
-                                    }
+                                    list.Selected = listofemploymentstatus.Contains(list.Value);
                                 }
 
                                 //chklEmploymentStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
 
                                 string jobtype = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
                                 List<string> listjobtype = new List<string>(jobtype.Split(','));
-                                foreach (var list in listjobtype)
+                                foreach (ListItem list in chklJobType.Items)
                                 {
-                                    for (int i = 0; i < chklJobType.Items.Count; i++)
-                                    {
-                                        chklJobType.SelectedValue = list;
-                                        break;
-                                    }
+                                    list.Selected = listjobtype.Contains(list.Value);
                                 }
 
                                 //chklJobType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
 
                                 string companytype = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
                                 List<string> listcompanytype = new List<string>(companytype.Split(','));
-                                foreach (var list in listcompanytype)
+                                foreach (ListItem list in chklCompanyType.Items)
                                 {
-                                    for (int i = 0; i < chklCompanyType.Items.Count; i++)
-                                    {
-                                        chklCompanyType.SelectedValue = list;
-                                        break;
-                                    }
+                                    list.Selected = listcompanytype.Contains(list.Value);
                                 }
 
                                 //chklCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
@@ -702,7 +690,7 @@ namespace JobFair.UserControls.JobSeeker
             DataTable dt = (DataTable)ViewState["JobDetails"];
             try
             {
-                if (isEdit)
+                if (!isEdit)
                 {
                    
 
