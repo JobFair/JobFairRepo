@@ -13,13 +13,12 @@ namespace JobFair.Forms.Recruiter
     public partial class AffirmativeDetails : System.Web.UI.Page
     {
         public int RecruiterId=3;
-        public int UserType=2;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //RecruiterId = 3;
-                //UserType = 2;
+               
                 BindLanguages();
             }
 
@@ -79,7 +78,7 @@ namespace JobFair.Forms.Recruiter
             firstlanguageEntity.Read = chkReadFirst.Checked;
             firstlanguageEntity.Write = chkWriteFirst.Checked;
             firstlanguageEntity.Speak = chkSpeakFirst.Checked;
-            firstlanguageEntity.UserType = UserType;
+           
 
             // Add language details into collection.
             languageDetailsList.Add(firstlanguageEntity);
@@ -92,7 +91,7 @@ namespace JobFair.Forms.Recruiter
             secondlanguageEntity.Read = chkReadSecond.Checked;
             secondlanguageEntity.Write = chkWriteSecond.Checked;
             secondlanguageEntity.Speak = chkSpeakSecond.Checked;
-            secondlanguageEntity.UserType = UserType;
+          
 
             // Add language details into collection.
             languageDetailsList.Add(secondlanguageEntity);
@@ -105,7 +104,7 @@ namespace JobFair.Forms.Recruiter
             thirdlanguageEntity.Read = chkReadThird.Checked;
             thirdlanguageEntity.Write = chkWriteThird.Checked;
             thirdlanguageEntity.Speak = chkSpeakThird.Checked;
-            thirdlanguageEntity.UserType = UserType;
+           
 
             // Add language details into collection.
             languageDetailsList.Add(thirdlanguageEntity);
@@ -124,7 +123,7 @@ namespace JobFair.Forms.Recruiter
             affirmativeDetailsEntity.Hobbies = txtHobbies.Text.Trim();
             affirmativeDetailsEntity.ExtraActivity = txtExtraActivity.Text.Trim();
             affirmativeDetailsEntity.USAPermit = string.Empty;
-            affirmativeDetailsEntity.UserType = UserType;
+            
              affirmativeDetailsEntity.ID = RecruiterId;
             //if (rbtYesUSA.Checked)
             //    affirmativeDetailsEntity.USAPermit = "Yes";
