@@ -13,5 +13,10 @@ namespace BAL
     {
 
 
+        public DataSet GetActiveJobs()
+        {
+            ManageResponsesDAL manageresponsesDAL = new ManageResponsesDAL();
+            return manageresponsesDAL.GetActiveJobs();
+        }
     }
 }

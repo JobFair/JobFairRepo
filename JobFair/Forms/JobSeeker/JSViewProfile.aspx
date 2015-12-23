@@ -722,7 +722,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="Educational Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer4" runat="server" ActiveTabIndex="0" CssClass="" Height="16px">
+                    <cc1:TabContainer ID="TabContainer4" runat="server" ActiveTabIndex="0" CssClass="" Height="900px">
                         <cc1:TabPanel ID="TabPanel12" runat="server" HeaderText="Educational">
                             <HeaderTemplate>
                                 &nbsp;&nbsp;&nbsp; Educational

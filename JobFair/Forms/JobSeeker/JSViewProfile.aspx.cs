@@ -286,7 +286,7 @@ namespace JobFair.Forms.JobSeeker
                 int degreeId = Convert.ToInt32(lbl.Text);
                 Label lblel = (Label)e.Item.FindControl("lblSpcializationId");
                 int spcializationId = Convert.ToInt32(lblel.Text);
-                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx?dId=" + degreeId + "&sId=" + spcializationId);
+                Response.Redirect("EditEducationalDetails.aspx?dId=" + degreeId + "&sId=" + spcializationId);
             }
         }
 

@@ -14,8 +14,8 @@ namespace JobFair.Forms.JobSeeker
     {
         private string candidateId;
         private bool isEdit = true;
-        private int degreeId = 3;
-        private int specializationId = 6;
+        private int degreeId;
+        private int specializationId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +26,8 @@ namespace JobFair.Forms.JobSeeker
                 {
                     //CheckAuthorised(candidateId);
                     candidateId = Convert.ToString(Session["candidateId"]);
+                    degreeId = Convert.ToInt32(Request.QueryString["dId"]);
+                    specializationId = Convert.ToInt32(Request.QueryString["sId"]);
 
                     if (!IsPostBack)
                     {
@@ -35,8 +37,6 @@ namespace JobFair.Forms.JobSeeker
 
                             if (isEdit)
                             {
-                                //degreeId = Convert.ToInt32(Request.QueryString["dId"]);
-                                //specializationId = Convert.ToInt32(Request.QueryString["specializationId"]);
                                 BindEducationalDetails();
                             }
                         }
@@ -146,10 +146,10 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                //degreeId = 2;
+                degreeId = Convert.ToInt32(Request.QueryString["dId"]);
                 DataSet dsDegreeDetails = new DataSet();
                 EducationalDetailsBAL specializationDetails = new EducationalDetailsBAL();
-                // Get HSC details
+                // Get Degree details
                 dsDegreeDetails = specializationDetails.GetDegreeDetailsBAL(degreeId);
                 if (dsDegreeDetails != null)
                 {
@@ -205,6 +205,7 @@ namespace JobFair.Forms.JobSeeker
                 educationalDetails.CandidateId = candidateId;
                 educationalDetails.DegreeId = Convert.ToInt32(degreeId); ;
                 educationalDetails.MediumOfEducation = txtMedium.Text.Trim();
+                educationalDetails.OldSpecializationId = Convert.ToInt32(Request.QueryString["sId"]);
                 educationalDetails.SpecializationId = Convert.ToInt32(ddlSpecialization.SelectedValue.Trim());
                 educationalDetails.Status = rblStat.SelectedValue.Trim();
                 educationalDetails.FromYear = ddlMonthFrom.Text + '/' + ddlYearFrom.Text;

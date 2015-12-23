@@ -77,7 +77,7 @@ namespace DAL
             {
                 throw;
             }
-            finally
+            finally   
             {
             }
         }

@@ -133,6 +133,7 @@ namespace DAL
                                               new SqlParameter("@DegreeId",educationalDetailsEntity.DegreeId),
                                               new SqlParameter("@MediumOfEducation",educationalDetailsEntity.MediumOfEducation),
                                               new SqlParameter("@Status",educationalDetailsEntity.Status),
+                                              new SqlParameter("@OldSpecializationId",educationalDetailsEntity.OldSpecializationId),
                                               new SqlParameter("@SpecializationId",educationalDetailsEntity.SpecializationId),
                                               new SqlParameter("@FromYear",educationalDetailsEntity.FromYear),
                                               new SqlParameter("@ToYear",educationalDetailsEntity.ToYear),
