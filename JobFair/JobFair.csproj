@@ -80,6 +80,7 @@
     <Content Include="Css\Common.css" />
     <Content Include="Css\Style.css" />
     <Content Include="Css\ValidationEngine.css" />
+    <Content Include="Email Templates\RecruiterRegisterWelcomeMail.html" />
     <Content Include="EmailPage.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\Common\ChangePassword.aspx" />

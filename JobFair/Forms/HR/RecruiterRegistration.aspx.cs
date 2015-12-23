@@ -1,6 +1,7 @@
 ﻿using BAL;
 using Entities.HR;
 using System;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Net.Mail;
@@ -10,6 +11,13 @@ namespace JobFair.Forms.HR
 {
     public partial class RecruiterRegistration : System.Web.UI.Page
     {
+        private string RecruiterPrefix = ConfigurationManager.AppSettings["RecruiterPrefix"];
+        RecruiterRegisterEntity registerRecruiterEntity = new RecruiterRegisterEntity();
+        /// <summary>
+        /// Handles Load event of Page
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,7 +26,9 @@ namespace JobFair.Forms.HR
                 BindCountryCode();
             }
         }
-
+        /// <summary>
+        /// Method to Bind Country code of Mobile Number to ddlCountryCode control
+        /// </summary>
         private void BindCountryCode()
         {
             try
@@ -40,7 +50,9 @@ namespace JobFair.Forms.HR
                 throw;
             }
         }
-
+        /// <summary>
+        /// Method for Binding Country to ddlCountryPresent control
+        /// </summary>
         private void BindCountry()
         {
             try
@@ -63,12 +75,16 @@ namespace JobFair.Forms.HR
                 throw;
             }
         }
-
+        /// <summary>
+        /// Handles Click event of btnRegister control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             try
             {
-                RecruiterRegisterEntity registerRecruiterEntity = new RecruiterRegisterEntity();
+               
                 RegisterRecruiterHRBAL registerRecruiterHRBAL = new RegisterRecruiterHRBAL();
                 registerRecruiterEntity.FullName = txtFullName.Text.Trim();
                 registerRecruiterEntity.Company = txtCompany.Text.Trim();
@@ -96,19 +112,35 @@ namespace JobFair.Forms.HR
                 registerRecruiterEntity.PANCardNo = txtPANCard.Text.Trim();
                 registerRecruiterEntity.JobType = rbtlJobType.SelectedValue;
                 registerRecruiterEntity.EmploymentStatus = rbtlEmploymentStatus.SelectedValue;
+                if (rbtFreelance.Checked)
+                {
+                    registerRecruiterEntity.FreelanceOrEmployee = rbtFreelance.Text.Trim();
+                   
+                }
+                else if(rbtEmployee.Checked)
+                {
+                    registerRecruiterEntity.FreelanceOrEmployee = rbtEmployee.Text.Trim();
+                   
+                }
+                registerRecruiterEntity.AmountPerMonth = txtAmount.Text.Trim();
+                registerRecruiterEntity.PercentPerClosure = txtPercentagePerClosure.Text.Trim();
+                registerRecruiterEntity.EmployeeSalary = txtSalary.Text.Trim();
+                registerRecruiterEntity.ClientName = txtClientName.Text.Trim();
+                registerRecruiterEntity.ClientSite = txtClientSite.Text.Trim();
+                registerRecruiterEntity.Address = txtAddress.Text.Trim();
                 
                 //get path of photos
                 string path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + this.FileUploadRecruiterPhoto.FileName;
                 string uploadphoto = Request.PhysicalApplicationPath + "Images\\";
                 registerRecruiterEntity.PhotoPath = uploadphoto.ToString();
                 string result = registerRecruiterHRBAL.SaveNewRecruiterBAL(registerRecruiterEntity);
-
+                RecruiterPrefix = RecruiterPrefix + result;
                 if (result != null)
                 {
                     if (FileUploadRecruiterPhoto.HasFile)
                     {
                         string extension = Path.GetExtension(FileUploadRecruiterPhoto.PostedFile.FileName);
-                        FileUploadRecruiterPhoto.SaveAs(uploadphoto + result.ToString() + extension);
+                        FileUploadRecruiterPhoto.SaveAs(uploadphoto + RecruiterPrefix.ToString() + extension);
                     }
                     Label1.Text = "Welcome. Registerd successfully";
                 }
@@ -116,54 +148,109 @@ namespace JobFair.Forms.HR
                 {
                     Label1.Text = "Not registerd";
                 }
-                string from = txtFullName.Text;
-                string subject = "Logged In";
-                string content = "Helllo....";
-                MailMessage msg = new MailMessage();
-                msg.From = new MailAddress(from);
-                msg.To.Add("saurabh.logossolutions@gmail.com");
-                msg.Subject = subject;
-                msg.Body = "Hi,<br/>New Recruiter is: " + txtFullName.Text + "<br/><br/> " + "Registered Now" + "<br/>";
+                bool isMailSent = SendHTMLMail(result);
+                if (isMailSent == true)
+                {
+                    registerRecruiterEntity.IsMailSent = true;
+                    Response.Write("Registration done with welcome mail");
 
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.Credentials = new System.Net.NetworkCredential("jyoti.logossolutions@gmail.com", "@jacksparow");
-                smtp.EnableSsl = true;
-                smtp.Send(msg);
-                msg = null;
-                Response.Write("<script language='javascript'>alert('Email Send to Super Admin ...');</script>");
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Registerd Sucessfully but reciept not generated')</script>");
+                }
+               
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        /// <summary>
+        /// Method to send mail template
+        /// </summary>
+        /// <param name="result">String Parameter</param>
+        /// <returns>System.Data.Boolean</returns>
+        private bool SendHTMLMail(string result)
+        {
+            string from = "jyoti.logossolutions@gmail.com";
+            string subject1 = "Welcome In Logos Solutions";
+            string subject = " Joining Receipt of the Recruiter " + DateTime.Now.ToString();
+            string content = "New Recruiter Registered";
+            string content1 = "Hello,<br/> Logos Solutions welcomes you";
 
+            MailMessage Msg = new MailMessage();
+            Msg.From = new MailAddress(from);
+            Msg.To.Add("saurabh.logossolutions@gmail.com");
+            StreamReader reader = new StreamReader(Server.MapPath("~/Email Templates/RegistrationConfirmation.html"));
+            string readFile = reader.ReadToEnd();
+            string strContent = "";
+            strContent = readFile;
+            strContent = strContent.Replace("$$Candidate Name$$", txtFullName.Text.Trim());
+            strContent = strContent.Replace("$$Candidate ID$$", RecruiterPrefix);
+            strContent = strContent.Replace("$$Candidate Mail ID$$", txtOffEmailid.Text.Trim());
+            // "http://www.logossolutions.co.in/");
+            strContent = strContent.Replace("$$Mobile Number$$", registerRecruiterEntity.MobileNo.Trim());
+            strContent = strContent.Replace("$$Present Address$$", "Present Address" + txtAddress.Text.Trim() + "<br/>Country" + ddlCountryCode.SelectedItem.Text.Trim() + "<br/>State" + ddlStatePresent.SelectedItem.Text.Trim() + "<br/>City" + ddlCityPresent.SelectedItem.Text.Trim() + "<br/>City Area" + ddlAreaPresent.SelectedItem.Text.Trim() + "<br/>Pincode:" + txtPincode.Text.Trim());
+            
+            Msg.Subject = subject;
+
+            Msg.Body = strContent.ToString();
+            Msg.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("jyoti.logossolutions@gmail.com", "@jacksparow");
+            smtp.EnableSsl = true;
+            smtp.Send(Msg);
+            Msg = null;
+            return true;     
+        }
+        /// <summary>
+        /// Handles CheckedChanged event of rbtFreelance control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtFreelance_CheckedChanged(object sender, EventArgs e)
         {
             PanelFreelance.Visible = true;
             PanelEmployee.Visible = false;
         }
-
+        /// <summary>
+        /// Handles CheckedChanged event of rbtEmployee control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtEmployee_CheckedChanged(object sender, EventArgs e)
         {
             PanelEmployee.Visible = true;
             PanelFreelance.Visible = false;
         }
-
+        /// <summary>
+        /// Handles CheckedChanged event of rbtAmount control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtAmount_CheckedChanged(object sender, EventArgs e)
         {
             txtAmount.Visible = true;
             txtPercentagePerClosure.Visible = false;
         }
-
+        /// <summary>
+        /// Handles CheckedChanged event rbtPercentagePerClosure control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtPercentagePerClosure_CheckedChanged(object sender, EventArgs e)
         {
             txtPercentagePerClosure.Visible = true;
             txtAmount.Visible = false;
         }
-
+        /// <summary>
+        /// Handles SelectedIndexChanged event of rbtlJobType control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtlJobType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (rbtlJobType.SelectedValue == "Temporary")
@@ -175,7 +262,11 @@ namespace JobFair.Forms.HR
                 PanelTemporary.Visible = false;
             }
         }
-
+        /// <summary>
+        /// Handles SelectedIndexChanged event of ddlCountryPresent control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void ddlCountryPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -199,7 +290,11 @@ namespace JobFair.Forms.HR
                 throw;
             }
         }
-
+        /// <summary>
+        /// Handles SelectedIndexChanged event of ddlStatePresent control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void ddlStatePresent_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -223,7 +318,11 @@ namespace JobFair.Forms.HR
                 throw;
             }
         }
-
+        /// <summary>
+        /// Handles SelectedIndexChanged event of ddlCityPresent control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void ddlCityPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
