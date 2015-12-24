@@ -43,6 +43,7 @@
     <Compile Include="AffirmativeDetailsREBAL.cs" />
     <Compile Include="ChangeLoginDetailsBAL.cs" />
     <Compile Include="ClientRequirementsBAL.cs" />
+    <Compile Include="ContactDetailsREBAL.cs" />
     <Compile Include="JobapplicationsBAL.cs" />
     <Compile Include="ManageJobsBAL.cs" />
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="MoreCertificationBAL.cs" />
     <Compile Include="MoreWorkshopBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />
+    <Compile Include="PersonalDetailsREBAL.cs" />
     <Compile Include="PostNewJobBAL.cs">
       <SubType>Code</SubType>
     </Compile>

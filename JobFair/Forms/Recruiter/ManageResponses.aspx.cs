@@ -14,20 +14,9 @@ namespace JobFair.Forms.Recruiter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindClientName();
+            
         }
 
-        private void BindClientName()
-        {
-            DataSet datasetClientName = new DataSet();
-            ManageResponsesBAL manageResponsesBAL = new ManageResponsesBAL();
-            ManageResponsesEntity manageResponsesEntity = new ManageResponsesEntity();
-            manageResponsesEntity.RecruiterId = "RE12";
-            datasetClientName=manageResponsesBAL.BindClientNameBAL(manageResponsesEntity);
-            ddlClientName.DataSource = datasetClientName;
-            ddlClientName.DataTextField = "ClientName";
-            ddlClientName.DataValueField = "ClientId";
-            ddlClientName.DataBind();
-        }
+       
     }
 }

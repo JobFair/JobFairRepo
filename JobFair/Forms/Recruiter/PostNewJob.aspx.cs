@@ -355,7 +355,7 @@ namespace JobFair.Forms.Recruiter
                 PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
 
-                addJobPostEntity.RecruiterID = "RE12";
+                addJobPostEntity.RecruiterID = "1";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
                 addJobPostEntity.JobLocationState = ddlState.SelectedItem.Value;
                 addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Value;
@@ -377,6 +377,8 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
                 addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
                 addJobPostEntity.CompanyName = chkcompanyname.SelectedItem.Text.Trim();
+                addJobPostEntity.ClientName = ddlclientname.SelectedItem.Text.Trim();
+                addJobPostEntity.Position = ddlposition.SelectedItem.Text.Trim();
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
                 {

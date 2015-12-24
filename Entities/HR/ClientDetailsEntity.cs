@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Entities.Recruiter
+namespace Entities.HR
 {
     public class ClientDetailsEntity
     {
