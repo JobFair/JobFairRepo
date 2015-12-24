@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvanceJobSearchBAL.cs" />
+    <Compile Include="AffirmativeDetailsREBAL.cs" />
     <Compile Include="ChangeLoginDetailsBAL.cs" />
     <Compile Include="ClientRequirementsBAL.cs" />
     <Compile Include="JobapplicationsBAL.cs" />

@@ -102,6 +102,7 @@
     <Content Include="Forms\JobSeeker\ViewAllJobPost.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
+    <Content Include="Forms\Recruiter\AffirmativeDetails.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\ManageJobs.aspx" />
@@ -335,6 +336,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\Webform1.aspx.designer.cs">
       <DependentUpon>Webform1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\AffirmativeDetails.aspx.cs">
+      <DependentUpon>AffirmativeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\AffirmativeDetails.aspx.designer.cs">
+      <DependentUpon>AffirmativeDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\ClientRequirements.aspx.cs">
       <DependentUpon>ClientRequirements.aspx</DependentUpon>

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvanceSearchDAL.cs" />
+    <Compile Include="AffirmativeDetailsREDAL.cs" />
     <Compile Include="ChangeLoginDetailsDAL.cs" />
     <Compile Include="JobApplicationDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />

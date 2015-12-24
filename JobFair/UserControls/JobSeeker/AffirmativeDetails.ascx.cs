@@ -301,7 +301,7 @@ namespace JobFair.UserControls.JobSeeker
 
                     // Set the value of LanguageEntity for first language
                     LanguageEntity firstlanguageEntity = new LanguageEntity();
-                    firstlanguageEntity.CandidateId = candidateId;
+                    firstlanguageEntity.CandidateId= candidateId;
                     firstlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
                     firstlanguageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
                     firstlanguageEntity.Read = chkReadFirst.Checked;
