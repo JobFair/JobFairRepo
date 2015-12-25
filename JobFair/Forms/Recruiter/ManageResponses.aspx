@@ -6,15 +6,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title> </title>
 </head>
 <body>
     <form id="form1" runat="server">
+       
     <div>  
         <asp:Label ID="lblmanageresponses" runat="server" Text="Manage Responses"></asp:Label>
-     <asp:ScriptManager  runat="server"></asp:ScriptManager>
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="725px" Height="376px">
-            <cc1:TabPanel runat="server" HeaderText="ActiveJobs" ID="TabPanel1">
+     <asp:ScriptManager  runat="server"></asp:ScriptManager> 
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" Width="516px" Height="376px">
+            <cc1:TabPanel runat="server" HeaderText="ActiveJobs" ID="TabPanel1"> 
                 <ContentTemplate>
                     <asp:Repeater id ="rptractivejobs" runat="server">
                    <ItemTemplate>
@@ -23,10 +24,9 @@
                                 <table>
                                     <tr>
                                         <td>
-                                           <asp:Label ID="lbljobid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
+                                           <asp:Label ID="lbljobid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>               
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            RecruiterID:
-                                            <asp:Label ID="lblrecruiterid" runat="server" Text='<%#Eval("RecruiterID")%>'></asp:Label>
+                                            <asp:Label ID="lblrecruiterid" runat="server" Text='<%#Eval("RecruiterID")%>' Visible="false"></asp:Label>
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             JobTitle:
                                                 <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
@@ -77,7 +77,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel runat="server" HeaderText="InActiveJobs" ID="TabPanel2">
                 <ContentTemplate>
-                <asp:Repeater id ="Repeater1" runat="server">
+                <asp:Repeater id ="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                    <ItemTemplate>
                      <tr>
                             <td>
@@ -86,8 +86,7 @@
                                         <td>
                                            <asp:Label ID="lbljobid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            RecruiterID:
-                                            <asp:Label ID="lblrecruiterid" runat="server" Text='<%#Eval("RecruiterID")%>'></asp:Label>
+                                            <asp:Label ID="lblrecruiterid" runat="server" Text='<%#Eval("RecruiterID")%>' Visible="false"></asp:Label>
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             JobTitle:
                                                 <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
@@ -140,6 +139,8 @@
 
             </cc1:TabPanel>
         </cc1:TabContainer>
-        </div> </form>
+        </div>
+
+    </form>
                     </body>
                     </html>

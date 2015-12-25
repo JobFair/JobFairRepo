@@ -11,16 +11,15 @@ namespace JobFair.UserControls.JobSeeker
     public partial class ContactDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private int userType;
-        private bool isEdit=true;
+        private bool isEdit;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-               // isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
+                isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
                 candidateId = Convert.ToString(Session["candidateId"]);
-                userType = Convert.ToInt32(Session["UserType"]);
+               
                 // Check session is not null
                 if (string.IsNullOrEmpty(candidateId))
                 {
@@ -54,7 +53,7 @@ namespace JobFair.UserControls.JobSeeker
             {
                 DataSet dsConatctDetails = new DataSet();
                 ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
-                dsConatctDetails = contactDetailsBAL.ViewContactDetailsBAL(candidateId,userType);
+                dsConatctDetails = contactDetailsBAL.ViewContactDetailsBAL(candidateId);
                 // Check dataset is not null
                 if (dsConatctDetails != null)
                 {
@@ -111,7 +110,7 @@ namespace JobFair.UserControls.JobSeeker
                     objContactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                     objContactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
                     objContactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
-                    objContactDetailsEntity.UserType = Convert.ToInt32(userType);
+                 
                     int result = contactDetailsBAL.UpdateContactDetailsBAL(objContactDetailsEntity);
                     // Check result is greater than zero or not
                     if (result > 0)
@@ -140,7 +139,7 @@ namespace JobFair.UserControls.JobSeeker
                     contactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                     contactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
                     contactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
-                    contactDetailsEntity.UserType = Convert.ToInt32(userType);
+                    
                     int result = contactDetailsBAL.SaveContactDetailsBAL(contactDetailsEntity);
                     // Check result is greater than zero or not
                     if (result > 0)
