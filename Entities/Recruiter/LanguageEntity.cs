@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Common
+namespace Entities.Recruiter
 {
    public class LanguageEntity
     {
@@ -19,5 +19,7 @@ namespace Entities.Common
         public int UserType { get; set; }
 
         public int CandidateId { get; set; }
+
+        public int RecruiterId { get; set; }
     }
 }
