@@ -11,7 +11,7 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
-        private string email, jobtitle, candidateId;
+        private string email, jobtitle, candidateId, id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -109,6 +109,23 @@ namespace JobFair.Forms.JobSeeker
                 smtp.Send(Msg);
                 Msg = null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
+
+
+                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+                SqlCommand cmd = new SqlCommand("sp_InsertJobHistory",connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@JobId",id);
+                cmd.Parameters.AddWithValue("@CandidateId", candidateId);
+                cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+
+
+
+
+
+
+
+
+
             }
                
 

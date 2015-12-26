@@ -90,6 +90,8 @@
         public static string sp_JS_SelectMoreWorkshop = "sp_JS_SelectMoreWorkshop";
         public static string sp_JS_SelectCertification = "sp_JS_SelectCertification";
         public static string sp_JS_InsertRoleSkill = "sp_JS_InsertRoleSkill";
+        public static string sp_JS_InsertTechnicalSkills = "sp_JS_InsertTechnicalSkills";
+        public static string sp_InsertJobHistory = "sp_InsertJobHistory";
 
 
     }
