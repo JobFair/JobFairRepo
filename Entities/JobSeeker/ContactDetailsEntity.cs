@@ -13,5 +13,6 @@
         public string SkypeId { get; set; }
         public string GooglePlus { get; set; }
         public string AltEmailId { get; set; }
+        public int UserType { get; set; }
     }
 }

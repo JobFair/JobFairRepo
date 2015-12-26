@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewProfile.aspx.cs" Inherits="JobFair.Forms.Recruiter.ViewProfile" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,7 +12,7 @@
     <form id="form1" runat="server">
         <div>
 
-            <table>
+            <%-- <table>
                 <tr>
                     <asp:Image ID="Image1" runat="server" Height="100px" Width="100px" />
                 </tr>
@@ -39,7 +41,7 @@
                         <asp:Label ID="lblEmail" runat="server">
                         </asp:Label>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
                     <td>
                         <span>City</span></td>
@@ -96,7 +98,274 @@
                 <FooterTemplate>
                     </table>
                 </FooterTemplate>
-            </asp:Repeater>
+            </asp:Repeater>--%>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="2" Width="900px" Height="600px">
+                <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="View Profile">
+                    <ContentTemplate>
+                        <table>
+                            <tr>
+                                <td>
+                                    <h1>View Profile</h1>
+                                    &nbsp;</td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Image ID="imgProfilePhoto" runat="server" Height="100px" Width="100px" ImageAlign="Top" />&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Recruiters Full Name</td>
+                                <td>
+                                    <asp:Label ID="lblFullName" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Recruiter&#39;s ID</td>
+                                <td>
+                                    <asp:Label ID="lblRecruiterId" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Company</td>
+                                <td>
+                                    <asp:Label ID="lblCompany" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Official Contact Number</td>
+                                <td>
+                                    <asp:Label ID="lblOfficicalNumber" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mobile Number</td>
+                                <td>
+                                    <asp:Label ID="lblMobileNumber" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Official Email ID</td>
+                                <td>
+                                    <asp:Label ID="lblOfficialEmailId" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Freelancer/Employee</td>
+                                <td>
+                                    <asp:Label ID="lblFreelancer" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Present Address</td>
+                                <td>
+                                    <asp:Label ID="lblAddress" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Present City</td>
+                                <td>
+                                    <asp:Label ID="lblCity" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Present Area</td>
+                                <td>
+                                    <asp:Label ID="lblArea" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pincode</td>
+                                <td>
+                                    <asp:Label ID="lblPincode" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Employment Status</td>
+                                <td>
+                                    <asp:Label ID="lblEmployeeStatus" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Job Type</td>
+                                <td>
+                                    <asp:Label ID="lblJobType" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PAN Number</td>
+                                <td>
+                                    <asp:Label ID="lblPanNumber" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </ContentTemplate>
+                </cc1:TabPanel>
+                <cc1:TabPanel ID="TabPanel2" runat="server" HeaderText="Personal Details">
+                    <ContentTemplate>
+                        <table>
+                            <tr>
+                                <td rowspan="6">Present Address</td>
+                                <td>Address</td>
+                                <td>
+                                    <asp:Label ID="lblPresentAddress" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td>
+                                    <asp:Label ID="lblPresentCountry" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>State</td>
+                                <td>
+                                    <asp:Label ID="lblPresentState" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td>
+                                    <asp:Label ID="lblPresentCity" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Area</td>
+                                <td>
+                                    <asp:Label ID="lblPresentArea" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Pincode</td>
+                                <td>
+                                    <asp:Label ID="lblPresentPincode" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="6">Permanent Address</td>
+                                <td>Address</td>
+                                <td>
+                                    <asp:Label ID="lblPermanentAddress" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td>
+                                    <asp:Label ID="lblPermanentCountry" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>State</td>
+                                <td>
+                                    <asp:Label ID="lblPermanentState" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td>
+                                    <asp:Label ID="lblPermanentCity" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Area</td>
+                                <td>
+                                    <asp:Label ID="lblPermanentArea" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Pincode</td>
+                                <td>
+                                    <asp:Label ID="lblPermanentPincode" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Date Of Birth</td>
+                                <td colspan="2">
+                                    <asp:Label ID="lblDateOfBirth" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Marital Status</td>
+                                <td colspan="2">
+                                    <asp:Label ID="lblMaritalState" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Passport Issue </td>
+                                <td>
+                                    <asp:Label ID="lblPassportIssue" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Passport Issued</td>
+                                <td>Passport No.</td>
+                                <td>
+                                    <asp:Label ID="lblPassportNo" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Passport Validity</td>
+                                <td>
+                                    <asp:Label ID="lblPassportValidity" runat="server"></asp:Label></td>
+                            </tr>
+                        </table>
+                    </ContentTemplate>
+                </cc1:TabPanel>
+                <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Conatact Details">
+                    <ContentTemplate>
+                           <table>
+                                    <tr>
+                                        <td>
+                                            <h2>Contact Details</h2>
+                                        </td>
+                                        <td>
+                                            <asp:LinkButton ID="lnkEditConacts" runat="server" OnClick="lnkEditConacts_Click">Edit</asp:LinkButton></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alternate Email ID</td>
+                                        <td>
+                                            <asp:Label ID="lblAltEmailId" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Alternate Mobile No</span></td>
+                                        <td>
+                                            <asp:Label ID="lblAltMobNo" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Landline No</span></td>
+                                        <td>
+                                            <asp:Label ID="lblLandLineNo" runat="server"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Whats App No</span></td>
+                                        <td>
+                                            <asp:Label ID="lblWhatsAppNo" runat="server"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>LinkedIn Profile Link</span></td>
+                                        <td>
+                                            <asp:Label ID="lblLinkIn" runat="server"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Facebook Profile Link</span></td>
+                                        <td>
+                                            <asp:Label ID="lblFacebook" runat="server"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Twitter Profile Link</span>&nbsp;</td>
+                                        <td>
+                                            <asp:Label ID="lblTwitter" runat="server"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>GTalk Profile ID</span></td>
+                                        <td>
+                                            <asp:Label ID="lblGtalk" runat="server"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Skype Profile ID</span></td>
+                                        <td>
+                                            <asp:Label ID="lblSkype" runat="server"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Google+ Profile Link</span></td>
+                                        <td>
+                                            <asp:Label ID="lblGooglePlus" runat="server"></asp:Label></td>
+                                    </tr>
+                                </table>
+                    </ContentTemplate>
+                </cc1:TabPanel>
+                <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="Professional Details">
+                    <ContentTemplate>
+                    </ContentTemplate>
+                </cc1:TabPanel>
+                <cc1:TabPanel ID="TabPanel5" runat="server" HeaderText="Affirmative Details">
+                    <ContentTemplate>
+                    </ContentTemplate>
+                </cc1:TabPanel>
+            </cc1:TabContainer>
         </div>
     </form>
 </body>
