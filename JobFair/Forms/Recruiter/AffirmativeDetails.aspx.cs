@@ -12,14 +12,14 @@ namespace JobFair.Forms.Recruiter
 {
     public partial class AffirmativeDetails : System.Web.UI.Page
     {
-        public int RecruiterId=2;
+        public int RecruiterId=3;
         public int UserType=2;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                RecruiterId = 2;
-                UserType = 2;
+                //RecruiterId = 3;
+                //UserType = 2;
                 BindLanguages();
             }
 
@@ -69,7 +69,7 @@ namespace JobFair.Forms.Recruiter
             AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
             AffirmativeDetailsREBAL affirmativeDetailsREBAL = new AffirmativeDetailsREBAL();
             //set the value of AffirmativeDetailsJSEntity
-           // affirmativeDetailsEntity.ID = RecruiterId;
+          
 
             // Set the value of LanguageEntity for first language
             LanguageEntity firstlanguageEntity = new LanguageEntity();
@@ -125,6 +125,7 @@ namespace JobFair.Forms.Recruiter
             affirmativeDetailsEntity.ExtraActivity = txtExtraActivity.Text.Trim();
             affirmativeDetailsEntity.USAPermit = string.Empty;
             affirmativeDetailsEntity.UserType = UserType;
+             affirmativeDetailsEntity.ID = RecruiterId;
             //if (rbtYesUSA.Checked)
             //    affirmativeDetailsEntity.USAPermit = "Yes";
             //else

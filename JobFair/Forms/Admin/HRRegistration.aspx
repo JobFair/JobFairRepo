@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RecruiterRegistration.aspx.cs" Inherits="JobFair.Forms.HR.RecruiterRegistration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HRRegistration.aspx.cs" Inherits="JobFair.Forms.Admin.HRRegistration" %>
 
 <!DOCTYPE html>
 
@@ -9,11 +9,12 @@
 <body>
     <form id="form1" runat="server">
     <div>
+    
     <table border="0">
     <tr>
         <td colspan="2" >
             <h1>
-                &nbsp;Recruiter Registration</h1>
+                &nbsp;HR Registration</h1>
             <p>
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
@@ -21,7 +22,7 @@
         </td>
     </tr>
     <tr>
-        <td >Recruiters Full Name</td>
+        <td >HR Full Name</td>
         <td>
             <asp:TextBox ID="txtFullName"  runat="server"></asp:TextBox>
            
@@ -33,12 +34,6 @@
             <asp:TextBox ID="txtCompany"  runat="server"></asp:TextBox>
         </td>
     </tr>
-        <tr>
-        <td >Official Contact No</td>
-        <td>
-                    <asp:TextBox ID="txtOfficialContact" runat="server"></asp:TextBox>
-        </td>
-        </tr>
     <tr>
         <td >Mobile No</td>
         <td>
@@ -48,24 +43,30 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter 10 digit mobile number" ValidationExpression="[0-9]{10}" ControlToValidate="txtMobNo">*</asp:RegularExpressionValidator>
         </td>
     </tr>
-        <tr>
+    <tr>
+        <td >Official Contact No</td>
+        <td>
+                    <asp:TextBox ID="txtOfficialContact" runat="server"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
         <td >Alternate Contact No</td>
         <td>
                     <asp:TextBox ID="txtAlternateContactNo" runat="server"></asp:TextBox>
         </td>
-        </tr>
+    </tr>
     <tr>
-        <td >Official Email Id</td>
+        <td >Official Email ID</td>
         <td>
             <asp:TextBox ID="txtOffEmailid" runat="server"></asp:TextBox>
         </td>
     </tr>
-        <tr>
+    <tr>
         <td >Personal Email ID</td>
         <td>
             <asp:TextBox ID="txtPersonalMailid" runat="server"></asp:TextBox>
         </td>
-        </tr>
+    </tr>
     <tr>
         <td >Freelance/Employee</td>
         <td>

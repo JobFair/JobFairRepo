@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.HR {
+namespace JobFair.Forms.Admin {
     
     
-    public partial class RecruiterRegistration {
+    public partial class HRRegistration {
         
         /// <summary>
         /// form1 control.
@@ -49,15 +49,6 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.TextBox txtCompany;
         
         /// <summary>
-        /// txtOfficialContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOfficialContact;
-        
-        /// <summary>
         /// ddlCountryCode control.
         /// </summary>
         /// <remarks>
@@ -83,6 +74,15 @@ namespace JobFair.Forms.HR {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
+        /// txtOfficialContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOfficialContact;
         
         /// <summary>
         /// txtAlternateContactNo control.
