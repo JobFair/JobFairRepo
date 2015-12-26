@@ -610,5 +610,17 @@ namespace JobFair.Forms.JobSeeker
         {
             Response.Redirect("WebForm1.aspx/PersonalDetails.ascx?isCheck=true");
         }
+
+        protected void lnkbtnAffirmativeEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm1.aspx/AffirmativeDetails.ascx?isCheck=true");
+        }
+
+        protected void lnkbtnRoleSkillsEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm1.aspx/AffirmativeDetails.ascx?isCheck=true");
+        }
+
+       
     }
 }

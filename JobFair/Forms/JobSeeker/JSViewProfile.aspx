@@ -69,7 +69,7 @@
         </div>--%>
 
     <div>
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="5" Width="900px">
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="3" Width="900px">
             <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Profile Summary">
                 <ContentTemplate>
                     <table>
@@ -349,10 +349,10 @@
                         </cc1:TabPanel>
                         <cc1:TabPanel ID="TabPanel9" runat="server" HeaderText="Affirmative Details">
                             <ContentTemplate>
-                                <table class="auto-style1">
+                                <table >
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td colspan="5">&nbsp;</td>
+                                        <td colspan="5"><asp:LinkButton ID="lnkbtnAffirmativeEdit" runat="server" OnClick="lnkbtnAffirmativeEdit_Click">Edit</asp:LinkButton></td>
                                     </tr>
                                     <tr>
                                         <td rowspan="4">Languages </td>
@@ -446,7 +446,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Professional Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer5" runat="server">
+                    <cc1:TabContainer ID="TabContainer5" runat="server" ActiveTabIndex="3" CssClass="">
                         <cc1:TabPanel ID="TabPanel15" runat="server" HeaderText="Professional Summary">
                             <ContentTemplate>
                                 <asp:Repeater ID="rptrProfessionalSummary" runat="server">
@@ -710,7 +710,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="Educational Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer4" runat="server">
+                    <cc1:TabContainer ID="TabContainer4" runat="server" ActiveTabIndex="1" CssClass="">
                         <cc1:TabPanel ID="TabPanel12" runat="server" HeaderText="Educational">
                             <ContentTemplate>
                                 <asp:Repeater ID="rptrEducationalDetails" runat="server"
@@ -898,12 +898,14 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel5" runat="server" HeaderText="Skill Sets">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer3" runat="server">
+                    <cc1:TabContainer ID="TabContainer3" runat="server" ActiveTabIndex="0" CssClass="">
                         <cc1:TabPanel ID="TabPanel10" runat="server" HeaderText="Role skills">
                             <ContentTemplate>
+                                <asp:LinkButton ID="lnkbtnRoleSkillsEdit" runat="server" OnClick="lnkbtnRoleSkillsEdit_Click">Edit</asp:LinkButton>
                                 <asp:Repeater ID="rptrRoleSkills" runat="server">
                                     <HeaderTemplate>
                                         <table width="500px" border="1px">
+                                            
                                             <tr style="background-color: #fb7700">
                                                 <td>Role Name</td>
                                                 <td>From Date</td>
