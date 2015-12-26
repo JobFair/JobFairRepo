@@ -114,5 +114,9 @@
         public static string sp_RE_UpdatePersonalDetails = "sp_RE_UpdatePersonalDetails";
         public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent";
         public static string sp_RE_ManageReponsesInActiveJobs = "sp_RE_ManageReponsesInActiveJobs";
+        public static string sp_AD_UpdateHrIsMailSent = "sp_AD_UpdateHrIsMailSent";
+        public static string sp_RE_InsertLanguageDetails = "sp_RE_InsertLanguageDetails";
+        public static string sp_RE_InsertOtherDetails = "sp_RE_InsertOtherDetails";
+
     }
 }
