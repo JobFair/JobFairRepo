@@ -446,9 +446,10 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Professional Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer5" runat="server" ActiveTabIndex="3" CssClass="">
+                    <cc1:TabContainer ID="TabContainer5" runat="server" ActiveTabIndex="1" CssClass="">
                         <cc1:TabPanel ID="TabPanel15" runat="server" HeaderText="Professional Summary">
                             <ContentTemplate>
+                                <asp:LinkButton ID="lnkbtnProfessionalSummary" runat="server" OnClick="lnkbtnProfessionalSummary_Click">Edit</asp:LinkButton>
                                 <asp:Repeater ID="rptrProfessionalSummary" runat="server">
                                     <HeaderTemplate>
                                         <table border="1px">
@@ -460,7 +461,6 @@
                                         <tr style="background-color: #ffffff">
                                             <td>
                                                 <table>
-
                                                     <tr>
                                                         <td>Resume Headline</td>
                                                         <td>
@@ -498,6 +498,7 @@
                         </cc1:TabPanel>
                         <cc1:TabPanel ID="TabPanel16" runat="server" HeaderText="Employer Details">
                             <ContentTemplate>
+                                <asp:LinkButton ID="lnkbtnEmployer" runat="server" OnClick="lnkbtnEmployer_Click">Edit</asp:LinkButton>
                                 <asp:Repeater ID="rptrEmployer" runat="server">
                                     <HeaderTemplate>
                                         <table border="1px">
@@ -533,12 +534,12 @@
                                                     <tr>
                                                         <td>Industry </td>
                                                         <td>
-                                                            <asp:Label ID="lblIndustry" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Industry") %>'></asp:Label></td>
+                                                            <asp:Label ID="lblIndustry" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "IndustryName") %>'></asp:Label></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Department </td>
                                                         <td>
-                                                            <asp:Label ID="lblDepartment" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Department")%>'></asp:Label></td>
+                                                            <asp:Label ID="lblDepartment" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "DepartmentName")%>'></asp:Label></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Employment Status </td>
@@ -550,11 +551,20 @@
                                                         <td>
                                                             <asp:Label ID="lblJobType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "JobType")%>'></asp:Label></td>
                                                     </tr>
-
+                                                     <tr>
+                                                        <td>Client Name</td>
+                                                        <td>
+                                                            <asp:Label ID="lblClientName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientName")%>'></asp:Label></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>Client Site </td>
+                                                        <td>
+                                                            <asp:Label ID="lblClientSite" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientSite")%>'></asp:Label></td>
+                                                    </tr>
                                                     <tr>
                                                         <td>Company Type</td>
                                                         <td>
-                                                            <asp:Label ID="lblCompanyType" Visible="false" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CompanyType")%>'></asp:Label></td>
+                                                            <asp:Label ID="lblCompanyType"  runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CompanyType")%>'></asp:Label></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Reason For JobChange</td>
@@ -573,6 +583,7 @@
                         </cc1:TabPanel>
                         <cc1:TabPanel ID="TabPanel17" runat="server" HeaderText="Desire Job Details">
                             <ContentTemplate>
+                                <asp:LinkButton ID="lnkbtnDesireJob" runat="server" OnClick="lnkbtnDesireJob_Click">Edit</asp:LinkButton>
                                 <asp:Repeater ID="rptrDesireJob" runat="server">
                                     <HeaderTemplate>
                                         <table border="1px">
@@ -660,6 +671,7 @@
                         </cc1:TabPanel>
                         <cc1:TabPanel ID="TabPanel18" runat="server" HeaderText="Desire Position">
                             <ContentTemplate>
+                                <asp:LinkButton ID="lnkbtnDesirePosition" runat="server" OnClick="lnkbtnDesirePosition_Click">Edit</asp:LinkButton>
                                 <asp:Repeater ID="rptrJobLookingFor" runat="server">
                                     <HeaderTemplate>
                                         <table border="1px">
@@ -710,8 +722,11 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="Educational Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer4" runat="server" ActiveTabIndex="1" CssClass="">
+                    <cc1:TabContainer ID="TabContainer4" runat="server" ActiveTabIndex="0" CssClass="">
                         <cc1:TabPanel ID="TabPanel12" runat="server" HeaderText="Educational">
+                            <HeaderTemplate>
+                                &nbsp; Educational
+                            </HeaderTemplate>
                             <ContentTemplate>
                                 <asp:Repeater ID="rptrEducationalDetails" runat="server"
                                     OnItemCommand="rptrEducationalDetails_ItemCommand">
@@ -973,6 +988,7 @@
                     </cc1:TabContainer>
                 </ContentTemplate>
             </cc1:TabPanel>
+            <%--<cc1:TabPanel ID="TabPanel6" runat="server" HeaderText="Project Details">--%>
             <cc1:TabPanel ID="TabPanel6" runat="server" HeaderText="Project Details">
                 <ContentTemplate>
                     <h4>

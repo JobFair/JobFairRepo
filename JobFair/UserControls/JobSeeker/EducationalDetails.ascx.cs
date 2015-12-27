@@ -29,7 +29,7 @@ namespace JobFair.UserControls.JobSeeker
                 {
                     //CheckAuthorised(candidateId);
                     candidateId = Convert.ToString(Session["candidateId"]);
-                    degreeId =Convert.ToInt32(Request.QueryString["dId"]);
+                    //degreeId =Convert.ToInt32(Request.QueryString["dId"]);
                     if (!IsPostBack)
                     {
                         try
@@ -42,12 +42,12 @@ namespace JobFair.UserControls.JobSeeker
                             }
                             if (isAddNewEducation)
                             {
-                                BtnAddNewEducation_Click(sender,e);
+                               // BtnAddNewEducation_Click(sender,e);
                             }
                         }
                         catch (Exception)
                         {
-                            // throw;
+                             throw;
                         }
                     }
                 }
@@ -276,11 +276,11 @@ namespace JobFair.UserControls.JobSeeker
                                 EducationalDetailsEntity bachelorDegreeDetails = new EducationalDetailsEntity();
                                 bachelorDegreeDetails.CandidateId = candidateId;
                                 bachelorDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
-                                //txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
-                                txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].DefaultView.RowFilter = "(Select MediumOfEducation where degreeId == 4);");
+                                txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                               // txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].DefaultView.RowFilter = "(Select MediumOfEducation where degreeId == 4);");
                                 string bdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblBDStat.Items.FindByValue(bdStatus).Selected = true;
-                                ddlBD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
+                                ddlBD.SelectedValue = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                 string bdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                 string[] bdFromYearSplit = bdFromYear.Split(new char[] { '/' });
@@ -324,7 +324,7 @@ namespace JobFair.UserControls.JobSeeker
                                     txtDualBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                     string dualbdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                     rblDualBDStat.Items.FindByValue(dualbdStatus).Selected = true;
-                                    ddlDualBD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
+                                    ddlDualBD.SelectedValue = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                     string dualbdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                     string[] dualbdFromYearSplit = dualbdFromYear.Split(new char[] { '/' });
@@ -555,7 +555,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -570,7 +570,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -585,7 +585,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -600,7 +600,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 
@@ -615,7 +615,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -630,7 +630,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 
@@ -645,7 +645,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -660,7 +660,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -675,7 +675,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                 throw;
             }
         }
 
@@ -690,7 +690,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -705,7 +705,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -720,7 +720,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -735,7 +735,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -750,7 +750,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -765,7 +765,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -780,7 +780,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -795,7 +795,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -810,7 +810,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -825,7 +825,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -854,7 +854,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 
@@ -879,7 +879,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -903,7 +903,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -927,7 +927,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -968,7 +968,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -996,7 +996,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1021,7 +1021,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1062,7 +1062,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 
@@ -1089,7 +1089,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 
@@ -1113,7 +1113,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1327,7 +1327,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 
@@ -1346,7 +1346,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 
@@ -1408,7 +1408,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1436,7 +1436,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1464,7 +1464,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1492,7 +1492,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1520,7 +1520,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1548,7 +1548,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1576,7 +1576,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1604,7 +1604,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1626,7 +1626,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1653,7 +1653,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
             // Checking item of dropdown
         }
@@ -1676,7 +1676,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1704,7 +1704,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1726,7 +1726,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1748,7 +1748,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1770,7 +1770,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                //  throw;
+                  throw;
             }
         }
 
@@ -1792,7 +1792,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1814,7 +1814,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
@@ -1836,7 +1836,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
 
