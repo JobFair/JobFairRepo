@@ -19,7 +19,7 @@ namespace DAL
         {
             DataSet ds = new DataSet();
             try
-            {
+            { 
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId),
                                            new SqlParameter("@userType",userType)};
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectContactDetails, sparams);
@@ -44,7 +44,7 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                              new SqlParameter("@candidateId",contactDetailsEntity.CandidateId),
+                                              new SqlParameter("@candidateId",contactDetailsEntity.Id),
                                               new SqlParameter("@altMobNo",contactDetailsEntity.AltMobileNo ),
                                               new SqlParameter("@landLineNo", contactDetailsEntity.LandLineNo),
                                               new SqlParameter("@whatsappNo",contactDetailsEntity.WhatsAppNo),
@@ -83,7 +83,7 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                              new SqlParameter("@candidateId",contactDetailsEntity.CandidateId),
+                                              new SqlParameter("@candidateId",contactDetailsEntity.Id),
                                               new SqlParameter("@altMobNo",contactDetailsEntity.AltMobileNo ),
                                               new SqlParameter("@landLine", contactDetailsEntity.LandLineNo),
                                               new SqlParameter("@whatsappNo",contactDetailsEntity.WhatsAppNo),

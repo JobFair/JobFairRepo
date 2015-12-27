@@ -1,5 +1,5 @@
 ﻿using BAL;
-using Entities.Recruiter;
+using Entities;
 using System;
 
 namespace JobFair.UserControls.Recruiter
@@ -14,11 +14,11 @@ namespace JobFair.UserControls.Recruiter
         {
             try
             {
-                ContactDetailsREBAL contactDetailsBAL = new ContactDetailsREBAL();
+                ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
                 ContactDetailsEntity contactDetailsEntity = new ContactDetailsEntity();
                 // Set the value of ContactDetailsJobSeekerEntity
 
-                contactDetailsEntity.RecruiterId = "1";
+                contactDetailsEntity.Id = "1";
                 contactDetailsEntity.AltMobileNo = txtAltNo.Text.Trim();
                 contactDetailsEntity.LandLineNo = txtLandno.Text.Trim();
                 contactDetailsEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();
@@ -29,6 +29,7 @@ namespace JobFair.UserControls.Recruiter
                 contactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                 contactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
                 contactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
+                contactDetailsEntity.UserType = 2;
                 int result = contactDetailsBAL.SaveContactDetailsBAL(contactDetailsEntity);
                 // Check result is greater than zero or not
                 if (result > 0)

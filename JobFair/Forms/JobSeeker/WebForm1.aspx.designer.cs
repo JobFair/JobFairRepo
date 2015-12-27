@@ -28,6 +28,6 @@ namespace JobFair.Forms.JobSeeker {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.ContactDetails ContactDetails;
+        protected global::JobFair.UserControls.Recruiter.ContactDetails ContactDetails;
     }
 }

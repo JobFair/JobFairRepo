@@ -13,19 +13,5 @@ namespace BAL
     {
 
 
-        public DataSet BindClientNameBAL(ManageResponsesEntity manageResponsesEntity)
-        {
-            try
-            {
-                ManageResponsesDAL manageResponsesDAL = new ManageResponsesDAL();
-                return manageResponsesDAL.BindClientNameDAL(manageResponsesEntity);
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-            
-        }
     }
 }
