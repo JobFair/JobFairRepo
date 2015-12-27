@@ -72,7 +72,7 @@ namespace BAL
         /// Load Client Name
         /// </summary>
         /// <returns></returns>
-        public DataSet GetClientNameDAL()
+        public DataSet GetClientNameBAL()
         {
             return Utility.GetClientName();
         }
@@ -89,12 +89,12 @@ namespace BAL
         /// <summary>
         /// Get Recruiter BAL
         /// </summary>
-        /// <param name="prefixText">prefixText</param>
-        /// <returns>datatable</returns>
-        public DataTable GetRecruiter(string prefixText)
+        /// <param name="HrId">HrId</param>
+        /// <returns>dataset</returns>
+        public DataSet GetRecruiterBAL(int HrId)
         {
             ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
-            return clientRequirementsHRDAL.GetRecruiter(prefixText);
+            return clientRequirementsHRDAL.GetRecruiterDAL(HrId);
         }
     }
 }

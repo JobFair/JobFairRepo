@@ -64,28 +64,32 @@ namespace DAL
         /// <summary>
         /// Get Recruiter DAL
         /// </summary>
-        /// <param name="prefixText">prefixText</param>
+        /// <param name="HrId">HrId</param>
         /// <returns>datatable</returns>
-        public DataTable GetRecruiter(string prefixText)
+        public DataSet GetRecruiterDAL(int HrId)
         {
-            DataTable dtRecruiter = new DataTable();
+            DataSet dsRecruiter = new DataSet();
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("select RecruiterID,RecruiterfullName from HR_RecruiterRegister  where RecruiterfullName like @RecruiterfullName+'%'", connection);
-                cmd.Parameters.AddWithValue("@RecruiterfullName", prefixText);
-                SqlDataAdapter adp = new SqlDataAdapter(cmd);
-                adp.Fill(dtRecruiter);
+                dsRecruiter = SqlHelper.ExecuteDataset(connection, CommandType.Text, "SELECT RecruiterID,RecruiterfullName FROM HR_RecruiterRegister WHERE HrId = 1");
+                //RecruiterfullName LIKE @RecruiterfullName+'%' AND 
+                
+                //SqlCommand cmd = new SqlCommand("select RecruiterID,RecruiterfullName from HR_RecruiterRegister  where RecruiterfullName like @RecruiterfullName+'%'", connection);
+                //cmd.Parameters.AddWithValue("@RecruiterfullName", prefixText);
+                //cmd.Parameters.AddWithValue("@RecruiterID", count);
+                //SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                //adp.Fill(dsRecruiter);
             }
             catch (Exception)
             {
-                // throw;
+                 //throw;
             }
             finally
             {
                 connection.Close();
             }
-            return dtRecruiter;
+            return dsRecruiter;
         }
     }
 }

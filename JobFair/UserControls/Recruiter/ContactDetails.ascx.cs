@@ -14,8 +14,10 @@ namespace JobFair.UserControls.Recruiter
         {
             try
             {
+                // Check if not is post back
                 if (!IsPostBack)
                 {
+                    // Check the isEdit is true for edit
                     if (isEdit)
                     {
                         BindContactDetails();
@@ -28,6 +30,9 @@ namespace JobFair.UserControls.Recruiter
             }
         }
 
+        /// <summary>
+        /// Bind contact details
+        /// </summary>
         private void BindContactDetails()
         {
             try
@@ -64,11 +69,17 @@ namespace JobFair.UserControls.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnSave control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if(isEdit)
+                // Check isEdit is true for update contact details
+                if (isEdit)
                 {
                     ContactDetailsREBAL contactDetailsBAL = new ContactDetailsREBAL();
                     ContactDetailsEntity contactDetailsEntity = new ContactDetailsEntity();
@@ -126,7 +137,6 @@ namespace JobFair.UserControls.Recruiter
                         Response.Write("<script language='javascript'>alert('Sorry')</script>");
                     }
                 }
-               
             }
             catch (Exception)
             {

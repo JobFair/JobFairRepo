@@ -125,11 +125,27 @@
             <tr>
                 <td><asp:Label ID="lblRecruiter" runat="server" Text=" Select the Recruiter " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtRecruiter" runat="server"></asp:TextBox>
-                   <%-- <ajax:AutoCompleteExtender ID="aceRecruiter" runat="server" TargetControlID="txtRecruiter" MinimumPrefixLength="1"
-                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRecruiter"></ajax:AutoCompleteExtender>--%>
+                    <asp:DropDownList ID="ddlRecruiter" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRecruiter_SelectedIndexChanged"></asp:DropDownList>
                 </td>
             </tr>
+            <tr>     
+                <asp:Panel ID="pnlRecruiter" runat="server" Visible="false" CssClass="pnlCSS"  style="width: 100%;">
+                <td>
+                    <asp:TextBox ID="txtRecruiterId" runat="server" ReadOnly="true"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtRecruiterName" runat="server" ReadOnly="true"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtNoRequirements" runat="server" ReadOnly="true"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtRating" runat="server" ReadOnly="true"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtNewRequirements" runat="server" ReadOnly="true"></asp:TextBox>
+                </td>
+                </asp:Panel>
             <tr>
                 <td colspan="2">
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit & E-Mail" CssClass="button" OnClick="btnSubmit_Click"/>
