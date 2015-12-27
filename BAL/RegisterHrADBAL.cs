@@ -3,51 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
+using CommonUtil;
 
 namespace BAL
 {
     public class RegisterHrADBAL
-    {
-       
-
-        public static string SaveNewRecruiterBAL(Entities.RegisterEntity registerEntity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static string SaveNewRecruiterBAL(Entities.Common.RegisterEntity registerEntity)
-        {
-            throw new NotImplementedException();
-        }
-
+    {   
         public System.Data.DataSet GetCountry()
         {
-            throw new NotImplementedException();
+            return Utility.GetCountry(); 
         }
 
         public string SaveNewHrBAL(Entities.Common.RegisterEntity registerEntity)
         {
-            throw new NotImplementedException();
+            RegisterHrADDAL registerHrADDAL = new RegisterHrADDAL();
+            return registerHrADDAL.SaveNewHrDAL(registerEntity);
         }
 
         public System.Data.DataSet GetState(int CountryId)
         {
-            throw new NotImplementedException();
+            return Utility.GetState(CountryId);
         }
 
         public System.Data.DataSet GetCity(int StateId)
         {
-            throw new NotImplementedException();
+            return Utility.GetCity(StateId);
         }
 
         public System.Data.DataSet GetArea(int cityId)
         {
-            throw new NotImplementedException();
+            return Utility.GetArea(cityId);
         }
 
         public System.Data.DataSet GetCountryCode()
         {
-            throw new NotImplementedException();
+            return Utility.GetCountryCode();
         }
     }
 }
