@@ -150,16 +150,20 @@ namespace CommonUtil
         /// <returns>dataset</returns>
         internal DataSet GetEducationalDegreeTypeDAL()
         {
-            DataSet ds = new DataSet();
+            DataSet dsEducationalDegreeType = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select * from JS_EducationDegreesType");
+                dsEducationalDegreeType = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select * from JS_EducationDegreesType");
             }
             catch (Exception)
             {
                 // throw ;
             }
-            return ds;
+            finally
+            {
+                connection.Close();
+            }
+            return dsEducationalDegreeType;
         }
 
         /// <summary>
@@ -199,93 +203,26 @@ namespace CommonUtil
         }
 
         /// <summary>
-        /// Get Under Graduate Diploma Details
+        /// Get Degree Details
         /// </summary>
         /// <returns>dataset</returns>
-        internal DataSet GetUnderGraduateDiplomaDAL()
+        internal DataSet GetDegreeDetailsDAL(int DegreeId)
         {
-            DataSet ds = new DataSet();
+            DataSet dsDegreeDetails = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_UnderGraduateDiploma");
+                SqlParameter[] sqlparams = { new SqlParameter("@degreeId", DegreeId) };
+                dsDegreeDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_SelectDegreeDetails, sqlparams);
             }
             catch (Exception)
             {
                 //throw ;
             }
-            return ds;
-        }
-
-        /// <summary>
-        /// Get Bachelor Degree Details
-        /// </summary>
-        /// <returns>dataset</returns>
-        internal DataSet GetBachelorDegreeDAL()
-        {
-            DataSet ds = new DataSet();
-            try
+            finally
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_BachelorDegree");
+                connection.Close();
             }
-            catch (Exception)
-            {
-                // throw ;
-            }
-            return ds;
-        }
-
-        /// <summary>
-        /// Get Post Graduate Diploma Details
-        /// </summary>
-        /// <returns>dataset</returns>
-        internal DataSet GetPostGraduateDiplomaDAL()
-        {
-            DataSet ds = new DataSet();
-            try
-            {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_PostGraduateDiploma");
-            }
-            catch (Exception)
-            {
-                // throw;
-            }
-            return ds;
-        }
-
-        /// <summary>
-        /// Get Master Degree Details
-        /// </summary>
-        /// <returns>dataset</returns>
-        internal DataSet GetMasterDegreeDAL()
-        {
-            DataSet ds = new DataSet();
-            try
-            {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_MasterDegree");
-            }
-            catch (Exception)
-            {
-                // throw ;
-            }
-            return ds;
-        }
-
-        /// <summary>
-        /// Get Doctor Of Philosophy Details
-        /// </summary>
-        /// <returns>dataset</returns>
-        internal DataSet GetDoctorOfPhilosophyDAL()
-        {
-            DataSet ds = new DataSet();
-            try
-            {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_PHD");
-            }
-            catch (Exception)
-            {
-                //throw ;
-            }
-            return ds;
+            return dsDegreeDetails;
         }
 
         /// <summary>

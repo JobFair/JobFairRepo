@@ -24,15 +24,15 @@ namespace BAL
 
 
 
-        public static object GetUnderGraduateDiplomaBAL()
-        {
-            return Utility.GetUnderGraduateDiplomaDAL();
-        }
+        //public static object GetUnderGraduateDiplomaBAL()
+        //{
+        //    return Utility.GetUnderGraduateDiplomaDAL();
+        //}
 
-        public static object GetMasterDegreeBAL()
-        {
-            return Utility.GetMasterDegreeDAL();
-        }
+        //public static object GetMasterDegreeBAL()
+        //{
+        //    return Utility.GetMasterDegreeDAL();
+        //}
 
         public static object GetDepartment()
         {

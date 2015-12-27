@@ -27,10 +27,10 @@ namespace BAL
            /// </summary>
            /// <param name="edEntity">The Educational Details entity.</param>
            /// <returns>System.Int32.</returns>
-           public DataSet ViewEducationalDetailsBAL(string candidateId)
+           public DataSet ViewEducationalDetailsBAL(string candidateId,int DegreeId)
            {
                EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
-               return educationalDetailsDAL.ViewEducationalDetailsDAL(candidateId);
+               return educationalDetailsDAL.ViewEducationalDetailsDAL(candidateId, DegreeId);
            }
             /// <summary>
             /// Updating Educational Deatils JobSeeker.
@@ -50,45 +50,14 @@ namespace BAL
            {
                return Utility.GetEducationalDegreeTypeDAL();
            }
+          
            /// <summary>
-           /// Load Under Graduate Diploma
+           /// Load Degree Details
            /// </summary>
            /// <returns></returns>
-           public DataSet GetUnderGraduateDiplomaBAL()
+           public DataSet GetDegreeDetailsBAL(int DegreeId)
            {
-               return Utility.GetUnderGraduateDiplomaDAL();
-           }
-           /// <summary>
-           /// Load Bachelor Degree
-           /// </summary>
-           /// <returns></returns>
-           public DataSet GetBachelorDegreeBAL()
-           {
-               return Utility.GetBachelorDegreeDAL();
-           }
-           /// <summary>
-           /// Load Post Graduate Diploma
-           /// </summary>
-           /// <returns></returns>
-           public DataSet GetPostGraduateDiplomaBAL()
-           {
-               return Utility.GetPostGraduateDiplomaDAL();
-           }
-           /// <summary>
-           /// Load Master Degree
-           /// </summary>
-           /// <returns></returns>
-           public DataSet GetMasterDegreeBAL()
-           {
-               return Utility.GetMasterDegreeDAL();
-           }
-           /// <summary>
-           /// Load Doctor Of Philosophy
-           /// </summary>
-           /// <returns></returns>
-           public DataSet GetDoctorOfPhilosophyBAL()
-           {
-               return Utility.GetDoctorOfPhilosophyDAL();
+               return Utility.GetDegreeDetails(DegreeId);
            }
            /// <summary>
            /// To add functional area method in EducationalDetailsBAL class
@@ -130,10 +99,10 @@ namespace BAL
            /// To add DoctorOfPhilosophy method in EducationalDetailsBAL class
            /// </summary>
            /// <param name="educationalDetailsEntity">Object of EducationalDetailsEntity </param>
-           public void AddDoctorOfPhilosophyBAL(Entities.JobSeeker.EducationalDetailsEntity educationalDetailsEntity)
+           public void AddPHDBAL(Entities.JobSeeker.EducationalDetailsEntity educationalDetailsEntity)
            {
                EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
-               educationalDetailsDAL.AddDoctorOfPhilosophyDAL(educationalDetailsEntity);
+               educationalDetailsDAL.AddPHDDAL(educationalDetailsEntity);
            }
        }
     }

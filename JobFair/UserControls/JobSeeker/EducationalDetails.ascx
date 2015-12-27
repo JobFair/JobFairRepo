@@ -215,87 +215,91 @@
     <asp:Panel ID="pnlCollapsableDip" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblDipHead" runat="server" Text=" UG Diploma Details" CssClass="label"></asp:Label>
-            <br />
-            <br />
-            <tr>
-                <td>
-                    <asp:Label ID="lblDipMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtDipMedium" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvDipMedium" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtDipMedium" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblDipStat" runat="server" CssClass="label" Text="Status"></asp:Label>
-                </td>
-                <td>
-                    <asp:RadioButtonList ID="rblDipStat" runat="server" CssClass="MultipleSelectionDDL" RepeatDirection="Horizontal" Width="100px">
-                        <asp:ListItem>Appeared</asp:ListItem>
-                        <asp:ListItem>Completed</asp:ListItem>
-                    </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="rfvDipStat" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rblDipStat" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblDipSpecialization" runat="server" CssClass="label" Text="Specialization"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList ID="ddlDip" runat="server" AutoPostBack="True" Height="16px" OnSelectedIndexChanged="ddlDip_SelectedIndexChanged" Width="100px">
-                    </asp:DropDownList>
-                    <br />
-                    <asp:TextBox ID="txtDipAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
-                    <asp:Button ID="btnDipAdd" runat="server" OnClick="btnDipAdd_Click" Text="Add" Visible="False" CssClass="button" />
-                    <asp:RequiredFieldValidator ID="rfvDipSpecialization" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlDip" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-             <tr>
-                <td>
-                    <asp:Label ID="lblDipYearFrom" runat="server" Text="From" CssClass="label"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList ID="ddlDipMonthFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
-                    <asp:DropDownList ID="ddlDipYearFrom" runat="server" AutoPostBack="true"></asp:DropDownList>
-                </td>
-
-                 <td>
-                    <asp:Label ID="lblDipYearTo" runat="server" Text="To" CssClass="label"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList ID="ddlDipMonthTo" runat="server" AutoPostBack="true"></asp:DropDownList>
-                    <asp:DropDownList ID="ddlDipYearTo" runat="server" AutoPostBack="true"></asp:DropDownList>
-                </td>
-            </tr>
-             <tr>
-                <td>
-                    <asp:Label ID="lblDipCollege" runat="server" CssClass="label" Text="College"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtDipCollege" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvDipCollege" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtDipCollege" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblDipUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtDipUniversity" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvDipUniversity" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtDipUniversity" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblDipPercentage" runat="server" CssClass="label" Text="Percentage"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtDipPercentage" runat="server" Width="100px" onblur="return CheckIsNum(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvDipPercentage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtDipPercentage" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                    <%--<asp:RangeValidator ID="rvDipPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtDipPercentage"></asp:RangeValidator>--%>
-                </td>
-            </tr>
+            <caption>
+                <br />
+                <br />
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDipMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDipMedium" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvDipMedium" runat="server" ControlToValidate="txtDipMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDipStat" runat="server" CssClass="label" Text="Status"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:RadioButtonList ID="rblDipStat" runat="server" CssClass="MultipleSelectionDDL" RepeatDirection="Horizontal" Width="100px">
+                            <asp:ListItem>Appeared</asp:ListItem>
+                            <asp:ListItem>Completed</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <asp:RequiredFieldValidator ID="rfvDipStat" runat="server" ControlToValidate="rblDipStat" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDipSpecialization" runat="server" CssClass="label" Text="Specialization"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlDip" runat="server" AutoPostBack="True" Height="16px" OnSelectedIndexChanged="ddlDip_SelectedIndexChanged" Width="100px">
+                        </asp:DropDownList>
+                        <br />
+                        <asp:TextBox ID="txtDipAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
+                        <asp:Button ID="btnDipAdd" runat="server" CssClass="button" OnClick="btnDipAdd_Click" Text="Add" Visible="False" />
+                        <asp:RequiredFieldValidator ID="rfvDipSpecialization" runat="server" ControlToValidate="ddlDip" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDipYearFrom" runat="server" CssClass="label" Text="From"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlDipMonthFrom" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                        <asp:DropDownList ID="ddlDipYearFrom" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblDipYearTo" runat="server" CssClass="label" Text="To"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlDipMonthTo" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                        <asp:DropDownList ID="ddlDipYearTo" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDipCollege" runat="server" CssClass="label" Text="College"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDipCollege" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvDipCollege" runat="server" ControlToValidate="txtDipCollege" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDipUniversity" runat="server" CssClass="label" Text="University"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDipUniversity" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvDipUniversity" runat="server" ControlToValidate="txtDipUniversity" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDipPercentage" runat="server" CssClass="label" Text="Percentage"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDipPercentage" runat="server" onblur="return CheckIsNum(this.id);" Width="100px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvDipPercentage" runat="server" ControlToValidate="txtDipPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                        <%--<asp:RangeValidator ID="rvDipPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtDipPercentage"></asp:RangeValidator>--%></td>
+                </tr>
+            </caption>
         </table>
         <asp:Button ID="btnDipUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnDipUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
@@ -847,7 +851,7 @@
 </div>
     <br />
     <br />
-    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" ValidationGroup="vgEducationalDetails" Visible="false" CssClass="button"  style="margin-top: 10px; margin-left: 450px"/>
+    <asp:Button ID="BtnSubmit" runat="server" Text="Submit" OnClick="BtnSubmit_Click" Visible="false" CssClass="button"  style="margin-top: 10px; margin-left: 450px"/>
     <asp:Button ID="BtnAddNewEducation" runat="server" Text="Add New Education" ValidationGroup="vgEducationalDetails" Visible="false" CssClass="button"  style="margin-top: 10px; margin-left: 450px" OnClick="BtnAddNewEducation_Click"/>
     <br />
     <br />

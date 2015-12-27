@@ -16,7 +16,7 @@ namespace JobFair.UserControls.JobSeeker
         private string candidateId;
         private bool isEdit = true;
         private bool isAddNewEducation = false;
-        private int degreeId = 4;
+        private int degreeId;
 
         private EducationalDetailsBAL educationalDetails = null;
 
@@ -29,7 +29,7 @@ namespace JobFair.UserControls.JobSeeker
                 {
                     //CheckAuthorised(candidateId);
                     candidateId = Convert.ToString(Session["candidateId"]);
-                    //degreeId =Convert.ToInt32(Request.QueryString["dId"]);
+                    
                     if (!IsPostBack)
                     {
                         try
@@ -38,16 +38,17 @@ namespace JobFair.UserControls.JobSeeker
                             
                             if (isEdit)
                             {
+                                degreeId =Convert.ToInt32(Request.QueryString["dId"]);
                                 BindEducationalDetails();
                             }
                             if (isAddNewEducation)
                             {
-                               // BtnAddNewEducation_Click(sender,e);
+                                //BtnAddNewEducation_Click(sender,e);
                             }
                         }
                         catch (Exception)
                         {
-                             throw;
+                            // throw;
                         }
                     }
                 }
@@ -117,7 +118,7 @@ namespace JobFair.UserControls.JobSeeker
 
                 DataSet dsEducationalDetails = new DataSet();
 
-                dsEducationalDetails = educationalDetails.ViewEducationalDetailsBAL(candidateId);
+                dsEducationalDetails = educationalDetails.ViewEducationalDetailsBAL(candidateId, degreeId);
                 if (dsEducationalDetails != null)
                 {
                    // var listofDegrees = Convert.ToString(degreeIdS);
@@ -135,12 +136,12 @@ namespace JobFair.UserControls.JobSeeker
                                 //ddlHQ.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["HighestQualificationId"]);
                                 //dsEducationalDetails = educationalDetails.UpdateEducationalDetailsBAL(CandidateId);
                                 sscDetails.DegreeId = Convert.ToInt32(degreeId); ;
-                               // txtSSCMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                                txtSSCMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                 //txtSSCMedium.Text = (from DataRow row in dsEducationalDetails.Tables[0].Rows from ["MediumOfEducation"] in row.MediumOfEducation where degreeId == "1" select row);
-                                txtSSCMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].DefaultView.RowFilter = "(Select MediumOfEducation  where degreeId == 1);");
+                                //txtSSCMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].DefaultView.RowFilter = "(Select MediumOfEducation  where degreeId == 1);");
                                 string sscStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblSSCStat.Items.FindByValue(sscStatus).Selected = true;
-                                sscDetails.Specialization = "Null";
+                                sscDetails.SpecializationId = 0;
 
                                 string sscFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                 string[] sscFromYearSplit = sscFromYear.Split(new char[] { '/' });
@@ -187,7 +188,7 @@ namespace JobFair.UserControls.JobSeeker
                                 txtHSCMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                 string hscStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblHSCStat.Items.FindByValue(hscStatus).Selected = true;
-                                ddlHSC.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
+                                ddlHSC.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                 string hscFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                 string[] hscFromYearSplit = hscFromYear.Split(new char[] { '/' });
@@ -233,7 +234,7 @@ namespace JobFair.UserControls.JobSeeker
                                 txtDipMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                 string ugdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblDipStat.Items.FindByValue(ugdStatus).Selected = true;
-                                ddlDip.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
+                                ddlDip.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                 string ugdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                 string[] ugdFromYearSplit = ugdFromYear.Split(new char[] { '/' });
@@ -276,11 +277,11 @@ namespace JobFair.UserControls.JobSeeker
                                 EducationalDetailsEntity bachelorDegreeDetails = new EducationalDetailsEntity();
                                 bachelorDegreeDetails.CandidateId = candidateId;
                                 bachelorDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
-                                txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
-                               // txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].DefaultView.RowFilter = "(Select MediumOfEducation where degreeId == 4);");
+                                //txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                                txtBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].DefaultView.RowFilter = "(Select MediumOfEducation where degreeId == 4);");
                                 string bdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblBDStat.Items.FindByValue(bdStatus).Selected = true;
-                                ddlBD.SelectedValue = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
+                                ddlBD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                 string bdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                 string[] bdFromYearSplit = bdFromYear.Split(new char[] { '/' });
@@ -324,7 +325,7 @@ namespace JobFair.UserControls.JobSeeker
                                     txtDualBDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                     string dualbdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                     rblDualBDStat.Items.FindByValue(dualbdStatus).Selected = true;
-                                    ddlDualBD.SelectedValue = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
+                                    ddlDualBD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                     string dualbdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                     string[] dualbdFromYearSplit = dualbdFromYear.Split(new char[] { '/' });
@@ -372,7 +373,7 @@ namespace JobFair.UserControls.JobSeeker
                                 txtPgdMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                 string pgdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblPgdStat.Items.FindByValue(pgdStatus).Selected = true;
-                                ddlPgd.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
+                                ddlPgd.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                 string pgdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                 string[] pgdFromYearSplit = pgdFromYear.Split(new char[] { '/' });
@@ -418,7 +419,7 @@ namespace JobFair.UserControls.JobSeeker
                                 txtMDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                 string mdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblMDStat.Items.FindByValue(mdStatus).Selected = true;
-                                ddlMD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
+                                ddlMD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                 string mdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                 string[] mdFromYearSplit = mdFromYear.Split(new char[] { '/' });
@@ -461,7 +462,7 @@ namespace JobFair.UserControls.JobSeeker
                                     txtDualMDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                     string dualmdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                     rblDualMDStat.Items.FindByValue(dualmdStatus).Selected = true;
-                                    ddlDualMD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
+                                    ddlDualMD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                     string dualmdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                     string[] dualmdFromYearSplit = dualmdFromYear.Split(new char[] { '/' });
@@ -509,7 +510,7 @@ namespace JobFair.UserControls.JobSeeker
                                 txtPHDMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
                                 string phdStatus = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                                 rblPHDStat.Items.FindByValue(phdStatus).Selected = true;
-                                ddlPHD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Specialization"]);
+                                ddlPHD.SelectedItem.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
 
                                 string phdFromYear = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["FromYear"]); ;
                                 string[] phdFromYearSplit = phdFromYear.Split(new char[] { '/' });
@@ -545,9 +546,9 @@ namespace JobFair.UserControls.JobSeeker
                                 btnPHDUpdate.Visible = true;
                                 break;
 
-                            //default:
+                            default:
                                // BtnAddNewEducation.Visible = true;
-                              //  break;
+                                break;
                         }
                     }
                 }
@@ -555,7 +556,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -570,7 +571,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -585,7 +586,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -600,7 +601,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                  throw;
+                //  throw;
             }
         }
 
@@ -615,7 +616,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -630,7 +631,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                  throw;
+                //  throw;
             }
         }
 
@@ -645,7 +646,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -660,7 +661,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -675,7 +676,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                //  throw;
             }
         }
 
@@ -690,7 +691,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -705,7 +706,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -720,7 +721,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -735,7 +736,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -750,7 +751,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -765,7 +766,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -780,7 +781,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -795,7 +796,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -810,7 +811,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -825,7 +826,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -854,7 +855,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                  throw;
+                //  throw;
             }
         }
 
@@ -867,7 +868,7 @@ namespace JobFair.UserControls.JobSeeker
                 sscDetails.CandidateId = candidateId;
                 sscDetails.DegreeId = Convert.ToInt32(degreeId); ;
                 sscDetails.MediumOfEducation = txtSSCMedium.Text.Trim();
-                sscDetails.Specialization = "Null";
+                sscDetails.SpecializationId = 0;
                 sscDetails.Status = rblSSCStat.SelectedValue.Trim();
                 sscDetails.FromYear = ddlSSCMonthFrom.Text + '/' + ddlSSCYearFrom.Text;
                 sscDetails.ToYear = ddlSSCMonthTo.Text + '/' + ddlSSCYearTo.Text;
@@ -879,7 +880,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -891,7 +892,7 @@ namespace JobFair.UserControls.JobSeeker
                 hscDetails.CandidateId = candidateId;
                 hscDetails.DegreeId = Convert.ToInt32(degreeId);
                 hscDetails.MediumOfEducation = txtHSCMedium.Text.Trim();
-                hscDetails.Specialization = ddlHSC.SelectedValue.Trim();
+                hscDetails.SpecializationId = Convert.ToInt32(ddlHSC.SelectedValue.Trim());
                 hscDetails.Status = rblHSCStat.SelectedValue.Trim();
                 hscDetails.FromYear = ddlHSCMonthFrom.Text + '/' + ddlHSCYearFrom.Text;
                 hscDetails.ToYear = ddlHSCMonthTo.Text + '/' + ddlHSCYearTo.Text;
@@ -903,7 +904,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -915,7 +916,7 @@ namespace JobFair.UserControls.JobSeeker
                 ugDiplomaDetails.CandidateId = candidateId;
                 ugDiplomaDetails.DegreeId = Convert.ToInt32(degreeId);
                 ugDiplomaDetails.MediumOfEducation = txtDipMedium.Text.Trim();
-                ugDiplomaDetails.Specialization = ddlDip.SelectedValue.Trim();
+                ugDiplomaDetails.SpecializationId = Convert.ToInt32(ddlDip.SelectedValue.Trim());
                 ugDiplomaDetails.Status = rblDipStat.SelectedValue.Trim();
                 ugDiplomaDetails.FromYear = ddlDipMonthFrom.Text + '/' + ddlDipYearFrom.Text;
                 ugDiplomaDetails.ToYear = ddlDipMonthTo.Text + '/' + ddlDipYearTo.Text;
@@ -927,7 +928,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -940,7 +941,7 @@ namespace JobFair.UserControls.JobSeeker
                 bachelorDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
                 bachelorDegreeDetails.MediumOfEducation = txtBDMedium.Text.Trim();
                 bachelorDegreeDetails.Status = rblBDStat.SelectedValue.Trim();
-                bachelorDegreeDetails.Specialization = ddlBD.SelectedValue.Trim();
+                bachelorDegreeDetails.SpecializationId = Convert.ToInt32(ddlBD.SelectedValue.Trim());
                 bachelorDegreeDetails.FromYear = ddlBDMonthFrom.Text + '/' + ddlBDYearFrom.Text;
                 bachelorDegreeDetails.ToYear = ddlBDMonthTo.Text + '/' + ddlBDYearTo.Text;
                 bachelorDegreeDetails.College = txtBDCollege.Text.Trim();
@@ -956,7 +957,7 @@ namespace JobFair.UserControls.JobSeeker
                     dualBachelorDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
                     dualBachelorDegreeDetails.MediumOfEducation = txtDualBDMedium.Text.Trim();
                     dualBachelorDegreeDetails.Status = rblDualBDStat.SelectedValue.Trim();
-                    dualBachelorDegreeDetails.Specialization = ddlDualBD.SelectedValue.Trim();
+                    dualBachelorDegreeDetails.SpecializationId = Convert.ToInt32(ddlDualBD.SelectedValue.Trim());
                     dualBachelorDegreeDetails.FromYear = ddlDualBDMonthFrom.Text + '/' + ddlDualBDYearFrom.Text;
                     dualBachelorDegreeDetails.ToYear = ddlDualBDMonthTo.Text + '/' + ddlDualBDYearTo.Text;
                     dualBachelorDegreeDetails.College = txtDualBDCollege.Text.Trim();
@@ -968,7 +969,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -984,7 +985,7 @@ namespace JobFair.UserControls.JobSeeker
                     dualBachelorDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
                     dualBachelorDegreeDetails.MediumOfEducation = txtDualBDMedium.Text.Trim();
                     dualBachelorDegreeDetails.Status = rblDualBDStat.SelectedValue.Trim();
-                    dualBachelorDegreeDetails.Specialization = ddlDualBD.SelectedValue.Trim();
+                    dualBachelorDegreeDetails.SpecializationId = Convert.ToInt32(ddlDualBD.SelectedValue.Trim());
                     dualBachelorDegreeDetails.FromYear = ddlDualBDMonthFrom.Text + '/' + ddlDualBDYearFrom.Text;
                     dualBachelorDegreeDetails.ToYear = ddlDualBDMonthTo.Text + '/' + ddlDualBDYearTo.Text;
                     dualBachelorDegreeDetails.College = txtDualBDCollege.Text.Trim();
@@ -996,7 +997,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1010,7 +1011,7 @@ namespace JobFair.UserControls.JobSeeker
                 pgDiplomaDetails.DegreeId = Convert.ToInt32(degreeId);
                 pgDiplomaDetails.MediumOfEducation = txtPgdMedium.Text.Trim();
                 pgDiplomaDetails.Status = rblPgdStat.SelectedValue.Trim();
-                pgDiplomaDetails.Specialization = ddlPgd.SelectedValue.Trim();
+                pgDiplomaDetails.SpecializationId = Convert.ToInt32(ddlPgd.SelectedValue.Trim());
                 pgDiplomaDetails.FromYear = ddlPgdMonthFrom.Text + '/' + ddlPgdYearFrom.Text;
                 pgDiplomaDetails.ToYear = ddlPgdMonthTo.Text + '/' + ddlPgdYearTo.Text;
                 pgDiplomaDetails.College = txtPgdCollege.Text.Trim();
@@ -1021,7 +1022,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1033,7 +1034,7 @@ namespace JobFair.UserControls.JobSeeker
                 masterDegreeDetails.CandidateId = candidateId;
                 masterDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
                 masterDegreeDetails.MediumOfEducation = txtMDMedium.Text.Trim();
-                masterDegreeDetails.Specialization = ddlMD.SelectedValue.Trim();
+                masterDegreeDetails.SpecializationId = Convert.ToInt32(ddlMD.SelectedValue.Trim());
                 masterDegreeDetails.Status = rblMDStat.SelectedValue.Trim();
                 masterDegreeDetails.FromYear = ddlMDMonthFrom.Text + '/' + ddlMDYearFrom.Text;
                 masterDegreeDetails.ToYear = ddlMDMonthTo.Text + '/' + ddlMDYearTo.Text;
@@ -1049,7 +1050,7 @@ namespace JobFair.UserControls.JobSeeker
                     dualMasterDegreeDetails.CandidateId = candidateId;
                     dualMasterDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
                     dualMasterDegreeDetails.MediumOfEducation = txtDualMDMedium.Text.Trim();
-                    dualMasterDegreeDetails.Specialization = ddlDualMD.SelectedValue.Trim();
+                    dualMasterDegreeDetails.SpecializationId = Convert.ToInt32(ddlDualMD.SelectedValue.Trim());
                     dualMasterDegreeDetails.Status = rblDualMDStat.SelectedValue.Trim();
                     dualMasterDegreeDetails.FromYear = ddlDualMDMonthFrom.Text + '/' + ddlDualMDYearFrom.Text;
                     dualMasterDegreeDetails.ToYear = ddlDualMDMonthTo.Text + '/' + ddlDualMDYearTo.Text;
@@ -1062,7 +1063,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                  throw;
+                //  throw;
             }
         }
 
@@ -1076,7 +1077,7 @@ namespace JobFair.UserControls.JobSeeker
                     dualMasterDegreeDetails.CandidateId = candidateId;
                     dualMasterDegreeDetails.DegreeId = Convert.ToInt32(degreeId);
                     dualMasterDegreeDetails.MediumOfEducation = txtDualMDMedium.Text.Trim();
-                    dualMasterDegreeDetails.Specialization = ddlDualMD.SelectedValue.Trim();
+                    dualMasterDegreeDetails.SpecializationId = Convert.ToInt32(ddlDualMD.SelectedValue.Trim());
                     dualMasterDegreeDetails.Status = rblDualMDStat.SelectedValue.Trim();
                     dualMasterDegreeDetails.FromYear = ddlDualMDMonthFrom.Text + '/' + ddlDualMDYearFrom.Text;
                     dualMasterDegreeDetails.ToYear = ddlDualMDMonthTo.Text + '/' + ddlDualMDYearTo.Text;
@@ -1089,7 +1090,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                  throw;
+                //  throw;
             }
         }
 
@@ -1101,7 +1102,7 @@ namespace JobFair.UserControls.JobSeeker
                 phdDetails.CandidateId = candidateId;
                 phdDetails.DegreeId = Convert.ToInt32(degreeId);
                 phdDetails.MediumOfEducation = txtPHDMedium.Text.Trim();
-                phdDetails.Specialization = ddlPHD.SelectedValue.Trim();
+                phdDetails.SpecializationId = Convert.ToInt32(ddlPHD.SelectedValue.Trim());
                 phdDetails.Status = rblPHDStat.SelectedValue.Trim();
                 phdDetails.FromYear = ddlPHDMonthFrom.Text + '/' + ddlPHDYearFrom.Text;
                 phdDetails.ToYear = ddlPHDMonthTo.Text + '/' + ddlPHDYearTo.Text;
@@ -1113,7 +1114,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1141,7 +1142,7 @@ namespace JobFair.UserControls.JobSeeker
                             sscDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             sscDetails.DegreeId = Convert.ToInt32(item.Value);
                             sscDetails.MediumOfEducation = txtSSCMedium.Text.Trim();
-                            sscDetails.Specialization = "Null";
+                            sscDetails.SpecializationId = 0;
                             sscDetails.Status = rblSSCStat.SelectedValue.Trim();
                             sscDetails.FromYear = ddlSSCMonthFrom.Text + '/' + ddlSSCYearFrom.Text;
                             sscDetails.ToYear = ddlSSCMonthTo.Text + '/' + ddlSSCYearTo.Text;
@@ -1158,7 +1159,7 @@ namespace JobFair.UserControls.JobSeeker
                             hscDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             hscDetails.DegreeId = Convert.ToInt32(item.Value);
                             hscDetails.MediumOfEducation = txtHSCMedium.Text.Trim();
-                            hscDetails.Specialization = ddlHSC.SelectedValue.Trim();
+                            hscDetails.SpecializationId = Convert.ToInt32(ddlHSC.SelectedValue.Trim());
                             hscDetails.Status = rblHSCStat.SelectedValue.Trim();
                             hscDetails.FromYear = ddlHSCMonthFrom.Text + '/' + ddlHSCYearFrom.Text;
                             hscDetails.ToYear = ddlHSCMonthTo.Text + '/' + ddlHSCYearTo.Text;
@@ -1175,7 +1176,7 @@ namespace JobFair.UserControls.JobSeeker
                             ugDiplomaDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             ugDiplomaDetails.DegreeId = Convert.ToInt32(item.Value);
                             ugDiplomaDetails.MediumOfEducation = txtDipMedium.Text.Trim();
-                            ugDiplomaDetails.Specialization = ddlDip.SelectedValue.Trim();
+                            ugDiplomaDetails.SpecializationId = Convert.ToInt32(ddlDip.SelectedValue.Trim());
                             ugDiplomaDetails.Status = rblDipStat.SelectedValue.Trim();
                             ugDiplomaDetails.FromYear = ddlDipMonthFrom.Text + '/' + ddlDipYearFrom.Text;
                             ugDiplomaDetails.ToYear = ddlDipMonthTo.Text + '/' + ddlDipYearTo.Text;
@@ -1193,7 +1194,7 @@ namespace JobFair.UserControls.JobSeeker
                             bachelorDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
                             bachelorDegreeDetails.MediumOfEducation = txtBDMedium.Text.Trim();
                             bachelorDegreeDetails.Status = rblBDStat.SelectedValue.Trim();
-                            bachelorDegreeDetails.Specialization = ddlBD.SelectedValue.Trim();
+                            bachelorDegreeDetails.SpecializationId = Convert.ToInt32(ddlBD.SelectedValue.Trim());
                             bachelorDegreeDetails.FromYear = ddlBDMonthFrom.Text + '/' + ddlBDYearFrom.Text;
                             bachelorDegreeDetails.ToYear = ddlBDMonthTo.Text + '/' + ddlBDYearTo.Text;
                             bachelorDegreeDetails.College = txtBDCollege.Text.Trim();
@@ -1210,7 +1211,7 @@ namespace JobFair.UserControls.JobSeeker
                                 dualBachelorDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
                                 dualBachelorDegreeDetails.MediumOfEducation = txtDualBDMedium.Text.Trim();
                                 dualBachelorDegreeDetails.Status = rblDualBDStat.SelectedValue.Trim();
-                                dualBachelorDegreeDetails.Specialization = ddlDualBD.SelectedValue.Trim();
+                                dualBachelorDegreeDetails.SpecializationId = Convert.ToInt32(ddlDualBD.SelectedValue.Trim());
                                 dualBachelorDegreeDetails.FromYear = ddlDualBDMonthFrom.Text + '/' + ddlDualBDYearFrom.Text;
                                 dualBachelorDegreeDetails.ToYear = ddlDualBDMonthTo.Text + '/' + ddlDualBDYearTo.Text;
                                 dualBachelorDegreeDetails.College = txtDualBDCollege.Text.Trim();
@@ -1228,7 +1229,7 @@ namespace JobFair.UserControls.JobSeeker
                             pgDiplomaDetails.DegreeId = Convert.ToInt32(item.Value);
                             pgDiplomaDetails.MediumOfEducation = txtPgdMedium.Text.Trim();
                             pgDiplomaDetails.Status = rblPgdStat.SelectedValue.Trim();
-                            pgDiplomaDetails.Specialization = ddlPgd.SelectedValue.Trim();
+                            pgDiplomaDetails.SpecializationId = Convert.ToInt32(ddlPgd.SelectedValue.Trim());
                             pgDiplomaDetails.FromYear = ddlPgdMonthFrom.Text + '/' + ddlPgdYearFrom.Text;
                             pgDiplomaDetails.ToYear = ddlPgdMonthTo.Text + '/' + ddlPgdYearTo.Text;
                             pgDiplomaDetails.College = txtPgdCollege.Text.Trim();
@@ -1244,7 +1245,7 @@ namespace JobFair.UserControls.JobSeeker
                             masterDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             masterDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
                             masterDegreeDetails.MediumOfEducation = txtMDMedium.Text.Trim();
-                            masterDegreeDetails.Specialization = ddlMD.SelectedValue.Trim();
+                            masterDegreeDetails.SpecializationId = Convert.ToInt32(ddlMD.SelectedValue.Trim());
                             masterDegreeDetails.Status = rblMDStat.SelectedValue.Trim();
                             masterDegreeDetails.FromYear = ddlMDMonthFrom.Text + '/' + ddlMDYearFrom.Text;
                             masterDegreeDetails.ToYear = ddlMDMonthTo.Text + '/' + ddlMDYearTo.Text;
@@ -1261,7 +1262,7 @@ namespace JobFair.UserControls.JobSeeker
                                 dualMasterDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                                 dualMasterDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
                                 dualMasterDegreeDetails.MediumOfEducation = txtDualMDMedium.Text.Trim();
-                                dualMasterDegreeDetails.Specialization = ddlDualMD.SelectedValue.Trim();
+                                dualMasterDegreeDetails.SpecializationId = Convert.ToInt32(ddlDualMD.SelectedValue.Trim());
                                 dualMasterDegreeDetails.Status = rblDualMDStat.SelectedValue.Trim();
                                 dualMasterDegreeDetails.FromYear = ddlDualMDMonthFrom.Text + '/' + ddlDualMDYearFrom.Text;
                                 dualMasterDegreeDetails.ToYear = ddlDualMDMonthTo.Text + '/' + ddlDualMDYearTo.Text;
@@ -1279,7 +1280,7 @@ namespace JobFair.UserControls.JobSeeker
                             phdDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             phdDetails.DegreeId = Convert.ToInt32(item.Value);
                             phdDetails.MediumOfEducation = txtPHDMedium.Text.Trim();
-                            phdDetails.Specialization = ddlPHD.SelectedValue.Trim();
+                            phdDetails.SpecializationId = Convert.ToInt32(ddlPHD.SelectedValue.Trim());
                             phdDetails.Status = rblPHDStat.SelectedValue.Trim();
                             phdDetails.FromYear = ddlPHDMonthFrom.Text + '/' + ddlPHDYearFrom.Text;
                             phdDetails.ToYear = ddlPHDMonthTo.Text + '/' + ddlPHDYearTo.Text;
@@ -1327,7 +1328,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                  throw;
+                //  throw;
             }
         }
 
@@ -1346,7 +1347,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                  throw;
+                //  throw;
             }
         }
 
@@ -1408,35 +1409,53 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
         /// <summary>
-        /// Method for binding DropDown with UnderGraduateDiploma_Table of Database
+        /// Method for binding DropDown with DegreeDetails_Table of Database
         /// </summary>
         private void BindDropDownUnderGraduateDiploma()
         {
+        //    try
+        //    {
+        //        DataSet UnderGraduateDiplomaData = new DataSet();
+        //        educationalDetails = new EducationalDetailsBAL();
+        //        // Get Under Graduate Diploma details
+        //        UnderGraduateDiplomaData = educationalDetails.GetUnderGraduateDiplomaBAL();
+        //        if (UnderGraduateDiplomaData != null)
+        //        {
+        //            ddlDip.DataSource = UnderGraduateDiplomaData;
+        //            ddlDip.DataValueField = "UGDID";
+        //            ddlDip.DataTextField = "UGDName";
+        //            ddlDip.DataBind();
+
+        //            ddlDip.Items.Insert(Convert.ToInt32(ddlDip.Items[ddlDip.Items.Count - 1].Value), new ListItem("----Other----", ""));
+        //            ddlDip.Items.Insert(0, new ListItem("--Select--", "0"));
+        //        }
+        //    }
             try
             {
-                DataSet UnderGraduateDiplomaData = new DataSet();
+                degreeId = 3;
+                DataSet dsDegreeDetails = new DataSet();
                 educationalDetails = new EducationalDetailsBAL();
                 // Get Under Graduate Diploma details
-                UnderGraduateDiplomaData = educationalDetails.GetUnderGraduateDiplomaBAL();
-                if (UnderGraduateDiplomaData != null)
+                dsDegreeDetails = educationalDetails.GetDegreeDetailsBAL(degreeId);
+                if (dsDegreeDetails != null)
                 {
-                    ddlDip.DataSource = UnderGraduateDiplomaData;
-                    ddlDip.DataValueField = "UGDID";
-                    ddlDip.DataTextField = "UGDName";
+                    ddlDip.DataSource = dsDegreeDetails;
+                    ddlDip.DataValueField = "SpecializationId";
+                    ddlDip.DataTextField = "DegreeName";
                     ddlDip.DataBind();
 
-                    ddlDip.Items.Insert(Convert.ToInt32(ddlDip.Items[ddlDip.Items.Count - 1].Value), new ListItem("----Other----", ""));
+                    ddlDip.Items.Insert(Convert.ToInt32(ddlDip.Items.Count), new ListItem("----Other----", ""));
                     ddlDip.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1447,24 +1466,25 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DataSet BachelorDegreeData = new DataSet();
+                degreeId = 4;
+                DataSet dsDegreeDetails = new DataSet();
                 educationalDetails = new EducationalDetailsBAL();
                 // Get Bachelor Degree details
-                BachelorDegreeData = educationalDetails.GetBachelorDegreeBAL();
-                if (BachelorDegreeData != null)
+                dsDegreeDetails = educationalDetails.GetDegreeDetailsBAL(degreeId);
+                if (dsDegreeDetails != null)
                 {
-                    ddlBD.DataSource = BachelorDegreeData;
-                    ddlBD.DataValueField = "BDId";
-                    ddlBD.DataTextField = "BDName";
+                    ddlBD.DataSource = dsDegreeDetails;
+                    ddlBD.DataValueField = "SpecializationId";
+                    ddlBD.DataTextField = "DegreeName";
                     ddlBD.DataBind();
 
-                    ddlBD.Items.Insert(Convert.ToInt32(ddlBD.Items[ddlBD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+                    ddlBD.Items.Insert(Convert.ToInt32(ddlBD.Items.Count), new ListItem("----Other----", ""));
                     ddlBD.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1475,24 +1495,25 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DataSet DualBachelorDegreeData = new DataSet();
+                degreeId = 4;
+                DataSet dsDegreeDetails = new DataSet();
                 educationalDetails = new EducationalDetailsBAL();
-                // Get Bachelor Degree details
-                DualBachelorDegreeData = educationalDetails.GetBachelorDegreeBAL();
-                if (DualBachelorDegreeData != null)
+                // Get Dual Bachelor Degree details
+                dsDegreeDetails = educationalDetails.GetDegreeDetailsBAL(degreeId);
+                if (dsDegreeDetails != null)
                 {
-                    ddlDualBD.DataSource = DualBachelorDegreeData;
-                    ddlDualBD.DataValueField = "BDId";
-                    ddlDualBD.DataTextField = "BDName";
+                    ddlDualBD.DataSource = dsDegreeDetails;
+                    ddlDualBD.DataValueField = "SpecializationId";
+                    ddlDualBD.DataTextField = "DegreeName";
                     ddlDualBD.DataBind();
 
-                    ddlDualBD.Items.Insert(Convert.ToInt32(ddlDualBD.Items[ddlDualBD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+                    ddlDualBD.Items.Insert(Convert.ToInt32(ddlDualBD.Items.Count), new ListItem("----Other----", ""));
                     ddlDualBD.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1503,24 +1524,25 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DataSet PostGraduateDiplomaData = new DataSet();
+                degreeId = 5;
+                DataSet dsDegreeDetails = new DataSet();
                 educationalDetails = new EducationalDetailsBAL();
                 // Get Post Graduate Diploma details
-                PostGraduateDiplomaData = educationalDetails.GetPostGraduateDiplomaBAL();
-                if (PostGraduateDiplomaData != null)
+                dsDegreeDetails = educationalDetails.GetDegreeDetailsBAL(degreeId);
+                if (dsDegreeDetails != null)
                 {
-                    ddlPgd.DataSource = PostGraduateDiplomaData;
-                    ddlPgd.DataValueField = "PGDId";
-                    ddlPgd.DataTextField = "PGDName";
+                    ddlPgd.DataSource = dsDegreeDetails;
+                    ddlPgd.DataValueField = "SpecializationId";
+                    ddlPgd.DataTextField = "DegreeName";
                     ddlPgd.DataBind();
 
-                    ddlPgd.Items.Insert(Convert.ToInt32(ddlPgd.Items[ddlPgd.Items.Count - 1].Value), new ListItem("----Other----", ""));
+                    ddlPgd.Items.Insert(Convert.ToInt32(ddlPgd.Items.Count), new ListItem("----Other----", ""));
                     ddlPgd.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1529,26 +1551,27 @@ namespace JobFair.UserControls.JobSeeker
         /// </summary>
         private void BindDropDownMasterDegree()
         {
-            try
+           try
             {
-                DataSet MasterDegreeData = new DataSet();
+                degreeId = 6;
+                DataSet dsDegreeDetails = new DataSet();
                 educationalDetails = new EducationalDetailsBAL();
                 // Get Master Degree details
-                MasterDegreeData = educationalDetails.GetMasterDegreeBAL();
-                if (MasterDegreeData != null)
+                dsDegreeDetails = educationalDetails.GetDegreeDetailsBAL(degreeId);
+                if (dsDegreeDetails != null)
                 {
-                    ddlMD.DataSource = MasterDegreeData;
-                    ddlMD.DataValueField = "MDId";
-                    ddlMD.DataTextField = "MDName";
+                    ddlMD.DataSource = dsDegreeDetails;
+                    ddlMD.DataValueField = "SpecializationId";
+                    ddlMD.DataTextField = "DegreeName";
                     ddlMD.DataBind();
 
-                    ddlMD.Items.Insert(Convert.ToInt32(ddlMD.Items[ddlMD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+                    ddlMD.Items.Insert(Convert.ToInt32(ddlMD.Items.Count), new ListItem("----Other----", ""));
                     ddlMD.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1559,24 +1582,25 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DataSet DualMasterDegreeData = new DataSet();
+                degreeId = 6;
+                DataSet dsDegreeDetails = new DataSet();
                 educationalDetails = new EducationalDetailsBAL();
-                // Get Master Degree details
-                DualMasterDegreeData = educationalDetails.GetMasterDegreeBAL();
-                if (DualMasterDegreeData != null)
+                // Get Dual Master Degree details
+                dsDegreeDetails = educationalDetails.GetDegreeDetailsBAL(degreeId);
+                if (dsDegreeDetails != null)
                 {
-                    ddlDualMD.DataSource = DualMasterDegreeData;
-                    ddlDualMD.DataValueField = "MDId";
-                    ddlDualMD.DataTextField = "MDName";
+                    ddlDualMD.DataSource = dsDegreeDetails;
+                    ddlDualMD.DataValueField = "SpecializationId";
+                    ddlDualMD.DataTextField = "DegreeName";
                     ddlDualMD.DataBind();
 
-                    ddlDualMD.Items.Insert(Convert.ToInt32(ddlDualMD.Items[ddlDualMD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+                    ddlDualMD.Items.Insert(Convert.ToInt32(ddlDualMD.Items.Count), new ListItem("----Other----", ""));
                     ddlDualMD.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1587,27 +1611,27 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DataSet DoctorOfPhilosophyData = new DataSet();
+                degreeId = 7;
+                DataSet dsDegreeDetails = new DataSet();
                 educationalDetails = new EducationalDetailsBAL();
                 // Get Doctor Of Philosophy details
-                DoctorOfPhilosophyData = educationalDetails.GetDoctorOfPhilosophyBAL();
-                if (DoctorOfPhilosophyData != null)
+                dsDegreeDetails = educationalDetails.GetDegreeDetailsBAL(degreeId);
+                if (dsDegreeDetails != null)
                 {
-                    ddlPHD.DataSource = DoctorOfPhilosophyData;
-                    ddlPHD.DataValueField = "PHDId";
-                    ddlPHD.DataTextField = "PHDName";
+                    ddlPHD.DataSource = dsDegreeDetails;
+                    ddlPHD.DataValueField = "SpecializationId";
+                    ddlPHD.DataTextField = "DegreeName";
                     ddlPHD.DataBind();
 
-                    ddlPHD.Items.Insert(Convert.ToInt32(ddlPHD.Items[ddlPHD.Items.Count - 1].Value), new ListItem("----Other----", ""));
+                    ddlPHD.Items.Insert(Convert.ToInt32(ddlPHD.Items.Count), new ListItem("----Other----", ""));
                     ddlPHD.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
-
         /// <summary>
         ///ddlDip_SelectedIndexChanged for checking the index of DropDown
         /// </summary>
@@ -1626,7 +1650,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1653,7 +1677,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
             // Checking item of dropdown
         }
@@ -1676,7 +1700,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1704,7 +1728,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1726,7 +1750,7 @@ namespace JobFair.UserControls.JobSeeker
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1745,10 +1769,13 @@ namespace JobFair.UserControls.JobSeeker
                 educationalDetailsEntity.AddUnderGraduateDiplomaName = txtDipAdd.Text;
                 // Add data to the database
                 educationalDetailsBAL.AddUnderGraduateDiplomaBAL(educationalDetailsEntity);
+                BindDropDownUnderGraduateDiploma();
+                txtDipAdd.Visible = false;
+                btnDipAdd.Visible = false;
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1767,10 +1794,13 @@ namespace JobFair.UserControls.JobSeeker
                 educationalDetailsEntity.AddBachelorDegreeName = txtBDAdd.Text;
                 // Add data to the database
                 educationalDetailsBAL.AddBachelorDegreeBAL(educationalDetailsEntity);
+                BindDropDownBachelorDegree();
+                txtBDAdd.Visible = false;
+                btnBDAdd.Visible = false;
             }
             catch (Exception)
             {
-                  throw;
+                //  throw;
             }
         }
 
@@ -1789,10 +1819,13 @@ namespace JobFair.UserControls.JobSeeker
                 educationalDetailsEntity.AddPostGraduateDiplomaName = txtPgdAdd.Text;
                 // Add data to the database
                 educationalDetailsBAL.AddPostGraduateDiplomaBAL(educationalDetailsEntity);
+                BindDropDownPostGraduateDiploma();
+                txtPgdAdd.Visible = false;
+                btnPgdAdd.Visible = false;
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1811,10 +1844,13 @@ namespace JobFair.UserControls.JobSeeker
                 educationalDetailsEntity.AddMasterDegreeName = txtMDAdd.Text;
                 // Add data to the database
                 educationalDetailsBAL.AddMasterDegreeBAL(educationalDetailsEntity);
+                BindDropDownMasterDegree();
+                txtMDAdd.Visible = false;
+                btnMDAdd.Visible = false;
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 
@@ -1830,13 +1866,16 @@ namespace JobFair.UserControls.JobSeeker
                 EducationalDetailsEntity educationalDetailsEntity = new EducationalDetailsEntity();
                 EducationalDetailsBAL educationalDetailsBAL = new EducationalDetailsBAL();
                 // Assign values to entity
-                educationalDetailsEntity.AddDoctorOfPhilosophyName = txtPHDAdd.Text;
+                educationalDetailsEntity.AddPHDName = txtPHDAdd.Text;
                 // Add data to the database
-                educationalDetailsBAL.AddDoctorOfPhilosophyBAL(educationalDetailsEntity);
+                educationalDetailsBAL.AddPHDBAL(educationalDetailsEntity);
+                BindDropDownDoctorOfPhilosophy();
+                txtPHDAdd.Visible = false;
+                btnPHDAdd.Visible = false;
             }
             catch (Exception)
             {
-                 throw;
+                // throw;
             }
         }
 

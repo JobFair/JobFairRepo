@@ -35,9 +35,9 @@ namespace JobFair.Forms.Recruiter
             BindDepartment();
             BindFunctionalArea();
             BindIndustryType();
-            BindMasterDegree();
-            BindUnderGraduateDiploma();
-            BindMasterDegree();
+            //BindMasterDegree();
+            //BindUnderGraduateDiploma();
+            //BindMasterDegree();
             BindKeyRoles();
         }
 
@@ -54,26 +54,26 @@ namespace JobFair.Forms.Recruiter
             ddldepartment.DataBind();
             ddldepartment.Items.Insert(0, new ListItem("------select-------", "0"));
         }
-       /// <summary>
-       /// Bind dropdownlist Under graduate diploma
-       /// </summary>
-        private void BindUnderGraduateDiploma()
-        {
-            ddlugqualification.DataSource = SearchRecordBAL.GetUnderGraduateDiplomaBAL();
-            ddlugqualification.DataTextField = "UGDName";
-            ddlugqualification.DataValueField = "UGDID";
-            ddlugqualification.DataBind();
-            ddlugqualification.Items.Insert(0, new ListItem("----select-----", "0"));
-        }
+       ///// <summary>
+       ///// Bind dropdownlist Under graduate diploma
+       ///// </summary>
+       // private void BindUnderGraduateDiploma()
+       // {
+       //     ddlugqualification.DataSource = SearchRecordBAL.GetUnderGraduateDiplomaBAL();
+       //     ddlugqualification.DataTextField = "UGDName";
+       //     ddlugqualification.DataValueField = "UGDID";
+       //     ddlugqualification.DataBind();
+       //     ddlugqualification.Items.Insert(0, new ListItem("----select-----", "0"));
+       // }
 
-        private void BindMasterDegree()
-        {
-            ddlpgqualification.DataSource = SearchRecordBAL.GetMasterDegreeBAL();
-            ddlpgqualification.DataTextField = "MDName";
-            ddlpgqualification.DataValueField = "MDId";
-            ddlpgqualification.DataBind();
-            ddlpgqualification.Items.Insert(0, new ListItem("--------select------", "0"));
-        }
+       // private void BindMasterDegree()
+       // {
+       //     ddlpgqualification.DataSource = SearchRecordBAL.GetMasterDegreeBAL();
+       //     ddlpgqualification.DataTextField = "MDName";
+       //     ddlpgqualification.DataValueField = "MDId";
+       //     ddlpgqualification.DataBind();
+       //     ddlpgqualification.Items.Insert(0, new ListItem("--------select------", "0"));
+       // }
 
         private void BindIndustryType()
         {
