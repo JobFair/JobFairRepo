@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-
 namespace DAL
 {
     /// <summary>
@@ -21,6 +20,7 @@ namespace DAL
         public string LoginJSDAL(Entities.LoginEnitity logjsEntity)
         {
             string candidateid = "";
+           
             try
             {
                 connection.Open();
@@ -30,14 +30,16 @@ namespace DAL
                 sparams[1] = new SqlParameter("@password", logjsEntity.Password);
                 sparams[2] = new SqlParameter("@candidateid", SqlDbType.VarChar, 500);
                 sparams[2].Direction = ParameterDirection.Output;
+               
                 SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, Constants.sp_Login, sparams);
                 candidateid = sparams[2].Value.ToString();
+              
                 if (string.IsNullOrEmpty(candidateid))
                 {
                     return null;
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 //throw ex;
             }

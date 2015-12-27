@@ -535,6 +535,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel9;
         
         /// <summary>
+        /// lnkbtnAffirmativeEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnAffirmativeEdit;
+        
+        /// <summary>
         /// lblLanguageFirst control.
         /// </summary>
         /// <remarks>
@@ -751,22 +760,85 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel3;
         
         /// <summary>
-        /// lnkEditProject control.
+        /// TabContainer5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkEditProject;
+        protected global::AjaxControlToolkit.TabContainer TabContainer5;
         
         /// <summary>
-        /// rptrProjectDetails control.
+        /// TabPanel15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrProjectDetails;
+        protected global::AjaxControlToolkit.TabPanel TabPanel15;
+        
+        /// <summary>
+        /// rptrProfessionalSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrProfessionalSummary;
+        
+        /// <summary>
+        /// TabPanel16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel16;
+        
+        /// <summary>
+        /// rptrEmployer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrEmployer;
+        
+        /// <summary>
+        /// TabPanel17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel17;
+        
+        /// <summary>
+        /// rptrDesireJob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrDesireJob;
+        
+        /// <summary>
+        /// TabPanel18 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel18;
+        
+        /// <summary>
+        /// rptrJobLookingFor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrJobLookingFor;
         
         /// <summary>
         /// TabPanel4 control.
@@ -778,6 +850,24 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel4;
         
         /// <summary>
+        /// TabContainer4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabContainer TabContainer4;
+        
+        /// <summary>
+        /// TabPanel12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel12;
+        
+        /// <summary>
         /// rptrEducationalDetails control.
         /// </summary>
         /// <remarks>
@@ -787,6 +877,42 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Repeater rptrEducationalDetails;
         
         /// <summary>
+        /// TabPanel13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel13;
+        
+        /// <summary>
+        /// rptrWorkshop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrWorkshop;
+        
+        /// <summary>
+        /// TabPanel14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel14;
+        
+        /// <summary>
+        /// rptrCertification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrCertification;
+        
+        /// <summary>
         /// TabPanel5 control.
         /// </summary>
         /// <remarks>
@@ -794,6 +920,51 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel TabPanel5;
+        
+        /// <summary>
+        /// TabContainer3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabContainer TabContainer3;
+        
+        /// <summary>
+        /// TabPanel10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel10;
+        
+        /// <summary>
+        /// lnkbtnRoleSkillsEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnRoleSkillsEdit;
+        
+        /// <summary>
+        /// rptrRoleSkills control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrRoleSkills;
+        
+        /// <summary>
+        /// TabPanel11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel11;
         
         /// <summary>
         /// LinkButton1 control.
@@ -821,5 +992,23 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel TabPanel6;
+        
+        /// <summary>
+        /// lnkEditProject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkEditProject;
+        
+        /// <summary>
+        /// rptrProjectDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrProjectDetails;
     }
 }

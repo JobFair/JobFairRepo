@@ -16,6 +16,7 @@
 </style>
 
 <div>
+    &nbsp;
     &nbsp;<table id="TableCurrentJob" runat="server">
         <tr>
             <td colspan="2">
@@ -496,7 +497,7 @@
             <td>Current Anual Salary(Yearly)</td>
             <td>
                 <asp:TextBox ID="txtcurrentannualsalary" runat="server"></asp:TextBox>
-                lpa&nbsp; </td>
+                lpa&nbsp;&nbsp; </td>
         </tr>
         <tr>
             <td>Expected Anual Salary(Yearly)</td>

@@ -10,14 +10,14 @@ namespace JobFair.UserControls.JobSeeker
     public partial class AffirmativeDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isEdit = true;
+        private bool isEdit;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 candidateId = Convert.ToString(Session["candidateId"]);
-                // isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
+                isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
                 // Check session is not null
                 if (string.IsNullOrEmpty(candidateId))
                 {

@@ -155,8 +155,8 @@
                                     <tr>
                                         <td>
                                            <div class="divjobtitle"> <asp:HyperLink ID="HyperLink1"  runat="server" Text='<%#Eval("JobTitle")%>' NavigateUrl="ViewAllJobPost.aspx"></asp:HyperLink></div>
-                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>,
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
                                             <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
                                          <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
                                              <asp:Label ID="lblstatename" runat="server" Text='<%#Eval("StateName")%>'></asp:Label>
@@ -181,7 +181,7 @@
                                                <td>
                                             Work Experience&nbsp;&nbsp;
                                         <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                       
                                                </td>
                                                 </tr>
@@ -193,7 +193,7 @@
                                             <table>
                                                 <tr>
                                                    <td> 
-                                                         Key Skill &nbsp;&nbsp;&nbsp;
+                                            Key Skill &nbsp;&nbsp;&nbsp;
                                    <asp:Label ID="lblkeywordstechnical" runat="server" Text='<%#Eval("KeywordsTechnical")%>'></asp:Label>
                                                        </td>
                                                 </tr>
@@ -210,12 +210,12 @@
                                                         </tr>
                                                     </table>
                                                     </td>
-                                               </tr>       
-                                    <tr>
-                            <td>
-                                <table>
-                                    <tr>
-                                        <td>
+                                                   </tr>       
+                                                     <tr>
+                                                     <td>
+                                                    <table>
+                                                    <tr>
+                                                    <td>
                                        Number of Vacancies&nbsp;&nbsp;&nbsp;
                              <asp:Label ID="lblvacancies" runat="server" Text='<%#Eval("NumberOfVacancies")%>'></asp:Label> </td>
                             </tr>
@@ -224,14 +224,14 @@
                     </table>
                         <tr>
                             <td>
-                                <table >
+                                <table>
                                     <tr>
                                         <td>$
                                            [<asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />/
                                         <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>]
                                        
 
-                                        </td>
+                                        </td>s&nbsp;&nbsp;&nbsp;
                                        <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
                                     </tr>
                                 </table>

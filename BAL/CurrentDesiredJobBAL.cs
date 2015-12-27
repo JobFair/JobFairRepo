@@ -322,5 +322,32 @@ namespace BAL
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             currentDesiredJobDAL.DeleteRoleSkillDAL(skillId);
         }
+        /// <summary>
+        /// Method in CurrentDesiredJobBAL class to add Role skill in Database
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Entity of CurrentDesiredJobEntity</param>
+        public void AddRoleSkillsDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.AddRoleSkillsDetailsDAL(currentDesiredJobEntity);
+        }
+        /// <summary>
+        /// Method in CurrentDesiredJobBAL class to add Technical skill in Database
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Entity of CurrentDesiredJobEntity</param>
+        public void AddTechnicalSkillsDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.AddTechnicalSkillsDetailsDAL(currentDesiredJobEntity);
+        }
+        /// <summary>
+        /// Method in CurrentDesiredJobBAL class to update Desired Details in Database
+        /// </summary>
+        /// <param name="currentDesiredJobEntity">Entity of CurrentDesiredJobEntity</param>
+        public void UpdateProfessionalDetailsBAL(CurrentDesiredJobEntity currentDesiredJobEntity)
+        {
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.UpdateProfessionalDetailsDAL(currentDesiredJobEntity);
+        }
     }
 }

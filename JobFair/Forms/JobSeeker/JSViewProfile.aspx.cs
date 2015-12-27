@@ -7,6 +7,8 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class JSViewProfile : System.Web.UI.Page
     {
+        private DataSet dsProfessionalDetails = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -51,13 +53,190 @@ namespace JobFair.Forms.JobSeeker
                 BindAffirmativeDetails(viewProfileJSBAL, candidateId);
 
                 BindTechnicalDetails(viewProfileJSBAL, candidateId);
-                //BindProfessionalDetals(candidateId);
+
+                BindRoleSkillDetails(viewProfileJSBAL, candidateId);
+
+                BindProfessionalDetails(viewProfileJSBAL, candidateId);
+
+                BindCurrentPastJobDetails(viewProfileJSBAL, candidateId);
+
+                BindJobPostLookingFor(viewProfileJSBAL, candidateId);
+
+                BindDesireJobDetails(viewProfileJSBAL, candidateId);
 
                 BindEducationDetails(viewProfileJSBAL, candidateId);
+
+                BindWorkshopDetails(viewProfileJSBAL, candidateId);
+
+                BindCertificationDetails(viewProfileJSBAL, candidateId);
             }
             catch (Exception ex)
             {
                 //   throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind desire job details to rptrDesireJob control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindDesireJobDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                dsProfessionalDetails = objViewProfile.ViewProfessionalDetailsBAL(candidateId);
+                // Check if dataset is not null
+                if (dsProfessionalDetails != null)
+                {
+                    rptrDesireJob.DataSource = dsProfessionalDetails;
+                    rptrDesireJob.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind job post looking to rptrJobLookingFor control
+        /// </summary>
+        /// <param name="viewProfileJSBAL">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindJobPostLookingFor(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsJobPostLooking = new DataSet();
+                dsJobPostLooking = objViewProfile.ViewJobPostLookingBAL(candidateId);
+                // Check if dataset is not null
+                if (dsJobPostLooking != null)
+                {
+                    rptrJobLookingFor.DataSource = dsJobPostLooking;
+                    rptrJobLookingFor.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind current past job details to rptrEmployer control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindCurrentPastJobDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsCurrentPastJobDetails = new DataSet();
+                dsCurrentPastJobDetails = objViewProfile.ViewCurrentPastJobBAL(candidateId);
+                if (dsCurrentPastJobDetails != null)
+                {
+                    rptrEmployer.DataSource = dsCurrentPastJobDetails;
+                    rptrEmployer.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind professional summary to rptrProfessionalSummary control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindProfessionalDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                dsProfessionalDetails = objViewProfile.ViewProfessionalDetailsBAL(candidateId);
+                // Check if dataset is not null
+                if (dsProfessionalDetails != null)
+                {
+                    rptrProfessionalSummary.DataSource = dsProfessionalDetails;
+                    rptrProfessionalSummary.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind certification to rptrCertification control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindCertificationDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsCertification = new DataSet();
+                dsCertification = objViewProfile.ViewCertificationBAL(candidateId);
+                if (dsCertification != null)
+                {
+                    rptrCertification.DataSource = dsCertification;
+                    rptrCertification.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+
+        /// <summary>
+        /// Bind workshps to rptrWorkshop control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindWorkshopDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsWorkshop = new DataSet();
+                dsWorkshop = objViewProfile.ViewWorksopBAL(candidateId);
+                // Check if dataset is not null
+                if (dsWorkshop != null)
+                {
+                    rptrWorkshop.DataSource = dsWorkshop;
+                    rptrWorkshop.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+
+        /// <summary>
+        ///  Bind role skills to rptrRoleSkills control
+        /// </summary>
+        /// <param name="objViewProfile">ViewProfileJSBAL</param>
+        /// <param name="candidateId">candidateId</param>
+        private void BindRoleSkillDetails(ViewProfileJSBAL objViewProfile, string candidateId)
+        {
+            try
+            {
+                DataSet dsRoleSkills = new DataSet();
+                dsRoleSkills = objViewProfile.ViewRoleSkillsBAL(candidateId);
+                // Check if dataset is not null
+                if (dsRoleSkills != null)
+                {
+                    rptrRoleSkills.DataSource = dsRoleSkills;
+                    rptrRoleSkills.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
             }
         }
 
@@ -81,7 +260,7 @@ namespace JobFair.Forms.JobSeeker
             }
             catch (Exception)
             {
-               // throw;
+                // throw;
             }
         }
 
@@ -431,5 +610,17 @@ namespace JobFair.Forms.JobSeeker
         {
             Response.Redirect("WebForm1.aspx/PersonalDetails.ascx?isCheck=true");
         }
+
+        protected void lnkbtnAffirmativeEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm1.aspx/AffirmativeDetails.ascx?isCheck=true");
+        }
+
+        protected void lnkbtnRoleSkillsEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm1.aspx/AffirmativeDetails.ascx?isCheck=true");
+        }
+
+       
     }
 }

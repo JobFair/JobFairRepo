@@ -130,7 +130,7 @@ namespace JobFair.Forms.JobSeeker
 
                 result = jobSeekerBAL.SaveRegisterNewJobSeekerBAL(jobSeekerEntity);
                 result = JobSeekerPrefix + result;
-                //SendHTMLMail();
+               
                 
                 //string from = "jyoti.logossolutions@gmail.com";
                 //string subject = "Cofirmation";
@@ -164,8 +164,10 @@ namespace JobFair.Forms.JobSeeker
                     {
                         lblMessage.Text = "First select a file.";
                     }
-                    Response.Redirect("LogIn.aspx");
+                   
                 }
+                SendHTMLMail();
+                Response.Redirect("LogIn.aspx");
             }
             catch (Exception ex)
             {
@@ -173,32 +175,66 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        //private void SendHTMLMail()
-        //{
-        //    StreamReader reader = new StreamReader(Server.MapPath("~/JobSeeker/RegistrationConfirmation.htm"));
-        //    string readFile = reader.ReadToEnd();
-        //    string myString = "";
-        //    myString = readFile;
-        //    myString = myString.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());
-        //    myString = myString.Replace("$$Email$$", txtEmailId.Text.Trim());
-        //    myString = myString.Replace("$$Website$$", "http://www.logossolutions.co.in/");
-        //    MailMessage Msg = new MailMessage();
-        //    MailAddress fromMail = new MailAddress("jyoti.logossolutions@gmail.com");
-        //    // Sender e-mail address.
-        //    Msg.From = fromMail;
-        //    // Recipient e-mail address.
-        //    Msg.To.Add(new MailAddress("jyoti.logossolutions@gmail.com"));
-        //    // Subject of e-mail
-        //    Msg.Subject = "Send Mail with HTML File";
-        //    Msg.Body = myString.ToString();
-        //    Msg.IsBodyHtml = true;
-        //    string sSmtpServer = "";
-        //    sSmtpServer = "10.2.69.121";
-        //    SmtpClient a = new SmtpClient();
-        //    a.Host = sSmtpServer;
-        //    a.Send(Msg);
-        //    reader.Dispose();
-        //}
+        private void SendHTMLMail()
+        {
+            string from = "jyoti.logossolutions@gmail.com";
+            string subject = " Welcome at Logos Job Fair on " + DateTime.Now.ToString();
+            string content = "hello..";
+            //string contentId = "image1";
+            //string path = Server.MapPath(@"/Images");
+            MailMessage Msg = new MailMessage();
+            Msg.From = new MailAddress(from);
+            Msg.To.Add("saurabh.logossolutions@gmail.com");
+            StreamReader reader = new StreamReader(Server.MapPath("~/RegistrationConfirmation.html"));
+            string readFile = reader.ReadToEnd();
+            string strContent = "";
+            strContent = readFile;
+            strContent = strContent.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());
+            strContent = strContent.Replace("$$Email$$", txtEmailId.Text.Trim());
+            strContent = strContent.Replace("$$Website$$", "http://www.logossolutions.co.in/");
+            Msg.Subject = subject;
+            //LinkedResource logo = new LinkedResource(path);
+            //logo.ContentId = "companylogo";
+            //AlternateView av1 = AlternateView.CreateAlternateViewFromString("<html><body><img src=../../Images/logoitch.jpg/><br></body></html>" + strContent, null, MediaTypeNames.Text.Html);
+            //av1.LinkedResources.Add(logo);
+            //Msg.AlternateViews.Add(av1);
+            Msg.Body = strContent.ToString();
+            Msg.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("jyoti.logossolutions@gmail.com", "@jacksparow");
+            smtp.EnableSsl = true;
+            smtp.Send(Msg);
+            Msg = null;
+            Response.Write("<script language='javascript'>alert('Your registerd Sucessfully')</script>");
+
+
+
+            //StreamReader reader = new StreamReader(Server.MapPath("~/JobSeeker/RegistrationConfirmation.htm"));
+            //string readFile = reader.ReadToEnd();
+            //string myString = "";
+            //myString = readFile;
+            //myString = myString.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());
+            //myString = myString.Replace("$$Email$$", txtEmailId.Text.Trim());
+            //myString = myString.Replace("$$Website$$", "http://www.logossolutions.co.in/");
+            //MailMessage Msg = new MailMessage();
+            //MailAddress fromMail = new MailAddress("jyoti.logossolutions@gmail.com");
+            //// Sender e-mail address.
+            //Msg.From = fromMail;
+            //// Recipient e-mail address.
+            //Msg.To.Add(new MailAddress("jyoti.logossolutions@gmail.com"));
+            //// Subject of e-mail
+            //Msg.Subject = "Send Mail with HTML File";
+            //Msg.Body = myString.ToString();
+            //Msg.IsBodyHtml = true;
+            //string sSmtpServer = "";
+            //sSmtpServer = "10.2.69.121";
+            //SmtpClient a = new SmtpClient();
+            //a.Host = sSmtpServer;
+            //a.Send(Msg);
+            //reader.Dispose();
+        }
 
         /// <summary>
         /// Handles SelectedIndexChanged event of ddlCountryPresent control

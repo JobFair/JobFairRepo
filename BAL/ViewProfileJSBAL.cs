@@ -61,10 +61,10 @@ namespace BAL
         }
 
         /// <summary>
-        ///
+        /// View educational details bal
         /// </summary>
-        /// <param name="candidateId"></param>
-        /// <returns></returns>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewEducationDetailsBAL(string candidateId)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
@@ -82,22 +82,88 @@ namespace BAL
             return viewProfileJSDAL.ViewTechnicalSkillsDAL(candidateId);
         }
 
-        public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        /// <summary>
+        /// View role skills bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewRoleSkillsBAL(string candidateId)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
-            return viewProfileJSDAL.ChangeConatctNoDAL(viewProfileEntity);
+            return viewProfileJSDAL.ViewRoleSkillsDAL(candidateId);
         }
 
-        public int ResumeDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        /// <summary>
+        /// View workshop bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewWorksopBAL(string candidateId)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
-            return viewProfileJSDAL.ResumeDetailsDAL(viewProfileEntity);
+            return viewProfileJSDAL.ViewWorkshopDAL(candidateId);
         }
 
-        public int ChangePersonalDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        /// <summary>
+        /// View certification bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewCertificationBAL(string candidateId)
         {
             ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
-            return viewProfileJSDAL.ChangePersonalDetailsDAL(viewProfileEntity);
+            return viewProfileJSDAL.ViewCertificationDAL(candidateId);
         }
+
+        /// <summary>
+        /// View professional summary bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewProfessionalDetailsBAL(string candidateId)
+        {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+            return viewProfileJSDAL.ViewProfessionalDetailsDAL(candidateId);
+        }
+
+        /// <summary>
+        /// View current past job details bal
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewCurrentPastJobBAL(string candidateId)
+        {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+            return viewProfileJSDAL.ViewCurrentPastJobDetailsDAL(candidateId);
+        }
+
+        /// <summary>
+        /// View job post looking
+        /// </summary>
+        /// <param name="candidateId">candidateId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewJobPostLookingBAL(string candidateId)
+        {
+            ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+            return viewProfileJSDAL.ViewJobPostLookingDAL(candidateId);
+        }
+
+        //public int ChangeContactNoBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        //{
+        //    ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+        //    return viewProfileJSDAL.ChangeConatctNoDAL(viewProfileEntity);
+        //}
+
+        //public int ResumeDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        //{
+        //    ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+        //    return viewProfileJSDAL.ResumeDetailsDAL(viewProfileEntity);
+        //}
+
+        //public int ChangePersonalDetailsBAL(Entities.JobSeeker.ViewProfileEntity viewProfileEntity)
+        //{
+        //    ViewProfileJSDAL viewProfileJSDAL = new ViewProfileJSDAL();
+        //    return viewProfileJSDAL.ChangePersonalDetailsDAL(viewProfileEntity);
+        //}
     }
 }

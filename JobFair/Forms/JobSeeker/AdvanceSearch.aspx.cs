@@ -14,9 +14,6 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-          
-           
             string candidateId;
             // Check session is not null
             if (Session["candidateId"] != null)
@@ -226,11 +223,11 @@ namespace JobFair.Forms.JobSeeker
                 }
                 if (chkIndustry.SelectedValue  == "" || chkIndustry.Text == "---select---")
                 {
-                    advanceSearchEntity.Industry =Convert.ToInt32( null);
+                    advanceSearchEntity.Industry =( null);
                 }
                 else
                 {
-                    advanceSearchEntity.Industry = Convert.ToInt32(chkIndustry.SelectedValue.Trim());
+                    advanceSearchEntity.Industry = (chkIndustry.SelectedValue.Trim());
                 }
                 if (chkEmploymentStatus.SelectedValue == "" || chkEmploymentStatus.Text == "--select--")
                 {
@@ -266,6 +263,7 @@ namespace JobFair.Forms.JobSeeker
                 throw;
             }
         }
+
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]

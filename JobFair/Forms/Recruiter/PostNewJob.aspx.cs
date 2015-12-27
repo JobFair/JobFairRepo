@@ -702,6 +702,8 @@ namespace JobFair.Forms.Recruiter
                     "script", sb.ToString());
         }
 
+       
+
 
     }
 }

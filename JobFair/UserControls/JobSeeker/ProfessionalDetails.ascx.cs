@@ -14,7 +14,7 @@ namespace JobFair.UserControls.JobSeeker
     {
         private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
         private string candidateId;
-        private bool isCheck = true;
+        private bool isEdit = true;
 
         /// <summary>
         /// Handles the Load event of Page
@@ -23,7 +23,7 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
+            //isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
             // Check session is not null
             if (Session["candidateId"] != null)
             {
@@ -33,10 +33,13 @@ namespace JobFair.UserControls.JobSeeker
                     // Check page is not post back
                     if (!IsPostBack)
                     {
-                        if (isCheck)
+                        if (isEdit)
                         {
                             try
                             {
+                                rptrPastCurrentJobDetails.Visible = true;
+                                rptrJobPostLookinFor.Visible = true;
+
                                 BindIndustry();
                                 BindDepartment();
                                 BindFunctionalArea();
@@ -44,7 +47,6 @@ namespace JobFair.UserControls.JobSeeker
                                 BindRepeaterJobPostLooking();
                                 BindRepeaterCurrentPastExp();
                                 divCurrentEmployer.Visible = false;
-                                
 
                                 DataSet ds = new DataSet();
                                 DataSet ds2 = new DataSet();
@@ -74,24 +76,14 @@ namespace JobFair.UserControls.JobSeeker
                                 string stateId = Convert.ToString(ds.Tables[0].Rows[0]["PreferredState"]);
                                 List<string> listofState = new List<string>(stateId.Split(','));
                                 listofState.RemoveAll(x => x == "");
-                                foreach (var list in listofState)
+
+                                foreach (ListItem item in chklState.Items)
                                 {
-                                    
-                                    string k = "";
-                                    for (int i = 0; i < chklState.Items.Count; i++)
-                                    {
-                                       
-                                        if (chklState.Items[i].Selected)
-                                        {
-                                            chklState.SelectedValue = list;
-                                            var selectedState = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                                            txtPreferredState.Text = string.Join(",", selectedState.Select(x => x.Text));
-                                        }
-                                    }  
+                                    item.Selected = listofState.Contains(item.Value);
                                 }
 
-                                //var selectedState = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                                //txtPreferredState.Text = string.Join(",", selectedState.Select(x => x.Text));
+                                var selectedState = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                                txtPreferredState.Text = string.Join(",", selectedState.Select(x => x.Text));
 
                                 // Bind City
                                 DataSet getcityDataSet = new DataSet();
@@ -104,52 +96,10 @@ namespace JobFair.UserControls.JobSeeker
                                 string cityId = Convert.ToString(ds.Tables[0].Rows[0]["PreferredCity"]);
                                 List<string> listofCity = new List<string>(cityId.Split(','));
                                 listofCity.RemoveAll(x => x == "");
-                                foreach (var list in listofCity)
+                                foreach (ListItem list in chklCity.Items)
                                 {
-                                    string k = "";
-                                    for (int i = 0; i < chklCity.Items.Count; i++)
-                                    {
-                                        if (chklCity.Items[i].Selected)
-                                        {
-
-                                            k = k + chklCity.Items[i].Text + "</br>";
-                                        }
-
-                                    }  
-                                    chklCity.SelectedValue = list;
+                                    list.Selected = listofCity.Contains(list.Value);
                                 }
-
-                                //foreach (var list in listofCity)
-                                //{
-                                //   // chklCity.SelectedValue = list;
-                                //    foreach(CheckBox chk in chklCity)
-                                //    {
-                                //        if (chk. == list)
-                                //          {
-                                //               chklCity.SetItemChecked(i, true);
-                                //          }
-                                //    }
-
-                                //    //for(int i = 0; i < chklCity.Items.Cast<CheckBox>().Count(); i++)
-                                //    //{
-                                //    //    if (chklCity.Items[i]. == list)
-                                //    //      {
-                                //    //           chklCity.SetItemChecked(i, true);
-                                //    //      }
-                                //    // }
-                                //    //chklCity.Items.Cast<ListItem>(). //.Where(x=>x.Selected=true
-                                //    //Select(x=>x.Selected=true).Where()
-
-                                //    //var t = (from item in chklCity.Items.Cast<ListItem>()
-                                //    //   where
-                                //    //   select int.Parse(item.Value));
-                                //    (from i in chklCity.Items.Cast<CheckBox>()
-                                //     where i.sel = list
-                                //     select i)
-
-                                //    //ToList().ForEach(i => i.Selected = true)
-                                //}
-
                                 var selectedCity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
                                 txtCity.Text = string.Join(",", selectedCity.Select(x => x.Text));
 
@@ -164,9 +114,9 @@ namespace JobFair.UserControls.JobSeeker
                                 string areaId = Convert.ToString(ds.Tables[0].Rows[0]["PreferredArea"]);
                                 List<string> listofArea = new List<string>(areaId.Split(','));
                                 listofArea.RemoveAll(x => x == "");
-                                foreach (var list in listofArea)
+                                foreach (ListItem list in chklArea.Items)
                                 {
-                                    chklArea.SelectedValue = list;
+                                    list.Selected = listofArea.Contains(list.Value);
                                 }
 
                                 var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
@@ -181,12 +131,36 @@ namespace JobFair.UserControls.JobSeeker
 
                                 ddlWorkStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CurrentWorkingStatus"]);
                                 ddlNoticePeriod.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["NoticePeriod"]);
-                                chklEmploymentStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
-                                chklJobType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
-                                chklCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
+
+                                string employmentstatus = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
+                                List<string> listofemploymentstatus = new List<string>(employmentstatus.Split(','));
+                                foreach (ListItem list in chklEmploymentStatus.Items)
+                                {
+                                    list.Selected = listofemploymentstatus.Contains(list.Value);
+                                }
+
+                                //chklEmploymentStatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["EmploymentStatus"]);
+
+                                string jobtype = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
+                                List<string> listjobtype = new List<string>(jobtype.Split(','));
+                                foreach (ListItem list in chklJobType.Items)
+                                {
+                                    list.Selected = listjobtype.Contains(list.Value);
+                                }
+
+                                //chklJobType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["JobType"]);
+
+                                string companytype = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
+                                List<string> listcompanytype = new List<string>(companytype.Split(','));
+                                foreach (ListItem list in chklCompanyType.Items)
+                                {
+                                    list.Selected = listcompanytype.Contains(list.Value);
+                                }
+
+                                //chklCompanyType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CompanyType"]);
                                 rblYesNo.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["AvailabilityForInterview"]);
 
-                                string format = Convert.ToString(ds.Tables[0].Rows[0]["BeforeTime"]); 
+                                string format = Convert.ToString(ds.Tables[0].Rows[0]["BeforeTime"]);
                                 string[] Words = format.Split(new char[] { ':' });
                                 int count1 = 0;
                                 string format1 = Convert.ToString(ds.Tables[0].Rows[0]["AfterTime"]);
@@ -239,6 +213,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
             }
         }
+
         private void BindCountry()
         {
             CurrentDesiredJobBAL currentjobBAL = new CurrentDesiredJobBAL();
@@ -707,57 +682,104 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSaveMoreJobs_Click(object sender, EventArgs e)
         {
-            DataTable dt = (DataTable)ViewState["JobDetails"];
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
             CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
             var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             var selectedstate = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-
+            DataTable dt = (DataTable)ViewState["JobDetails"];
             try
             {
-                currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
-                currentDesiredJobEntity.Objective = txtObjective.Text.Trim();
-                currentDesiredJobEntity.ProfileSummary = txtProfileSummary.Text.Trim();
-                if (rbtEmployed.Checked)
+                if (!isEdit)
                 {
-                    currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtEmployed.Text.Trim();
+                   
+
+                    currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
+                    currentDesiredJobEntity.Objective = txtObjective.Text.Trim();
+                    currentDesiredJobEntity.ProfileSummary = txtProfileSummary.Text.Trim();
+                    if (rbtEmployed.Checked)
+                    {
+                        currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtEmployed.Text.Trim();
+                    }
+                    else
+                    {
+                        currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtUnEmployed.Text.Trim();
+                    }
+                    currentDesiredJobEntity.TotalExperience = lblTotalExp.Text;
+                    currentDesiredJobEntity.ResumeHeadline = txtResumeHeadline.Text.Trim();
+                    currentDesiredJobEntity.CurrentWorkingStatus = ddlWorkStatus.SelectedItem.Text.Trim();
+                    currentDesiredJobEntity.CurrentAnualSal = Convert.ToDouble(txtcurrentannualsalary.Text);
+                    currentDesiredJobEntity.ExpectedAnualSal = Convert.ToDouble(txtexpectedsalary.Text);
+                    currentDesiredJobEntity.NoticePeriod = ddlNoticePeriod.SelectedItem.Text.Trim();
+
+                    var selectedStatus = chklEmploymentStatus.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                    currentDesiredJobEntity.EmploymentStatus = string.Join(",", selectedStatus.Select(x => x.Text));
+
+                    var selectedJobType = chklJobType.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                    currentDesiredJobEntity.JobType = string.Join(",", selectedJobType.Select(x => x.Text));
+
+                    var selectedCompanyType = chklCompanyType.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                    currentDesiredJobEntity.CompanyType = string.Join(",", selectedCompanyType.Select(x => x.Text));
+
+                    currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
+                    currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
+                    currentDesiredJobEntity.PreferredCountry = Convert.ToInt32(ddlPreferredCountry.SelectedValue);
+                    currentDesiredJobEntity.PreferredState = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
+                    currentDesiredJobEntity.PreferredCity = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
+                    currentDesiredJobEntity.PreferrefArea = "," + string.Join(",", selectedarea.Select(x => x.Value)) + ",";
+
+                    currentDesiredJobEntity.BeforeTime = ddlBeforeHours.SelectedItem.Text + ":" + ddlBeforeMinutes.SelectedItem.Text + ":" + ddlBeforeTime.SelectedItem.Text;
+
+                    currentDesiredJobEntity.AfterTime = ddlAfterHours.SelectedItem.Text + ":" + ddlAfterMinutes.SelectedItem.Text + ":" + ddlAfterTime.SelectedItem.Text + ":" + ddlISTETE.SelectedItem.Text;
+
+                    currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
+                    currentDesiredJobBAL.SaveDesiredJobDetailsBAL(currentDesiredJobEntity);
+                    currentDesiredJobBAL.SaveJobDetailsBAL(currentDesiredJobEntity);
+                    Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
                 }
                 else
                 {
-                    currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtUnEmployed.Text.Trim();
+                    currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
+                    currentDesiredJobEntity.Objective = txtObjective.Text.Trim();
+                    currentDesiredJobEntity.ProfileSummary = txtProfileSummary.Text.Trim();
+                    if (rbtEmployed.Checked)
+                    {
+                        currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtEmployed.Text.Trim();
+                    }
+                    else
+                    {
+                        currentDesiredJobEntity.CurrentEmployeedUnemployeed = rbtUnEmployed.Text.Trim();
+                    }
+                    currentDesiredJobEntity.TotalExperience = lblTotalExp.Text;
+                    currentDesiredJobEntity.ResumeHeadline = txtResumeHeadline.Text.Trim();
+                    currentDesiredJobEntity.CurrentWorkingStatus = ddlWorkStatus.SelectedItem.Text.Trim();
+                    currentDesiredJobEntity.CurrentAnualSal = Convert.ToDouble(txtcurrentannualsalary.Text);
+                    currentDesiredJobEntity.ExpectedAnualSal = Convert.ToDouble(txtexpectedsalary.Text);
+                    currentDesiredJobEntity.NoticePeriod = ddlNoticePeriod.SelectedItem.Text.Trim();
+
+                    var selectedStatus = chklEmploymentStatus.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                    currentDesiredJobEntity.EmploymentStatus = string.Join(",", selectedStatus.Select(x => x.Text));
+
+                    var selectedJobType = chklJobType.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                    currentDesiredJobEntity.JobType = string.Join(",", selectedJobType.Select(x => x.Text));
+
+                    var selectedCompanyType = chklCompanyType.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                    currentDesiredJobEntity.CompanyType = string.Join(",", selectedCompanyType.Select(x => x.Text));
+
+                    currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
+                    currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
+                    currentDesiredJobEntity.PreferredCountry = Convert.ToInt32(ddlPreferredCountry.SelectedValue);
+                    currentDesiredJobEntity.PreferredState = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
+                    currentDesiredJobEntity.PreferredCity = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
+                    currentDesiredJobEntity.PreferrefArea = "," + string.Join(",", selectedarea.Select(x => x.Value)) + ",";
+
+                    currentDesiredJobEntity.BeforeTime = ddlBeforeHours.SelectedItem.Text + ":" + ddlBeforeMinutes.SelectedItem.Text + ":" + ddlBeforeTime.SelectedItem.Text;
+
+                    currentDesiredJobEntity.AfterTime = ddlAfterHours.SelectedItem.Text + ":" + ddlAfterMinutes.SelectedItem.Text + ":" + ddlAfterTime.SelectedItem.Text + ":" + ddlISTETE.SelectedItem.Text;
+
+                    currentDesiredJobBAL.UpdateProfessionalDetailsBAL(currentDesiredJobEntity);
+                    Response.Write("<script language='javascript'>alert('Your Details Updated successfully')</script>");
                 }
-                currentDesiredJobEntity.TotalExperience = lblTotalExp.Text;
-                currentDesiredJobEntity.ResumeHeadline = txtResumeHeadline.Text.Trim();
-                currentDesiredJobEntity.CurrentWorkingStatus = ddlWorkStatus.SelectedItem.Text.Trim();
-                currentDesiredJobEntity.CurrentAnualSal = Convert.ToDouble(txtcurrentannualsalary.Text);
-                currentDesiredJobEntity.ExpectedAnualSal = Convert.ToDouble(txtexpectedsalary.Text);
-                currentDesiredJobEntity.NoticePeriod = ddlNoticePeriod.SelectedItem.Text.Trim();
-
-                var selectedStatus = chklEmploymentStatus.Items.Cast<ListItem>().Where(li => li.Selected).ToList();            
-                currentDesiredJobEntity.EmploymentStatus = string.Join(",", selectedStatus.Select(x => x.Text));
-
-                var selectedJobType = chklJobType.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                currentDesiredJobEntity.JobType = string.Join(",",selectedJobType.Select(x=>x.Text));
-
-                var selectedCompanyType = chklCompanyType.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                currentDesiredJobEntity.CompanyType = string.Join(",",selectedCompanyType.Select(x=>x.Text));
-
-                currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
-                currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
-                currentDesiredJobEntity.PreferredCountry = Convert.ToInt32(ddlPreferredCountry.SelectedValue);
-                currentDesiredJobEntity.PreferredState = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
-                currentDesiredJobEntity.PreferredCity = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
-                currentDesiredJobEntity.PreferrefArea = "," + string.Join(",", selectedarea.Select(x => x.Value)) + ",";
-
-                currentDesiredJobEntity.BeforeTime = ddlBeforeHours.SelectedItem.Text + ":" + ddlBeforeMinutes.SelectedItem.Text + ":" + ddlBeforeTime.SelectedItem.Text;
-
-                currentDesiredJobEntity.AfterTime = ddlAfterHours.SelectedItem.Text + ":" + ddlAfterMinutes.SelectedItem.Text + ":" + ddlAfterTime.SelectedItem.Text + ":" + ddlISTETE.SelectedItem.Text;
-
-                currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
-                currentDesiredJobBAL.SaveDesiredJobDetailsBAL(currentDesiredJobEntity);
-                currentDesiredJobBAL.SaveJobDetailsBAL(currentDesiredJobEntity);
-                Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
             }
             catch (Exception)
             {
@@ -789,7 +811,6 @@ namespace JobFair.UserControls.JobSeeker
         protected void rbtUnEmployed_CheckedChanged(object sender, EventArgs e)
         {
             divFresher.Visible = true;
-           
         }
 
         /// <summary>

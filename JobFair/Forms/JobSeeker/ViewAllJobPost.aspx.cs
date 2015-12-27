@@ -11,7 +11,7 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
-        private string email, jobtitle, candidateId;
+        private string email, jobtitle, candidateId, id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -71,7 +71,7 @@ namespace JobFair.Forms.JobSeeker
                 rptrviewpost.DataBind();
             }
             catch (Exception)
-            {
+            {  
                 throw;
             }
         }
@@ -80,7 +80,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                string from = "jyoti.logossolutions@gmail.com";
+                 string from = "jyoti.logossolutions@gmail.com";
                 string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";
@@ -109,7 +109,27 @@ namespace JobFair.Forms.JobSeeker
                 smtp.Send(Msg);
                 Msg = null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
+
+
+                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+                SqlCommand cmd = new SqlCommand("sp_InsertJobHistory",connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@JobId",id);
+                cmd.Parameters.AddWithValue("@CandidateId", candidateId);
+                cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+
+
+
+
+
+
+
+
+
             }
+               
+
+            
             catch (Exception)
             {
                 throw;
