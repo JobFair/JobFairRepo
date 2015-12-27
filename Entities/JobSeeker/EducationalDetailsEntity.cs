@@ -15,7 +15,7 @@ namespace Entities.JobSeeker
 
         public string MediumOfEducation { get; set; }
         public string Status { get; set; }
-        public string Specialization { get; set; }
+        public int SpecializationId { get; set; }
         public string FromYear { get; set; }
         public string ToYear { get; set; }
         public string College { get; set; }
@@ -26,6 +26,6 @@ namespace Entities.JobSeeker
         public string AddBachelorDegreeName { get; set; }
         public string AddPostGraduateDiplomaName { get; set; }
         public string AddMasterDegreeName { get; set; }
-        public string AddDoctorOfPhilosophyName { get; set; }
+        public string AddPHDName { get; set; }
     }
 }

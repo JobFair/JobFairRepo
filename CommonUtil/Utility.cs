@@ -213,83 +213,15 @@ namespace CommonUtil
         }
 
         /// <summary>
-        /// GetUnderGraduateDiploma() method of Utility class
+        /// GetDegreeDetails() method of Utility class
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
-        public static DataSet GetUnderGraduateDiplomaDAL()
+        public static DataSet GetDegreeDetails(int DegreeId)
         {
             try
             {
                 Common common = new Common();
-                return common.GetUnderGraduateDiplomaDAL();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// GetBachelorDegree() method of Utility class
-        /// </summary>
-        /// <returns>System.Data.DataSet</returns>
-        public static DataSet GetBachelorDegreeDAL()
-        {
-            try
-            {
-                Common common = new Common();
-                return common.GetBachelorDegreeDAL();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// GetPostGraduateDiploma() method of Utility class
-        /// </summary>
-        /// <returns>System.Data.DataSet</returns>
-        public static DataSet GetPostGraduateDiplomaDAL()
-        {
-            try
-            {
-                Common common = new Common();
-                return common.GetPostGraduateDiplomaDAL();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// GetMasterDegree() method of Utility class
-        /// </summary>
-        /// <returns>System.Data.DataSet</returns>
-        public static DataSet GetMasterDegreeDAL()
-        {
-            try
-            {
-                Common common = new Common();
-                return common.GetMasterDegreeDAL();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// GetDoctorOfPhilosophy() method of Utility class
-        /// </summary>
-        /// <returns>System.Data.DataSet</returns>
-        public static DataSet GetDoctorOfPhilosophyDAL()
-        {
-            try
-            {
-                Common common = new Common();
-                return common.GetDoctorOfPhilosophyDAL();
+                return common.GetDegreeDetailsDAL(DegreeId);
             }
             catch (Exception)
             {

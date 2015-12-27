@@ -560,7 +560,7 @@
                                            <tr>
                                             <td>Highest Qualification </td>
                                             <td>
-                                                <asp:Label ID="lblHighestQualification" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "HighestQualificationName")%>'></asp:Label></td>
+                                                <%--<asp:Label ID="lblHighestQualification" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "HighestQualificationName")%>'></asp:Label></td>--%>
                                         </tr>
                                             <tr>
                                             <td>Degree Name </td>

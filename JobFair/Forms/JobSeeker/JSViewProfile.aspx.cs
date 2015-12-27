@@ -92,7 +92,7 @@ namespace JobFair.Forms.JobSeeker
             {
                 Label lbl = (Label)e.Item.FindControl("lblDegreeId");
                 int degreeId = Convert.ToInt32(lbl.Text);
-                Response.Redirect("DemoEducationalDetails.aspx?dId=" + degreeId);
+                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx?dId=" + degreeId);
             }
         }
 

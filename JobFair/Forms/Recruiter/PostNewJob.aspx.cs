@@ -20,11 +20,11 @@ namespace JobFair.Forms.Recruiter
                     BindDropDownIndustry();
                     BindDropDownDepartment();
                     BindDropDownFunctionalArea();
-                    BindUnderGraduateDiploma();
-                    BindPostGraduateDiploma();
-                    BindMasterDegree();
-                    BindDoctorOfPhilosophy();
-                    BindBachelorDegree();
+                    //BindUnderGraduateDiploma();
+                    //BindPostGraduateDiploma();
+                    //BindMasterDegree();
+                    //BindDoctorOfPhilosophy();
+                    //BindBachelorDegree();
                     BindQuestions();
                     BindState();
                     BindClientName();
@@ -220,95 +220,95 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
-        /// <summary>
-        /// Binding dropdown with UnderGraduateDiploma
-        /// </summary>
-        private void BindUnderGraduateDiploma()
-        {
-            try
-            {
-                chklstUGD.DataSource = PostNewJobBAL.GetUnderGraduateDiplomaBAL();
-                chklstUGD.DataTextField = "UGDName";
-                chklstUGD.DataValueField = "UGDID";
-                chklstUGD.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        ///// <summary>
+        ///// Binding dropdown with UnderGraduateDiploma
+        ///// </summary>
+        //private void BindUnderGraduateDiploma()
+        //{
+        //    try
+        //    {
+        //        chklstUGD.DataSource = PostNewJobBAL.GetUnderGraduateDiplomaBAL();
+        //        chklstUGD.DataTextField = "UGDName";
+        //        chklstUGD.DataValueField = "UGDID";
+        //        chklstUGD.DataBind();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
-        /// <summary>
-        /// Binding dropdown with PostGraduateDiploma
-        /// </summary>
-        private void BindPostGraduateDiploma()
-        {
-            try
-            {
-                chklstPGDiploma.DataSource = PostNewJobBAL.GetPostGraduateDiplomaBAL();
-                chklstPGDiploma.DataTextField = "PGDName";
-                chklstPGDiploma.DataValueField = "PGDId";
-                chklstPGDiploma.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        ///// <summary>
+        ///// Binding dropdown with PostGraduateDiploma
+        ///// </summary>
+        //private void BindPostGraduateDiploma()
+        //{
+        //    try
+        //    {
+        //        chklstPGDiploma.DataSource = PostNewJobBAL.GetPostGraduateDiplomaBAL();
+        //        chklstPGDiploma.DataTextField = "PGDName";
+        //        chklstPGDiploma.DataValueField = "PGDId";
+        //        chklstPGDiploma.DataBind();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
-        /// <summary>
-        /// Binding dropdown with MasterDegree
-        /// </summary>
-        private void BindMasterDegree()
-        {
-            try
-            {
-                chklstMasterDegree.DataSource = PostNewJobBAL.GetMasterDegreeBAL();
-                chklstMasterDegree.DataTextField = "MDName";
-                chklstMasterDegree.DataValueField = "MDId";
-                chklstMasterDegree.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        ///// <summary>
+        ///// Binding dropdown with MasterDegree
+        ///// </summary>
+        //private void BindMasterDegree()
+        //{
+        //    try
+        //    {
+        //        chklstMasterDegree.DataSource = PostNewJobBAL.GetMasterDegreeBAL();
+        //        chklstMasterDegree.DataTextField = "MDName";
+        //        chklstMasterDegree.DataValueField = "MDId";
+        //        chklstMasterDegree.DataBind();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
-        /// <summary>
-        /// Binding dropdown with DoctorOfPhilosophy
-        /// </summary>
-        private void BindDoctorOfPhilosophy()
-        {
-            try
-            {
-                chklstPHD.DataSource = PostNewJobBAL.GetDoctorOfPhilosophyBAL();
-                chklstPHD.DataTextField = "PHDName";
-                chklstPHD.DataValueField = "PHDId";
-                chklstPHD.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        ///// <summary>
+        ///// Binding dropdown with DoctorOfPhilosophy
+        ///// </summary>
+        //private void BindDoctorOfPhilosophy()
+        //{
+        //    try
+        //    {
+        //        chklstPHD.DataSource = PostNewJobBAL.GetDoctorOfPhilosophyBAL();
+        //        chklstPHD.DataTextField = "PHDName";
+        //        chklstPHD.DataValueField = "PHDId";
+        //        chklstPHD.DataBind();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
-        /// <summary>
-        /// Binding dropdown with BachelorDegree
-        /// </summary>
-        private void BindBachelorDegree()
-        {
-            try
-            {
-                chklstBachelorsDegree.DataSource = PostNewJobBAL.GetBachelorDegreeBAL();
-                chklstBachelorsDegree.DataTextField = "BDName";
-                chklstBachelorsDegree.DataValueField = "BDId";
-                chklstBachelorsDegree.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        ///// <summary>
+        ///// Binding dropdown with BachelorDegree
+        ///// </summary>
+        //private void BindBachelorDegree()
+        //{
+        //    try
+        //    {
+        //        chklstBachelorsDegree.DataSource = PostNewJobBAL.GetBachelorDegreeBAL();
+        //        chklstBachelorsDegree.DataTextField = "BDName";
+        //        chklstBachelorsDegree.DataValueField = "BDId";
+        //        chklstBachelorsDegree.DataBind();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
         /// <summary>
         /// Binding dropdown with Questionaries

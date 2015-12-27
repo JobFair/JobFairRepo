@@ -19,6 +19,8 @@
         public const string sp_JS_SelectEducationalDetails = "sp_JS_SelectEducationalDetails";
         public const string sp_JS_UpdateEducationalDetails = "sp_JS_UpdateEducationalDetails";
         public const string sp_JS_InsertEducationDegreesType = "sp_JS_InsertEducationDegreesType";
+        public const string sp_SelectDegreeDetails = "sp_SelectDegreeDetails";
+        public const string sp_InsertDegreeDetails = "sp_InsertDegreeDetails";
         public const string sp_JS_InsertMoreCertification = "sp_JS_InsertMoreCertification";
         public const string sp_JS_InsertMoreWorkshop = "sp_JS_InsertMoreWorkshop";
         public const string sp_RE_InsertCloneJob = "sp_RE_InsertCloneJob";
