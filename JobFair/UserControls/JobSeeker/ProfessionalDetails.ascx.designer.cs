@@ -220,6 +220,42 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.RadioButtonList rblJobType;
         
         /// <summary>
+        /// divTemporary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTemporary;
+        
+        /// <summary>
+        /// PanelTemporary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelTemporary;
+        
+        /// <summary>
+        /// txtClientName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtClientName;
+        
+        /// <summary>
+        /// txtClientSite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtClientSite;
+        
+        /// <summary>
         /// rblCompanyType control.
         /// </summary>
         /// <remarks>
@@ -274,15 +310,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.GridView gvExperience;
         
         /// <summary>
-        /// rptrPastCurrentJobDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrPastCurrentJobDetails;
-        
-        /// <summary>
         /// btnSaveCurrentJob control.
         /// </summary>
         /// <remarks>
@@ -310,13 +337,22 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblmsgsave;
         
         /// <summary>
-        /// divPastCurrentJobDetails control.
+        /// divCurrntPastJobDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPastCurrentJobDetails;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCurrntPastJobDetails;
+        
+        /// <summary>
+        /// rptrPastCurrentJobDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrPastCurrentJobDetails;
         
         /// <summary>
         /// divDesireJobDetails control.
@@ -425,6 +461,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvJobsLookingFor;
+        
+        /// <summary>
+        /// rptrJobPostLookinFor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrJobPostLookinFor;
         
         /// <summary>
         /// divJobPostLookingForRepeater control.
@@ -688,13 +733,22 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlISTETE;
         
         /// <summary>
-        /// rptrJobPostLookinFor control.
+        /// txtDesiredReason control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrJobPostLookinFor;
+        protected global::System.Web.UI.WebControls.TextBox txtDesiredReason;
+        
+        /// <summary>
+        /// divJobPostLookingFor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divJobPostLookingFor;
         
         /// <summary>
         /// btnSaveMoreJobs control.

@@ -37,8 +37,10 @@ namespace JobFair.UserControls.JobSeeker
                         {
                             try
                             {
-                                rptrPastCurrentJobDetails.Visible = true;
-                                rptrJobPostLookinFor.Visible = true;
+                                divCurrentEmployer.Visible = false;
+                                divAddMoreJob.Visible = false;
+                                divCurrntPastJobDetails.Visible = true;
+                                divJobPostLookingFor.Visible = true;
 
                                 BindIndustry();
                                 BindDepartment();
@@ -46,7 +48,8 @@ namespace JobFair.UserControls.JobSeeker
                                 hfCandidateId.Value = candidateId;
                                 BindRepeaterJobPostLooking();
                                 BindRepeaterCurrentPastExp();
-                                divCurrentEmployer.Visible = false;
+                                
+                               
 
                                 DataSet ds = new DataSet();
                                 DataSet ds2 = new DataSet();
@@ -398,6 +401,8 @@ namespace JobFair.UserControls.JobSeeker
                 dt.Columns.Add(new DataColumn("JobType", typeof(string)));
                 dt.Columns.Add(new DataColumn("CompanyType", typeof(string)));
                 dt.Columns.Add(new DataColumn("Reason", typeof(string)));
+                dt.Columns.Add(new DataColumn("ClientName", typeof(string)));
+                dt.Columns.Add(new DataColumn("ClientSite", typeof(string)));
                 dr = dt.NewRow();
                 dt.Rows.Add(dr);
                 ViewState["ProfessionalDetails"] = dt;
@@ -560,6 +565,8 @@ namespace JobFair.UserControls.JobSeeker
                             dr["JobType"] = rblJobType.Text;
                             dr["CompanyType"] = rblCompanyType.Text;
                             dr["Reason"] = txtReasonforJobchange.Text.Trim();
+                            dr["ClientName"] = txtClientName.Text.Trim();
+                            dr["ClientSite"] = txtClientSite.Text.Trim();
                         }
                         // Removing initial row
                         if (dt.Rows[0][0].ToString() == "")
@@ -913,6 +920,11 @@ namespace JobFair.UserControls.JobSeeker
             Label lblReasonforjobchange = (Label)e.Item.FindControl("lblReasonforjobchange");
             TextBox txtReasonforJobchange = (TextBox)e.Item.FindControl("txtReasonforJobchange");
 
+            Label lblClientName = (Label)e.Item.FindControl("lblClientName");
+            TextBox txtClientName = (TextBox)e.Item.FindControl("txtClientName");
+            Label lblClientSite = (Label)e.Item.FindControl("lblClientSite");
+            TextBox txtClientSite = (TextBox)e.Item.FindControl("txtClientSite");
+
             LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
             LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
             LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
@@ -952,6 +964,13 @@ namespace JobFair.UserControls.JobSeeker
                 ddlIndustry.Visible = true;
                 ddlDepartment.Visible = true;
 
+                lblClientName.Visible = false;
+                lblClientSite.Visible = false;
+
+                txtClientName.Visible = true;
+                txtClientSite.Visible = true;
+                
+
                 lnkEdit.Visible = false;
                 lnkDelete.Visible = false;
                 lnkUpdate.Visible = true;
@@ -973,6 +992,8 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobEntity.JobType = rblJobType.Text;
                 currentDesiredJobEntity.CompanyType = rblCompanyType.Text;
                 currentDesiredJobEntity.ReasonForJobChange = txtReasonforJobchange.Text.Trim();
+                currentDesiredJobEntity.ClientName = txtClientName.Text.Trim();
+                currentDesiredJobEntity.ClientSite = txtClientSite.Text.Trim();
 
                 currentDesiredJobEntity.Department = ddlDepartment.SelectedValue;
 
@@ -1282,6 +1303,14 @@ namespace JobFair.UserControls.JobSeeker
         {
             divCurrentEmployer.Visible = true;
             divDesireJobDetails.Visible = true;
+        }
+
+        protected void rblJobType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblJobType.SelectedItem.Text == "Temporary" && chkCurrentYes.Checked)
+            {
+                divTemporary.Visible = true;
+            }
         }
     }
 }
