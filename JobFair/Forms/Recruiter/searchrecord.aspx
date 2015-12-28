@@ -16,15 +16,48 @@
         .auto-style2 {
             width: 209px;
         }
+    .auto-style3 {
+        width: 404px;
+    }
     </style>
    
 </head>
 
 <body>
     <form id="form1" runat="server">
-        <div>
-        <div id="divBasicDetails" runat="server">
+        <div id="divMain" runat="server">
+            <div id="divClient" runat="server">
+                <table>
+                    <tr>
+                        <td>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Client Name</td>
+                        <td><asp:DropDownList ID="ddlClientName" runat="server"></asp:DropDownList></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Position
+                        </td>
+                        <td>
+                            <asp:DropDownList ID="ddlPosition" runat="server"></asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Requirement ID
+                        </td>
+                        <td>
+                            <asp:DropDownList ID="ddlRequirementID" runat="server"></asp:DropDownList>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        <div id="divBasicDetails" runat="server">
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style2">
@@ -72,36 +105,113 @@ mso-bidi-language:AR-SA">Candidate Work Status</span></td>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
-font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
-&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
-mso-bidi-language:AR-SA">Candidate&#39;s Current Location</span></td>
+                    <td class="auto-style2">
+                <asp:UpdatePanel ID="panelLocationCurrent" runat="server">
+                    <ContentTemplate>
+                        <table style="width: 688px">
+                            <tr>
+                                <td class="auto-style3">Current Country</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlPreferredCountry0" OnSelectedIndexChanged="ddlPreferredCountry_SelectedIndexChanged" runat="server">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style3">Current State</td>
+                                <td>
+                                    <br />
+                                    <asp:TextBox ID="txtPreferredState0" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button ID="btnState0" runat="server" Text="Select State" OnClick="btnState_Click" />
+                                    <asp:Panel ID="PanelState0" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklState0" runat="server" OnSelectedIndexChanged="chklState_SelectedIndexChanged" AutoPostBack="True">
+                                        </asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Current City
+                                </td>
+                                <td>
+                                    <br />
+                                    <asp:TextBox ID="txtCity0" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button ID="btnCity0" runat="server" Text="Select City" OnClick="btnCity_Click" />
+                                    <asp:Panel ID="Panelcity0" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklCity0" runat="server" OnSelectedIndexChanged="chklCity_SelectedIndexChanged" AutoPostBack="True">
+                                        </asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Current Area
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtarea0" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button runat="server" ID="btnarea0" Text="Select Area" OnClick="btnarea_Click" />
+                                    <asp:Panel ID="PanelArea0" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklArea0" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chklArea_SelectedIndexChanged"></asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                        </table>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                    </td>
                     <td>
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
-font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
-&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
-mso-bidi-language:AR-SA">Preferred Location<span style="mso-spacerun:yes">&nbsp; </span></span></td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
-font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
-&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
-mso-bidi-language:AR-SA">Area of the Current Location </span></td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
-font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
-&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
-mso-bidi-language:AR-SA">Area of the Preferred Location <span style="mso-spacerun:yes">&nbsp;</span></span></td>
-                    <td>
-                        &nbsp;</td>
+                    <td class="auto-style2">
+                <asp:UpdatePanel ID="panelLocationPreferred" runat="server">
+                    <ContentTemplate>
+                        <table style="width: 688px">
+                            <tr>
+                                <td class="auto-style3">Preferred Country</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlPreferredCountry" OnSelectedIndexChanged="ddlPreferredCountry_SelectedIndexChanged" runat="server">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style3">Preferred State</td>
+                                <td>
+                                    <br />
+                                    <asp:TextBox ID="txtPreferredState" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button ID="btnState" runat="server" Text="Select State" OnClick="btnState_Click" />
+                                    <asp:Panel ID="PanelState" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklState" runat="server" OnSelectedIndexChanged="chklState_SelectedIndexChanged" AutoPostBack="True">
+                                        </asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Preferred City
+                                </td>
+                                <td>
+                                    <br />
+                                    <asp:TextBox ID="txtCity" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button ID="btnCity" runat="server" Text="Select City" OnClick="btnCity_Click" />
+                                    <asp:Panel ID="Panelcity" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklCity" runat="server" OnSelectedIndexChanged="chklCity_SelectedIndexChanged" AutoPostBack="True">
+                                        </asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Preferred Area
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click" />
+                                    <asp:Panel ID="PanelArea" runat="server" Visible="false" Width="444px">
+                                        <asp:CheckBoxList ID="chklArea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chklArea_SelectedIndexChanged"></asp:CheckBoxList>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                        </table>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                    </td>
+                   
                 </tr>
                 <tr>
                     <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
@@ -219,6 +329,125 @@ mso-bidi-language:AR-SA">Notice Period </span></td>
             </table>
             </div>
             <br />
+            <div id="divEmploymentDetails" runat="server">
+                <table>
+                    <tr>
+                        <td><strong>Employment Details</strong></td>
+                        <td>
+                            
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Industry</td>
+                        <td>
+                            
+                            <asp:CheckBoxList ID="CheckBoxList2" runat="server">
+                            </asp:CheckBoxList>
+                            <asp:DropDownList ID="DropDownList4" runat="server">
+                            </asp:DropDownList>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Functional Area</td>
+                        <td>
+                            
+                            <asp:CheckBoxList ID="CheckBoxList3" runat="server">
+                            </asp:CheckBoxList>
+                            <asp:DropDownList ID="DropDownList5" runat="server">
+                            </asp:DropDownList>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>
+                            
+                            <asp:CheckBoxList ID="CheckBoxList4" runat="server">
+                            </asp:CheckBoxList>
+                            <asp:DropDownList ID="DropDownList6" runat="server">
+                            </asp:DropDownList>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Keywords Role skills </span></td>
+                        <td>
+                            
+                            <asp:CheckBoxList ID="CheckBoxList5" runat="server">
+                            </asp:CheckBoxList>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Keyword Technical skills</span></td>
+                        <td>
+                            
+                            <asp:CheckBoxList ID="CheckBoxList6" runat="server">
+                            </asp:CheckBoxList>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Employer</td>
+                        <td>
+                            
+                            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                            <asp:DropDownList ID="DropDownList7" runat="server">
+                            </asp:DropDownList>
+                            
+                            <asp:DropDownList ID="DropDownList10" runat="server">
+                            </asp:DropDownList>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Exclude Employer</td>
+                        <td>
+                            
+                            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                            <asp:DropDownList ID="DropDownList8" runat="server">
+                            </asp:DropDownList>
+                            
+                            <asp:DropDownList ID="DropDownList11" runat="server">
+                            </asp:DropDownList>
+                            
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="divEducationDetails" runat="server">
+                <table>
+                    <tr>
+                        <td>
+                            <strong>Education Details
+                        </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            Highest Qualification
+                        </td>
+                        <td>
+                            UG Qualification<asp:DropDownList ID="DropDownList9" runat="server">
+                            </asp:DropDownList>
+&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            PG Qualification<asp:DropDownList ID="DropDownList12" runat="server">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
             <table>
                 <tr>
                     <td>
