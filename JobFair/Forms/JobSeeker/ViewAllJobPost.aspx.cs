@@ -60,7 +60,7 @@ namespace JobFair.Forms.JobSeeker
             {
                 DataSet dsviewalljobpost = new DataSet();
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                SqlCommand cmd = new SqlCommand("select  JobId ,JobTitle,JobDescription,OfferedAnnualSalaryMin,OfferedAnnualSalaryMax,KeywordsTechnical,CompanyName from RE_JobPost where JobId = @jid", connection);
+                SqlCommand cmd = new SqlCommand("select  RecruiterID,JobId ,JobTitle,JobDescription,OfferedAnnualSalaryMin,OfferedAnnualSalaryMax,KeywordsTechnical,CompanyName from RE_JobPost where JobId = @jid", connection);
                 cmd.Parameters.AddWithValue("@jid", id);
                 //SqlCommand cmd = new SqlCommand("sp_JS_SelectJobpost", connection);
                 //cmd.CommandType = CommandType.StoredProcedure;
@@ -71,16 +71,21 @@ namespace JobFair.Forms.JobSeeker
                 rptrviewpost.DataBind();
             }
             catch (Exception)
-            {  
+            {
                 throw;
             }
+        }
+
+        public void GetCandidateProfile()
+        {
+           
         }
 
         protected void btnapply_Click(object sender, EventArgs e)
         {
             try
             {
-                 string from = "jyoti.logossolutions@gmail.com";
+                string from = "jyoti.logossolutions@gmail.com";
                 string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";
@@ -110,26 +115,13 @@ namespace JobFair.Forms.JobSeeker
                 Msg = null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
 
-
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                SqlCommand cmd = new SqlCommand("sp_InsertJobHistory",connection);
+                SqlCommand cmd = new SqlCommand("sp_InsertJobHistory", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@JobId",id);
+                cmd.Parameters.AddWithValue("@JobId", id);
                 cmd.Parameters.AddWithValue("@CandidateId", candidateId);
                 cmd.Parameters.AddWithValue("@Date", DateTime.Now);
-
-
-
-
-
-
-
-
-
             }
-               
-
-            
             catch (Exception)
             {
                 throw;
