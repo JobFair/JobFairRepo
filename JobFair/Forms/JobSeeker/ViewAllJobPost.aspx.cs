@@ -12,7 +12,7 @@ namespace JobFair.Forms.JobSeeker
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
         private string email, jobtitle, candidateId, id;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -78,9 +78,27 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnapply_Click(object sender, EventArgs e)
         {
+
+            if (SentMail())
+            {
+                 
+            }            
+               
+        
+        }
+
+           private string Todo()
+        {
+            
+            return "harshal";
+        }
+
+        private bool SentMail()
+        {
             try
             {
-                 string from = "jyoti.logossolutions@gmail.com";
+                
+                string from = "jyoti.logossolutions@gmail.com";
                 string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";
@@ -109,31 +127,15 @@ namespace JobFair.Forms.JobSeeker
                 smtp.Send(Msg);
                 Msg = null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
-
-
-                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                SqlCommand cmd = new SqlCommand("sp_InsertJobHistory",connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@JobId",id);
-                cmd.Parameters.AddWithValue("@CandidateId", candidateId);
-                cmd.Parameters.AddWithValue("@Date", DateTime.Now);
-
-
-
-
-
-
-
-
-
+                return true;
+             
             }
-               
-
-            
             catch (Exception)
             {
-                throw;
+
+                return false;
             }
+        
         }
 
         protected void rptrviewpost_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -163,5 +165,6 @@ namespace JobFair.Forms.JobSeeker
         //        throw;
         //    }
         //}
+
     }
 }
