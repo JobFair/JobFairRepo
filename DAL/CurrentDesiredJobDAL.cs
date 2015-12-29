@@ -431,7 +431,7 @@ namespace DAL
             try
             {
                 connection.Open();
-                SqlParameter[] sparams = new SqlParameter[14];
+                SqlParameter[] sparams = new SqlParameter[16];
                 sparams[0] = new SqlParameter("@id", currentDesiredJobEntity.ExpId);
                 sparams[1] = new SqlParameter("@companyCurrentOrPast", currentDesiredJobEntity.CurrentCompanyOrNot);
                 sparams[2] = new SqlParameter("@companyName", currentDesiredJobEntity.CompanyName);
@@ -446,6 +446,8 @@ namespace DAL
                 sparams[11] = new SqlParameter("@jobType", currentDesiredJobEntity.JobType);
                 sparams[12] = new SqlParameter("@companyType", currentDesiredJobEntity.CompanyType);
                 sparams[13] = new SqlParameter("@reason", currentDesiredJobEntity.ReasonForJobChange);
+                sparams[14] = new SqlParameter("@clientName", currentDesiredJobEntity.ClientName);
+                sparams[15] = new SqlParameter("@clientSite", currentDesiredJobEntity.ClientSite);
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateCurrentPastExpDetails, sparams);
             }
