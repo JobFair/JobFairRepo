@@ -12,7 +12,7 @@ namespace JobFair.Forms.JobSeeker
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
         private string email, jobtitle, candidateId, id;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -60,7 +60,7 @@ namespace JobFair.Forms.JobSeeker
             {
                 DataSet dsviewalljobpost = new DataSet();
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                SqlCommand cmd = new SqlCommand("select  JobId ,JobTitle,JobDescription,OfferedAnnualSalaryMin,OfferedAnnualSalaryMax,KeywordsTechnical,CompanyName from RE_JobPost where JobId = @jid", connection);
+                SqlCommand cmd = new SqlCommand("select  RecruiterID,JobId ,JobTitle,JobDescription,OfferedAnnualSalaryMin,OfferedAnnualSalaryMax,KeywordsTechnical,CompanyName from RE_JobPost where JobId = @jid", connection);
                 cmd.Parameters.AddWithValue("@jid", id);
                 //SqlCommand cmd = new SqlCommand("sp_JS_SelectJobpost", connection);
                 //cmd.CommandType = CommandType.StoredProcedure;
@@ -74,6 +74,11 @@ namespace JobFair.Forms.JobSeeker
             {  
                 throw;
             }
+        }
+
+        public void GetCandidateProfile()
+        {
+           
         }
 
         protected void btnapply_Click(object sender, EventArgs e)
@@ -98,7 +103,7 @@ namespace JobFair.Forms.JobSeeker
             try
             {
                 
-                string from = "jyoti.logossolutions@gmail.com";
+                 string from = "jyoti.logossolutions@gmail.com";
                 string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";

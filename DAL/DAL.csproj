@@ -71,6 +71,7 @@
     <Compile Include="SearchRecord.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
+    <Compile Include="ViewAllJobPostDAL.cs" />
     <Compile Include="ViewProfileJSDAL.cs" />
     <Compile Include="ViewProfileREDAL.cs" />
   </ItemGroup>
