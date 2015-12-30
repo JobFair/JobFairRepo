@@ -64,7 +64,7 @@ namespace JobFair.Forms.JobSeeker
                 recruiterName = label.Text;
             }
         }
-
+                              
         private void GetData(string id)
         {
             try
