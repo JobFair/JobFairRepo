@@ -23,5 +23,41 @@ namespace DAL
             }
             return ds;
         }
+
+        public DataSet GetData(string id)
+        {
+            DataSet dsviewpost = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@JobId", id) };
+                dsviewpost = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectViewJobPost, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return dsviewpost;
+        }
+
+        public int CheckMailSend(string id, string candidateId)
+        {
+           
+            try
+            {
+                SqlParameter[] sqlparams ={
+                                                  new SqlParameter("@JobId", id) ,
+                                                  new SqlParameter("@CandidateId", candidateId),
+                                                  new  SqlParameter ("IsMailSend",1),
+                                                  new SqlParameter("@Date", DateTime.Now)                                 
+                                             };
+                return SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_InsertJobHistory, sqlparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             try
             {
                 id = Convert.ToString(Request.QueryString["jid"]);
@@ -52,33 +54,15 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        protected void rptrviewpost_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "apply")
-            {
-                Label lbl = (Label)e.Item.FindControl("lbljobtitle");
-                jobtitle = lbl.Text;
-                Label labl = (Label)e.Item.FindControl("lblRecruterId");
-                rId = labl.Text;
-                Label label = (Label)e.Item.FindControl("RecruiterfullName");
-                recruiterName = label.Text;
-            }
-        }
-                              
         private void GetData(string id)
         {
             try
             {
-                DataSet dsviewalljobpost = new DataSet();
-                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                SqlCommand cmd = new SqlCommand("SELECT RE_JobPost.JobId, RE_JobPost.JobTitle, RE_JobPost.JobDescription, RE_JobPost.OfferedAnnualSalaryMin, RE_JobPost.OfferedAnnualSalaryMax, RE_JobPost.KeywordsTechnical, RE_JobPost.CompanyName, RE_RegisterDetails.RecruiterfullName, RE_JobPost.RecruiterID FROM  RE_JobPost INNER JOIN  RE_RegisterDetails ON RE_JobPost.RecruiterID = RE_RegisterDetails.RecruiterID WHERE (RE_JobPost.JobId = @jid)", connection);
-                cmd.Parameters.AddWithValue("@jid", id);
-                //SqlCommand cmd = new SqlCommand("sp_JS_SelectJobpost", connection);
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@JobId", id);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dsviewalljobpost);
-                rptrviewpost.DataSource = dsviewalljobpost;
+
+                DataSet dsviewjobpost = new DataSet();
+                ViewAllJobPostBAL viewalljobpostBAL = new ViewAllJobPostBAL();
+                dsviewjobpost = viewalljobpostBAL.GetData(id);
+                rptrviewpost.DataSource = dsviewjobpost;
                 rptrviewpost.DataBind();
             }
             catch (Exception)
@@ -172,29 +156,27 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnapply_Click(object sender, EventArgs e)
         {
-
-            if (SentMail())
+            if (SentMail(jobtitle))
             {
-                 
+                CheckMailSend(id,candidateId);
             }            
                
         
         }
-
-           private string Todo()
+        private int CheckMailSend(string id, string candidateId)
         {
-            
-            return "harshal";
+            ViewAllJobPostBAL viewalljobpostBAL = new ViewAllJobPostBAL();
+            return viewalljobpostBAL.CheckMailSend(id, candidateId);
         }
 
-        private bool SentMail()
+        private bool SentMail(string jobtitle)
         {
             try
             {
                 GetCandidateProfile(candidateId);
 
                 string from = "jyoti.logossolutions@gmail.com";
-                string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
+                string subject = " You applied for " +  jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";
                 //string path = Server.MapPath(@"/Images");
@@ -232,7 +214,17 @@ namespace JobFair.Forms.JobSeeker
             }
         
         }
+        protected void rptrviewpost_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "apply")
+            {
+                Label lbl = (Label)e.Item.FindControl("lbljobtitle");
+                jobtitle = lbl.Text;
+            }
+        }
 
+
+     
         //private void BindReapetor()
         //{
         //    try
