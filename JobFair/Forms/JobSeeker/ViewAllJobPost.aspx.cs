@@ -1,8 +1,6 @@
 ﻿using BAL;
 using System;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using System.IO;
 using System.Net.Mail;
 using System.Web.UI.WebControls;
@@ -15,8 +13,6 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
             try
             {
                 id = Convert.ToString(Request.QueryString["jid"]);
@@ -58,7 +54,6 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-
                 DataSet dsviewjobpost = new DataSet();
                 ViewAllJobPostBAL viewalljobpostBAL = new ViewAllJobPostBAL();
                 dsviewjobpost = viewalljobpostBAL.GetData(id);
@@ -100,10 +95,10 @@ namespace JobFair.Forms.JobSeeker
                     stateName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["StateName"]);
                     currentAddress = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CurrentAddress"]);
                     pincode = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PinCode"]);
-           
+
                     MailMessage msg = new MailMessage();
                     msg.From = new MailAddress("logos.expertadvice@gmail.com");
-                    msg.To.Add("hr@logossolutions.co.in");
+                    //msg.To.Add("hr@logossolutions.co.in");
                     msg.To.Add("saurabh.logossolutions@gmail.com");
                     msg.Subject = " Job application for the " + jobtitle;
                     // Check if selected value equal to Other Help
@@ -154,15 +149,23 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        protected void rptrviewpost_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "apply")
+            {
+                Label lbl = (Label)e.Item.FindControl("lbljobtitle");
+                jobtitle = lbl.Text;
+            }
+        }
+
         protected void btnapply_Click(object sender, EventArgs e)
         {
             if (SentMail(jobtitle))
             {
-                CheckMailSend(id,candidateId);
-            }            
-               
-        
+                CheckMailSend(id, candidateId);
+            }
         }
+
         private int CheckMailSend(string id, string candidateId)
         {
             ViewAllJobPostBAL viewalljobpostBAL = new ViewAllJobPostBAL();
@@ -176,7 +179,7 @@ namespace JobFair.Forms.JobSeeker
                 GetCandidateProfile(candidateId);
 
                 string from = "jyoti.logossolutions@gmail.com";
-                string subject = " You applied for " +  jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
+                string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";
                 //string path = Server.MapPath(@"/Images");
@@ -205,26 +208,13 @@ namespace JobFair.Forms.JobSeeker
                 Msg = null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
                 return true;
-
             }
             catch (Exception)
             {
-
                 return false;
             }
-        
-        }
-        protected void rptrviewpost_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "apply")
-            {
-                Label lbl = (Label)e.Item.FindControl("lbljobtitle");
-                jobtitle = lbl.Text;
-            }
         }
 
-
-     
         //private void BindReapetor()
         //{
         //    try
@@ -243,6 +233,5 @@ namespace JobFair.Forms.JobSeeker
         //        throw;
         //    }
         //}
-
     }
 }

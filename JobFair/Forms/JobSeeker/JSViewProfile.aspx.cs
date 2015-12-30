@@ -284,7 +284,9 @@ namespace JobFair.Forms.JobSeeker
             {
                 Label lbl = (Label)e.Item.FindControl("lblDegreeId");
                 int degreeId = Convert.ToInt32(lbl.Text);
-                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx?dId=" + degreeId);
+                Label lblel = (Label)e.Item.FindControl("lblSpcializationId");
+                int spcializationId = Convert.ToInt32(lblel.Text);
+                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx?dId=" + degreeId + "&sId=" + spcializationId);
             }
         }
 
@@ -649,5 +651,10 @@ namespace JobFair.Forms.JobSeeker
         protected void lnkbtnDesirePosition_Click(object sender, EventArgs e)
         {
         }
-    }
-}
+
+        //protected void btnAddNew_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx?isCheck=true");
+        //}
+    } 
+}   
