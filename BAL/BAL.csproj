@@ -42,6 +42,7 @@
     <Compile Include="AdvanceJobSearchBAL.cs" />
     <Compile Include="ChangeLoginDetailsBAL.cs" />
     <Compile Include="ClientRequirementsBAL.cs" />
+    <Compile Include="JobapplicationsBAL.cs" />
     <Compile Include="ManageJobsBAL.cs" />
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ClientDetailsBAL.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="RegisterRecruiterBAL.cs" />
     <Compile Include="RequestEmailJSBAL.cs" />
     <Compile Include="searchRecordBAL.cs" />
+    <Compile Include="ViewAllJobPostBAL.cs" />
     <Compile Include="ViewProfileJSBAL.cs" />
     <Compile Include="ViewProfileREBAL.cs" />
   </ItemGroup>

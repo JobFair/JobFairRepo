@@ -89,6 +89,18 @@ namespace JobFair.Forms.JobSeeker
                 // Check if dataset is not null
                 if (dsProfessionalDetails != null)
                 {
+                    //string stateId = Convert.ToString(dsProfessionalDetails.Tables[0].Rows[0]["PreferredState"]);
+                    //List<string> listofState = new List<string>(stateId.Split(','));
+                    //listofState.RemoveAll(x => x == "");
+
+                    //foreach (ListItem item in chklState.Items)
+                    //{
+                    //    item.Selected = listofState.Contains(item.Value);
+                    //}
+
+                    //var selectedState = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                    //txtPreferredState.Text = string.Join(",", selectedState.Select(x => x.Text));
+
                     rptrDesireJob.DataSource = dsProfessionalDetails;
                     rptrDesireJob.DataBind();
                 }
@@ -180,6 +192,7 @@ namespace JobFair.Forms.JobSeeker
             {
                 DataSet dsCertification = new DataSet();
                 dsCertification = objViewProfile.ViewCertificationBAL(candidateId);
+                // Check if dataset is not null
                 if (dsCertification != null)
                 {
                     rptrCertification.DataSource = dsCertification;
@@ -271,7 +284,9 @@ namespace JobFair.Forms.JobSeeker
             {
                 Label lbl = (Label)e.Item.FindControl("lblDegreeId");
                 int degreeId = Convert.ToInt32(lbl.Text);
-                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx?dId=" + degreeId);
+                Label lblel = (Label)e.Item.FindControl("lblSpcializationId");
+                int spcializationId = Convert.ToInt32(lblel.Text);
+                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx?dId=" + degreeId + "&sId=" + spcializationId);
             }
         }
 
@@ -539,7 +554,7 @@ namespace JobFair.Forms.JobSeeker
                             lblGender.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["Gender"]);
                             lblCurrentCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CityName"]);
 
-                            lblPreferedCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["PreferredCity"]);
+                            lblPreferedCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["PreferredCityName"]);
                             lblCurrentCTC.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CurrentAnualSalary"]);
                             lblExpectedCTC.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["ExpectedAnualSalary"]);
                             lblNoticePeriod.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["NoticePeriod"]);
@@ -547,7 +562,7 @@ namespace JobFair.Forms.JobSeeker
                             lblEmployeeStatus.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["EmploymentStatus"]);
                             lblJobType.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["JobType"]);
                             lblCompanyType.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CompanyType"]);
-                            //lblQualification.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["MobileNo"]);
+                            lblQualification.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["DegreeType"]);
                             lblExperience.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["TotalExpriance"]);
                             lblJobPostLooking.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["JobPostLookingFor"]);
                             lblWorkStatus.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CurrentWorkingStatus"]);
@@ -621,6 +636,25 @@ namespace JobFair.Forms.JobSeeker
             Response.Redirect("WebForm1.aspx/AffirmativeDetails.ascx?isCheck=true");
         }
 
-       
-    }
-}
+        protected void lnkbtnProfessionalSummary_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void lnkbtnEmployer_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void lnkbtnDesireJob_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void lnkbtnDesirePosition_Click(object sender, EventArgs e)
+        {
+        }
+
+        //protected void btnAddNew_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx?isCheck=true");
+        //}
+    } 
+}   

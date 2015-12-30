@@ -95,7 +95,7 @@
     <Content Include="Forms\JobSeeker\JSViewProfile.aspx" />
     <Content Include="Forms\JobSeeker\ProjectDetails.aspx" />
     <Content Include="Forms\JobSeeker\Refference.aspx" />
-    <Content Include="Forms\JobSeeker\RegistrationConfirmation.html" />
+    <Content Include="Email Templates\RegistrationConfirmation.html" />
     <Content Include="Forms\JobSeeker\RequestEmail.aspx" />
     <Content Include="Forms\JobSeeker\ViewAllJobPost.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
@@ -548,7 +548,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Email Templates\" />
     <Folder Include="Images\JobSeeker\" />
     <Folder Include="UploadFiles\" />
     <Folder Include="UploadImages\" />

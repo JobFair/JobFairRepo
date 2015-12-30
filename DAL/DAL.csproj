@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AdvanceSearchDAL.cs" />
     <Compile Include="ChangeLoginDetailsDAL.cs" />
+    <Compile Include="JobApplicationDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />
     <Compile Include="ManageResponsesDAL.cs" />
     <Compile Include="MoreCertificationDAL.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="SearchRecord.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
+    <Compile Include="ViewAllJobPostDAL.cs" />
     <Compile Include="ViewProfileJSDAL.cs" />
     <Compile Include="ViewProfileREDAL.cs" />
   </ItemGroup>

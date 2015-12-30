@@ -778,6 +778,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel15;
         
         /// <summary>
+        /// lnkbtnProfessionalSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnProfessionalSummary;
+        
+        /// <summary>
         /// rptrProfessionalSummary control.
         /// </summary>
         /// <remarks>
@@ -794,6 +803,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel TabPanel16;
+        
+        /// <summary>
+        /// lnkbtnEmployer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnEmployer;
         
         /// <summary>
         /// rptrEmployer control.
@@ -814,6 +832,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::AjaxControlToolkit.TabPanel TabPanel17;
         
         /// <summary>
+        /// lnkbtnDesireJob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnDesireJob;
+        
+        /// <summary>
         /// rptrDesireJob control.
         /// </summary>
         /// <remarks>
@@ -830,6 +857,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel TabPanel18;
+        
+        /// <summary>
+        /// lnkbtnDesirePosition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnDesirePosition;
         
         /// <summary>
         /// rptrJobLookingFor control.

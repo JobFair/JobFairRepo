@@ -94,5 +94,9 @@
         public string RoleSkills { get; set; }
 
         public int PreferredCountry { get; set; }
+
+        public string ClientName { get; set; }
+
+        public string ClientSite { get; set; }
     }
 }

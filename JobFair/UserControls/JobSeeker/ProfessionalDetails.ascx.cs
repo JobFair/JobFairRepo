@@ -33,12 +33,14 @@ namespace JobFair.UserControls.JobSeeker
                     // Check page is not post back
                     if (!IsPostBack)
                     {
-                        if (isEdit)
+                        if (!isEdit)
                         {
                             try
                             {
-                                rptrPastCurrentJobDetails.Visible = true;
-                                rptrJobPostLookinFor.Visible = true;
+                                divCurrentEmployer.Visible = false;
+                                divAddMoreJob.Visible = false;
+                                divCurrntPastJobDetails.Visible = true;
+                                divJobPostLookingFor.Visible = true;
 
                                 BindIndustry();
                                 BindDepartment();
@@ -46,7 +48,8 @@ namespace JobFair.UserControls.JobSeeker
                                 hfCandidateId.Value = candidateId;
                                 BindRepeaterJobPostLooking();
                                 BindRepeaterCurrentPastExp();
-                                divCurrentEmployer.Visible = false;
+                                
+                               
 
                                 DataSet ds = new DataSet();
                                 DataSet ds2 = new DataSet();
@@ -207,11 +210,25 @@ namespace JobFair.UserControls.JobSeeker
                             BindDepartment();
                             hfCandidateId.Value = candidateId;
                             AddExperienceRecords();
+                            BindExperienceGrid();
                             AddJobLookingRecords();
+                            BindJobPostLookingGrid();
                         }
                     }
                 }
             }
+        }
+
+        private void BindJobPostLookingGrid()
+        {
+            gvJobsLookingFor.DataSource = ViewState["JobDetails"] as DataTable;
+            gvJobsLookingFor.DataBind();
+        }
+
+        private void BindExperienceGrid()
+        {
+            gvExperience.DataSource = ViewState["ProfessionalDetails"] as DataTable;
+            gvExperience.DataBind();
         }
 
         private void BindCountry()
@@ -398,6 +415,8 @@ namespace JobFair.UserControls.JobSeeker
                 dt.Columns.Add(new DataColumn("JobType", typeof(string)));
                 dt.Columns.Add(new DataColumn("CompanyType", typeof(string)));
                 dt.Columns.Add(new DataColumn("Reason", typeof(string)));
+                dt.Columns.Add(new DataColumn("ClientName", typeof(string)));
+                dt.Columns.Add(new DataColumn("ClientSite", typeof(string)));
                 dr = dt.NewRow();
                 dt.Rows.Add(dr);
                 ViewState["ProfessionalDetails"] = dt;
@@ -517,6 +536,7 @@ namespace JobFair.UserControls.JobSeeker
                 txtCurrentEmployer.Text = "";
                 txtRollesResponsibilities.Text = "";
                 txtReasonforJobchange.Text = "";
+                gvExperience.Visible = true;
             }
             catch (Exception)
             {
@@ -560,6 +580,8 @@ namespace JobFair.UserControls.JobSeeker
                             dr["JobType"] = rblJobType.Text;
                             dr["CompanyType"] = rblCompanyType.Text;
                             dr["Reason"] = txtReasonforJobchange.Text.Trim();
+                            dr["ClientName"] = txtClientName.Text.Trim();
+                            dr["ClientSite"] = txtClientSite.Text.Trim();
                         }
                         // Removing initial row
                         if (dt.Rows[0][0].ToString() == "")
@@ -724,9 +746,9 @@ namespace JobFair.UserControls.JobSeeker
                     currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
                     currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
                     currentDesiredJobEntity.PreferredCountry = Convert.ToInt32(ddlPreferredCountry.SelectedValue);
-                    currentDesiredJobEntity.PreferredState = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
-                    currentDesiredJobEntity.PreferredCity = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
-                    currentDesiredJobEntity.PreferrefArea = "," + string.Join(",", selectedarea.Select(x => x.Value)) + ",";
+                    currentDesiredJobEntity.PreferredState =  string.Join(",", selectedstate.Select(x => x.Value)) ;
+                    currentDesiredJobEntity.PreferredCity = string.Join(",", selectedcity.Select(x => x.Value)) ;
+                    currentDesiredJobEntity.PreferrefArea =string.Join(",", selectedarea.Select(x => x.Value));
 
                     currentDesiredJobEntity.BeforeTime = ddlBeforeHours.SelectedItem.Text + ":" + ddlBeforeMinutes.SelectedItem.Text + ":" + ddlBeforeTime.SelectedItem.Text;
 
@@ -769,9 +791,9 @@ namespace JobFair.UserControls.JobSeeker
                     currentDesiredJobEntity.Availabilityforinterview = rblYesNo.SelectedItem.Text;
                     currentDesiredJobEntity.TimeInWeekdays = "From" + ddlBeforeHours.SelectedItem.Text + "." + ddlBeforeMinutes.SelectedItem.Text + " " + ddlBeforeTime.SelectedItem.Text + " To " + ddlAfterHours.SelectedItem.Text + "." + ddlAfterMinutes.SelectedItem.Text + " " + ddlAfterTime.SelectedItem.Text + " " + ddlISTETE.SelectedItem.Text;
                     currentDesiredJobEntity.PreferredCountry = Convert.ToInt32(ddlPreferredCountry.SelectedValue);
-                    currentDesiredJobEntity.PreferredState = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
-                    currentDesiredJobEntity.PreferredCity = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
-                    currentDesiredJobEntity.PreferrefArea = "," + string.Join(",", selectedarea.Select(x => x.Value)) + ",";
+                    currentDesiredJobEntity.PreferredState =  string.Join(",", selectedstate.Select(x => x.Value));
+                    currentDesiredJobEntity.PreferredCity = string.Join(",", selectedcity.Select(x => x.Value));
+                    currentDesiredJobEntity.PreferrefArea =  string.Join(",", selectedarea.Select(x => x.Value)) ;
 
                     currentDesiredJobEntity.BeforeTime = ddlBeforeHours.SelectedItem.Text + ":" + ddlBeforeMinutes.SelectedItem.Text + ":" + ddlBeforeTime.SelectedItem.Text;
 
@@ -837,7 +859,7 @@ namespace JobFair.UserControls.JobSeeker
                 DataSet ds = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
 
-                string cityId = "," + string.Join(",", selectedcity.Select(x => x.Value)) + ",";
+                string cityId = string.Join(",", selectedcity.Select(x => x.Value));
                 ds = currentDesiredJobBAL.GetArea(cityId);
                 if (ds != null)
                 {
@@ -913,6 +935,11 @@ namespace JobFair.UserControls.JobSeeker
             Label lblReasonforjobchange = (Label)e.Item.FindControl("lblReasonforjobchange");
             TextBox txtReasonforJobchange = (TextBox)e.Item.FindControl("txtReasonforJobchange");
 
+            Label lblClientName = (Label)e.Item.FindControl("lblClientName");
+            TextBox txtClientName = (TextBox)e.Item.FindControl("txtClientName");
+            Label lblClientSite = (Label)e.Item.FindControl("lblClientSite");
+            TextBox txtClientSite = (TextBox)e.Item.FindControl("txtClientSite");
+
             LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
             LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
             LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
@@ -952,6 +979,13 @@ namespace JobFair.UserControls.JobSeeker
                 ddlIndustry.Visible = true;
                 ddlDepartment.Visible = true;
 
+                lblClientName.Visible = false;
+                lblClientSite.Visible = false;
+
+                txtClientName.Visible = true;
+                txtClientSite.Visible = true;
+                
+
                 lnkEdit.Visible = false;
                 lnkDelete.Visible = false;
                 lnkUpdate.Visible = true;
@@ -973,6 +1007,8 @@ namespace JobFair.UserControls.JobSeeker
                 currentDesiredJobEntity.JobType = rblJobType.Text;
                 currentDesiredJobEntity.CompanyType = rblCompanyType.Text;
                 currentDesiredJobEntity.ReasonForJobChange = txtReasonforJobchange.Text.Trim();
+                currentDesiredJobEntity.ClientName = txtClientName.Text.Trim();
+                currentDesiredJobEntity.ClientSite = txtClientSite.Text.Trim();
 
                 currentDesiredJobEntity.Department = ddlDepartment.SelectedValue;
 
@@ -1254,7 +1290,7 @@ namespace JobFair.UserControls.JobSeeker
                 DataSet ds = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
 
-                string stateId = "," + string.Join(",", selectedstate.Select(x => x.Value)) + ",";
+                string stateId =  string.Join(",", selectedstate.Select(x => x.Value));
                 ds = currentDesiredJobBAL.GetCityBAL(stateId);
                 if (ds != null)
                 {
@@ -1282,6 +1318,62 @@ namespace JobFair.UserControls.JobSeeker
         {
             divCurrentEmployer.Visible = true;
             divDesireJobDetails.Visible = true;
+        }
+
+        protected void rblJobType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblJobType.SelectedItem.Text == "Temporary" && chkCurrentYes.Checked)
+            {
+                divTemporary.Visible = true;
+            }
+        }
+
+        protected void gvExperience_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int index = Convert.ToInt32(e.RowIndex);
+            DataTable dt = ViewState["ProfessionalDetails"] as DataTable;
+            dt.Rows[index].Delete();
+            ViewState["ProfessionalDetails"] = dt;
+            BindExperienceGrid();
+        }
+
+        protected void gvExperience_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string item = e.Row.Cells[0].Text;
+                foreach (Button button in e.Row.Cells[2].Controls.OfType<Button>())
+                {
+                    if (button.CommandName == "Delete")
+                    {
+                        button.Attributes["onclick"] = "if(!confirm('Do you want to delete " + item + "?')){ return false; };";
+                    }
+                }
+            }
+        }
+
+        protected void gvJobsLookingFor_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int index = Convert.ToInt32(e.RowIndex);
+            DataTable dt = ViewState["JobDetails"] as DataTable;
+            dt.Rows[index].Delete();
+            ViewState["JobDetails"] = dt;
+            BindJobPostLookingGrid();
+        }
+
+        protected void gvJobsLookingFor_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string item = e.Row.Cells[0].Text;
+                foreach (Button button in e.Row.Cells[2].Controls.OfType<Button>())
+                {
+                    if (button.CommandName == "Delete")
+                    {
+                        button.Attributes["onclick"] = "if(!confirm('Do you want to delete " + item + "?')){ return false; };";
+                    }
+                }
+            }
         }
     }
 }

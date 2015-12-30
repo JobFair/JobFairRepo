@@ -349,5 +349,11 @@ namespace BAL
             CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
             currentDesiredJobDAL.UpdateProfessionalDetailsDAL(currentDesiredJobEntity);
         }
+
+        public void DeleteOneRecordOfGridViewExperienceBAL(int ID)
+        {
+            CurrentDesiredJobDAL currentDesiredJobDAL = new CurrentDesiredJobDAL();
+            currentDesiredJobDAL.DeleteOneRecordOfGridViewExperienceDAL(ID);
+        }
     }
 }

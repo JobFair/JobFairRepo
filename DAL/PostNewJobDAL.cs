@@ -32,7 +32,7 @@ namespace DAL
                                             new SqlParameter("@JobLocationCity",jobpostEntity.JobLocationCity),
                                             new SqlParameter("@JobLocationArea",jobpostEntity.JobLocationArea),
                                             new SqlParameter("@CompanyLevel",jobpostEntity.CompanyLevel),
-                                            new SqlParameter("@IndustryId",jobpostEntity.IndustryId),
+                                            new SqlParameter("@JobIndustryId",jobpostEntity.IndustryId),
                                             new SqlParameter("@DepartmentId",jobpostEntity.DepartmentId),
                                             new SqlParameter("@FunctionalAreaId",jobpostEntity.FunctionalAreaId),
                                             new SqlParameter("@JobDescription",jobpostEntity.JobDescription),

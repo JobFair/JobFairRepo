@@ -7,43 +7,27 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BAL;
+
+
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class JobApplications : System.Web.UI.Page
     {
-        private string candidateId;
+        DataSet dsjobapplication = new DataSet();
+      
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                candidateId = Convert.ToString(Session["candidateId"]);
-               
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-            Binddatarepeator(candidateId);
-        }
-
-        private void Binddatarepeator(string candidateId)
-        {
-            try
-            {
-                   DataSet  dsjobapplication = new DataSet();
-                   SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                   SqlCommand cmd = new SqlCommand("select JobTitle,  where candidateId = @candidateId", connection);
-
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
+            JobApplicationsBAL jobapplicationBAL = new JobApplicationsBAL();
+                dsjobapplication = jobapplicationBAL.GetData();
+                rptrjobapplications.DataSource = dsjobapplication;
+                rptrjobapplications.DataBind();
            
+
         }
+
+       
 
        
     }
