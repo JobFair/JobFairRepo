@@ -15,6 +15,7 @@ namespace JobFair.Forms.JobSeeker
     /// </summary>
     public partial class JobSeekerRegister : System.Web.UI.Page
     {
+        RegisterEntity jobSeekerEntity = new RegisterEntity();
         private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -90,7 +91,7 @@ namespace JobFair.Forms.JobSeeker
                 RegisterJobSeekerBAL jobSeekerBAL = new RegisterJobSeekerBAL();
                  
                 string uploadFolder, result, path, extension;
-                RegisterEntity jobSeekerEntity = new RegisterEntity();
+               
                 path = AppDomain.CurrentDomain.BaseDirectory + "UploadFiles\\" + this.FileUploadResume.FileName;
 
                 // Set value to job seeker entity
@@ -166,8 +167,17 @@ namespace JobFair.Forms.JobSeeker
                     }
                    
                 }
-                SendHTMLMail();
-                Response.Redirect("LogIn.aspx");
+               bool isMailSent= SendHTMLMail(result);
+               if (isMailSent == true)
+               {
+                   jobSeekerEntity.IsMailSent = isMailSent;
+                   Response.Redirect("LogIn.aspx");
+
+               }
+               else
+               {
+                   Response.Write("<script language='javascript'>alert('Registerd Sucessfully but reciept not generated')</script>");
+               }
             }
             catch (Exception ex)
             {
@@ -175,23 +185,27 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        private void SendHTMLMail()
+        private bool SendHTMLMail(string result)
         {
             string from = "jyoti.logossolutions@gmail.com";
-            string subject = " Welcome at Logos Job Fair on " + DateTime.Now.ToString();
-            string content = "hello..";
+            string subject = " Joining Receipt of the candidate " + DateTime.Now.ToString();
+            string content = "New Candidate Registered";
             //string contentId = "image1";
             //string path = Server.MapPath(@"/Images");
             MailMessage Msg = new MailMessage();
             Msg.From = new MailAddress(from);
             Msg.To.Add("saurabh.logossolutions@gmail.com");
-            StreamReader reader = new StreamReader(Server.MapPath("~/RegistrationConfirmation.html"));
+            StreamReader reader = new StreamReader(Server.MapPath("~/Email Templates/RegistrationConfirmation.html"));
             string readFile = reader.ReadToEnd();
             string strContent = "";
             strContent = readFile;
-            strContent = strContent.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());
-            strContent = strContent.Replace("$$Email$$", txtEmailId.Text.Trim());
-            strContent = strContent.Replace("$$Website$$", "http://www.logossolutions.co.in/");
+            strContent = strContent.Replace("$$Candidate Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());
+            strContent = strContent.Replace("$$Candidate ID$$",result.Trim() );
+            strContent = strContent.Replace("$$Candidate Mail ID$$", txtEmailId.Text.Trim());
+            // "http://www.logossolutions.co.in/");
+            strContent = strContent.Replace("$$Mobile Number$$",jobSeekerEntity.MobileNo.Trim());
+            strContent = strContent.Replace("$$Present Address$$","Present Address"+ txtCurrAddress.Text.Trim()+"<br/>Country"+ddlCountryCode.SelectedItem.Text.Trim()+"<br/>State"+ddlStatePresent.SelectedItem.Text.Trim() + "<br/>City" + ddlCityPresent.SelectedItem.Text.Trim() + "<br/>City Area" + ddlAreaPresent.SelectedItem.Text.Trim() + "<br/>Pincode:" + txtPincode.Text.Trim());
+            strContent = strContent.Replace("$$Reference ID$$", txtRefCandidateId.Text.Trim());
             Msg.Subject = subject;
             //LinkedResource logo = new LinkedResource(path);
             //logo.ContentId = "companylogo";
@@ -207,33 +221,7 @@ namespace JobFair.Forms.JobSeeker
             smtp.EnableSsl = true;
             smtp.Send(Msg);
             Msg = null;
-            Response.Write("<script language='javascript'>alert('Your registerd Sucessfully')</script>");
-
-
-
-            //StreamReader reader = new StreamReader(Server.MapPath("~/JobSeeker/RegistrationConfirmation.htm"));
-            //string readFile = reader.ReadToEnd();
-            //string myString = "";
-            //myString = readFile;
-            //myString = myString.Replace("$$User Name$$", txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim());
-            //myString = myString.Replace("$$Email$$", txtEmailId.Text.Trim());
-            //myString = myString.Replace("$$Website$$", "http://www.logossolutions.co.in/");
-            //MailMessage Msg = new MailMessage();
-            //MailAddress fromMail = new MailAddress("jyoti.logossolutions@gmail.com");
-            //// Sender e-mail address.
-            //Msg.From = fromMail;
-            //// Recipient e-mail address.
-            //Msg.To.Add(new MailAddress("jyoti.logossolutions@gmail.com"));
-            //// Subject of e-mail
-            //Msg.Subject = "Send Mail with HTML File";
-            //Msg.Body = myString.ToString();
-            //Msg.IsBodyHtml = true;
-            //string sSmtpServer = "";
-            //sSmtpServer = "10.2.69.121";
-            //SmtpClient a = new SmtpClient();
-            //a.Host = sSmtpServer;
-            //a.Send(Msg);
-            //reader.Dispose();
+            return true;            
         }
 
         /// <summary>

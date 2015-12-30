@@ -1,0 +1,102 @@
+CREATE TABLE dbo.tblUsers
+(
+    ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY CLUSTERED,
+    UserID AS 'UID' + RIGHT('00000000' + CAST(ID AS VARCHAR(8)), 8) PERSISTED, 
+    [Name] VARCHAR(50) NOT NULL,
+)
+//on table
+
+create table JobSeekerRegisterDetails
+(
+   Id int, 
+   CandidateId varchar(50),
+   [UserId] varchar(100),
+   [FirstName] varchar(50),
+   [LastName] varchar(50),
+   [EmailId] varchar(50),
+   [Gender] varchar(50),
+   [MobileNo] numeric(18,0),
+   [CurrentCity] varchar(50),
+   [CurrentAddress] varchar(200),
+ [Password] varchar(50),
+[UploadResumePath] varchar(500),
+[RefEmailId] varchar(50),
+[CreatedDate] datetime,
+[ModifiedDate] datetime
+) 
+
+// using stored procedure
+
+declare @maxkey varchar(5)
+select @maxkey = cast(max(cast(substring(CandidateId, 3, 7) as integer)) as varchar)
+		from JobSeekerRegisterDetails;
+		print @maxkey
+
+
+http://forums.asp.net/t/1441819.aspx?How+to+create+a+specially+formatted+primary+key+in+SQL+Server+2005
+
+USE [JobFairPortal]
+GO
+/****** Object:  StoredProcedure [dbo].[InsertJSRegister]    Script Date: 09/01/2015 10:57:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[InsertJSRegister]
+(
+
+@userid varchar(50),
+@fname varchar(50),
+@lname varchar(50),
+@emailId varchar(50),
+@gender varchar(50),
+@mobNo numeric(18,0),
+@currCity varchar(50),
+@address varchar(100),
+@password varchar(50),
+@refEmailId varchar(50),
+@uploadresumepath varchar(50)
+)
+as begin 
+declare @maxkey bigint
+declare @setCandidateId varchar(500)
+select @maxkey = cast(max(cast(substring(CandidateId, 3, 7) as integer)) as varchar)
+		from JobSeekerRegisterDetails;
+		set @maxkey=@maxkey+1
+		set @setCandidateId='JS'+@maxkey
+		
+		
+insert into JobSeekerRegisterDetails(CandidateId,UserId,FirstName,LastName,EmailId,Gender
+,MobileNo,CurrentCity,CurrentAddress,Password,RefEmailId,UploadResumePath,CreatedDate,ModifiedDate)
+values
+(
+@setCandidateId,
+@userid,
+@fname,
+@lname,
+@emailId,
+@gender,
+@mobNo,
+@currCity,
+@address,
+@password,
+@refEmailId,
+@uploadresumepath,
+GETDATE(),
+GETDATE()
+)
+end
+
+
+
+
+declare @maxkey bigint
+declare @setCandidateId varchar(500)
+select @maxkey = SUBSTRING(CandidateId,3,LEN(CandidateId)) from JS_RegisterDetails		
+		set @maxkey=@maxkey+1
+		set @setCandidateId='JS'+Convert(varchar(500),@maxkey)	
+		
+		print @setCandidateId
+		
+		
+		

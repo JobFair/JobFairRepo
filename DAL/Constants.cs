@@ -96,6 +96,8 @@
         public static string sp_InsertJobHistory = "sp_InsertJobHistory";
         public static string sp_ViewCandidateProfileForEmail = "sp_ViewCandidateProfileForEmail";
         public static string sp_JS_SelectViewJobPost = "sp_JS_SelectViewJobPost";
+        public static string sp_JS_UpdateDesiredJobDetails = "sp_JS_UpdateDesiredJobDetails";
+
 
     }
 }
