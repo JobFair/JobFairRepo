@@ -103,7 +103,7 @@ namespace JobFair.Forms.JobSeeker
            
                     MailMessage msg = new MailMessage();
                     msg.From = new MailAddress("logos.expertadvice@gmail.com");
-                    msg.To.Add("hr@logossolutions.co.in");
+                    //msg.To.Add("hr@logossolutions.co.in");
                     msg.To.Add("saurabh.logossolutions@gmail.com");
                     msg.Subject = " Job application for the " + jobtitle;
                     // Check if selected value equal to Other Help
