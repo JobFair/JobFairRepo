@@ -1,0 +1,4 @@
+Hello
+Welcome to aspdotnet-suresh
+Reading and writing text file
+This is extra text

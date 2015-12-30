@@ -94,6 +94,7 @@
         public static string sp_JS_InsertRoleSkill = "sp_JS_InsertRoleSkill";
         public static string sp_JS_InsertTechnicalSkills = "sp_JS_InsertTechnicalSkills";
         public static string sp_InsertJobHistory = "sp_InsertJobHistory";
+        public static string sp_JS_UpdateDesiredJobDetails = "sp_JS_UpdateDesiredJobDetails";
 
 
     }

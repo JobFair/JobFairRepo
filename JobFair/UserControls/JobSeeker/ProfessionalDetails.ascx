@@ -191,7 +191,7 @@
                         <tr>
                             <td colspan="2">
                                 <asp:HiddenField ID="hfCandidateId" runat="server" />
-                                <asp:GridView ID="gvExperience" AutoGenerateColumns="false" runat="server">
+                                <asp:GridView ID="gvExperience" OnRowDeleting="gvExperience_RowDeleting" OnRowDataBound="gvExperience_RowDataBound"  AutoGenerateColumns="false" runat="server">
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
                                         <asp:BoundField HeaderText="CandidateId" DataField="CandidateId" Visible="false" />
@@ -209,6 +209,9 @@
                                         <asp:BoundField HeaderText="JobType" DataField="JobType" />
                                         <asp:BoundField HeaderText="CompanyType" DataField="CompanyType" />
                                         <asp:BoundField HeaderText="Reason" DataField="Reason" />
+                                        <asp:BoundField HeaderText="ClientName" DataField="ClientName" />
+                                        <asp:BoundField HeaderText="ClientSite" DataField="ClientSite" />
+                                        <asp:CommandField ShowDeleteButton="true" />
                                     </Columns>
                                     <EditRowStyle BackColor="#2461BF" />
                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -459,7 +462,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:GridView ID="gvJobsLookingFor" AutoGenerateColumns="false" runat="server">
+                                <asp:GridView ID="gvJobsLookingFor" OnRowDeleting="gvJobsLookingFor_RowDeleting" OnRowDataBound="gvJobsLookingFor_RowDataBound" AutoGenerateColumns="false" runat="server">
                                     <Columns>
                                         <asp:BoundField HeaderText="CandidateId" DataField="CandidateId" Visible="false" />
                                         <asp:BoundField HeaderText="JobPostLookingFor" DataField="JobPostLookingFor" />
@@ -467,6 +470,7 @@
                                         <asp:BoundField HeaderText="Department" DataField="Department" />
                                         <asp:BoundField HeaderText="FunctionalRole" DataField="FunctionalRole" />
                                         <asp:BoundField HeaderText="RelevantExperience" DataField="RelevantExperience" />
+                                        <asp:CommandField ShowDeleteButton="true" />
                                     </Columns>
                                     <EditRowStyle BackColor="#2461BF" />
                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

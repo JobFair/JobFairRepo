@@ -25,5 +25,7 @@
         public int CityArea { get; set; }
 
         public string Pincode { get; set; }
+
+        public bool IsMailSent { get; set; }
     }
 }
