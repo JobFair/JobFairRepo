@@ -11,7 +11,7 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
-        private string email, jobtitle, candidateId, id;
+        private string email, jobtitle, candidateId, id, recruiterName, rId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
