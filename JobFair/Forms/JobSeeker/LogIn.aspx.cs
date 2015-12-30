@@ -31,8 +31,8 @@ namespace JobFair.Forms.JobSeeker
                     return;
                 }
                 Session["Candidateid"] = candidateID;
-                Response.Redirect("WebForm1.aspx");
-              // Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
+                Response.Redirect("AdvanceSearch.aspx");
+               //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)
             {

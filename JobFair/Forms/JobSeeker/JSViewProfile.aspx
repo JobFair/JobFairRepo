@@ -69,7 +69,7 @@
         </div>--%>
 
     <div>
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="3" Width="900px">
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="900px">
             <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Profile Summary">
                 <ContentTemplate>
                     <table>
@@ -349,10 +349,11 @@
                         </cc1:TabPanel>
                         <cc1:TabPanel ID="TabPanel9" runat="server" HeaderText="Affirmative Details">
                             <ContentTemplate>
-                                <table >
+                                <table>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td colspan="5"><asp:LinkButton ID="lnkbtnAffirmativeEdit" runat="server" OnClick="lnkbtnAffirmativeEdit_Click">Edit</asp:LinkButton></td>
+                                        <td colspan="5">
+                                            <asp:LinkButton ID="lnkbtnAffirmativeEdit" runat="server" OnClick="lnkbtnAffirmativeEdit_Click">Edit</asp:LinkButton></td>
                                     </tr>
                                     <tr>
                                         <td rowspan="4">Languages </td>
@@ -551,12 +552,12 @@
                                                         <td>
                                                             <asp:Label ID="lblJobType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "JobType")%>'></asp:Label></td>
                                                     </tr>
-                                                     <tr>
+                                                    <tr>
                                                         <td>Client Name</td>
                                                         <td>
                                                             <asp:Label ID="lblClientName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientName")%>'></asp:Label></td>
                                                     </tr>
-                                                     <tr>
+                                                    <tr>
                                                         <td>Client Site </td>
                                                         <td>
                                                             <asp:Label ID="lblClientSite" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientSite")%>'></asp:Label></td>
@@ -564,7 +565,7 @@
                                                     <tr>
                                                         <td>Company Type</td>
                                                         <td>
-                                                            <asp:Label ID="lblCompanyType"  runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CompanyType")%>'></asp:Label></td>
+                                                            <asp:Label ID="lblCompanyType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CompanyType")%>'></asp:Label></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Reason For JobChange</td>
@@ -640,7 +641,7 @@
                                                     <tr>
                                                         <td>Preferred City </td>
                                                         <td>
-                                                            <asp:Label ID="lblPreferredCity"  runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "PreferredCity")%>'></asp:Label></td>
+                                                            <asp:Label ID="lblPreferredCity" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "PreferredCity")%>'></asp:Label></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Preferred Area </td>
@@ -656,10 +657,9 @@
                                                         <td>Availabilty in Week Days for Personal Round(Monday to Friday)</td>
                                                         <td>
                                                             <asp:Label ID="lblAvailabiltyWeekDaysBeforeTime" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "BeforeTime") %>'></asp:Label>
-                                                             <asp:Label ID="lblAvailabiltyWeekDaysAfterTime" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "AfterTime") %>'></asp:Label>
+                                                            <asp:Label ID="lblAvailabiltyWeekDaysAfterTime" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "AfterTime") %>'></asp:Label>
                                                         </td>
                                                     </tr>
-                                                   
                                                 </table>
                                                 <tr>
                                                     <td colspan="2">&nbsp;</td>
@@ -716,7 +716,7 @@
                                     <FooterTemplate></table></FooterTemplate>
                                 </asp:Repeater>
                             </ContentTemplate>
-                        </cc1:TabPanel> 
+                        </cc1:TabPanel>
                     </cc1:TabContainer>
                 </ContentTemplate>
             </cc1:TabPanel>
@@ -745,6 +745,11 @@
                                                         <td>Degree Name </td>
                                                         <td>
                                                             <asp:Label ID="lblDegreeType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "DegreeName")%>'></asp:Label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Specialization </td>
+                                                        <td>
+                                                            <asp:Label ID="lblSpecialization" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "specialization")%>'></asp:Label></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Medium of Education </td>
@@ -920,7 +925,7 @@
                                 <asp:Repeater ID="rptrRoleSkills" runat="server">
                                     <HeaderTemplate>
                                         <table width="500px" border="1px">
-                                            
+
                                             <tr style="background-color: #fb7700">
                                                 <td>Role Name</td>
                                                 <td>From Date</td>

@@ -6,7 +6,6 @@
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1"   ID="contentview">
     <!DOCTYPE html>
     
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
      <div class="col-md-10">
                 <asp:Repeater ID="rptrviewpost" runat="server" OnItemCommand="rptrviewpost_ItemCommand">
                     <HeaderTemplate>
@@ -26,7 +25,9 @@
                                 <table>
                                     <tr>
                                         <td>     <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
-                                          <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle")%>' Visible="false"></asp:Label>
+                                          <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
+                                             <asp:Label ID="lblRecruterId" runat="server" Text='<%#Eval("RecruiterID")%>' Visible="false"></asp:Label>
+                                             <asp:Label ID="Label2" runat="server" Text='<%#Eval("RecruiterfullName")%>' Visible="false"></asp:Label>
                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                            <%-- <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
                                          <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
@@ -35,7 +36,8 @@
                                         </tr>
                                     </table>
                                 </td>
-                            </tr>  <tr>
+                            </tr>  
+                          <tr>
                                 <td>
                                     <table>
                                         <tr>
@@ -127,7 +129,7 @@
                                  <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
                                      <tr>
                                          <td>
-                                             <asp:Button ID="btnapply" runat="server" Text="Apply" OnClick="btnapply_Click" CommandName="apply"/>
+                                             <asp:Button ID="btnapply" runat="server" Text="Apply" OnClick="btnapply_Click"  CommandName="apply" />
                                          </td>
                                      </tr>
                                  </table>
