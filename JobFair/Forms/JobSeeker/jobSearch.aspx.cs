@@ -260,9 +260,6 @@ namespace JobFair.Forms.JobSeeker
         //}
 
 
-
-
-
         /// <summary>
         /// Filter used for Industry
         /// </summary>

@@ -11,7 +11,7 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
-        private string email, jobtitle = "Java Developer", candidateId, id, rId, recruiterName;
+        private string email, jobtitle, candidateId, id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -116,7 +116,7 @@ namespace JobFair.Forms.JobSeeker
                     stateName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["StateName"]);
                     currentAddress = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CurrentAddress"]);
                     pincode = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PinCode"]);
-
+           
                     MailMessage msg = new MailMessage();
                     msg.From = new MailAddress("logos.expertadvice@gmail.com");
                     msg.To.Add("hr@logossolutions.co.in");
@@ -172,6 +172,23 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnapply_Click(object sender, EventArgs e)
         {
+
+            if (SentMail())
+            {
+                 
+            }            
+               
+        
+        }
+
+           private string Todo()
+        {
+            
+            return "harshal";
+        }
+
+        private bool SentMail()
+        {
             try
             {
                 GetCandidateProfile(candidateId);
@@ -205,18 +222,15 @@ namespace JobFair.Forms.JobSeeker
                 smtp.Send(Msg);
                 Msg = null;
                 Response.Write("<script language='javascript'>alert('Your Application Sent Sucessfully')</script>");
+                return true;
 
-                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                SqlCommand cmd = new SqlCommand("sp_InsertJobHistory", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@JobId", id);
-                cmd.Parameters.AddWithValue("@CandidateId", candidateId);
-                cmd.Parameters.AddWithValue("@Date", DateTime.Now);
             }
             catch (Exception)
             {
-                throw;
+
+                return false;
             }
+        
         }
 
         //private void BindReapetor()
@@ -237,5 +251,6 @@ namespace JobFair.Forms.JobSeeker
         //        throw;
         //    }
         //}
+
     }
 }

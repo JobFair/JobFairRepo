@@ -45,50 +45,50 @@ namespace BAL
             return Utility.GetIndustry();
         }
 
-        ///// <summary>
-        ///// UnderGraduateDiploma BAL
-        ///// </summary>
-        ///// <returns>System.Int32</returns>
-        //public static System.Data.DataSet GetUnderGraduateDiplomaBAL()
-        //{
-        //    return Utility.GetUnderGraduateDiplomaDAL();
-        //}
+        /// <summary>
+        /// UnderGraduateDiploma BAL
+        /// </summary>
+        /// <returns>System.Int32</returns>
+        public static System.Data.DataSet GetUnderGraduateDiplomaBAL(int DegreeId)
+        {
+            return Utility.GetDegreeDetails(DegreeId);
+        }
 
-        ///// <summary>
-        ///// GetBachelorDegree BAL
-        ///// </summary>
-        ///// <returns>System.Int32</returns>
-        //public static System.Data.DataSet GetBachelorDegreeBAL()
-        //{
-        //    return Utility.GetBachelorDegreeDAL();
-        //}
+        /// <summary>
+        /// GetBachelorDegree BAL
+        /// </summary>
+        /// <returns>System.Int32</returns>
+        public static System.Data.DataSet GetBachelorDegreeBAL(int DegreeId)
+        {
+            return Utility.GetDegreeDetails(DegreeId);
+        }
 
-        ///// <summary>
-        ///// GetPostGraduateDiploma BAL
-        ///// </summary>
-        ///// <returns>System.Int32</returns>
-        //public static System.Data.DataSet GetPostGraduateDiplomaBAL()
-        //{
-        //    return Utility.GetPostGraduateDiplomaDAL();
-        //}
+        /// <summary>
+        /// GetPostGraduateDiploma BAL
+        /// </summary>
+        /// <returns>System.Int32</returns>
+        public static System.Data.DataSet GetPostGraduateDiplomaBAL(int DegreeId)
+        {
+            return Utility.GetDegreeDetails(DegreeId);
+        }
 
-        ///// <summary>
-        ///// GetMasterDegree BAL
-        ///// </summary>
-        ///// <returns>System.Int32</returns>
-        //public static System.Data.DataSet GetMasterDegreeBAL()
-        //{
-        //    return Utility.GetMasterDegreeDAL();
-        //}
+        /// <summary>
+        /// GetMasterDegree BAL
+        /// </summary>
+        /// <returns>System.Int32</returns>
+        public static System.Data.DataSet GetMasterDegreeBAL(int DegreeId)
+        {
+            return Utility.GetDegreeDetails(DegreeId);
+        }
 
-        ///// <summary>
-        ///// GetDoctorOfPhilosophy BAL
-        ///// </summary>
-        ///// <returns>System.Int32</returns>
-        //public static System.Data.DataSet GetDoctorOfPhilosophyBAL()
-        //{
-        //    return Utility.GetDoctorOfPhilosophyDAL();
-        //}
+        /// <summary>
+        /// GetDoctorOfPhilosophy BAL
+        /// </summary>
+        /// <returns>System.Int32</returns>
+        public static System.Data.DataSet GetDoctorOfPhilosophyBAL(int DegreeId)
+        {
+            return Utility.GetDegreeDetails(DegreeId);
+        }
 
         /// <summary>
         /// BAL for GetQuestions
