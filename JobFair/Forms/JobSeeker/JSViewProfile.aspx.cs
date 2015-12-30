@@ -552,7 +552,7 @@ namespace JobFair.Forms.JobSeeker
                             lblGender.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["Gender"]);
                             lblCurrentCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CityName"]);
 
-                            lblPreferedCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["PreferredCity"]);
+                            lblPreferedCity.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["PreferredCityName"]);
                             lblCurrentCTC.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["CurrentAnualSalary"]);
                             lblExpectedCTC.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["ExpectedAnualSalary"]);
                             lblNoticePeriod.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["NoticePeriod"]);

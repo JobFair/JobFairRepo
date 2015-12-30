@@ -11,7 +11,7 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
-        private string email, jobtitle, candidateId, id;
+        private string email, jobtitle, candidateId, id, recruiterName, rId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,13 +19,11 @@ namespace JobFair.Forms.JobSeeker
 
             try
             {
-                  id = Convert.ToString(Request.QueryString["jid"]);
+                id = Convert.ToString(Request.QueryString["jid"]);
                 candidateId = Convert.ToString(Session["candidateId"]);
                 // Label1.Text = Session["jobid"].ToString();
                 if (!IsPostBack)
                 {
-                   
-
                     BindRequestEmail(candidateId);
 
                     GetData(id);
@@ -73,9 +71,87 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        public void GetCandidateProfile()
+        public void GetCandidateProfile(string candidateId)
         {
+            string refCandidateId, profileSummary, resumeHeadline, totalExperience, gender, currentCTC, expectedCTC, noticePeriod, companyType, prefferdState, prefferedCity, prefferedArea, reasonForJobchange, cityName, areaName, countryName, stateName, currentAddress, pincode;
+            try
+            {
+                ViewAllJobPostBAL viewAllJobPostBAL = new ViewAllJobPostBAL();
+                DataSet dsCandidateProfile = new DataSet();
+                dsCandidateProfile = viewAllJobPostBAL.ViewCandidateProfileForEmail(candidateId);
+                if (dsCandidateProfile != null)
+                {
+                    refCandidateId = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["RefCandidatelId"]);
+                    profileSummary = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["ProfileSummary"]);
+                    resumeHeadline = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["ResumeHeadline"]);
+                    totalExperience = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["TotalExpriance"]);
+                    gender = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["Gender"]);
+                    currentCTC = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CurrentAnualSalary"]);
+                    expectedCTC = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["ExpectedAnualSalary"]);
+                    noticePeriod = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["NoticePeriod"]);
+                    companyType = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CompanyType"]);
+                    prefferdState = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredState"]);
+                    prefferedCity = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredCity"]);
+                    prefferedArea = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredArea"]);
+                    reasonForJobchange = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["ReasonForJobChange"]);
+                    cityName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CityName"]);
+                    areaName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["AreaName"]);
+                    countryName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CountryName"]);
+                    stateName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["StateName"]);
+                    currentAddress = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CurrentAddress"]);
+                    pincode = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PinCode"]);
            
+                    MailMessage msg = new MailMessage();
+                    msg.From = new MailAddress("logos.expertadvice@gmail.com");
+                    msg.To.Add("hr@logossolutions.co.in");
+                    msg.To.Add("saurabh.logossolutions@gmail.com");
+                    msg.Subject = " Job application for the " + jobtitle;
+                    // Check if selected value equal to Other Help
+                    string strBody = "<html><body><table><tr><td><h2>Job Post Details</h2></td></tr> " +
+                        "<tr><td>Job Post </td><td>:</td><td>" + jobtitle + "</td></tr> " +
+                        "<tr><td>Job ID </td><td>:</td><td>" + id + "</td></tr> " +
+                        "<tr><td>Client Name </td><td>:</td><td></td></tr> " +
+                        "<tr><td>Client Requirement ID </td><td>:</td><td></td></tr> " +
+                        "<tr><td>Recruiter ID </td><td>:</td><td>" + rId + "</td></tr> " +
+                        "<tr><td>Name of the Recruiter</td><td>:</td>" + recruiterName + "<td></td></tr> " +
+                        "<tr><td><h2>Candidate Details</h2></td></tr> " +
+                                "<tr><td>Candidate ID </td><td>:</td><td>" + candidateId + "</td></tr> " +
+                                " <tr><td>Reference ID, If Any  </td><td>:</td><td>" + refCandidateId + "</td></tr> " +
+                                " <tr><td>Resume Headline </td><td>:</td><td>" + resumeHeadline + "</td></tr> " +
+                                " <tr><td>Summary</td><td>:</td><td>" + profileSummary + "</td></tr> " +
+                                " <tr><td>Total Experience </td><td>:</td><td>" + totalExperience + "</td></tr> " +
+                                " <tr><td>Gender </td><td>:</td><td>" + gender + "</td></tr> " +
+                                " <tr><td>Current Annual Salary (Yearly) </td><td>:</td><td>" + currentCTC + "</td></tr> " +
+                                " <tr><td>Expected Annual Salary (Yearly) </td><td>:</td><td>" + expectedCTC + "</td></tr> " +
+                                " <tr><td>Notice Period </td><td>:</td><td>" + noticePeriod + "</td></tr> " +
+                                " <tr><td> Reason for the Job Change </td><td>:</td><td>" + reasonForJobchange + "</td></tr>" +
+                                " <tr><td>Desire Company Type  </td><td>:</td><td>" + companyType + "</td></tr> " +
+                                " <tr><td>Language Known </td><td>:</td><td></td></tr> " +
+                                " <tr><td>Technical Skills / Key Skills </td><td>:</td><td></td></tr> " +
+                                " <tr><td>Present Address </td><td>:</td><td>" + currentAddress + "</td></tr> " +
+                                " <tr><td>City </td><td>:</td><td>" + cityName + "</td></tr>" +
+                                " <tr><td>Area  </td><td>:</td><td>" + areaName + "</td></tr> " +
+                                " <tr><td>Pincode </td><td>:</td><td>" + pincode + "</td></tr> " +
+                                " <tr><td>Preferred State  </td><td>:</td><td>" + prefferdState + "</td></tr> " +
+                                " <tr><td>Preferred State  </td><td>:</td><td>" + prefferedCity + "</td></tr> " +
+                                " <tr><td>Preferred Job Locations</td><td>:</td><td>" + prefferedArea + "</td></tr><br /> " +
+                             " </table> </body></html>";
+                    msg.Body = strBody;
+                    msg.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 587;
+                    smtp.Credentials = new System.Net.NetworkCredential("logos.expertadvice@gmail.com", "logos@gmail");
+                    smtp.EnableSsl = true;
+                    smtp.Send(msg);
+                    msg = null;
+                    Response.Write("<script language='javascript'>alert('Registration Done...');</script>");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         protected void btnapply_Click(object sender, EventArgs e)
@@ -97,6 +173,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                GetCandidateProfile(candidateId);
                 
                  string from = "jyoti.logossolutions@gmail.com";
                 string subject = " You applied for " +  jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
