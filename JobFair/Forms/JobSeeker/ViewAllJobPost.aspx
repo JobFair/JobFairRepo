@@ -6,7 +6,6 @@
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1"   ID="contentview">
     <!DOCTYPE html>
     
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
      <div class="col-md-10">
                 <asp:Repeater ID="rptrviewpost" runat="server" OnItemCommand="rptrviewpost_ItemCommand">
                     <HeaderTemplate>

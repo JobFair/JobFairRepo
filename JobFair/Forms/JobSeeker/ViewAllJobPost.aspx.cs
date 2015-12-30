@@ -15,14 +15,16 @@ namespace JobFair.Forms.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             try
             {
-                string id = Request.QueryString["jid"];
-
+                  id = Convert.ToString(Request.QueryString["jid"]);
+                candidateId = Convert.ToString(Session["candidateId"]);
                 // Label1.Text = Session["jobid"].ToString();
                 if (!IsPostBack)
                 {
-                    candidateId = Convert.ToString(Session["candidateId"]);
+                   
 
                     BindRequestEmail(candidateId);
 
@@ -58,16 +60,11 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                DataSet dsviewalljobpost = new DataSet();
-                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-                SqlCommand cmd = new SqlCommand("select  RecruiterID,JobId ,JobTitle,JobDescription,OfferedAnnualSalaryMin,OfferedAnnualSalaryMax,KeywordsTechnical,CompanyName from RE_JobPost where JobId = @jid", connection);
-                cmd.Parameters.AddWithValue("@jid", id);
-                //SqlCommand cmd = new SqlCommand("sp_JS_SelectJobpost", connection);
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@JobId", id);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dsviewalljobpost);
-                rptrviewpost.DataSource = dsviewalljobpost;
+
+                DataSet dsviewjobpost = new DataSet();
+                ViewAllJobPostBAL viewalljobpostBAL = new ViewAllJobPostBAL();
+                dsviewjobpost = viewalljobpostBAL.GetData(id);
+                rptrviewpost.DataSource = dsviewjobpost;
                 rptrviewpost.DataBind();
             }
             catch (Exception)
@@ -83,28 +80,26 @@ namespace JobFair.Forms.JobSeeker
 
         protected void btnapply_Click(object sender, EventArgs e)
         {
-
-            if (SentMail())
+            if (SentMail(jobtitle))
             {
-                 
+                CheckMailSend(id,candidateId);
             }            
                
         
         }
-
-           private string Todo()
+        private int CheckMailSend(string id, string candidateId)
         {
-            
-            return "harshal";
+            ViewAllJobPostBAL viewalljobpostBAL = new ViewAllJobPostBAL();
+            return viewalljobpostBAL.CheckMailSend(id, candidateId);
         }
 
-        private bool SentMail()
+        private bool SentMail(string jobtitle)
         {
             try
             {
                 
                  string from = "jyoti.logossolutions@gmail.com";
-                string subject = " You applied for " + jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
+                string subject = " You applied for " +  jobtitle + "at Logos Job Fair on " + DateTime.Now.ToString();
                 string content = "hello..";
                 //string contentId = "image1";
                 //string path = Server.MapPath(@"/Images");
@@ -142,7 +137,6 @@ namespace JobFair.Forms.JobSeeker
             }
         
         }
-
         protected void rptrviewpost_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "apply")
@@ -152,6 +146,8 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+
+     
         //private void BindReapetor()
         //{
         //    try
