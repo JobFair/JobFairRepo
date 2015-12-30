@@ -166,6 +166,27 @@ namespace CommonUtil
             return dsEducationalDegreeType;
         }
 
+        internal DataSet GetEducationalDegreeTypeDAL(string CandidateId)
+        {
+            DataSet dsEducationalDegreeType = new DataSet();
+            try
+            {
+                SqlParameter[] sparams ={
+                                           new SqlParameter("@CandidateId",CandidateId)
+                                        };
+                dsEducationalDegreeType = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select DegreeId,DegreeType from JS_EducationDegreesType where degreeid not in (select degreeid from JS_EducationDetails where CandidateId = @CandidateId)", sparams);
+            }
+            catch (Exception)
+            {
+                // throw ;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dsEducationalDegreeType;
+        }
+
         /// <summary>
         /// Get languages
         /// </summary>

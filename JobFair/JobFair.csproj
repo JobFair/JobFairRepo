@@ -88,6 +88,7 @@
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\ChangeLoginDetails.aspx" />
     <Content Include="Forms\JobSeeker\CompleteProfile.aspx" />
+    <Content Include="Forms\JobSeeker\EditEducationalDetails.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\JobApplications.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\ChangeLoginDetails.aspx.designer.cs">
       <DependentUpon>ChangeLoginDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\EditEducationalDetails.aspx.cs">
+      <DependentUpon>EditEducationalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\EditEducationalDetails.aspx.designer.cs">
+      <DependentUpon>EditEducationalDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\Feedback.aspx.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
