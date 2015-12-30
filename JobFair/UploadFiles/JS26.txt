@@ -1,0 +1,63 @@
+create procedure InsertProfessionalCurrentDetails
+(
+@userid varchar(50),
+@resumeheadline varchar(50),
+@totalExp int,
+@industry varchar(100),
+@department varchar(100),
+@currentjobrole varchar(100),
+@currentemployer nvarchar(MAX),
+@primfunrole nvarchar(MAX),
+@primjobdesrip varchar(200),
+@primtechskills varchar(100),
+@secfunrole nvarchar(MAX),
+@secjobdescrip varchar(200),
+@sectechskills varchar(100),
+@technicalskills nvarchar(MAX),
+@reasonforjobchange varchar(500),
+@designation varchar(100)
+)
+as
+begin
+insert into JobSeekerRegisterDetails
+(
+UserId,
+ResumeHeadline,
+TotalExpriance,
+Industry,
+Department,
+CurrentJobRole,
+CurrentEmployer,
+PrimaryFunctionalRole,
+PrimaryJobDescrip,
+PrimaryTechnicalSkills,
+SecondaryFunctionalRole,
+SecJobDescrip,
+SecTechnicalSkills,
+TechnicalSkill,
+ReasonForJobChange,
+Designation,
+CreateDate,
+ModifiedDate
+)
+values(
+@userid ,
+@resumeheadline ,
+@totalExp ,
+@industry ,
+@department ,
+@currentjobrole ,
+@currentemployer ,
+@primfunrole ,
+@primjobdesrip ,
+@primtechskills ,
+@secfunrole ,
+@secjobdescrip ,
+@sectechskills ,
+@technicalskills ,
+@reasonforjobchange ,
+@designation,
+GETDATE(),
+GETDATE()
+)
+end

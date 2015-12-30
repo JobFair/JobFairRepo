@@ -27,7 +27,7 @@ namespace DAL
 
                 //Parameters to pass to the stored procedure
 
-                SqlParameter[] sparams = new SqlParameter[15];
+                SqlParameter[] sparams = new SqlParameter[16];
 
                 sparams[0] = new SqlParameter("@fname", registerEntity.FirstName);
                 sparams[1] = new SqlParameter("@lname", registerEntity.LastName);
@@ -45,6 +45,7 @@ namespace DAL
                 sparams[13] = new SqlParameter("@uploadresumepath", registerEntity.UploadResumepath.ToString());
                 sparams[14] = new SqlParameter("@Newcandidateid", SqlDbType.BigInt, 500);
                 sparams[14].Direction = ParameterDirection.Output;
+                sparams[15] = new SqlParameter("@isMailSent", registerEntity.IsMailSent);
 
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRegisterUser, sparams);
 

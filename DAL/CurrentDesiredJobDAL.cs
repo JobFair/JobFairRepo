@@ -713,13 +713,19 @@ namespace DAL
                 sparams[18] = new SqlParameter("@employeedOrNot", currentDesiredJobEntity.CurrentEmployeedUnemployeed);
                 sparams[19] = new SqlParameter("@totalExperiecnce", currentDesiredJobEntity.TotalExperience);
 
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "sp_JS_UpdateDesiredJobDetails", sparams);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateDesiredJobDetails, sparams);
             }
             catch (Exception)
             {
                 
                 throw;
             }
+        }
+
+        public void DeleteOneRecordOfGridViewExperienceDAL(int ID)
+        {
+            connection.Open();
+            SqlParameter[] sparams = { new SqlParameter("@id", ID) }; 
         }
     }
 }
