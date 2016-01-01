@@ -346,7 +346,19 @@
                         </asp:UpdatePanel>
                     </td>
                 </tr>
-
+                <tr>
+                  
+                                <td>
+                       <asp:Label ID="lbl" runat="server" Text="Position"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:UpdatePanel runat ="server">
+                                        <ContentTemplate>
+                                         <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </td>                            
+                            </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td>
