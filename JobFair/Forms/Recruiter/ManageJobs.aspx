@@ -56,6 +56,7 @@
                         
                             <asp:Label ID="lblJobID" runat="server" Text='<%#Eval("JobId") %>' Visible="false" />
                             <asp:Label ID="lblRecruiterID" runat="server" Text='<%#Eval("RecruiterID") %>' Visible="false" /></td>
+                            <asp:Label ID="lblJobHistoryID" runat="server" Text='<%#Eval("JobHistroryId") %>' Visible="false" /></td>
                         <tr>
                             <td>Job Title:
                                 <asp:Label ID="lblJobTitle" runat="server" Text='<%#Eval("JobTitle") %>' Font-Bold="true" /></td>
@@ -121,7 +122,11 @@
                         <tr>
                         <td>
                             Company Name:
-                                    <asp:TextBox ID="txtcompanyclient" runat="server" Text='<%# Eval("CompanyName")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                                    <asp:TextBox ID="txtcompanyclient" runat="server" Font-Bold="true" Text='<%# Eval("CompanyName")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
+                         </td>
+                        <td>
+                            Active Status:
+                                    <asp:TextBox ID="txtActiveStatus" runat="server" Font-Bold="true" Text='<%# Eval("IsActive")%>' ReadOnly="true" BorderStyle="None"></asp:TextBox>
                          </td>
                         </tr>
                     </table>

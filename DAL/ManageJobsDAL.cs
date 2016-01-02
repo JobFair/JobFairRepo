@@ -14,7 +14,7 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
         private DataSet ds = new DataSet();
-        CloneJobPostEntity cloneJobPostEntity = new CloneJobPostEntity();
+        ManageJobEntity cloneJobPostEntity = new ManageJobEntity();
 
         /// <summary>
         /// View Manage Jobs of recruiter
@@ -50,18 +50,19 @@ namespace DAL
             }
         }
          /// <summary>
-        /// View Manage Jobs of recruiter
+        /// Clone Manage Jobs of recruiter
         /// </summary>
         /// <returns></returns>
-        public DataSet ClonePostJobDAL(int JobId, string RecruiterID)
+        public DataSet ClonePostJobDAL(int JobId, int RecruiterID, string IsActive)
         {
             try
             {                
-                SqlParameter[] sparams = new SqlParameter[2]; 
+                SqlParameter[] sparams = new SqlParameter[3]; 
                                           
                 sparams[0] = new SqlParameter("@jobId", JobId);
                 sparams[1] = new SqlParameter("@recruiterId", RecruiterID);
-                
+                sparams[2] = new SqlParameter("@isActive", IsActive);
+
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_InsertCloneJob", sparams);
                 return ds;
             }
@@ -74,7 +75,31 @@ namespace DAL
                 connection.Close();
             }
         }
+        /// <summary>
+        /// Delete Manage Jobs of recruiter
+        /// </summary>
+        /// <returns></returns>
+        public DataSet DeletePostJobDAL(int JobHistroryId, int JobId, int RecruiterID)
+        {
+            try
+            {
+                SqlParameter[] sparams = new SqlParameter[3];
 
-      
+                sparams[0] = new SqlParameter("@jobHistoryId", JobHistroryId);
+                sparams[1] = new SqlParameter("@jobId", JobId);
+                sparams[2] = new SqlParameter("@recruiterId", RecruiterID);
+
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_RE_DeleteViewJobPost", sparams);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
