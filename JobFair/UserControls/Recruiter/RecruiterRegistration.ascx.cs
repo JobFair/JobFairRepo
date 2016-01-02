@@ -1,6 +1,7 @@
 ﻿using BAL;
 using Entities.Recruiter;
 using System;
+using System.Data;
 using System.IO;
 using System.Net.Mail;
 
@@ -10,7 +11,32 @@ namespace JobFair.UserControls.Recruiter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //BindCountry();
         }
+
+        //private void BindCountry()
+        //{
+        //    try
+        //    {
+        //        RegisterJobSeekerBAL registerJobSeekerBAL = new RegisterJobSeekerBAL();
+        //        DataSet datasetCountryCode = new DataSet();
+        //        datasetCountryCode = registerJobSeekerBAL.GetCountryCode();
+        //        if (datasetCountryCode != null)
+        //        {
+        //            ddlCountryPresent.DataSource = datasetCountryCode;
+        //            ddlCountryCode.DataTextField = "CountryCode";
+        //            ddlCountryCode.DataValueField = "ID";
+        //            ddlCountryCode.DataBind();
+        //            ddlCountryCode.Items.Insert(0, new ListItem("--Select--", "0"));
+        //        }
+
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
 
         /// <summary>
         /// Save New Recruiter's Details
@@ -22,7 +48,7 @@ namespace JobFair.UserControls.Recruiter
             try
             {
                 RegisterRecruiterEntity registerRecruiterEntity = new RegisterRecruiterEntity();
-                RegisterRecruiterBAL registerRecruiterBAL = new RegisterRecruiterBAL();
+                RegisterRecruiterHRBAL registerRecruiterBAL = new RegisterRecruiterHRBAL();
                 registerRecruiterEntity.FullName = txtFullName.Text.Trim();
                 registerRecruiterEntity.Company = txtCompany.Text.Trim();
                 registerRecruiterEntity.MobileNo = txtMobNo.Text.Trim();
@@ -33,8 +59,8 @@ namespace JobFair.UserControls.Recruiter
                 string path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + this.FileUploadRecruiterPhoto.FileName;
                 string uploadphoto = Request.PhysicalApplicationPath + "Images\\";
                 registerRecruiterEntity.PhotoPath = uploadphoto.ToString();
-                string result = registerRecruiterBAL.SaveNewRecruiterBAL(registerRecruiterEntity);
-
+                //string result = registerRecruiterBAL.SaveNewRecruiterBAL(registerRecruiterEntity);
+                string result="abc";
                 if (result != null)
                 {
                     if (FileUploadRecruiterPhoto.HasFile)

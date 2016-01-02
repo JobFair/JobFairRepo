@@ -85,9 +85,11 @@
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\Employer\Register.aspx" />
+    <Content Include="Forms\HR\RecruiterRegistration.aspx" />
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\ChangeLoginDetails.aspx" />
     <Content Include="Forms\JobSeeker\CompleteProfile.aspx" />
+    <Content Include="Forms\JobSeeker\EditEducationalDetails.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
     <Content Include="Forms\JobSeeker\JobApplications.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
@@ -105,7 +107,7 @@
     <Content Include="Forms\Recruiter\ManageResponses.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
-    <Content Include="Forms\Recruiter\searchrecord.aspx" />
+    <Content Include="Forms\Recruiter\SearchRecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="Images\logoitch.jpg" />
     <Content Include="NewFolder1\jquery-1.11.1.min %281%29.js" />
@@ -200,6 +202,13 @@
     <Compile Include="Forms\Employer\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HR\RecruiterRegistration.aspx.cs">
+      <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\HR\RecruiterRegistration.aspx.designer.cs">
+      <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeeker\AdvanceSearch.aspx.cs">
       <DependentUpon>AdvanceSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +229,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\ChangeLoginDetails.aspx.designer.cs">
       <DependentUpon>ChangeLoginDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\EditEducationalDetails.aspx.cs">
+      <DependentUpon>EditEducationalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\EditEducationalDetails.aspx.designer.cs">
+      <DependentUpon>EditEducationalDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\Feedback.aspx.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
@@ -361,12 +377,12 @@
     <Compile Include="Forms\Recruiter\Questionrie.aspx.designer.cs">
       <DependentUpon>Questionrie.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Recruiter\searchrecord.aspx.cs">
-      <DependentUpon>searchrecord.aspx</DependentUpon>
+    <Compile Include="Forms\Recruiter\SearchRecord.aspx.cs">
+      <DependentUpon>SearchRecord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Recruiter\searchrecord.aspx.designer.cs">
-      <DependentUpon>searchrecord.aspx</DependentUpon>
+    <Compile Include="Forms\Recruiter\SearchRecord.aspx.designer.cs">
+      <DependentUpon>SearchRecord.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\ViewProfile.aspx.cs">
       <DependentUpon>ViewProfile.aspx</DependentUpon>
@@ -540,6 +556,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Forms\Admin\" />
     <Folder Include="Images\JobSeeker\" />
     <Folder Include="UploadFiles\" />
     <Folder Include="UploadImages\" />

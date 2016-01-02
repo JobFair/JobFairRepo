@@ -23,6 +23,8 @@
         public const string sp_InsertDegreeDetails = "sp_InsertDegreeDetails";
         public const string sp_JS_InsertMoreCertification = "sp_JS_InsertMoreCertification";
         public const string sp_JS_InsertMoreWorkshop = "sp_JS_InsertMoreWorkshop";
+        public static string sp_JS_SelectMoreWorkshop = "sp_JS_SelectMoreWorkshop";
+        public static string sp_JS_SelectCertification = "sp_JS_SelectCertification";
         public const string sp_RE_InsertCloneJob = "sp_RE_InsertCloneJob";
         public const string sp_Country = "sp_Country";
         public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
@@ -89,8 +91,6 @@
         public static string sp_RE_InsertFunctionalArea = "sp_RE_InsertFunctionalArea";
         public static string sp_RE_SelectClients = "sp_RE_SelectClients";
         public static string sp_JS_ViewEducationalDetails = "sp_JS_ViewEducationalDetails";
-        public static string sp_JS_SelectMoreWorkshop = "sp_JS_SelectMoreWorkshop";
-        public static string sp_JS_SelectCertification = "sp_JS_SelectCertification";
         public static string sp_JS_InsertRoleSkill = "sp_JS_InsertRoleSkill";
         public static string sp_JS_InsertTechnicalSkills = "sp_JS_InsertTechnicalSkills";
         public static string sp_InsertJobHistory = "sp_InsertJobHistory";
@@ -98,6 +98,7 @@
         public static string sp_JS_SelectViewJobPost = "sp_JS_SelectViewJobPost";
         public static string sp_JS_UpdateDesiredJobDetails = "sp_JS_UpdateDesiredJobDetails";
 
+        public static string sp_JS_SelectApplyCandidate = "sp_JS_SelectApplyCandidate";
 
     }
 }

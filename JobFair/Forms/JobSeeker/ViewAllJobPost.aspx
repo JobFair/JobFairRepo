@@ -91,7 +91,7 @@
                             <td>
                                 <table >
                                     <tr>
-                                        <td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <td>$
                                            [<asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />/
                                         <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>]
                                             </tr>

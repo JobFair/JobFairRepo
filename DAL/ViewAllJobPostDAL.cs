@@ -48,7 +48,7 @@ namespace DAL
                 SqlParameter[] sqlparams ={
                                                   new SqlParameter("@JobId", id) ,
                                                   new SqlParameter("@CandidateId", candidateId),
-                                                  new  SqlParameter ("IsMailSend",1),
+                                                  new  SqlParameter ("@IsMailSend",1),
                                                   new SqlParameter("@Date", DateTime.Now)                                 
                                              };
                 return SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_InsertJobHistory, sqlparams);

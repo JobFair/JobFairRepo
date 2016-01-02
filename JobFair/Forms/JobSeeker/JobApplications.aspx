@@ -9,31 +9,39 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    <asp:Repeater ID="jobapplicationrptr" runat="server">
+    <asp:Repeater ID="rptrjobapplications" runat="server">
         <HeaderTemplate>
+           <table cellspacing="4" rules="all" border="4">
             <tr>
-                <td>
-                    <table style="border: 1px solid #0000FF">
-                        <tr style="font-size: large; font-weight: bold; margin-bottom: 5px">
-                            <td>
-                            JobPost
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+                <th scope="col" style="width: 120px">
+                  Apply Date
+                </th>
+                <th scope="col" style="width: 120px">
+                   Candidate First Name
+                </th>
+                <th scope="col" style="width: 120px">
+                  Candidate  Last Name
+                </th>
+                <th scope="col" style="width: 120px">
+                    Candidate EmailId
+                </th>
+            </tr>
         </HeaderTemplate>
         <ItemTemplate>
             <tr>
                 <td>
-                    <table>
-                        <tr>
-                            <td>
-                                 <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-        </ItemTemplate>
+            <asp:Label ID="lbldate" runat="server" Text='<%#Eval("Date")%>'></asp:Label>
+                    <td>
+             <asp:Label ID="Label1" runat="server" Text='<%#Eval("FirstName")%>'></asp:Label>
+                   </td>
+                    <td>
+             <asp:Label ID="Label2" runat="server" Text='<%#Eval("LastName")%>'></asp:Label>
+                    </td>
+                     <td> 
+            <asp:Label ID="Label3" runat="server" Text='<%#Eval("EmailId")%>'></asp:Label>     
+                    </td>
+                    </tr>
+          </ItemTemplate>
     </asp:Repeater>
     </div>
     </form>

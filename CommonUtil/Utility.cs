@@ -179,6 +179,19 @@ namespace CommonUtil
             }
         }
 
+        public static DataSet GetEducationalDegreeTypeDAL(string CandidateId)
+        {
+            try
+            {
+                Common common = new Common();
+                return common.GetEducationalDegreeTypeDAL(CandidateId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         /// <summary>
         /// GetLanguage() method of Utility class
         /// </summary>

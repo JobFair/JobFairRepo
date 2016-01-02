@@ -114,7 +114,6 @@
                 </tr>
             </caption>
         </table>
-        <asp:Button ID="btnSSCUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnSSCUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 
@@ -150,11 +149,6 @@
                 </td>
                 <td>
                     <asp:DropDownList ID="ddlHSC" runat="server" AutoPostBack="True" Height="16px" Width="100px">
-                        <asp:ListItem Value="0">Select</asp:ListItem>
-                        <asp:ListItem Text="Arts" Value="1"></asp:ListItem>
-                        <asp:ListItem Text="Commerce" Value="2"></asp:ListItem>
-                        <asp:ListItem Text="Science" Value="3"></asp:ListItem>
-                        <asp:ListItem Text="Others" Value="4"></asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvHSCSpecialization" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlHSC" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                     <br />
@@ -208,7 +202,6 @@
                 </td>
             </tr>
         </table>
-        <asp:Button ID="btnHSCUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnHSCUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 
@@ -301,7 +294,6 @@
                 </tr>
             </caption>
         </table>
-        <asp:Button ID="btnDipUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnDipUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 
@@ -391,7 +383,6 @@
             </tr>
         </table>
         <asp:Button ID="btnDualBD" runat="server" Text="Add Dual Bachelors Degree Details" OnClick="btnDualBD_Click" ValidationGroup="vgEducationalDetails" CssClass="button" />
-        <asp:Button ID="btnBDUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnBDUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 
@@ -484,7 +475,6 @@
                 </tr>
             </caption>
         </table>
-        <asp:Button ID="btnDualBDUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnDualBDUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 
@@ -573,7 +563,6 @@
                 </td>
             </tr>
         </table>
-        <asp:Button ID="btnPgdUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnPgdUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 
@@ -663,7 +652,6 @@
             </tr>
         </table>
         <asp:Button ID="btnDualMD" runat="server" Text="Add Dual Masters Degree Details" OnClick="btnDualMD_Click" ValidationGroup="vgEducationalDetails" CssClass="button" />
-        <asp:Button ID="btnMDUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnMDUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 
@@ -756,7 +744,6 @@
                 </tr>
             </caption>
         </table>
-        <asp:Button ID="btnDualMDUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnDualMDUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 
@@ -845,7 +832,6 @@
                 </td>
             </tr>
         </table>
-        <asp:Button ID="btnPHDUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnPHDUpdate_Click" ValidationGroup="vgEducationalDetails" Visible="false"/>
     </asp:Panel>
     <br />
 </div>
