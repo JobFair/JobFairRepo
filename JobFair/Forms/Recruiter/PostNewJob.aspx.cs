@@ -572,7 +572,7 @@ namespace JobFair.Forms.Recruiter
             catch (Exception)
             {
                 throw;
-            }
+             }
         }
 
         protected void chkCandidateProfile_CheckedChanged(object sender, EventArgs e)
