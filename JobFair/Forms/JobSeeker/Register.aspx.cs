@@ -133,25 +133,7 @@ namespace JobFair.Forms.JobSeeker
                 result = JobSeekerPrefix + result;
                
                 
-                //string from = "jyoti.logossolutions@gmail.com";
-                //string subject = "Cofirmation";
-                //string content = "Helllo....";
-                //MailMessage msg = new MailMessage();
-                //msg.From = new MailAddress(from);
-                //msg.To.Add("saurabh.logossolutions@gmail.com");
-                //msg.Subject = subject;
-                //msg.Body = "Hi,<br/>Your Username is: " + txtLoginid.Text + "<br/><br/>Your Password is: " + "Logged in Now" + "<br/>";
-
-                //SmtpClient smtp = new SmtpClient();
-                //smtp.Host = "smtp.gmail.com";
-                //smtp.Port = 587;
-                //smtp.Credentials = new System.Net.NetworkCredential("jyoti.logossolutions@gmail.com", "@jacksparow");
-                //smtp.EnableSsl = true;
-                //smtp.Send(msg);
-                //msg = null;
-                //Response.Write("<script language='javascript'>alert('Email Send to Super Admin ...');</script>");
-
-                // Check if result not null
+              
                 if (result != null)
                 {
                     // Check if fileupload control has a file.
@@ -188,10 +170,11 @@ namespace JobFair.Forms.JobSeeker
         private bool SendHTMLMail(string result)
         {
             string from = "jyoti.logossolutions@gmail.com";
+            string subject1 = "Welcome In Logos Solutions";
             string subject = " Joining Receipt of the candidate " + DateTime.Now.ToString();
             string content = "New Candidate Registered";
-            //string contentId = "image1";
-            //string path = Server.MapPath(@"/Images");
+            string content1 = "Hello,<br/> Logos Solutions welcomes you";
+           
             MailMessage Msg = new MailMessage();
             Msg.From = new MailAddress(from);
             Msg.To.Add("saurabh.logossolutions@gmail.com");
@@ -207,11 +190,7 @@ namespace JobFair.Forms.JobSeeker
             strContent = strContent.Replace("$$Present Address$$","Present Address"+ txtCurrAddress.Text.Trim()+"<br/>Country"+ddlCountryCode.SelectedItem.Text.Trim()+"<br/>State"+ddlStatePresent.SelectedItem.Text.Trim() + "<br/>City" + ddlCityPresent.SelectedItem.Text.Trim() + "<br/>City Area" + ddlAreaPresent.SelectedItem.Text.Trim() + "<br/>Pincode:" + txtPincode.Text.Trim());
             strContent = strContent.Replace("$$Reference ID$$", txtRefCandidateId.Text.Trim());
             Msg.Subject = subject;
-            //LinkedResource logo = new LinkedResource(path);
-            //logo.ContentId = "companylogo";
-            //AlternateView av1 = AlternateView.CreateAlternateViewFromString("<html><body><img src=../../Images/logoitch.jpg/><br></body></html>" + strContent, null, MediaTypeNames.Text.Html);
-            //av1.LinkedResources.Add(logo);
-            //Msg.AlternateViews.Add(av1);
+           
             Msg.Body = strContent.ToString();
             Msg.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
@@ -310,5 +289,9 @@ namespace JobFair.Forms.JobSeeker
                 throw;
             }
         }
+
+       
+
+      
     }
 }

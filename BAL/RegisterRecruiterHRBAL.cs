@@ -1,23 +1,22 @@
 ﻿using CommonUtil;
 using DAL;
-using Entities;
 
 namespace BAL
 {
-    public class RegisterJobSeekerBAL
+    public class RegisterRecruiterHRBAL
     {
         /// <summary>
-        /// Registers the new job seeker bal.
+        /// Register the new RegisterRecruiterHRBAL BAL
         /// </summary>
-        /// <param name="jobSeekerEntity">The job seeker entity.</param>
-        /// <returns>System.Int32.</returns>
-        public string SaveRegisterNewJobSeekerBAL(RegisterEntity jobSeekerEntity)
+        /// <param name="recruiterRegisterEntity">The recruiter enitity </param>
+        /// <returns>System.String</returns>
+        public string SaveNewRecruiterBAL(Entities.HR.RecruiterRegisterEntity recruiterRegisterEntity)
         {
-            RegisterJobSeekerDAL jobSeekerDAL = new RegisterJobSeekerDAL();
-            return jobSeekerDAL.SaveRegisterNewJobSeekerDAL(jobSeekerEntity);
+            RegisterRecruiterHRDAL registerRecruiterHRDAL = new RegisterRecruiterHRDAL();
+            return registerRecruiterHRDAL.SaveNewRecruiterDAL(recruiterRegisterEntity);
         }
         /// <summary>
-        /// Method to get country in RegisterJobSeekerBAL class
+        /// Method to get country in RegisterRecruiterHRBAL class
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetCountry()
@@ -25,7 +24,7 @@ namespace BAL
             return Utility.GetCountry();
         }
         /// <summary>
-        /// Method to get state in RegisterJobSeekerBAL class
+        /// Method to get state in RegisterRecruiterHRBAL class
         /// </summary>
         /// <param name="CountryId">Integer Parameter</param>
         /// <returns>System.Data.DataSet</returns>
@@ -34,16 +33,16 @@ namespace BAL
             return Utility.GetState(CountryId);
         }
         /// <summary>
-        /// Method to get city in RegisterJobSeekerBAL class
+        /// Method to get city in RegisterRecruiterHRBAL class
         /// </summary>
-        /// <param name="StateId">Integer Parameter</param>
+        /// <param name="CountryId">Integer Parameter</param>
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetCity(int StateId)
         {
             return Utility.GetCity(StateId);
         }
         /// <summary>
-        /// Method to get city area in RegisterJobSeekerBAL class
+        /// Method to get Area in RegisterRecruiterHRBAL class
         /// </summary>
         /// <param name="cityId">Integer Parameter</param>
         /// <returns>System.Data.DataSet</returns>
@@ -52,7 +51,7 @@ namespace BAL
             return Utility.GetArea(cityId);
         }
         /// <summary>
-        /// Method to get Country code in RegisterJobSeekerBAL class
+        /// Method to get CountryCode in RegisterRecruiterHRBAL class
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetCountryCode()

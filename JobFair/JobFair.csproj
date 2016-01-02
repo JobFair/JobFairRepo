@@ -85,6 +85,7 @@
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\Employer\Register.aspx" />
+    <Content Include="Forms\HR\RecruiterRegistration.aspx" />
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\ChangeLoginDetails.aspx" />
     <Content Include="Forms\JobSeeker\CompleteProfile.aspx" />
@@ -199,6 +200,13 @@
     </Compile>
     <Compile Include="Forms\Employer\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HR\RecruiterRegistration.aspx.cs">
+      <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\HR\RecruiterRegistration.aspx.designer.cs">
+      <DependentUpon>RecruiterRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\AdvanceSearch.aspx.cs">
       <DependentUpon>AdvanceSearch.aspx</DependentUpon>
@@ -540,6 +548,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Forms\Admin\" />
     <Folder Include="Images\JobSeeker\" />
     <Folder Include="UploadFiles\" />
     <Folder Include="UploadImages\" />

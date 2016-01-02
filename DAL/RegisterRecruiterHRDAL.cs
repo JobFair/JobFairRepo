@@ -5,16 +5,16 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class RegisterRecruiterDAL
+    public class RegisterRecruiterHRDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
         /// Add New Recruiter DAL
         /// </summary>
-        /// <param name="rrentity">Object for Recruiter entity</param>
+        /// <param name="recruiterRegisterEntity">Object for Recruiter entity</param>
         /// <returns>System.String</returns>
-        public string SaveNewRecruiterDAL(Entities.Recruiter.RegisterRecruiterEntity rrentity)
+        public string SaveNewRecruiterDAL(Entities.HR.RecruiterRegisterEntity recruiterRegisterEntity)
         {
             try
             {
@@ -22,13 +22,13 @@ namespace DAL
 
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] param = new SqlParameter[8];
-                param[0] = new SqlParameter("@recrName", rrentity.FullName);
-                param[1] = new SqlParameter("@company", rrentity.Company);
-                param[2] = new SqlParameter("@mobNo", rrentity.MobileNo);
-                param[3] = new SqlParameter("@oficialEmailid", rrentity.OficialEmailId);
-                param[4] = new SqlParameter("@city", rrentity.City);
-                param[5] = new SqlParameter("@password", rrentity.Password);
-                param[6] = new SqlParameter("@photoPath", rrentity.PhotoPath);
+                param[0] = new SqlParameter("@recrName", recruiterRegisterEntity.FullName);
+                param[1] = new SqlParameter("@company", recruiterRegisterEntity.Company);
+                param[2] = new SqlParameter("@mobNo", recruiterRegisterEntity.MobileNo);
+                param[3] = new SqlParameter("@oficialEmailid", recruiterRegisterEntity.OfficialEmailId);
+                param[4] = new SqlParameter("@city", recruiterRegisterEntity.City);
+                param[5] = new SqlParameter("@password", recruiterRegisterEntity.Password);
+                param[6] = new SqlParameter("@photoPath", recruiterRegisterEntity.PhotoPath);
                 param[7] = new SqlParameter("@setrecruiterid", SqlDbType.VarChar, 500);
                 param[7].Direction = ParameterDirection.Output;
 
