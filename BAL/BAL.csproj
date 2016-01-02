@@ -42,6 +42,7 @@
     <Compile Include="AdvanceJobSearchBAL.cs" />
     <Compile Include="ChangeLoginDetailsBAL.cs" />
     <Compile Include="ClientRequirementsBAL.cs" />
+    <Compile Include="JobapplicationsBAL.cs" />
     <Compile Include="ManageJobsBAL.cs" />
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ClientDetailsBAL.cs" />

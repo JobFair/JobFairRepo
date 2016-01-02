@@ -97,12 +97,6 @@ namespace DAL
         }
 
 
-
-
-
-
-
-
         public DataTable GetRoles(string prefixText)
         {
             DataTable dt = new DataTable();

@@ -63,19 +63,45 @@ namespace DAL
         }
 
         /// <summary>
-        /// View Educational Deatils JobSeeker.
+        /// Select Educational Deatils JobSeeker.
         /// </summary>
         /// <param name="edEntity">Object for Selecting data into database</param>
         /// <returns>True/false</returns>
-        public DataSet ViewEducationalDetailsDAL(string candidateId,int DegreeId)
+        public DataSet SelectEducationalDetailsDAL(string candidateId, int degreeId, int specializationId)
         {
             DataSet dsEducationalDetails = new DataSet();
             try
             {
                 SqlParameter[] sparams = { new SqlParameter("@CandidateId", candidateId),
-                                           new SqlParameter("@DegreeId", DegreeId)
+                                           new SqlParameter("@DegreeId", degreeId),
+                                           new SqlParameter("@SpecializationId", specializationId)
                                          };
                 dsEducationalDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectEducationalDetails, sparams);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dsEducationalDetails;
+        }
+
+        /// <summary>
+        /// View Educational Deatils JobSeeker.
+        /// </summary>
+        /// <param name="edEntity">Object for Selecting data into database</param>
+        /// <returns>True/false</returns>
+        public DataSet ViewEducationalDegreeDetailsDAL(string candidateId)
+        {
+            DataSet dsEducationalDetails = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@CandidateId", candidateId)
+                                         };
+                dsEducationalDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_ViewEducationalDetails, sparams);
             }
             catch (Exception)
             {
@@ -103,7 +129,7 @@ namespace DAL
 
                 SqlParameter[] sqlparams = {
                                               new SqlParameter("@CandidateId",educationalDetailsEntity.CandidateId),
-                                              new SqlParameter("@HighestQualificationId",educationalDetailsEntity.HighestQualificationId),
+                                              //new SqlParameter("@HighestQualificationId",educationalDetailsEntity.HighestQualificationId),
                                               new SqlParameter("@DegreeId",educationalDetailsEntity.DegreeId),
                                               new SqlParameter("@MediumOfEducation",educationalDetailsEntity.MediumOfEducation),
                                               new SqlParameter("@Status",educationalDetailsEntity.Status),

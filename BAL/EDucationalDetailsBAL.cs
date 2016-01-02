@@ -27,11 +27,12 @@ namespace BAL
            /// </summary>
            /// <param name="edEntity">The Educational Details entity.</param>
            /// <returns>System.Int32.</returns>
-           public DataSet ViewEducationalDetailsBAL(string candidateId,int DegreeId)
+           public DataSet SelectEducationalDetailsBAL(string candidateId, int degreeId, int specializationId)
            {
                EducationalDetailsDAL educationalDetailsDAL = new EducationalDetailsDAL();
-               return educationalDetailsDAL.ViewEducationalDetailsDAL(candidateId, DegreeId);
+               return educationalDetailsDAL.SelectEducationalDetailsDAL(candidateId, degreeId, specializationId);
            }
+
             /// <summary>
             /// Updating Educational Deatils JobSeeker.
             /// </summary>
@@ -42,6 +43,7 @@ namespace BAL
                EducationalDetailsDAL updateEdDAL = new EducationalDetailsDAL();
                return updateEdDAL.UpdateEducationalDetailsDAL(educationalDetailsEntity);
            }
+
            /// <summary>
            /// Load Educational Degree Type
            /// </summary>
@@ -50,7 +52,12 @@ namespace BAL
            {
                return Utility.GetEducationalDegreeTypeDAL();
            }
-          
+
+           public DataSet GetEducationalDegreeTypeBAL(string CandidateId)
+           {
+               return Utility.GetEducationalDegreeTypeDAL(CandidateId);
+           }
+
            /// <summary>
            /// Load Degree Details
            /// </summary>
