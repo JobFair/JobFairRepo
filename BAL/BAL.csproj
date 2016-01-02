@@ -63,7 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionrieBAL.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />
-    <Compile Include="RegisterRecruiterBAL.cs" />
+    <Compile Include="RegisterRecruiterHRBAL.cs" />
     <Compile Include="RequestEmailJSBAL.cs" />
     <Compile Include="searchRecordBAL.cs" />
     <Compile Include="ViewAllJobPostBAL.cs" />

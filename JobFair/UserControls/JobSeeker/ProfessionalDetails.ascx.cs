@@ -902,7 +902,11 @@ namespace JobFair.UserControls.JobSeeker
         {
             PanelArea.Visible = true;
         }
-
+        /// <summary>
+        /// Handles the ItemCommand event of rptrPastCurrentJobDetails control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrPastCurrentJobDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Label lblCurrentComapny = (Label)e.Item.FindControl("lblCurrentComapny");
@@ -1032,7 +1036,11 @@ namespace JobFair.UserControls.JobSeeker
                 BindRepeaterCurrentPastExp();
             }
         }
-
+        /// <summary>
+        /// Handles ItemCommand event of rptrJobPostLookinFor control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrJobPostLookinFor_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Label lblJobPostLooking = (Label)e.Item.FindControl("lblJobPostLooking");
@@ -1096,7 +1104,11 @@ namespace JobFair.UserControls.JobSeeker
                 BindRepeaterJobPostLooking();
             }
         }
-
+        /// <summary>
+        /// Handles ItemDataBound event of rptrJobPostLookinFor control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrJobPostLookinFor_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
@@ -1149,7 +1161,11 @@ namespace JobFair.UserControls.JobSeeker
                 }
             }
         }
-
+        /// <summary>
+        /// Handles ItemDataBound event of rptrPastCurrentJobDetails control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrPastCurrentJobDetails_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
@@ -1247,7 +1263,11 @@ namespace JobFair.UserControls.JobSeeker
                 rblJobType.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "JobType"));
             }
         }
-
+        /// <summary>
+        /// Handles SelectedIndexChanged event of ddlPreferredCountry control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void ddlPreferredCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -1272,12 +1292,20 @@ namespace JobFair.UserControls.JobSeeker
                 // throw;
             }
         }
-
+        /// <summary>
+        /// Handles Click event of btnState control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnState_Click(object sender, EventArgs e)
         {
             PanelState.Visible = true;
         }
-
+        /// <summary>
+        /// Handles SelectedIndexChanged event of chklState control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void chklState_SelectedIndexChanged(object sender, EventArgs e)
         {
             //var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
@@ -1307,19 +1335,31 @@ namespace JobFair.UserControls.JobSeeker
                 // throw;
             }
         }
-
+        /// <summary>
+        /// Handles CheckedChanged event of rbFresher control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbFresher_CheckedChanged(object sender, EventArgs e)
         {
             divDesireJobDetails.Visible = true;
             divCurrentEmployer.Visible = false;
         }
-
+        /// <summary>
+        /// Handles CheckedChanged event of rbExperienced control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbExperienced_CheckedChanged(object sender, EventArgs e)
         {
             divCurrentEmployer.Visible = true;
             divDesireJobDetails.Visible = true;
         }
-
+        /// <summary>
+        /// Handles SelectedIndexChanged event of rblJobType control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rblJobType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (rblJobType.SelectedItem.Text == "Temporary" && chkCurrentYes.Checked)
@@ -1327,7 +1367,11 @@ namespace JobFair.UserControls.JobSeeker
                 divTemporary.Visible = true;
             }
         }
-
+        /// <summary>
+        /// Handles RowDeleting event of gvExperience control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void gvExperience_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int index = Convert.ToInt32(e.RowIndex);
@@ -1336,7 +1380,11 @@ namespace JobFair.UserControls.JobSeeker
             ViewState["ProfessionalDetails"] = dt;
             BindExperienceGrid();
         }
-
+        /// <summary>
+        /// Handles RowDataBound event of gvExperience control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void gvExperience_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -1351,7 +1399,11 @@ namespace JobFair.UserControls.JobSeeker
                 }
             }
         }
-
+        /// <summary>
+        /// Handles RowDeleting event of gvJobsLookingFor control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void gvJobsLookingFor_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int index = Convert.ToInt32(e.RowIndex);
@@ -1360,7 +1412,11 @@ namespace JobFair.UserControls.JobSeeker
             ViewState["JobDetails"] = dt;
             BindJobPostLookingGrid();
         }
-
+        /// <summary>
+        /// Handles RowDataBound event of gvJobsLookingFor control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void gvJobsLookingFor_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
