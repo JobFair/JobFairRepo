@@ -139,6 +139,8 @@
     <Content Include="UserControls\JobSeeker\PersonalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\ProfessionalDetails.ascx" />
     <Content Include="UserControls\JobSeeker\RoleSkillsDetails.ascx" />
+    <Content Include="UserControls\Recruiter\ContactDetails.ascx" />
+    <Content Include="UserControls\Recruiter\PersonalDetails.ascx" />
     <Content Include="UserControls\Recruiter\SearchRecord.ascx" />
     <Content Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx" />
     <Content Include="UserControls\Recruiter\AddNewRequirementOfClient.ascx" />
@@ -454,6 +456,20 @@
     </Compile>
     <Compile Include="UserControls\JobSeeker\RoleSkillsDetails.ascx.designer.cs">
       <DependentUpon>RoleSkillsDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\ContactDetails.ascx.cs">
+      <DependentUpon>ContactDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\ContactDetails.ascx.designer.cs">
+      <DependentUpon>ContactDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\PersonalDetails.ascx.cs">
+      <DependentUpon>PersonalDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\PersonalDetails.ascx.designer.cs">
+      <DependentUpon>PersonalDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Recruiter\SearchRecord.ascx.cs">
       <DependentUpon>SearchRecord.ascx</DependentUpon>
