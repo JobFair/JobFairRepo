@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities.Recruiter
 {
-    public class CloneJobPostEntity
+    public class ManageJobEntity
     {
         public string JobId { get; set; }
         public string RecruiterID { get; set; }
+        public string JobHistoryId { get; set; }
     }
 }

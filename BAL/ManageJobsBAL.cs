@@ -30,12 +30,21 @@ namespace BAL
             return manageJobsDAL.ViewJobsDetetailsDAL(JobId);
         }
         /// <summary>
-        /// For display Re-Post Job of recruiter
+        /// For display Re-Post(Clone) Job of recruiter
         /// </summary>
         /// <returns></returns>
-        public DataSet ClonePostJobBAL(int JobId, string RecruiterID)
+        public DataSet ClonePostJobBAL(int JobId, int RecruiterID, String IsActive)
         {
-            return manageJobsDAL.ClonePostJobDAL(JobId, RecruiterID);
+            return manageJobsDAL.ClonePostJobDAL(JobId, RecruiterID, IsActive);
         }
+        /// <summary>
+        /// For display Delete(Change IsActive Status) Job of recruiter
+        /// </summary>
+        /// <returns></returns>
+        public DataSet DeletePostJobBAL(int JobHistroryId, int JobId, int RecruiterID)
+        {
+            return manageJobsDAL.DeletePostJobDAL(JobHistroryId, JobId, RecruiterID);
+        }
+
     }
 }

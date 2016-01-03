@@ -101,6 +101,7 @@
         public static string sp_JS_SelectApplyCandidate = "sp_JS_SelectApplyCandidate";
         public static string sp_RE_InsertContactDetails = "sp_RE_InsertContactDetails";
         public static string sp_RE_InsertPersonalDetails = "sp_RE_InsertPersonalDetails";
+        public static string sp_HR_InsertRecruiterRegisterDetails = "sp_HR_InsertRecruiterRegisterDetails";
 
     }
 }
