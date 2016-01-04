@@ -9,7 +9,7 @@ namespace DAL
     /// <summary>
     /// jop post
     /// </summary>
-    public class NewJobPostDAL
+    public class PostNewJobDAL
     {
         /// <summary>
         /// Dal layer method to store new job post data into jobpost table in database
@@ -127,7 +127,7 @@ namespace DAL
             try
             {
                 DataSet ds = new DataSet();
-                ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select ClientId,ClientName from RE_ClientDetails");
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select ClientId,ClientName from HR_ClientDetails");
                 return ds;
             }
             catch (Exception)

@@ -70,7 +70,7 @@
     <Compile Include="Recruiter\ManageJobEntity.cs" />
     <Compile Include="Recruiter\ManageResponsesEntity.cs" />
     <Compile Include="Recruiter\QuestionrieEntity.cs" />
-    <Compile Include="Recruiter\ClientDetailsEntity.cs" />
+    <Compile Include="HR\ClientDetailsEntity.cs" />
     <Compile Include="Recruiter\ClientRequirementsEntitiy.cs" />
     <Compile Include="Recruiter\RegisterRecruiterEntity.cs" />
     <Compile Include="Recruiter\ViewProfileEntity.cs" />
