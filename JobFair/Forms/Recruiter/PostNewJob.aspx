@@ -354,7 +354,10 @@
                                 <td>
                                     <asp:UpdatePanel runat ="server">
                                         <ContentTemplate>
-                                         <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                                         <asp:DropDownList ID="ddlposition" runat="server">
+                                             <asp:ListItem>Java Developer</asp:ListItem>
+                                             <asp:ListItem>Asp.net Developer</asp:ListItem>
+                                         </asp:DropDownList>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </td>                            

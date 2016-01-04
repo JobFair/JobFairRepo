@@ -47,7 +47,9 @@ namespace DAL
                                             new SqlParameter("@JobType",jobpostEntity.JobType),
                                             new SqlParameter("@EmploymentStatus",jobpostEntity.EmploymentStatus),
                                             new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType),
-                                            new SqlParameter("@CompanyName",jobpostEntity.CompanyName)
+                                            new SqlParameter("@CompanyName",jobpostEntity.CompanyName),
+                                            new  SqlParameter("@ClientName",jobpostEntity.ClientName),
+                                            new SqlParameter("@Position",jobpostEntity.Position)
                                           
                                         };
                 SqlParameter[] sqlparams1 ={
