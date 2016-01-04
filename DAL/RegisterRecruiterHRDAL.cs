@@ -7,6 +7,7 @@ namespace DAL
 {
     public class RegisterRecruiterHRDAL
     {
+       
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
@@ -21,19 +22,34 @@ namespace DAL
                 connection.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                SqlParameter[] param = new SqlParameter[8];
+                SqlParameter[] param = new SqlParameter[23];
                 param[0] = new SqlParameter("@recrName", recruiterRegisterEntity.FullName);
                 param[1] = new SqlParameter("@company", recruiterRegisterEntity.Company);
                 param[2] = new SqlParameter("@mobNo", recruiterRegisterEntity.MobileNo);
-                param[3] = new SqlParameter("@oficialEmailid", recruiterRegisterEntity.OfficialEmailId);
-                param[4] = new SqlParameter("@city", recruiterRegisterEntity.City);
-                param[5] = new SqlParameter("@password", recruiterRegisterEntity.Password);
-                param[6] = new SqlParameter("@photoPath", recruiterRegisterEntity.PhotoPath);
-                param[7] = new SqlParameter("@setrecruiterid", SqlDbType.VarChar, 500);
-                param[7].Direction = ParameterDirection.Output;
+                param[3] = new SqlParameter("@officialEmailid", recruiterRegisterEntity.OfficialEmailId);
+                param[4] = new SqlParameter("@freelancerOrEmployee", recruiterRegisterEntity.FreelanceOrEmployee);
+                param[5] = new SqlParameter("@amountPerMonth", recruiterRegisterEntity.AmountPerMonth);
+                param[6] = new SqlParameter("@percentPerClosure", recruiterRegisterEntity.PercentPerClosure);
+                param[7] = new SqlParameter("@employeeSalary", recruiterRegisterEntity.EmployeeSalary);
+                param[8] = new SqlParameter("@address", recruiterRegisterEntity.Address);
+                param[9] = new SqlParameter("@presentCountry", recruiterRegisterEntity.PresentCountry);
+                param[10] = new SqlParameter("@presentState", recruiterRegisterEntity.PresentState);
+                param[11] = new SqlParameter("@presentCity", recruiterRegisterEntity.PresentCity);
+                param[12] = new SqlParameter("@presentArea", recruiterRegisterEntity.PresentArea);
+                param[13] = new SqlParameter("@pinCode", recruiterRegisterEntity.Pincode);
+                param[14] = new SqlParameter("@employmentStatus", recruiterRegisterEntity.EmploymentStatus);
+                param[15] = new SqlParameter("@jobType", recruiterRegisterEntity.JobType);
+                param[16] = new SqlParameter("@clientSite", recruiterRegisterEntity.ClientSite);
+                param[17] = new SqlParameter("@clientName", recruiterRegisterEntity.ClientName);
+                param[18] = new SqlParameter("@panCardNo", recruiterRegisterEntity.PANCardNo);
+                param[19] = new SqlParameter("@photoPath", recruiterRegisterEntity.PhotoPath);
+                param[20] = new SqlParameter("@password", recruiterRegisterEntity.Password);
+                param[21] = new SqlParameter("@isMailSent", recruiterRegisterEntity.IsMailSent);
+                param[22] = new SqlParameter("@setrecruiterid", SqlDbType.VarChar, 500);
+                param[22].Direction = ParameterDirection.Output;
 
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure,Constants.sp_RE_InsertRegisterDetails , param);
-                string recruiterID = Convert.ToString(param[7].Value);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure,Constants.sp_HR_InsertRecruiterRegisterDetails , param);
+                string recruiterID = Convert.ToString(param[22].Value);
 
                 if (string.IsNullOrEmpty(recruiterID))
                 {

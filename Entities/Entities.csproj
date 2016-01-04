@@ -68,7 +68,9 @@
     <Compile Include="JobSeeker\RegisterEntity.cs" />
     <Compile Include="Recruiter\AddJobPostEntity.cs" />
     <Compile Include="Recruiter\ManageJobEntity.cs" />
+    <Compile Include="Recruiter\ContactDetailsEntity.cs" />
     <Compile Include="Recruiter\ManageResponsesEntity.cs" />
+    <Compile Include="Recruiter\PersonalDetailsEntity.cs" />
     <Compile Include="Recruiter\QuestionrieEntity.cs" />
     <Compile Include="HR\ClientDetailsEntity.cs" />
     <Compile Include="Recruiter\ClientRequirementsEntitiy.cs" />
