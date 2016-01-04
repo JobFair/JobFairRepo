@@ -14,7 +14,7 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int JobPostBAL(AddJobPostEntity jobpostEntity)
         {
-            NewJobPostDAL JPDAL = new NewJobPostDAL();
+            PostNewJobDAL JPDAL = new PostNewJobDAL();
             return JPDAL.JobPostDAL(jobpostEntity);
         }
 
@@ -96,13 +96,13 @@ namespace BAL
         /// <returns></returns>
         public DataSet GetQuestionsBAL()
         {
-            NewJobPostDAL newJobPostDAL = new NewJobPostDAL();
+            PostNewJobDAL newJobPostDAL = new PostNewJobDAL();
             return newJobPostDAL.GetQuestionsDAL();
         }
 
         public DataSet GetState()
         {
-            NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             return newjobpostDAL.GetStateDAL();
         }
 
@@ -118,7 +118,7 @@ namespace BAL
 
         public DataTable GetRolesBAL(string prefixText)
         {
-            NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             return newjobpostDAL.GetRoles(prefixText);
         }
 
@@ -128,13 +128,13 @@ namespace BAL
 
         public DataTable GettechnicalskillBAL(string prefixText)
         {
-            NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             return newjobpostDAL.GetSkill(prefixText);
         }
 
         public DataSet GetClientName()
         {
-            NewJobPostDAL newjobpostDAL = new NewJobPostDAL();
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             return newjobpostDAL.GetClientname();
         }
     }

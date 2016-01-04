@@ -18,7 +18,6 @@ namespace BAL
         {
             return Utility.GetCountry();
         }
-
         /// <summary>
         /// Method in ClientDetailsBAL class
         /// </summary>
@@ -28,7 +27,6 @@ namespace BAL
         {
             return Utility.GetState(countryId);
         }
-
         /// <summary>
         /// Method in ClientDetailsBAL class
         /// </summary>
@@ -38,7 +36,15 @@ namespace BAL
         {
             return Utility.GetCity(stateId);
         }
-
+        /// <summary>
+        /// Method in ClientDetailsBAL class
+        /// </summary>
+        /// <param name="areaId">Parameter for selection of city</param>
+        /// <returns>System.Data.DataSet</returns>
+        public System.Data.DataSet GetArea(int cityId)
+        {
+            return Utility.GetArea(cityId);
+        }
         /// <summary>
         /// Method in ClientDetailsBAL class
         /// </summary>
@@ -62,7 +68,7 @@ namespace BAL
         /// </summary>
         /// <param name="clientDetailsEntity">Object of ClientDetailsBAL</param>
         /// <returns>System.Int32</returns>
-        public int SaveClientDetailsBAL(Entities.Recruiter.ClientDetailsEntity clientDetailsEntity)
+        public int SaveClientDetailsBAL(Entities.HR.ClientDetailsEntity clientDetailsEntity)
         {
             return clientDetailsDAL.SaveClientDetailsDAL(clientDetailsEntity);
         }
@@ -71,7 +77,7 @@ namespace BAL
         /// To add functional area method in ClientDetailsBAL class
         /// </summary>
         /// <param name="clientDetailsEntity">Object of ClientDetailsEntity </param>
-        public void AddFunctionalAreaBAL(Entities.Recruiter.ClientDetailsEntity clientDetailsEntity)
+        public void AddFunctionalAreaBAL(Entities.HR.ClientDetailsEntity clientDetailsEntity)
         {
             clientDetailsDAL.AddFunctionalDAL(clientDetailsEntity);
         }

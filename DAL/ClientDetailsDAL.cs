@@ -1,4 +1,4 @@
-﻿using Entities.Recruiter;
+﻿using Entities.HR;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
