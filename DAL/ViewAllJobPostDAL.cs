@@ -51,7 +51,7 @@ namespace DAL
                                                   new  SqlParameter ("@IsMailSend",1),
                                                   new SqlParameter("@Date", DateTime.Now)                                 
                                              };
-                return SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_InsertJobHistory, sqlparams);
+                return SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertJobHistory, sqlparams);
             }
             catch (Exception)
             {
