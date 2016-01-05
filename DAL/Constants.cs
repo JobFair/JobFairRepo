@@ -97,11 +97,11 @@
         public static string sp_ViewCandidateProfileForEmail = "sp_ViewCandidateProfileForEmail";
         public static string sp_JS_SelectViewJobPost = "sp_JS_SelectViewJobPost";
         public static string sp_JS_UpdateDesiredJobDetails = "sp_JS_UpdateDesiredJobDetails";
-
         public static string sp_JS_SelectApplyCandidate = "sp_JS_SelectApplyCandidate";
         public static string sp_RE_InsertContactDetails = "sp_RE_InsertContactDetails";
         public static string sp_RE_InsertPersonalDetails = "sp_RE_InsertPersonalDetails";
         public static string sp_HR_InsertRecruiterRegisterDetails = "sp_HR_InsertRecruiterRegisterDetails";
-
+        public static string sp_RE_ViewProfile = "sp_RE_ViewProfile";
+        public static string sp_RE_SelectPersonalDetails = "sp_RE_SelectPersonalDetails";
     }
 }
