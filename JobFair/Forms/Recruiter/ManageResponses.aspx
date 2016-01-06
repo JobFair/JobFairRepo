@@ -25,9 +25,10 @@
                             <td>
                                 <table>
                                     <tr>
-                                        <td>
+                                        <td>JobTitle:-
                                            <asp:Label ID="lbljobtittle" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp RecruiterID:-
+                                             <asp:Label ID="lblrecruiterid" runat="server" Text='<%#Eval("RecruiterID")%>'></asp:Label>
                                             </td>
                                         </tr>
                                     </table>
@@ -61,7 +62,7 @@
                     </table>
                     </FooterTemplate>
                    </asp:Repeater>
-    </div>
-    </form>
-</body>
-</html>
+                     </div>
+                     </form>
+                    </body>
+                    </html>
