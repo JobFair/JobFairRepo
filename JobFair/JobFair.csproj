@@ -83,6 +83,7 @@
     <Content Include="Email Templates\RecruiterRegisterWelcomeMail.html" />
     <Content Include="EmailPage.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forms\Admin\HRRegistration.aspx" />
     <Content Include="Forms\Common\ChangePassword.aspx" />
     <Content Include="Forms\Common\ForgetPassword.aspx" />
     <Content Include="Forms\Employer\Register.aspx" />
@@ -113,7 +114,7 @@
     <Content Include="Forms\Recruiter\SearchRecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="Images\logoitch.jpg" />
-    <Content Include="NewFolder1\jquery-1.11.1.min %281%29.js" />
+    <Content Include="Images\NewFolder1\jquery-1.11.1.min %281%29.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -169,7 +170,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\calendar-list.jpg" />
-    <Content Include="Images\L1-whte.jpg" />
     <Content Include="UserControls\Recruiter\RecruiterForgetPwd.ascx" />
     <Content Include="UserControls\Recruiter\RecruiterRegistration.ascx" />
     <Content Include="UserControls\Recruiter\AddOfferedCandidates.ascx" />
@@ -178,6 +178,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Admin\HRRegistration.aspx.cs">
+      <DependentUpon>HRRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\HRRegistration.aspx.designer.cs">
+      <DependentUpon>HRRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Common\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -581,7 +588,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Admin\" />
     <Folder Include="Images\JobSeeker\" />
     <Folder Include="UploadFiles\" />
     <Folder Include="UploadImages\" />
