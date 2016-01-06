@@ -15,12 +15,13 @@ namespace DAL
         /// </summary>
         /// <param name="candidateId">for selecting data into database</param>
         /// <returns>dataset</returns>
-        public DataSet ViewContactDetailsDAL(string candidateId)
+        public DataSet ViewContactDetailsDAL(string candidateId, int userType)
         {
             DataSet ds = new DataSet();
             try
             {
-                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId),
+                                           new SqlParameter("@userType",userType)};
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectContactDetails, sparams);
             }
             catch (Exception)
@@ -53,7 +54,8 @@ namespace DAL
                                               new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
                                               new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
                                               new SqlParameter("@googleP",contactDetailsEntity.GooglePlus),
-                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId)
+                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId),
+                                              new SqlParameter("@userType",contactDetailsEntity.UserType)
                                             };
                 result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertContactDetails, sqlparams);
             }
@@ -91,7 +93,8 @@ namespace DAL
                                               new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
                                               new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
                                               new SqlParameter("@googleP",contactDetailsEntity.GooglePlus),
-                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId)
+                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId),
+                                              new SqlParameter("@userType",contactDetailsEntity.UserType)
                                             };
                 result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateContactDetails, sqlparams);
             }

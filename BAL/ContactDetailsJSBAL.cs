@@ -33,10 +33,10 @@ namespace BAL
         /// </summary>
         /// <param name="candidateId">candidateId</param>
         /// <returns>DataSet</returns>
-        public DataSet ViewContactDetailsBAL(string candidateId)
+        public DataSet ViewContactDetailsBAL(string candidateId,int userType)
         {
             ContactDetailsJSDAL contactDetailsDAL = new ContactDetailsJSDAL();
-            return contactDetailsDAL.ViewContactDetailsDAL(candidateId);
+            return contactDetailsDAL.ViewContactDetailsDAL(candidateId,userType);
         }
     }
 }
