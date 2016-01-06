@@ -113,7 +113,7 @@
     <Content Include="Forms\Recruiter\SearchRecord.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="Images\logoitch.jpg" />
-    <Content Include="NewFolder1\jquery-1.11.1.min %281%29.js" />
+    <Content Include="Images\NewFolder1\jquery-1.11.1.min %281%29.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
