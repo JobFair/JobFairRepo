@@ -27,7 +27,7 @@ namespace JobFair.Forms.Recruiter
                     //else
                     //{
                     BindAllUserDetails(recruiterId);
-                    
+
                     //}
                 }
             }
@@ -59,6 +59,34 @@ namespace JobFair.Forms.Recruiter
                 ViewProfileREBAL viewProfileBAL = new ViewProfileREBAL();
                 BindViewProfile(recruiterId, viewProfileBAL);
                 BindViewPersonalDetails(recruiterId, viewProfileBAL);
+                BindContactDetails(recruiterId, viewProfileBAL);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void BindContactDetails(int recruiterId, ViewProfileREBAL viewProfileBAL)
+        {
+            try
+            {
+                int userType = 2;
+                DataSet dsContactDetails = new DataSet();
+                dsContactDetails = viewProfileBAL.ViewContactDetailsBAL(recruiterId, userType);
+                if (dsContactDetails != null)
+                {
+                    lblAltEmailId.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["AltEmailId"]);
+                    lblAltMobNo.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["AltMobile"]);
+                    lblLandLineNo.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["LandLine"]);
+                    lblWhatsAppNo.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["WhatsapNo"]);
+                    lblLinkIn.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["LinkedId"]);
+                    lblFacebook.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["FaceBookId"]);
+                    lblTwitter.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["TwitterId"]);
+                    lblGtalk.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["GtalkId"]);
+                    lblSkype.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["skypeId"]);
+                    lblGooglePlus.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["GoogleP"]);
+                }
             }
             catch (Exception)
             {
@@ -72,30 +100,29 @@ namespace JobFair.Forms.Recruiter
             {
                 DataSet dsPersonalDetails = new DataSet();
                 dsPersonalDetails = viewProfileBAL.ViewPersonalDetails(recruiterId);
-                    if(dsPersonalDetails!=null)
-                    {
-                        lblPresentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["Address"]);
-                        lblPresentCountry.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentCountryName"]);
-                        lblPresentState.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentStateName"]);
-                        lblPresentCity.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentCityName"]);
-                        lblPresentArea.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentAreaName"]);
-                        lblPresentPincode.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PinCode"]);
-                        lblPermanentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantAddress"]);
-                        lblPermanentCountry.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantCountryName"]);
-                        lblPermanentState.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantStateName"]);
-                        lblPermanentCity.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantCityName"]);
-                        lblPermanentArea.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantAreaName"]);
-                        lblPermanentPincode.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantPincode"]);
-                        string date = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["DateOfBirth"]);
-                        lblDateOfBirth.Text = DateTime.Parse(date).ToShortDateString();
-                        lblMaritalState.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["MaritalStatus"]);
-                        lblPassportNo.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportNumber"]);
-                        lblPassportValidity.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]);
-                    }
+                if (dsPersonalDetails != null)
+                {
+                    lblPresentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["Address"]);
+                    lblPresentCountry.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentCountryName"]);
+                    lblPresentState.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentStateName"]);
+                    lblPresentCity.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentCityName"]);
+                    lblPresentArea.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PresentAreaName"]);
+                    lblPresentPincode.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["PinCode"]);
+                    lblPermanentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantAddress"]);
+                    lblPermanentCountry.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantCountryName"]);
+                    lblPermanentState.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantStateName"]);
+                    lblPermanentCity.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantCityName"]);
+                    lblPermanentArea.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantAreaName"]);
+                    lblPermanentPincode.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PermantPincode"]);
+                    string date = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["DateOfBirth"]);
+                    lblDateOfBirth.Text = DateTime.Parse(date).ToShortDateString();
+                    lblMaritalState.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["MaritalStatus"]);
+                    lblPassportNo.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportNumber"]);
+                    lblPassportValidity.Text = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]);
+                }
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
@@ -110,10 +137,10 @@ namespace JobFair.Forms.Recruiter
                 {
                     imgProfilePhoto.ImageUrl = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["PhotoPath"]);
                     lblFullName.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["RecruiterfullName"]);
-                    lblRecruiterId.Text =Convert.ToString(recruiterId);
+                    lblRecruiterId.Text = Convert.ToString(recruiterId);
                     lblCompany.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["Company"]);
                     lblOfficicalNumber.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["MobileNumber"]);
-                    lblMobileNumber.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["AltMobile"]);
+                    //lblMobileNumber.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["AltMobile"]);
                     lblOfficialEmailId.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["OfficialEmail_ID"]);
                     lblFreelancer.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["FreelanceOrEmployee"]);
                     lblAddress.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["Address"]);

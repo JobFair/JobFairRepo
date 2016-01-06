@@ -1,8 +1,9 @@
-﻿
+﻿  
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Webform1.aspx.cs" Inherits="JobFair.Forms.JobSeeker.WebForm1" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<%@ Register Src="~/UserControls/JobSeeker/ContactDetails.ascx" TagPrefix="uc1" TagName="ContactDetails" %>
+<%@ Register Src="~/UserControls/Recruiter/ContactDetails.ascx" TagPrefix="uc1" TagName="ContactDetails" %>
+
 
 
 

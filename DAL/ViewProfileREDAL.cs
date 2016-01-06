@@ -60,6 +60,22 @@ namespace DAL
             return ds;
         }
 
+        public DataSet ViewContactDetailsDAL(int recruiterId,int userType)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@CandidateId", recruiterId),
+                                          new SqlParameter("@userType",userType)};
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectContactDetails, sparams);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return ds;
+        }
         ///// <summary>
         ///// View Job Post of recruiter
         ///// </summary>

@@ -41,7 +41,7 @@
                         <asp:Label ID="lblEmail" runat="server">
                         </asp:Label>
                     </td>
-                </tr> 
+                </tr>
                 <tr>
                     <td>
                         <span>City</span></td>
@@ -294,67 +294,66 @@
                 </cc1:TabPanel>
                 <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Conatact Details">
                     <ContentTemplate>
-                           <table>
-                                    <tr>
-                                        <td>
-                                            <h2>Contact Details</h2>
-                                        </td>
-                                        <td>
-                                            <asp:LinkButton ID="lnkEditConacts" runat="server" OnClick="lnkEditConacts_Click">Edit</asp:LinkButton></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alternate Email ID</td>
-                                        <td>
-                                            <asp:Label ID="lblAltEmailId" runat="server" Text="Label"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Alternate Mobile No</span></td>
-                                        <td>
-                                            <asp:Label ID="lblAltMobNo" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Landline No</span></td>
-                                        <td>
-                                            <asp:Label ID="lblLandLineNo" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Whats App No</span></td>
-                                        <td>
-                                            <asp:Label ID="lblWhatsAppNo" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>LinkedIn Profile Link</span></td>
-                                        <td>
-                                            <asp:Label ID="lblLinkIn" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Facebook Profile Link</span></td>
-                                        <td>
-                                            <asp:Label ID="lblFacebook" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Twitter Profile Link</span>&nbsp;</td>
-                                        <td>
-                                            <asp:Label ID="lblTwitter" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>GTalk Profile ID</span></td>
-                                        <td>
-                                            <asp:Label ID="lblGtalk" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Skype Profile ID</span></td>
-                                        <td>
-                                            <asp:Label ID="lblSkype" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Google+ Profile Link</span></td>
-                                        <td>
-                                            <asp:Label ID="lblGooglePlus" runat="server"></asp:Label></td>
-                                    </tr>
-                                </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    <h2>Contact Details</h2>
+                                </td>
+                                <td>
+                            </tr>
+                            <tr>
+                                <td>Alternate Email ID</td>
+                                <td>
+                                    <asp:Label ID="lblAltEmailId" runat="server" Text="Label"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span>Alternate Mobile No</span></td>
+                                <td>
+                                    <asp:Label ID="lblAltMobNo" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span>Landline No</span></td>
+                                <td>
+                                    <asp:Label ID="lblLandLineNo" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><span>Whats App No</span></td>
+                                <td>
+                                    <asp:Label ID="lblWhatsAppNo" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><span>LinkedIn Profile Link</span></td>
+                                <td>
+                                    <asp:Label ID="lblLinkIn" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><span>Facebook Profile Link</span></td>
+                                <td>
+                                    <asp:Label ID="lblFacebook" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><span>Twitter Profile Link</span>&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="lblTwitter" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><span>GTalk Profile ID</span></td>
+                                <td>
+                                    <asp:Label ID="lblGtalk" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><span>Skype Profile ID</span></td>
+                                <td>
+                                    <asp:Label ID="lblSkype" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td><span>Google+ Profile Link</span></td>
+                                <td>
+                                    <asp:Label ID="lblGooglePlus" runat="server"></asp:Label></td>
+                            </tr>
+                        </table>
                     </ContentTemplate>
                 </cc1:TabPanel>
                 <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="Professional Details">

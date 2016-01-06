@@ -17,7 +17,7 @@ namespace BAL
             return contactDetailsDAL.SaveContactDetailsDAL(contactDetailsEntity);
         }
 
-        /// <summary>
+        /// <summary> 
         /// Update ContactDetails of job seeker
         /// </summary>
         /// <param name="contactDetailsEntity">ContactDetailsEntity</param>

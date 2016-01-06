@@ -355,15 +355,6 @@ namespace JobFair.Forms.Recruiter {
         protected global::AjaxControlToolkit.TabPanel TabPanel3;
         
         /// <summary>
-        /// lnkEditConacts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkEditConacts;
-        
-        /// <summary>
         /// lblAltEmailId control.
         /// </summary>
         /// <remarks>

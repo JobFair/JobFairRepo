@@ -100,7 +100,7 @@ namespace JobFair.UserControls.JobSeeker
                     ContactDetailsEntity objContactDetailsEntity = new ContactDetailsEntity();
                     // Set the value of ContactDetailsJobSeekerEntity
 
-                    objContactDetailsEntity.CandidateId = candidateId;
+                    objContactDetailsEntity.Id = candidateId;
                     objContactDetailsEntity.AltMobileNo = txtAltNo.Text.Trim();
                     objContactDetailsEntity.LandLineNo = txtLandno.Text.Trim();
                     objContactDetailsEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();
@@ -129,7 +129,7 @@ namespace JobFair.UserControls.JobSeeker
                     ContactDetailsEntity contactDetailsEntity = new ContactDetailsEntity();
                     // Set the value of ContactDetailsJobSeekerEntity
 
-                    contactDetailsEntity.CandidateId = candidateId;
+                    contactDetailsEntity.Id = candidateId;
                     contactDetailsEntity.AltMobileNo = txtAltNo.Text.Trim();
                     contactDetailsEntity.LandLineNo = txtLandno.Text.Trim();
                     contactDetailsEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();
