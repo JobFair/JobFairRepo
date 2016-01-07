@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Common\ChangePasswordEnitity.cs" />
     <Compile Include="Common\CityEntity.cs" />
+    <Compile Include="HR\ClientContactPersonDetailsEntity.cs" />
     <Compile Include="HR\RecruiterRegisterEntity.cs" />
     <Compile Include="JobSeeker\AcademicProjectDetailsEntity.cs" />
     <Compile Include="JobSeeker\AdvanceSearchDetailsEntity.cs" />

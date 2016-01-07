@@ -22,30 +22,37 @@ namespace DAL
             try
             {
                 connection.Open();
-                SqlParameter[] sparam = new SqlParameter[16];
-                //Add parameter for stored procedure
-                sparam[0] = new SqlParameter("@rercruiterid", clientdetailsEntity.RecruiterId);
-                sparam[1] = new SqlParameter("@clientName", clientdetailsEntity.ClientName);
-                sparam[2] = new SqlParameter("@password", clientdetailsEntity.Password);
-                sparam[3] = new SqlParameter("@industry", clientdetailsEntity.Industry);
-                sparam[4] = new SqlParameter("@functuionalarea", clientdetailsEntity.FunctionalArea);
-                sparam[5] = new SqlParameter("@country", clientdetailsEntity.Country);
-                sparam[6] = new SqlParameter("@state", clientdetailsEntity.State);
-                sparam[7] = new SqlParameter("@city", clientdetailsEntity.City);
-                sparam[8] = new SqlParameter("@officialEmailid", clientdetailsEntity.OfficialEmailId);
-                sparam[9] = new SqlParameter("@website", clientdetailsEntity.Website);
-                sparam[10] = new SqlParameter("@officialcontact", clientdetailsEntity.ContactDetails);
-                sparam[11] = new SqlParameter("@officialaddress", clientdetailsEntity.OfficialAddress);
-                sparam[12] = new SqlParameter("@agreementdate", clientdetailsEntity.AgreementDate.Date);
-                sparam[13] = new SqlParameter("@duedate", clientdetailsEntity.DueDate.Date);
-                sparam[14] = new SqlParameter("@paymentDetails", clientdetailsEntity.PaymentDetails);
-                sparam[15] = new SqlParameter("@paymentterms", clientdetailsEntity.PaymentTerms);
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertClientDetails, sparam);
+                //Add parameter for stored procedure                
+                SqlParameter[] sparam = { new SqlParameter("@hrid", clientdetailsEntity.HrId),
+                                          new SqlParameter("@clientName", clientdetailsEntity.ClientName),
+                                          new SqlParameter("@industry", clientdetailsEntity.Industry),
+                                          new SqlParameter("@functuionalarea", clientdetailsEntity.FunctionalArea),
+                                          new SqlParameter("@address", clientdetailsEntity.Address),
+                                          new SqlParameter("@countryId", clientdetailsEntity.CountryId),
+                                          new SqlParameter("@stateId", clientdetailsEntity.StateId),
+                                          new SqlParameter("@cityId", clientdetailsEntity.CityId),
+                                          new SqlParameter("@areaId", clientdetailsEntity.AreaId),
+                                          new SqlParameter("@pincode", clientdetailsEntity.Pincode),
+                                          new SqlParameter("@officialEmailId", clientdetailsEntity.OfficialEmailId),
+                                          new SqlParameter("@website", clientdetailsEntity.Website),
+                                          new SqlParameter("@officialContact", clientdetailsEntity.OfficialContact),
+                                          new SqlParameter("@active", clientdetailsEntity.Active),
+                                          new SqlParameter("@agreementDate", clientdetailsEntity.AgreementDate.Date),
+                                          new SqlParameter("@dueDate", clientdetailsEntity.DueDate.Date),
+                                          new SqlParameter("@paymentDetails", clientdetailsEntity.PaymentDetails),
+                                          new SqlParameter("@paymentTerms", clientdetailsEntity.PaymentTerms),
+                                          new SqlParameter("@percentageAmount", clientdetailsEntity.PercentageAmount)
+                                        };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_HR_InsertClientDetails, sparam);
                 return result;
             }
             catch (System.Exception)
             {
                 throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -66,6 +73,10 @@ namespace DAL
             catch (System.Exception)
             {
                 throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

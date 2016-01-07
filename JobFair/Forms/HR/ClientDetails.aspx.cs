@@ -25,7 +25,6 @@ namespace JobFair.Forms.HR
                     BindFunctionalArea();
                     BindIndustry();
                     BindCountry();
-                   
                 }
                 catch (Exception)
                 {
@@ -38,39 +37,52 @@ namespace JobFair.Forms.HR
         {
             try
             {
-                //ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
-                //ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
-                //// Assign values to the entities
-                //clientDetailsEntity.RecruiterId = "RE12";
-                //clientDetailsEntity.ClientName = txtClientName.Text.Trim();
-                //clientDetailsEntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
-                //clientDetailsEntity.FunctionalArea = Convert.ToInt32(ddlFunctionalArea.SelectedValue);
-                //clientDetailsEntity.Country = Convert.ToInt32(ddlCountry.SelectedValue);
-                //clientDetailsEntity.State = Convert.ToInt32(ddlState.SelectedValue);
-                //clientDetailsEntity.City = Convert.ToInt32(ddlCity.SelectedValue);
-                //clientDetailsEntity.OfficialEmailId = txtEmailId.Text.Trim();
-                //clientDetailsEntity.Website = txtWebsite.Text.Trim();
-                //clientDetailsEntity.OfficialAddress = txtAddress.Text.Trim();
-                //clientDetailsEntity.ContactDetails = txtOfficialContact.Text.Trim();
-                //clientDetailsEntity.AgreementDate = Convert.ToDateTime(txtAgreementdate.Text);
-                //clientDetailsEntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
-                //clientDetailsEntity.Password = txtPassword.Text.Trim();
+                ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
+                ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
+                // Assign values to the entities
+                clientDetailsEntity.HrId = 1;
+                clientDetailsEntity.ClientName = txtClientName.Text.Trim();
+                clientDetailsEntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
+                clientDetailsEntity.FunctionalArea = Convert.ToInt32(ddlFunctionalArea.SelectedValue);
+                clientDetailsEntity.Address = txtAddress.Text.Trim();
+                clientDetailsEntity.CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
+                clientDetailsEntity.StateId = Convert.ToInt32(ddlState.SelectedValue);
+                clientDetailsEntity.CityId = Convert.ToInt32(ddlCity.SelectedValue);
+                clientDetailsEntity.AreaId = Convert.ToInt32(ddlArea.SelectedValue);
+                clientDetailsEntity.Pincode = Convert.ToInt32(txtPincode.Text.Trim());
+                clientDetailsEntity.OfficialEmailId = txtOfficialEMailId.Text.Trim();
+                clientDetailsEntity.Website = txtWebsite.Text.Trim();
+                clientDetailsEntity.OfficialContact = txtOfficialContact.Text.Trim();
+                clientDetailsEntity.Active = rbtlistActive.SelectedItem.Text;
+                clientDetailsEntity.AgreementDate = Convert.ToDateTime(txtAgreementDate.Text);
+                clientDetailsEntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
 
-                //var paymentdetails = chklistPaymentDetails.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                //string payment = "," + string.Join(",", paymentdetails.Select(x => x.Text)) + ",";
 
-                //clientDetailsEntity.PaymentDetails = payment;
-                //clientDetailsEntity.PaymentTerms = txtPaymentTerms.Text.Trim();
-                //// Saving data to the database
-                //int result = clientDetailsBAL.SaveClientDetailsBAL(clientDetailsEntity);
-                //if (result > 0)
-                //{
-                //    lblmsg.Text = "Saved Data Successfully";
-                //}
-                //else
-                //{
-                //    lblmsg.Text = "Data is not saved";
-                //}
+                var paymentdetails = chklistPaymentDetails.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                string payment =  string.Join(",", paymentdetails.Select(x => x.Text)) + ",";
+
+                //List<string> payment = new List<string>();
+                //foreach (ListItem item in chklistPaymentDetails.Items)
+                //   {
+                //       if (item.Selected)
+                //       {
+                //           payment.Add(item.Value);
+                //       }
+                //       lblPayment.Text = string.Join(",", payment.ToArray());
+                //   }
+                clientDetailsEntity.PaymentDetails = Convert.ToString(payment);
+                clientDetailsEntity.PaymentTerms = txtPaymentTerms.Text.Trim();
+                clientDetailsEntity.PercentageAmount = Convert.ToInt32(txtPercentageAmount.Text.Trim());
+                // Saving data to the database
+                int result = clientDetailsBAL.SaveClientDetailsBAL(clientDetailsEntity);
+                if (result > 0)
+                {
+                    lblmsg.Text = "Saved Data Successfully";
+                }
+                else
+                {
+                    lblmsg.Text = "Data is not saved";
+                }
             }
             catch (Exception)
             {
