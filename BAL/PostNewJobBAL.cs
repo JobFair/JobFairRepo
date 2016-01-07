@@ -46,51 +46,6 @@ namespace BAL
         }
 
         /// <summary>
-        /// UnderGraduateDiploma BAL
-        /// </summary>
-        /// <returns>System.Int32</returns>
-        public static System.Data.DataSet GetUnderGraduateDiplomaBAL(int DegreeId)
-        {
-            return Utility.GetDegreeDetails(DegreeId);
-        }
-
-        /// <summary>
-        /// GetBachelorDegree BAL
-        /// </summary>
-        /// <returns>System.Int32</returns>
-        public static System.Data.DataSet GetBachelorDegreeBAL(int DegreeId)
-        {
-            return Utility.GetDegreeDetails(DegreeId);
-        }
-
-        /// <summary>
-        /// GetPostGraduateDiploma BAL
-        /// </summary>
-        /// <returns>System.Int32</returns>
-        public static System.Data.DataSet GetPostGraduateDiplomaBAL(int DegreeId)
-        {
-            return Utility.GetDegreeDetails(DegreeId);
-        }
-
-        /// <summary>
-        /// GetMasterDegree BAL
-        /// </summary>
-        /// <returns>System.Int32</returns>
-        public static System.Data.DataSet GetMasterDegreeBAL(int DegreeId)
-        {
-            return Utility.GetDegreeDetails(DegreeId);
-        }
-
-        /// <summary>
-        /// GetDoctorOfPhilosophy BAL
-        /// </summary>
-        /// <returns>System.Int32</returns>
-        public static System.Data.DataSet GetDoctorOfPhilosophyBAL(int DegreeId)
-        {
-            return Utility.GetDegreeDetails(DegreeId);
-        }
-
-        /// <summary>
         /// BAL for GetQuestions
         /// </summary>
         /// <returns></returns>
@@ -121,10 +76,6 @@ namespace BAL
             PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             return newjobpostDAL.GetRoles(prefixText);
         }
-
-       
-
-       
 
         public DataTable GettechnicalskillBAL(string prefixText)
         {

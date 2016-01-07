@@ -10,6 +10,7 @@ namespace JobFair.UserControls.Recruiter
     public partial class PersonalDetails : System.Web.UI.UserControl
     {
         private DataSet dsCountry = null;
+        bool isEdit=true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -338,6 +339,7 @@ namespace JobFair.UserControls.Recruiter
         {
             try
             {
+                
                 PersonalDetailsEntity personalDetailsEntity = new PersonalDetailsEntity();
                 PersonalDetailsREBAL personalDetailsBAL = new PersonalDetailsREBAL();
 

@@ -11,8 +11,6 @@ namespace Entities.Recruiter
     /// </summary>
     public class AddJobPostEntity
     {
-
-       
         public string RecruiterID { get; set; }
         public string JobTitle { get; set; }
         public string JobLocationState { get; set; }
@@ -37,6 +35,10 @@ namespace Entities.Recruiter
         public string CompanyName { get; set; }
         public string ClientName { get; set; }
         public string Position { get; set; }
-     
+        public int RequirementId { get; set; }
+        public string CompanyProfile { get; set; }
+        public string Qualification { get; set; }
+        public int QueationnareId { get; set; }
+        public string DescribeCandidateProfile { get; set; }
     }
 }
