@@ -9,12 +9,216 @@
 <head runat="server">
     <title></title>
    
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 209px;
+        }
+    </style>
+   
 </head>
 
 <body>
     <form id="form1" runat="server">
         <div>
+        <div id="divBasicDetails" runat="server">
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">
+                        <asp:RadioButton ID="rdbbooleansearch0" runat="server" Text="BooleanSearch" GroupName="b" />
+                       
+                    <asp:RadioButton ID="rdbkeywords0" runat="server" Text="Keywords" GroupName="b" />
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Any Of The Keywords</td>
+                    <td>
+                        <asp:TextBox ID="txtkeywords0" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">All the Keywords</td>
+                    <td>
+                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Excluding Keywords</td>
+                    <td>
+                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Candidate Work Status</span></td>
+                    <td>
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server">                            
+                    <asp:ListItem>Looking For The Job</asp:ListItem>
+                    <asp:ListItem>Offer Accepted</asp:ListItem>
+                    <asp:ListItem>Joined New Job</asp:ListItem>
+                    <asp:ListItem>Satisfied in the Current Job</asp:ListItem>
+                    <asp:ListItem>Looking For the Freelancing Work</asp:ListItem>
+                    <asp:ListItem>Looking for the Part Time Work</asp:ListItem>
+                    <asp:ListItem>Serving Notice Period</asp:ListItem>
+                    <asp:ListItem>Unemployed</asp:ListItem>
+                        </asp:CheckBoxList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Candidate&#39;s Current Location</span></td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Preferred Location<span style="mso-spacerun:yes">&nbsp; </span></span></td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Area of the Current Location </span></td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Area of the Preferred Location <span style="mso-spacerun:yes">&nbsp;</span></span></td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Experience</span></td>
+                    <td>
+                     <asp:DropDownList ID="ddlworkexprience0" runat="server">
+                            <asp:ListItem>0.5</asp:ListItem>
+                           <asp:ListItem>1</asp:ListItem>
+                           <asp:ListItem>1.5</asp:ListItem>
+                           <asp:ListItem>2</asp:ListItem>
+                           <asp:ListItem>2.5</asp:ListItem>
+                           <asp:ListItem>3</asp:ListItem>
+                           <asp:ListItem>3.5</asp:ListItem>
+                           <asp:ListItem>4</asp:ListItem>
+                           <asp:ListItem>4.5</asp:ListItem>
+                           <asp:ListItem>5</asp:ListItem>
+                           <asp:ListItem>5.5</asp:ListItem>
+                           <asp:ListItem>6</asp:ListItem>
+                           <asp:ListItem>6.5</asp:ListItem>
+                           <asp:ListItem>7</asp:ListItem>
+                           <asp:ListItem>7.5</asp:ListItem>
+                           <asp:ListItem>8</asp:ListItem>
+                           <asp:ListItem>8.5</asp:ListItem>
+                           <asp:ListItem>9</asp:ListItem>
+                           <asp:ListItem>9.5</asp:ListItem>
+                           <asp:ListItem>10</asp:ListItem>
+                        </asp:DropDownList>
+                 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Current Annual Salary </span></td>
+                    <td>
+                      <asp:DropDownList ID="DropDownList2" runat="server">
+                            <asp:ListItem>0.5</asp:ListItem>
+                           <asp:ListItem>1</asp:ListItem>
+                           <asp:ListItem>1.5</asp:ListItem>
+                           <asp:ListItem>2</asp:ListItem>
+                           <asp:ListItem>2.5</asp:ListItem>
+                           <asp:ListItem>3</asp:ListItem>
+                           <asp:ListItem>3.5</asp:ListItem>
+                           <asp:ListItem>4</asp:ListItem>
+                           <asp:ListItem>4.5</asp:ListItem>
+                           <asp:ListItem>5</asp:ListItem>
+                           <asp:ListItem>5.5</asp:ListItem>
+                           <asp:ListItem>6</asp:ListItem>
+                           <asp:ListItem>6.5</asp:ListItem>
+                           <asp:ListItem>7</asp:ListItem>
+                           <asp:ListItem>7.5</asp:ListItem>
+                           <asp:ListItem>8</asp:ListItem>
+                           <asp:ListItem>8.5</asp:ListItem>
+                           <asp:ListItem>9</asp:ListItem>
+                           <asp:ListItem>9.5</asp:ListItem>
+                           <asp:ListItem>10</asp:ListItem>
+                        </asp:DropDownList>
+                 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Expected Annual Salary </span></td>
+                    <td>
+                      <asp:DropDownList ID="DropDownList3" runat="server">
+                            <asp:ListItem>0.5</asp:ListItem>
+                           <asp:ListItem>1</asp:ListItem>
+                           <asp:ListItem>1.5</asp:ListItem>
+                           <asp:ListItem>2</asp:ListItem>
+                           <asp:ListItem>2.5</asp:ListItem>
+                           <asp:ListItem>3</asp:ListItem>
+                           <asp:ListItem>3.5</asp:ListItem>
+                           <asp:ListItem>4</asp:ListItem>
+                           <asp:ListItem>4.5</asp:ListItem>
+                           <asp:ListItem>5</asp:ListItem>
+                           <asp:ListItem>5.5</asp:ListItem>
+                           <asp:ListItem>6</asp:ListItem>
+                           <asp:ListItem>6.5</asp:ListItem>
+                           <asp:ListItem>7</asp:ListItem>
+                           <asp:ListItem>7.5</asp:ListItem>
+                           <asp:ListItem>8</asp:ListItem>
+                           <asp:ListItem>8.5</asp:ListItem>
+                           <asp:ListItem>9</asp:ListItem>
+                           <asp:ListItem>9.5</asp:ListItem>
+                           <asp:ListItem>10</asp:ListItem>
+                        </asp:DropDownList>
+                 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2"><span style="font-size:11.0pt;line-height:115%;
+font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Notice Period </span></td>
+                    <td>
+                        <asp:DropDownList ID="ddlnoticeperiod0" runat="server">
+                            <asp:ListItem>Any</asp:ListItem>
+                            <asp:ListItem>Currently Serving Notice Period</asp:ListItem>
+                            <asp:ListItem> 15 Days Or Less</asp:ListItem>
+                            <asp:ListItem> 1 Month</asp:ListItem>
+                            <asp:ListItem> 2 Months</asp:ListItem>
+                            <asp:ListItem> 3Moths</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            </div>
+            <br />
             <table>
                 <tr>
                     <td>
