@@ -19,7 +19,7 @@
                 <th scope="col" style="width: 120px">
                    Candidate First Name
                 </th>
-                <th scope="col" style="width: 120px">
+               <th scope="col" style="width: 120px">
                   Candidate  Last Name
                 </th>
                 <th scope="col" style="width: 120px">

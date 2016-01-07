@@ -28,7 +28,7 @@ namespace DAL
                 SqlParameter[] sparams = new SqlParameter[3];
                 sparams[0] = new SqlParameter("@userid", logjsEntity.UserName);
                 sparams[1] = new SqlParameter("@password", logjsEntity.Password);
-                sparams[2] = new SqlParameter("@candidateid", SqlDbType.VarChar, 500);
+                sparams[2] = new SqlParameter("@candidateid", SqlDbType.Int);
                 sparams[2].Direction = ParameterDirection.Output;
                
                 SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, Constants.sp_Login, sparams);
@@ -48,6 +48,6 @@ namespace DAL
                 connection.Close();
             }
             return candidateid;
-        }
+          }
     }
 }

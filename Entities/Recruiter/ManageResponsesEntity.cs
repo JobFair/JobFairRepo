@@ -8,6 +8,8 @@ namespace Entities.Recruiter
 {
     public class ManageResponsesEntity
     {
-        public string RecruiterId { get; set; }
+        public string RecruiterID { get; set; }
+        
+
     }
 }

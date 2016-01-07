@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvanceSearchDAL.cs" />
+    <Compile Include="AffirmativeDetailsREDAL.cs" />
     <Compile Include="ChangeLoginDetailsDAL.cs" />
     <Compile Include="ClientContactPersonDetailsDAL.cs" />
     <Compile Include="ContactDetailsREDAL.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="ChangePasswordDAL.cs" />
     <Compile Include="ClientDetailsDAL.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="ContactDetailsJSDAL.cs" />
+    <Compile Include="Common\ContactDetailsJSDAL.cs" />
     <Compile Include="CurrentDesiredJobDAL.cs" />
     <Compile Include="EducationalDetailsDAL.cs" />
     <Compile Include="FeedbackJSDAL.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="PersonalDetailsJSDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionrieDAL.cs" />
+    <Compile Include="RegisterHrADDAL.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />
     <Compile Include="RegisterRecruiterHRDAL.cs" />
     <Compile Include="RequestEmailJSDAL.cs" />

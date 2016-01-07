@@ -11,15 +11,16 @@ namespace JobFair.UserControls.JobSeeker
     public partial class ContactDetails : System.Web.UI.UserControl
     {
         private string candidateId;
-        private bool isEdit;
+        private int userType;
+        private bool isEdit=true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
+               // isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
                 candidateId = Convert.ToString(Session["candidateId"]);
-
+                userType = Convert.ToInt32(Session["UserType"]);
                 // Check session is not null
                 if (string.IsNullOrEmpty(candidateId))
                 {
@@ -53,7 +54,7 @@ namespace JobFair.UserControls.JobSeeker
             {
                 DataSet dsConatctDetails = new DataSet();
                 ContactDetailsJSBAL contactDetailsBAL = new ContactDetailsJSBAL();
-                dsConatctDetails = contactDetailsBAL.ViewContactDetailsBAL(candidateId);
+                dsConatctDetails = contactDetailsBAL.ViewContactDetailsBAL(candidateId,userType);
                 // Check dataset is not null
                 if (dsConatctDetails != null)
                 {
@@ -99,17 +100,18 @@ namespace JobFair.UserControls.JobSeeker
                     ContactDetailsEntity objContactDetailsEntity = new ContactDetailsEntity();
                     // Set the value of ContactDetailsJobSeekerEntity
 
-                    objContactDetailsEntity.CandidateId = candidateId;
+                    objContactDetailsEntity.Id = candidateId;
                     objContactDetailsEntity.AltMobileNo = txtAltNo.Text.Trim();
                     objContactDetailsEntity.LandLineNo = txtLandno.Text.Trim();
                     objContactDetailsEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();
                     objContactDetailsEntity.LinkedId = txtLinkedIn.Text.Trim();
                     objContactDetailsEntity.FacebookId = txtFacebook.Text.Trim();
-                    objContactDetailsEntity.TwitterId = txtTwitter.Text.Trim();
+                    objContactDetailsEntity.TwitterId = txtTwitter.Text.Trim(); 
                     objContactDetailsEntity.GtalkId = txtGTalk.Text.Trim();
                     objContactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                     objContactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
                     objContactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
+                    objContactDetailsEntity.UserType = Convert.ToInt32(userType);
                     int result = contactDetailsBAL.UpdateContactDetailsBAL(objContactDetailsEntity);
                     // Check result is greater than zero or not
                     if (result > 0)
@@ -127,7 +129,7 @@ namespace JobFair.UserControls.JobSeeker
                     ContactDetailsEntity contactDetailsEntity = new ContactDetailsEntity();
                     // Set the value of ContactDetailsJobSeekerEntity
 
-                    contactDetailsEntity.CandidateId = candidateId;
+                    contactDetailsEntity.Id = candidateId;
                     contactDetailsEntity.AltMobileNo = txtAltNo.Text.Trim();
                     contactDetailsEntity.LandLineNo = txtLandno.Text.Trim();
                     contactDetailsEntity.WhatsAppNo = txtWhatsappNo.Text.Trim();
@@ -138,6 +140,7 @@ namespace JobFair.UserControls.JobSeeker
                     contactDetailsEntity.SkypeId = txtSkype.Text.Trim();
                     contactDetailsEntity.GooglePlus = txtGooglePlus.Text.Trim();
                     contactDetailsEntity.AltEmailId = txtAltEmailId.Text.Trim();
+                    contactDetailsEntity.UserType = Convert.ToInt32(userType);
                     int result = contactDetailsBAL.SaveContactDetailsBAL(contactDetailsEntity);
                     // Check result is greater than zero or not
                     if (result > 0)

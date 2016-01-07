@@ -1,30 +1,44 @@
 ﻿using DAL;
-using Entities.Recruiter;
 using System.Data;
 
 namespace BAL
 {
     public class ViewProfileREBAL
     {
-        private ViewProfileREDAL viewProfileDAL = new ViewProfileREDAL();
+        public DataSet ViewProfileBAL(int recruiterId)
+        {
+            ViewProfileREDAL viewProfileDAL = new ViewProfileREDAL();
+            return viewProfileDAL.ViewProfileDAL(recruiterId);
+        }
 
+        public DataSet ViewPersonalDetails(int recruiterId)
+        {
+            ViewProfileREDAL viewProfileDAL = new ViewProfileREDAL();
+            return viewProfileDAL.ViewPersonalDetailsDAL(recruiterId);
+        }
+
+        public DataSet ViewContactDetailsBAL(int recruiterId,int userType)
+        {
+            ViewProfileREDAL viewProfileDAL = new ViewProfileREDAL();
+            return viewProfileDAL.ViewContactDetailsDAL(recruiterId, userType);
+        }
         /// <summary>
         /// ViewProfile of recuiter
         /// </summary>
         /// <param name="viewProfileEntity">The ViewProfile Entity</param>
         /// <returns></returns>
-        public DataSet ViewProfile(ViewProfileEntity viewProfileEntity)
-        {
-            return viewProfileDAL.ViewProfileDAL(viewProfileEntity);
-        }
+        //public DataSet ViewProfile(ViewProfileEntity viewProfileEntity)
+        //{
+        //    return viewProfileDAL.ViewProfileDAL(viewProfileEntity);
+        //}
 
         /// <summary>
         /// For display posted job of recruiter
         /// </summary>
         /// <returns></returns>
-        public DataSet ViewJobPostBAL()
-        {
-            return viewProfileDAL.ViewJobPostDAL();
-        }
+        //public DataSet ViewJobPostBAL()
+        //{
+        //    return viewProfileDAL.ViewJobPostDAL();
+        //}
     }
 }

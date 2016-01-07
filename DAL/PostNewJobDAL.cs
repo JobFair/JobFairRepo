@@ -17,15 +17,13 @@ namespace DAL
         /// <param name="jobpostEntity">Object for inserting data into database</param>
         /// <returns>System.String</returns>
         private SqlConnection Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-   
+
         public int JobPostDAL(AddJobPostEntity jobpostEntity)
         {
             try
             {
-               
                 Connection.Open();
                 SqlParameter[] sqlparams ={
-                                              
                                             new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
                                             new SqlParameter("@JobTitle",jobpostEntity.JobTitle),
                                             new SqlParameter("@JobLocationState",jobpostEntity.JobLocationState),
@@ -47,30 +45,30 @@ namespace DAL
                                             new SqlParameter("@JobType",jobpostEntity.JobType),
                                             new SqlParameter("@EmploymentStatus",jobpostEntity.EmploymentStatus),
                                             new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType),
-                                            new SqlParameter("@CompanyName",jobpostEntity.CompanyName)
-                                          
+                                            new SqlParameter("@CompanyName",jobpostEntity.CompanyName),
+                                            new  SqlParameter("@ClientName",jobpostEntity.ClientName),
+                                            new SqlParameter("@Position",jobpostEntity.Position),
+                                            new SqlParameter("@requirementId",jobpostEntity.RequirementId),
+                                            new SqlParameter("@companyProfile",jobpostEntity.CompanyProfile),
+                                            new SqlParameter("@qualification",jobpostEntity.QueationnareId),
+                                            new SqlParameter("@questionnareId",jobpostEntity.QueationnareId),
+                                            new SqlParameter("@describeCandidateProfile",jobpostEntity.DescribeCandidateProfile)
                                         };
-                SqlParameter[] sqlparams1 ={
-                                                new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
-                                           };
-             return   SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
-            //    int result1 = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_InsertJobPostHistory, sqlparams1);
-              
-              
+
+                return SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
+                //    int result1 = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_InsertJobPostHistory, sqlparams1);
             }
             catch (Exception)
             {
                 throw;
             }
-
-              finally
+            finally
             {
-               
             }
-          
         }
+
         /// <summary>
-        /// DAL for GetQuestions 
+        /// DAL for GetQuestions
         /// </summary>
         /// <returns></returns>
         public DataSet GetQuestionsDAL()
@@ -80,22 +78,19 @@ namespace DAL
             return ds;
         }
 
-    public DataSet GetStateDAL()
+        public DataSet GetStateDAL()
         {
             try
             {
                 DataSet ds = new DataSet();
                 ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select * from State");
                 return ds;
-
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
-
 
         public DataTable GetRoles(string prefixText)
         {
@@ -106,11 +101,8 @@ namespace DAL
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             adp.Fill(dt);
             return dt;
-         
-           
         }
 
-       
         public DataTable GetSkill(string prefixText)
         {
             DataTable dt = new DataTable();
@@ -132,10 +124,8 @@ namespace DAL
             }
             catch (Exception)
             {
-                
                 throw;
             }
-
         }
     }
 }

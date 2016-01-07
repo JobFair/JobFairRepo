@@ -3,7 +3,6 @@ using Entities.Recruiter;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
 using System.Web.UI.WebControls;
 
@@ -12,7 +11,7 @@ namespace JobFair.Forms.Recruiter
     public partial class PostNewJob : System.Web.UI.Page
     {
         private int DegreeId;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,11 +21,7 @@ namespace JobFair.Forms.Recruiter
                     BindDropDownIndustry();
                     BindDropDownDepartment();
                     BindDropDownFunctionalArea();
-                    BindUnderGraduateDiploma(DegreeId);
-                    BindPostGraduateDiploma(DegreeId);
-                    BindMasterDegree(DegreeId);
-                    BindDoctorOfPhilosophy(DegreeId);
-                    BindBachelorDegree(DegreeId);
+
                     BindQuestions();
                     BindState();
                     BindClientName();
@@ -106,25 +101,6 @@ namespace JobFair.Forms.Recruiter
 
             // }
         }
-        /// <summary>
-        //Binding dropdown with UnderGraduateDiploma
-        // </summary>
-      
-        private void BindUnderGraduateDiploma(int DegreeId)
-        {
-            try
-            {
-                DegreeId = 3;
-                chklstUGD.DataSource = PostNewJobBAL.GetUnderGraduateDiplomaBAL(DegreeId);
-                chklstUGD.DataTextField = "DegreeName";
-                chklstUGD.DataValueField = "SpecializationId";
-                chklstUGD.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         private void BindClientName()
         {
@@ -140,13 +116,10 @@ namespace JobFair.Forms.Recruiter
                     ddlclientname.DataValueField = "ClientId";
                     ddlclientname.DataBind();
                     ddlclientname.Items.Insert(0, new ListItem("-----select--------", "0"));
-
-
                 }
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
@@ -242,87 +215,6 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
-       
-
-       /// <summary>
-       ///    Binding dropdown with PostGraduateDiploma
-       /// </summary>
-
-        private void BindPostGraduateDiploma(int DegreeId)
-        {
-            try
-            {
-                DegreeId = 5;
-                chklstPGDiploma.DataSource = PostNewJobBAL.GetPostGraduateDiplomaBAL(DegreeId);
-                chklstPGDiploma.DataTextField = "DegreeName";
-                chklstPGDiploma.DataValueField = "SpecializationId";
-                chklstPGDiploma.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-       /// <summary>
-       ///  Binding dropdown with MasterDegree
-       /// </summary>
- 
-        private void BindMasterDegree(int DegreeId)
-        {
-            try
-            {
-                DegreeId = 6;
-                chklstMasterDegree.DataSource = PostNewJobBAL.GetMasterDegreeBAL(DegreeId);
-                chklstMasterDegree.DataTextField = "DegreeName";
-                chklstMasterDegree.DataValueField = "SpecializationId";
-                chklstMasterDegree.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-       /// <summary>
-       ///   Binding dropdown with DoctorOfPhilosophy
-       /// </summary>
-
-        private void BindDoctorOfPhilosophy(int DegreeId)
-        {
-            try
-            {
-                DegreeId = 7;
-                chklstPHD.DataSource = PostNewJobBAL.GetDoctorOfPhilosophyBAL(DegreeId);
-                chklstPHD.DataTextField = "DegreeName";
-                chklstPHD.DataValueField = "SpecializationId";
-                chklstPHD.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        ///   Binding dropdown with BachelorDegree
-        /// </summary>
-        private void BindBachelorDegree(int DegreeId)
-        {
-            try
-            {
-                DegreeId = 4;
-                chklstBachelorsDegree.DataSource = PostNewJobBAL.GetBachelorDegreeBAL(DegreeId);
-                chklstBachelorsDegree.DataTextField = "DegreeName";
-                chklstBachelorsDegree.DataValueField = "SpecializationId";
-                chklstBachelorsDegree.DataBind();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         /// <summary>
         /// Binding dropdown with Questionaries
         /// </summary>
@@ -355,7 +247,7 @@ namespace JobFair.Forms.Recruiter
                 PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
                 AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
 
-                addJobPostEntity.RecruiterID = "RE12";
+                addJobPostEntity.RecruiterID = "1";
                 addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
                 addJobPostEntity.JobLocationState = ddlState.SelectedItem.Value;
                 addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Value;
@@ -376,7 +268,21 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobType = lblselectedjobtype.Text;
                 addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
                 addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
-                addJobPostEntity.CompanyName = chkcompanyname.SelectedItem.Text.Trim();
+                addJobPostEntity.CompanyName = rblCompanyName.SelectedItem.Text;
+                addJobPostEntity.ClientName = ddlclientname.SelectedItem.Text.Trim();
+                addJobPostEntity.Position = ddlposition.SelectedItem.Text.Trim();
+                addJobPostEntity.RequirementId = Convert.ToInt32(ddlRequirementId.SelectedValue);
+                if (addJobPostEntity.CompanyName == "Logos Corporate Solutions")
+                {
+                    addJobPostEntity.CompanyProfile = lblCompanyProfile.Text;
+                }
+                else
+                {
+                    addJobPostEntity.CompanyProfile = lblCompanyProfileiTech.Text;
+                }
+                addJobPostEntity.Qualification = txtQualification.Text;
+                addJobPostEntity.QueationnareId = Convert.ToInt32(ddlquestionnaire.SelectedValue);
+                addJobPostEntity.DescribeCandidateProfile = txtCandidateProfile.Text;
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
                 {
@@ -408,27 +314,6 @@ namespace JobFair.Forms.Recruiter
         //    //    }
         //    //}
         //}
-
-        protected void RadioButtonList1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            try
-            {
-                if (rdb1.Selected)
-                {
-                    txtaboutcompany.Visible = true;
-                }
-                else if (rdb2.Selected)
-                {
-                    txtaboutcompany.Visible = false;
-                    txtaboutcompany.Visible = false;
-                    chkcompanyname.Visible = true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -572,7 +457,7 @@ namespace JobFair.Forms.Recruiter
             catch (Exception)
             {
                 throw;
-             }
+            }
         }
 
         protected void chkCandidateProfile_CheckedChanged(object sender, EventArgs e)
@@ -585,122 +470,10 @@ namespace JobFair.Forms.Recruiter
             pnlCandidateProfile.Visible = false;
         }
 
-
-
         protected void lnkbtnRefresh_Click(object sender, EventArgs e)
         {
             BindQuestions();
         }
-
-        protected void btnHSC_Click(object sender, EventArgs e)
-        {
-            pnlHSC.Visible = true;
-        }
-
-        protected void chklstHSC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var hsc = chklstHSC.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                txtHSC.Text = string.Join(",", hsc.Select(x => x.Text));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        protected void chklstUGD_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var ugDiploma = chklstUGD.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                txtUGD.Text = string.Join(",", ugDiploma.Select(x => x.Text));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        protected void chklstBachelorsDegree_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var bachelorsDegree = chklstBachelorsDegree.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                txtBachelorsDegree.Text = string.Join(",", bachelorsDegree.Select(x => x.Text));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        protected void chklstPGDiploma_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var pgDiploma = chklstPGDiploma.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                txtPGDiploma.Text = string.Join(",", pgDiploma.Select(x => x.Text));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        protected void chklstMasterDegree_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var masterDegree = chklstMasterDegree.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                txtMasterDegree.Text = string.Join(",", masterDegree.Select(x => x.Text));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        protected void chklstPHD_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var phd = chklstPHD.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-                txtPHD.Text = string.Join(",", phd.Select(x => x.Text));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        protected void btnUGD_Click(object sender, EventArgs e)
-        {
-            pnlUGD.Visible = true;
-        }
-
-        protected void btnBachelorsDegree_Click(object sender, EventArgs e)
-        {
-            pnlBachelorsDegree.Visible = true;
-        }
-
-        protected void btnPGDiploma_Click(object sender, EventArgs e)
-        {
-            pnlPGDiploma.Visible = true;
-        }
-
-        protected void btnMasterDegree_Click(object sender, EventArgs e)
-        {
-            pnlMasterDegree.Visible = true;
-        }
-
-        protected void btnPHD_Click(object sender, EventArgs e)
-        {
-            pnlPHD.Visible = true;
-        }
-
-
 
         protected void lnkbtnQuestionary_Click1(object sender, EventArgs e)
         {
@@ -715,8 +488,36 @@ namespace JobFair.Forms.Recruiter
                     "script", sb.ToString());
         }
 
-       
+        protected void rdbrecruitmenttype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rdbrecruitmenttype.SelectedItem.Text == "In-House")
+            {
+                pnlInHouse.Visible = true;
+                pnlClient.Visible = false;
+                pnlCompanyProfile.Visible = false;
+            }
+            else
+            {
+                pnlInHouse.Visible = false;
+                pnlClient.Visible = true;
+                pnlCompanyProfile.Visible = false;
+            }
+        }
 
-
+        protected void rblCompanyName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblCompanyName.SelectedItem.Text == "Logos Corporate Solutions")
+            {
+                pnlCompanyProfile.Visible = true;
+                lblCompanyProfile.Visible = true;
+                lblCompanyProfileiTech.Visible = false;
+            }
+            else
+            {
+                pnlCompanyProfile.Visible = true;
+                lblCompanyProfileiTech.Visible = true;
+                lblCompanyProfile.Visible = false;
+            }
+        }
     }
 }

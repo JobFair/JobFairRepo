@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.HR
+namespace Entities.Common
 {
-   public class RecruiterRegisterEntity
+   public class RegisterEntity
     {
         public string Recruiterid { get; set; }
         public string FullName { get; set; }
