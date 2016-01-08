@@ -70,6 +70,7 @@
     <Compile Include="RequestEmailJSBAL.cs" />
     <Compile Include="searchRecordBAL.cs" />
     <Compile Include="ViewAllJobPostBAL.cs" />
+    <Compile Include="ViewJobPostBAL.cs" />
     <Compile Include="ViewProfileJSBAL.cs" />
     <Compile Include="ViewProfileREBAL.cs" />
   </ItemGroup>

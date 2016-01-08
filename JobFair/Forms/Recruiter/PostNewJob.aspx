@@ -25,46 +25,42 @@
 
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <h2>Post New Job</h2>
-            <table>
-                <tr>
-                    <td>
-                        <asp:Label ID="lblClientName" runat="server" Text="Client Name"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:UpdatePanel runat="server">
-                            <ContentTemplate>
-                                <asp:DropDownList ID="ddlclientname" runat="server"></asp:DropDownList>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                    </td>
-                </tr>
-                <tr>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <table>
+                        <tr>
+                            <td>Select the Requirement</td>
+                            <td>
+                                <asp:DropDownList ID="ddlRequirementName" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRequirementName_SelectedIndexChanged"></asp:DropDownList></td>
+                        </tr>
 
-                    <td>
-                        <asp:Label ID="lbl" runat="server" Text="Position"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:UpdatePanel runat="server">
-                            <ContentTemplate>
-                                <asp:DropDownList ID="ddlposition" runat="server">
-                                    <asp:ListItem>Java Developer</asp:ListItem>
-                                    <asp:ListItem>Asp.net Developer</asp:ListItem>
-                                </asp:DropDownList>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Requirement ID</td>
-                    <td>
-                        <asp:DropDownList ID="ddlRequirementId" runat="server"></asp:DropDownList></td>
-                </tr>
-            </table>
+                        <tr>
+                            <td>Client Name
+                            </td>
+                            <td>
+                                <asp:Label ID="lblClientName" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>Position
+                            </td>
+                            <td>
+                                <asp:Label ID="lblPosition" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Requirement ID</td>
+                            <td>
+                                <asp:Label ID="lblRequirementId" runat="server"></asp:Label></td>
+                        </tr>
+                    </table>
+                </ContentTemplate>
+            </asp:UpdatePanel>
             <br />
             <br />
 
             <table>
-
                 <tr>
                     <td>
                         <asp:Label runat="server" ID="lbltitle" Text="Job Title/Designation"></asp:Label></td>
@@ -320,14 +316,14 @@
                         </asp:UpdatePanel>
                     </td>
                 </tr>
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
+              
                         <tr>
                             <td>
                                 <asp:Label ID="lblRecruitment" runat="server" Text="Recruitment Type"></asp:Label>
                             </td>
                             <td>
-
+                                  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
                                 <asp:RadioButtonList ID="rdbrecruitmenttype" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rdbrecruitmenttype_SelectedIndexChanged">
                                     <asp:ListItem Text="In-House"></asp:ListItem>
                                     <asp:ListItem Text="Client"></asp:ListItem>
@@ -337,17 +333,17 @@
                         <asp:Panel ID="pnlInHouse" runat="server" Visible="false">
                             <tr>
                                 <td>
-                                    <asp:Label ID="lblcompanyclient" runat="server" Text="Company Name"></asp:Label>
+                                    <asp:Label ID="lblcompanyclient" runat="server" Text="Company Name"></asp:Label>&nbsp;&nbsp;&nbsp;:
                                 </td>
                                 <td>
-                                   <%-- <asp:UpdatePanel ID="pnlcompanyName" runat="server">
+                                    <%-- <asp:UpdatePanel ID="pnlcompanyName" runat="server">
                                         <ContentTemplate>--%>
-                                            <asp:RadioButtonList ID="rblCompanyName" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblCompanyName_SelectedIndexChanged">
-                                                <asp:ListItem>Logos Corporate Solutions</asp:ListItem>
-                                                <asp:ListItem>Logos iTech Solutions</asp:ListItem>
-                                            </asp:RadioButtonList>
-                                            <br />
-                                      <%--  </ContentTemplate>
+                                    <asp:RadioButtonList ID="rblCompanyName" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblCompanyName_SelectedIndexChanged">
+                                        <asp:ListItem>Logos Corporate Solutions</asp:ListItem>
+                                        <asp:ListItem>Logos iTech Solutions</asp:ListItem>
+                                    </asp:RadioButtonList>
+                                    <br />
+                                    <%--  </ContentTemplate>
                                     </asp:UpdatePanel>--%>
                                 </td>
                             </tr>
@@ -355,7 +351,7 @@
 
                         <asp:Panel ID="pnlCompanyProfile" runat="server" Visible="false">
                             <tr>
-                                <td>Company Profile</td>
+                                <td>Company Profile</td>&nbsp;&nbsp;&nbsp;:
                                 <td>
                                     <asp:Label ID="lblCompanyProfile" runat="server" Text="Logos Solutions" Visible="false"></asp:Label>
                                     <asp:Label ID="lblCompanyProfileiTech" runat="server" Text="Logos iTech" Visible="false"></asp:Label>
@@ -366,14 +362,14 @@
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>
-                                    <asp:Label ID="lblClient" runat="server" Text="Client of Logos Solutions"></asp:Label>
+                                    <asp:Label ID="lblClient" runat="server" Text="Client of Logos Solutions"></asp:Label><br />
                                 </td>
                             </tr>
 
                             <tr>
-                                <td>Client Company Profile</td>
+                                <td>Client Company Profile</td>&nbsp;&nbsp;&nbsp;:
                                 <td>
-                                    <asp:TextBox ID="txtClientCompanyProfile" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtClientCompanyProfile" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 </td>
                             </tr>
                         </asp:Panel>
@@ -382,28 +378,27 @@
             </table>
         </div>
 
-       
-            <h2>Desired Candidate Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-            <table>
-                <tr>
-                    <td>Specify Qualification</td>
-                    <td>
-                        <asp:TextBox ID="txtQualification" runat="server" TextMode="MultiLine"></asp:TextBox></td>
-                </tr>
-            </table>
-            <div>
-                <asp:UpdatePanel ID="UpdatePanel7" runat="server">
-                    <ContentTemplate>
-                        <asp:CheckBox ID="chkCandidateProfile" runat="server" Text="Describe Candidate Profile" AutoPostBack="True" OnCheckedChanged="chkCandidateProfile_CheckedChanged" />
-                        <div>
-                            <asp:Panel ID="pnlCandidateProfile" runat="server" Visible="false">
-                                Candidate Profile :<asp:TextBox ID="txtCandidateProfile" runat="server" TextMode="MultiLine"></asp:TextBox>
-                            </asp:Panel>
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
-        
+        <h2>Desired Candidate Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <table>
+            <tr>
+                <td>Specify Qualification</td>
+                <td>
+                    <asp:TextBox ID="txtQualification" runat="server" TextMode="MultiLine"></asp:TextBox></td>
+            </tr>
+        </table>
+        <div>
+            <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                <ContentTemplate>
+                    <asp:CheckBox ID="chkCandidateProfile" runat="server" Text="Describe Candidate Profile" AutoPostBack="True" OnCheckedChanged="chkCandidateProfile_CheckedChanged" />
+                    <div>
+                        <asp:Panel ID="pnlCandidateProfile" runat="server" Visible="false">
+                            Candidate Profile :<asp:TextBox ID="txtCandidateProfile" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        </asp:Panel>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+
         <div>
             <h2>Select Questionnaire</h2>
             <table>

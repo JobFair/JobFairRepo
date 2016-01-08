@@ -18,6 +18,21 @@ namespace DAL
         /// <returns>System.String</returns>
         private SqlConnection Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        public DataSet GetRequirementDetailDAL(int requirementId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@clientRequirementId", requirementId) };
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.StoredProcedure, Constants.sp_RE_RequirementDetails, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
+        }
+
         public int JobPostDAL(AddJobPostEntity jobpostEntity)
         {
             try
@@ -50,7 +65,7 @@ namespace DAL
                                             new SqlParameter("@Position",jobpostEntity.Position),
                                             new SqlParameter("@requirementId",jobpostEntity.RequirementId),
                                             new SqlParameter("@companyProfile",jobpostEntity.CompanyProfile),
-                                            new SqlParameter("@qualification",jobpostEntity.QueationnareId),
+                                            new SqlParameter("@qualification",jobpostEntity.Qualification),
                                             new SqlParameter("@questionnareId",jobpostEntity.QueationnareId),
                                             new SqlParameter("@describeCandidateProfile",jobpostEntity.DescribeCandidateProfile)
                                         };
@@ -126,6 +141,20 @@ namespace DAL
             {
                 throw;
             }
+        }
+
+        public DataSet GetRecruiterNameDAL()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.StoredProcedure, Constants.sp_RE_SelectRequirement);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
         }
     }
 }

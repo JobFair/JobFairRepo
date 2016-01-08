@@ -88,5 +88,15 @@ namespace BAL
             PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             return newjobpostDAL.GetClientname();
         }
+        public DataSet GetRequirementBAL()
+        {
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
+            return newjobpostDAL.GetRecruiterNameDAL();
+        }
+        public DataSet GetRequirementDetailBAL(int requirementId)
+        {
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
+            return newjobpostDAL.GetRequirementDetailDAL(requirementId);
+        }
     }
 }
