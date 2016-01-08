@@ -10,7 +10,7 @@
 namespace JobFair.Forms.HR {
     
     
-    public partial class ClientDetails {
+    public partial class ClientRequirements {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -40,13 +40,31 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.Label lblClientName;
         
         /// <summary>
-        /// txtClientName control.
+        /// ddlClientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClientName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlClientName;
+        
+        /// <summary>
+        /// lblPosition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPosition;
+        
+        /// <summary>
+        /// txtPosition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPosition;
         
         /// <summary>
         /// lblIndustry control.
@@ -76,15 +94,6 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.Label lblFunctionalArea;
         
         /// <summary>
-        /// uppnlAddfunctionalarea control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel uppnlAddfunctionalarea;
-        
-        /// <summary>
         /// ddlFunctionalArea control.
         /// </summary>
         /// <remarks>
@@ -92,33 +101,6 @@ namespace JobFair.Forms.HR {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFunctionalArea;
-        
-        /// <summary>
-        /// txtAddfunctionalarea control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddfunctionalarea;
-        
-        /// <summary>
-        /// btnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
-        
-        /// <summary>
-        /// lblmsg2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg2;
         
         /// <summary>
         /// lblAddress control.
@@ -229,103 +211,67 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.TextBox txtPincode;
         
         /// <summary>
-        /// lblOfficialEMailId control.
+        /// lblSkillsets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfficialEMailId;
+        protected global::System.Web.UI.WebControls.Label lblSkillsets;
         
         /// <summary>
-        /// txtOfficialEMailId control.
+        /// txtSkillsets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOfficialEMailId;
+        protected global::System.Web.UI.WebControls.TextBox txtSkillsets;
         
         /// <summary>
-        /// lblWebsite control.
+        /// lblContents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWebsite;
+        protected global::System.Web.UI.WebControls.Label lblContents;
         
         /// <summary>
-        /// txtWebsite control.
+        /// txtContents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWebsite;
+        protected global::System.Web.UI.WebControls.TextBox txtContents;
         
         /// <summary>
-        /// lblOfficialContact control.
+        /// lblDateofRequirementSent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfficialContact;
+        protected global::System.Web.UI.WebControls.Label lblDateofRequirementSent;
         
         /// <summary>
-        /// txtOfficialContact control.
+        /// txtDateofRequirementSent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOfficialContact;
+        protected global::System.Web.UI.WebControls.TextBox txtDateofRequirementSent;
         
         /// <summary>
-        /// lblActive control.
+        /// caltxtDateofRequirementSent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActive;
-        
-        /// <summary>
-        /// rbtlistActive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbtlistActive;
-        
-        /// <summary>
-        /// lblAgreementDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgreementDate;
-        
-        /// <summary>
-        /// txtAgreementDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAgreementDate;
-        
-        /// <summary>
-        /// caltxtAgreementDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender caltxtAgreementDate;
+        protected global::AjaxControlToolkit.CalendarExtender caltxtDateofRequirementSent;
         
         /// <summary>
         /// lblDueDate control.
@@ -353,95 +299,5 @@ namespace JobFair.Forms.HR {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender caltxtDueDate;
-        
-        /// <summary>
-        /// lblPaymentDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPaymentDetails;
-        
-        /// <summary>
-        /// chklistPaymentDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chklistPaymentDetails;
-        
-        /// <summary>
-        /// lblPayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPayment;
-        
-        /// <summary>
-        /// lblPaymentTerms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPaymentTerms;
-        
-        /// <summary>
-        /// txtPaymentTerms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPaymentTerms;
-        
-        /// <summary>
-        /// lblPercentageAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPercentageAmount;
-        
-        /// <summary>
-        /// txtPercentageAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPercentageAmount;
-        
-        /// <summary>
-        /// btnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
-        
-        /// <summary>
-        /// lblmsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg;
     }
 }

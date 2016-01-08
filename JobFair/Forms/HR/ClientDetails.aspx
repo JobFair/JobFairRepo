@@ -11,6 +11,7 @@
 </head>
 <body>
     <form id="ClientDetails" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
 
     <center><h2>
@@ -20,7 +21,7 @@
             <tr>
                 <td><asp:Label ID="lblClientName" runat="server" Text=" Client Name " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:DropDownList ID="ddlClientName" runat="server"></asp:DropDownList> 
+                    <asp:TextBox ID="txtClientName" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -32,16 +33,15 @@
             <tr>
                 <td><asp:Label ID="lblFunctionalArea" runat="server" Text=" Functional Area " CssClass="label"></asp:Label></td>
                 <td>
-                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                 <asp:UpdatePanel ID="uppnlAddfunctionalarea" runat="server">
                     <ContentTemplate>
-                    <br />
-                    <asp:DropDownList ID="ddlFunctionalArea" runat="server"  AutoPostBack="True" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlFunctionalArea_SelectedIndexChanged" >
-                    </asp:DropDownList>
-                    
-                    <asp:TextBox ID="txtAddfunctionalarea" runat="server" Visible="false" ></asp:TextBox><asp:Button ID="btnAdd" runat="server" Text="Add" Visible="false" OnClick="btnAdd_Click" />
-                    <asp:Label ID="lblmsg2" runat="server" Text="Label"></asp:Label>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+                        <asp:DropDownList ID="ddlFunctionalArea" runat="server" AutoPostBack="True" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlFunctionalArea_SelectedIndexChanged" >
+                        </asp:DropDownList>
+                        <asp:TextBox ID="txtAddfunctionalarea" runat="server" Visible="false" ></asp:TextBox>
+                        <asp:Button ID="btnAdd" runat="server" Text="Add" Visible="false" OnClick="btnAdd_Click" />
+                        <asp:Label ID="lblmsg2" runat="server" Text="Label"></asp:Label>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
                 </td>
             </tr>
             <tr>
@@ -53,25 +53,25 @@
             <tr>
                 <td><asp:Label ID="lblCountry" runat="server" Text=" Country " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:DropDownList ID="ddlCountry" runat="server" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged"></asp:DropDownList>
+                   <asp:DropDownList ID="ddlCountry" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged"></asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lblState" runat="server" Text=" State " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged"></asp:DropDownList>
+                   <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" ></asp:DropDownList>
                 </td>
             </tr>            
             <tr>
                 <td><asp:Label ID="lblCity" runat="server" Text=" City " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged"></asp:DropDownList>
+                   <asp:DropDownList ID="ddlCity" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged"></asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lblArea" runat="server" Text=" Area " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:DropDownList ID="ddlArea" runat="server"></asp:DropDownList>
+                   <asp:DropDownList ID="ddlArea" runat="server" AutoPostBack="True"></asp:DropDownList>
                 </td>
             </tr> 
             <tr>
@@ -81,15 +81,15 @@
                 </td>
             </tr>
              <tr>
-                <td><asp:Label ID="lblOfficialMail" runat="server" Text=" Official Mail " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblOfficialEMailId" runat="server" Text=" Official E-Mail " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtOfficialMail" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtOfficialEMailId" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lblWebsite" runat="server" Text=" Website " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="Website" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtWebsite" runat="server"></asp:TextBox>
                 </td>
             </tr>            
             <tr>
@@ -102,8 +102,8 @@
                 <td><asp:Label ID="lblActive" runat="server" Text=" Active / InActive " CssClass="label"></asp:Label></td>
                 <td>
                     <asp:RadioButtonList ID="rbtlistActive" runat="server" RepeatDirection="Horizontal">
-                    <asp:ListItem>Active</asp:ListItem>
-                    <asp:ListItem>Inactive</asp:ListItem>
+                    <asp:ListItem Value="1" Text="Active"></asp:ListItem>
+                    <asp:ListItem Value="0" Text="Inactive"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
             </tr>
@@ -111,12 +111,14 @@
                 <td><asp:Label ID="lblAgreementDate" runat="server" Text=" Agreement Date " CssClass="label"></asp:Label></td>
                 <td>
                    <asp:TextBox ID="txtAgreementDate" runat="server"></asp:TextBox>
+                   <ajax:CalendarExtender ID="caltxtAgreementDate" runat="server" PopupButtonID="txtAgreementDate" TargetControlID="txtAgreementDate" Format="dd/MM/yyyy" />
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lblDueDate" runat="server" Text=" Due Date " CssClass="label"></asp:Label></td>
                 <td>
                    <asp:TextBox ID="txtDueDate" runat="server"></asp:TextBox>
+                   <ajax:CalendarExtender ID="caltxtDueDate" runat="server" PopupButtonID="txtDueDate" TargetControlID="txtDueDate" Format="dd/MM/yyyy" />
                 </td>
             </tr>
             <tr>
@@ -127,6 +129,7 @@
                     <asp:ListItem>Candidate</asp:ListItem>
                     <asp:ListItem>Both</asp:ListItem>
                     </asp:CheckBoxList>
+                <asp:Label ID="lblPayment" runat="server" Visible="false"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -144,12 +147,9 @@
             <tr>
                 <td colspan="2">
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button" OnClick="btnSubmit_Click"/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
                     <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="button" OnClick="btnSubmit_Click" OnClientClick="this.form.reset();return false;"/>
-                </td>
+                </td>  
+                <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
             </tr>
         </table>
     </div>

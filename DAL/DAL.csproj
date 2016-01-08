@@ -43,6 +43,7 @@
     <Compile Include="AdvanceSearchDAL.cs" />
     <Compile Include="AffirmativeDetailsREDAL.cs" />
     <Compile Include="ChangeLoginDetailsDAL.cs" />
+    <Compile Include="ClientContactPersonDetailsDAL.cs" />
     <Compile Include="JobApplicationDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />
     <Compile Include="ManageResponsesDAL.cs" />
