@@ -15,7 +15,7 @@ namespace BAL
     /// </summary>
     public class ClientRequirementsHRBAL
     {
-        private ClientRequirementsHRDAL ClientRequirementsHRDAL = new ClientRequirementsHRDAL();
+        //private ClientRequirementsHRDAL ClientRequirementsHRDAL = new ClientRequirementsHRDAL();
 
         /// <summary>
         /// Method to get country
