@@ -57,7 +57,6 @@
     <Compile Include="AffirmativeDetailsJSDAL.cs" />
     <Compile Include="ChangePasswordDAL.cs" />
     <Compile Include="ClientDetailsDAL.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="Common\ContactDetailsJSDAL.cs" />
     <Compile Include="CurrentDesiredJobDAL.cs" />
     <Compile Include="EducationalDetailsDAL.cs" />
