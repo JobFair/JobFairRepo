@@ -105,5 +105,8 @@
         public static string sp_RE_ViewProfile = "sp_RE_ViewProfile";
         public static string sp_RE_SelectPersonalDetails = "sp_RE_SelectPersonalDetails";
         public static string sp_AD_InsertHRRegisterDetails = "sp_AD_InsertHRRegisterDetails";
+        public static string sp_JS_SelectAllJobPost = "sp_JS_SelectAllJobPost";
+        public static string sp_RE_SelectRequirement = "sp_RE_SelectRequirement";
+        public static string sp_RE_RequirementDetails = "sp_RE_RequirementDetails";
     }
 }

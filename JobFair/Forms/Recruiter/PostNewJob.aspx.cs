@@ -24,7 +24,8 @@ namespace JobFair.Forms.Recruiter
 
                     BindQuestions();
                     BindState();
-                    BindClientName();
+                    BindRequirementName();
+                    // BindClientName();
                 }
                 catch (Exception)
                 {
@@ -102,20 +103,20 @@ namespace JobFair.Forms.Recruiter
             // }
         }
 
-        private void BindClientName()
+        private void BindRequirementName()
         {
             try
             {
-                DataSet ds = new DataSet();
-                PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
-                ds = postnewjobBAL.GetClientName();
-                if (ds != null)
+                PostNewJobBAL postNewJobBAL = new PostNewJobBAL();
+                DataSet dsRequirement = new DataSet();
+                dsRequirement = postNewJobBAL.GetRequirementBAL();
+                if (dsRequirement != null)
                 {
-                    ddlclientname.DataSource = ds;
-                    ddlclientname.DataTextField = "ClientName";
-                    ddlclientname.DataValueField = "ClientId";
-                    ddlclientname.DataBind();
-                    ddlclientname.Items.Insert(0, new ListItem("-----select--------", "0"));
+                    ddlRequirementName.DataSource = dsRequirement;
+                    ddlRequirementName.DataTextField = "Position";
+                    ddlRequirementName.DataValueField = "ClientRequirementId";
+                    ddlRequirementName.DataBind();
+                    ddlRequirementName.Items.Insert(0, new ListItem("-----select--------", "0"));
                 }
             }
             catch (Exception)
@@ -123,6 +124,28 @@ namespace JobFair.Forms.Recruiter
                 throw;
             }
         }
+
+        //private void BindClientName()
+        //{
+        //    try
+        //    {
+        //        DataSet ds = new DataSet();
+        //        PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
+        //        ds = postnewjobBAL.GetClientName();
+        //        if (ds != null)
+        //        {
+        //            ddlclientname.DataSource = ds;
+        //            ddlclientname.DataTextField = "ClientName";
+        //            ddlclientname.DataValueField = "ClientId";
+        //            ddlclientname.DataBind();
+        //            ddlclientname.Items.Insert(0, new ListItem("-----select--------", "0"));
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
         private void BindState()
         {
@@ -268,10 +291,17 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobType = lblselectedjobtype.Text;
                 addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
                 addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
-                addJobPostEntity.CompanyName = rblCompanyName.SelectedItem.Text;
-                addJobPostEntity.ClientName = ddlclientname.SelectedItem.Text.Trim();
-                addJobPostEntity.Position = ddlposition.SelectedItem.Text.Trim();
-                addJobPostEntity.RequirementId = Convert.ToInt32(ddlRequirementId.SelectedValue);
+                if (addJobPostEntity.RecruitmentType == "In-House")
+                {
+                    addJobPostEntity.CompanyName = rblCompanyName.SelectedItem.Text;
+                }
+                else
+                {
+                    addJobPostEntity.CompanyName = "null";
+                }
+                addJobPostEntity.ClientName = lblClientName.Text.Trim();
+                addJobPostEntity.Position = lblPosition.Text.Trim();
+                addJobPostEntity.RequirementId = Convert.ToInt32(lblRequirementId.Text);
                 if (addJobPostEntity.CompanyName == "Logos Corporate Solutions")
                 {
                     addJobPostEntity.CompanyProfile = lblCompanyProfile.Text;
@@ -286,7 +316,7 @@ namespace JobFair.Forms.Recruiter
                 int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
                 if (result > 0)
                 {
-                    Response.Write("<script language='javascript'>alert('JobPost')</script>");
+                    Response.Write("<script language='javascript'>alert('JobPost Done ')</script>");
                 }
                 else
                 {
@@ -517,6 +547,27 @@ namespace JobFair.Forms.Recruiter
                 pnlCompanyProfile.Visible = true;
                 lblCompanyProfileiTech.Visible = true;
                 lblCompanyProfile.Visible = false;
+            }
+        }
+
+        protected void ddlRequirementName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                PostNewJobBAL postNewJobBAL = new PostNewJobBAL();
+                int requirementId = Convert.ToInt32(ddlRequirementName.SelectedValue);
+                ds = postNewJobBAL.GetRequirementDetailBAL(requirementId);
+                if (ds != null)
+                {
+                    lblClientName.Text = Convert.ToString(ds.Tables[0].Rows[0]["ClientName"]);
+                    lblPosition.Text = Convert.ToString(ds.Tables[0].Rows[0]["Position"]);
+                    lblRequirementId.Text = Convert.ToString(ds.Tables[0].Rows[0]["ClientRequirementId"]);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }
