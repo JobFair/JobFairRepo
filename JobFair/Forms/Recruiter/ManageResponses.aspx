@@ -11,58 +11,135 @@
 <body>
     <form id="form1" runat="server">
     <div>  
-        <asp:Repeater ID="rptrmanageresponses" runat="server">
-                    <HeaderTemplate>
-                    <table style="border: 1px solid #0000FF">
-                            <tr style="font-size: large; font-weight: bold; margin-bottom: 5px">
-                                <td>
-                                    <b>Job Post</b>
-                                </td>
-                            </tr>
-                        </table>
-                    </HeaderTemplate>
-                     <ItemTemplate>   <tr>
+        <asp:Label ID="lblmanageresponses" runat="server" Text="Manage Responses"></asp:Label>
+     <asp:ScriptManager  runat="server"></asp:ScriptManager>
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="725px" Height="376px">
+            <cc1:TabPanel runat="server" HeaderText="ActiveJobs" ID="TabPanel1">
+                <ContentTemplate>
+                    <asp:Repeater id ="rptractivejobs" runat="server">
+                   <ItemTemplate>
+                     <tr>
                             <td>
                                 <table>
                                     <tr>
-                                        <td>JobTitle:-
-                                           <asp:Label ID="lbljobtittle" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp RecruiterID:-
-                                             <asp:Label ID="lblrecruiterid" runat="server" Text='<%#Eval("RecruiterID")%>'></asp:Label>
+                                        <td>
+                                           <asp:Label ID="lbljobid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            RecruiterID:
+                                            <asp:Label ID="lblrecruiterid" runat="server" Text='<%#Eval("RecruiterID")%>'></asp:Label>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            JobTitle:
+                                                <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
                                             </td>
                                         </tr>
                                     </table>
                                 </td>
                             </tr>  <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                            Location:
+                                            <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
+                                         <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>
+                                                </td> 
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp; WorkExperience:
+                                             <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 </td>
+                                        </tr>
+                                    </table>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tr>
                                                <td>
-                                            Work Experience&nbsp;&nbsp;
-                                        <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                                            CompanyName:&nbsp;&nbsp;
+                                        <asp:Label ID="lblcompanyname" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                       
                                                </td>
                                                 </tr>
                                             </table>
                                         </td>
-                                         </tr>                     
-                    </table>
-                        <tr>
+                                        </tr>
                             <td>
-                                <table>
+                                <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
                                     <tr>
-                                        <td>Company Name:
-                                            <asp:Label ID="lblcompanyname" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
-                                        </td>&nbsp;&nbsp;&nbsp;
                                        <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
-                     </ItemTemplate>
-                   <FooterTemplate>
-                    </table>
-                    </FooterTemplate>
-                   </asp:Repeater>
-                     </div>
-                     </form>
+                      </ItemTemplate>
+                        </asp:Repeater>
+                 </ContentTemplate>
+            </cc1:TabPanel>
+            <cc1:TabPanel runat="server" HeaderText="InActiveJobs" ID="TabPanel2">
+                <ContentTemplate>
+                <asp:Repeater id ="Repeater1" runat="server">
+                   <ItemTemplate>
+                     <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                           <asp:Label ID="lbljobid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            RecruiterID:
+                                            <asp:Label ID="lblrecruiterid" runat="server" Text='<%#Eval("RecruiterID")%>'></asp:Label>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            JobTitle:
+                                                <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>  <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                            Location:
+                                            <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
+                                         <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>
+                                                </td> 
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp; WorkExperience:
+                                             <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 </td>
+                                        </tr>
+                                    </table>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                               <td>
+                                            CompanyName:&nbsp;&nbsp;
+                                        <asp:Label ID="lblcompanyname" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      
+                                               </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        </tr>
+                            <td>
+                                <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                                    <tr>
+                                       <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                      </ItemTemplate>
+                        </asp:Repeater>
+                 </ContentTemplate>
+            </cc1:TabPanel>
+            <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Jobs">
+
+            </cc1:TabPanel>
+        </cc1:TabContainer>
+        </div> </form>
                     </body>
                     </html>

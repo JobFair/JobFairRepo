@@ -12,6 +12,31 @@ namespace DAL
 
     public class ManageResponsesDAL
     {
-       
+        private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
+
+
+        public DataSet GetActiveJobs()
+        {
+            DataSet dsactivejobs = new DataSet();
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("sp_RE_ManageResponsesActiveJobs", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dsactivejobs);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dsactivejobs;
+
+
+        }
     }
 }
