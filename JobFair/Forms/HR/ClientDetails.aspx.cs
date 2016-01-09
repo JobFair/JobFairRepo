@@ -42,6 +42,7 @@ namespace JobFair.Forms.HR
                 // Assign values to the entities
                 clientDetailsEntity.HrId = 1;
                 clientDetailsEntity.ClientName = txtClientName.Text.Trim();
+                clientDetailsEntity.ClientProfile = txtClientProfile.Text.Trim();
                 clientDetailsEntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
                 clientDetailsEntity.FunctionalArea = Convert.ToInt32(ddlFunctionalArea.SelectedValue);
                 clientDetailsEntity.Address = txtAddress.Text.Trim();
@@ -53,7 +54,7 @@ namespace JobFair.Forms.HR
                 clientDetailsEntity.OfficialEmailId = txtOfficialEMailId.Text.Trim();
                 clientDetailsEntity.Website = txtWebsite.Text.Trim();
                 clientDetailsEntity.OfficialContact = txtOfficialContact.Text.Trim();
-                clientDetailsEntity.Active = rbtlistActive.SelectedItem.Text;
+                clientDetailsEntity.Status = rbtlistStatus.SelectedItem.Text;
                 clientDetailsEntity.AgreementDate = Convert.ToDateTime(txtAgreementDate.Text);
                 clientDetailsEntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
 

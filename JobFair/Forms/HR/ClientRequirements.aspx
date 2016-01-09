@@ -26,6 +26,12 @@
                 </td>
             </tr>
             <tr>
+                <td><asp:Label ID="lblClientProfile" runat="server" Text=" Client Profile " CssClass="label"></asp:Label></td>
+                <td>
+                    <asp:TextBox ID="txtClientProfile" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
                 <td><asp:Label ID="lblPosition" runat="server" Text=" Position " CssClass="label"></asp:Label></td>
                 <td>
                     <asp:TextBox ID="txtPosition" runat="server"></asp:TextBox>
@@ -89,7 +95,7 @@
              <tr>
                 <td><asp:Label ID="lblContents" runat="server" Text=" Contents " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtContents" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtContents" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -106,6 +112,13 @@
                    <ajax:CalendarExtender ID="caltxtDueDate" runat="server" PopupButtonID="txtDueDate" TargetControlID="txtDueDate" Format="dd/MM/yyyy" />
                 </td>
             </tr>
+            <tr>
+                <td><asp:Label ID="lblStatus" runat="server" Text=" Client Profile " CssClass="label"></asp:Label></td>
+                <td>
+                    <asp:RadioButtonList ID="rbtlistStatus" runat="server"></asp:RadioButtonList>
+                </td>
+            </tr>
+
         </table>
     </div>
     </form>

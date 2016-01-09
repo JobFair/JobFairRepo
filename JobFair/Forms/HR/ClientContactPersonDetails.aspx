@@ -49,7 +49,7 @@
     </tr>
     <tr>
         <td>
-            <asp:Label ID="lblActive" runat="server" Text="Active/Inactive"></asp:Label>
+            <asp:Label ID="lblActive" runat="server" Text=" Status "></asp:Label>
         </td>
         <td>
             <asp:RadioButtonList ID="rblistIsActive" runat="server" AutoPostBack="true">

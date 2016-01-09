@@ -36,7 +36,7 @@ namespace DAL
                                           new SqlParameter("@officialEmailId", clientdetailsEntity.OfficialEmailId),
                                           new SqlParameter("@website", clientdetailsEntity.Website),
                                           new SqlParameter("@officialContact", clientdetailsEntity.OfficialContact),
-                                          new SqlParameter("@active", clientdetailsEntity.Active),
+                                          new SqlParameter("@active", clientdetailsEntity.Status),
                                           new SqlParameter("@agreementDate", clientdetailsEntity.AgreementDate.Date),
                                           new SqlParameter("@dueDate", clientdetailsEntity.DueDate.Date),
                                           new SqlParameter("@paymentDetails", clientdetailsEntity.PaymentDetails),

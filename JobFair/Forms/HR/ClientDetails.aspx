@@ -24,6 +24,12 @@
                     <asp:TextBox ID="txtClientName" runat="server"></asp:TextBox>
                 </td>
             </tr>
+             <tr>
+                <td><asp:Label ID="lblClientProfile" runat="server" Text=" Client Profile " CssClass="label"></asp:Label></td>
+                <td>
+                    <asp:TextBox ID="txtClientProfile" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td><asp:Label ID="lblIndustry" runat="server" Text=" Industry " CssClass="label"></asp:Label></td>
                 <td>
@@ -99,9 +105,9 @@
                 </td>
             </tr>
             <tr>
-                <td><asp:Label ID="lblActive" runat="server" Text=" Active / InActive " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblStatus" runat="server" Text=" Status " CssClass="label"></asp:Label></td>
                 <td>
-                    <asp:RadioButtonList ID="rbtlistActive" runat="server" RepeatDirection="Horizontal">
+                    <asp:RadioButtonList ID="rbtlistStatus" runat="server" RepeatDirection="Horizontal">
                     <asp:ListItem Value="1" Text="Active"></asp:ListItem>
                     <asp:ListItem Value="0" Text="Inactive"></asp:ListItem>
                     </asp:RadioButtonList>
@@ -110,15 +116,15 @@
             <tr>
                 <td><asp:Label ID="lblAgreementDate" runat="server" Text=" Agreement Date " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtAgreementDate" runat="server"></asp:TextBox>
-                   <ajax:CalendarExtender ID="caltxtAgreementDate" runat="server" PopupButtonID="txtAgreementDate" TargetControlID="txtAgreementDate" Format="dd/MM/yyyy" />
+                   <asp:TextBox ID="txtAgreementDate" runat="server" TextMode="Date"></asp:TextBox>
+                   <%--<ajax:CalendarExtender ID="caltxtAgreementDate" runat="server" PopupButtonID="txtAgreementDate" TargetControlID="txtAgreementDate" Format="dd/MM/yyyy" />--%>
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lblDueDate" runat="server" Text=" Due Date " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtDueDate" runat="server"></asp:TextBox>
-                   <ajax:CalendarExtender ID="caltxtDueDate" runat="server" PopupButtonID="txtDueDate" TargetControlID="txtDueDate" Format="dd/MM/yyyy" />
+                   <asp:TextBox ID="txtDueDate" runat="server" TextMode="Date"></asp:TextBox>
+                   <%--<ajax:CalendarExtender ID="caltxtDueDate" runat="server" PopupButtonID="txtDueDate" TargetControlID="txtDueDate" Format="dd/MM/yyyy" />--%>
                 </td>
             </tr>
             <tr>

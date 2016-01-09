@@ -49,6 +49,24 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.TextBox txtClientName;
         
         /// <summary>
+        /// lblClientProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblClientProfile;
+        
+        /// <summary>
+        /// txtClientProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtClientProfile;
+        
+        /// <summary>
         /// lblIndustry control.
         /// </summary>
         /// <remarks>
@@ -283,22 +301,22 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.TextBox txtOfficialContact;
         
         /// <summary>
-        /// lblActive control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActive;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
-        /// rbtlistActive control.
+        /// rbtlistStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbtlistActive;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtlistStatus;
         
         /// <summary>
         /// lblAgreementDate control.
@@ -319,15 +337,6 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.TextBox txtAgreementDate;
         
         /// <summary>
-        /// caltxtAgreementDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender caltxtAgreementDate;
-        
-        /// <summary>
         /// lblDueDate control.
         /// </summary>
         /// <remarks>
@@ -344,15 +353,6 @@ namespace JobFair.Forms.HR {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDueDate;
-        
-        /// <summary>
-        /// caltxtDueDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender caltxtDueDate;
         
         /// <summary>
         /// lblPaymentDetails control.

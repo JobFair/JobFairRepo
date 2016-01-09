@@ -214,7 +214,7 @@ namespace CommonUtil
             DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select ClientId,ClientName from HR_ClientDetails where RecruiterID='RE2' ");
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "Select ClientId,ClientName,ClientProfile from HR_ClientDetails where HrId=1 ");
             }
             catch (Exception)
             {

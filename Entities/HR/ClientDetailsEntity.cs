@@ -6,6 +6,7 @@ namespace Entities.HR
     {
         public int HrId { get; set; }
         public string ClientName { get; set; }
+        public string ClientProfile { get; set; }
         public int Industry { get; set; }
         public int FunctionalArea { get; set; }
         public string Address { get; set; }
@@ -17,7 +18,7 @@ namespace Entities.HR
         public string OfficialEmailId { get; set; }
         public string Website { get; set; }
         public string OfficialContact { get; set; }
-        public string Active { get; set; }
+        public string Status { get; set; }
         public DateTime AgreementDate { get; set; }
         public DateTime DueDate { get; set; }
         public string PaymentDetails { get; set; }
