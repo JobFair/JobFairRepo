@@ -47,6 +47,7 @@
     <Compile Include="Common\LanguageEntity.cs" />
     <Compile Include="Common\RegisterEntity.cs" />
     <Compile Include="HR\ClientContactPersonDetailsEntity.cs" />
+    <Compile Include="HR\ClientRequirementsHREntity.cs" />
     <Compile Include="HR\RecruiterRegisterEntity.cs" />
     <Compile Include="JobSeeker\AcademicProjectDetailsEntity.cs" />
     <Compile Include="JobSeeker\AdvanceSearchDetailsEntity.cs" />
