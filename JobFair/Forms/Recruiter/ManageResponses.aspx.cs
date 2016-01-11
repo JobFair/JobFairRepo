@@ -14,9 +14,17 @@ namespace JobFair.Forms.Recruiter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+            DataSet dsactivejobs = new DataSet();
+            ManageResponsesBAL manageresponsesBAL = new ManageResponsesBAL();
+            dsactivejobs = manageresponsesBAL.GetActiveJobs();
+            rptractivejobs.DataSource = dsactivejobs;
+            rptractivejobs.DataBind();
+
         }
 
-       
     }
+
+
+
 }
