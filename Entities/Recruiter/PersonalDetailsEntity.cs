@@ -4,7 +4,7 @@ namespace Entities.Recruiter
 {
     public class PersonalDetailsEntity
     {
-        public string recruiterId { get; set; }
+        public Int64 recruiterId { get; set; }
         public string presentAddress { get; set; }
         public int presentCountryId { get; set; }
         public int presentStateId { get; set; }

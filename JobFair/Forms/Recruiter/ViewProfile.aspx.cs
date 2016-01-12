@@ -71,9 +71,9 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-                int userType = 2;
+              
                 DataSet dsContactDetails = new DataSet();
-                dsContactDetails = viewProfileBAL.ViewContactDetailsBAL(recruiterId, userType);
+                dsContactDetails = viewProfileBAL.ViewContactDetailsBAL(recruiterId);
                 if (dsContactDetails != null)
                 {
                     lblAltEmailId.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["AltEmailId"]);
@@ -140,7 +140,7 @@ namespace JobFair.Forms.Recruiter
                     lblRecruiterId.Text = Convert.ToString(recruiterId);
                     lblCompany.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["Company"]);
                     lblOfficicalNumber.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["MobileNumber"]);
-                    //lblMobileNumber.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["AltMobile"]);
+                    lblMobileNumber.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["AltMobile"]);
                     lblOfficialEmailId.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["OfficialEmail_ID"]);
                     lblFreelancer.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["FreelanceOrEmployee"]);
                     lblAddress.Text = Convert.ToString(dsViewProfile.Tables[0].Rows[0]["Address"]);

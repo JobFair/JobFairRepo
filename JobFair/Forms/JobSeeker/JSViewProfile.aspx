@@ -69,7 +69,7 @@
         </div>--%>
 
     <div>
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="3" Width="900px" Height="600px">
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="4" Width="900px" Height="600px">
             <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Profile Summary">
                 <ContentTemplate>
                     <table>
@@ -722,7 +722,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel4" runat="server" HeaderText="Educational Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer4" runat="server" ActiveTabIndex="0" CssClass="" Height="16px">
+                    <cc1:TabContainer ID="TabContainer4" runat="server" ActiveTabIndex="0" CssClass="" Height="900px">
                         <cc1:TabPanel ID="TabPanel12" runat="server" HeaderText="Educational">
                             <HeaderTemplate>
                                 &nbsp;&nbsp;&nbsp; Educational
@@ -921,7 +921,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel5" runat="server" HeaderText="Skill Sets">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer3" runat="server" ActiveTabIndex="0" CssClass="">
+                    <cc1:TabContainer ID="TabContainer3" runat="server" ActiveTabIndex="1" CssClass="" Width="100%">
                         <cc1:TabPanel ID="TabPanel10" runat="server" HeaderText="Role skills">
                             <ContentTemplate>
                                 <asp:LinkButton ID="lnkbtnRoleSkillsEdit" runat="server" OnClick="lnkbtnRoleSkillsEdit_Click">Edit</asp:LinkButton>
@@ -960,6 +960,7 @@
                         </cc1:TabPanel>
                         <cc1:TabPanel ID="TabPanel11" runat="server" HeaderText="Technical Skills">
                             <ContentTemplate>
+                                <span>ulgljgljkglglk</span>
                                 <asp:LinkButton ID="LinkButton1" runat="server">Edit</asp:LinkButton>
                                 <asp:Repeater ID="rptrTechnicalSkills" runat="server">
                                     <HeaderTemplate>

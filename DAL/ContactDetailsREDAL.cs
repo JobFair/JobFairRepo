@@ -1,4 +1,4 @@
-﻿using Entities;
+﻿using Entities.Recruiter;
 using System;
 using System.Configuration;
 using System.Data;
@@ -6,33 +6,12 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class ContactDetailsJSDAL
+    public class ContactDetailsREDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
-        /// View Contact Details.
-        /// </summary>
-        /// <param name="candidateId">for selecting data into database</param>
-        /// <returns>dataset</returns>
-        public DataSet ViewContactDetailsDAL(string candidateId, int userType)
-        {
-            DataSet ds = new DataSet();
-            try
-            { 
-                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId),
-                                           new SqlParameter("@userType",userType)};
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectContactDetails, sparams);
-            }
-            catch (Exception)
-            {
-                // throw;
-            }
-            return ds;
-        }
-
-        /// <summary>
-        /// Insert Contact Details
+        /// Insert Contact Details of recruiter.
         /// </summary>
         /// <param name="contactDetailsEntity">Object for inserting data into database</param>
         /// <returns>System.Int32</returns>
@@ -44,7 +23,7 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                              new SqlParameter("@candidateId",contactDetailsEntity.Id),
+                                              new SqlParameter("@recruiterId",contactDetailsEntity.Id),
                                               new SqlParameter("@altMobNo",contactDetailsEntity.AltMobileNo ),
                                               new SqlParameter("@landLineNo", contactDetailsEntity.LandLineNo),
                                               new SqlParameter("@whatsappNo",contactDetailsEntity.WhatsAppNo),
@@ -54,10 +33,9 @@ namespace DAL
                                               new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
                                               new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
                                               new SqlParameter("@googleP",contactDetailsEntity.GooglePlus),
-                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId),
-                                              new SqlParameter("@userType",contactDetailsEntity.UserType)
+                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId)
                                             };
-                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertContactDetails, sqlparams);
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertContactDetails, sqlparams);
             }
             catch (Exception)
             {
@@ -71,10 +49,26 @@ namespace DAL
         }
 
         /// <summary>
-        /// Update Contact Details
+        /// View Contact Details.
         /// </summary>
-        /// <param name="contactDetailsEntity">Object for inserting data into database</param>
-        /// <returns>System.Int32</returns>
+        /// <param name="recruiterId">for selecting data into database</param>
+        /// <returns>dataset</returns>
+
+        public DataSet ViewContactDetailsDAL(long recruiterId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@recruiterId", recruiterId)
+                                         };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_RE_SelectContactDetails, sparams);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            return ds;
+        }
         public int UpdateContactDetailsDAL(ContactDetailsEntity contactDetailsEntity)
         {
             int result = 0;
@@ -83,7 +77,7 @@ namespace DAL
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
                 SqlParameter[] sqlparams = {
-                                              new SqlParameter("@candidateId",contactDetailsEntity.Id),
+                                              new SqlParameter("@recruiterId",contactDetailsEntity.Id),
                                               new SqlParameter("@altMobNo",contactDetailsEntity.AltMobileNo ),
                                               new SqlParameter("@landLine", contactDetailsEntity.LandLineNo),
                                               new SqlParameter("@whatsappNo",contactDetailsEntity.WhatsAppNo),
@@ -93,10 +87,9 @@ namespace DAL
                                               new SqlParameter("@gtalkId",contactDetailsEntity.GtalkId),
                                               new SqlParameter("@skypeId", contactDetailsEntity.SkypeId),
                                               new SqlParameter("@googleP",contactDetailsEntity.GooglePlus),
-                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId),
-                                              new SqlParameter("@userType",contactDetailsEntity.UserType)
+                                              new SqlParameter("@altEmailId",contactDetailsEntity.AltEmailId)
                                             };
-                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateContactDetails, sqlparams);
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_UpdateContactDetails, sqlparams);
             }
             catch (Exception)
             {

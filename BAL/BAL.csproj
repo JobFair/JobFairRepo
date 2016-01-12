@@ -44,11 +44,12 @@
     <Compile Include="ChangeLoginDetailsBAL.cs" />
     <Compile Include="ClientContactPersonDetailsBAL.cs" />
     <Compile Include="ClientRequirementsBAL.cs" />
+    <Compile Include="ContactDetailsREBAL.cs" />
     <Compile Include="JobapplicationsBAL.cs" />
     <Compile Include="ManageJobsBAL.cs" />
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ClientDetailsBAL.cs" />
-    <Compile Include="Common\ContactDetailsJSBAL.cs" />
+    <Compile Include="ContactDetailsJSBAL.cs" />
     <Compile Include="CurrentDesiredJobBAL.cs" />
     <Compile Include="EducationalDetailsBAL.cs" />
     <Compile Include="FeedbackBAL.cs" />
