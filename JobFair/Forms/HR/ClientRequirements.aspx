@@ -101,24 +101,42 @@
             <tr>
                 <td><asp:Label ID="lblDateofRequirementSent" runat="server" Text=" Date of Requirement Sent " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtDateofRequirementSent" runat="server"></asp:TextBox>
-                   <ajax:CalendarExtender ID="caltxtDateofRequirementSent" runat="server" PopupButtonID="txtDateofRequirementSent" TargetControlID="txtDateofRequirementSent" Format="dd/MM/yyyy" />
+                   <asp:TextBox ID="txtDateofRequirementSent" runat="server" TextMode="Date"></asp:TextBox>
+                   <%--<ajax:CalendarExtender ID="caltxtDateofRequirementSent" runat="server" PopupButtonID="txtDateofRequirementSent" TargetControlID="txtDateofRequirementSent" Format="dd/MM/yyyy" />--%>
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lblDueDate" runat="server" Text=" Due Date " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtDueDate" runat="server"></asp:TextBox>
-                   <ajax:CalendarExtender ID="caltxtDueDate" runat="server" PopupButtonID="txtDueDate" TargetControlID="txtDueDate" Format="dd/MM/yyyy" />
+                   <asp:TextBox ID="txtDueDate" runat="server" TextMode="Date"></asp:TextBox>
+                   <%--<ajax:CalendarExtender ID="caltxtDueDate" runat="server" PopupButtonID="txtDueDate" TargetControlID="txtDueDate" Format="dd/MM/yyyy" />--%>
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lblStatus" runat="server" Text=" Status " CssClass="label"></asp:Label></td>
                 <td>
-                    <asp:RadioButtonList ID="rbtlistStatus" runat="server"></asp:RadioButtonList>
+                    <asp:RadioButtonList ID="rbtlistStatus" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Value="0" Text="New"></asp:ListItem>
+                        <asp:ListItem Value="1" Text="Active"></asp:ListItem>
+                    </asp:RadioButtonList>
+
                 </td>
             </tr>
-
+            <tr>
+                <td><asp:Label ID="lblRecruiter" runat="server" Text=" Select the Recruiter " CssClass="label"></asp:Label></td>
+                <td>
+                   <asp:TextBox ID="txtRecruiter" runat="server"></asp:TextBox>
+                    <ajax:AutoCompleteExtender ID="aceRecruiter" runat="server" TargetControlID="txtRecruiter" MinimumPrefixLength="1"
+                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRecruiter"></ajax:AutoCompleteExtender>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit & E-Mail" CssClass="button" OnClick="btnSubmit_Click"/>
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="button" OnClientClick="this.form.reset();return false;"/>
+                </td>  
+                <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
+            </tr>
         </table>
     </div>
     </form>

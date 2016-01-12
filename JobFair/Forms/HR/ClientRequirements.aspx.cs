@@ -32,6 +32,78 @@ namespace JobFair.Forms.HR
             }
         }
 
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClientRequirementsHRBAL clientRequirementsHRBAL = new ClientRequirementsHRBAL();
+                ClientRequirementsHREntity clientRequirementsHREntity = new ClientRequirementsHREntity();
+                // Assign values to the entities
+                clientRequirementsHREntity.HrId = 1;
+                clientRequirementsHREntity.ClientId = 1;
+                clientRequirementsHREntity.ClientName = ddlClientName.SelectedValue.Trim();
+                clientRequirementsHREntity.ClientProfile = txtClientProfile.Text.Trim();
+                clientRequirementsHREntity.Position = txtPosition.Text.Trim();
+                clientRequirementsHREntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
+                clientRequirementsHREntity.FunctionalArea = Convert.ToInt32(ddlFunctionalArea.SelectedValue);
+                clientRequirementsHREntity.Address = txtAddress.Text.Trim();
+                clientRequirementsHREntity.CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
+                clientRequirementsHREntity.StateId = Convert.ToInt32(ddlState.SelectedValue);
+                clientRequirementsHREntity.CityId = Convert.ToInt32(ddlCity.SelectedValue);
+                clientRequirementsHREntity.AreaId = Convert.ToInt32(ddlArea.SelectedValue);
+                clientRequirementsHREntity.Pincode = Convert.ToInt32(txtPincode.Text.Trim());
+                clientRequirementsHREntity.Skillsets = txtSkillsets.Text.Trim();
+                clientRequirementsHREntity.Contents = txtContents.Text.Trim();
+                clientRequirementsHREntity.DateOfRequirementSent = Convert.ToDateTime(txtDateofRequirementSent.Text);
+                clientRequirementsHREntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
+                clientRequirementsHREntity.Status = rbtlistStatus.SelectedItem.Value;
+                clientRequirementsHREntity.RecruiterID = Convert.ToInt32(txtRecruiter.Text.Trim());
+
+                // Saving data to the database
+                int result = clientRequirementsHRBAL.SaveClientRequirementsBAL(clientRequirementsHREntity);
+                if (result > 0)
+                {
+                    lblmsg.Text = "Saved Data Successfully";
+                }
+                else
+                {
+                    lblmsg.Text = "Data is not saved";
+                }
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+        }
+
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod]
+        public static List<string> GetRecruiter(string prefixText)
+        {
+            DataTable dtRecruiter = new DataTable();
+
+            ClientRequirementsHRBAL clientRequirementsHRBAL = new ClientRequirementsHRBAL();
+            dtRecruiter = clientRequirementsHRBAL.GetRecruiter(prefixText);
+            List<string> recruitername = new List<string>();
+            try
+            {
+                // Check datatable is not null
+                if (dtRecruiter != null)
+                {
+                    for (int i = 0; i < dtRecruiter.Rows.Count; i++)
+                    {
+                        recruitername.Add(dtRecruiter.Rows[i][1].ToString());
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //  throw;
+            }
+            return recruitername;
+        }
+
         /// <summary>
         /// Method for binding DropDown with FunctionalArea_Table of Database
         /// </summary>
@@ -116,6 +188,5 @@ namespace JobFair.Forms.HR
             ddlArea.DataBind();
             ddlArea.Items.Insert(0, new ListItem("--Select--", "0"));
         }
-
     }
 }

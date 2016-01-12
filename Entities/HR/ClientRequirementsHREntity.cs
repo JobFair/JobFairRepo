@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities.HR
 {
-    class ClientRequirementsHREntity
+    public class ClientRequirementsHREntity
     {
-        public string HrId { get; set; }
-        public string ClientId { get; set; }
+        public int HrId { get; set; }
+        public int ClientId { get; set; }
         public string ClientName { get; set; }
         public string ClientProfile { get; set; }
         public string Position { get; set; }
@@ -21,10 +21,11 @@ namespace Entities.HR
         public int CityId { get; set; }
         public int AreaId { get; set; }
         public int Pincode { get; set; }
-        public int Skillsets { get; set; }
-        public int DateOfRequirementSent { get; set; }
-        public int DueDate { get; set; }
-        public int Status { get; set; }
+        public string Skillsets { get; set; }
+        public string Contents { get; set; }
+        public DateTime DateOfRequirementSent { get; set; }
+        public DateTime DueDate { get; set; }
+        public string Status { get; set; }
         public int RecruiterID { get; set; }
     }
 }

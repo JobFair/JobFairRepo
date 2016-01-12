@@ -15,7 +15,7 @@ namespace BAL
     /// </summary>
     public class ClientRequirementsHRBAL
     {
-        //private ClientRequirementsHRDAL ClientRequirementsHRDAL = new ClientRequirementsHRDAL();
+        private ClientRequirementsHRDAL ClientRequirementsHRDAL = new ClientRequirementsHRDAL();
 
         /// <summary>
         /// Method to get country
@@ -76,6 +76,26 @@ namespace BAL
         public DataSet GetClientNameDAL()
         {
             return Utility.GetClientName();
+        }
+
+        /// <summary>
+        /// Save client requirements details method in ClientRequirementsHRBAL class
+        /// </summary>
+        /// <param name="clientRequirementsHREntity">Object of ClientRequirementsHREntity</param>
+        /// <returns>System.Int32</returns>
+        public int SaveClientRequirementsBAL(Entities.HR.ClientRequirementsHREntity clientRequirementsHREntity)
+        {
+            return ClientRequirementsHRDAL.SaveClientRequirementsDAL(clientRequirementsHREntity);
+        }
+        /// <summary>
+        /// Get Recruiter BAL
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>datatable</returns>
+        public DataTable GetRecruiter(string prefixText)
+        {
+            ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
+            return clientRequirementsHRDAL.GetRecruiter(prefixText);
         }
     }
 }
