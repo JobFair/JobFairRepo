@@ -23,6 +23,11 @@ namespace JobFair.Forms.Recruiter
 
         }
 
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+        }
+
     }
 
 
