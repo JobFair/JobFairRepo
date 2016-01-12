@@ -126,8 +126,8 @@
                 <td><asp:Label ID="lblRecruiter" runat="server" Text=" Select the Recruiter " CssClass="label"></asp:Label></td>
                 <td>
                    <asp:TextBox ID="txtRecruiter" runat="server"></asp:TextBox>
-                    <ajax:AutoCompleteExtender ID="aceRecruiter" runat="server" TargetControlID="txtRecruiter" MinimumPrefixLength="1"
-                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRecruiter"></ajax:AutoCompleteExtender>
+                   <%-- <ajax:AutoCompleteExtender ID="aceRecruiter" runat="server" TargetControlID="txtRecruiter" MinimumPrefixLength="1"
+                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRecruiter"></ajax:AutoCompleteExtender>--%>
                 </td>
             </tr>
             <tr>

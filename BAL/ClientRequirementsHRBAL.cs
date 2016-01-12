@@ -7,7 +7,6 @@ using CommonUtil;
 using DAL;
 using System.Data;
 
-
 namespace BAL
 {
     // <summary>
@@ -15,7 +14,7 @@ namespace BAL
     /// </summary>
     public class ClientRequirementsHRBAL
     {
-        private ClientRequirementsHRDAL ClientRequirementsHRDAL = new ClientRequirementsHRDAL();
+        private ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
 
         /// <summary>
         /// Method to get country
@@ -85,7 +84,7 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int SaveClientRequirementsBAL(Entities.HR.ClientRequirementsHREntity clientRequirementsHREntity)
         {
-            return ClientRequirementsHRDAL.SaveClientRequirementsDAL(clientRequirementsHREntity);
+            return clientRequirementsHRDAL.SaveClientRequirementsDAL(clientRequirementsHREntity);
         }
         /// <summary>
         /// Get Recruiter BAL

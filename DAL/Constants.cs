@@ -27,6 +27,7 @@
         public static string sp_JS_SelectMoreWorkshop = "sp_JS_SelectMoreWorkshop";
         public const string sp_RE_InsertCloneJob = "sp_RE_InsertCloneJob";
         public static string sp_HR_InsertClientDetails = "sp_HR_InsertClientDetails";
+        public static string sp_HR_InsertClientContactPersonDetails = "sp_HR_InsertClientContactPersonDetails";
         public static string sp_HR_InsertClientRequirements = "sp_HR_InsertClientRequirements";
         public const string sp_Country = "sp_Country";
         public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
@@ -89,8 +90,6 @@
         public static string sp_JS_ChangePrimaryMobileNo = "sp_JS_ChangePrimaryMobileNo";
         public static string sp_JS_ChangeEmailId = "sp_JS_ChangeEmailId";
         public static string sp_JS_ChangeMobileNo = "sp_JS_ChangeMobileNo";
-        public static string sp_HR_InsertClientDetails = "sp_HR_InsertClientDetails";
-        public static string sp_HR_InsertClientContactPersonDetails = "sp_HR_InsertClientContactPersonDetails";
         public static string sp_RE_InsertFunctionalArea = "sp_RE_InsertFunctionalArea";
         public static string sp_RE_SelectClients = "sp_RE_SelectClients";
         public static string sp_JS_ViewEducationalDetails = "sp_JS_ViewEducationalDetails";
