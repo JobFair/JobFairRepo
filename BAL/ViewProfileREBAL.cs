@@ -17,10 +17,10 @@ namespace BAL
             return viewProfileDAL.ViewPersonalDetailsDAL(recruiterId);
         }
 
-        public DataSet ViewContactDetailsBAL(int recruiterId,int userType)
+        public DataSet ViewContactDetailsBAL(int recruiterId)
         {
             ViewProfileREDAL viewProfileDAL = new ViewProfileREDAL();
-            return viewProfileDAL.ViewContactDetailsDAL(recruiterId, userType);
+            return viewProfileDAL.ViewContactDetailsDAL(recruiterId);
         }
         /// <summary>
         /// ViewProfile of recuiter

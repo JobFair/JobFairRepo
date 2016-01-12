@@ -46,6 +46,7 @@
     <Compile Include="ClientContactPersonDetailsDAL.cs" />
     <Compile Include="ClientRequirementsHRDAL.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="ContactDetailsREDAL.cs" />
     <Compile Include="JobApplicationDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />
     <Compile Include="ManageResponsesDAL.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="AffirmativeDetailsJSDAL.cs" />
     <Compile Include="ChangePasswordDAL.cs" />
     <Compile Include="ClientDetailsDAL.cs" />
-    <Compile Include="Common\ContactDetailsJSDAL.cs" />
+    <Compile Include="ContactDetailsJSDAL.cs" />
     <Compile Include="CurrentDesiredJobDAL.cs" />
     <Compile Include="EducationalDetailsDAL.cs" />
     <Compile Include="FeedbackJSDAL.cs" />
