@@ -58,5 +58,11 @@ namespace BAL
         {
             return Utility.GetCountryCode();
         }
+
+        public void UpdateMailsentBAL(Entities.HR.RecruiterRegisterEntity registerRecruiterEntity)
+        {
+            RegisterRecruiterHRDAL registerRecruiterHRDAL = new RegisterRecruiterHRDAL();
+            registerRecruiterHRDAL.UpdateMailsentDAL(registerRecruiterEntity);
+        }
     }
 }

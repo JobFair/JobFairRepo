@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommonUtil;
 using DAL;
 using Entities.Recruiter;
 using System.Data;
-using CommonUtil;
 
 namespace BAL
 {
-   public class PersonalDetailsREBAL
+    public class PersonalDetailsREBAL
     {
         /// <summary>
         ///  Personal Details of recruiter bal.
@@ -22,11 +17,17 @@ namespace BAL
             PersonalDetailsREDAL personalDetailsDAL = new PersonalDetailsREDAL();
             return personalDetailsDAL.SavePersonalDetails(personalDetailsEntity);
         }
+
+        public DataSet ViewPersonalDetailsBAL(long recruiterId)
+        {
+            PersonalDetailsREDAL personalDetailsDAL = new PersonalDetailsREDAL();
+            return personalDetailsDAL.ViewPersonalDetailsDAL(recruiterId);
+        }
+
         /// <summary>
         /// Get Country
         /// </summary>
         /// <returns>dataset</returns>
-
         public DataSet GetCountry()
         {
             return Utility.GetCountry();
@@ -60,6 +61,12 @@ namespace BAL
         public DataSet GetArea(int cityId)
         {
             return Utility.GetArea(cityId);
+        }
+
+        public int UpdatePersonalDetailsBAL(PersonalDetailsEntity objPersonalDetailsEntity)
+        {
+            PersonalDetailsREDAL pdDAL = new PersonalDetailsREDAL();
+            return pdDAL.UpdatePersonalDetailsDAL(objPersonalDetailsEntity);
         }
     }
 }

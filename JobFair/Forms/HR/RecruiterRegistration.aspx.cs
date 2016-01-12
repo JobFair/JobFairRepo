@@ -11,6 +11,7 @@ namespace JobFair.Forms.HR
 {
     public partial class RecruiterRegistration : System.Web.UI.Page
     {
+        bool isMailSent;
         private string RecruiterPrefix = ConfigurationManager.AppSettings["RecruiterPrefix"];
         RecruiterRegisterEntity registerRecruiterEntity = new RecruiterRegisterEntity();
         /// <summary>
@@ -137,6 +138,7 @@ namespace JobFair.Forms.HR
                 string uploadphoto = Request.PhysicalApplicationPath + "Images\\";
                 registerRecruiterEntity.PhotoPath = uploadphoto.ToString();
                 string result = registerRecruiterHRBAL.SaveNewRecruiterBAL(registerRecruiterEntity);
+                registerRecruiterEntity.Recruiterid = result;
                 RecruiterPrefix = RecruiterPrefix + result;
                 if (result != null)
                 {
@@ -145,23 +147,26 @@ namespace JobFair.Forms.HR
                         string extension = Path.GetExtension(FileUploadRecruiterPhoto.PostedFile.FileName);
                         FileUploadRecruiterPhoto.SaveAs(uploadphoto + RecruiterPrefix.ToString() + extension);
                     }
-                    Label1.Text = "Welcome. Registerd successfully";
+                    isMailSent = SendHTMLMail(result);
+                    if (isMailSent == true)
+                    {
+                        registerRecruiterEntity.IsMailSent = true;
+                        registerRecruiterHRBAL.UpdateMailsentBAL(registerRecruiterEntity);
+                        Label1.Text = "Welcome. Registerd successfully";
+
+                    }
+                    else
+                    {
+ 
+                    }
+                    
                 }
                 else
                 {
                     Label1.Text = "Not registerd";
                 }
-                bool isMailSent = SendHTMLMail(result);
-                if (isMailSent == true)
-                {
-                    registerRecruiterEntity.IsMailSent = true;
-                    Response.Write("Registration done with welcome mail");
 
-                }
-                else
-                {
-                    Response.Write("<script language='javascript'>alert('Registerd Sucessfully but reciept not generated')</script>");
-                }
+               
                
             }
             catch (Exception ex)
@@ -176,6 +181,8 @@ namespace JobFair.Forms.HR
         /// <returns>System.Data.Boolean</returns>
         private bool SendHTMLMail(string result)
         {
+            try
+            {          
             string from = "jyoti.logossolutions@gmail.com";
             string subject1 = "Welcome In Logos Solutions";
             string subject = " Joining Receipt of the Recruiter " + DateTime.Now.ToString();
@@ -184,7 +191,7 @@ namespace JobFair.Forms.HR
 
             MailMessage Msg = new MailMessage();
             Msg.From = new MailAddress(from);
-            Msg.To.Add("saurabh.logossolutions@gmail.com");
+            Msg.To.Add(txtPersonalMailid.Text.Trim());
             StreamReader reader = new StreamReader(Server.MapPath("~/Email Templates/RegistrationConfirmation.html"));
             string readFile = reader.ReadToEnd();
             string strContent = "";
@@ -204,10 +211,18 @@ namespace JobFair.Forms.HR
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
             smtp.Credentials = new System.Net.NetworkCredential("jyoti.logossolutions@gmail.com", "@jacksparow");
+
             smtp.EnableSsl = true;
+                
             smtp.Send(Msg);
             Msg = null;
-            return true;     
+            return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         /// <summary>
         /// Handles CheckedChanged event of rbtFreelance control

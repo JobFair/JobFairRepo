@@ -55,7 +55,7 @@
     <Compile Include="JobSeeker\ChangeLoginDetailsEntity.cs" />
     <Compile Include="JobSeeker\ProjectDetailsEntity.cs" />
     <Compile Include="JobSeeker\AffirmativeDetailsEntity.cs" />
-    <Compile Include="Common\ContactDetailsEntity.cs" />
+    <Compile Include="JobSeeker\ContactDetailsEntity.cs" />
     <Compile Include="JobSeeker\CurrentDesiredJobEntity.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -72,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JobSeeker\RegisterEntity.cs" />
     <Compile Include="Recruiter\AddJobPostEntity.cs" />
+    <Compile Include="Recruiter\ContactDetailsEntity.cs" />
     <Compile Include="Recruiter\ManageJobEntity.cs" />
     <Compile Include="Recruiter\ManageResponsesEntity.cs" />
     <Compile Include="Recruiter\PersonalDetailsEntity.cs" />

@@ -89,7 +89,8 @@
         public static string sp_JS_ChangePrimaryMobileNo = "sp_JS_ChangePrimaryMobileNo";
         public static string sp_JS_ChangeEmailId = "sp_JS_ChangeEmailId";
         public static string sp_JS_ChangeMobileNo = "sp_JS_ChangeMobileNo";
-        public static string sp_RE_InsertClientDetails = "sp_RE_InsertClientDetails";
+        public static string sp_HR_InsertClientDetails = "sp_HR_InsertClientDetails";
+        public static string sp_HR_InsertClientContactPersonDetails = "sp_HR_InsertClientContactPersonDetails";
         public static string sp_RE_InsertFunctionalArea = "sp_RE_InsertFunctionalArea";
         public static string sp_RE_SelectClients = "sp_RE_SelectClients";
         public static string sp_JS_ViewEducationalDetails = "sp_JS_ViewEducationalDetails";
@@ -109,5 +110,9 @@
         public static string sp_JS_SelectAllJobPost = "sp_JS_SelectAllJobPost";
         public static string sp_RE_SelectRequirement = "sp_RE_SelectRequirement";
         public static string sp_RE_RequirementDetails = "sp_RE_RequirementDetails";
+        public static string sp_RE_SelectContactDetails = "sp_RE_SelectContactDetails";
+        public static string sp_RE_UpdateContactDetails = "sp_RE_UpdateContactDetails";
+        public static string sp_RE_UpdatePersonalDetails = "sp_RE_UpdatePersonalDetails";
+        public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent";
     }
 }
