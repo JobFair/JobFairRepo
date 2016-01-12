@@ -108,7 +108,6 @@
         public static string sp_JS_SelectAllJobPost = "sp_JS_SelectAllJobPost";
         public static string sp_RE_SelectRequirement = "sp_RE_SelectRequirement";
         public static string sp_RE_RequirementDetails = "sp_RE_RequirementDetails";
-        public static string sp_HR_InsertClientDetails = "sp_HR_InsertClientDetails";
         public static string sp_RE_SelectContactDetails = "sp_RE_SelectContactDetails";
         public static string sp_RE_UpdateContactDetails = "sp_RE_UpdateContactDetails";
         public static string sp_RE_UpdatePersonalDetails = "sp_RE_UpdatePersonalDetails";
