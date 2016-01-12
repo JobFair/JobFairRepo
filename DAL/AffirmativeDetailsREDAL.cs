@@ -75,8 +75,7 @@ namespace DAL
                                           new SqlParameter("@usaPermit",affirmativeDetailsEntity.USAPermit),
                                           new SqlParameter("@otherPermits",affirmativeDetailsEntity.OtherPermits),
                                           new SqlParameter ("@hobbies",affirmativeDetailsEntity.Hobbies),
-                                          new SqlParameter ("@extraActivity",affirmativeDetailsEntity.ExtraActivity),
-                                          new SqlParameter("@userType",affirmativeDetailsEntity.UserType)
+                                          new SqlParameter ("@extraActivity",affirmativeDetailsEntity.ExtraActivity)                                         
                                           };
                 result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_OtherDetails, sqlparams);
                 if (result > 0)

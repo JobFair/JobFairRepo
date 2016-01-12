@@ -371,10 +371,7 @@ mso-bidi-language:AR-SA">Notice Period </span></td>
                         </td>
                     </tr>
                     <tr>
-                        <td><span style="font-size:11.0pt;line-height:115%;
-font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
-&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
-mso-bidi-language:AR-SA">Keywords Role skills </span></td>
+                        <td>Keywords Role skills </td>
                         <td>
                             
                             <asp:CheckBoxList ID="CheckBoxList5" runat="server">
@@ -383,10 +380,7 @@ mso-bidi-language:AR-SA">Keywords Role skills </span></td>
                         </td>
                     </tr>
                     <tr>
-                        <td><span style="font-size:11.0pt;line-height:115%;
-font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:Calibri;mso-bidi-font-family:
-&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
-mso-bidi-language:AR-SA">Keyword Technical skills</span></td>
+                        <td>Keyword Technical skills</td>
                         <td>
                             
                             <asp:CheckBoxList ID="CheckBoxList6" runat="server">
@@ -425,9 +419,22 @@ mso-bidi-language:AR-SA">Keyword Technical skills</span></td>
             <div id="divEducationDetails" runat="server">
                 <table>
                     <tr>
+                        <td colspan="2">
+                            <strong>Education Details </strong>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>Highest Qualification</td>
                         <td>
-                            <strong>Education Details
-                        </strong>
+
+                            UG Qualification<asp:DropDownList ID="DropDownList9" runat="server">
+                            </asp:DropDownList>
+                            <br />
+                            PG Qualification<asp:DropDownList ID="DropDownList12" runat="server">
+                            </asp:DropDownList>
+
                         </td>
                     </tr>
                     <tr>
@@ -435,15 +442,12 @@ mso-bidi-language:AR-SA">Keyword Technical skills</span></td>
                             Highest Qualification
                         </td>
                         <td>
-                            UG Qualification<asp:DropDownList ID="DropDownList9" runat="server">
-                            </asp:DropDownList>
-&nbsp;</td>
+                            &nbsp;</td>
                     </tr>
+                   
                     <tr>
                         <td>
-                            PG Qualification<asp:DropDownList ID="DropDownList12" runat="server">
-                            </asp:DropDownList>
-                        </td>
+                            &nbsp;</td>
                     </tr>
                 </table>
             </div>

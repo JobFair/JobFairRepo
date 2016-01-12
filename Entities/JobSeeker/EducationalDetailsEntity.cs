@@ -15,6 +15,7 @@ namespace Entities.JobSeeker
 
         public string MediumOfEducation { get; set; }
         public string Status { get; set; }
+        public int OldSpecializationId { get; set; }
         public int SpecializationId { get; set; }
         public string FromYear { get; set; }
         public string ToYear { get; set; }

@@ -7,7 +7,6 @@ namespace DAL
 {
     public class RegisterRecruiterHRDAL
     {
-       
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
         /// <summary>
@@ -21,13 +20,12 @@ namespace DAL
             {
                 connection.Open();
 
-                SqlCommand cmd = new SqlCommand();
-                SqlParameter[] param = new SqlParameter[26];
+                SqlParameter[] param = new SqlParameter[25];
                 param[0] = new SqlParameter("@recrName", recruiterRegisterEntity.FullName);
                 param[1] = new SqlParameter("@company", recruiterRegisterEntity.Company);
                 param[2] = new SqlParameter("@officialContactNo", recruiterRegisterEntity.OfficialContactNo);
                 param[3] = new SqlParameter("@mobNo", recruiterRegisterEntity.MobileNo);
-                param[4] = new SqlParameter("@alternateNo", recruiterRegisterEntity.AlternateNo);               
+                param[4] = new SqlParameter("@alternateNo", recruiterRegisterEntity.AlternateNo);
                 param[5] = new SqlParameter("@officialEmailid", recruiterRegisterEntity.OfficialEmailId);
                 param[6] = new SqlParameter("@personalMailId", recruiterRegisterEntity.PersonalMailId);
                 param[7] = new SqlParameter("@freelancerOrEmployee", recruiterRegisterEntity.FreelanceOrEmployee);
@@ -47,12 +45,12 @@ namespace DAL
                 param[21] = new SqlParameter("@panCardNo", recruiterRegisterEntity.PANCardNo);
                 param[22] = new SqlParameter("@photoPath", recruiterRegisterEntity.PhotoPath);
                 param[23] = new SqlParameter("@password", recruiterRegisterEntity.Password);
-                param[24] = new SqlParameter("@isMailSent", recruiterRegisterEntity.IsMailSent);
-                param[25] = new SqlParameter("@setrecruiterid", SqlDbType.VarChar, 500);
-                param[25].Direction = ParameterDirection.Output;
+                //param[24] = new SqlParameter("@isMailSent", recruiterRegisterEntity.IsMailSent);
+                param[24] = new SqlParameter("@setrecruiterid", SqlDbType.VarChar, 500);
+                param[24].Direction = ParameterDirection.Output;
 
-                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure,Constants.sp_HR_InsertRecruiterRegisterDetails , param);
-                string recruiterID = Convert.ToString(param[25].Value);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_HR_InsertRecruiterRegisterDetails, param);
+                string recruiterID = Convert.ToString(param[24].Value);
 
                 if (string.IsNullOrEmpty(recruiterID))
                 {
@@ -67,6 +65,22 @@ namespace DAL
             finally
             {
                 connection.Close();
+            }
+        }
+
+        public void UpdateMailsentDAL(Entities.HR.RecruiterRegisterEntity registerRecruiterEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlParameter[] sparams = new SqlParameter[2];
+                sparams[0] = new SqlParameter("@recruiterID", registerRecruiterEntity.Recruiterid);
+                sparams[1] = new SqlParameter("@isMailsent", registerRecruiterEntity.IsMailSent);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_HR_UpdateRecruiterIsMailSent, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

@@ -113,7 +113,7 @@
                 </td>
             </tr>
             <tr>
-                <td><asp:Label ID="lblStatus" runat="server" Text=" Client Profile " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblStatus" runat="server" Text=" Status " CssClass="label"></asp:Label></td>
                 <td>
                     <asp:RadioButtonList ID="rbtlistStatus" runat="server"></asp:RadioButtonList>
                 </td>

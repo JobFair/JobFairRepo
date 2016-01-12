@@ -352,6 +352,7 @@ function ValidateFinancialDate(TranDate) {
 
 /********** other controls validation ************************/
 function IsSelected(ctrl, ctrlType, msg) {
+    debugger;
     var selectedTest = document.getElementById(ctrl);
     if (selectedTest != null) {
         var elements = selectedTest.getElementsByTagName("input");

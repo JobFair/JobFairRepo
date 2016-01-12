@@ -44,7 +44,6 @@
     <Compile Include="AffirmativeDetailsREDAL.cs" />
     <Compile Include="ChangeLoginDetailsDAL.cs" />
     <Compile Include="ClientContactPersonDetailsDAL.cs" />
-    <Compile Include="ClientRequirementsHRDAL.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ContactDetailsREDAL.cs" />
     <Compile Include="JobApplicationDAL.cs" />
