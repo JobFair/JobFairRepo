@@ -38,5 +38,25 @@ namespace DAL
 
 
         }
+
+        public DataSet GetInActiveJobs()
+        {
+            DataSet dsinactivejobs = new DataSet();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_RE_ManageReponsesInActiveJobs", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dsinactivejobs);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return dsinactivejobs;
+        }
     }
 }

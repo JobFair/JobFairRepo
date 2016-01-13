@@ -18,5 +18,11 @@ namespace BAL
             ManageResponsesDAL manageresponsesDAL = new ManageResponsesDAL();
             return manageresponsesDAL.GetActiveJobs();
         }
+
+        public DataSet GetInActiveJobs()
+        {
+            ManageResponsesDAL manageresponsesDAL = new ManageResponsesDAL();
+            return manageresponsesDAL.GetInActiveJobs();
+        }
     }
 }
