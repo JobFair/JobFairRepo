@@ -1,4 +1,4 @@
-﻿using Entities.Common;
+﻿using Entities.Recruiter;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,7 +20,7 @@ namespace DAL
         /// <summary>
         /// Method for converting the object to XML.
         /// </summary>
-        /// <param name="languageDetails">languageDetails</param>
+        /// <param name="languageDetails">Parameter languageDetails</param>
         /// <returns>xml</returns>
         private string CreateXML(List<LanguageEntity> languageDetails)
         {
@@ -35,7 +35,12 @@ namespace DAL
                 return xmlDoc.InnerXml;
             }
         }
-        public bool SaveLanguageDetailsDAL(List<Entities.Common.LanguageEntity> languageDetailsList)
+        /// <summary>
+        /// Method to Save language details in AffirmativeDetailsREDAL class
+        /// </summary>
+        /// <param name="languageDetailsList">Parameter of List of LanguageEntity class</param>
+        /// <returns>System.Boolean</returns>
+        public bool SaveLanguageDetailsDAL(List<Entities.Recruiter.LanguageEntity> languageDetailsList)
         {
             try
             {
@@ -44,7 +49,7 @@ namespace DAL
 
                 SqlParameter[] sqlparams = { new SqlParameter("@adEntity", languageDetails) };
 
-                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertLanguageDetails, sqlparams);
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertLanguageDetails, sqlparams);
                 if (result > 0)
                 {
                     return true;
@@ -60,14 +65,18 @@ namespace DAL
                 connection.Close();
             }
         }
-
-        public bool SaveAffirmativeDetailsDAL(Entities.Common.AffirmativeDetailsEntity affirmativeDetailsEntity)
+        /// <summary>
+        /// Method to save affirmative details in AffirmativeDetailsREDAL class
+        /// </summary>
+        /// <param name="affirmativeDetailsEntity">Parameter of AffirmativeDetailsEntity class</param>
+        /// <returns>System.Boolean</returns>
+        public bool SaveAffirmativeDetailsDAL(Entities.Recruiter.AffirmativeDetailsEntity affirmativeDetailsEntity)
         {
             int result;
             try
             {
                 SqlParameter[] sqlparams ={
-                                          new SqlParameter("@candidateId",affirmativeDetailsEntity.ID),
+                                          new SqlParameter("@recruiterId",affirmativeDetailsEntity.ID),
                                           new SqlParameter("@physicallyChallenged",affirmativeDetailsEntity.PhysicallyChallenged),
                                           new SqlParameter("@description",affirmativeDetailsEntity.Description),
                                           new SqlParameter("@sports",affirmativeDetailsEntity.Sports),
@@ -77,7 +86,7 @@ namespace DAL
                                           new SqlParameter ("@hobbies",affirmativeDetailsEntity.Hobbies),
                                           new SqlParameter ("@extraActivity",affirmativeDetailsEntity.ExtraActivity)                                         
                                           };
-                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_OtherDetails, sqlparams);
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertOtherDetails, sqlparams);
                 if (result > 0)
                 {
                     return true;

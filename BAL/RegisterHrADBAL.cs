@@ -30,15 +30,31 @@ namespace BAL
         {
             return Utility.GetCity(StateId);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cityId"></param>
+        /// <returns></returns>
         public System.Data.DataSet GetArea(int cityId)
         {
             return Utility.GetArea(cityId);
         }
-
+        /// <summary>
+        /// Method to get Country code in RegisterHrADBAL class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
         public System.Data.DataSet GetCountryCode()
         {
             return Utility.GetCountryCode();
+        }
+        /// <summary>
+        /// Method to check ismailsent RegisterHrADBAL class
+        /// </summary>
+        /// <param name="registerEntity">Parameter of RegisterEntity</param>
+        public void UpdateMailsentBAL(Entities.Common.RegisterEntity registerEntity)
+        {
+            RegisterHrADDAL registerHrADDAL = new RegisterHrADDAL();
+            registerHrADDAL.UpdateMailsentDAL(registerEntity);
         }
     }
 }

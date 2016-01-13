@@ -15,6 +15,7 @@ namespace JobFair.Forms.Admin
 {
     public partial class HRRegistration : System.Web.UI.Page
     {
+        bool isMailSent;
         private string HrPrefix = ConfigurationManager.AppSettings["HrPrefix"];
         RegisterEntity registerEntity = new RegisterEntity();
         
@@ -150,23 +151,27 @@ namespace JobFair.Forms.Admin
                         string extension = Path.GetExtension(FileUploadRecruiterPhoto.PostedFile.FileName);
                         FileUploadRecruiterPhoto.SaveAs(uploadphoto + HrPrefix.ToString() + extension);
                     }
-                    Label1.Text = "Welcome. Registerd successfully";
+                    isMailSent = SendHTMLMail(result);
+                    if (isMailSent == true)
+                    {
+                        registerEntity.IsMailSent = true;
+                        registerHrADBAL.UpdateMailsentBAL(registerEntity);
+                        Label1.Text = "Welcome. Registerd successfully";
+
+                    }
+                    else
+                    {
+
+                    }
+                    
                 }
                 else
                 {
                     Label1.Text = "Not registerd";
                 }
-                bool isMailSent = SendHTMLMail(result);
-                if (isMailSent == true)
-                {
-                    registerEntity.IsMailSent = true;
-                    Response.Write("Registration done with welcome mail");
-
-                }
-                else
-                {
-                    Response.Write("<script language='javascript'>alert('Registerd Sucessfully but reciept not generated')</script>");
-                }
+               
+                
+                
 
             }
             catch (Exception ex)
