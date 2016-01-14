@@ -22,23 +22,13 @@ namespace BAL
             ViewProfileREDAL viewProfileDAL = new ViewProfileREDAL();
             return viewProfileDAL.ViewContactDetailsDAL(recruiterId);
         }
-        /// <summary>
-        /// ViewProfile of recuiter
-        /// </summary>
-        /// <param name="viewProfileEntity">The ViewProfile Entity</param>
-        /// <returns></returns>
-        //public DataSet ViewProfile(ViewProfileEntity viewProfileEntity)
-        //{
-        //    return viewProfileDAL.ViewProfileDAL(viewProfileEntity);
-        //}
 
-        /// <summary>
-        /// For display posted job of recruiter
-        /// </summary>
-        /// <returns></returns>
-        //public DataSet ViewJobPostBAL()
-        //{
-        //    return viewProfileDAL.ViewJobPostDAL();
-        //}
+        public DataSet ViewAffirmativeDetailsBAL(long recruiterId)
+        {
+            ViewProfileREDAL viewProfileREDAL = new ViewProfileREDAL();
+            return viewProfileREDAL.ViewAffirmativeDetailsDAL(recruiterId);
+        }
+
+       
     }
 }

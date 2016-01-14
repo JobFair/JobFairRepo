@@ -18,6 +18,11 @@ namespace BAL
             return personalDetailsDAL.SavePersonalDetails(personalDetailsEntity);
         }
 
+        /// <summary>
+        /// View personal details bal
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewPersonalDetailsBAL(long recruiterId)
         {
             PersonalDetailsREDAL personalDetailsDAL = new PersonalDetailsREDAL();
@@ -63,6 +68,11 @@ namespace BAL
             return Utility.GetArea(cityId);
         }
 
+        /// <summary>
+        /// Update personal details bal
+        /// </summary>
+        /// <param name="objPersonalDetailsEntity">objPersonalDetailsEntity</param>
+        /// <returns>System.Int32</returns>
         public int UpdatePersonalDetailsBAL(PersonalDetailsEntity objPersonalDetailsEntity)
         {
             PersonalDetailsREDAL pdDAL = new PersonalDetailsREDAL();

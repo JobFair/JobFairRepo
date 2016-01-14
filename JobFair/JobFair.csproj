@@ -115,6 +115,8 @@
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
     <Content Include="Forms\Recruiter\SearchRecord.aspx" />
+    <Content Include="Forms\Recruiter\ViewClientRequirementDetails.aspx" />
+    <Content Include="Forms\Recruiter\ViewClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="Images\logoitch.jpg" />
     <Content Include="Images\NewFolder1\jquery-1.11.1.min %281%29.js" />
@@ -432,6 +434,20 @@
     </Compile>
     <Compile Include="Forms\Recruiter\SearchRecord.aspx.designer.cs">
       <DependentUpon>SearchRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ViewClientRequirementDetails.aspx.cs">
+      <DependentUpon>ViewClientRequirementDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ViewClientRequirementDetails.aspx.designer.cs">
+      <DependentUpon>ViewClientRequirementDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ViewClientRequirements.aspx.cs">
+      <DependentUpon>ViewClientRequirements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ViewClientRequirements.aspx.designer.cs">
+      <DependentUpon>ViewClientRequirements.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\ViewProfile.aspx.cs">
       <DependentUpon>ViewProfile.aspx</DependentUpon>

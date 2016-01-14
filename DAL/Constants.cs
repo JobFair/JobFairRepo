@@ -112,5 +112,10 @@
         public static string sp_RE_UpdateContactDetails = "sp_RE_UpdateContactDetails";
         public static string sp_RE_UpdatePersonalDetails = "sp_RE_UpdatePersonalDetails";
         public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent";
+        public static string sp_RE_SelectAffirmativeDetails = "sp_RE_SelectAffirmativeDetails";
+        public static string sp_RE_ViewClientRequirements = "sp_RE_ViewClientRequirements";
+        public static string sp_RE_ViewClientRequirementDetalils = "sp_RE_ViewClientRequirementDetalils";
+        public static string sp_RE_SelectActiveRequirement = "sp_RE_SelectActiveRequirement";
+        public static string sp_RE_SelectInActiveRequirements = "sp_RE_SelectInActiveRequirements";
     }
 }
