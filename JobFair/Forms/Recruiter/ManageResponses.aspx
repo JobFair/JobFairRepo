@@ -14,13 +14,24 @@
     <div>  
         <asp:Label ID="lblmanageresponses" runat="server" Text="Manage Responses"></asp:Label>
      <asp:ScriptManager  runat="server"></asp:ScriptManager> 
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" Width="516px" Height="376px">
-            <cc1:TabPanel runat="server" HeaderText="ActiveJobs" ID="TabPanel1"> 
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="516px" Height="580px">
+            <cc1:TabPanel runat="server" HeaderText="ActiveJobs" ID="TabPanel1" ScrollBars="Vertical"> 
                 <ContentTemplate>
                     <asp:Repeater id ="rptractivejobs" runat="server">
                    <ItemTemplate>
+                        
                      <tr>
+                            <td><table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                           <asp:Button ID="btnnewapllications" runat="server" Text="New Applications" PostBackUrl="~/Forms/Recruiter/NewApplications.aspx"/>
+                           <asp:Button ID="btnviewapplications" runat="server" Text="View Applications" />
+                           <asp:Button ID="btnrejet" runat="server" Text="Accepted" />
+                           <asp:Button ID="btnreject" runat="server" Text="Rejected" />
+                           <tr>
                             <td>
+
+                               </td>
+                           </tr>
+                       </table>
                                 <table>
                                     <tr>
                                         <td>
@@ -64,20 +75,21 @@
                                         </td>
                                         </tr>
                             <td>
-                                <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
+                                <table>
                                     <tr>
                                        <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
+                      
                       </ItemTemplate>
                         </asp:Repeater>
                  </ContentTemplate>
             </cc1:TabPanel>
             <cc1:TabPanel runat="server" HeaderText="InActiveJobs" ID="TabPanel2">
                 <ContentTemplate>
-                <asp:Repeater id ="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
+                <asp:Repeater id ="rptrinactivejobs" runat="server" >
                    <ItemTemplate>
                      <tr>
                             <td>
@@ -134,9 +146,6 @@
                       </ItemTemplate>
                         </asp:Repeater>
                  </ContentTemplate>
-            </cc1:TabPanel>
-            <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Jobs">
-
             </cc1:TabPanel>
         </cc1:TabContainer>
         </div>

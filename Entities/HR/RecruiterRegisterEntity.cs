@@ -43,5 +43,7 @@ namespace Entities.HR
         public string AlternateNo { get; set; }
 
         public string PersonalMailId { get; set; }
+
+        public long HrId { get; set; }
     }
 }

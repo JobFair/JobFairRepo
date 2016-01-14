@@ -98,6 +98,7 @@ namespace JobFair.Forms.HR
         /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
+            Response.Redirect(Request.RawUrl);
         }
 
         //private void BindClientName()
