@@ -1,5 +1,5 @@
 ﻿using BAL;
-using Entities.Common;
+using Entities.Recruiter;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,10 +10,17 @@ using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.Recruiter
 {
+    /// <summary>
+    /// Class AffirmativeDetails
+    /// </summary>
     public partial class AffirmativeDetails : System.Web.UI.Page
     {
-        public int RecruiterId=3;
-       
+        public static int RecruiterId=12;
+       /// <summary>
+       /// Handles Load event of Page
+       /// </summary>
+       /// <param name="sender">The source of the event.</param>
+       /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,7 +30,9 @@ namespace JobFair.Forms.Recruiter
             }
 
         }
-
+        /// <summary>
+        /// Method to Bind Language to ddlLanguageFirst, ddlLanguageSecond, ddlLanguageThird controls
+        /// </summary>
         private void BindLanguages()
         {
             try
@@ -61,7 +70,11 @@ namespace JobFair.Forms.Recruiter
                 // throw;
             }
         }
-
+        /// <summary>
+        /// Handles Click event of btnSubmit control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
@@ -72,7 +85,7 @@ namespace JobFair.Forms.Recruiter
 
             // Set the value of LanguageEntity for first language
             LanguageEntity firstlanguageEntity = new LanguageEntity();
-            firstlanguageEntity.CandidateId = RecruiterId;           
+            firstlanguageEntity.RecruiterId = RecruiterId;           
             firstlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
             firstlanguageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
             firstlanguageEntity.Read = chkReadFirst.Checked;
@@ -85,7 +98,7 @@ namespace JobFair.Forms.Recruiter
 
             //set the value of LanguageEntity for second language
             LanguageEntity secondlanguageEntity = new LanguageEntity();
-            secondlanguageEntity.CandidateId = RecruiterId;
+            secondlanguageEntity.RecruiterId = RecruiterId;
             secondlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageSecond.SelectedValue);
             secondlanguageEntity.ProficiencyLevel = ddlProficiencySecond.SelectedItem.Text;
             secondlanguageEntity.Read = chkReadSecond.Checked;
@@ -98,7 +111,7 @@ namespace JobFair.Forms.Recruiter
 
             //set the value of LanguageEntity for third language
             LanguageEntity thirdlanguageEntity = new LanguageEntity();
-            thirdlanguageEntity.CandidateId = RecruiterId;
+            thirdlanguageEntity.RecruiterId = RecruiterId;
             thirdlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageThird.SelectedValue);
             thirdlanguageEntity.ProficiencyLevel = ddlProficiencyThird.SelectedItem.Text;
             thirdlanguageEntity.Read = chkReadThird.Checked;
@@ -116,7 +129,6 @@ namespace JobFair.Forms.Recruiter
             {
                 affirmativeDetailsEntity.PhysicallyChallenged = rbtPhysicallyChallenged.SelectedItem.Text;
             }
-
             affirmativeDetailsEntity.Description = txtDescription.Text.Trim();
             affirmativeDetailsEntity.Sports = txtSports.Text.Trim();
             affirmativeDetailsEntity.SportsDescription = txtSportsDescription.Text.Trim();
@@ -146,7 +158,11 @@ namespace JobFair.Forms.Recruiter
                 Response.Write("<script language='javascript'>alert('Sorry')</script>");
             }
         }
-
+        /// <summary>
+        /// Handles SelectedIndexChanged event of rbtPhysicallyChallenged control
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rbtPhysicallyChallenged_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

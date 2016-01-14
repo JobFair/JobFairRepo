@@ -66,5 +66,21 @@ namespace DAL
                 connection.Close();
             }
         }
+
+        public void UpdateMailsentDAL(Entities.Common.RegisterEntity registerEntity)
+        {
+            try
+            {
+                connection.Open();
+                SqlParameter[] sparams = new SqlParameter[2];
+                sparams[0] = new SqlParameter("@hrID", registerEntity.Recruiterid);
+                sparams[1] = new SqlParameter("@isMailsent", registerEntity.IsMailSent);
+                SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_AD_UpdateHrIsMailSent, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

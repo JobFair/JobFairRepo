@@ -41,10 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\AffirmativeDetailsEntity.cs" />
     <Compile Include="Common\ChangePasswordEnitity.cs" />
     <Compile Include="Common\CityEntity.cs" />
-    <Compile Include="Common\LanguageEntity.cs" />
     <Compile Include="Common\RegisterEntity.cs" />
     <Compile Include="HR\ClientContactPersonDetailsEntity.cs" />
     <Compile Include="HR\ClientRequirementsHREntity.cs" />
@@ -73,6 +71,8 @@
     <Compile Include="JobSeeker\RegisterEntity.cs" />
     <Compile Include="Recruiter\AddJobPostEntity.cs" />
     <Compile Include="Recruiter\ContactDetailsEntity.cs" />
+    <Compile Include="Recruiter\AffirmativeDetailsEntity.cs" />
+    <Compile Include="Recruiter\LanguageEntity.cs" />
     <Compile Include="Recruiter\ManageJobEntity.cs" />
     <Compile Include="Recruiter\ManageResponsesEntity.cs" />
     <Compile Include="Recruiter\PersonalDetailsEntity.cs" />
