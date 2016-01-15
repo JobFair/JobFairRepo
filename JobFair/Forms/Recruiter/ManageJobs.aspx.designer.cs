@@ -13,13 +13,13 @@ namespace JobFair.Forms.Recruiter {
     public partial class ManageJobs {
         
         /// <summary>
-        /// form1 control.
+        /// frmManageJobs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmManageJobs;
         
         /// <summary>
         /// ScriptManager1 control.

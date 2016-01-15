@@ -13,7 +13,8 @@ namespace JobFair.Forms.HR
     public partial class ClientRequirements : System.Web.UI.Page
     {
         private DataSet dsClientDetails = new DataSet();
-        private ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
+        private ClientRequirementsHRBAL clientRequirementsHRBAL = new ClientRequirementsHRBAL();
+        int HrId = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +25,8 @@ namespace JobFair.Forms.HR
                     BindFunctionalArea();
                     BindIndustry();
                     BindCountry();
+                    BindClient();
+                    BindRecruiter(HrId);
                 }
                 catch (Exception)
                 {
@@ -37,7 +40,7 @@ namespace JobFair.Forms.HR
         {
             try
             {
-                ClientRequirementsHRBAL clientRequirementsHRBAL = new ClientRequirementsHRBAL();
+                //ClientRequirementsHRBAL clientRequirementsHRBAL = new ClientRequirementsHRBAL();
                 ClientRequirementsHREntity clientRequirementsHREntity = new ClientRequirementsHREntity();
                 // Assign values to the entities
                 clientRequirementsHREntity.HrId = 1;
@@ -58,7 +61,7 @@ namespace JobFair.Forms.HR
                 clientRequirementsHREntity.DateOfRequirementSent = Convert.ToDateTime(txtDateofRequirementSent.Text);
                 clientRequirementsHREntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
                 clientRequirementsHREntity.Status = rbtlistStatus.SelectedItem.Value;
-                clientRequirementsHREntity.RecruiterID = Convert.ToInt32(txtRecruiter.Text.Trim());
+                clientRequirementsHREntity.RecruiterID = Convert.ToInt32(ddlRecruiter.SelectedValue);
 
                 // Saving data to the database
                 int result = clientRequirementsHRBAL.SaveClientRequirementsBAL(clientRequirementsHREntity);
@@ -77,39 +80,81 @@ namespace JobFair.Forms.HR
             }
         }
 
-        [System.Web.Script.Services.ScriptMethod()]
-        [System.Web.Services.WebMethod]
-        public static List<string> GetRecruiter(string prefixText)
-        {
-            DataTable dtRecruiter = new DataTable();
+      //  [System.Web.Script.Services.ScriptMethod()]
+      //  [System.Web.Services.WebMethod]
+      //  public static List<KeyValuePair<int, string>> GetRecruiter(string prefixText, int count)
+      //{
+      //      DataTable dtRecruiter = new DataTable();
 
-            ClientRequirementsHRBAL clientRequirementsHRBAL = new ClientRequirementsHRBAL();
-            dtRecruiter = clientRequirementsHRBAL.GetRecruiter(prefixText);
-            List<string> recruitername = new List<string>();
-            try
-            {
-                // Check datatable is not null
-                if (dtRecruiter != null)
-                {
-                    for (int i = 0; i < dtRecruiter.Rows.Count; i++)
-                    {
-                        recruitername.Add(dtRecruiter.Rows[i][1].ToString());
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                //  throw;
-            }
-            return recruitername;
+      //      ClientRequirementsHRBAL clientRequirementsHRBAL = new ClientRequirementsHRBAL();
+      //      dtRecruiter = clientRequirementsHRBAL.GetRecruiterBAL(prefixText, count);
+      //      //List<string> recruitername = new List<string>();
+      //      //List<int> recruiterId = new List<int>();
+
+            
+      //      var RecruiterList = new List<KeyValuePair<int, string>>();
+      //      //RecruiterList.Add(new KeyValuePair<int, string>(1, "One");
+
+
+      //      int recruiterId; string recruitername;
+
+
+      //      try
+      //      {
+      //          // Check datatable is not null
+      //          if (dtRecruiter != null)
+      //          {
+      //              foreach (var item in RecruiterList)
+      //              {
+      //                  recruiterId = Convert.ToInt16(dtRecruiter.Rows[0]["@RecruiterID"]);
+      //                  recruitername = Convert.ToString(dtRecruiter.Rows[0]["@RecruiterfullName"]); ;
+      //              }
+                    
+      //              //for (int i = 0; i < dtRecruiter.Rows.Count; i++)
+      //              //{
+      //              //    recruitername.Add(dtRecruiter.Rows[i][1].ToString());
+      //              //}
+      //          }
+      //      }
+      //      catch (Exception) 
+      //      {
+      //          //  throw;
+      //      }
+      //      return RecruiterList;
+      //  }
+
+        /// <summary>
+        /// Method for binding DropDown with Client_table of database
+        /// </summary>
+        private void BindClient()
+        {
+            dsClientDetails = clientRequirementsHRBAL.GetClientNameBAL();
+            ddlClientName.DataSource = dsClientDetails;
+            ddlClientName.DataTextField = "ClientName";
+            ddlIndustry.DataValueField = "ClientId";
+            ddlClientName.DataBind();
+
+            //txtClientProfile. = "ClientName";
+            //ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
         }
 
+        /// <summary>
+        /// Method for binding DropDown with Recruiter_table of database
+        /// </summary>
+        private void BindRecruiter(int HrId)
+        {
+            dsClientDetails = clientRequirementsHRBAL.GetRecruiterBAL(HrId);
+            ddlRecruiter.DataSource = dsClientDetails;
+            ddlRecruiter.DataTextField = "RecruiterfullName";
+            ddlRecruiter.DataValueField = "RecruiterID";
+            ddlRecruiter.DataBind();
+        }
         /// <summary>
         /// Method for binding DropDown with FunctionalArea_Table of Database
         /// </summary>
         private void BindFunctionalArea()
         {
-            dsClientDetails = clientDetailsBAL.GetFunctionalArea();
+            dsClientDetails = clientRequirementsHRBAL.GetFunctionalArea();
             ddlFunctionalArea.DataSource = dsClientDetails;
             ddlFunctionalArea.DataValueField = "FunctionalAreaId";
             ddlFunctionalArea.DataTextField = "FunctionalArea";
@@ -123,7 +168,7 @@ namespace JobFair.Forms.HR
         /// </summary>
         private void BindIndustry()
         {
-            dsClientDetails = clientDetailsBAL.GetIndustry();
+            dsClientDetails = clientRequirementsHRBAL.GetIndustry();
             ddlIndustry.DataSource = dsClientDetails;
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "IndustryId";
@@ -136,7 +181,7 @@ namespace JobFair.Forms.HR
         /// </summary>
         private void BindCountry()
         {
-            dsClientDetails = clientDetailsBAL.GetCountry();
+            dsClientDetails = clientRequirementsHRBAL.GetCountry();
             ddlCountry.DataSource = dsClientDetails;
             ddlCountry.DataTextField = "CountryName";
             ddlCountry.DataValueField = "CountryId";
@@ -151,7 +196,7 @@ namespace JobFair.Forms.HR
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
             int countryId = Convert.ToInt32(ddlCountry.SelectedValue);
-            dsClientDetails = clientDetailsBAL.GetState(countryId);
+            dsClientDetails = clientRequirementsHRBAL.GetState(countryId);
             ddlState.DataSource = dsClientDetails;
             ddlState.DataValueField = "StateId";
             ddlState.DataTextField = "StateName";
@@ -166,7 +211,7 @@ namespace JobFair.Forms.HR
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             int stateId = Convert.ToInt32(ddlState.SelectedValue);
-            dsClientDetails = clientDetailsBAL.GetCity(stateId);
+            dsClientDetails = clientRequirementsHRBAL.GetCity(stateId);
             ddlCity.DataSource = dsClientDetails;
             ddlCity.DataValueField = "cityID";
             ddlCity.DataTextField = "cityName";
@@ -181,12 +226,17 @@ namespace JobFair.Forms.HR
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             int cityId = Convert.ToInt32(ddlCity.SelectedValue);
-            dsClientDetails = clientDetailsBAL.GetArea(cityId);
+            dsClientDetails = clientRequirementsHRBAL.GetArea(cityId);
             ddlArea.DataSource = dsClientDetails;
             ddlArea.DataValueField = "areaID";
             ddlArea.DataTextField = "areaName";
             ddlArea.DataBind();
             ddlArea.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        protected void ddlRecruiter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -14,9 +14,9 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
 
-    <center><h2>
+    <h2 style="align-content:center">
         Client Details
-    </h2></center>
+    </h2>
         <table style="margin-left: 10px">
             <tr>
                 <td><asp:Label ID="lblClientName" runat="server" Text=" Client Name " CssClass="label"></asp:Label></td>
