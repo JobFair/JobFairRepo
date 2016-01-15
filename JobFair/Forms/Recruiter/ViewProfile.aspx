@@ -100,7 +100,7 @@
                 </FooterTemplate>
             </asp:Repeater>--%>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="2" Width="900px" Height="600px">
+            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="4" Width="900px" Height="600px">
                 <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="View Profile">
                     <ContentTemplate>
                         <table>
@@ -362,6 +362,97 @@
                 </cc1:TabPanel>
                 <cc1:TabPanel ID="TabPanel5" runat="server" HeaderText="Affirmative Details">
                     <ContentTemplate>
+                        <table>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td colspan="5">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">Languages </td>
+                                <td>Languages</td>
+                                <td>Proficiency</td>
+                                <td>Read</td>
+                                <td>Write</td>
+                                <td>Speak</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lblLanguageFirst" runat="server"></asp:Label></td>
+                                <td>
+                                    <asp:Label ID="lblProficiencyFirst" runat="server"></asp:Label></td>
+                                <td>
+                                    <asp:CheckBox ID="chkReadFirst" runat="server" Enabled="False" /></td>
+                                <td>
+                                    <asp:CheckBox ID="chkWriteFirst" runat="server" Enabled="False" /></td>
+                                <td>
+                                    <asp:CheckBox ID="chkSpeakFirst" runat="server" Enabled="False" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lblLanguageSecond" runat="server"></asp:Label></td>
+                                <td>
+                                    <asp:Label ID="lblProficiencySecond" runat="server"></asp:Label></td>
+                                <td>
+                                    <asp:CheckBox ID="chkReadSecond" runat="server" Enabled="False" /></td>
+                                <td>
+                                    <asp:CheckBox ID="chkWriteSecond" runat="server" Enabled="False" /></td>
+                                <td>
+                                    <asp:CheckBox ID="chkSpeakSecond" runat="server" Enabled="False" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lblLanguageThird" runat="server"></asp:Label></td>
+                                <td>
+                                    <asp:Label ID="lblProficiencyThird" runat="server"></asp:Label></td>
+                                <td>
+                                    <asp:CheckBox ID="chkReadThird" runat="server" Enabled="False" /></td>
+                                <td>
+                                    <asp:CheckBox ID="chkWriteThird" runat="server" Enabled="False" /></td>
+                                <td>
+                                    <asp:CheckBox ID="chkSpeakThird" runat="server" Enabled="False" /></td>
+                            </tr>
+                            <tr>
+                                <td>Physically Challenged</td>
+                                <td colspan="5">
+                                    <asp:Label ID="lblPhysicallyChallenged" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td colspan="5">
+                                    <asp:Label ID="lblDescription" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Sports</td>
+                                <td colspan="5">
+                                    <asp:Label ID="lblSports" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Description/Awards</td>
+                                <td colspan="5">
+                                    <asp:Label ID="lblSportsDescription" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Hobbies</td>
+                                <td colspan="5">
+                                    <asp:Label ID="lblHobbies" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Extra Curricular Activity</td>
+                                <td colspan="5">
+                                    <asp:Label ID="lblActivity" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>USA Permit</td>
+                                <td colspan="5">
+                                    <asp:Label ID="lblUSAPermit" runat="server"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td>Other Permit</td>
+                                <td colspan="5">
+                                    <asp:Label ID="lblOtherPermit" runat="server"></asp:Label></td>
+                            </tr>
+                        </table>
                     </ContentTemplate>
                 </cc1:TabPanel>
             </cc1:TabContainer>

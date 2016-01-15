@@ -27,6 +27,12 @@ namespace BAL
             ContactDetailsREDAL contactDetailsDAL = new ContactDetailsREDAL();
             return contactDetailsDAL.ViewContactDetailsDAL(recruiterId);
         }
+
+        /// <summary>
+        /// Update contact details of recruiter.
+        /// </summary>
+        /// <param name="contactDetailsEntity">contactDetailsEntity</param>
+        /// <returns>System.Int32</returns>
         public int UpdateContactDetailsBAL(ContactDetailsEntity contactDetailsEntity)
         {
             ContactDetailsREDAL contactDetailsDAL = new ContactDetailsREDAL();

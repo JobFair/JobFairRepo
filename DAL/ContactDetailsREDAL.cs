@@ -69,6 +69,12 @@ namespace DAL
             }
             return ds;
         }
+
+        /// <summary>
+        /// Update contact details dal
+        /// </summary>
+        /// <param name="contactDetailsEntity">ContactDetailsEntity</param>
+        /// <returns>System.Int32</returns>
         public int UpdateContactDetailsDAL(ContactDetailsEntity contactDetailsEntity)
         {
             int result = 0;

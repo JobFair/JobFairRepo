@@ -10,7 +10,7 @@
 namespace JobFair.Forms.Recruiter {
     
     
-    public partial class ManageResponses {
+    public partial class ViewClientRequirements {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblmanageresponses control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmanageresponses;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
         /// TabContainer1 control.
@@ -49,13 +49,13 @@ namespace JobFair.Forms.Recruiter {
         protected global::AjaxControlToolkit.TabPanel TabPanel1;
         
         /// <summary>
-        /// rptractivejobs control.
+        /// grdViewRequirements control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptractivejobs;
+        protected global::System.Web.UI.WebControls.GridView grdViewRequirements;
         
         /// <summary>
         /// TabPanel2 control.
@@ -67,12 +67,30 @@ namespace JobFair.Forms.Recruiter {
         protected global::AjaxControlToolkit.TabPanel TabPanel2;
         
         /// <summary>
-        /// rptrinactivejobs control.
+        /// grdActiveRequirement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrinactivejobs;
+        protected global::System.Web.UI.WebControls.GridView grdActiveRequirement;
+        
+        /// <summary>
+        /// TabPanel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel TabPanel3;
+        
+        /// <summary>
+        /// grdInActiveRequirements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdInActiveRequirements;
     }
 }

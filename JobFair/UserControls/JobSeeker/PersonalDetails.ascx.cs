@@ -83,7 +83,7 @@ namespace JobFair.UserControls.JobSeeker
                             if (dsPersentState != null)
                             {
                                 ddlStatePresent.DataSource = dsPersentState;
-                                ddlStatePresent.DataTextField = "StateName"; 
+                                ddlStatePresent.DataTextField = "StateName";
                                 ddlStatePresent.DataValueField = "StateId";
                                 ddlStatePresent.DataBind();
                             }

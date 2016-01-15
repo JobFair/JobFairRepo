@@ -15,12 +15,14 @@ namespace JobFair.UserControls.Recruiter
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check page is not post back
             if (!IsPostBack)
             {
                 GetCountryPresent();
                 GetCountryPerm();
                 GetMonths();
                 GetYear();
+                // Check the isEdit is true for edit
                 if (isEdit)
                 {
                     BindPersonalDatails();
@@ -28,6 +30,7 @@ namespace JobFair.UserControls.Recruiter
             }
         }
 
+        // Bind personal details
         private void BindPersonalDatails()
         {
             try
@@ -424,6 +427,11 @@ namespace JobFair.UserControls.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the ddlCityPresent control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlCityPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -448,6 +456,11 @@ namespace JobFair.UserControls.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the ddlCityPerm control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlCityPerm_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -472,16 +485,22 @@ namespace JobFair.UserControls.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnSubmit control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
+                // Check if is Edit for update
                 if (isEdit)
                 {
                     PersonalDetailsEntity objPersonalDetailsEntity = new PersonalDetailsEntity();
                     PersonalDetailsREBAL personalDetailsBAL = new PersonalDetailsREBAL();
 
-                    // Set value to PersonalDetails job seeker entity
+                    // Set value to PersonalDetails for recruiter entity
                     objPersonalDetailsEntity.recruiterId = recruiterId;
                     objPersonalDetailsEntity.presentAddress = txtPresentAddress.Text.Trim();
                     objPersonalDetailsEntity.presentCountryId = Convert.ToInt32(ddlCountryPresent.SelectedValue);
@@ -497,7 +516,6 @@ namespace JobFair.UserControls.Recruiter
                     objPersonalDetailsEntity.permantPincode = Convert.ToInt32(txtPincodePerm.Text);
                     objPersonalDetailsEntity.dateOfBirth = Convert.ToDateTime(txtDOB.Text);
 
-                   
                     // Check if radio button checked
                     if (rbtPassportYes.Checked)
                     {
@@ -511,7 +529,7 @@ namespace JobFair.UserControls.Recruiter
                         objPersonalDetailsEntity.passportValidity = "null";
                     }
                     objPersonalDetailsEntity.maritialStatus = ddlMaritalStatus.SelectedItem.Text;
-                    int result = personalDetailsBAL.UpdatePersonalDetailsBAL(objPersonalDetailsEntity);        
+                    int result = personalDetailsBAL.UpdatePersonalDetailsBAL(objPersonalDetailsEntity);
                     // Check if result is greater than zero or not
                     if (result > 0)
                     {
@@ -527,7 +545,7 @@ namespace JobFair.UserControls.Recruiter
                     PersonalDetailsEntity personalDetailsEntity = new PersonalDetailsEntity();
                     PersonalDetailsREBAL personalDetailsBAL = new PersonalDetailsREBAL();
 
-                    // Set value to PersonalDetails job seeker entity
+                    // Set value to PersonalDetails of recruiter entity
                     personalDetailsEntity.recruiterId = recruiterId;
                     personalDetailsEntity.permantAddress = txtAddressPerm.Text.Trim();
                     personalDetailsEntity.permantCountryId = Convert.ToInt32(ddlCountryPerm.SelectedValue);

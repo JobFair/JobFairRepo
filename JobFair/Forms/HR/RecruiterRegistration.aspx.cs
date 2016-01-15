@@ -12,6 +12,7 @@ namespace JobFair.Forms.HR
     public partial class RecruiterRegistration : System.Web.UI.Page
     {
         bool isMailSent;
+        Int64 HrID=2;
         private string RecruiterPrefix = ConfigurationManager.AppSettings["RecruiterPrefix"];
         RecruiterRegisterEntity registerRecruiterEntity = new RecruiterRegisterEntity();
         /// <summary>
@@ -115,6 +116,7 @@ namespace JobFair.Forms.HR
                 registerRecruiterEntity.OfficialContactNo = txtOfficialContact.Text.Trim();
                 registerRecruiterEntity.AlternateNo = txtAlternateContactNo.Text.Trim();
                 registerRecruiterEntity.PersonalMailId = txtPersonalMailid.Text.Trim();
+                registerRecruiterEntity.HrId = HrID;
                 registerRecruiterEntity.EmploymentStatus = rbtlEmploymentStatus.SelectedValue;
                 if (rbtFreelance.Checked)
                 {

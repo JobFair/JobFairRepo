@@ -239,7 +239,6 @@ namespace JobFair.Forms.JobSeeker
         {
             if (e.CommandName == "Contact")
             {
-
                 Label lbl = (Label)e.Item.FindControl("lblid");
                 //Session["jobid"] = lbl.Text;
                 //Server.Transfer("ViewAllJobPost.aspx");
