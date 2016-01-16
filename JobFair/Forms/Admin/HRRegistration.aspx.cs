@@ -16,6 +16,7 @@ namespace JobFair.Forms.Admin
     public partial class HRRegistration : System.Web.UI.Page
     {
         bool isMailSent;
+        Int64 AdminId = 1;
         private string HrPrefix = ConfigurationManager.AppSettings["HrPrefix"];
         RegisterEntity registerEntity = new RegisterEntity();
         
@@ -137,6 +138,7 @@ namespace JobFair.Forms.Admin
                 registerEntity.ClientName = txtClientName.Text.Trim();
                 registerEntity.ClientSite = txtClientSite.Text.Trim();
                 registerEntity.Address = txtAddress.Text.Trim();
+                registerEntity.AdminId = AdminId;
 
                 //get path of photos
                 string path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + this.FileUploadRecruiterPhoto.FileName;

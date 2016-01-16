@@ -43,5 +43,7 @@ namespace Entities.Common
         public string AlternateNo { get; set; }
 
         public string PersonalMailId { get; set; }
+
+        public long AdminId { get; set; }
     }
 }

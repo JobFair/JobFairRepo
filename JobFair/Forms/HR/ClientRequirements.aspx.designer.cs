@@ -328,13 +328,67 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.Label lblRecruiter;
         
         /// <summary>
-        /// txtRecruiter control.
+        /// ddlRecruiter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRecruiter;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRecruiter;
+        
+        /// <summary>
+        /// pnlRecruiter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlRecruiter;
+        
+        /// <summary>
+        /// txtRecruiterId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRecruiterId;
+        
+        /// <summary>
+        /// txtRecruiterName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRecruiterName;
+        
+        /// <summary>
+        /// txtNoRequirements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNoRequirements;
+        
+        /// <summary>
+        /// txtRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRating;
+        
+        /// <summary>
+        /// txtNewRequirements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewRequirements;
         
         /// <summary>
         /// btnSubmit control.
