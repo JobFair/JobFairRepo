@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
-            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" Width="900px" Height="600px">
+            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="2" Width="900px" Height="600px">
                 <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="New Requirements">
                     <ContentTemplate>
                         <asp:GridView ID="grdViewRequirements" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -44,7 +44,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="lnkbtnView" runat="server"  CommandArgument='<%#Eval("ClientRequirementId")%>'  OnClientClick="document.forms[0].target='_blank';" OnClick="lnkView_Click" CommandName="View">View</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkbtnView" runat="server" CommandArgument='<%#Eval("ClientRequirementId")%>' OnClientClick="document.forms[0].target='_blank';" OnClick="lnkView_Click" CommandName="View">View</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -59,11 +59,38 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
-
                     </ContentTemplate>
                 </cc1:TabPanel>
                 <cc1:TabPanel ID="TabPanel2" runat="server" HeaderText="Active Requirements">
                     <ContentTemplate>
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <h2>Search Field</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Client Name</td>
+                                <td>
+                                    <asp:TextBox ID="txtClientName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Client Requirement</td>
+                                <td>
+                                    <asp:TextBox ID="txtClientRequirement" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Duration</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+                                </td>
+                            </tr>
+                        </table>
                         <asp:GridView ID="grdActiveRequirement" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
 
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -92,7 +119,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="lnkbtnView" runat="server"  CommandArgument='<%#Eval("ClientRequirementId")%>'  OnClientClick="document.forms[0].target='_blank';" OnClick="lnkView_Click" CommandName="View">View</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkbtnView" runat="server" CommandArgument='<%#Eval("ClientRequirementId")%>' OnClientClick="document.forms[0].target='_blank';" OnClick="lnkView_Click" CommandName="View">View</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -111,7 +138,42 @@
                 </cc1:TabPanel>
                 <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="InActive Requirements">
                     <ContentTemplate>
-                         <asp:GridView ID="grdInActiveRequirements" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <h2>Search Field</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Client Name</td>
+                                <td>
+                                    <asp:TextBox ID="txtClient" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Client Requirement</td>
+                                <td>
+                                    <asp:TextBox ID="txtRequirement" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Duration</td>
+                                <td>
+                                    <asp:TextBox ID="txtFrom" runat="server"></asp:TextBox>
+                                    <cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtFrom" TargetControlID="txtFrom" Format="yyyy/MM/dd" />
+                                    &nbsp;To
+                                     <asp:TextBox ID="txtTo" runat="server"></asp:TextBox>
+                                    <cc1:CalendarExtender ID="CalendarExtender2" runat="server" PopupButtonID="txtTo" TargetControlID="txtTo" Format="yyyy/MM/dd" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <asp:Button ID="btnInActiveSearch" runat="server" Text="Search" OnClick="btnInActiveSearch_Click" />
+                                </td>
+                            </tr>
+                        </table>
+
+                        <asp:GridView ID="grdInActiveRequirements" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
 
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
 
@@ -139,7 +201,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="lnkbtnView" runat="server"  CommandArgument='<%#Eval("ClientRequirementId")%>'  OnClientClick="document.forms[0].target='_blank';" OnClick="lnkView_Click" CommandName="View">View</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkbtnView" runat="server" CommandArgument='<%#Eval("ClientRequirementId")%>' OnClientClick="document.forms[0].target='_blank';" OnClick="lnkView_Click" CommandName="View">View</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -156,8 +218,6 @@
                         </asp:GridView>
                     </ContentTemplate>
                 </cc1:TabPanel>
-
-               
             </cc1:TabContainer>
         </div>
     </form>
