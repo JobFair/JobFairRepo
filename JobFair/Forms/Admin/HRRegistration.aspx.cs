@@ -178,7 +178,7 @@ namespace JobFair.Forms.Admin
             }
             catch (Exception ex)
             {
-                throw ex;
+                 throw ex;
             }
         }
 
@@ -192,7 +192,7 @@ namespace JobFair.Forms.Admin
 
             MailMessage Msg = new MailMessage();
             Msg.From = new MailAddress(from);
-            Msg.To.Add("saurabh.logossolutions@gmail.com");
+            Msg.To.Add(txtPersonalMailid.Text.Trim());
             StreamReader reader = new StreamReader(Server.MapPath("~/Email Templates/RegistrationConfirmation.html"));
             string readFile = reader.ReadToEnd();
             string strContent = "";

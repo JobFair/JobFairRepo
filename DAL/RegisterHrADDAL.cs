@@ -45,7 +45,7 @@ namespace DAL
                 param[22] = new SqlParameter("@panCardNo", registerEntity.PANCardNo);
                 param[23] = new SqlParameter("@photoPath", registerEntity.PhotoPath);
                 param[24] = new SqlParameter("@password", registerEntity.Password);
-                param[25] = new SqlParameter("@isMailSent", registerEntity.IsMailSent);
+               
                 param[26] = new SqlParameter("@setHrid", SqlDbType.VarChar, 500);
                 param[26].Direction = ParameterDirection.Output;
 
@@ -67,7 +67,10 @@ namespace DAL
                 connection.Close();
             }
         }
-
+        /// <summary>
+        /// Method to check mail is sent or not in RegisterHrADDAL class
+        /// </summary>
+        /// <param name="registerEntity">Parameter of RegisterEntity </param>
         public void UpdateMailsentDAL(Entities.Common.RegisterEntity registerEntity)
         {
             try
