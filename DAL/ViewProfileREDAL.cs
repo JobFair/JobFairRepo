@@ -76,6 +76,20 @@ namespace DAL
             return ds;
         }
 
+        public DataSet ViewAffirmativeDetailsDAL(long recruiterId)
+        {
+            DataSet dsAffirmativeDetails = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@recruiterId", recruiterId) };
+                dsAffirmativeDetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_RE_SelectAffirmativeDetails, sparams);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            return dsAffirmativeDetails;
+        }
         ///// <summary>
         ///// View Job Post of recruiter
         ///// </summary>

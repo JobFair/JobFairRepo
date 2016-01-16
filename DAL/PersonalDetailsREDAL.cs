@@ -50,6 +50,11 @@ namespace DAL
             return result;
         }
 
+        /// <summary>
+        /// View personal details dal
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
+        /// <returns>DataSet</returns>
         public DataSet ViewPersonalDetailsDAL(long recruiterId)
         {
             DataSet ds = new DataSet();
@@ -65,6 +70,11 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// Update personal details dal
+        /// </summary>
+        /// <param name="objPersonalDetailsEntity">PersonalDetailsEntity</param>
+        /// <returns>System.Int32</returns>
         public int UpdatePersonalDetailsDAL(PersonalDetailsEntity objPersonalDetailsEntity)
         {
             int result = 0;

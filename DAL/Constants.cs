@@ -103,20 +103,25 @@
         public static string sp_RE_InsertContactDetails = "sp_RE_InsertContactDetails";
         public static string sp_RE_InsertPersonalDetails = "sp_RE_InsertPersonalDetails";
         public static string sp_HR_InsertRecruiterRegisterDetails = "sp_HR_InsertRecruiterRegisterDetails";
+        public static string sp_AD_InsertHRRegisterDetails = "sp_AD_InsertHRRegisterDetails";
+        public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent";
         public static string sp_RE_ViewProfile = "sp_RE_ViewProfile";
         public static string sp_RE_SelectPersonalDetails = "sp_RE_SelectPersonalDetails";
-        public static string sp_AD_InsertHRRegisterDetails = "sp_AD_InsertHRRegisterDetails";
         public static string sp_JS_SelectAllJobPost = "sp_JS_SelectAllJobPost";
         public static string sp_RE_SelectRequirement = "sp_RE_SelectRequirement";
         public static string sp_RE_RequirementDetails = "sp_RE_RequirementDetails";
         public static string sp_RE_SelectContactDetails = "sp_RE_SelectContactDetails";
         public static string sp_RE_UpdateContactDetails = "sp_RE_UpdateContactDetails";
         public static string sp_RE_UpdatePersonalDetails = "sp_RE_UpdatePersonalDetails";
-        public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent";
         public static string sp_RE_ManageReponsesInActiveJobs = "sp_RE_ManageReponsesInActiveJobs";
         public static string sp_AD_UpdateHrIsMailSent = "sp_AD_UpdateHrIsMailSent";
         public static string sp_RE_InsertLanguageDetails = "sp_RE_InsertLanguageDetails";
         public static string sp_RE_InsertOtherDetails = "sp_RE_InsertOtherDetails";
+        public static string sp_RE_SelectAffirmativeDetails = "sp_RE_SelectAffirmativeDetails";
+        public static string sp_RE_ViewClientRequirements = "sp_RE_ViewClientRequirements";
+        public static string sp_RE_ViewClientRequirementDetalils = "sp_RE_ViewClientRequirementDetalils";
+        public static string sp_RE_SelectActiveRequirement = "sp_RE_SelectActiveRequirement";
+        public static string sp_RE_SelectInActiveRequirements = "sp_RE_SelectInActiveRequirements";
         public static string sp_JS_CandidateDetails = "sp_JS_CandidateDetails";
 
     }
