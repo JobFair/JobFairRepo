@@ -117,6 +117,7 @@
         public static string sp_AD_UpdateHrIsMailSent = "sp_AD_UpdateHrIsMailSent";
         public static string sp_RE_InsertLanguageDetails = "sp_RE_InsertLanguageDetails";
         public static string sp_RE_InsertOtherDetails = "sp_RE_InsertOtherDetails";
+        public static string sp_JS_CandidateDetails = "sp_JS_CandidateDetails";
 
     }
 }
