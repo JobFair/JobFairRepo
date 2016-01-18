@@ -60,6 +60,7 @@
     <Compile Include="ManageResponsesBAL.cs" />
     <Compile Include="MoreCertificationBAL.cs" />
     <Compile Include="MoreWorkshopBAL.cs" />
+    <Compile Include="NewApplicationsBAL.cs" />
     <Compile Include="PersonalDetailsJSBAL.cs" />
     <Compile Include="PersonalDetailsREBAL.cs" />
     <Compile Include="PostNewJobBAL.cs">

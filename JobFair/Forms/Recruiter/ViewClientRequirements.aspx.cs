@@ -24,7 +24,7 @@ namespace JobFair.Forms.Recruiter
                 DataSet dsInActiveRequirements = new DataSet();
                 ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
                 dsInActiveRequirements = viewClientRequirement.ViewInActiveRequirementsBAL(recruiterId);
-                if(dsInActiveRequirements!=null)
+                if (dsInActiveRequirements != null)
                 {
                     grdInActiveRequirements.DataSource = dsInActiveRequirements;
                     grdInActiveRequirements.DataBind();
@@ -32,7 +32,6 @@ namespace JobFair.Forms.Recruiter
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
@@ -41,12 +40,12 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-                DataSet dsActiveequirements = new DataSet();
+                DataSet dsActiveRequirements = new DataSet();
                 ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
-                dsActiveequirements = viewClientRequirement.ViewActiveRequirementBAL(recruiterId);
-                if (dsActiveequirements != null)
+                dsActiveRequirements = viewClientRequirement.ViewActiveRequirementBAL(recruiterId);
+                if (dsActiveRequirements != null)
                 {
-                    grdActiveRequirement.DataSource = dsActiveequirements;
+                    grdActiveRequirement.DataSource = dsActiveRequirements;
                     grdActiveRequirement.DataBind();
                 }
             }
@@ -80,7 +79,85 @@ namespace JobFair.Forms.Recruiter
             GridViewRow gvRow = (GridViewRow)(sender as Control).Parent.Parent;
             int cId = Convert.ToInt32(((Label)gvRow.FindControl("lblClientId")).Text);
             int rId = Convert.ToInt32((sender as LinkButton).CommandArgument);
-            Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId);
+            Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId + "&status=New");
+        }
+
+        protected void lnkInActiveView_Click(object sender, EventArgs e)
+        {
+            GridViewRow gvRow = (GridViewRow)(sender as Control).Parent.Parent;
+            int cId = Convert.ToInt32(((Label)gvRow.FindControl("lblClientId")).Text);
+            int rId = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId + "&status=InActive");
+        }
+
+        protected void lnkActiveView_Click(object sender, EventArgs e)
+        {
+            GridViewRow gvRow = (GridViewRow)(sender as Control).Parent.Parent;
+            int cId = Convert.ToInt32(((Label)gvRow.FindControl("lblClientId")).Text);
+            int rId = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId + "&status=Active");
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string clientName, position;
+
+            if (txtClientName.Text == "")
+            {
+                clientName = null;
+            }
+            else
+            {
+                clientName = txtClientName.Text.Trim();
+            }
+
+            if (txtClientRequirement.Text == "")
+            {
+                position = null;
+            }
+            else
+            {
+                position = txtClientRequirement.Text.Trim();
+            }
+            DataSet dsActiveRequirements = new DataSet();
+            ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
+            dsActiveRequirements = viewClientRequirement.ViewActiveRequirementSearchBAL(recruiterId, clientName, position);
+            if (dsActiveRequirements != null)
+            {
+                grdActiveRequirement.DataSource = dsActiveRequirements;
+                grdActiveRequirement.DataBind();
+            }
+        }
+
+        protected void btnInActiveSearch_Click(object sender, EventArgs e)
+        {
+            string clientName, position;
+
+            if (txtClient.Text == "")
+            {
+                clientName = null;
+            }
+            else
+            {
+                clientName = txtClient.Text.Trim();
+            }
+
+            if (txtRequirement.Text == "")
+            {
+                position = null;
+            }
+            else
+            {
+                position = txtRequirement.Text.Trim();
+            }
+            DataSet dsInActiveRequirements = new DataSet();
+            ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
+            dsInActiveRequirements = viewClientRequirement.ViewInActiveRequirementSearchBAL(recruiterId, clientName, position);
+            if (dsInActiveRequirements != null)
+            {
+                grdInActiveRequirements.DataSource = dsInActiveRequirements;
+                grdInActiveRequirements.DataBind();
+            }
         }
     }
 }

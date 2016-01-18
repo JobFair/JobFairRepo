@@ -53,6 +53,7 @@
     <Compile Include="ManageResponsesDAL.cs" />
     <Compile Include="MoreCertificationDAL.cs" />
     <Compile Include="MoreWorkshopDAL.cs" />
+    <Compile Include="NewApplicationsDAL.cs" />
     <Compile Include="PersonalDetailsREDAL.cs" />
     <Compile Include="PostNewJobDAL.cs" />
     <Compile Include="ClientRequirementsDAL.cs" />
