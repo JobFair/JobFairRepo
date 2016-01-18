@@ -1,5 +1,6 @@
 ﻿using CommonUtil;
 using DAL;
+using System.Data;
 
 namespace BAL
 {
@@ -80,6 +81,12 @@ namespace BAL
         public void AddFunctionalAreaBAL(Entities.HR.ClientDetailsEntity clientDetailsEntity)
         {
             clientDetailsDAL.AddFunctionalDAL(clientDetailsEntity);
+        }
+
+        public DataSet ViewClientDetailsBAL(long clientId, long hrId)
+        {
+            ClientDetailsDAL ViewclientDetailsDAL = new ClientDetailsDAL();
+            return clientDetailsDAL.ViewClientDetailsDAL(clientId, hrId);
         }
     }
 }

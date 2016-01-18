@@ -15,6 +15,8 @@ namespace JobFair.Forms.HR
         private DataSet dsClientDetails = new DataSet();
         private ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
         private ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
+        bool isView,isEdit;
+        int HrId = 1; int ClientId = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,11 +27,40 @@ namespace JobFair.Forms.HR
                     BindFunctionalArea();
                     BindIndustry();
                     BindCountry();
+                    divView.Visible = false;
                 }
                 catch (Exception)
                 {
                     //throw;
                 }
+            }
+            isView = Convert.ToBoolean(Request.QueryString["isView"]);
+            if (isView)
+            {
+                try
+                {
+                    BindViewClient();
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
+            }
+            isEdit = Convert.ToBoolean(Request.QueryString["isEdit"]);
+            if (isEdit)
+            {
+                try
+                {
+                    BindEditClient();
+                    btnSubmit.Visible = false;
+                    btnUpdate.Visible=true;
+
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
+
             }
         }
 
@@ -122,6 +153,115 @@ namespace JobFair.Forms.HR
         //        //throw;
         //    }
         //}
+
+        /// <summary>
+        /// Method for binding Client Details for Viewing Purpose
+        /// </summary>
+        private void BindViewClient()
+        {
+            try
+            {
+                DataSet dsViewClient = new DataSet();
+                dsViewClient = clientDetailsBAL.ViewClientDetailsBAL(ClientId, HrId);
+
+                lblClientId.Text = dsViewClient.Tables[0].Rows[0]["ClientId"].ToString();
+                lblHrId.Text = dsViewClient.Tables[0].Rows[0]["HrId"].ToString();
+                lblViewClientName.Text = dsViewClient.Tables[0].Rows[0]["ClientName"].ToString();
+                lblViewClientProfile.Text = dsViewClient.Tables[0].Rows[0]["ClientProfile"].ToString();
+                lblViewIndustry.Text = dsViewClient.Tables[0].Rows[0]["IndustryName"].ToString();
+                lblViewFunctionalArea.Text = dsViewClient.Tables[0].Rows[0]["FunctionalArea"].ToString();
+                lblViewAddress.Text = dsViewClient.Tables[0].Rows[0]["Address"].ToString();
+                lblViewCountry.Text = dsViewClient.Tables[0].Rows[0]["CountryName"].ToString();
+                lblViewState.Text = dsViewClient.Tables[0].Rows[0]["StateName"].ToString();
+                lblViewCity.Text = dsViewClient.Tables[0].Rows[0]["CityName"].ToString();
+                lblViewArea.Text = dsViewClient.Tables[0].Rows[0]["AreaName"].ToString();
+                lblViewPincode.Text = dsViewClient.Tables[0].Rows[0]["Pincode"].ToString();
+                lblViewOfficialEMail.Text = dsViewClient.Tables[0].Rows[0]["OfficialEmailId"].ToString();
+                lblViewWebsite.Text = dsViewClient.Tables[0].Rows[0]["Website"].ToString();
+                lblViewOfficialContact.Text = dsViewClient.Tables[0].Rows[0]["OfficialContact"].ToString();
+                lblViewStatus.Text = dsViewClient.Tables[0].Rows[0]["Status"].ToString();
+                lblViewAgreementDate.Text = dsViewClient.Tables[0].Rows[0]["AgreementDate"].ToString();
+                lblViewDueDate.Text = dsViewClient.Tables[0].Rows[0]["DueDate"].ToString();
+                lblViewPaymentDetails.Text = dsViewClient.Tables[0].Rows[0]["PaymentDetails"].ToString();
+                lblViewPaymentTerms.Text = dsViewClient.Tables[0].Rows[0]["PaymentTerms"].ToString();
+                lblViewPercentageAmount.Text = dsViewClient.Tables[0].Rows[0]["PercentageAmount"].ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            divMain.Visible = false;
+            divView.Visible = true;
+        }
+        /// <summary>
+        /// Method for binding Client Details for Editing Purpose
+        /// </summary>
+        private void BindEditClient()
+        {
+            try
+            {
+                DataSet dsViewClient = new DataSet();
+                dsViewClient = clientDetailsBAL.ViewClientDetailsBAL(ClientId, HrId);
+
+                lblClientId.Text = dsViewClient.Tables[0].Rows[0]["ClientId"].ToString();
+                lblHrId.Text = dsViewClient.Tables[0].Rows[0]["HrId"].ToString();
+                txtClientName.Text = dsViewClient.Tables[0].Rows[0]["ClientName"].ToString();
+                txtClientProfile.Text = dsViewClient.Tables[0].Rows[0]["ClientProfile"].ToString();
+                ddlIndustry.SelectedValue = dsViewClient.Tables[0].Rows[0]["IndustryId"].ToString();
+                ddlFunctionalArea.SelectedValue = dsViewClient.Tables[0].Rows[0]["FunctionalAreaId"].ToString();
+                txtAddress.Text = dsViewClient.Tables[0].Rows[0]["Address"].ToString();
+                ddlCountry.SelectedValue = dsViewClient.Tables[0].Rows[0]["CountryName"].ToString();
+                ddlState.SelectedValue = dsViewClient.Tables[0].Rows[0]["StateName"].ToString();
+                ddlCity.SelectedValue = dsViewClient.Tables[0].Rows[0]["CityName"].ToString();
+                ddlArea.SelectedValue = dsViewClient.Tables[0].Rows[0]["AreaName"].ToString();
+                txtPincode.Text = dsViewClient.Tables[0].Rows[0]["Pincode"].ToString();
+                txtOfficialEMailId.Text = dsViewClient.Tables[0].Rows[0]["OfficialEmailId"].ToString();
+                txtWebsite.Text = dsViewClient.Tables[0].Rows[0]["Website"].ToString();
+                txtOfficialContact.Text = dsViewClient.Tables[0].Rows[0]["OfficialContact"].ToString();
+                rbtlistStatus.SelectedValue = dsViewClient.Tables[0].Rows[0]["Status"].ToString();
+                //txtAgreementDate.Text = dsViewClient.Tables[0].Rows[0]["AgreementDate"].ToString();
+
+                string AgreementDate = Convert.ToString(dsViewClient.Tables[0].Rows[0]["AgreementDate"]); ;
+                string[] AgreementDateSplit = AgreementDate.Split(new char[] { '-' });
+                int Count = 0;
+                foreach (string Word in AgreementDateSplit)
+                {
+                    Count += 1;
+                    if (Count == 1)
+                    { txtAgreementDate.Text = Word; }
+                    if (Count == 2)
+                    { txtAgreementDate.Text = Word; }
+                    if (Count == 3)
+                    { txtAgreementDate.Text = Word; }
+                }
+
+                //txtDueDate.Text = dsViewClient.Tables[0].Rows[0]["DueDate"].ToString();
+
+                string DueDate = Convert.ToString(dsViewClient.Tables[0].Rows[0]["DueDate"]); ;
+                string[] DueDateSplit = DueDate.Split(new char[] { '-' });
+                Count = 0;
+                foreach (string Word in DueDateSplit)
+                {
+                    Count += 1;
+                    if (Count == 1)
+                    { txtDueDate.Text = Word; }
+                    if (Count == 2)
+                    { txtDueDate.Text = Word; }
+                    if (Count == 3)
+                    { txtDueDate.Text = Word; }
+                }
+
+                chklistPaymentDetails.SelectedValue = dsViewClient.Tables[0].Rows[0]["PaymentDetails"].ToString();
+                txtPaymentTerms.Text = dsViewClient.Tables[0].Rows[0]["PaymentTerms"].ToString();
+                txtPercentageAmount.Text = dsViewClient.Tables[0].Rows[0]["PercentageAmount"].ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            divMain.Visible = true;
+            divView.Visible = false;
+        }
         /// <summary>
         /// Method for binding DropDown with FunctionalArea_Table of Database
         /// </summary>
@@ -133,7 +273,6 @@ namespace JobFair.Forms.HR
             ddlFunctionalArea.DataTextField = "FunctionalArea";
             ddlFunctionalArea.DataBind();
             ddlFunctionalArea.Items.Insert(0, new ListItem("--Select--", "0"));
-            
         }
 
         /// <summary>
@@ -231,6 +370,11 @@ namespace JobFair.Forms.HR
             // Add data to the database 
             clientDetailsBAL.AddFunctionalAreaBAL(clientDetailsEntity);
             lblmsg2.Text = "Your data is added now";
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

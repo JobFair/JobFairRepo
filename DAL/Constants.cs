@@ -26,7 +26,9 @@
         public const string sp_JS_InsertMoreWorkshop = "sp_JS_InsertMoreWorkshop";
         public static string sp_JS_SelectMoreWorkshop = "sp_JS_SelectMoreWorkshop";
         public const string sp_RE_InsertCloneJob = "sp_RE_InsertCloneJob";
+        public const string sp_HR_ManageClientDetails = "sp_HR_ManageClientDetails";
         public static string sp_HR_InsertClientDetails = "sp_HR_InsertClientDetails";
+        public static string sp_HR_ViewClientDetails = "sp_HR_ViewClientDetails";
         public static string sp_HR_InsertClientContactPersonDetails = "sp_HR_InsertClientContactPersonDetails";
         public static string sp_HR_InsertClientRequirements = "sp_HR_InsertClientRequirements";
         public const string sp_Country = "sp_Country";

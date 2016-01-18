@@ -4,6 +4,7 @@ namespace Entities.HR
 {
     public class ClientDetailsEntity
     {
+        public int ClientId { get; set; }
         public int HrId { get; set; }
         public string ClientName { get; set; }
         public string ClientProfile { get; set; }

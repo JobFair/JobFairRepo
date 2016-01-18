@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System;
 
 namespace DAL
 {
@@ -55,7 +56,6 @@ namespace DAL
                 connection.Close();
             }
         }
-
         /// <summary>
         /// Method for adding Functional Details in database
         /// </summary>
@@ -78,6 +78,28 @@ namespace DAL
             {
                 connection.Close();
             }
+        }
+        /// <summary>
+        /// Method of class ViewClientDetailsDAL for Viewing ClientDetails in database
+        /// </summary>
+        /// <param name="clientdetailsEntity">Object of ClientDetailsEntity</param>
+        /// <returns>System.Int32</returns>
+        public DataSet ViewClientDetailsDAL(long clientId, long HrId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = {
+                                             new SqlParameter("@clientId", clientId),
+                                             new SqlParameter("@hrId",HrId)
+                                         };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_ViewClientDetails, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
         }
     }
 }

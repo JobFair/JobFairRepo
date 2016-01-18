@@ -40,13 +40,13 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMain;
         
         /// <summary>
-        /// lnkBtnClientDetails control.
+        /// lnkBtnNewClientDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnClientDetails;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnNewClientDetails;
         
         /// <summary>
         /// repClientDetails control.
@@ -56,59 +56,5 @@ namespace JobFair.Forms.HR {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater repClientDetails;
-        
-        /// <summary>
-        /// lnkBtnViewClient control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnViewClient;
-        
-        /// <summary>
-        /// lnkBtnEditClient control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnEditClient;
-        
-        /// <summary>
-        /// lnkBtnDeleteClient control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnDeleteClient;
-        
-        /// <summary>
-        /// lnkBtnClientContactPerson control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnClientContactPerson;
-        
-        /// <summary>
-        /// lnkBtnClientRequirement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnClientRequirement;
-        
-        /// <summary>
-        /// lnkBtnEditClientRequirement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnEditClientRequirement;
     }
 }
