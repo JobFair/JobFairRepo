@@ -14,7 +14,7 @@ namespace DAL
             DataSet ds = new DataSet();
             try
             {
-                SqlParameter[] sparams = { 
+                SqlParameter[] sparams = {
                                              new SqlParameter("@recruiterId", recruiterId)
                                          };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_RE_ViewClientRequirements, sparams);
@@ -102,7 +102,8 @@ namespace DAL
             }
             return ds;
         }
-        public DataSet ViewInActiveRequiremntSearchDAL(long recruiterId,string clientName,string position)
+
+        public DataSet ViewInActiveRequiremntSearchDAL(long recruiterId, string clientName, string position)
         {
             connection.Open();
             DataSet dsSearch = new DataSet();
@@ -126,6 +127,29 @@ namespace DAL
                 connection.Close();
             }
             return dsSearch;
+        }
+
+        public int UpdateRequirementStatusDAL(long clientRequirementId)
+        {
+            int result = 0;
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                SqlParameter[] sparams = {
+                                             new SqlParameter("@clientRequirementId", clientRequirementId)
+                                         };
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_UpdateClientRequirementStatus, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
         }
     }
 }

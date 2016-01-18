@@ -79,7 +79,23 @@ namespace JobFair.Forms.Recruiter
             GridViewRow gvRow = (GridViewRow)(sender as Control).Parent.Parent;
             int cId = Convert.ToInt32(((Label)gvRow.FindControl("lblClientId")).Text);
             int rId = Convert.ToInt32((sender as LinkButton).CommandArgument);
-            Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId);
+            Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId + "&status=New");
+        }
+
+        protected void lnkInActiveView_Click(object sender, EventArgs e)
+        {
+            GridViewRow gvRow = (GridViewRow)(sender as Control).Parent.Parent;
+            int cId = Convert.ToInt32(((Label)gvRow.FindControl("lblClientId")).Text);
+            int rId = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId + "&status=InActive");
+        }
+
+        protected void lnkActiveView_Click(object sender, EventArgs e)
+        {
+            GridViewRow gvRow = (GridViewRow)(sender as Control).Parent.Parent;
+            int cId = Convert.ToInt32(((Label)gvRow.FindControl("lblClientId")).Text);
+            int rId = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId + "&status=Active");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

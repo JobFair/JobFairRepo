@@ -40,5 +40,11 @@ namespace BAL
             ViewClientRequirementDetailsREDAL viewClientRequirement = new ViewClientRequirementDetailsREDAL();
             return viewClientRequirement.ViewInActiveRequiremntSearchDAL(recruiterId, clientName, position);
         }
+
+        public int UpdateRequirementStatus(long clientRequirementId)
+        {
+            ViewClientRequirementDetailsREDAL viewClientRequirement = new ViewClientRequirementDetailsREDAL();
+            return viewClientRequirement.UpdateRequirementStatusDAL(clientRequirementId);
+        }
     }
 }
