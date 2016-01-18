@@ -123,5 +123,7 @@
         public static string sp_RE_SelectActiveRequirement = "sp_RE_SelectActiveRequirement";
         public static string sp_RE_SelectInActiveRequirements = "sp_RE_SelectInActiveRequirements";
         public static string sp_RE_UpdateClientRequirementStatus = "sp_RE_UpdateClientRequirementStatus";
+        public static string sp_JS_CandidateDetails = "sp_JS_CandidateDetails";
+
     }
 }

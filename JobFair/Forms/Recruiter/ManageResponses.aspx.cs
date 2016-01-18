@@ -40,8 +40,6 @@ namespace JobFair.Forms.Recruiter
             rptractivejobs.DataSource = dsactivejobs;
             rptractivejobs.DataBind();
         }
-
-
     }
 
 
