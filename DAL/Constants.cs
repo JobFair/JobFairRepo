@@ -30,7 +30,9 @@
         public static string sp_HR_InsertClientDetails = "sp_HR_InsertClientDetails";
         public static string sp_HR_ViewClientDetails = "sp_HR_ViewClientDetails";
         public static string sp_HR_InsertClientContactPersonDetails = "sp_HR_InsertClientContactPersonDetails";
+        public static string sp_HR_ViewClientContactPersonDetails = "sp_HR_ViewClientContactPersonDetails";
         public static string sp_HR_InsertClientRequirements = "sp_HR_InsertClientRequirements";
+        public static string sp_HR_UpdateClientDetails = "sp_HR_UpdateClientDetails";
         public const string sp_Country = "sp_Country";
         public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
         public const string sp_State = "sp_State";

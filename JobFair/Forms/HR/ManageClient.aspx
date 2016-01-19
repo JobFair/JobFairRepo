@@ -46,8 +46,8 @@
                 <ItemTemplate>
                      <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; border-bottom: 1px solid #df5015; float: left; width: 60%">
                         
-                            <asp:Label ID="lblClientId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientId")%>' Visible="false" />
-                            <asp:Label ID="lblHrId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "HrId")%>' Visible="false" /></td>
+                            <asp:Label ID="lblClientId" runat="server" Text='<%#Eval("ClientId")%>' Visible="false" />
+                            <asp:Label ID="lblHrId" runat="server" Text='<%#Eval("HrId")%>' Visible="false" /></td>
                         <tr>
                             <td>Client Name:
                                 <asp:Label ID="lblClientName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientName")%>' Font-Bold="true" /></td>   
@@ -90,6 +90,11 @@
                             </td>
                             <td>
                                 <asp:LinkButton ID="lnkBtnEditClientRequirement" runat="server" Text="Edit/Modify Client Requirement" OnClick="lnkBtnEditClientRequirement_Click" OnClientClick="SetTarget();"></asp:LinkButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lnkBtnViewClientRequirement" runat="server" Text="View Client Requirement" OnClick="lnkBtnViewClientRequirement_Click" OnClientClick="SetTarget();"></asp:LinkButton>
                             </td>
                         </tr>
                     </table>

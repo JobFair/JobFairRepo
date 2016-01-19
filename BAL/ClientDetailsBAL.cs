@@ -75,6 +75,16 @@ namespace BAL
         }
 
         /// <summary>
+        /// Update client details method in ClientDetailsBAL class
+        /// </summary>
+        /// <param name="clientDetailsEntity">Object of ClientDetailsBAL</param>
+        /// <returns>System.Int32</returns>
+        public int UpdateClientDetailsBAL(Entities.HR.ClientDetailsEntity clientDetailsEntity)
+        {
+            return clientDetailsDAL.UpdateClientDetailsDAL(clientDetailsEntity);
+        }
+
+        /// <summary>
         /// To add functional area method in ClientDetailsBAL class
         /// </summary>
         /// <param name="clientDetailsEntity">Object of ClientDetailsEntity </param>

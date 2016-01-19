@@ -16,7 +16,7 @@ namespace JobFair.Forms.HR
         private ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
         private ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
         bool isView,isEdit;
-        int HrId = 1; int ClientId = 1;
+        int HrId; int ClientId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -51,6 +51,8 @@ namespace JobFair.Forms.HR
             {
                 try
                 {
+                    ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
+                    HrId = Convert.ToInt32(Request.QueryString["HrId"]);
                     BindEditClient();
                     btnSubmit.Visible = false;
                     btnUpdate.Visible=true;
@@ -89,7 +91,6 @@ namespace JobFair.Forms.HR
                 clientDetailsEntity.AgreementDate = Convert.ToDateTime(txtAgreementDate.Text);
                 clientDetailsEntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
 
-
                 var paymentdetails = chklistPaymentDetails.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
                 string payment =  string.Join(",", paymentdetails.Select(x => x.Text)) + ",";
 
@@ -109,11 +110,60 @@ namespace JobFair.Forms.HR
                 int result = clientDetailsBAL.SaveClientDetailsBAL(clientDetailsEntity);
                 if (result > 0)
                 {
-                    lblmsg.Text = "Saved Data Successfully";
+                    Response.Write("<script language='javascript'>alert('Save Client Details Successfully')</script>");
                 }
                 else
                 {
-                    lblmsg.Text = "Data is not saved";
+                    Response.Write("<script language='javascript'>alert('Client Details won't saved')</script>");
+                }
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
+                ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
+                // Assign values to the entities
+                clientDetailsEntity.HrId = 1;
+                clientDetailsEntity.ClientId = 1;
+                //clientDetailsEntity.ClientName = txtClientName.Text.Trim();
+                clientDetailsEntity.ClientProfile = txtClientProfile.Text.Trim();
+                clientDetailsEntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
+                clientDetailsEntity.FunctionalArea = Convert.ToInt32(ddlFunctionalArea.SelectedValue);
+                clientDetailsEntity.Address = txtAddress.Text.Trim();
+                clientDetailsEntity.CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
+                clientDetailsEntity.StateId = Convert.ToInt32(ddlState.SelectedValue);
+                clientDetailsEntity.CityId = Convert.ToInt32(ddlCity.SelectedValue);
+                clientDetailsEntity.AreaId = Convert.ToInt32(ddlArea.SelectedValue);
+                clientDetailsEntity.Pincode = Convert.ToInt32(txtPincode.Text.Trim());
+                clientDetailsEntity.OfficialEmailId = txtOfficialEMailId.Text.Trim();
+                clientDetailsEntity.Website = txtWebsite.Text.Trim();
+                clientDetailsEntity.OfficialContact = txtOfficialContact.Text.Trim();
+                clientDetailsEntity.Status = rbtlistStatus.SelectedItem.Text;
+                clientDetailsEntity.AgreementDate = Convert.ToDateTime(txtAgreementDate.Text);
+                clientDetailsEntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
+
+                var paymentdetails = chklistPaymentDetails.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
+                string payment = string.Join(",", paymentdetails.Select(x => x.Text)) + ",";
+
+                clientDetailsEntity.PaymentDetails = Convert.ToString(payment);
+                clientDetailsEntity.PaymentTerms = txtPaymentTerms.Text.Trim();
+                clientDetailsEntity.PercentageAmount = Convert.ToInt32(txtPercentageAmount.Text.Trim());
+                // Saving data to the database
+                int result = clientDetailsBAL.UpdateClientDetailsBAL(clientDetailsEntity);
+                if (result > 0)
+                {
+                    Response.Write("<script language='javascript'>alert('Update Client Details Successfully')</script>");
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Client Details won't saved')</script>");
                 }
             }
             catch (Exception)
@@ -370,11 +420,6 @@ namespace JobFair.Forms.HR
             // Add data to the database 
             clientDetailsBAL.AddFunctionalAreaBAL(clientDetailsEntity);
             lblmsg2.Text = "Your data is added now";
-        }
-
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
-
         }
 
     }

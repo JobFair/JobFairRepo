@@ -10,10 +10,39 @@
 </head>
 <body>
     <form id="frmClientContactPersonDetails" runat="server">
-    <div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
+
+    
+        
+    <div id="divView" style="margin-top: 20px; margin-left: 10px;">
+            <asp:HiddenField ID="HiddenField1" runat="server" />
+            <asp:GridView ID="GridView1" AutoGenerateColumns="false" runat="server" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField Visible="false" HeaderText="HrId" DataField="HrId" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Contact Person Name" DataField="ContactPersonName" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Designation" DataField="Designation" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="E-mail Id" DataField="EmailId" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Contact No" DataField="ContactNo" />
+                    <asp:BoundField HeaderStyle-Width="120px" HeaderText="Active/Inactive" DataField="IsActive" />
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+        </div>
+
+        
+<div id="divMain" runat="server" style="min-height: 500px; padding: 10px">
     
 <center>
-<asp:Label ID="lblAddWork" runat="server" Text=" Client Contact Person " Font-Bold="true"></asp:Label>
+<asp:Label ID="lblAddWork" runat="server" Text=" Add Client Contact Person " Font-Bold="true"></asp:Label>
 </center>
 <hr />
 <table style="background-color: #C0C0C0">
@@ -53,8 +82,8 @@
         </td>
         <td>
             <asp:RadioButtonList ID="rblistIsActive" runat="server" AutoPostBack="true">
-                <asp:ListItem Text="InActive" Value="0"></asp:ListItem>
-                <asp:ListItem Text="Active" Value="1"></asp:ListItem>
+                <asp:ListItem Text="InActive"></asp:ListItem>
+                <asp:ListItem Text="Active"></asp:ListItem>
             </asp:RadioButtonList>
             <%--<asp:TextBox ID="txtActive" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>--%>
             <%--<asp:RequiredFieldValidator ID="rfvActive" runat="server" ControlToValidate="txtActive" ValidationGroup="vgClientContactPersonDetails" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>
@@ -67,7 +96,7 @@
         </td>
     </tr>
     </table>
-     <div style="margin-top: 20px; margin-left: 10px;">
+     <div id="divAddMore" style="margin-top: 20px; margin-left: 10px;">
             <asp:HiddenField ID="hfHrId" runat="server" />
             <asp:GridView ID="grvAddMore" AutoGenerateColumns="false" runat="server" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
