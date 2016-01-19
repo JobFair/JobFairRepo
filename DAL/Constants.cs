@@ -108,7 +108,7 @@
         public static string sp_RE_InsertPersonalDetails = "sp_RE_InsertPersonalDetails";
         public static string sp_HR_InsertRecruiterRegisterDetails = "sp_HR_InsertRecruiterRegisterDetails";
         public static string sp_AD_InsertHRRegisterDetails = "sp_AD_InsertHRRegisterDetails";
-        public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent";
+        public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent"; 
         public static string sp_RE_ViewProfile = "sp_RE_ViewProfile";
         public static string sp_RE_SelectPersonalDetails = "sp_RE_SelectPersonalDetails";
         public static string sp_JS_SelectAllJobPost = "sp_JS_SelectAllJobPost";
