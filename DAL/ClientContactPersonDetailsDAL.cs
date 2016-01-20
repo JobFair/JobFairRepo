@@ -52,5 +52,26 @@ namespace DAL
             }
             return clientContactPersonDetailsEntity;
         }
+        /// <summary>
+        /// Saving ClientContactPersonDetailsDAL for saving ContactPersonDetails in database
+        /// </summary>
+        /// <param name="clientcontactpersondetailsEntity">Object of ClientContactPersonDetailsEntity</param>
+        /// <returns>System.Int32</returns>
+        //public DataTable ViewClientContactPersonDetailsDAL(DataTable clientContactPersonDetailsEntity)
+        //{
+        //    try
+        //    {
+        //        connection.Open();
+
+        //    }
+        //    catch (System.Exception)
+        //    {
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+        //}
     }
 }

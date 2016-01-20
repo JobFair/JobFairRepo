@@ -48,6 +48,7 @@
     <Compile Include="ClientRequirementsHRBAL.cs" />
     <Compile Include="ContactDetailsREBAL.cs" />
     <Compile Include="JobapplicationsBAL.cs" />
+    <Compile Include="ManageClientHRBAL.cs" />
     <Compile Include="ManageJobsBAL.cs" />
     <Compile Include="AffirmativeDetailsJSBAL.cs" />
     <Compile Include="ClientDetailsBAL.cs" />
