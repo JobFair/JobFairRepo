@@ -23,9 +23,9 @@
                      <tr>
                             <td><table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
                            <asp:Button ID="btnnewapllications" runat="server" Text="New Applications" PostBackUrl="~/Forms/Recruiter/NewApplications.aspx"/>
-                           <asp:Button ID="btnviewapplications" runat="server" Text="View Applications" />
-                           <asp:Button ID="btnrejet" runat="server" Text="Accepted" />
-                           <asp:Button ID="btnreject" runat="server" Text="Rejected" />
+                           <asp:Button ID="btnviewapplications" runat="server" Text="View Applications"  PostBackUrl="~/Forms/Recruiter/ViewApplications.aspx"/>
+                           <asp:Button ID="btnrejet" runat="server" Text="Accepted" PostBackUrl="~/Forms/Recruiter/AcceptApplications.aspx" />
+                           <asp:Button ID="btnreject" runat="server" Text="Rejected" PostBackUrl="~/Forms/Recruiter/RejectApplication.aspx" />
                            <tr>
                             <td>
 

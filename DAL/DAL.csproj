@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcceptApplicationsDAL.cs" />
     <Compile Include="AdvanceSearchDAL.cs" />
     <Compile Include="AffirmativeDetailsREDAL.cs" />
     <Compile Include="ChangeLoginDetailsDAL.cs" />
@@ -75,11 +76,13 @@
     <Compile Include="RegisterHrADDAL.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />
     <Compile Include="RegisterRecruiterHRDAL.cs" />
+    <Compile Include="RejectApplicationDAL.cs" />
     <Compile Include="RequestEmailJSDAL.cs" />
     <Compile Include="SearchRecord.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
     <Compile Include="ViewAllJobPostDAL.cs" />
+    <Compile Include="ViewApplicationsDAL.cs" />
     <Compile Include="ViewClientRequirementDetailsREDAL.cs" />
     <Compile Include="ViewJobPostJSDAL.cs" />
     <Compile Include="ViewProfileJSDAL.cs" />

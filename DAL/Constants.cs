@@ -122,7 +122,13 @@
         public static string sp_RE_ViewClientRequirementDetalils = "sp_RE_ViewClientRequirementDetalils";
         public static string sp_RE_SelectActiveRequirement = "sp_RE_SelectActiveRequirement";
         public static string sp_RE_SelectInActiveRequirements = "sp_RE_SelectInActiveRequirements";
-        public static string sp_JS_CandidateDetails = "sp_JS_CandidateDetails";
+        public static string sp_JS_SelectCandidateDetails = "sp_JS_SelectCandidateDetails";
+        public static string sp_JS_UpdateAcceptCandidate = "sp_JS_UpdateAcceptCandidate";
+        public static string sp_JS_UpdateRejectCandidate = "sp_JS_UpdateRejectCandidate";
+        public static string sp_JS_SelectViewAllCandidate = "sp_JS_SelectViewAllCandidate";
+        public static string sp_JS_SelectAcceptApplication = "sp_JS_SelectAcceptApplication";
+        public static string sp_JS_SelectRejectApplication = "sp_JS_SelectRejectApplication";
+
 
     }
 }
