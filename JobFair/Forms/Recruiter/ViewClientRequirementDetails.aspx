@@ -74,7 +74,7 @@
                         <td>Area</td>
                         <td>
                             <asp:Label ID="lblArea" runat="server"></asp:Label>
-                        </td>
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td>Pincode</td>
@@ -254,6 +254,12 @@
                         <td>Due Date</td>
                         <td>
                             <asp:Label ID="lblActiveDueDate" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Job Post</td>
+                        <td>
+                            <asp:LinkButton ID="lnkbtnJobPost" runat="server" OnClick="lnkbtnJobPost_Click">Link of JobPost</asp:LinkButton>
                         </td>
                     </tr>
                     <tr>

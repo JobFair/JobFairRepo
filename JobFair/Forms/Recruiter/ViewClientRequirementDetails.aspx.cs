@@ -104,6 +104,7 @@ namespace JobFair.Forms.Recruiter
                         lblInActiveRequirementId.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["ClientRequirementId"]);
                         lblDateOfClosure.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["StatusModifiedDate"]);
                         rptrInActiveRequirement.DataSource = dsClientRequirement.Tables[1];
+                                                                                                                                                
                         rptrInActiveRequirement.DataBind();
                     }
                 }
@@ -126,6 +127,11 @@ namespace JobFair.Forms.Recruiter
             {
                 throw;
             }
+        }
+
+        protected void lnkbtnJobPost_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewAllJobPost.aspx?cId="+clientRequirementId);
         }
     }
 }
