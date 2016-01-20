@@ -6,12 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BAL;
 using Entities.Recruiter;
-using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.Recruiter
 {

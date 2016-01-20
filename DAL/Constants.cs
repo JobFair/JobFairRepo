@@ -26,9 +26,13 @@
         public const string sp_JS_InsertMoreWorkshop = "sp_JS_InsertMoreWorkshop";
         public static string sp_JS_SelectMoreWorkshop = "sp_JS_SelectMoreWorkshop";
         public const string sp_RE_InsertCloneJob = "sp_RE_InsertCloneJob";
+        public const string sp_HR_ManageClientDetails = "sp_HR_ManageClientDetails";
         public static string sp_HR_InsertClientDetails = "sp_HR_InsertClientDetails";
+        public static string sp_HR_ViewClientDetails = "sp_HR_ViewClientDetails";
         public static string sp_HR_InsertClientContactPersonDetails = "sp_HR_InsertClientContactPersonDetails";
+        public static string sp_HR_ViewClientContactPersonDetails = "sp_HR_ViewClientContactPersonDetails";
         public static string sp_HR_InsertClientRequirements = "sp_HR_InsertClientRequirements";
+        public static string sp_HR_UpdateClientDetails = "sp_HR_UpdateClientDetails";
         public const string sp_Country = "sp_Country";
         public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
         public const string sp_State = "sp_State";
@@ -124,6 +128,13 @@
         public static string sp_RE_SelectInActiveRequirements = "sp_RE_SelectInActiveRequirements";
         public static string sp_RE_UpdateClientRequirementStatus = "sp_RE_UpdateClientRequirementStatus";
         public static string sp_JS_CandidateDetails = "sp_JS_CandidateDetails";
+        public static string sp_JS_SelectCandidateDetails = "sp_JS_SelectCandidateDetails";
+        public static string sp_JS_UpdateAcceptCandidate = "sp_JS_UpdateAcceptCandidate";
+        public static string sp_JS_UpdateRejectCandidate = "sp_JS_UpdateRejectCandidate";
+        public static string sp_JS_SelectViewAllCandidate = "sp_JS_SelectViewAllCandidate";
+        public static string sp_JS_SelectAcceptApplication = "sp_JS_SelectAcceptApplication";
+        public static string sp_JS_SelectRejectApplication = "sp_JS_SelectRejectApplication";
+
 
     }
 }

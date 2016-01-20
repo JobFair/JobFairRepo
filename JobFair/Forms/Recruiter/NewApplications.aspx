@@ -127,10 +127,10 @@
                            <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
                                <tr>
                                    <td>
-                                       <asp:Button ID="btnaccept" runat="server" Text="Accept" />
+                                       <asp:Button ID="btnaccept" runat="server" Text="Accept"  OnClick="btnaccept_Click"/>
                                    </td>
                                    <td>
-                                       <asp:Button ID="Btnreject" runat="server" Text="Reject" />
+                                       <asp:Button ID="Btnreject" runat="server" Text="Reject" OnClick="Btnreject_Click" />
                                    </td>
                                </tr>
                            </table>
