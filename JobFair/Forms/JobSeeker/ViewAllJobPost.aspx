@@ -118,8 +118,8 @@
                                  <asp:Button ID="btnApply" runat="server" OnClientClick="document.forms[0].target='_blank';"  UseSubmitBehavior="false" Text="Apply" OnClick="btnApply_Click1" />
                             </asp:Panel>
                             <asp:Panel ID="pnlApplyLogin" runat="server" Visible="false">
-                                 <asp:Button ID="btnApplyLogin" runat="server" Text="Login To Apply" />
-                            <asp:Button ID="btnApplyRegistration" runat="server" Text="Register And Apply" />
+                                 <asp:Button ID="btnApplyLogin" runat="server" Text="Login To Apply" OnClick="btnApplyLogin_Click" />
+                            <asp:Button ID="btnApplyRegistration" runat="server" OnClientClick="document.forms[0].target='_blank';"  UseSubmitBehavior="false" Text="Register And Apply" OnClick="btnApplyRegistration_Click" />
                             </asp:Panel>
                            
                         </td>

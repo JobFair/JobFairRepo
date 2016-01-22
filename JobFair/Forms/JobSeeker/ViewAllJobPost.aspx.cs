@@ -13,7 +13,7 @@ namespace JobFair.Forms.JobSeeker
         private DataSet dsviewjobpost = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
-        {
+         {
             try
             {
                 id = Convert.ToString(Request.QueryString["jid"]);
@@ -129,11 +129,10 @@ namespace JobFair.Forms.JobSeeker
                     stateName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["StateName"]);
                     currentAddress = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CurrentAddress"]);
                     pincode = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PinCode"]);
-                    
 
                     MailMessage msg = new MailMessage();
                     msg.From = new MailAddress("logos.expertadvice@gmail.com");
-                   // msg.To.Add("hr@logossolutions.co.in");
+                    //   msg.To.Add("hr@logossolutions.co.in");
                     msg.To.Add("saurabh.logossolutions@gmail.com");
                     msg.Subject = " Job application for the " + lblTitle.Text;
                     // Check if selected value equal to Other Help
@@ -240,6 +239,16 @@ namespace JobFair.Forms.JobSeeker
                 CheckMailSend(id, candidateId);
             }
             GetCandidateProfile(candidateId);
+        }
+
+        protected void btnApplyRegistration_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
+        }
+
+        protected void btnApplyLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LogIn.aspx?redirect=" + Request.Url.ToString());
         }
 
         //private void BindReapetor()

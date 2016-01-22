@@ -25,9 +25,15 @@ namespace JobFair.Forms.JobSeeker
                 logjsEntity.UserName = txtUserName.Text.Trim();
                 logjsEntity.Password = txtPassword.Text.Trim();
                 string candidateID = liBAL.JobSeekerLogIn(logjsEntity);
-                if (string.IsNullOrEmpty(candidateID))
+                if (string.IsNullOrEmpty(candidateID) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
                 {
-                    lblmsg.Text = "Wrong username or password";
+                    Session["Candidateid"] = candidateID;
+                    if (string.IsNullOrEmpty(candidateID))
+                    {
+                        lblmsg.Text = "Wrong username or password";
+                        return;
+                    }
+                    Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssid=" + Session["Candidateid"] );
                     return;
                 }
                 Session["Candidateid"] = candidateID;

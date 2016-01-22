@@ -47,7 +47,7 @@ namespace JobFair.Forms.Recruiter
                 {
                     grdActiveRequirement.DataSource = dsActiveRequirements;
                     grdActiveRequirement.DataBind();
-                }
+                } 
             }
             catch (Exception)
             {

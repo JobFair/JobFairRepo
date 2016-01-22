@@ -131,7 +131,7 @@ namespace JobFair.Forms.Recruiter
 
         protected void lnkbtnJobPost_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewAllJobPost.aspx?cId="+clientRequirementId);
+             Response.Redirect("ViewAllJobPost.aspx?cId="+clientRequirementId);
         }
     }
 }
