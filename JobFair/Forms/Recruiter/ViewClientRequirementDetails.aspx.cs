@@ -74,7 +74,7 @@ namespace JobFair.Forms.Recruiter
                         lblActiveContent.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["Contents"]);
                         lblActiveRequirementDate.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["DateOfRequirementSent"]);
                         lblActiveDueDate.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["DueDate"]);
-
+                        lblJobPost.Text = Convert.ToString(dsClientRequirement.Tables[2].Rows[0]["PageLink"]);
                         rptrActiveRequirement.DataSource = dsClientRequirement.Tables[1];
                         rptrActiveRequirement.DataBind();
                     }
@@ -103,8 +103,9 @@ namespace JobFair.Forms.Recruiter
                         lblInActiveDueDate.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["DueDate"]);
                         lblInActiveRequirementId.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["ClientRequirementId"]);
                         lblDateOfClosure.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["StatusModifiedDate"]);
+                        lblInActiveJobPostLink.Text = Convert.ToString(dsClientRequirement.Tables[2].Rows[0]["PageLink"]);
                         rptrInActiveRequirement.DataSource = dsClientRequirement.Tables[1];
-                                                                                                                                                
+                                                                                                                                                 
                         rptrInActiveRequirement.DataBind();
                     }
                 }
@@ -131,7 +132,12 @@ namespace JobFair.Forms.Recruiter
 
         protected void lnkbtnJobPost_Click(object sender, EventArgs e)
         {
-             Response.Redirect("ViewAllJobPost.aspx?cId="+clientRequirementId);
+            Response.Redirect(lblJobPost.Text);
+        }
+
+        protected void lnkbtnInActiveJobPost_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(lblInActiveJobPostLink.Text);
         }
     }
 }
