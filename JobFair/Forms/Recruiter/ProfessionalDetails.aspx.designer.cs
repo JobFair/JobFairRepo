@@ -7,153 +7,126 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.JobSeeker {
+namespace JobFair.Forms.Recruiter {
     
     
-    public partial class WebForm1 {
+    public partial class ProfessionalDetails {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ddlTechnicalSkills control.
+        /// lblProfessionalDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTechnicalSkills;
+        protected global::System.Web.UI.WebControls.Label lblProfessionalDetails;
         
         /// <summary>
-        /// divAddMoreSkills control.
+        /// lbltotalexprience control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAddMoreSkills;
+        protected global::System.Web.UI.WebControls.Label lbltotalexprience;
         
         /// <summary>
-        /// txtAddSkill control.
+        /// txttotalexprience control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddSkill;
+        protected global::System.Web.UI.WebControls.TextBox txttotalexprience;
         
         /// <summary>
-        /// btnAdd control.
+        /// lblDesiganation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Label lblDesiganation;
         
         /// <summary>
-        /// ddlFromMonth control.
+        /// txtdesignation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFromMonth;
+        protected global::System.Web.UI.WebControls.TextBox txtdesignation;
         
         /// <summary>
-        /// ddlFromYear control.
+        /// lblFreelancer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFromYear;
+        protected global::System.Web.UI.WebControls.Label lblFreelancer;
         
         /// <summary>
-        /// ddlTillMonth control.
+        /// txtfreelancer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTillMonth;
+        protected global::System.Web.UI.WebControls.TextBox txtfreelancer;
         
         /// <summary>
-        /// ddlTillYear control.
+        /// lblemploymentstatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTillYear;
+        protected global::System.Web.UI.WebControls.Label lblemploymentstatus;
         
         /// <summary>
-        /// ddlProficiency control.
+        /// rbtemploymentstatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProficiency;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtemploymentstatus;
         
         /// <summary>
-        /// btnAddMoreSkills control.
+        /// lbljobtype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddMoreSkills;
+        protected global::System.Web.UI.WebControls.Label lbljobtype;
         
         /// <summary>
-        /// hfCandidateId control.
+        /// rbtjobtype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfCandidateId;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtjobtype;
         
         /// <summary>
-        /// gvSkillsDetails control.
+        /// btnsubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSkillsDetails;
-        
-        /// <summary>
-        /// divTechnicalRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTechnicalRepeater;
-        
-        /// <summary>
-        /// rptrTechnicalSkills control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrTechnicalSkills;
-        
-        /// <summary>
-        /// btnSaveSkills control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveSkills;
+        protected global::System.Web.UI.WebControls.Button btnsubmit;
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="PostNewJobBAL.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ProfessionalDetailBAL.cs" />
     <Compile Include="ProjectDetailsBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionrieBAL.cs" />
