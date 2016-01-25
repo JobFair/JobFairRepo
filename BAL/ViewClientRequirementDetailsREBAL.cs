@@ -1,4 +1,5 @@
 ﻿using DAL;
+using System;
 using System.Data;
 
 namespace BAL
@@ -23,28 +24,28 @@ namespace BAL
             return viewClientRequirement.ViewActiveRequirementDAL(recruiterId);
         }
 
-        public DataSet ViewActiveRequirementSearchBAL(long recruiterId, string clientName, string position)
-        {
-            ViewClientRequirementDetailsREDAL viewClientRequirement = new ViewClientRequirementDetailsREDAL();
-            return viewClientRequirement.ViewActiveRequirementSearchDAL(recruiterId, clientName, position);
-        }
-
         public DataSet ViewInActiveRequirementsBAL(long recruiterId)
         {
             ViewClientRequirementDetailsREDAL viewClientRequirement = new ViewClientRequirementDetailsREDAL();
             return viewClientRequirement.ViewInActiveRequirementsDAL(recruiterId);
         }
 
-        public DataSet ViewInActiveRequirementSearchBAL(long recruiterId, string clientName, string position)
-        {
-            ViewClientRequirementDetailsREDAL viewClientRequirement = new ViewClientRequirementDetailsREDAL();
-            return viewClientRequirement.ViewInActiveRequiremntSearchDAL(recruiterId, clientName, position);
-        }
-
         public int UpdateRequirementStatus(long clientRequirementId)
         {
             ViewClientRequirementDetailsREDAL viewClientRequirement = new ViewClientRequirementDetailsREDAL();
             return viewClientRequirement.UpdateRequirementStatusDAL(clientRequirementId);
+        }
+
+        public DataSet ViewInActiveRequirementSearchBAL(long recruiterId, string clientName, string position, DateTime? fromDate, DateTime? toDate)
+        {
+            ViewClientRequirementDetailsREDAL viewClientRequirement = new ViewClientRequirementDetailsREDAL();
+            return viewClientRequirement.ViewInActiveRequiremntSearchDAL(recruiterId, clientName, position, fromDate, toDate);
+        }
+
+        public DataSet ViewActiveRequirementSearchBAL(long recruiterId, string clientName, string position, DateTime? toDate, DateTime? fromDate)
+        {
+            ViewClientRequirementDetailsREDAL viewClientRequirement = new ViewClientRequirementDetailsREDAL();
+            return viewClientRequirement.ViewActiveRequirementSearchDAL(recruiterId, clientName, position,fromDate,toDate);
         }
     }
 }
