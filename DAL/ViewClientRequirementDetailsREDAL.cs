@@ -61,32 +61,6 @@ namespace DAL
             return ds;
         }
 
-        public DataSet ViewActiveRequirementSearchDAL(long recruiterId, string clientName, string position)
-        {
-            connection.Open();
-            DataSet dsSearch = new DataSet();
-            try
-            {
-                SqlCommand cmd = new SqlCommand(Constants.sp_RE_SelectActiveRequirement, connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@recruiterId", recruiterId);
-                cmd.Parameters.AddWithValue("@clientName", clientName);
-                cmd.Parameters.AddWithValue("@position", position);
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dsSearch);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return dsSearch;
-        }
-
         public DataSet ViewInActiveRequirementsDAL(long recruiterId)
         {
             DataSet ds = new DataSet();
@@ -101,32 +75,6 @@ namespace DAL
                 throw;
             }
             return ds;
-        }
-
-        public DataSet ViewInActiveRequiremntSearchDAL(long recruiterId, string clientName, string position)
-        {
-            connection.Open();
-            DataSet dsSearch = new DataSet();
-            try
-            {
-                SqlCommand cmd = new SqlCommand(Constants.sp_RE_SelectInActiveRequirements, connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@recruiterId", recruiterId);
-                cmd.Parameters.AddWithValue("@clientName", clientName);
-                cmd.Parameters.AddWithValue("@position", position);
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dsSearch);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return dsSearch;
         }
 
         public int UpdateRequirementStatusDAL(long clientRequirementId)
@@ -150,6 +98,60 @@ namespace DAL
                 connection.Close();
             }
             return result;
+        }
+
+        public DataSet ViewInActiveRequiremntSearchDAL(long recruiterId, string clientName, string position, DateTime? fromDate, DateTime? toDate)
+        {
+            connection.Open();
+            DataSet dsSearch = new DataSet();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(Constants.sp_RE_SelectInActiveRequirements, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@recruiterId", recruiterId);
+                cmd.Parameters.AddWithValue("@clientName", clientName);
+                cmd.Parameters.AddWithValue("@position", position);
+                cmd.Parameters.AddWithValue("@fromDate", fromDate);
+                cmd.Parameters.AddWithValue("@toDate", toDate);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dsSearch);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dsSearch;
+        }
+
+        public DataSet ViewActiveRequirementSearchDAL(long recruiterId, string clientName, string position, DateTime? fromDate, DateTime? toDate)
+        {
+            connection.Open();
+            DataSet dsSearch = new DataSet();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(Constants.sp_RE_SelectActiveRequirement, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@recruiterId", recruiterId);
+                cmd.Parameters.AddWithValue("@clientName", clientName);
+                cmd.Parameters.AddWithValue("@position", position);
+                cmd.Parameters.AddWithValue("@fromDate", fromDate);
+                cmd.Parameters.AddWithValue("@toDate", toDate);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dsSearch);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dsSearch;
         }
     }
 }

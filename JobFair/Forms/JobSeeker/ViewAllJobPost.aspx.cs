@@ -119,13 +119,13 @@ namespace JobFair.Forms.JobSeeker
                     expectedCTC = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["ExpectedAnualSalary"]);
                     noticePeriod = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["NoticePeriod"]);
                     companyType = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CompanyType"]);
-                    prefferdState = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredState"]);
-                    prefferedCity = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredCity"]);
-                    prefferedArea = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredArea"]);
+                    prefferdState = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredStateName"]);
+                    prefferedCity = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredCityName"]);
+                    prefferedArea = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PreferredAreaName "]);
                     reasonForJobchange = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["ReasonForJobChange"]);
                     cityName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CityName"]);
                     areaName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["AreaName"]);
-                    countryName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CountryName"]);
+                    countryName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CountryName"]); 
                     stateName = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["StateName"]);
                     currentAddress = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["CurrentAddress"]);
                     pincode = Convert.ToString(dsCandidateProfile.Tables[0].Rows[0]["PinCode"]);
@@ -162,7 +162,7 @@ namespace JobFair.Forms.JobSeeker
                                 " <tr><td>Area  </td><td>:</td><td>" + areaName + "</td></tr> " +
                                 " <tr><td>Pincode </td><td>:</td><td>" + pincode + "</td></tr> " +
                                 " <tr><td>Preferred State  </td><td>:</td><td>" + prefferdState + "</td></tr> " +
-                                " <tr><td>Preferred State  </td><td>:</td><td>" + prefferedCity + "</td></tr> " +
+                                " <tr><td>Preferred City  </td><td>:</td><td>" + prefferedCity + "</td></tr> " +
                                 " <tr><td>Preferred Job Locations</td><td>:</td><td>" + prefferedArea + "</td></tr><br /> " +
                              " </table> </body></html>";
                     msg.Body = strBody;

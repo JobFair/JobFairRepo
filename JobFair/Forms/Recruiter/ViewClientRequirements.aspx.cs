@@ -47,7 +47,7 @@ namespace JobFair.Forms.Recruiter
                 {
                     grdActiveRequirement.DataSource = dsActiveRequirements;
                     grdActiveRequirement.DataBind();
-                } 
+                }
             }
             catch (Exception)
             {
@@ -101,8 +101,9 @@ namespace JobFair.Forms.Recruiter
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             string clientName, position;
+            DateTime? fromDate, toDate;
 
-            if (txtClientName.Text == "")
+            if (txtClientName.Text.Trim() == "")
             {
                 clientName = null;
             }
@@ -111,7 +112,7 @@ namespace JobFair.Forms.Recruiter
                 clientName = txtClientName.Text.Trim();
             }
 
-            if (txtClientRequirement.Text == "")
+            if (txtClientRequirement.Text.Trim() == "")
             {
                 position = null;
             }
@@ -119,9 +120,26 @@ namespace JobFair.Forms.Recruiter
             {
                 position = txtClientRequirement.Text.Trim();
             }
+
+            if (txtActiveFromDate.Text.Trim() == "")
+            {
+                fromDate = null;
+            }
+            else
+            {
+                fromDate = Convert.ToDateTime(txtActiveFromDate.Text.Trim());
+            }
+            if (txtActiveToDate.Text.Trim() == "")
+            {
+                toDate = null;
+            }
+            else
+            {
+                toDate = Convert.ToDateTime(txtActiveToDate.Text.Trim());
+            }
             DataSet dsActiveRequirements = new DataSet();
             ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
-            dsActiveRequirements = viewClientRequirement.ViewActiveRequirementSearchBAL(recruiterId, clientName, position);
+            dsActiveRequirements = viewClientRequirement.ViewActiveRequirementSearchBAL(recruiterId, clientName, position,toDate,fromDate);
             if (dsActiveRequirements != null)
             {
                 grdActiveRequirement.DataSource = dsActiveRequirements;
@@ -132,8 +150,9 @@ namespace JobFair.Forms.Recruiter
         protected void btnInActiveSearch_Click(object sender, EventArgs e)
         {
             string clientName, position;
-
-            if (txtClient.Text == "")
+            // DateTime fromDate, toDate;
+            DateTime? fromDate, toDate;
+            if (txtClient.Text.Trim() == "")
             {
                 clientName = null;
             }
@@ -142,7 +161,7 @@ namespace JobFair.Forms.Recruiter
                 clientName = txtClient.Text.Trim();
             }
 
-            if (txtRequirement.Text == "")
+            if (txtRequirement.Text.Trim() == "")
             {
                 position = null;
             }
@@ -150,9 +169,27 @@ namespace JobFair.Forms.Recruiter
             {
                 position = txtRequirement.Text.Trim();
             }
+            if (txtFrom.Text.Trim() == "")
+            {
+                fromDate = null;
+            }
+            else
+            {
+                fromDate = Convert.ToDateTime(txtFrom.Text.Trim());
+            }
+
+            if (txtTo.Text.Trim() == "")
+            {
+                toDate = null;
+            }
+            else
+            {
+                toDate = Convert.ToDateTime(txtTo.Text.Trim());
+            }
+
             DataSet dsInActiveRequirements = new DataSet();
             ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
-            dsInActiveRequirements = viewClientRequirement.ViewInActiveRequirementSearchBAL(recruiterId, clientName, position);
+            dsInActiveRequirements = viewClientRequirement.ViewInActiveRequirementSearchBAL(recruiterId, clientName, position, fromDate, toDate);
             if (dsInActiveRequirements != null)
             {
                 grdInActiveRequirements.DataSource = dsInActiveRequirements;
