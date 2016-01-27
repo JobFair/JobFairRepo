@@ -83,9 +83,9 @@
     <Content Include="Email Templates\RecruiterRegisterWelcomeMail.html" />
     <Content Include="EmailPage.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Forms\Admin\HRRegistration.aspx" />
-    <Content Include="Forms\Common\ChangePassword.aspx" />
-    <Content Include="Forms\Common\ForgetPassword.aspx" />
+    <Content Include="Forms\HR\HRRegistration.aspx" />
+    <Content Include="Forms\Admin\Common\ChangePassword.aspx" />
+    <Content Include="Forms\Admin\Common\ForgetPassword.aspx" />
     <Content Include="Forms\Employer\Register.aspx" />
     <Content Include="Forms\HR\ClientContactPersonDetails.aspx" />
     <Content Include="Forms\HR\ClientDetails.aspx" />
@@ -115,6 +115,7 @@
     <Content Include="Forms\Recruiter\ManageResponses.aspx" />
     <Content Include="Forms\Recruiter\NewApplications.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
+    <Content Include="Forms\Recruiter\ProfessionalDetails.aspx" />
     <Content Include="Forms\Recruiter\Questionrie.aspx" />
     <Content Include="Forms\Recruiter\RejectApplication.aspx" />
     <Content Include="Forms\Recruiter\SearchRecord.aspx" />
@@ -131,15 +132,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery.min.js" />
-    <Content Include="Scripts\jquery-2.1.4.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.js" />
-    <Content Include="Scripts\jquery.validationEngine-en.js" />
-    <Content Include="Scripts\jquery.validationEngine.js" />
-    <Content Include="Scripts\ValidationAll.js" />
+    <None Include="Images\Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Images\Scripts\bootstrap.js" />
+    <Content Include="Images\Scripts\bootstrap.min.js" />
+    <Content Include="Images\Scripts\jquery.min.js" />
+    <Content Include="Images\Scripts\jquery-2.1.4.js" />
+    <Content Include="Images\Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Images\Scripts\jquery.validationEngine-en.js" />
+    <Content Include="Images\Scripts\jquery.validationEngine.js" />
+    <Content Include="Images\Scripts\ValidationAll.js" />
     <Content Include="SendMail.html" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
@@ -170,7 +171,7 @@
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
     <Content Include="Forms\Employer\HomePageEmployer.Master" />
-    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Images\Scripts\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -188,25 +189,25 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Admin\HRRegistration.aspx.cs">
+    <Compile Include="Forms\HR\HRRegistration.aspx.cs">
       <DependentUpon>HRRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\HRRegistration.aspx.designer.cs">
+    <Compile Include="Forms\HR\HRRegistration.aspx.designer.cs">
       <DependentUpon>HRRegistration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Common\ChangePassword.aspx.cs">
+    <Compile Include="Forms\Admin\Common\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Common\ChangePassword.aspx.designer.cs">
+    <Compile Include="Forms\Admin\Common\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Common\ForgetPassword.aspx.cs">
+    <Compile Include="Forms\Admin\Common\ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Common\ForgetPassword.aspx.designer.cs">
+    <Compile Include="Forms\Admin\Common\ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Employer\HomePageEmployer.Master.cs">
@@ -439,6 +440,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\PostNewJob.aspx.designer.cs">
       <DependentUpon>PostNewJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ProfessionalDetails.aspx.cs">
+      <DependentUpon>ProfessionalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ProfessionalDetails.aspx.designer.cs">
+      <DependentUpon>ProfessionalDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\Questionrie.aspx.cs">
       <DependentUpon>Questionrie.aspx</DependentUpon>

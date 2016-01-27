@@ -59,6 +59,7 @@
     <Compile Include="PostNewJobDAL.cs" />
     <Compile Include="ClientRequirementsDAL.cs" />
     <Compile Include="ManageJobsDAL.cs" />
+    <Compile Include="ProfessionalDetailsDAL.cs" />
     <Compile Include="ProjectDetailsDAL.cs" />
     <Compile Include="AffirmativeDetailsJSDAL.cs" />
     <Compile Include="ChangePasswordDAL.cs" />
