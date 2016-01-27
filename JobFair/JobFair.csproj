@@ -83,10 +83,10 @@
     <Content Include="Email Templates\RecruiterRegisterWelcomeMail.html" />
     <Content Include="EmailPage.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Forms\Admin\HRRegistration.aspx" />
-    <Content Include="Forms\Common\ChangePassword.aspx" />
-    <Content Include="Forms\Common\ForgetPassword.aspx" />
-    <Content Include="Forms\HR\Employer\Register.aspx" />
+    <Content Include="Forms\HR\HRRegistration.aspx" />
+    <Content Include="Forms\Admin\Common\ChangePassword.aspx" />
+    <Content Include="Forms\Admin\Common\ForgetPassword.aspx" />
+    <Content Include="Forms\Employer\Register.aspx" />
     <Content Include="Forms\HR\ClientContactPersonDetails.aspx" />
     <Content Include="Forms\HR\ClientDetails.aspx" />
     <Content Include="Forms\HR\ClientRequirements.aspx" />
@@ -170,7 +170,7 @@
     </Content>
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
-    <Content Include="Forms\HR\Employer\HomePageEmployer.Master" />
+    <Content Include="Forms\Employer\HomePageEmployer.Master" />
     <Content Include="Images\Scripts\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -189,39 +189,39 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Admin\HRRegistration.aspx.cs">
+    <Compile Include="Forms\HR\HRRegistration.aspx.cs">
       <DependentUpon>HRRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\HRRegistration.aspx.designer.cs">
+    <Compile Include="Forms\HR\HRRegistration.aspx.designer.cs">
       <DependentUpon>HRRegistration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Common\ChangePassword.aspx.cs">
+    <Compile Include="Forms\Admin\Common\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Common\ChangePassword.aspx.designer.cs">
+    <Compile Include="Forms\Admin\Common\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Common\ForgetPassword.aspx.cs">
+    <Compile Include="Forms\Admin\Common\ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Common\ForgetPassword.aspx.designer.cs">
+    <Compile Include="Forms\Admin\Common\ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HR\Employer\HomePageEmployer.Master.cs">
+    <Compile Include="Forms\Employer\HomePageEmployer.Master.cs">
       <DependentUpon>HomePageEmployer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\HR\Employer\HomePageEmployer.Master.designer.cs">
+    <Compile Include="Forms\Employer\HomePageEmployer.Master.designer.cs">
       <DependentUpon>HomePageEmployer.Master</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HR\Employer\Register.aspx.cs">
+    <Compile Include="Forms\Employer\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\HR\Employer\Register.aspx.designer.cs">
+    <Compile Include="Forms\Employer\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\HR\ClientContactPersonDetails.aspx.cs">

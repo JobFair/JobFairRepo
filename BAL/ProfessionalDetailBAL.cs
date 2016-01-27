@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Entities.Recruiter;
+using System.Data;
 
 namespace BAL
 {
@@ -28,9 +29,21 @@ namespace BAL
 
         public System.Data.DataSet ViewTechnicalSkillDetailsBAL(string RecruiterID)
         {
-            ProfessionalDetailsDAL professionaldetailDAL = new ProfessionalDetailsDAL();
-            return professionaldetailDAL.ViewTechnicalskillBAL(RecruiterID);
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+            return professionalDetailDAL.ViewTechnicalskillBAL(RecruiterID);
                  
+        }
+
+        public void AddTechnicalSkillBAL(ProfessionalDetailsEntity professionalDetailentity)
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+             professionalDetailDAL.AddTechnicalSkillDAL(professionalDetailentity);
+        }
+
+        public  DataTable SaveTechnicalSkillsBAL(DataTable dt)
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+             return  professionalDetailDAL.SaveTechnicalSkillDAL(dt);
         }
     }
 

@@ -80,5 +80,89 @@ namespace DAL
             }
             return ds;
         }
+
+        public  void  AddTechnicalSkillDAL(ProfessionalDetailsEntity professionalDetailentity)
+        {
+            try
+            {
+                Connection.Open();
+                SqlParameter[] sparams = { new SqlParameter("@SkillName",  professionalDetailentity.TechnicalSkill) };
+                SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertTechnicalSkill, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
+        }
+
+        public DataTable SaveRoleSkillsDAL(DataTable dt)
+        {
+            try
+            {
+                Connection.Open();
+
+                // Creating object of SqlBulkCopy
+                SqlBulkCopy objbulk = new SqlBulkCopy(Connection);
+
+                // Assigning Destination table name
+                objbulk.DestinationTableName = "RE_TechnicalSkillDetails";
+
+                // Mapping Table column
+                objbulk.ColumnMappings.Add("RecruiterId", "RecruiterId");
+                objbulk.ColumnMappings.Add("RoleSkills", "RoleSkills");
+                objbulk.ColumnMappings.Add("FromDate", "FromDate");
+                objbulk.ColumnMappings.Add("TillDate", "TillDate");
+                objbulk.ColumnMappings.Add("Proficiency", "Proficiency");
+                objbulk.ColumnMappings.Add("TotalYear", "TotalYear");
+
+                // Inserting bulk Records into DataBase
+                objbulk.WriteToServer(dt);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return dt;
+        }
+
+
+        public  DataTable SaveTechnicalSkillDAL(DataTable dt)
+        {
+            try
+            {
+                Connection.Open();
+
+                // Creating object of SqlBulkCopy
+                SqlBulkCopy objbulk = new SqlBulkCopy(Connection);
+
+                // Assigning Destination table name
+                objbulk.DestinationTableName = "RE_TechnicalSkillDetails";
+
+                // Mapping Table column
+                objbulk.ColumnMappings.Add("RecruiterId", "RecruiterId");
+                objbulk.ColumnMappings.Add("TechnicalSkills", "TechnicalSkills");
+                objbulk.ColumnMappings.Add("FromDate", "FromDate");
+                objbulk.ColumnMappings.Add("TillDate", "TillDate");
+                objbulk.ColumnMappings.Add("Proficiency", "Proficiency");
+                objbulk.ColumnMappings.Add("TotalYear", "TotalYear");
+
+                // Inserting bulk Records into DataBase
+                objbulk.WriteToServer(dt);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return dt;
+        }
     }
 }

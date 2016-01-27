@@ -67,6 +67,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlFromMonth;
         
         /// <summary>
+        /// rfvFromMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFromMonth;
+        
+        /// <summary>
         /// ddlFromYear control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFromYear;
+        
+        /// <summary>
+        /// rfvFromYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFromYear;
         
         /// <summary>
         /// ddlTillMonth control.
@@ -85,6 +103,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlTillMonth;
         
         /// <summary>
+        /// rfvTillMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTillMonth;
+        
+        /// <summary>
         /// ddlTillYear control.
         /// </summary>
         /// <remarks>
@@ -92,6 +119,15 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTillYear;
+        
+        /// <summary>
+        /// rfvTillYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTillYear;
         
         /// <summary>
         /// ddlProficiency control.

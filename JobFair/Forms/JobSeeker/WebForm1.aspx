@@ -31,9 +31,9 @@
             </tr>
             <tr>
                 <td>
-                    <asp:DropDownList ID="ddlTechnicalSkills" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTechnicalSkills_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlTechnicalSkills" runat="server" AutoPostBack="True"  OnSelectedIndexChanged="ddlTechnicalSkills_SelectedIndexChanged" ></asp:DropDownList>
                     <br />
-                     <div id="divAddMoreSkills" runat="server" visible="false">
+                     <div id="divAddMoreSkills" runat="server" visible="false" >
                         <table>
                             <tr>
                                 <td>
@@ -47,11 +47,17 @@
                 <td>
                     <asp:DropDownList ID="ddlFromMonth" runat="server">
                     </asp:DropDownList>
-                    <asp:DropDownList ID="ddlFromYear" runat="server"></asp:DropDownList>
+                   <asp:RequiredFieldValidator ID="rfvFromMonth" runat="server" ControlToValidate="ddlFromMonth" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlFromYear" runat="server">
+                    </asp:DropDownList>
+                     <asp:RequiredFieldValidator ID="rfvFromYear" runat="server" ControlToValidate="ddlFromYear" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlTillMonth" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlTillMonth" runat="server">
+                    </asp:DropDownList>
+                     <asp:RequiredFieldValidator ID="rfvTillMonth" runat="server" ControlToValidate="ddlTillMonth" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:DropDownList ID="ddlTillYear" runat="server"></asp:DropDownList>
+                     <asp:RequiredFieldValidator ID="rfvTillYear" runat="server" ControlToValidate="ddlTillYear" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
                 <td>
                     <asp:DropDownList ID="ddlProficiency" runat="server">
@@ -74,7 +80,7 @@
                     <asp:GridView ID="gvSkillsDetails" AutoGenerateColumns="false" runat="server">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField HeaderText="CandidateId" DataField="CandidateId" Visible="false" />
+                            <asp:BoundField HeaderText="RecruiterId" DataField="RecruiterId" Visible="false" />
                             <asp:BoundField HeaderText="TechnicalSkills" DataField="TechnicalSkills" />
                             <asp:BoundField HeaderText="FromDate" DataField="FromDate" />
                             <asp:BoundField HeaderText="TillDate" DataField="TillDate" />
@@ -102,7 +108,7 @@
             <tr>
                 <td colspan="4">
                     <div id="divTechnicalRepeater" runat="server" visible="false">
-                        <asp:Repeater ID="rptrTechnicalSkills" runat="server" OnItemCommand="rptrTechnicalSkills_ItemCommand" OnItemDataBound="rptrTechnicalSkills_ItemDataBound">
+                        <asp:Repeater ID="rptrTechnicalSkills" runat="server">
                             <HeaderTemplate>
                                 <table>
                                     <tr>
@@ -179,7 +185,7 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <asp:Button ID="btnSaveSkills" runat="server" Text="Save" OnClick="btnSaveSkills_Click" />
+                    <asp:Button ID="btnSaveSkills" runat="server" Text="Save" OnClick="btnSaveSkills_Click"  />
                 </td>
             </tr>
         </table>
