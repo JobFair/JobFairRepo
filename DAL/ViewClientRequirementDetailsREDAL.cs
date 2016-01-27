@@ -9,6 +9,11 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// View client requirements dal
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewClientRequirementDAL(long recruiterId)
         {
             DataSet ds = new DataSet();
@@ -26,6 +31,12 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// View client requirement details dal
+        /// </summary>
+        /// <param name="clientId">clientId</param>
+        /// <param name="clientRequirementId">clientRequirementId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewClientRequirementDetailsDAL(long clientId, long clientRequirementId)
         {
             DataSet ds = new DataSet();
@@ -44,6 +55,11 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// View active requirement dal
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewActiveRequirementDAL(long recruiterId)
         {
             DataSet ds = new DataSet();
@@ -61,6 +77,11 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// View inactive requirements dal
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
+        /// <returns>dataset</returns>
         public DataSet ViewInActiveRequirementsDAL(long recruiterId)
         {
             DataSet ds = new DataSet();
@@ -77,6 +98,11 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// Update requirement status dal
+        /// </summary>
+        /// <param name="clientRequirementId">clientRequirementId</param>
+        /// <returns>dataset</returns>
         public int UpdateRequirementStatusDAL(long clientRequirementId)
         {
             int result = 0;
@@ -100,6 +126,15 @@ namespace DAL
             return result;
         }
 
+        /// <summary>
+        /// View search inactive requirements dal
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
+        /// <param name="clientName">clientName</param>
+        /// <param name="position">position</param>
+        /// <param name="fromDate">fromDate</param>
+        /// <param name="toDate">toDate</param>
+        /// <returns>dataset</returns>
         public DataSet ViewInActiveRequiremntSearchDAL(long recruiterId, string clientName, string position, DateTime? fromDate, DateTime? toDate)
         {
             connection.Open();
@@ -127,6 +162,15 @@ namespace DAL
             return dsSearch;
         }
 
+        /// <summary>
+        /// View search activerequirements dal
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
+        /// <param name="clientName">clientName</param>
+        /// <param name="position">position</param>
+        /// <param name="fromDate">fromDate</param>
+        /// <param name="toDate">toDate</param>
+        /// <returns>dataset</returns>
         public DataSet ViewActiveRequirementSearchDAL(long recruiterId, string clientName, string position, DateTime? fromDate, DateTime? toDate)
         {
             connection.Open();

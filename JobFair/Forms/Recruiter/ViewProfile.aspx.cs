@@ -165,6 +165,7 @@ namespace JobFair.Forms.Recruiter
             {
                 DataSet dsContactDetails = new DataSet();
                 dsContactDetails = viewProfileBAL.ViewContactDetailsBAL(recruiterId);
+                // Check if dataset is not null
                 if (dsContactDetails != null)
                 {
                     lblAltEmailId.Text = Convert.ToString(dsContactDetails.Tables[0].Rows[0]["AltEmailId"]);
@@ -196,6 +197,7 @@ namespace JobFair.Forms.Recruiter
             {
                 DataSet dsPersonalDetails = new DataSet();
                 dsPersonalDetails = viewProfileBAL.ViewPersonalDetails(recruiterId);
+                // Check if dataset is not null
                 if (dsPersonalDetails != null)
                 {
                     lblPresentAddress.Text = Convert.ToString(dsPersonalDetails.Tables[1].Rows[0]["Address"]);

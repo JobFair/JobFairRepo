@@ -17,6 +17,10 @@ namespace JobFair.Forms.Recruiter
             BindInActiveRequirements(recruiterId);
         }
 
+        /// <summary>
+        /// Bind inactive requirements
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
         private void BindInActiveRequirements(long recruiterId)
         {
             try
@@ -24,6 +28,7 @@ namespace JobFair.Forms.Recruiter
                 DataSet dsInActiveRequirements = new DataSet();
                 ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
                 dsInActiveRequirements = viewClientRequirement.ViewInActiveRequirementsBAL(recruiterId);
+                // Check if dataset is not null
                 if (dsInActiveRequirements != null)
                 {
                     grdInActiveRequirements.DataSource = dsInActiveRequirements;
@@ -36,6 +41,10 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Bind active requirements
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
         private void BindActiveRequirements(long recruiterId)
         {
             try
@@ -43,6 +52,7 @@ namespace JobFair.Forms.Recruiter
                 DataSet dsActiveRequirements = new DataSet();
                 ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
                 dsActiveRequirements = viewClientRequirement.ViewActiveRequirementBAL(recruiterId);
+                // Check if dataset is not null
                 if (dsActiveRequirements != null)
                 {
                     grdActiveRequirement.DataSource = dsActiveRequirements;
@@ -55,6 +65,10 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Bind new requirements
+        /// </summary>
+        /// <param name="recruiterId">recruiterId</param>
         private void BindNewRequirements(long recruiterId)
         {
             try
@@ -62,6 +76,7 @@ namespace JobFair.Forms.Recruiter
                 DataSet dsNewRequirement = new DataSet();
                 ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
                 dsNewRequirement = viewClientRequirement.ViewClientRequirementBAL(recruiterId);
+                // Check if dataset is not null
                 if (dsNewRequirement != null)
                 {
                     grdViewRequirements.DataSource = dsNewRequirement;
@@ -98,6 +113,11 @@ namespace JobFair.Forms.Recruiter
             Response.Redirect("ViewClientRequirementDetails.aspx?cId=" + cId + "&rId=" + rId + "&status=Active");
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnSearch control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             string clientName, position;
@@ -139,7 +159,8 @@ namespace JobFair.Forms.Recruiter
             }
             DataSet dsActiveRequirements = new DataSet();
             ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
-            dsActiveRequirements = viewClientRequirement.ViewActiveRequirementSearchBAL(recruiterId, clientName, position,toDate,fromDate);
+            dsActiveRequirements = viewClientRequirement.ViewActiveRequirementSearchBAL(recruiterId, clientName, position, toDate, fromDate);
+            // Check if dataset is not null
             if (dsActiveRequirements != null)
             {
                 grdActiveRequirement.DataSource = dsActiveRequirements;
@@ -147,10 +168,14 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnInActiveSearch control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnInActiveSearch_Click(object sender, EventArgs e)
         {
             string clientName, position;
-            // DateTime fromDate, toDate;
             DateTime? fromDate, toDate;
             if (txtClient.Text.Trim() == "")
             {
@@ -190,6 +215,7 @@ namespace JobFair.Forms.Recruiter
             DataSet dsInActiveRequirements = new DataSet();
             ViewClientRequirementDetailsREBAL viewClientRequirement = new ViewClientRequirementDetailsREBAL();
             dsInActiveRequirements = viewClientRequirement.ViewInActiveRequirementSearchBAL(recruiterId, clientName, position, fromDate, toDate);
+            // Check if dataset is not null
             if (dsInActiveRequirements != null)
             {
                 grdInActiveRequirements.DataSource = dsInActiveRequirements;

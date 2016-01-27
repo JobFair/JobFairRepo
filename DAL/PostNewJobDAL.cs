@@ -7,17 +7,17 @@ using System.Data.SqlClient;
 namespace DAL
 {
     /// <summary>
-    /// jop post
+    /// Job post
     /// </summary>
     public class PostNewJobDAL
     {
-        /// <summary>
-        /// Dal layer method to store new job post data into jobpost table in database
-        /// </summary>
-        /// <param name="jobpostEntity">Object for inserting data into database</param>
-        /// <returns>System.String</returns>
         private SqlConnection Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// Get requirement details dal
+        /// </summary>
+        /// <param name="requirementId">for retrive data from data from database</param>
+        /// <returns>DataSet</returns>
         public DataSet GetRequirementDetailDAL(int requirementId)
         {
             DataSet ds = new DataSet();
@@ -33,6 +33,11 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// Dal layer method to store new job post data into jobpost table in database
+        /// </summary>
+        /// <param name="jobpostEntity">Object for inserting data into database</param>
+        /// <returns>System.Int32</returns>
         public int JobPostDAL(AddJobPostEntity jobpostEntity)
         {
             try
@@ -71,21 +76,21 @@ namespace DAL
                                         };
 
                 return SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertJobPost, sqlparams);
-                //    int result1 = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_InsertJobPostHistory, sqlparams1);
             }
             catch (Exception)
             {
                 throw;
             }
-            finally   
+            finally
             {
+                Connection.Close();
             }
         }
 
         /// <summary>
         /// DAL for GetQuestions
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Dataset</returns>
         public DataSet GetQuestionsDAL()
         {
             DataSet ds = new DataSet();
@@ -93,6 +98,10 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// Get state dal
+        /// </summary>
+        /// <returns>dataset</returns>
         public DataSet GetStateDAL()
         {
             try
@@ -107,28 +116,66 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Get roles dal
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>Datatable</returns>
         public DataTable GetRoles(string prefixText)
         {
-            DataTable dt = new DataTable();
             Connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from RoleSkills  where RoleName like @RoleName+'%'", Connection);
-            cmd.Parameters.AddWithValue("@RoleName", prefixText);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            adp.Fill(dt);
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(Constants.sp_SelectRoleSkills, Connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RoleName", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
             return dt;
         }
 
-        public DataTable GetSkill(string prefixText)
+        /// <summary>
+        /// Get technical skills dal
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>Datatable</returns>
+        public DataTable GetTechnicalSkill(string prefixText)
         {
-            DataTable dt = new DataTable();
             Connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from TechnicalSkillsDetails  where TechnicalSkillName like @TechnicalSkillName+'%'", Connection);
-            cmd.Parameters.AddWithValue("@TechnicalSkillName", prefixText);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            adp.Fill(dt);
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(Constants.sp_SelectTechnicalSkills, Connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TechnicalSkillName", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
             return dt;
         }
 
+        /// <summary>
+        /// Get client name dal
+        /// </summary>
+        /// <returns>Dataset</returns>
         public DataSet GetClientname()
         {
             try
@@ -143,6 +190,10 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Get recruiter name dal
+        /// </summary>
+        /// <returns>Dataset</returns>
         public DataSet GetRecruiterNameDAL()
         {
             DataSet ds = new DataSet();

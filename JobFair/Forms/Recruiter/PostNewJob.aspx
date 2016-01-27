@@ -172,7 +172,7 @@
                     <td>
                         <asp:TextBox ID="txtKeyTechnical" runat="server"></asp:TextBox>
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender2" runat="server" TargetControlID="txtKeyTechnical" MinimumPrefixLength="1" EnableCaching="true"
-                            CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="Gettechnicalskill">
+                            CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetTechnicalskill">
                         </cc1:AutoCompleteExtender>
                     </td>
                 </tr>

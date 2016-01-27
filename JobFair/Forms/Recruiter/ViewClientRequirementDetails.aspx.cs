@@ -16,6 +16,12 @@ namespace JobFair.Forms.Recruiter
             BindClientRequirementDetails(clientId, clientRequirementId, status);
         }
 
+        /// <summary>
+        /// Bind client requirement details.
+        /// </summary>
+        /// <param name="clientId">clientId</param>
+        /// <param name="clientRequirementId">clientRequirementId</param>
+        /// <param name="status">status</param>
         private void BindClientRequirementDetails(long clientId, long clientRequirementId, string status)
         {
             try
@@ -23,12 +29,13 @@ namespace JobFair.Forms.Recruiter
                 DataSet dsClientRequirement = new DataSet();
                 ViewClientRequirementDetailsREBAL clientRequirementBAL = new ViewClientRequirementDetailsREBAL();
                 dsClientRequirement = clientRequirementBAL.ViewClientRequirementDetailsBAL(clientId, clientRequirementId);
+                // Check if status is new
                 if (status == "New")
                 {
                     pnlNew.Visible = true;
                     pnlActive.Visible = false;
                     pnlInActive.Visible = false;
-
+                    // Check if dataset is not null
                     if (dsClientRequirement != null)
                     {
                         lblClientName.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["ClientName"]);
@@ -46,16 +53,18 @@ namespace JobFair.Forms.Recruiter
                         lblContent.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["Contents"]);
                         lblDateOfRequirement.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["DateOfRequirementSent"]);
                         lblDueDate.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["DueDate"]);
-
+                        // Bind rptrContactPerson to datasource
                         rptrContactPerson.DataSource = dsClientRequirement.Tables[1];
                         rptrContactPerson.DataBind();
                     }
                 }
+                // Check if status is active
                 else if (status == "Active")
                 {
                     pnlActive.Visible = true;
                     pnlNew.Visible = false;
                     pnlInActive.Visible = false;
+                    // Check if dataset is not null
                     if (dsClientRequirement != null)
                     {
                         lblActiveClientName.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["ClientName"]);
@@ -75,6 +84,7 @@ namespace JobFair.Forms.Recruiter
                         lblActiveRequirementDate.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["DateOfRequirementSent"]);
                         lblActiveDueDate.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["DueDate"]);
                         lblJobPost.Text = Convert.ToString(dsClientRequirement.Tables[2].Rows[0]["PageLink"]);
+                        // Bind datasource to rptrActiveRequirement control
                         rptrActiveRequirement.DataSource = dsClientRequirement.Tables[1];
                         rptrActiveRequirement.DataBind();
                     }
@@ -84,6 +94,7 @@ namespace JobFair.Forms.Recruiter
                     pnlActive.Visible = false;
                     pnlNew.Visible = false;
                     pnlInActive.Visible = true;
+                    // Check if datasource is not null
                     if (dsClientRequirement != null)
                     {
                         lblInActiveClientName.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["ClientName"]);
@@ -104,8 +115,8 @@ namespace JobFair.Forms.Recruiter
                         lblInActiveRequirementId.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["ClientRequirementId"]);
                         lblDateOfClosure.Text = Convert.ToString(dsClientRequirement.Tables[0].Rows[0]["StatusModifiedDate"]);
                         lblInActiveJobPostLink.Text = Convert.ToString(dsClientRequirement.Tables[2].Rows[0]["PageLink"]);
+                        // Bind datasorce to rptrInActiveRequirement control
                         rptrInActiveRequirement.DataSource = dsClientRequirement.Tables[1];
-                                                                                                                                                 
                         rptrInActiveRequirement.DataBind();
                     }
                 }
@@ -116,6 +127,11 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnPositionClosed control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnPositionClosed_Click1(object sender, EventArgs e)
         {
             try
@@ -130,11 +146,21 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the lnkbtnJobPost control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void lnkbtnJobPost_Click(object sender, EventArgs e)
         {
             Response.Redirect(lblJobPost.Text);
         }
 
+        /// <summary>
+        /// Handles the Click event of the lnkbtnInActiveJobPost control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void lnkbtnInActiveJobPost_Click(object sender, EventArgs e)
         {
             Response.Redirect(lblInActiveJobPostLink.Text);
