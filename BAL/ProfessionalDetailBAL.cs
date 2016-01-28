@@ -45,6 +45,19 @@ namespace BAL
             ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
              return  professionalDetailDAL.SaveTechnicalSkillDAL(dt);
         }
+
+        public DataSet GetRoleSkillsBAL()
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+
+            return professionalDetailDAL.GetRoleSkillsDAL();
+        }
+
+        public  DataTable SaveRechnicalSkillsBAL(DataTable dt)
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+            return professionalDetailDAL.SaveRoleSkillsDAL(dt);
+        }
     }
 
 
