@@ -13,22 +13,22 @@ namespace JobFair.Forms.JobSeeker {
     public partial class WebForm1 {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// divRoleSkillsInsert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRoleSkillsInsert;
         
         /// <summary>
-        /// ddlTechnicalSkills control.
+        /// ddlRoleSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTechnicalSkills;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRoleSkills;
         
         /// <summary>
         /// divAddMoreSkills control.
@@ -139,6 +139,15 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.DropDownList ddlProficiency;
         
         /// <summary>
+        /// rfvProficiency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProficiency;
+        
+        /// <summary>
         /// btnAddMoreSkills control.
         /// </summary>
         /// <remarks>
@@ -166,24 +175,6 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.GridView gvSkillsDetails;
         
         /// <summary>
-        /// divTechnicalRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTechnicalRepeater;
-        
-        /// <summary>
-        /// rptrTechnicalSkills control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrTechnicalSkills;
-        
-        /// <summary>
         /// btnSaveSkills control.
         /// </summary>
         /// <remarks>
@@ -191,5 +182,23 @@ namespace JobFair.Forms.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveSkills;
+        
+        /// <summary>
+        /// divRoleSkillsEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRoleSkillsEdit;
+        
+        /// <summary>
+        /// rptrRoleSkills control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrRoleSkills;
     }
 }

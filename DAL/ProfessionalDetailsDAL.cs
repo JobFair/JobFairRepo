@@ -164,5 +164,25 @@ namespace DAL
             }
             return dt;
         }
+
+        public DataSet GetRoleSkillsDAL()
+        {
+
+            DataSet ds = new DataSet();
+            Connection.Open();
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select * from RoleSkills order by RoleName asc");
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return ds;
+        }
     }
 }
