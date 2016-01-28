@@ -134,6 +134,8 @@
         public static string sp_JS_SelectViewAllCandidate = "sp_JS_SelectViewAllCandidate";
         public static string sp_JS_SelectAcceptApplication = "sp_JS_SelectAcceptApplication";
         public static string sp_JS_SelectRejectApplication = "sp_JS_SelectRejectApplication";
+        public static string sp_SelectRoleSkills = "sp_SelectRoleSkills";
+        public static string sp_SelectTechnicalSkills = "sp_SelectTechnicalSkills";
         public static string sp_RE_InsertProfessionalDetails = "sp_RE_InsertProfessionalDetails";
         public static string sp_RE_InsertTechnicalSkill = "sp_RE_InsertTechnicalSkill";
 

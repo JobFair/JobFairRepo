@@ -25,7 +25,6 @@ namespace JobFair.Forms.Recruiter
                     BindQuestions();
                     BindState();
                     BindRequirementName();
-                    // BindClientName();
                 }
                 catch (Exception)
                 {
@@ -103,6 +102,9 @@ namespace JobFair.Forms.Recruiter
             // }
         }
 
+        /// <summary>
+        /// Bind requirement name
+        /// </summary>
         private void BindRequirementName()
         {
             try
@@ -110,6 +112,7 @@ namespace JobFair.Forms.Recruiter
                 PostNewJobBAL postNewJobBAL = new PostNewJobBAL();
                 DataSet dsRequirement = new DataSet();
                 dsRequirement = postNewJobBAL.GetRequirementBAL();
+                // Check if dataset is not null
                 if (dsRequirement != null)
                 {
                     ddlRequirementName.DataSource = dsRequirement;
@@ -125,28 +128,9 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
-        //private void BindClientName()
-        //{
-        //    try
-        //    {
-        //        DataSet ds = new DataSet();
-        //        PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
-        //        ds = postnewjobBAL.GetClientName();
-        //        if (ds != null)
-        //        {
-        //            ddlclientname.DataSource = ds;
-        //            ddlclientname.DataTextField = "ClientName";
-        //            ddlclientname.DataValueField = "ClientId";
-        //            ddlclientname.DataBind();
-        //            ddlclientname.Items.Insert(0, new ListItem("-----select--------", "0"));
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
-
+        /// <summary>
+        /// Bind state
+        /// </summary>
         private void BindState()
         {
             try
@@ -154,6 +138,7 @@ namespace JobFair.Forms.Recruiter
                 DataSet ds = new DataSet();
                 PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
                 ds = postnewjobBAL.GetState();
+                // Check if dataset is not null
                 if (ds != null)
                 {
                     ddlState.DataSource = ds;
@@ -179,6 +164,7 @@ namespace JobFair.Forms.Recruiter
             {
                 DataSet ds = new DataSet();
                 ds = PostNewJobBAL.GetIndustry();
+                // Check if dataset is not null
                 if (ds != null)
                 {
                     ddlIndustry.DataSource = ds;
@@ -203,6 +189,7 @@ namespace JobFair.Forms.Recruiter
             {
                 DataSet ds = new DataSet();
                 ds = PostNewJobBAL.GetDepartment();
+                // Check if dataset is not null
                 if (ds != null)
                 {
                     ddlDepartment.DataSource = ds;
@@ -291,6 +278,7 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobType = lblselectedjobtype.Text;
                 addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
                 addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
+                // Check if recruitmentType is In-House
                 if (addJobPostEntity.RecruitmentType == "In-House")
                 {
                     addJobPostEntity.CompanyName = rblCompanyName.SelectedItem.Text;
@@ -302,6 +290,7 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.ClientName = lblClientName.Text.Trim();
                 addJobPostEntity.Position = lblPosition.Text.Trim();
                 addJobPostEntity.RequirementId = Convert.ToInt32(lblRequirementId.Text);
+               
                 if (addJobPostEntity.CompanyName == "Logos Corporate Solutions")
                 {
                     addJobPostEntity.CompanyProfile = lblCompanyProfile.Text;
@@ -329,22 +318,6 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
-        //protected void DropDownCheckBoxes1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //   // selectedItemspanel.Controls.Clear();
-        //    //foreach (ListItem item in (sender as ListControl).Items)
-        //    //{
-        //    //    if (item.Selected)
-        //    //    {
-        //    //     selectedItemspanel.Controls.Add(new Literal() { Text = item.Text + "<br/>" });
-        //    //        // selectedItemspanel=string.Join(",",)
-
-        //    //        //var selectedArea = DropDownCheckBoxes1.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-        //    //        //txtarea.Text = string.Join(",", selectedArea.Select(x => x.Text));
-        //    //    }
-        //    //}
-        //}
-
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -352,6 +325,7 @@ namespace JobFair.Forms.Recruiter
                 DataSet ds = new DataSet();
                 int stateId = Convert.ToInt32(ddlState.SelectedValue);
                 ds = PostNewJobBAL.GetCity(stateId);
+                // Check if dataset is not null
                 if (ds != null)
                 {
                     ddlCity.DataSource = ds;
@@ -374,11 +348,15 @@ namespace JobFair.Forms.Recruiter
                 DataSet ds = new DataSet();
                 int cityId = Convert.ToInt32(ddlCity.SelectedValue);
                 ds = PostNewJobBAL.GetArea(cityId);
-                ddllocation.DataSource = ds;
-                ddllocation.DataTextField = "AreaName";
-                ddllocation.DataValueField = "AreaId";
-                ddllocation.DataBind();
-                ddllocation.Items.Insert(0, new ListItem("--Select--", "0"));
+                // Check if dataset is not null
+                if (ds != null)
+                {
+                    ddllocation.DataSource = ds;
+                    ddllocation.DataTextField = "AreaName";
+                    ddllocation.DataValueField = "AreaId";
+                    ddllocation.DataBind();
+                    ddllocation.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             catch (Exception)
             {
@@ -410,17 +388,17 @@ namespace JobFair.Forms.Recruiter
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod()]
-        public static List<string> Gettechnicalskill(string prefixText)
+        public static List<string> GetTechnicalskill(string prefixText)
         {
             try
             {
                 DataTable dt = new DataTable();
                 PostNewJobBAL postnewjobBAL = new PostNewJobBAL();
-                dt = postnewjobBAL.GettechnicalskillBAL(prefixText);
+                dt = postnewjobBAL.GetTechnicalskillBAL(prefixText);
                 List<string> skillname = new List<string>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    skillname.Add(dt.Rows[i][2].ToString());
+                    skillname.Add(dt.Rows[i][1].ToString());
                 }
                 return skillname;
             }
@@ -437,6 +415,7 @@ namespace JobFair.Forms.Recruiter
                 List<string> area_List = new List<string>();
                 foreach (ListItem item in ddllocation.Items)
                 {
+                    // Check if item selected
                     if (item.Selected)
                     {
                         area_List.Add(item.Value);
@@ -457,6 +436,7 @@ namespace JobFair.Forms.Recruiter
                 List<string> job_type = new List<string>();
                 foreach (ListItem item in chkjobtype.Items)
                 {
+                    // Check if item selected
                     if (item.Selected)
                     {
                         job_type.Add(item.Value);
@@ -477,6 +457,7 @@ namespace JobFair.Forms.Recruiter
                 List<string> employment_type = new List<string>();
                 foreach (ListItem item in chkemploymenttype.Items)
                 {
+                    // Check if item is selected
                     if (item.Selected)
                     {
                         employment_type.Add(item.Value);
@@ -558,6 +539,7 @@ namespace JobFair.Forms.Recruiter
                 PostNewJobBAL postNewJobBAL = new PostNewJobBAL();
                 int requirementId = Convert.ToInt32(ddlRequirementName.SelectedValue);
                 ds = postNewJobBAL.GetRequirementDetailBAL(requirementId);
+                // Check if dataset is not null
                 if (ds != null)
                 {
                     lblClientName.Text = Convert.ToString(ds.Tables[0].Rows[0]["ClientName"]);
