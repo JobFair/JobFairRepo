@@ -8,6 +8,7 @@ namespace Entities.HR
 {
     public class ClientContactPersonDetailsEntity
     {
+        public int ContactPersonId { get; set; }
         public Int64 ClientId { get; set; }
         public int HrId { get; set; }
         public string ContactPersonName { get; set; }
