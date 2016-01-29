@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcceptApplicationsBAL.cs" />
     <Compile Include="AdvanceJobSearchBAL.cs" />
     <Compile Include="AffirmativeDetailsREBAL.cs" />
     <Compile Include="ChangeLoginDetailsBAL.cs" />
@@ -66,15 +67,18 @@
     <Compile Include="PostNewJobBAL.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ProfessionalDetailBAL.cs" />
     <Compile Include="ProjectDetailsBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionrieBAL.cs" />
     <Compile Include="RegisterHrADBAL.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />
     <Compile Include="RegisterRecruiterHRBAL.cs" />
+    <Compile Include="RejectApplicationBAL.cs" />
     <Compile Include="RequestEmailJSBAL.cs" />
     <Compile Include="searchRecordBAL.cs" />
     <Compile Include="ViewAllJobPostBAL.cs" />
+    <Compile Include="ViewApplicationsBAL.cs" />
     <Compile Include="ViewClientRequirementDetailsREBAL.cs" />
     <Compile Include="ViewJobPostBAL.cs" />
     <Compile Include="ViewProfileJSBAL.cs" />

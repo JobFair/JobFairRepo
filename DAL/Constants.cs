@@ -111,7 +111,7 @@
         public static string sp_RE_InsertPersonalDetails = "sp_RE_InsertPersonalDetails";
         public static string sp_HR_InsertRecruiterRegisterDetails = "sp_HR_InsertRecruiterRegisterDetails";
         public static string sp_AD_InsertHRRegisterDetails = "sp_AD_InsertHRRegisterDetails";
-        public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent"; 
+        public static string sp_HR_UpdateRecruiterIsMailSent = "sp_HR_UpdateRecruiterIsMailSent";
         public static string sp_RE_ViewProfile = "sp_RE_ViewProfile";
         public static string sp_RE_SelectPersonalDetails = "sp_RE_SelectPersonalDetails";
         public static string sp_JS_SelectAllJobPost = "sp_JS_SelectAllJobPost";
@@ -131,6 +131,17 @@
         public static string sp_RE_SelectInActiveRequirements = "sp_RE_SelectInActiveRequirements";
         public static string sp_RE_UpdateClientRequirementStatus = "sp_RE_UpdateClientRequirementStatus";
         public static string sp_JS_CandidateDetails = "sp_JS_CandidateDetails";
+        public static string sp_JS_SelectCandidateDetails = "sp_JS_SelectCandidateDetails";
+        public static string sp_JS_UpdateAcceptCandidate = "sp_JS_UpdateAcceptCandidate";
+        public static string sp_JS_UpdateRejectCandidate = "sp_JS_UpdateRejectCandidate";
+        public static string sp_JS_SelectViewAllCandidate = "sp_JS_SelectViewAllCandidate";
+        public static string sp_JS_SelectAcceptApplication = "sp_JS_SelectAcceptApplication";
+        public static string sp_JS_SelectRejectApplication = "sp_JS_SelectRejectApplication";
+        public static string sp_SelectRoleSkills = "sp_SelectRoleSkills";
+        public static string sp_SelectTechnicalSkills = "sp_SelectTechnicalSkills";
+        public static string sp_RE_InsertProfessionalDetails = "sp_RE_InsertProfessionalDetails";
+        public static string sp_RE_InsertTechnicalSkill = "sp_RE_InsertTechnicalSkill";
+
 
     }
 }

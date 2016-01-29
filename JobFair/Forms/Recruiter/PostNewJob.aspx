@@ -162,7 +162,7 @@
 
                         <asp:TextBox ID="txtKeyRoles" runat="server"></asp:TextBox>
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtKeyRoles" MinimumPrefixLength="1"
-                            EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRoles">
+                            EnableCaching="false" CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetRoles" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true">
                         </cc1:AutoCompleteExtender>
                     </td>
                 </tr>
@@ -171,8 +171,8 @@
                         <asp:Label ID="lblkeytechnical" runat="server" Text="Keywords/Skillsets Technical"></asp:Label></td>
                     <td>
                         <asp:TextBox ID="txtKeyTechnical" runat="server"></asp:TextBox>
-                        <cc1:AutoCompleteExtender ID="AutoCompleteExtender2" runat="server" TargetControlID="txtKeyTechnical" MinimumPrefixLength="1" EnableCaching="true"
-                            CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="Gettechnicalskill">
+                        <cc1:AutoCompleteExtender ID="AutoCompleteExtender2" runat="server" TargetControlID="txtKeyTechnical" MinimumPrefixLength="1" EnableCaching="false"
+                            CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetTechnicalskill" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true">
                         </cc1:AutoCompleteExtender>
                     </td>
                 </tr>
@@ -316,19 +316,19 @@
                         </asp:UpdatePanel>
                     </td>
                 </tr>
-              
-                        <tr>
-                            <td>
-                                <asp:Label ID="lblRecruitment" runat="server" Text="Recruitment Type"></asp:Label>
-                            </td>
-                            <td>
-                                  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
+
+                <tr>
+                    <td>
+                        <asp:Label ID="lblRecruitment" runat="server" Text="Recruitment Type"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
                                 <asp:RadioButtonList ID="rdbrecruitmenttype" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rdbrecruitmenttype_SelectedIndexChanged">
                                     <asp:ListItem Text="In-House"></asp:ListItem>
                                     <asp:ListItem Text="Client"></asp:ListItem>
                                 </asp:RadioButtonList>
-                            </td>
+                                </td>
                         </tr>
                         <asp:Panel ID="pnlInHouse" runat="server" Visible="false">
                             <tr>
@@ -349,32 +349,34 @@
                             </tr>
                         </asp:Panel>
 
-                        <asp:Panel ID="pnlCompanyProfile" runat="server" Visible="false">
-                            <tr>
-                                <td>Company Profile</td>&nbsp;&nbsp;&nbsp;:
+                                <asp:Panel ID="pnlCompanyProfile" runat="server" Visible="false">
+                                    <tr>
+                                        <td>Company Profile</td>
+                                        &nbsp;&nbsp;&nbsp;:
                                 <td>
                                     <asp:Label ID="lblCompanyProfile" runat="server" Text="Logos Solutions" Visible="false"></asp:Label>
                                     <asp:Label ID="lblCompanyProfileiTech" runat="server" Text="Logos iTech" Visible="false"></asp:Label>
                                 </td>
-                            </tr>
-                        </asp:Panel>
-                        <asp:Panel ID="pnlClient" runat="server" Visible="false">
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="lblClient" runat="server" Text="Client of Logos Solutions"></asp:Label><br />
-                                </td>
-                            </tr>
+                                    </tr>
+                                </asp:Panel>
+                                <asp:Panel ID="pnlClient" runat="server" Visible="false">
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <asp:Label ID="lblClient" runat="server" Text="Client of Logos Solutions"></asp:Label><br />
+                                        </td>
+                                    </tr>
 
-                            <tr>
-                                <td>Client Company Profile</td>&nbsp;&nbsp;&nbsp;:
+                                    <tr>
+                                        <td>Client Company Profile</td>
+                                        &nbsp;&nbsp;&nbsp;:
                                 <td>
                                     <asp:TextBox ID="txtClientCompanyProfile" runat="server" TextMode="MultiLine"></asp:TextBox>
                                 </td>
-                            </tr>
-                        </asp:Panel>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                                    </tr>
+                                </asp:Panel>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
             </table>
         </div>
 

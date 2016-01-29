@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewClientRequirementDetails.aspx.cs" Inherits="JobFair.Forms.Recruiter.ViewClientRequirementDetails" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewClientRequirementDetails.aspx.cs" Inherits="JobFair.Forms.Recruiter.ViewClientRequirementDetails" %>
 
 <!DOCTYPE html>
 
@@ -74,7 +74,7 @@
                         <td>Area</td>
                         <td>
                             <asp:Label ID="lblArea" runat="server"></asp:Label>
-                        </td>
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td>Pincode</td>
@@ -257,6 +257,14 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Job Post</td>
+                        <td>
+                            <asp:LinkButton ID="lnkbtnJobPost" runat="server" OnClick="lnkbtnJobPost_Click" OnClientClick="document.forms[0].target='_blank';"  UseSubmitBehavior="false">Link of JobPost</asp:LinkButton>
+                            <asp:Label ID="lblJobPost" runat="server" Visible="false"></asp:Label>
+                            
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Position Closed</td>
                         <td>
                             <asp:Button ID="btnPositionClosed" runat="server" OnClick="btnPositionClosed_Click1" Text="Yes" />
@@ -416,6 +424,13 @@
                         <td>Date Of Closure</td>
                         <td>
                             <asp:Label ID="lblDateOfClosure" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Job Post</td>
+                        <td>
+                            <asp:Label ID="lblInActiveJobPostLink" runat="server" Visible="false"></asp:Label>
+                            <asp:LinkButton ID="lnkbtnInActiveJobPost" runat="server" OnClick="lnkbtnInActiveJobPost_Click" OnClientClick="document.forms[0].target='_blank';"  UseSubmitBehavior="false">Link Of JobPost</asp:LinkButton>
                         </td>
                     </tr>
                 </table>

@@ -41,5 +41,36 @@ namespace JobFair.Forms.Recruiter
             rptrcandidatedetails.DataBind();
 
         }
+
+        protected void btnaccept_Click(object sender, EventArgs e)
+        {
+           
+            GetAcceptCandidate(candidateId);
+            Response.Write("<script language='javascript'>alert('Accept')</script>");
+
+        }
+
+        private void GetAcceptCandidate(long candidateId)
+        {
+            DataSet dsAcceptCandidate = new DataSet();
+            NewApplicationsBAL newapplicationBAL = new NewApplicationsBAL();
+            dsAcceptCandidate  =  newapplicationBAL.GetAcceptCandidate(candidateId);
+        }
+
+        protected void Btnreject_Click(object sender, EventArgs e)
+        {
+            GetRejectCandidate(candidateId);
+            Response.Write("<script language='javascript'>alert('Reject')</script>");
+
+        }
+
+        private void GetRejectCandidate(long candidateId)
+        {
+             DataSet  dsRejectCandidate = new DataSet();
+            NewApplicationsBAL newapplicationBAL = new NewApplicationsBAL();
+            dsRejectCandidate = newapplicationBAL.GetRejectCandidate(candidateId);
+        }
+
+       
     }
 }

@@ -1,144 +1,133 @@
-﻿
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewAllJobPost.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ViewAllJobPost" MasterPageFile="~/Forms/JobSeeker/JobSeekerHome.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewAllJobPost.aspx.cs" Inherits="JobFair.Forms.JobSeeker.ViewAllJobPost" %>
 
 
-
-<asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1"   ID="contentview">
     <!DOCTYPE html>
-    
-     <div class="col-md-10">
-                <asp:Repeater ID="rptrviewpost" runat="server" OnItemCommand="rptrviewpost_ItemCommand">
-                    <HeaderTemplate>
-                    <table style="border: 1px solid #0000FF">
-                            <tr style="font-size: large; font-weight: bold; margin-bottom: 5px">
-                                <td>
-                                    <b>Job Post</b>
-                                </td>
-                                <td>
-                                     <asp:Label ID="lblId" runat="server" Text='<%#Eval("candidateId")%>' Visible="false"></asp:Label>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+         <div>
+            <table style="width: 800px">
+                
+
+                <tr style="background-color: #EBEFF0; color:#ff0000">
+                    <td>
+                        <table style=" width: 800px">
+                            <tr>
+                                <td><b>Job Title:</b>
+                                 <asp:Label ID="lblTitle" runat="server"  Font-Bold="true" />
+                                    <%--<asp:Label ID="lblId" runat="server" Text='<%#Eval("JobPostId")%>' Visible="false"></asp:Label>--%>
                                 </td>
                             </tr>
                         </table>
-                    </HeaderTemplate>
-                      <ItemTemplate>   <tr>
-                            <td>
-                                <table>
-                                    <tr>
-                                        <td>     <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
-                                          <asp:Label ID="lbljobtitle" runat="server" Text='<%#Eval("JobTitle")%>'></asp:Label>
-                                             <asp:Label ID="lblRecruterId" runat="server" Text='<%#Eval("RecruiterID")%>' Visible="false"></asp:Label>
-                                             <asp:Label ID="Label2" runat="server" Text='<%#Eval("RecruiterfullName")%>' Visible="false"></asp:Label>
-                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                           <%-- <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
-                                         <asp:Label ID="lblcityname" runat="server" Text='<%#Eval("CityName")%>'></asp:Label>/
-                                             <asp:Label ID="lblstatename" runat="server" Text='<%#Eval("StateName")%>'></asp:Label>--%>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>  
-                          <tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblCompanyName" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblExperience" runat="server"></asp:Label>
+                        years
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblCity" runat="server" ></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblCompanyLevel" runat="server"  />
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblVacancies" runat="server" ></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblEmplymentStatus" runat="server"  />
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblJobType" runat="server" ></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblGender" runat="server" ></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblIndustry" runat="server" ></asp:Label>-
+                        <asp:Label ID="lblDepartmet" runat="server" ></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblFunctionalArea" runat="server" ></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; border-bottom: 1px solid #df5015; width: 800px">
+                            <tr>
                                 <td>
-                                    <table>
-                                        <tr>
-                                            <td>Company Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                             <asp:Label ID="lblcompanyname" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                 </td>
-                                            <td>
-                                                <%--<asp:Label ID="Label3" runat="server" Text='<%#Eval("IndustryName")%>'></asp:Label>--%>
-
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <tr>
-                                        <td>
-                                            <table>
-                                                <tr>
-                                                    <td>JobDescription&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                          <asp:Label ID="Label4" runat="server" Text='<%#Eval("JobDescription")%>'></asp:Label>
-                                                    </td>
-
-                                                    <td>
-                                                         <td> &nbsp;&nbsp;&nbsp;
-                                                                 <%--<asp:Label ID="lblfunctionalarea" runat="server" Text='<%#Eval("FunctionalArea") %>' ></asp:Label>--%>
-                                                         </td>
-                                                    </td>
-                                               <td>
-                            <%--<asp:Label ID="lblJobDescription" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>--%>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                      
-                                               </td>
-                                                    
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        </tr>
-                                    <tr>
-                                        <td>
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                         <%--<asp:Label ID="Label5" runat="server" Text='<%#Eval("Gender")%>'></asp:Label>--%>
-                                                    </td>
-                                                   <td> 
-                                                         Key Skill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                   <asp:Label ID="lblkeywordstechnical" runat="server" Text='<%#Eval("KeywordsTechnical")%>'></asp:Label>
-                                                       </td>
-                                                </tr>
-                                                   </table>
-                        <tr>
-                            <td>
-                                <table >
-                                    <tr>
-                                        <td>$
-                                           [<asp:Label ID="lblMinSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMin") %>' />/
-                                        <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>]
-                                            </tr>
-                                    </td>
-                            </table>
+                                    <asp:Label ID="lblMinSalary" runat="server" ></asp:Label>
+                                    &nbsp;To
+                                       <asp:Label ID="lblMaxSalary" runat="server"></asp:Label>&nbsp;P.A
+                                </td>
                             </tr>
-                                 <td>
-                                <table>
-                                    <tr>
-                                        <td>
-                                   &nbsp;&nbsp;&nbsp;
-                             <%--<asp:Label ID="lblvacancies" runat="server" Text='<%#Eval("JobType")%>'></asp:Label> </td>--%>
-                                        <td>
-                               <%-- <asp:Label ID="Label6" runat="server" Text='<%#Eval("EmploymentStatus")%>'></asp:Label> </td>--%>
-                                        </td>
-                            </tr>
-                        </tr>
-                       </td>
-                          </table>
-                                 </td>
-                                        </tr>
-                                            <tr>
-                                                <td>
-                                                    <table>
-                                                        <tr>
-                                                            <td>
-                                                              <%--<asp:Label ID="Label7" runat="server" Text='<%#Eval("CompanyName")%>'></asp:Label> </td>--%>
-                                                            <td>   </td>
-                                         </tr>
-                                  </table>
-                              </td>
-                           </tr>                   
-                         <tr>
-                             <td>
-                                 <table style="background-color: #f9f9f9; border-top: 1px dotted; border-bottom: 1px solid; width: 500px">
-                                     <tr>
-                                         <td>
-                                             <asp:Button ID="btnapply" runat="server" Text="Apply" OnClick="btnapply_Click"  CommandName="apply" />
-                                         </td>
-                                     </tr>
-                                 </table>
-                             </td>
-                    </ItemTemplate>
-                    <FooterTemplate>
                         </table>
-                    </FooterTemplate>
-                </asp:Repeater>
-            </div>
-   </asp:Content>
-
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <asp:Label ID="lblClientName" runat="server" Visible="false" ></asp:Label><asp:Label ID="lblRequirementId" runat="server" Visible="false"></asp:Label><asp:Label ID="lblRecruiterId" runat="server" visible="false"></asp:Label>
+                        <asp:Label ID="lblRecruiterName" runat="server" Visible="false"></asp:Label>
+                    </td>
+                </tr>
+                <table style=" width: 800px">
+                    <tr>
+                        <td><b>Job Description:</b></td></tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblJobDesc" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>SkillSets Roles :</b></td></tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblRoles" runat="server" ></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td><b>SkillSets Technical :</b></td></tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblTechnicalSkills" runat="server" ></asp:Label></td>
+                    </tr>
+                </table>
+                <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; border-bottom: 1px solid #df5015; width: 800px">
+                    <tr>
+                        <td>
+                            <asp:Panel ID="pnlApply" runat="server" Visible="false">
+                                 <asp:Button ID="btnApply" runat="server" OnClientClick="document.forms[0].target='_blank';"  UseSubmitBehavior="false" Text="Apply" OnClick="btnApply_Click1" />
+                            </asp:Panel>
+                            <asp:Panel ID="pnlApplyLogin" runat="server" Visible="false">
+                                 <asp:Button ID="btnApplyLogin" runat="server" Text="Login To Apply" OnClick="btnApplyLogin_Click" />
+                            <asp:Button ID="btnApplyRegistration" runat="server" OnClientClick="document.forms[0].target='_blank';"  UseSubmitBehavior="false" Text="Register And Apply" OnClick="btnApplyRegistration_Click" />
+                            </asp:Panel>
+                           
+                        </td>
+                    </tr>
+                </table>
+            </table>
+        </div>
+    </div>
+</form>
+    </body>
+    </html>

@@ -161,7 +161,7 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <asp:Button ID="btnSaveSkills" runat="server" Text="Save" OnClick="btnSaveSkills_Click" />
+                    <asp:Button ID="btnSaveSkills" runat="server" Text="Save" OnClick="btnSaveSkills_Click" style="height: 26px" />
                 </td>
             </tr>
         </table>

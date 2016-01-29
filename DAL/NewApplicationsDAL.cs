@@ -19,7 +19,7 @@ namespace DAL
             try
             {
                 SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
-                dsclientdetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_CandidateDetails, sparams);
+                dsclientdetails = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_SelectCandidateDetails, sparams);
             }
             catch (Exception)
             {
@@ -27,6 +27,44 @@ namespace DAL
                 throw;
             }
             return dsclientdetails;
+        }
+
+
+
+
+        public DataSet GetAcceptCandidate(long candidateId)
+        {
+
+            DataSet dsAcceptCandidate = new DataSet();
+              try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsAcceptCandidate = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateAcceptCandidate, sparams);
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+              return dsAcceptCandidate;
+        }
+
+        public DataSet GetRejectCandidate(long candidateId)
+        {
+            DataSet dsRejectCandidate = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@candidateId", candidateId) };
+                dsRejectCandidate = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_JS_UpdateRejectCandidate, sparams);
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return dsRejectCandidate;
         }
     }
 }

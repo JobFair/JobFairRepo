@@ -328,6 +328,24 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Label lblActiveDueDate;
         
         /// <summary>
+        /// lnkbtnJobPost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnJobPost;
+        
+        /// <summary>
+        /// lblJobPost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblJobPost;
+        
+        /// <summary>
         /// btnPositionClosed control.
         /// </summary>
         /// <remarks>
@@ -506,6 +524,24 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDateOfClosure;
+        
+        /// <summary>
+        /// lblInActiveJobPostLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInActiveJobPostLink;
+        
+        /// <summary>
+        /// lnkbtnInActiveJobPost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnInActiveJobPost;
         
         /// <summary>
         /// rptrInActiveRequirement control.
