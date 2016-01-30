@@ -184,5 +184,20 @@ namespace DAL
             }
             return ds;
         }
+
+        public  void  AddRoleSkills(ProfessionalDetailsEntity professionalDetailentity)
+        {
+            try
+            {
+                Connection.Open();
+                SqlParameter[] sparams = { new SqlParameter("@SkillName", professionalDetailentity.RoleSkill) };
+                SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertRoleSkill, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
+        }
     }
 }

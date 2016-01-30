@@ -210,6 +210,33 @@ namespace JobFair.Forms.JobSeeker
                 professioalDetailBAL = null;
             }
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+            ProfessionalDetailsEntity professionalDetailentity = new ProfessionalDetailsEntity();
+            professionalDetailentity.RoleSkill = txtAddSkill.Text.Trim();
+            professionalDetailBAL.AddRoleSkills(professionalDetailentity);
+            divAddMoreSkills.Visible = false;
+
+        }
+
+        protected void ddlRoleSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRoleSkills.SelectedItem.ToString() == "----Other----")
+                {
+                    divAddMoreSkills.Visible = true;
+                
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 
 }

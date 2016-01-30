@@ -58,6 +58,12 @@ namespace BAL
             ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
             return professionalDetailDAL.SaveRoleSkillsDAL(dt);
         }
+
+        public void AddRoleSkills(ProfessionalDetailsEntity professionalDetailentity)
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+           professionalDetailDAL.AddRoleSkills(professionalDetailentity);
+        }
     }
 
 

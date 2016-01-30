@@ -316,6 +316,7 @@ namespace JobFair.UserControls.JobSeeker
             Label lblTillDate = (Label)e.Item.FindControl("lblTillDate");
             Label lblProficiency = (Label)e.Item.FindControl("lblProficiency");
 
+
             DropDownList ddlRoleSkill = (DropDownList)e.Item.FindControl("ddlRoleSkill");
             //TextBox txtAddSkill = (TextBox)e.Item.FindControl("txtAddSkill");
             DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");

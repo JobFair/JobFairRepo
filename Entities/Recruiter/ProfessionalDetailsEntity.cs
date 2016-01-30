@@ -15,7 +15,7 @@ namespace Entities.Recruiter
        public string Freelancer { get; set; }
        public string EmploymentStaus { get; set; }
        public string jobtype { get; set; }
-
        public string TechnicalSkill { get; set; }
+       public string RoleSkill { get; set; }
     }
 }

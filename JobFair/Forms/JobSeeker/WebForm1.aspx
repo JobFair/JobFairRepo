@@ -31,14 +31,14 @@
         </tr>
         <tr>
             <td>
-                <asp:DropDownList ID="ddlRoleSkills" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlRoleSkills" runat="server" OnSelectedIndexChanged="ddlRoleSkills_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 <br />
             <div id="divAddMoreSkills" runat="server" visible="false">
                     <table>
                         <tr>
                             <td>
                                 <asp:TextBox ID="txtAddSkill" runat="server"></asp:TextBox>
-                                <asp:Button ID="btnAdd" runat="server" Text="Add Skill"/>
+                                <asp:Button ID="btnAdd" runat="server" Text="Add Skill" OnClick="btnAdd_Click"/>
                             &nbsp;</td>
                         </tr>
                     </table>
