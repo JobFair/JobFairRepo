@@ -89,11 +89,7 @@
                                 <asp:LinkButton ID="lnkBtnClientRequirement" runat="server" Text="Client Requirement" OnClick="lnkBtnClientRequirement_Click" OnClientClick="SetTarget();"></asp:LinkButton>
                             </td>
                             <td>
-                                <asp:LinkButton ID="lnkBtnEditClientRequirement" runat="server" Text="Edit/Modify Client Requirement" OnClick="lnkBtnEditClientRequirement_Click" OnClientClick="SetTarget();"></asp:LinkButton>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                                <%--<asp:LinkButton ID="lnkBtnEditClientRequirement" runat="server" Text="Edit/Modify Client Requirement" OnClick="lnkBtnEditClientRequirement_Click" OnClientClick="SetTarget();"></asp:LinkButton>--%>
                                 <asp:LinkButton ID="lnkBtnViewClientRequirement" runat="server" Text="View Client Requirement" OnClick="lnkBtnViewClientRequirement_Click" OnClientClick="SetTarget();"></asp:LinkButton>
                             </td>
                         </tr>

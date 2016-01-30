@@ -8,6 +8,7 @@ using System.Data;
 using BAL;
 using System;
 using System.Collections.Generic;
+using Entities.HR;
 
 
 namespace JobFair.Forms.HR
@@ -15,7 +16,7 @@ namespace JobFair.Forms.HR
     public partial class ClientContactPersonDetails : System.Web.UI.Page
     {
         private ClientContactPersonDetailsBAL clientContactPersonDetails = null;
-        private string HrId;
+        int HrId = 1; int ClientId = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,15 +31,16 @@ namespace JobFair.Forms.HR
                         try
                         {
                             clientContactPersonDetails = new ClientContactPersonDetailsBAL();
+                            ViewRecord(HrId,ClientId);
                             AddDefaultFirstRecord();
                         }
                         catch (Exception)
                         {
                             // throw;
                         }
-                //    }
+                    }
                 //}
-            }
+            //}
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -101,6 +103,91 @@ namespace JobFair.Forms.HR
             }
         }
 
+        private void ViewRecord(long HrId,long ClientId)
+        {
+            try
+            {
+                DataSet dsViewRecord = new DataSet();
+                ClientContactPersonDetailsBAL ViewClientContactPersonDetails = new ClientContactPersonDetailsBAL();
+                dsViewRecord = ViewClientContactPersonDetails.ViewClientContactPersonDetailsBAL(HrId, ClientId);
+                if (dsViewRecord != null)
+                {
+                    grvView.DataSource = dsViewRecord;
+                    grvView.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+        }
+        protected void grvView_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grvView.EditIndex = e.NewEditIndex;
+            ViewRecord(HrId,ClientId);
+        }
+        protected void grvView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grvView.PageIndex = e.NewPageIndex;
+            ViewRecord(HrId, ClientId);
+        }
+        protected void grvView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grvView.EditIndex = -1;
+            ViewRecord(HrId, ClientId);
+        }
+        protected void grvView_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            try
+            {
+                ClientContactPersonDetailsBAL clientContactPersonDetailsBAL = new ClientContactPersonDetailsBAL();
+                ClientContactPersonDetailsEntity clientContactPersonDetailsEntity = new ClientContactPersonDetailsEntity();
+                //ViewRecord(HrId, ClientId);
+                //GridView grView = (GridView)(sender as Control)e.Item.FindControl("grvView");
+                //GridViewRow gvRow = (GridView)(sender as Control).Parent.Parent;
+                GridView grView = (GridView)sender;
+                //int UPhrId = Convert.ToInt32(grView.FooterRow.FindControl("lblHrId")as Label).Text);
+                //int clientId = Convert.ToInt32(((Label)grView.FindControl("lblClientId")).Text);
+                //int UPcontactPersonId = Convert.ToInt32((grView.FooterRow.FindControl("lblContactPersonId") as Label).Text);
+                //Label lblClientName = (Label)e.Item.FindControl("lblClientName");
+                //int UpContactPersonId = 1;
+                int UPcontactPersonId = Convert.ToInt32((Label)grvView.Rows[e.RowIndex].FindControl("lblContactPersonId"));
+                int UPhrId = Convert.ToInt32((Label)grvView.Rows[e.RowIndex].FindControl("lblHrId"));
+                int UPclientId = Convert.ToInt32((Label)grvView.Rows[e.RowIndex].FindControl("lblClientId"));
+                string UPtxtName = ((TextBox)grvView.Rows[e.RowIndex].FindControl("txtName")).Text;
+                string UPtxtDesignation = ((TextBox)grView.Rows[e.RowIndex].FindControl("txtDesignation")).Text;
+                string UPtxtEmail = ((TextBox)grView.Rows[e.RowIndex].FindControl("txtEmail")).Text;
+                int UPtxtContactNo = Convert.ToInt32((TextBox)grView.Rows[e.RowIndex].FindControl("txtContactNo"));
+                string UPrblistIsActive = ((RadioButtonList)grView.Rows[e.RowIndex].FindControl("rblistIsActive")).SelectedItem.Text;
+
+                // Assign values to the entities
+               // clientContactPersonDetailsEntity.ContactPersonId = UPcontactPersonId;
+                clientContactPersonDetailsEntity.HrId = UPhrId;
+                clientContactPersonDetailsEntity.ClientId = UPclientId;
+                clientContactPersonDetailsEntity.ContactPersonName = UPtxtName;
+                clientContactPersonDetailsEntity.Designation = UPtxtDesignation;
+                clientContactPersonDetailsEntity.EmailId = UPtxtEmail;
+                clientContactPersonDetailsEntity.ContactNo = UPtxtContactNo;
+                //Convert.ToInt32(ddlFunctionalArea.SelectedValue);
+                clientContactPersonDetailsEntity.IsActive = UPrblistIsActive;
+                // Saving data to the database
+                int result = clientContactPersonDetailsBAL.UpdateClientContactPersonDetailsBAL(clientContactPersonDetailsEntity);
+                if (result > 0)
+                {
+                    Response.Write("<script language='javascript'>alert('Update Client Contact Person Details Successfully')</script>");
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Client Contact Person Details won't saved')</script>");
+                }
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+            ViewRecord(HrId, ClientId);
+
+        }
         private void AddDefaultFirstRecord()
         {
             try
@@ -138,7 +225,8 @@ namespace JobFair.Forms.HR
                 clientContactPersonDetailsBAL.SaveClientContactPersonDetailsBAL(clientContactPersonDetailsEntity);
                 grvAddMore.DataSource = null;
                 grvAddMore.DataBind();
-                Response.Write("<script language='javascript'>alert('Contact Person Details Inserted')</script>");
+                ViewRecord(HrId, ClientId);
+                Response.Write("<script language='javascript'>alert('Saved Client Contact Person Details Successfully')</script>");
             }
             catch (Exception)
             {
