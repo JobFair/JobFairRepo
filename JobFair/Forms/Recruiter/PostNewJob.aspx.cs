@@ -483,5 +483,19 @@ namespace JobFair.Forms.Recruiter
                 throw;
             }
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = true;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            PostNewJobBAL postNewJobBAL = new PostNewJobBAL();
+            AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
+            addJobPostEntity.RoleSkill = txtRoleSkills.Text.Trim();
+            postNewJobBAL.AddRoleSkillsDetailsBAL(addJobPostEntity);
+            Panel1.Visible = false;
+        }
     }
 }

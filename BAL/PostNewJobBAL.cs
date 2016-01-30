@@ -137,5 +137,11 @@ namespace BAL
             PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             return newjobpostDAL.GetRequirementDetailDAL(requirementId);
         }
+
+        public void AddRoleSkillsDetailsBAL(AddJobPostEntity jobpostEntity)
+        {
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
+            newjobpostDAL.AddRoleSkillsDetailsDAL(jobpostEntity);
+        }
     }
 }
