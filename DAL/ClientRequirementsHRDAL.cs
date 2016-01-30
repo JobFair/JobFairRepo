@@ -62,6 +62,50 @@ namespace DAL
         }
 
         /// <summary>
+        /// Update Client Requirements Details
+        /// </summary>
+        /// <param name="clientRequirementsHREntity">Object for update data into database</param>
+        /// <returns>system.int32</returns>
+        public int UpdateClientRequirementsDAL(ClientRequirementsHREntity clientRequirementsHREntity)
+        {
+            int result = 0;
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+
+                SqlParameter[] sparam = { new SqlParameter("@clientName", clientRequirementsHREntity.ClientName),
+                                          new SqlParameter("@clientProfile", clientRequirementsHREntity.ClientProfile),
+                                          new SqlParameter("@position", clientRequirementsHREntity.Position),
+                                          new SqlParameter("@industry", clientRequirementsHREntity.Industry),
+                                          new SqlParameter("@functuionalarea", clientRequirementsHREntity.FunctionalArea),
+                                          new SqlParameter("@address", clientRequirementsHREntity.Address),
+                                          new SqlParameter("@countryId", clientRequirementsHREntity.CountryId),
+                                          new SqlParameter("@stateId", clientRequirementsHREntity.StateId),
+                                          new SqlParameter("@cityId", clientRequirementsHREntity.CityId),
+                                          new SqlParameter("@areaId", clientRequirementsHREntity.AreaId),
+                                          new SqlParameter("@pincode", clientRequirementsHREntity.Pincode),
+                                          new SqlParameter("@skillsets", clientRequirementsHREntity.Skillsets),
+                                          new SqlParameter("@contents", clientRequirementsHREntity.Contents),
+                                          new SqlParameter("@dateOfRequirementSent", clientRequirementsHREntity.DateOfRequirementSent.Date),
+                                          new SqlParameter("@dueDate", clientRequirementsHREntity.DueDate.Date),
+                                          new SqlParameter("@status", clientRequirementsHREntity.Status),
+                                          new SqlParameter("@recruiterID", clientRequirementsHREntity.RecruiterID),
+                                        };
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_HR_UpdateClientRequirements, sparam);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Get Recruiter DAL
         /// </summary>
         /// <param name="HrId">HrId</param>
@@ -90,6 +134,31 @@ namespace DAL
                 connection.Close();
             }
             return dsRecruiter;
+        }
+
+        /// <summary>
+        /// Get ViewClientRequirementDetailsDAL
+        /// </summary>
+        /// <param name="HrId">HrId</param>
+        /// <param name="ClientId">ClientId</param>
+        /// <returns>datatable</returns>
+        public DataSet ViewClientRequirementDetailsDAL(long HrId, long ClientId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = {
+                                             new SqlParameter("@HrId",HrId),
+                                             new SqlParameter("@clientId", ClientId)
+                                         
+                                         };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_ViewClientRequirements, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
         }
     }
 }

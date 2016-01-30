@@ -19,12 +19,19 @@ namespace JobFair.Forms.HR
         //int ClientId = 1; int ClientRequirementId = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet dsManageClient = new DataSet();
-            ManageClientHRBAL manageClientHRBAL = new ManageClientHRBAL();
+            //if (Session["HrId"] != null)
+            //{
+            //    if (Session["HrId"].ToString() != "")
+            //    {
+            //        HrId = Convert.ToString(Session["HrId"]);
+                    DataSet dsManageClient = new DataSet();
+                    ManageClientHRBAL manageClientHRBAL = new ManageClientHRBAL();
 
-            dsManageClient = manageClientHRBAL.ManageClientDetailsBAL(HrId);
-            repClientDetails.DataSource = dsManageClient;
-            repClientDetails.DataBind();
+                    dsManageClient = manageClientHRBAL.ManageClientDetailsBAL(HrId);
+                    repClientDetails.DataSource = dsManageClient;
+                    repClientDetails.DataBind();
+            //    }
+            //}
         }
         protected void lnkBtnNewClientDetails_Click(object sender, EventArgs e)
         {
@@ -107,16 +114,16 @@ namespace JobFair.Forms.HR
             //bool isCheck = true;
             Response.Redirect("ClientRequirements.aspx");
         }
-        protected void lnkBtnEditClientRequirement_Click(object sender, EventArgs e)
-        {
-            //LinkButton button = (LinkButton)sender;
-            //Label label = (Label)button.NamingContainer.FindControl("lblJobID");
-            //int JobId = Convert.ToInt32(label.Text);
+        //protected void lnkBtnEditClientRequirement_Click(object sender, EventArgs e)
+        //{
+        //    //LinkButton button = (LinkButton)sender;
+        //    //Label label = (Label)button.NamingContainer.FindControl("lblJobID");
+        //    //int JobId = Convert.ToInt32(label.Text);
 
-            //Code for Showing and Hiding Div
-            //bool isCheck = true;
-            Response.Redirect("ClientRequirements.aspx");
-        }
+        //    //Code for Showing and Hiding Div
+        //    //bool isCheck = true;
+        //    Response.Redirect("ClientRequirements.aspx");
+        //}
         protected void lnkBtnViewClientRequirement_Click(object sender, EventArgs e)
         {
             LinkButton BtnHrId = (LinkButton)sender;
@@ -129,7 +136,7 @@ namespace JobFair.Forms.HR
 
             //Code for Showing and Hiding Div
             bool isView = true;
-           // Response.Redirect("ClientRequirements.aspx?isView=" + isView + "&HrId=" + HrId + "&ClientId=" + ClientId + "&ClientRequirementId=" + ClientRequirementId);
+            Response.Redirect("ClientRequirements.aspx?isView=" + isView + "&HrId=" + HrId + "&ClientId=" + ClientId);
         }
     }
 }

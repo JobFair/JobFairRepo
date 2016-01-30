@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CommonUtil;
 using DAL;
 using System.Data;
+using Entities.HR;
 
 namespace BAL
 {
@@ -95,6 +96,27 @@ namespace BAL
         {
             ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
             return clientRequirementsHRDAL.GetRecruiterDAL(HrId);
+        }
+        /// <summary>
+        /// Get ViewClientRequirementDetailsBAL
+        /// </summary>
+        /// <param name="HrId">HrId</param>
+        /// <param name="ClientId">ClientId</param>
+        /// <returns>dataset</returns>
+        public DataSet ViewClientRequirementDetailsBAL(long HrId,long ClientId)
+        {
+            ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
+            return clientRequirementsHRDAL.ViewClientRequirementDetailsDAL(HrId, ClientId);
+        }
+        /// <summary>
+        /// Update Client Requirement Details
+        /// </summary>
+        /// <param name="clientRequirementsHREntity">ClientRequirementsHREntity</param>
+        /// <returns>system.Int32</returns>
+        public int UpdateClientRequirementsBAL(ClientRequirementsHREntity clientRequirementsHREntity)
+        {
+            ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
+            return clientRequirementsHRDAL.UpdateClientRequirementsDAL(clientRequirementsHREntity);
         }
     }
 }

@@ -16,54 +16,61 @@ namespace JobFair.Forms.HR
         private ClientDetailsBAL clientDetailsBAL = new ClientDetailsBAL();
         private ClientDetailsEntity clientDetailsEntity = new ClientDetailsEntity();
         bool isView,isEdit;
-        int HrId; int ClientId;
+        int HrId, ClientId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                try
-                {
-                    BindFunctionalArea();
-                    BindIndustry();
-                    BindCountry();
-                    divView.Visible = false;
-                }
-                catch (Exception)
-                {
-                    //throw;
-                }
-            }
-            isView = Convert.ToBoolean(Request.QueryString["isView"]);
-            if (isView)
-            {
-                try
-                {
-                    BindViewClient();
-                }
-                catch (Exception)
-                {
-                    //throw;
-                }
-            }
-            isEdit = Convert.ToBoolean(Request.QueryString["isEdit"]);
-            if (isEdit)
-            {
-                try
-                {
-                    ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
-                    HrId = Convert.ToInt32(Request.QueryString["HrId"]);
-                    BindEditClient();
-                    btnSubmit.Visible = false;
-                    btnUpdate.Visible=true;
+            //if (Session["HrId"] != null)
+            //{
+            //    if (Session["HrId"].ToString() != "")
+            //    {
+            //        HrId = Convert.ToString(Session["HrId"]);
 
-                }
-                catch (Exception)
+                    if (!IsPostBack)
+                    {
+                        try
+                        {
+                            BindFunctionalArea();
+                            BindIndustry();
+                            BindCountry();
+                            divView.Visible = false;
+                        }
+                        catch (Exception)
+                        {
+                            //throw;
+                        }
+                    }
+                isView = Convert.ToBoolean(Request.QueryString["isView"]);
+                if (isView)
                 {
-                    //throw;
+                    try
+                    {
+                        BindViewClient();
+                    }
+                    catch (Exception)
+                    {
+                        //throw;
+                    }
                 }
+                isEdit = Convert.ToBoolean(Request.QueryString["isEdit"]);
+                if (isEdit)
+                {
+                    try
+                    {
+                        ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
+                        HrId = Convert.ToInt32(Request.QueryString["HrId"]);
+                        BindEditClient();
+                        btnSubmit.Visible = false;
+                        btnUpdate.Visible=true;
 
-            }
+                    }
+                    catch (Exception)
+                    {
+                        //throw;
+                    }
+                }
+            //   }
+            //}
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

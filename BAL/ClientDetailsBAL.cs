@@ -1,6 +1,7 @@
 ﻿using CommonUtil;
 using DAL;
 using System.Data;
+using Entities.HR;
 
 namespace BAL
 {
@@ -69,7 +70,7 @@ namespace BAL
         /// </summary>
         /// <param name="clientDetailsEntity">Object of ClientDetailsBAL</param>
         /// <returns>System.Int32</returns>
-        public int SaveClientDetailsBAL(Entities.HR.ClientDetailsEntity clientDetailsEntity)
+        public int SaveClientDetailsBAL(ClientDetailsEntity clientDetailsEntity)
         {
             return clientDetailsDAL.SaveClientDetailsDAL(clientDetailsEntity);
         }
@@ -79,7 +80,7 @@ namespace BAL
         /// </summary>
         /// <param name="clientDetailsEntity">Object of ClientDetailsBAL</param>
         /// <returns>System.Int32</returns>
-        public int UpdateClientDetailsBAL(Entities.HR.ClientDetailsEntity clientDetailsEntity)
+        public int UpdateClientDetailsBAL(ClientDetailsEntity clientDetailsEntity)
         {
             return clientDetailsDAL.UpdateClientDetailsDAL(clientDetailsEntity);
         }
@@ -88,7 +89,7 @@ namespace BAL
         /// To add functional area method in ClientDetailsBAL class
         /// </summary>
         /// <param name="clientDetailsEntity">Object of ClientDetailsEntity </param>
-        public void AddFunctionalAreaBAL(Entities.HR.ClientDetailsEntity clientDetailsEntity)
+        public void AddFunctionalAreaBAL(ClientDetailsEntity clientDetailsEntity)
         {
             clientDetailsDAL.AddFunctionalDAL(clientDetailsEntity);
         }

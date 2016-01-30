@@ -203,7 +203,7 @@ namespace JobFair.Forms.JobSeeker
             catch (Exception)
             {
                 //  throw;
-            }
+            } 
             finally
             {
                 dt = null;

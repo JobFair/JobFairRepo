@@ -52,26 +52,58 @@ namespace DAL
             }
             return clientContactPersonDetailsEntity;
         }
-        /// <summary>
-        /// Saving ClientContactPersonDetailsDAL for saving ContactPersonDetails in database
-        /// </summary>
-        /// <param name="clientcontactpersondetailsEntity">Object of ClientContactPersonDetailsEntity</param>
-        /// <returns>System.Int32</returns>
-        //public DataTable ViewClientContactPersonDetailsDAL(DataTable clientContactPersonDetailsEntity)
-        //{
-        //    try
-        //    {
-        //        connection.Open();
 
-        //    }
-        //    catch (System.Exception)
-        //    {
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //}
+
+        public DataSet ViewClientContactPersonDetailsDAL(long hrId, long clientId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = {
+                                             new SqlParameter("@hrId", hrId),
+                                             new SqlParameter("@clientId", clientId)
+                                         };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_ViewClientContactPersonDetails, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
+        }
+
+        /// <summary>
+        /// Method of class ClientContactPersonDetailsDAL for Updating ClientContactPersonDetails in database
+        /// </summary>
+        /// <param name="clientdetailsEntity">Object of ClientContactPersonDetailsEntity</param>
+        /// <returns>System.Int32</returns>
+        public int UpdateClientContactPersonDetailsDAL(ClientContactPersonDetailsEntity clientContactPersonDetailsEntity)
+        {
+            try
+            {
+                connection.Open();
+                //Add parameter for stored procedure                
+                SqlParameter[] sparam = { 
+                                          new SqlParameter("@contactPersonId", clientContactPersonDetailsEntity.ContactPersonId),
+                                          new SqlParameter("@clientid", clientContactPersonDetailsEntity.ClientId),
+                                          new SqlParameter("@hrid", clientContactPersonDetailsEntity.HrId),
+                                          new SqlParameter("@contactPersonName", clientContactPersonDetailsEntity.ContactPersonName),
+                                          new SqlParameter("@designation", clientContactPersonDetailsEntity.Designation),
+                                          new SqlParameter("@emailId", clientContactPersonDetailsEntity.EmailId),
+                                          new SqlParameter("@contactNo", clientContactPersonDetailsEntity.ContactNo),
+                                          new SqlParameter("@isActive", clientContactPersonDetailsEntity.IsActive),
+                                        };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_HR_UpdateClientContactPersonDetails, sparam);
+                return result;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
