@@ -55,7 +55,7 @@ namespace DAL
                                             new SqlParameter("@FunctionalAreaId",jobpostEntity.FunctionalAreaId),
                                             new SqlParameter("@JobDescription",jobpostEntity.JobDescription),
                                             new SqlParameter("@KeywordsRoles",jobpostEntity.KeywordsRoles),
-                                            new SqlParameter("@KeywordsTechnical",jobpostEntity.KeywordsRoles),
+                                            new SqlParameter("@KeywordsTechnical",jobpostEntity.KeywordsTechnical),
                                             new SqlParameter("@Workexperience",jobpostEntity.WorkExperience),
                                             new SqlParameter("@Gender",jobpostEntity.Gender),
                                             new SqlParameter("@OfferedAnnualSalaryMin",jobpostEntity.OfferedAnnualSalaryMin),
@@ -206,6 +206,20 @@ namespace DAL
                 throw;
             }
             return ds;
+        }
+
+        public void AddRoleSkillsDetailsDAL(AddJobPostEntity jobpostEntity)
+        {
+            try
+            {
+                Connection.Open();
+                SqlParameter[] sparams = { new SqlParameter("@SkillName", jobpostEntity.RoleSkill) };
+                SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRoleSkill, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

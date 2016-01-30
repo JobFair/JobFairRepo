@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="PostNewJob.aspx.cs" Inherits="JobFair.Forms.Recruiter.PostNewJob" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
+<%--<%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>--%>
 
 <!DOCTYPE html>
 
@@ -164,6 +164,11 @@
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtKeyRoles" MinimumPrefixLength="1"
                             EnableCaching="false" CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetRoles" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true">
                         </cc1:AutoCompleteExtender>
+                         <asp:Button ID="Button1" runat="server" Text="Add More Sklls" OnClick="Button1_Click" />
+                        <asp:Panel ID="Panel1" runat="server" Visible="false">
+                            <asp:TextBox ID="txtRoleSkills" runat="server"></asp:TextBox>
+                    <asp:Button ID="Button2" runat="server" Text="Add Skills" OnClick="Button2_Click" />
+                        </asp:Panel>
                     </td>
                 </tr>
                 <tr>
@@ -426,7 +431,15 @@
                     </td>
                 </tr>
             </table>
+          
         </div>
+         <%-- <div>
+                <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#PanelFreshness">Add More Skills</button>
+                <div id="PanelFreshness" class="collapse">
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:Button ID="Button1" runat="server" Text="Button" />
+                </div>
+            </div>--%>
     </form>
 </body>
 </html>

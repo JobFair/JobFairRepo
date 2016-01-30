@@ -40,5 +40,7 @@ namespace Entities.Recruiter
         public string Qualification { get; set; }
         public int QueationnareId { get; set; }
         public string DescribeCandidateProfile { get; set; }
+        public string RoleSkill { get; set; }
+        public string TechnicalSkill { get; set; }
     }
 }
