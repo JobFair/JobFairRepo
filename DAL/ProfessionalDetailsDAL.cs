@@ -199,5 +199,53 @@ namespace DAL
             }
            
         }
+
+        public void UpdateRoleSkillsDAL(ProfessionalDetailsEntity professionalDetailsentity)
+        {
+            try
+            {
+                Connection.Open();
+                SqlParameter[] sparams = new SqlParameter[6];
+                sparams[0] = new SqlParameter("@skillId", professionalDetailsentity.RoleskillId);
+                sparams[1] = new SqlParameter("@roleSkill", professionalDetailsentity.RoleSkills);
+                sparams[2] = new SqlParameter("@fromDate", professionalDetailsentity.FromDate);
+                sparams[3] = new SqlParameter("@tillDate", professionalDetailsentity.TillDate);
+                sparams[4] = new SqlParameter("@proficiency", professionalDetailsentity.Proficiency);
+                sparams[5] = new SqlParameter("@totalYear", professionalDetailsentity.TotalExprience);
+                SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_UpdateRoleSkill, sparams);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public DataSet ViewRoleSkillDetailsDAL(long RecruiterId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                ProfessionalDetailsEntity professionalDetailEntity = new ProfessionalDetailsEntity();
+                Connection.Open();
+
+                SqlParameter[] sparams = { new SqlParameter("@recruiterID", RecruiterId) };
+
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.StoredProcedure, Constants.sp_RE_SelectRoleskills, sparams);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return ds;
+        }
+
     }
 }

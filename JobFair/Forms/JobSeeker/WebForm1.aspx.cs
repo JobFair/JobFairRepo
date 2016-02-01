@@ -237,6 +237,87 @@ namespace JobFair.Forms.JobSeeker
                 throw;
             }
         }
+
+        protected void rptrRoleSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            Label lblRoleSkill = (Label)e.Item.FindControl("lblRoleSkill");
+            Label lblFromDate = (Label)e.Item.FindControl("lblFromDate");
+            Label lblTillDate = (Label)e.Item.FindControl("lblTillDate");
+            Label lblProficiency = (Label)e.Item.FindControl("lblProficiency");
+
+
+            DropDownList ddlRoleSkill = (DropDownList)e.Item.FindControl("ddlRoleSkill");
+            //TextBox txtAddSkill = (TextBox)e.Item.FindControl("txtAddSkill");
+            DropDownList ddlFromMonth = (DropDownList)e.Item.FindControl("ddlFromMonth");
+            DropDownList ddlFromYear = (DropDownList)e.Item.FindControl("ddlFromYear");
+            DropDownList ddlTillMonth = (DropDownList)e.Item.FindControl("ddlTillMonth");
+            DropDownList ddlTillYear = (DropDownList)e.Item.FindControl("ddlTillYear");
+            DropDownList ddlProficiency = (DropDownList)e.Item.FindControl("ddlProficiency");
+
+            LinkButton lnkEdit = (LinkButton)e.Item.FindControl("lnkEdit");
+            LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
+            LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
+            LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
+
+            if (e.CommandName == "edit")
+            {
+                lblRoleSkill.Visible = false;
+                lblFromDate.Visible = false;
+                lblTillDate.Visible = false;
+                lblProficiency.Visible = false;
+
+                ddlRoleSkill.Visible = true;
+                ddlFromMonth.Visible = true;
+                ddlFromYear.Visible = true;
+                ddlTillMonth.Visible = true;
+                ddlTillYear.Visible = true;
+                ddlProficiency.Visible = true;
+
+                lnkEdit.Visible = false;
+                lnkDelete.Visible = false;
+                lnkUpdate.Visible = true;
+                lnkCancel.Visible = true;
+            
+            }
+
+
+            if(e.CommandName == "update")
+            {
+
+
+                ProfessionalDetailsEntity professionalDetailsentity = new ProfessionalDetailsEntity();
+                professionalDetailsentity.RoleSkill = ddlRoleSkill.SelectedItem.Text.Trim();
+                professionalDetailsentity.FromDate = ddlFromMonth.SelectedItem.Text.Trim() + "/" + ddlFromYear.SelectedItem.Text.Trim();
+                professionalDetailsentity.TillDate = ddlTillMonth.SelectedItem.Text.Trim() + "/" + ddlTillYear.SelectedItem.Text.Trim();
+                professionalDetailsentity.Proficiency = ddlProficiency.SelectedItem.Text.Trim();
+                professionalDetailsentity.RoleskillId = Convert.ToInt32(e.CommandArgument);
+                professionalDetailsentity.TotalExprience = TotalYears();
+                ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+                professionalDetailBAL.UpdateRoleSkillsBAL(professionalDetailsentity);
+                BindRepeaterRoleSkills();
+            }
+        }
+
+        private void BindRepeaterRoleSkills()
+        {
+            try
+            {
+                DataSet dsRoleSkills = new DataSet();
+                ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+                dsRoleSkills = professionalDetailBAL.ViewRoleSkillDetailsBAL(RecruiterId);
+                // Check dataset is not null
+                if (dsRoleSkills != null)
+                {
+                    rptrRoleSkills.DataSource = dsRoleSkills;
+                    rptrRoleSkills.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+
     }
 
 }

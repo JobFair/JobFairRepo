@@ -119,7 +119,7 @@
 
 <div id="divRoleSkillsEdit" runat="server" visible="false">
 
-    <asp:Repeater ID="rptrRoleSkills" runat="server">
+    <asp:Repeater ID="rptrRoleSkills" runat="server" OnItemCommand="rptrRoleSkills_ItemCommand">
         <HeaderTemplate>
             <table>
                 <tr>
@@ -176,10 +176,10 @@
                     <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; border-bottom: 1px solid #c1650f; width: 300px">
                         <tr>
                             <td>
-                                <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="edit">Edit</asp:LinkButton>
-                                <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
-                                <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
-                                <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("RoleskillId") %>' CommandName="edit">Edit</asp:LinkButton>
+                                <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("RoleskillId") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
+                                <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("RoleskillId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
+                                <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("RoleskillId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
                             </td>
                         </tr>
                     </table>
