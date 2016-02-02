@@ -141,7 +141,10 @@
         public static string sp_SelectTechnicalSkills = "sp_SelectTechnicalSkills";
         public static string sp_RE_InsertProfessionalDetails = "sp_RE_InsertProfessionalDetails";
         public static string sp_RE_InsertTechnicalSkill = "sp_RE_InsertTechnicalSkill";
+        public static string sp_RE_InsertRoleSkill = "sp_RE_InsertRoleSkill";
 
+        public static string sp_RE_UpdateRoleSkill = "sp_RE_UpdateRoleSkill";
+        public static string sp_RE_SelectRoleskills = "sp_RE_SelectRoleskills";
 
     }
 }

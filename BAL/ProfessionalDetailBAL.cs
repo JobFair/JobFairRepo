@@ -58,6 +58,24 @@ namespace BAL
             ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
             return professionalDetailDAL.SaveRoleSkillsDAL(dt);
         }
+
+        public void AddRoleSkills(ProfessionalDetailsEntity professionalDetailentity)
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+           professionalDetailDAL.AddRoleSkills(professionalDetailentity);
+        }
+
+        public void UpdateRoleSkillsBAL(ProfessionalDetailsEntity professionalDetailsentity)
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+            professionalDetailDAL.UpdateRoleSkillsDAL(professionalDetailsentity);
+        }
+
+        public DataSet ViewRoleSkillDetailsBAL(long RecruiterId)
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+            return professionalDetailDAL.ViewRoleSkillDetailsDAL(RecruiterId);
+        }
     }
 
 

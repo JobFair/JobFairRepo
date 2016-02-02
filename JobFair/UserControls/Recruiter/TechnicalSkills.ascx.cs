@@ -148,7 +148,7 @@ namespace JobFair.UserControls.Recruiter
             ProfessionalDetailsEntity professionalDetailentity = new ProfessionalDetailsEntity();
             professionalDetailentity.TechnicalSkill = txtAddSkill.Text.Trim();
             professionalDetailBAL.AddTechnicalSkillBAL(professionalDetailentity);
-            divAddMoreSkills.Visible = false; ;
+            divAddMoreSkills.Visible = false; 
 
         }
 

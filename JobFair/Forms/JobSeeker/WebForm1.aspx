@@ -31,14 +31,14 @@
         </tr>
         <tr>
             <td>
-                <asp:DropDownList ID="ddlRoleSkills" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlRoleSkills" runat="server" OnSelectedIndexChanged="ddlRoleSkills_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 <br />
             <div id="divAddMoreSkills" runat="server" visible="false">
                     <table>
                         <tr>
                             <td>
                                 <asp:TextBox ID="txtAddSkill" runat="server"></asp:TextBox>
-                                <asp:Button ID="btnAdd" runat="server" Text="Add Skill"/>
+                                <asp:Button ID="btnAdd" runat="server" Text="Add Skill" OnClick="btnAdd_Click"/>
                             &nbsp;</td>
                         </tr>
                     </table>
@@ -119,7 +119,7 @@
 
 <div id="divRoleSkillsEdit" runat="server" visible="false">
 
-    <asp:Repeater ID="rptrRoleSkills" runat="server">
+    <asp:Repeater ID="rptrRoleSkills" runat="server" OnItemCommand="rptrRoleSkills_ItemCommand" OnItemDataBound="rptrRoleSkills_ItemDataBound">
         <HeaderTemplate>
             <table>
                 <tr>
@@ -176,10 +176,10 @@
                     <table style="background-color: #EBEFF0; border-top: 1px dotted #c1650f; border-bottom: 1px solid #c1650f; width: 300px">
                         <tr>
                             <td>
-                                <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="edit">Edit</asp:LinkButton>
-                                <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
-                                <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
-                                <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("SkillId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%#Eval("RoleskillId") %>' CommandName="edit">Edit</asp:LinkButton>
+                                <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%#Eval("RoleskillId") %>' CommandName="delete" OnClientClick="return confirm('Are you sure you want to delete?')">Delete</asp:LinkButton>
+                                <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#Eval("RoleskillId") %>' CommandName="update" Visible="false">Update</asp:LinkButton>
+                                <asp:LinkButton ID="lnkCancel" runat="server" CommandArgument='<%#Eval("RoleskillId") %>' CommandName="cancel" Visible="false">Cancel</asp:LinkButton>
                             </td>
                         </tr>
                     </table>
@@ -192,7 +192,7 @@
         </ItemTemplate>
     </asp:Repeater>
 </div>
-        </form>
+ </form>
     
 </body>
 </html>
