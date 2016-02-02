@@ -484,18 +484,42 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnAddTechnical_Click(object sender, EventArgs e)
         {
-            Panel1.Visible = true;
+            Panel2.Visible = true;
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the Click event of the btnAddTechnicalSkill control
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <cref="EventArgs">instance containing event data</param>
+        protected void btnAddTechnicalSkill_Click(object sender, EventArgs e)
+        {
+            PostNewJobBAL postNewJobBAL = new PostNewJobBAL();
+            AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
+            addJobPostEntity.TechnicalSkill = txtTechnicalSkill.Text.Trim();
+            postNewJobBAL.AddTechnicalSkillsDetailsBAL(addJobPostEntity);
+            Panel2.Visible = false;
+        }
+
+        /// <summary>
+        /// Handles the Click event of the btnAddRoles control
+        /// </summary>
+        /// <param name="sender">The source of event</param>
+        /// <param name="e">The <cref="EventArgs">instance containing event data</param>
+        protected void btnAddRoles_Click(object sender, EventArgs e)
         {
             PostNewJobBAL postNewJobBAL = new PostNewJobBAL();
             AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
             addJobPostEntity.RoleSkill = txtRoleSkills.Text.Trim();
             postNewJobBAL.AddRoleSkillsDetailsBAL(addJobPostEntity);
             Panel1.Visible = false;
+        }
+
+        protected void btnAddMoreRoles_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = true;
         }
     }
 }

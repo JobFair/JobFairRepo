@@ -208,6 +208,10 @@ namespace DAL
             return ds;
         }
 
+        /// <summary>
+        /// Insert roles skills dal
+        /// </summary>
+        /// <param name="jobpostEntity">AddJobPostEntity</param>
         public void AddRoleSkillsDetailsDAL(AddJobPostEntity jobpostEntity)
         {
             try
@@ -215,6 +219,28 @@ namespace DAL
                 Connection.Open();
                 SqlParameter[] sparams = { new SqlParameter("@SkillName", jobpostEntity.RoleSkill) };
                 SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRoleSkill, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Insert technical skills dal
+        /// </summary>
+        /// <param name="jobpostEntity">AddJobPostEntity</param>
+        public void AddTechnicalSkillsDetailsDAL(AddJobPostEntity jobpostEntity)
+        {
+            try
+            {
+                Connection.Open();
+                SqlParameter[] sparams = { new SqlParameter("@SkillName", jobpostEntity.TechnicalSkill) };
+                SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_JS_InsertTechnicalSkills, sparams);
             }
             catch (Exception)
             {

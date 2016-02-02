@@ -164,10 +164,10 @@
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtKeyRoles" MinimumPrefixLength="1"
                             EnableCaching="false" CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetRoles" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true">
                         </cc1:AutoCompleteExtender>
-                         <asp:Button ID="Button1" runat="server" Text="Add More Sklls" OnClick="Button1_Click" />
+                        <asp:Button ID="btnAddMoreRoles" runat="server" Text="Add More Skills" OnClick="btnAddMoreRoles_Click"  />
                         <asp:Panel ID="Panel1" runat="server" Visible="false">
                             <asp:TextBox ID="txtRoleSkills" runat="server"></asp:TextBox>
-                    <asp:Button ID="Button2" runat="server" Text="Add Skills" OnClick="Button2_Click" />
+                            <asp:Button ID="btnAddRoles" runat="server" Text="Add Skills" OnClick="btnAddRoles_Click" />
                         </asp:Panel>
                     </td>
                 </tr>
@@ -179,6 +179,11 @@
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender2" runat="server" TargetControlID="txtKeyTechnical" MinimumPrefixLength="1" EnableCaching="false"
                             CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetTechnicalskill" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true">
                         </cc1:AutoCompleteExtender>
+                        <asp:Button ID="btnAddTechnical" runat="server" Text="Add More Skills" OnClick="btnAddTechnical_Click" />
+                        <asp:Panel ID="Panel2" runat="server" Visible="false">
+                            <asp:TextBox ID="txtTechnicalSkill" runat="server"></asp:TextBox>
+                            <asp:Button ID="btnAddTechnicalSkill" runat="server" Text="Add Skills" OnClick="btnAddTechnicalSkill_Click" />
+                        </asp:Panel>
                     </td>
                 </tr>
                 <tr>
@@ -431,9 +436,8 @@
                     </td>
                 </tr>
             </table>
-          
         </div>
-         <%-- <div>
+        <%-- <div>
                 <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#PanelFreshness">Add More Skills</button>
                 <div id="PanelFreshness" class="collapse">
                     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>

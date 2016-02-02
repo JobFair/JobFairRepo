@@ -109,7 +109,7 @@ namespace JobFair.Forms.Admin
                     }
                 }
                 registerEntity.MobileNo += txtMobNo.Text.Trim();
-                registerEntity.OfficialEmailId = txtOffEmailid.Text.Trim();
+                //registerEntity.OfficialEmailId = txtOffEmailid.Text.Trim();
                 registerEntity.Password = txtPassword.Text.Trim();
                 registerEntity.PresentCountry = Convert.ToInt32(ddlCountryPresent.SelectedValue);
                 registerEntity.PresentState = Convert.ToInt32(ddlStatePresent.SelectedValue);
@@ -119,7 +119,7 @@ namespace JobFair.Forms.Admin
                 registerEntity.PANCardNo = txtPANCard.Text.Trim();
                 registerEntity.JobType = rbtlJobType.SelectedValue;
                 registerEntity.OfficialContactNo = txtOfficialContact.Text.Trim();
-                registerEntity.AlternateNo = txtAlternateContactNo.Text.Trim();
+                //registerEntity.AlternateNo = txtAlternateContactNo.Text.Trim();
                 registerEntity.PersonalMailId = txtPersonalMailid.Text.Trim();
                 registerEntity.EmploymentStatus = rbtlEmploymentStatus.SelectedValue;
                 if (rbtFreelance.Checked)
@@ -199,7 +199,7 @@ namespace JobFair.Forms.Admin
             strContent = readFile;
             strContent = strContent.Replace("$$Candidate Name$$", txtFullName.Text.Trim());
             strContent = strContent.Replace("$$Candidate ID$$", HrPrefix);
-            strContent = strContent.Replace("$$Candidate Mail ID$$", txtOffEmailid.Text.Trim());
+            //strContent = strContent.Replace("$$Candidate Mail ID$$", txtOffEmailid.Text.Trim());
             // "http://www.logossolutions.co.in/");
             strContent = strContent.Replace("$$Mobile Number$$", registerEntity.MobileNo.Trim());
             strContent = strContent.Replace("$$Present Address$$", "Present Address" + txtAddress.Text.Trim() + "<br/>Country" + ddlCountryCode.SelectedItem.Text.Trim() + "<br/>State" + ddlStatePresent.SelectedItem.Text.Trim() + "<br/>City" + ddlCityPresent.SelectedItem.Text.Trim() + "<br/>City Area" + ddlAreaPresent.SelectedItem.Text.Trim() + "<br/>Pincode:" + txtPincode.Text.Trim());

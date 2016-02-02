@@ -138,10 +138,24 @@ namespace BAL
             return newjobpostDAL.GetRequirementDetailDAL(requirementId);
         }
 
+        /// <summary>
+        /// Insert roles skills details bal
+        /// </summary>
+        /// <param name="jobpostEntity">AddJobPostEntity</param>
         public void AddRoleSkillsDetailsBAL(AddJobPostEntity jobpostEntity)
         {
             PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             newjobpostDAL.AddRoleSkillsDetailsDAL(jobpostEntity);
+        }
+
+        /// <summary>
+        /// Insert technical skills details bal
+        /// </summary>
+        /// <param name="jobpostEntity">AddJobPostEntity</param>
+        public void AddTechnicalSkillsDetailsBAL(AddJobPostEntity jobpostEntity)
+        {
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
+            newjobpostDAL.AddTechnicalSkillsDetailsDAL(jobpostEntity);
         }
     }
 }
