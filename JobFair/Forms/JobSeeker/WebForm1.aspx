@@ -119,7 +119,7 @@
 
 <div id="divRoleSkillsEdit" runat="server" visible="false">
 
-    <asp:Repeater ID="rptrRoleSkills" runat="server" OnItemCommand="rptrRoleSkills_ItemCommand">
+    <asp:Repeater ID="rptrRoleSkills" runat="server" OnItemCommand="rptrRoleSkills_ItemCommand" OnItemDataBound="rptrRoleSkills_ItemDataBound">
         <HeaderTemplate>
             <table>
                 <tr>
@@ -192,7 +192,7 @@
         </ItemTemplate>
     </asp:Repeater>
 </div>
-        </form>
+ </form>
     
 </body>
 </html>
