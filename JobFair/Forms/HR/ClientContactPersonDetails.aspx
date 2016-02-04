@@ -23,12 +23,12 @@
                             <Columns>
                             <asp:TemplateField HeaderText="Contact Person Name">
                             <ItemTemplate>
-                                <asp:Label ID="lblContactPersonId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ContactPersonId")%>' Visible="false"></asp:Label>
-                                <asp:Label ID="lblHrId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "HrId")%>' Visible="false"></asp:Label>
-                                <asp:Label ID="lblClientId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientId")%>' Visible="false"></asp:Label>
                                 <asp:Label ID="lblContactPersonName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ContactPersonName")%>'></asp:Label>
                             </ItemTemplate>
                                 <EditItemTemplate>
+                                <asp:Label ID="lblContactPersonId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ContactPersonId")%>' Visible="false"></asp:Label>    
+                                <asp:Label ID="lblHrId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "HrId")%>' Visible="false"></asp:Label>
+                                <asp:Label ID="lblClientId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientId")%>' Visible="false"></asp:Label>
                                     <asp:TextBox ID="txtName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ContactPersonName") %>'></asp:TextBox>
                                 </EditItemTemplate>
                                 <FooterTemplate>

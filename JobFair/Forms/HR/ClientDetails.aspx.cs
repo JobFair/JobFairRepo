@@ -45,6 +45,8 @@ namespace JobFair.Forms.HR
                 {
                     try
                     {
+                        ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
+                        HrId = Convert.ToInt32(Request.QueryString["HrId"]);
                         BindViewClient();
                     }
                     catch (Exception)

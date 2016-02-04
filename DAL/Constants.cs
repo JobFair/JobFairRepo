@@ -36,6 +36,7 @@
         public static string sp_HR_InsertClientRequirements = "sp_HR_InsertClientRequirements";
         public static string sp_HR_ViewClientRequirements = "sp_HR_ViewClientRequirements";
         public static string sp_HR_UpdateClientRequirements = "sp_HR_UpdateClientRequirements";
+        public static string sp_HR_SelectRecruiter = "sp_HR_SelectRecruiter";
         public const string sp_Country = "sp_Country";
         public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
         public const string sp_State = "sp_State";
@@ -142,10 +143,9 @@
         public static string sp_RE_InsertProfessionalDetails = "sp_RE_InsertProfessionalDetails";
         public static string sp_RE_InsertTechnicalSkill = "sp_RE_InsertTechnicalSkill";
         public static string sp_RE_InsertRoleSkill = "sp_RE_InsertRoleSkill";
-
+        public static string sp_RE_DeleteRoleSkills = "sp_RE_DeleteRoleSkills";
         public static string sp_RE_UpdateRoleSkill = "sp_RE_UpdateRoleSkill";
         public static string sp_RE_SelectRoleskills = "sp_RE_SelectRoleskills";
-        public static string sp_RE_DeleteRoleSkills = "sp_RE_DeleteRoleSkills";
 
     }
 }

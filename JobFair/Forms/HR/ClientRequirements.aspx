@@ -1,7 +1,4 @@
-﻿35?
-
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClientRequirements.aspx.cs" Inherits="JobFair.Forms.HR.ClientRequirements" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClientRequirements.aspx.cs" Inherits="JobFair.Forms.HR.ClientRequirements" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajax" %>
 
 <!DOCTYPE html>
@@ -161,8 +158,9 @@
 
         <div id="divView" runat="server" style="min-height: 500px; padding: 10px">
              <asp:Repeater ID="repClientDetails" runat="server"
-                  OnItemCommand="rptrProjectDetails_ItemCommand"
-                    OnItemDataBound="rptrProjectDetails_ItemDataBound">
+                    OnItemCommand="rptrClientDetails_ItemCommand"
+                    OnItemDataBound="rptrClientDetails_ItemDataBound"
+                    OnItemCreated="rptrClientDetails_ItemCreated">
                 <HeaderTemplate>
                      <table width="500px" border="1px">
                             <tr style="background-color: #fb7700">
