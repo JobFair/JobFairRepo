@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="lblRole" runat="server" Text="Your Role"></asp:Label>
+                             <asp:Label ID="lblRole" runat="server" Text="Your Role"></asp:Label>
                         </td>
                         <td>
                             <asp:DropDownList ID="ddlRole" runat="server" OnBlur="return IsSelectedDDL(this.id,'Radio Button')">

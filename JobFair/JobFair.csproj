@@ -14,7 +14,7 @@
     <RootNamespace>JobFair</RootNamespace>
     <AssemblyName>JobFair</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -116,7 +116,7 @@
     <Content Include="Forms\Recruiter\NewApplications.aspx" />
     <Content Include="Forms\Recruiter\PostNewJob.aspx" />
     <Content Include="Forms\Recruiter\ProfessionalDetails.aspx" />
-    <Content Include="Forms\Recruiter\Questionrie.aspx" />
+    <Content Include="Forms\Recruiter\Questionnarie.aspx" />
     <Content Include="Forms\Recruiter\RejectApplication.aspx" />
     <Content Include="Forms\Recruiter\SearchRecord.aspx" />
     <Content Include="Forms\Recruiter\ViewApplications.aspx" />
@@ -449,12 +449,12 @@
     <Compile Include="Forms\Recruiter\ProfessionalDetails.aspx.designer.cs">
       <DependentUpon>ProfessionalDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Recruiter\Questionrie.aspx.cs">
-      <DependentUpon>Questionrie.aspx</DependentUpon>
+    <Compile Include="Forms\Recruiter\Questionnarie.aspx.cs">
+      <DependentUpon>Questionnarie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Recruiter\Questionrie.aspx.designer.cs">
-      <DependentUpon>Questionrie.aspx</DependentUpon>
+    <Compile Include="Forms\Recruiter\Questionnarie.aspx.designer.cs">
+      <DependentUpon>Questionnarie.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\RejectApplication.aspx.cs">
       <DependentUpon>RejectApplication.aspx</DependentUpon>
@@ -721,7 +721,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50068</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50061/</IISUrl>
+          <IISUrl>http://localhost/JobFair</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
