@@ -145,6 +145,7 @@
 
         public static string sp_RE_UpdateRoleSkill = "sp_RE_UpdateRoleSkill";
         public static string sp_RE_SelectRoleskills = "sp_RE_SelectRoleskills";
+        public static string sp_RE_DeleteRoleSkills = "sp_RE_DeleteRoleSkills";
 
     }
 }

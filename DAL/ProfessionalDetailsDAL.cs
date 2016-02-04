@@ -190,7 +190,7 @@ namespace DAL
             try
             {
                 Connection.Open();
-                SqlParameter[] sparams = { new SqlParameter("@SkillName", professionalDetailentity.RoleSkill) };
+                SqlParameter[] sparams = { new SqlParameter("@SkillName", professionalDetailentity.RoleSkills) };
                 SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_InsertRoleSkill, sparams);
             }
             catch (Exception)
@@ -206,8 +206,8 @@ namespace DAL
             {
                 Connection.Open();
                 SqlParameter[] sparams = new SqlParameter[6];
-                sparams[0] = new SqlParameter("@skillId", professionalDetailsentity.RoleskillId);
-                sparams[1] = new SqlParameter("@roleSkill", professionalDetailsentity.RoleSkills);
+                sparams[0] = new SqlParameter("@roleskillId", professionalDetailsentity.RoleskillId);
+                sparams[1] = new SqlParameter("@roleSkills", professionalDetailsentity.RoleSkills);
                 sparams[2] = new SqlParameter("@fromDate", professionalDetailsentity.FromDate);
                 sparams[3] = new SqlParameter("@tillDate", professionalDetailsentity.TillDate);
                 sparams[4] = new SqlParameter("@proficiency", professionalDetailsentity.Proficiency);
@@ -247,5 +247,26 @@ namespace DAL
             return ds;
         }
 
+
+        public void DeleteRoleSkillDAL(int RoleskillId)
+        {
+            try
+            {
+                ProfessionalDetailsEntity professionalDetailentity = new ProfessionalDetailsEntity();
+                Connection.Open();
+
+                SqlParameter[] sparams = { new SqlParameter("@id", RoleskillId) };
+
+                SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_DeleteRoleSkills, sparams);
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

@@ -76,6 +76,12 @@ namespace BAL
             ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
             return professionalDetailDAL.ViewRoleSkillDetailsDAL(RecruiterId);
         }
+
+        public void DeleteRoleSkillBAL(int RoleskillId)
+        {
+            ProfessionalDetailsDAL professionalDetailDAL = new ProfessionalDetailsDAL();
+            professionalDetailDAL.DeleteRoleSkillDAL(RoleskillId);
+        }
     }
 
 

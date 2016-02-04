@@ -16,7 +16,7 @@ namespace JobFair.Forms.JobSeeker
     public partial class WebForm1 : System.Web.UI.Page
     {
           public Int64 RecruiterId = 12;
-          private bool Ischeck = true;
+          private bool Ischeck =  true;
              
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -230,7 +230,7 @@ namespace JobFair.Forms.JobSeeker
         {
             ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
             ProfessionalDetailsEntity professionalDetailentity = new ProfessionalDetailsEntity();
-            professionalDetailentity.RoleSkill = txtAddSkill.Text.Trim();
+            professionalDetailentity.RoleSkills = txtAddSkill.Text.Trim();
             professionalDetailBAL.AddRoleSkills(professionalDetailentity);
             divAddMoreSkills.Visible = false;
 
@@ -255,7 +255,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void rptrRoleSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-       Label lblRoleSkill = (Label)e.Item.FindControl("lblRoleSkill");
+            Label lblRoleSkill = (Label)e.Item.FindControl("lblRoleSkill");
             Label lblFromDate = (Label)e.Item.FindControl("lblFromDate");
             Label lblTillDate = (Label)e.Item.FindControl("lblTillDate");
             Label lblProficiency = (Label)e.Item.FindControl("lblProficiency");
@@ -301,7 +301,7 @@ namespace JobFair.Forms.JobSeeker
 
 
                 ProfessionalDetailsEntity professionalDetailsentity = new ProfessionalDetailsEntity();
-                professionalDetailsentity.RoleSkill = ddlRoleSkill.SelectedItem.Text.Trim();
+                professionalDetailsentity.RoleSkills = ddlRoleSkill.SelectedValue.Trim();
                 professionalDetailsentity.FromDate = ddlFromMonth.SelectedItem.Text.Trim() + "/" + ddlFromYear.SelectedItem.Text.Trim();
                 professionalDetailsentity.TillDate = ddlTillMonth.SelectedItem.Text.Trim() + "/" + ddlTillYear.SelectedItem.Text.Trim();
                 professionalDetailsentity.Proficiency = ddlProficiency.SelectedItem.Text.Trim();
@@ -317,9 +317,9 @@ namespace JobFair.Forms.JobSeeker
 
             if (e.CommandName == "delete")
             {
-                int SkillId = Convert.ToInt32(e.CommandArgument);
-                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                currentDesiredJobBAL.DeleteRoleSkillBAL(SkillId);
+                int RoleskillId = Convert.ToInt32(e.CommandArgument);
+                ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+                professionalDetailBAL.DeleteRoleSkillBAL(RoleskillId);
                 BindRepeaterRoleSkills();
             }
             // Check repeater commond for cancel

@@ -13,7 +13,7 @@ namespace JobFair.UserControls.JobSeeker
     /// </summary>
     public partial class RoleSkillsDetails : System.Web.UI.UserControl
     {
-        private bool isCheck = true;
+        private bool isCheck = false;
         private string candidateId;
 
         /// <summary>
@@ -353,7 +353,7 @@ namespace JobFair.UserControls.JobSeeker
             if (e.CommandName == "update")
             {
                 CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
-                currentDesiredJobEntity.RoleSkills = ddlRoleSkill.SelectedItem.Text.Trim();
+                currentDesiredJobEntity.RoleSkills = ddlRoleSkill.SelectedValue.Trim();
                 currentDesiredJobEntity.FromDate = ddlFromMonth.SelectedItem.Text.Trim() + "/" + ddlFromYear.SelectedItem.Text.Trim();
                 currentDesiredJobEntity.TillDate = ddlTillMonth.SelectedItem.Text.Trim() + "/" + ddlTillYear.SelectedItem.Text.Trim();
                 currentDesiredJobEntity.Proficiency = ddlProficiency.SelectedItem.Text.Trim();
