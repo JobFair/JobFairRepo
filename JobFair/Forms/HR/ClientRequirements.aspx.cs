@@ -162,7 +162,7 @@ namespace JobFair.Forms.HR
             divView.Visible = true;
         }
 
-        protected void rptrProjectDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void rptrClientDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
             LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
@@ -316,8 +316,12 @@ namespace JobFair.Forms.HR
                 BindViewClientRequirements();
             }
         }
-
-        protected void rptrProjectDetails_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void rptrClientDetails_ItemCreated(object sender, RepeaterItemEventArgs e)
+        {
+            //DropDownList rptrddlCountry = (DropDownList)e.Item.FindControl("ddlCountry");
+            //rptrddlCountry.SelectedIndexChanged += ddlCountry_SelectedIndexChanged;
+        }
+        protected void rptrClientDetails_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             DropDownList ddlClientName = (DropDownList)e.Item.FindControl("ddlClientName");
             DataSet dsClientName = null;
@@ -435,9 +439,12 @@ namespace JobFair.Forms.HR
 
                     //dsCountry = clientRequirementsHRBAL.GetCountry();
                     //ddlCountry = (DropDownList)repClientDetails.Controls[0].Controls[0].FindControl("ddlCountry");
-                    ddlCountry = (DropDownList)e.Item.FindControl("ddlCountry");
-                    ddlCountry.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "CountryId"));
-                    int countryId = Convert.ToInt32(ddlCountry.SelectedValue);
+                    DropDownList rptrddlCountry = (DropDownList)e.Item.FindControl("ddlCountry");
+                    //rptrddlCountry.SelectedIndexChanged += ddlCountry_SelectedIndexChanged;
+
+                    rptrddlCountry = (DropDownList)e.Item.FindControl("ddlCountry");
+                    rptrddlCountry.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "CountryId"));
+                    int countryId = Convert.ToInt32(rptrddlCountry.SelectedValue);
                     dsState = clientRequirementsHRBAL.GetState(countryId);
                     // Check if dataset is not null
                     if (ddlState != null)
@@ -531,9 +538,11 @@ namespace JobFair.Forms.HR
         /// </summary>
         private void BindRecruiter(int HrId)
         {
+            HrId = 1;
             dsClientDetails = clientRequirementsHRBAL.GetRecruiterBAL(HrId);
+            dsClientDetails.Tables[0].Columns.Add("RecruiterfullNameAndCompany", typeof(string), "RecruiterfullName + ' - ' + Company");
             ddlRecruiter.DataSource = dsClientDetails;
-            ddlRecruiter.DataTextField = "RecruiterfullName";
+            ddlRecruiter.DataTextField = "RecruiterfullNameAndCompany";
             ddlRecruiter.DataValueField = "RecruiterID";
             ddlRecruiter.DataBind();
         }
@@ -583,6 +592,17 @@ namespace JobFair.Forms.HR
         /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if(isEdit)
+            //{
+            //    Repeater rptr = new Repeater();
+            //    int countryId = Convert.ToInt32(rptrddlCountry.SelectedValue);
+            //    dsClientDetails = clientRequirementsHRBAL.GetState(countryId);
+            //    ddlState.DataSource = dsClientDetails;
+            //    ddlState.DataValueField = "StateId";
+            //    ddlState.DataTextField = "StateName";
+            //    ddlState.DataBind();
+            //    ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
+            //}
             int countryId = Convert.ToInt32(ddlCountry.SelectedValue);
             dsClientDetails = clientRequirementsHRBAL.GetState(countryId);
             ddlState.DataSource = dsClientDetails;

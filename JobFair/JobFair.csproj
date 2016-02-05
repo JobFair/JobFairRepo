@@ -83,6 +83,7 @@
     <Content Include="Email Templates\RecruiterRegisterWelcomeMail.html" />
     <Content Include="EmailPage.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forms\HR\EmployerDetails.aspx" />
     <Content Include="Forms\HR\HRRegistration.aspx" />
     <Content Include="Forms\Admin\Common\ChangePassword.aspx" />
     <Content Include="Forms\Admin\Common\ForgetPassword.aspx" />
@@ -192,6 +193,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\HR\EmployerDetails.aspx.cs">
+      <DependentUpon>EmployerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\HR\EmployerDetails.aspx.designer.cs">
+      <DependentUpon>EmployerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HR\HRRegistration.aspx.cs">
       <DependentUpon>HRRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
