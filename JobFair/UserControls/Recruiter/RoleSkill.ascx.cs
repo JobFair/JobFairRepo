@@ -1,121 +1,47 @@
 ﻿using BAL;
-using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
-using System.Web.UI;
+using System.Data.SqlClient;
+using System.Text;
 using System.Web.UI.WebControls;
+using Entities.Recruiter;
+using System.Web.UI;
 
-namespace JobFair.UserControls.JobSeeker
+
+namespace JobFair.UserControls.Recruiter
 {
-    /// <summary>
-    /// RoleSkillsDetails Class
-    /// </summary>
-    public partial class RoleSkillsDetails : System.Web.UI.UserControl
+    public partial class RoleSkill : System.Web.UI.UserControl
     {
-        private bool isCheck = false;
-        private string candidateId;
+        public Int64 RecruiterId = 12;
+        private bool Ischeck = true;
 
-        /// <summary>
-        /// Handles Load event of Page
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+
+
+            if (!IsPostBack)
             {
-                isCheck = Convert.ToBoolean(Request.QueryString["isCheck"]);
-                candidateId = Convert.ToString(Session["candidateId"]);
-                // Check session is not null
-                if (string.IsNullOrEmpty(candidateId))
+
+
+                if (Ischeck)
                 {
-                    Response.Redirect("LogIn.aspx");
+                    BindRepeaterRoleSkills();
+                    divRoleSkillsEdit.Visible = true;
+                    divRoleSkillsInsert.Visible = false;
+
                 }
+
                 else
-                {
-                    // Check page is not post back
-                    if (!IsPostBack)
-                    {
-                        // Check the isCheck is true for edit
-                        if (isCheck)
-                        {
-                            BindRepeaterRoleSkills();
-                            divRoleSkillsEdit.Visible = true;
-                            divRoleSkillsInsert.Visible = false;
-                        }
-                        else
-                        {
-                            hfCandidateId.Value = candidateId;
-                            BindRoleSkills();
-                            BindMonth();
-                            BindYears();
-                            AddRoleSkills();
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                // throw;
+                    BindRoleSkills();
+                BindMonth();
+                BindYears();
+                AddTechnicalSkills();
             }
         }
 
-        /// <summary>
-        /// Bind repeater for roleskills
-        /// </summary>
-        private void BindRepeaterRoleSkills()
-        {
-            try
-            {
-                DataSet dsRoleSkills = new DataSet();
-                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                dsRoleSkills = currentDesiredJobBAL.ViewRoleSkillDetailsBAL(candidateId);
-                // Check dataset is not null
-                if (dsRoleSkills != null)
-                {
-                    rptrRoleSkills.DataSource = dsRoleSkills;
-                    rptrRoleSkills.DataBind();
-                }
-            }
-            catch (Exception)
-            {
-                // throw;
-            }
-        }
-
-        /// <summary>
-        /// Method to bind role skills to ddlRoleSkills Control
-        /// </summary>
-        private void BindRoleSkills()
-        {
-            DataSet dsRoles = new DataSet();
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            try
-            {
-                dsRoles = currentDesiredJobBAL.GetRoleSkillsBAL();
-                // Check dataset is not null
-                if (dsRoles != null)
-                {
-                    ddlRoleSkills.DataSource = dsRoles;
-                    ddlRoleSkills.DataTextField = "RoleName";
-                    ddlRoleSkills.DataValueField = "RoleId";
-                    ddlRoleSkills.DataBind();
-
-                    ddlRoleSkills.Items.Insert(Convert.ToInt32(ddlRoleSkills.Items.Count), new ListItem("----Other----", ""));
-                    ddlRoleSkills.Items.Insert(0, new ListItem("--Select--", "0"));
-                }
-            }
-            catch (Exception)
-            {
-                // throw;
-            }
-        }
-
-        /// <summary>
-        /// Method to create skills records table for gvSkillsDetails control
-        /// </summary>
-        private void AddRoleSkills()
+        private void AddTechnicalSkills()
         {
             try
             {
@@ -124,7 +50,7 @@ namespace JobFair.UserControls.JobSeeker
                 DataRow datarow;
                 datatable.TableName = "SkillDetails";
                 // Creating columns for DataTable
-                datatable.Columns.Add(new DataColumn("CandidateId", typeof(string)));
+                datatable.Columns.Add(new DataColumn("RecruiterID", typeof(string)));
                 datatable.Columns.Add(new DataColumn("RoleSkills", typeof(int)));
                 datatable.Columns.Add(new DataColumn("FromDate", typeof(string)));
                 datatable.Columns.Add(new DataColumn("TillDate", typeof(string)));
@@ -142,9 +68,6 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Method bind year list to ddlFromYear control
-        /// </summary>
         private void BindYears()
         {
             try
@@ -163,9 +86,6 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Method to bind month list to ddlFromMonth control
-        /// </summary>
         private void BindMonth()
         {
             try
@@ -184,16 +104,24 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Handles Click event of btnAddMoreSkills Control
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected void btnAddMoreSkills_Click(object sender, EventArgs e)
+        private void BindRoleSkills()
         {
+            DataSet dsRoles = new DataSet();
+            ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
             try
             {
-                AddMoreSkills();
+                dsRoles = professionalDetailBAL.GetRoleSkillsBAL();
+                // Check dataset is not null
+                if (dsRoles != null)
+                {
+                    ddlRoleSkills.DataSource = dsRoles;
+                    ddlRoleSkills.DataTextField = "RoleName";
+                    ddlRoleSkills.DataValueField = "RoleId";
+                    ddlRoleSkills.DataBind();
+
+                    ddlRoleSkills.Items.Insert(Convert.ToInt32(ddlRoleSkills.Items.Count), new ListItem("----Other----", ""));
+                    ddlRoleSkills.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
             }
             catch (Exception)
             {
@@ -201,9 +129,11 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Method to insert data into gvSkillsDetails control
-        /// </summary>
+        protected void btnAddMoreSkills_Click(object sender, EventArgs e)
+        {
+            AddMoreSkills();
+        }
+
         private void AddMoreSkills()
         {
             string year = TotalYears();
@@ -221,8 +151,8 @@ namespace JobFair.UserControls.JobSeeker
                         {
                             // Creating new row
                             datarow = datatable.NewRow();
-                            datarow["CandidateId"] = hfCandidateId.Value.Trim();                           
-                            datarow["RoleSkills"] = ddlRoleSkills.SelectedItem.Value;                          
+                            datarow["RecruiterId"] = 12;
+                            datarow["RoleSkills"] = ddlRoleSkills.SelectedItem.Value;
                             datarow["FromDate"] = ddlFromMonth.SelectedItem.Text + "/" + ddlFromYear.SelectedItem.Text;
                             datarow["TillDate"] = ddlTillMonth.SelectedItem.Text + "/" + ddlTillYear.SelectedItem.Text;
                             datarow["Proficiency"] = ddlProficiency.SelectedItem.Text;
@@ -256,10 +186,6 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Method to Get Total Years of Experience
-        /// </summary>
-        /// <returns>System.String</returns>
         private string TotalYears()
         {
             double year = 0.0;
@@ -279,36 +205,53 @@ namespace JobFair.UserControls.JobSeeker
             return year.ToString();
         }
 
-        /// <summary>
-        /// Handles the Click event of btnSaveSkills Control
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSaveSkills_Click(object sender, EventArgs e)
         {
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+            ProfessionalDetailBAL professioalDetailBAL = new ProfessionalDetailBAL();
             DataTable dt = (DataTable)ViewState["SkillDetails"];
             try
             {
-                currentDesiredJobBAL.SaveRoleSkillsBAL(dt);
+                professioalDetailBAL.SaveRechnicalSkillsBAL(dt);
                 Response.Write("<script language='javascript'>alert('Role Skills Details saved successfully')</script>");
             }
             catch (Exception)
             {
-                // throw;
+                //  throw;
             }
             finally
             {
                 dt = null;
-                currentDesiredJobBAL = null;
+                professioalDetailBAL = null;
             }
         }
 
-        /// <summary>
-        /// Handles ItemCommand event of rptrRoleSkills control
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+            ProfessionalDetailsEntity professionalDetailentity = new ProfessionalDetailsEntity();
+            professionalDetailentity.RoleSkills = txtAddSkill.Text.Trim();
+            professionalDetailBAL.AddRoleSkills(professionalDetailentity);
+            divAddMoreSkills.Visible = false;
+
+        }
+
+        protected void ddlRoleSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlRoleSkills.SelectedItem.ToString() == "----Other----")
+                {
+                    divAddMoreSkills.Visible = true;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         protected void rptrRoleSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Label lblRoleSkill = (Label)e.Item.FindControl("lblRoleSkill");
@@ -329,7 +272,7 @@ namespace JobFair.UserControls.JobSeeker
             LinkButton lnkDelete = (LinkButton)e.Item.FindControl("lnkDelete");
             LinkButton lnkUpdate = (LinkButton)e.Item.FindControl("lnkUpdate");
             LinkButton lnkCancel = (LinkButton)e.Item.FindControl("lnkCancel");
-            // Check repeater commond for edit
+
             if (e.CommandName == "edit")
             {
                 lblRoleSkill.Visible = false;
@@ -348,27 +291,34 @@ namespace JobFair.UserControls.JobSeeker
                 lnkDelete.Visible = false;
                 lnkUpdate.Visible = true;
                 lnkCancel.Visible = true;
+
             }
-            // Check repeater commond for update
+
+
             if (e.CommandName == "update")
             {
-                CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
-                currentDesiredJobEntity.RoleSkills = ddlRoleSkill.SelectedValue.Trim();
-                currentDesiredJobEntity.FromDate = ddlFromMonth.SelectedItem.Text.Trim() + "/" + ddlFromYear.SelectedItem.Text.Trim();
-                currentDesiredJobEntity.TillDate = ddlTillMonth.SelectedItem.Text.Trim() + "/" + ddlTillYear.SelectedItem.Text.Trim();
-                currentDesiredJobEntity.Proficiency = ddlProficiency.SelectedItem.Text.Trim();
-                currentDesiredJobEntity.SkillId = Convert.ToInt32(e.CommandArgument);
-                currentDesiredJobEntity.TotalExperience = TotalYears();
-                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                currentDesiredJobBAL.UpdateRoleSkillsBAL(currentDesiredJobEntity);
+
+
+                ProfessionalDetailsEntity professionalDetailsentity = new ProfessionalDetailsEntity();
+                professionalDetailsentity.RoleSkills = ddlRoleSkill.SelectedValue.Trim();
+                professionalDetailsentity.FromDate = ddlFromMonth.SelectedItem.Text.Trim() + "/" + ddlFromYear.SelectedItem.Text.Trim();
+                professionalDetailsentity.TillDate = ddlTillMonth.SelectedItem.Text.Trim() + "/" + ddlTillYear.SelectedItem.Text.Trim();
+                professionalDetailsentity.Proficiency = ddlProficiency.SelectedItem.Text.Trim();
+                professionalDetailsentity.RoleskillId = Convert.ToInt32(e.CommandArgument);
+                professionalDetailsentity.TotalExprience = TotalYears();
+                ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+                professionalDetailBAL.UpdateRoleSkillsBAL(professionalDetailsentity);
                 BindRepeaterRoleSkills();
+
+
+
             }
-            // Check repeater commond for delete
+
             if (e.CommandName == "delete")
             {
-                int SkillId = Convert.ToInt32(e.CommandArgument);
-                CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                currentDesiredJobBAL.DeleteRoleSkillBAL(SkillId);
+                int RoleskillId = Convert.ToInt32(e.CommandArgument);
+                ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+                professionalDetailBAL.DeleteRoleSkillBAL(RoleskillId);
                 BindRepeaterRoleSkills();
             }
             // Check repeater commond for cancel
@@ -378,16 +328,11 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Handles ItemDataBound event of rptrRoleSkills control
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rptrRoleSkills_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             DataSet dsRoleSkill = new DataSet();
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            dsRoleSkill = currentDesiredJobBAL.ViewRoleSkillDetailsBAL(candidateId);
+            ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+            dsRoleSkill = professionalDetailBAL.ViewRoleSkillDetailsBAL(RecruiterId);
             string fromDate, tillDate;
             fromDate = Convert.ToString(dsRoleSkill.Tables[0].Rows[0]["FromDate"]); ;
             string[] Words = fromDate.Split(new char[] { '/' });
@@ -400,7 +345,7 @@ namespace JobFair.UserControls.JobSeeker
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 DataSet dsRoles = new DataSet();
-                dsRoles = currentDesiredJobBAL.GetRoleSkillsBAL();
+                dsRoles = professionalDetailBAL.GetRoleSkillsBAL();
                 if (dsRoles != null)
                 {
                     ddlRoleSkill.DataSource = dsRoles;
@@ -458,6 +403,7 @@ namespace JobFair.UserControls.JobSeeker
                         ddlTillYear.SelectedValue = Word;
                     }
                 }
+
             }
 
             DropDownList ddlProficiency = (DropDownList)e.Item.FindControl("ddlProficiency");
@@ -467,39 +413,28 @@ namespace JobFair.UserControls.JobSeeker
             }
         }
 
-        /// <summary>
-        /// Handles SelectedIndexChanged of ddlRoleSkills control
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected void ddlRoleSkills_SelectedIndexChanged(object sender, EventArgs e)
+
+
+
+        private void BindRepeaterRoleSkills()
         {
             try
             {
-                if (ddlRoleSkills.SelectedItem.ToString() == "----Other----")
+                DataSet dsRoleSkills = new DataSet();
+                ProfessionalDetailBAL professionalDetailBAL = new ProfessionalDetailBAL();
+                dsRoleSkills = professionalDetailBAL.ViewRoleSkillDetailsBAL(RecruiterId);
+                // Check dataset is not null
+                if (dsRoleSkills != null)
                 {
-                    divAddMoreSkills.Visible = true;
+                    rptrRoleSkills.DataSource = dsRoleSkills;
+                    rptrRoleSkills.DataBind();
                 }
             }
             catch (Exception)
             {
                 // throw;
-            }
-            // Checking item of dropdown
-        }
 
-        /// <summary>
-        /// Handles Click event of btnAdd control
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            CurrentDesiredJobEntity currentDesiredJobEntity = new CurrentDesiredJobEntity();
-            currentDesiredJobEntity.RoleSkills = txtAddSkill.Text.Trim();
-            currentDesiredJobBAL.AddRoleSkillsDetailsBAL(currentDesiredJobEntity);
-            divAddMoreSkills.Visible = false;
+            }
         }
     }
 }

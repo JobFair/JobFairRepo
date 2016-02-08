@@ -16,7 +16,7 @@ namespace Entities.Recruiter
        public string EmploymentStaus { get; set; }
        public string jobtype { get; set; }
        public string TechnicalSkill { get; set; }
-       public string RoleSkill { get; set; }
+       public string RoleSkills { get; set; }
 
        public string Proficiency { get; set; }
 
@@ -26,7 +26,7 @@ namespace Entities.Recruiter
 
        public string TillDate { get; set; }
 
-       public string RoleSkills { get; set; }
+      
 
     }
 }

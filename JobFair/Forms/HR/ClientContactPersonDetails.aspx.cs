@@ -151,23 +151,23 @@ namespace JobFair.Forms.HR
                 //int UPcontactPersonId = Convert.ToInt32((grView.FooterRow.FindControl("lblContactPersonId") as Label).Text);
                 //Label lblClientName = (Label)e.Item.FindControl("lblClientName");
                 //int UpContactPersonId = 1;
-                int UPcontactPersonId = Convert.ToInt32((Label)grvView.Rows[e.RowIndex].FindControl("lblContactPersonId"));
-                int UPhrId = Convert.ToInt32((Label)grvView.Rows[e.RowIndex].FindControl("lblHrId"));
-                int UPclientId = Convert.ToInt32((Label)grvView.Rows[e.RowIndex].FindControl("lblClientId"));
+                var UPcontactPersonId = ((Label)grvView.Rows[e.RowIndex].FindControl("lblContactPersonId")).Text;
+                var UPhrId = ((Label)grvView.Rows[e.RowIndex].FindControl("lblHrId")).Text;
+                var UPclientId = ((Label)grvView.Rows[e.RowIndex].FindControl("lblClientId")).Text;
                 string UPtxtName = ((TextBox)grvView.Rows[e.RowIndex].FindControl("txtName")).Text;
-                string UPtxtDesignation = ((TextBox)grView.Rows[e.RowIndex].FindControl("txtDesignation")).Text;
-                string UPtxtEmail = ((TextBox)grView.Rows[e.RowIndex].FindControl("txtEmail")).Text;
-                int UPtxtContactNo = Convert.ToInt32((TextBox)grView.Rows[e.RowIndex].FindControl("txtContactNo"));
-                string UPrblistIsActive = ((RadioButtonList)grView.Rows[e.RowIndex].FindControl("rblistIsActive")).SelectedItem.Text;
+                string UPtxtDesignation = ((TextBox)grvView.Rows[e.RowIndex].FindControl("txtDesignation")).Text;
+                string UPtxtEmail = ((TextBox)grvView.Rows[e.RowIndex].FindControl("txtEmail")).Text;
+                var UPtxtContactNo = ((TextBox)grvView.Rows[e.RowIndex].FindControl("txtContactNo")).Text;
+                string UPrblistIsActive = ((RadioButtonList)grvView.Rows[e.RowIndex].FindControl("rblistIsActive")).SelectedItem.Text;
 
                 // Assign values to the entities
-               // clientContactPersonDetailsEntity.ContactPersonId = UPcontactPersonId;
-                clientContactPersonDetailsEntity.HrId = UPhrId;
-                clientContactPersonDetailsEntity.ClientId = UPclientId;
+                clientContactPersonDetailsEntity.ContactPersonId = Convert.ToInt32(UPcontactPersonId);
+                clientContactPersonDetailsEntity.HrId = Convert.ToInt32(UPhrId);
+                clientContactPersonDetailsEntity.ClientId = Convert.ToInt32(UPclientId);
                 clientContactPersonDetailsEntity.ContactPersonName = UPtxtName;
                 clientContactPersonDetailsEntity.Designation = UPtxtDesignation;
                 clientContactPersonDetailsEntity.EmailId = UPtxtEmail;
-                clientContactPersonDetailsEntity.ContactNo = UPtxtContactNo;
+                clientContactPersonDetailsEntity.ContactNo = Convert.ToInt32(UPtxtContactNo);
                 //Convert.ToInt32(ddlFunctionalArea.SelectedValue);
                 clientContactPersonDetailsEntity.IsActive = UPrblistIsActive;
                 // Saving data to the database
@@ -185,7 +185,11 @@ namespace JobFair.Forms.HR
             {
                 //throw;
             }
-            ViewRecord(HrId, ClientId);
+            finally
+            {
+                grvView.EditIndex = -1;
+                ViewRecord(HrId, ClientId);
+            }
 
         }
         private void AddDefaultFirstRecord()

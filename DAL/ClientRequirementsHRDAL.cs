@@ -116,7 +116,9 @@ namespace DAL
             try
             {
                 connection.Open();
-                dsRecruiter = SqlHelper.ExecuteDataset(connection, CommandType.Text, "SELECT RecruiterID,RecruiterfullName FROM HR_RecruiterRegister WHERE HrId = 1");
+                SqlParameter[] sparam = { new SqlParameter("@hrId", HrId) };
+
+                dsRecruiter = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_SelectRecruiter, sparam);
                 //RecruiterfullName LIKE @RecruiterfullName+'%' AND 
                 
                 //SqlCommand cmd = new SqlCommand("select RecruiterID,RecruiterfullName from HR_RecruiterRegister  where RecruiterfullName like @RecruiterfullName+'%'", connection);

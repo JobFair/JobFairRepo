@@ -14,7 +14,7 @@
     <RootNamespace>JobFair</RootNamespace>
     <AssemblyName>JobFair</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -83,6 +83,7 @@
     <Content Include="Email Templates\RecruiterRegisterWelcomeMail.html" />
     <Content Include="EmailPage.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forms\HR\EmployerDetails.aspx" />
     <Content Include="Forms\HR\HRRegistration.aspx" />
     <Content Include="Forms\Admin\Common\ChangePassword.aspx" />
     <Content Include="Forms\Admin\Common\ForgetPassword.aspx" />
@@ -110,6 +111,7 @@
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="Forms\Recruiter\AffirmativeDetails.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
+    <Content Include="Forms\Recruiter\ForwordEmail.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\ManageJobs.aspx" />
     <Content Include="Forms\Recruiter\ManageResponses.aspx" />
@@ -156,6 +158,7 @@
     <Content Include="UserControls\JobSeeker\RoleSkillsDetails.ascx" />
     <Content Include="UserControls\Recruiter\ContactDetails.ascx" />
     <Content Include="UserControls\Recruiter\PersonalDetails.ascx" />
+    <Content Include="UserControls\Recruiter\RoleSkill.ascx" />
     <Content Include="UserControls\Recruiter\TechnicalSkills.ascx" />
     <Content Include="UserControls\Recruiter\SearchRecord.ascx" />
     <Content Include="UserControls\JobSeeker\TechnicalSkillsDetails.ascx" />
@@ -190,6 +193,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\HR\EmployerDetails.aspx.cs">
+      <DependentUpon>EmployerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\HR\EmployerDetails.aspx.designer.cs">
+      <DependentUpon>EmployerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HR\HRRegistration.aspx.cs">
       <DependentUpon>HRRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -407,6 +417,13 @@
     <Compile Include="Forms\Recruiter\ClientRequirements.aspx.designer.cs">
       <DependentUpon>ClientRequirements.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Recruiter\ForwordEmail.aspx.cs">
+      <DependentUpon>ForwordEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ForwordEmail.aspx.designer.cs">
+      <DependentUpon>ForwordEmail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Recruiter\LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -583,6 +600,13 @@
     <Compile Include="UserControls\Recruiter\PersonalDetails.ascx.designer.cs">
       <DependentUpon>PersonalDetails.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Recruiter\RoleSkill.ascx.cs">
+      <DependentUpon>RoleSkill.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Recruiter\RoleSkill.ascx.designer.cs">
+      <DependentUpon>RoleSkill.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Recruiter\TechnicalSkills.ascx.cs">
       <DependentUpon>TechnicalSkills.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -721,7 +745,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50068</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/JobFair</IISUrl>
+          <IISUrl>http://localhost:50061/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

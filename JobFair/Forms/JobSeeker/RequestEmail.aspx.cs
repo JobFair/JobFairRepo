@@ -129,5 +129,7 @@ namespace JobFair.Forms.JobSeeker
                 // throw;
             }
         }
+
+        
     }
 }
