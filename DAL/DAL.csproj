@@ -74,7 +74,7 @@
     <Compile Include="LoginRecruiterDAL.cs" />
     <Compile Include="PersonalDetailsJSDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionrieDAL.cs" />
+    <Compile Include="QuestionnarieREDAL.cs" />
     <Compile Include="RegisterHrADDAL.cs" />
     <Compile Include="RegisterJobSeekerDAL.cs" />
     <Compile Include="RegisterRecruiterHRDAL.cs" />
