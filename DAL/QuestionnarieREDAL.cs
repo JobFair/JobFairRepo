@@ -23,7 +23,6 @@ namespace DAL
                 sparams[0] = new SqlParameter("@recruiterId", recruiterId);
                 sparams[1] = new SqlParameter("@questionnarieName", questionnarieName);
 
-               
                 sparams[2] = new SqlParameter("@questionnarieId", SqlDbType.Int, 200);
                 sparams[2].Direction = ParameterDirection.Output;
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertQuestionnarie, sparams);
@@ -32,11 +31,11 @@ namespace DAL
                 // Assigning Destination table name
                 objbulk.DestinationTableName = "RE_Questions";
                 // Mapping Table column
-               
+
                 objbulk.ColumnMappings.Add("QuestionName", "QuestionName");
                 objbulk.ColumnMappings.Add("QuestionType", "QuestionType");
                 objbulk.ColumnMappings.Add("AnswerOption", "AnswerOption");
-                objbulk.ColumnMappings.Add("QuestionnarieId","QuestionnarieId");
+                objbulk.ColumnMappings.Add("QuestionnarieId", "QuestionnarieId");
                 //objbulk.ColumnMappings.Add("QuestionnaireId", "questionnarieId");
                 // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dtQuestionnarie);
@@ -55,6 +54,21 @@ namespace DAL
                 connection.Close();
             }
             return Tuple.Create(dtQuestionnarie, questionnarieId);
+        }
+
+        public DataSet ViewQuestionnarieDAL(Int32 questionnarieId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@questionnarieId", questionnarieId) };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_RE_ViewQuestionnarie, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
         }
     }
 }

@@ -126,6 +126,7 @@
     <Content Include="Forms\Recruiter\ViewClientRequirements.aspx" />
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="Forms\Recruiter\AcceptApplications.aspx" />
+    <Content Include="Forms\Recruiter\ViewQuestionnarie.aspx" />
     <Content Include="Images\logoitch.jpg" />
     <Content Include="Images\NewFolder1\jquery-1.11.1.min %281%29.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -521,6 +522,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\AcceptApplications.aspx.designer.cs">
       <DependentUpon>AcceptApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ViewQuestionnarie.aspx.cs">
+      <DependentUpon>ViewQuestionnarie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\ViewQuestionnarie.aspx.designer.cs">
+      <DependentUpon>ViewQuestionnarie.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs" />
     <Compile Include="UserControls\JobSeeker\DemoEducationalDetails.aspx.cs">

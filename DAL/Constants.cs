@@ -147,5 +147,6 @@
         public static string sp_RE_UpdateRoleSkill = "sp_RE_UpdateRoleSkill";
         public static string sp_RE_SelectRoleskills = "sp_RE_SelectRoleskills";
         public static string sp_RE_InsertQuestionnarie="sp_RE_InsertQuestionnarie";
+        public static string sp_RE_ViewQuestionnarie = "sp_RE_ViewQuestionnarie";
     }
 }
