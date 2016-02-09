@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ForwordEmail.aspx.cs" Inherits="JobFair.Forms.Recruiter.ForwordEmail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ForwordResume.aspx.cs" Inherits="JobFair.Forms.Recruiter.ForwordResume" %>
 
 <!DOCTYPE html>
 
@@ -20,7 +20,8 @@
             To:
         </td>
         <td>
-            <asp:TextBox ID="txtTo" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="ddlclientlist" runat="server" OnSelectedIndexChanged="ddlclientlist_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+            <asp:TextBox runat="server" ID="txtTo"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -28,6 +29,19 @@
             &nbsp;
         </td>
     </tr>
+        <tr>
+            <td>
+                from
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="txtfrom"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
     <tr>
         <td>
             Subject:
@@ -67,32 +81,7 @@
             &nbsp;
         </td>
     </tr>
-    <tr>
-        <td>
-            Gmail Email:
-        </td>
-        <td>
-            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Gmail Password:
-        </td>
-        <td>
-            <asp:TextBox ID="txtPassword" runat="server" TextMode = "Password"></asp:TextBox>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
+    
     <tr>
         <td>
         </td>

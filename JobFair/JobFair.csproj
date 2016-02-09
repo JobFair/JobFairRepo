@@ -111,7 +111,7 @@
     <Content Include="Forms\JobSeeker\WebForm1.aspx" />
     <Content Include="Forms\Recruiter\AffirmativeDetails.aspx" />
     <Content Include="Forms\Recruiter\ClientRequirements.aspx" />
-    <Content Include="Forms\Recruiter\ForwordEmail.aspx" />
+    <Content Include="Forms\Recruiter\ForwordResume.aspx" />
     <Content Include="Forms\Recruiter\LogIn.aspx" />
     <Content Include="Forms\Recruiter\ManageJobs.aspx" />
     <Content Include="Forms\Recruiter\ManageResponses.aspx" />
@@ -417,12 +417,12 @@
     <Compile Include="Forms\Recruiter\ClientRequirements.aspx.designer.cs">
       <DependentUpon>ClientRequirements.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Recruiter\ForwordEmail.aspx.cs">
-      <DependentUpon>ForwordEmail.aspx</DependentUpon>
+    <Compile Include="Forms\Recruiter\ForwordResume.aspx.cs">
+      <DependentUpon>ForwordResume.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Recruiter\ForwordEmail.aspx.designer.cs">
-      <DependentUpon>ForwordEmail.aspx</DependentUpon>
+    <Compile Include="Forms\Recruiter\ForwordResume.aspx.designer.cs">
+      <DependentUpon>ForwordResume.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
