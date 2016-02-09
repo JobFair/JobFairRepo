@@ -12,17 +12,17 @@ using System;
 namespace DAL
 {
     /// <summary>
-    /// Class ManageClientHRDAL
+    /// Class ManageEmployerHRDAL
     /// </summary>
-    public class ManageClientHRDAL
+    public class ManageEmployerHRDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        
+
         /// <summary>
-        /// Method of class ManageClientHRDAL for Managing ClientDetails in database
+        /// Method of class ManageEmployerHRDAL for Managing EmployerDetails in database
         /// </summary>
         /// <returns>System.Int32</returns>
-        public DataSet ManageClientDetailsDAL(long HrId)
+        public DataSet ManageEmployerDetailsDAL(long HrId)
         {
             DataSet ds = new DataSet();
             try
@@ -30,7 +30,7 @@ namespace DAL
                 SqlParameter[] sparams = {
                                              new SqlParameter("@hrId",HrId)
                                          };
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_ManageClientDetails, sparams);
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_ManageEmployerDetails, sparams);
             }
             catch (Exception)
             {

@@ -10,8 +10,6 @@ namespace BAL
     /// </summary>
     public class ClientDetailsBAL
     {
-        private ClientDetailsDAL clientDetailsDAL = new ClientDetailsDAL();
-
         /// <summary>
         /// Method to get country
         /// </summary>
@@ -72,6 +70,7 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int SaveClientDetailsBAL(ClientDetailsEntity clientDetailsEntity)
         {
+            ClientDetailsDAL clientDetailsDAL = new ClientDetailsDAL();
             return clientDetailsDAL.SaveClientDetailsDAL(clientDetailsEntity);
         }
 
@@ -82,6 +81,7 @@ namespace BAL
         /// <returns>System.Int32</returns>
         public int UpdateClientDetailsBAL(ClientDetailsEntity clientDetailsEntity)
         {
+            ClientDetailsDAL clientDetailsDAL = new ClientDetailsDAL();
             return clientDetailsDAL.UpdateClientDetailsDAL(clientDetailsEntity);
         }
 
@@ -91,12 +91,19 @@ namespace BAL
         /// <param name="clientDetailsEntity">Object of ClientDetailsEntity </param>
         public void AddFunctionalAreaBAL(ClientDetailsEntity clientDetailsEntity)
         {
+            ClientDetailsDAL clientDetailsDAL = new ClientDetailsDAL();
             clientDetailsDAL.AddFunctionalDAL(clientDetailsEntity);
         }
 
+        /// <summary>
+        /// View client details method in ClientDetailsBAL class
+        /// </summary>
+        /// <param name="clientDetailsBAL">Object of ClientDetailsBAL</param>
+        /// <returns>System.Int32</returns>
+
         public DataSet ViewClientDetailsBAL(long clientId, long hrId)
         {
-            ClientDetailsDAL ViewclientDetailsDAL = new ClientDetailsDAL();
+            ClientDetailsDAL clientDetailsDAL = new ClientDetailsDAL();
             return clientDetailsDAL.ViewClientDetailsDAL(clientId, hrId);
         }
     }

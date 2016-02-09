@@ -92,6 +92,7 @@
     <Content Include="Forms\HR\ClientDetails.aspx" />
     <Content Include="Forms\HR\ClientRequirements.aspx" />
     <Content Include="Forms\HR\ManageClient.aspx" />
+    <Content Include="Forms\HR\ManageEmployer.aspx" />
     <Content Include="Forms\HR\RecruiterRegistration.aspx" />
     <Content Include="Forms\JobSeeker\AdvanceSearch.aspx" />
     <Content Include="Forms\JobSeeker\ChangeLoginDetails.aspx" />
@@ -142,6 +143,15 @@
     <Content Include="Images\Scripts\jquery.validationEngine-en.js" />
     <Content Include="Images\Scripts\jquery.validationEngine.js" />
     <Content Include="Images\Scripts\ValidationAll.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validationEngine-en.js" />
+    <Content Include="Scripts\jquery.validationEngine.js" />
+    <Content Include="Scripts\ValidationAll.js" />
     <Content Include="SendMail.html" />
     <Content Include="UserControls\JobSeeker\DemoEducationalDetails.aspx" />
     <Content Include="UserControls\JobSeeker\MoreCertifications.ascx" />
@@ -174,6 +184,7 @@
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
     <Content Include="Forms\Employer\HomePageEmployer.Master" />
     <Content Include="Images\Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -260,6 +271,13 @@
     </Compile>
     <Compile Include="Forms\HR\ManageClient.aspx.designer.cs">
       <DependentUpon>ManageClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HR\ManageEmployer.aspx.cs">
+      <DependentUpon>ManageEmployer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\HR\ManageEmployer.aspx.designer.cs">
+      <DependentUpon>ManageEmployer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\HR\RecruiterRegistration.aspx.cs">
       <DependentUpon>RecruiterRegistration.aspx</DependentUpon>

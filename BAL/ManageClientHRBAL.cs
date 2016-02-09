@@ -14,7 +14,6 @@ namespace BAL
     /// </summary>
     public class ManageClientHRBAL
     {
-
         public DataSet ManageClientDetailsBAL(long hrId)
         {
             ManageClientHRDAL manageClientHRDAL = new ManageClientHRDAL();
