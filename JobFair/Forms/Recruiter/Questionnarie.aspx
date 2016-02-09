@@ -34,12 +34,12 @@
             <tr>
                 <td>Choose Question Type</td>
                 <td>
-                    <asp:DropDownList ID="ddlQuestionType" runat="server">
+                    <asp:DropDownList ID="ddlQuestionType" runat="server" OnSelectedIndexChanged="ddlQuestionType_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem>Select</asp:ListItem>
-                        <asp:ListItem>TextBox</asp:ListItem>
-                        <asp:ListItem>ListMenu</asp:ListItem>
-                        <asp:ListItem>RadioButton</asp:ListItem>
-                        <asp:ListItem>CheckBox</asp:ListItem>
+                        <asp:ListItem Value="TextBox">TextBox</asp:ListItem>
+                        <asp:ListItem Value="ListMenu">List Menu</asp:ListItem>
+                        <asp:ListItem Value="RadioButton">Radio Button</asp:ListItem>
+                        <asp:ListItem Value="CheckBox">Check Box</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -62,8 +62,8 @@
                     GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField Visible="false" HeaderText="RecruiterId" DataField="RecruiterId" />
-                        <asp:BoundField HeaderStyle-Width="120px" HeaderText="Questionnaire Id" DataField="QuestionnaireId" Visible="false" />
+                      <%--  <asp:BoundField Visible="false" HeaderText="RecruiterId" DataField="RecruiterId" />
+                        <asp:BoundField HeaderStyle-Width="120px" HeaderText="Questionnaire Id" DataField="QuestionnaireId" Visible="false" />--%>
                         <asp:BoundField HeaderStyle-Width="120px" HeaderText="Question Name" DataField="QuestionName" />
                         <asp:BoundField HeaderStyle-Width="120px" HeaderText="Question Type" DataField="QuestionType" />
                         <asp:BoundField HeaderStyle-Width="120px" HeaderText="Answer Option" DataField="AnswerOption" />
@@ -81,6 +81,7 @@
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
             </div>
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
     </form>
   
 </body>

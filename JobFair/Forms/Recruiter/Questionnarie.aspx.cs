@@ -1,10 +1,14 @@
-﻿using System;
+﻿using BAL;
+using System;
 using System.Data;
 
 namespace JobFair.Forms.Recruiter
 {
     public partial class Questionrie : System.Web.UI.Page
     {
+        private string questionnarieName;
+        private Int64 recruiterId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,15 +26,15 @@ namespace JobFair.Forms.Recruiter
                 DataRow dr;
                 dt.TableName = "Questionnarie";
                 // Creating columns for DataTable
-                dt.Columns.Add(new DataColumn("RecruiterId", typeof(Int64)));
-                dt.Columns.Add(new DataColumn("QuestionnaireId", typeof(string)));
+                //dt.Columns.Add(new DataColumn("RecruiterId", typeof(Int64)));
+                dt.Columns.Add(new DataColumn("QuestionnaireId", typeof(Int32)));
                 dt.Columns.Add(new DataColumn("QuestionName", typeof(string)));
                 dt.Columns.Add(new DataColumn("QuestionType", typeof(string)));
                 dt.Columns.Add(new DataColumn("AnswerOption", typeof(string)));
 
                 dr = dt.NewRow();
                 dt.Rows.Add(dr);
-
+                // dt.Rows.Add(dr);
                 ViewState["Questionnarie"] = dt;
                 grdQuestionnarie.DataSource = dt;
                 grdQuestionnarie.DataBind();
@@ -62,8 +66,8 @@ namespace JobFair.Forms.Recruiter
                         {
                             // Creating new row and assigning values
                             drCurrentRow = dtCurrentTable.NewRow();
-                            drCurrentRow["RecruiterId"] = 12;
-                            drCurrentRow["QuestionnaireId"] = txtQuestionnarieName.Text.Trim();
+                            //drCurrentRow["RecruiterId"] = 12;
+                            
                             drCurrentRow["QuestionName"] = txtQuestion.Text.Trim();
                             drCurrentRow["QuestionType"] = ddlQuestionType.SelectedItem.Text;
                             drCurrentRow["AnswerOption"] = txtAnswer.Text.Trim();
@@ -88,6 +92,38 @@ namespace JobFair.Forms.Recruiter
             catch (Exception)
             {
                 // throw;
+            }
+        }
+
+        protected void ddlQuestionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlQuestionType.SelectedValue == "TextBox")
+            {
+                txtAnswer.ReadOnly = true;
+            }
+            else
+            {
+                txtAnswer.ReadOnly = false;
+            }
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                recruiterId = 12;
+                questionnarieName = txtQuestionnarieName.Text.Trim();
+                QuestionnarieREBAL questionnarieBAL = new QuestionnarieREBAL();
+                DataTable dtQuestionnarie = (DataTable)ViewState["Questionnarie"];
+                questionnarieBAL.SaveQuestionnarieBAL(dtQuestionnarie, questionnarieName, recruiterId);
+                grdQuestionnarie.DataSource = null;
+                grdQuestionnarie.DataBind();
+                ViewState["Questionnarie"] = null;
+                Response.Write("<script language='javascript'>alert('Questionnarie created...')</script>");
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

@@ -47,6 +47,7 @@
     <Compile Include="ClientRequirementsBAL.cs" />
     <Compile Include="ClientRequirementsHRBAL.cs" />
     <Compile Include="ContactDetailsREBAL.cs" />
+    <Compile Include="ForwordResumeBAL.cs" />
     <Compile Include="EmployerDetailsHRBAL.cs" />
     <Compile Include="JobapplicationsBAL.cs" />
     <Compile Include="ManageClientHRBAL.cs" />
@@ -72,7 +73,7 @@
     <Compile Include="ProfessionalDetailBAL.cs" />
     <Compile Include="ProjectDetailsBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionrieBAL.cs" />
+    <Compile Include="QuestionnarieREBAL.cs" />
     <Compile Include="RegisterHrADBAL.cs" />
     <Compile Include="RegisterJobSeekerBAL.cs" />
     <Compile Include="RegisterRecruiterHRBAL.cs" />

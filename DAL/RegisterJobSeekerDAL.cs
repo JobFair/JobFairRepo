@@ -25,7 +25,7 @@ namespace DAL
             {
                 connection.Open();
 
-                //Parameters to pass to the stored procedure
+                // Parameters to pass to the stored procedure
 
                 SqlParameter[] sparams = new SqlParameter[16];
 
