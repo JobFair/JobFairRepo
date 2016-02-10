@@ -31,7 +31,7 @@ namespace DAL
                 // Assigning Destination table name
                 objbulk.DestinationTableName = "RE_Questions";
                 // Mapping Table column
-
+                
                 objbulk.ColumnMappings.Add("QuestionName", "QuestionName");
                 objbulk.ColumnMappings.Add("QuestionType", "QuestionType");
                 objbulk.ColumnMappings.Add("AnswerOption", "AnswerOption");
