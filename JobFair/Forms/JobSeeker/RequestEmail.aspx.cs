@@ -105,6 +105,9 @@ namespace JobFair.Forms.JobSeeker
             {
                 //  throw;
             }
+
+
+
         }
 
         /// <summary>
