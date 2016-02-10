@@ -261,62 +261,73 @@ namespace JobFair.Forms.HR
             {
                 DataSet dsViewClient = new DataSet();
                 dsViewClient = clientDetailsBAL.ViewClientDetailsBAL(ClientId, HrId);
-
-                lblClientId.Text = dsViewClient.Tables[0].Rows[0]["ClientId"].ToString();
-                lblHrId.Text = dsViewClient.Tables[0].Rows[0]["HrId"].ToString();
-                txtClientName.Text = dsViewClient.Tables[0].Rows[0]["ClientName"].ToString();
-                txtClientProfile.Text = dsViewClient.Tables[0].Rows[0]["ClientProfile"].ToString();
-                ddlIndustry.SelectedValue = dsViewClient.Tables[0].Rows[0]["IndustryId"].ToString();
-                ddlFunctionalArea.SelectedValue = dsViewClient.Tables[0].Rows[0]["FunctionalAreaId"].ToString();
-                txtAddress.Text = dsViewClient.Tables[0].Rows[0]["Address"].ToString();
-                ddlCountry.SelectedValue = dsViewClient.Tables[0].Rows[0]["CountryName"].ToString();
-                ddlState.SelectedValue = dsViewClient.Tables[0].Rows[0]["StateName"].ToString();
-                ddlCity.SelectedValue = dsViewClient.Tables[0].Rows[0]["CityName"].ToString();
-                ddlArea.SelectedValue = dsViewClient.Tables[0].Rows[0]["AreaName"].ToString();
-                txtPincode.Text = dsViewClient.Tables[0].Rows[0]["Pincode"].ToString();
-                txtOfficialEMailId.Text = dsViewClient.Tables[0].Rows[0]["OfficialEmailId"].ToString();
-                txtWebsite.Text = dsViewClient.Tables[0].Rows[0]["Website"].ToString();
-                txtOfficialContact.Text = dsViewClient.Tables[0].Rows[0]["OfficialContact"].ToString();
-                rbtlistStatus.SelectedValue = dsViewClient.Tables[0].Rows[0]["Status"].ToString();
-                //txtAgreementDate.Text = dsViewClient.Tables[0].Rows[0]["AgreementDate"].ToString();
-
-                string AgreementDate = Convert.ToString(dsViewClient.Tables[0].Rows[0]["AgreementDate"]); ;
-                string[] AgreementDateSplit = AgreementDate.Split(new char[] { '-' });
-                int Count = 0;
-                foreach (string Word in AgreementDateSplit)
+                 // Check dataset is not null
+                if (dsViewClient != null)
                 {
-                    Count += 1;
-                    if (Count == 1)
-                    { txtAgreementDate.Text = Word; }
-                    if (Count == 2)
-                    { txtAgreementDate.Text = Word; }
-                    if (Count == 3)
-                    { txtAgreementDate.Text = Word; }
+                    // Check the count than zero
+                    if (dsViewClient.Tables.Count > 0)
+                    {
+                        // Check rows greater than zero
+                        if (dsViewClient.Tables[0].Rows.Count > 0)
+                        {
+                            lblClientId.Text = dsViewClient.Tables[0].Rows[0]["ClientId"].ToString();
+                            lblHrId.Text = dsViewClient.Tables[0].Rows[0]["HrId"].ToString();
+                            txtClientName.Text = dsViewClient.Tables[0].Rows[0]["ClientName"].ToString();
+                            txtClientProfile.Text = dsViewClient.Tables[0].Rows[0]["ClientProfile"].ToString();
+                            ddlIndustry.SelectedValue = dsViewClient.Tables[0].Rows[0]["IndustryId"].ToString();
+                            ddlFunctionalArea.SelectedValue = dsViewClient.Tables[0].Rows[0]["FunctionalAreaId"].ToString();
+                            txtAddress.Text = dsViewClient.Tables[0].Rows[0]["Address"].ToString();
+                            ddlCountry.SelectedValue = dsViewClient.Tables[0].Rows[0]["CountryName"].ToString();
+                            ddlState.SelectedValue = dsViewClient.Tables[0].Rows[0]["StateName"].ToString();
+                            ddlCity.SelectedValue = dsViewClient.Tables[0].Rows[0]["CityName"].ToString();
+                            ddlArea.SelectedValue = dsViewClient.Tables[0].Rows[0]["AreaName"].ToString();
+                            txtPincode.Text = dsViewClient.Tables[0].Rows[0]["Pincode"].ToString();
+                            txtOfficialEMailId.Text = dsViewClient.Tables[0].Rows[0]["OfficialEmailId"].ToString();
+                            txtWebsite.Text = dsViewClient.Tables[0].Rows[0]["Website"].ToString();
+                            txtOfficialContact.Text = dsViewClient.Tables[0].Rows[0]["OfficialContact"].ToString();
+                            rbtlistStatus.SelectedValue = dsViewClient.Tables[0].Rows[0]["Status"].ToString();
+                            //txtAgreementDate.Text = dsViewClient.Tables[0].Rows[0]["AgreementDate"].ToString();
+
+                            string AgreementDate = Convert.ToString(dsViewClient.Tables[0].Rows[0]["AgreementDate"]); ;
+                            string[] AgreementDateSplit = AgreementDate.Split(new char[] { '-' });
+                            int Count = 0;
+                            foreach (string Word in AgreementDateSplit)
+                            {
+                                Count += 1;
+                                if (Count == 1)
+                                { txtAgreementDate.Text = Word; }
+                                if (Count == 2)
+                                { txtAgreementDate.Text = Word; }
+                                if (Count == 3)
+                                { txtAgreementDate.Text = Word; }
+                            }
+
+                            //txtDueDate.Text = dsViewClient.Tables[0].Rows[0]["DueDate"].ToString();
+
+                            string DueDate = Convert.ToString(dsViewClient.Tables[0].Rows[0]["DueDate"]); ;
+                            string[] DueDateSplit = DueDate.Split(new char[] { '-' });
+                            Count = 0;
+                            foreach (string Word in DueDateSplit)
+                            {
+                                Count += 1;
+                                if (Count == 1)
+                                { txtDueDate.Text = Word; }
+                                if (Count == 2)
+                                { txtDueDate.Text = Word; }
+                                if (Count == 3)
+                                { txtDueDate.Text = Word; }
+                            }
+
+                            chklistPaymentDetails.SelectedValue = dsViewClient.Tables[0].Rows[0]["PaymentDetails"].ToString();
+                            txtPaymentTerms.Text = dsViewClient.Tables[0].Rows[0]["PaymentTerms"].ToString();
+                            txtPercentageAmount.Text = dsViewClient.Tables[0].Rows[0]["PercentageAmount"].ToString();
+                        }
+                    }
                 }
-
-                //txtDueDate.Text = dsViewClient.Tables[0].Rows[0]["DueDate"].ToString();
-
-                string DueDate = Convert.ToString(dsViewClient.Tables[0].Rows[0]["DueDate"]); ;
-                string[] DueDateSplit = DueDate.Split(new char[] { '-' });
-                Count = 0;
-                foreach (string Word in DueDateSplit)
-                {
-                    Count += 1;
-                    if (Count == 1)
-                    { txtDueDate.Text = Word; }
-                    if (Count == 2)
-                    { txtDueDate.Text = Word; }
-                    if (Count == 3)
-                    { txtDueDate.Text = Word; }
-                }
-
-                chklistPaymentDetails.SelectedValue = dsViewClient.Tables[0].Rows[0]["PaymentDetails"].ToString();
-                txtPaymentTerms.Text = dsViewClient.Tables[0].Rows[0]["PaymentTerms"].ToString();
-                txtPercentageAmount.Text = dsViewClient.Tables[0].Rows[0]["PercentageAmount"].ToString();
             }
             catch (Exception)
             {
-                throw;
+                //throw;
             }
             divMain.Visible = true;
             divView.Visible = false;

@@ -128,10 +128,8 @@ namespace DAL
             }
         }
         /// <summary>
-        /// Method of class ViewClientDetailsDAL for Viewing ClientDetails in database
+        /// Method of class ClientDetailsDAL for Viewing ClientDetails in database
         /// </summary>
-        /// <param name="clientdetailsEntity">Object of ClientDetailsEntity</param>
-        /// <returns>System.Int32</returns>
         public DataSet ViewClientDetailsDAL(long clientId, long HrId)
         {
             DataSet ds = new DataSet();

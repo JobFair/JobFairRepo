@@ -17,35 +17,27 @@
     </h2>
         <table style="margin-left: 10px">
             <tr>
-                <td><asp:Label ID="lblCompany" runat="server" Text=" Company " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblCompanyName" runat="server" Text=" Company Name" CssClass="label"></asp:Label></td>
                 <td>
-                    <asp:TextBox ID="txtCompany" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtCompanyName" runat="server"></asp:TextBox>
                 </td>
             </tr>
              <tr>
-                <td><asp:Label ID="lblFullName" runat="server" Text=" Employer’s HR Full Name " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblEmployerHRFullName" runat="server" Text=" Employer’s HR Full Name " CssClass="label"></asp:Label></td>
                 <td>
-                    <asp:TextBox ID="txtFullName" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox ID="txtEmployerHRFullName" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td><asp:Label ID="lblContactNo" runat="server" Text=" Company contact number " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblCompanyContactNo" runat="server" Text=" Company contact number " CssClass="label"></asp:Label></td>
                 <td>
-                    <asp:TextBox ID="txtContactNo" runat="server" TextMode="Phone"></asp:TextBox>
+                    <asp:TextBox ID="txtCompanyContactNo" runat="server" TextMode="Number"></asp:TextBox>
                 </td>
             </tr>
-            <%--<%--<tr>
-                <td><asp:Label ID="lblFunctionalArea" runat="server" Text=" Functional Area " CssClass="label"></asp:Label></td>
+            <tr>
+                <td><asp:Label ID="lblMobileNumber" runat="server" Text=" Mobile Number " CssClass="label"></asp:Label></td>
                 <td>
-                 <asp:UpdatePanel ID="uppnlAddfunctionalarea" runat="server">
-                    <ContentTemplate>
-                        <asp:DropDownList ID="ddlFunctionalArea" runat="server" AutoPostBack="True" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlFunctionalArea_SelectedIndexChanged" >
-                        </asp:DropDownList>
-                        <asp:TextBox ID="txtAddfunctionalarea" runat="server" Visible="false" ></asp:TextBox>
-                        <asp:Button ID="btnAdd" runat="server" Text="Add" Visible="false" OnClick="btnAdd_Click" />
-                        <asp:Label ID="lblmsg2" runat="server"></asp:Label>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                    <asp:TextBox ID="txtMobileNumber" runat="server" TextMode="Number"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -63,7 +55,7 @@
             <tr>
                 <td><asp:Label ID="lblState" runat="server" Text=" State " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" ></asp:DropDownList>
+                   <asp:dropdownlist id="ddlState" runat="server" autopostback="true" onselectedindexchanged="ddlState_SelectedIndexChanged" ></asp:dropdownlist>
                 </td>
             </tr>            
             <tr>
@@ -81,28 +73,28 @@
             <tr>
                 <td><asp:Label ID="lblPincode" runat="server" Text=" Pincode " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtPincode" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtPincode" runat="server" TextMode="Number"></asp:TextBox>
                 </td>
             </tr>
              <tr>
                 <td><asp:Label ID="lblOfficialEMailId" runat="server" Text=" Official E-Mail " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtOfficialEMailId" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtOfficialEMailId" runat="server" TextMode="Email"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td><asp:Label ID="lblWebsite" runat="server" Text=" Website " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblPassword" runat="server" Text=" Create a Password for Login " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtWebsite" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>            
             <tr>
-                <td><asp:Label ID="lblOfficialContact" runat="server" Text=" Official Contact " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblConfirmPassword" runat="server" Text=" Confirm the Password for Login " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtOfficialContact" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
-            <tr>
+             <tr>
                 <td><asp:Label ID="lblStatus" runat="server" Text=" Status " CssClass="label"></asp:Label></td>
                 <td>
                     <asp:RadioButtonList ID="rbtlistStatus" runat="server" RepeatDirection="Horizontal">
@@ -112,52 +104,127 @@
                 </td>
             </tr>
             <tr>
-                <td><asp:Label ID="lblAgreementDate" runat="server" Text=" Agreement Date " CssClass="label"></asp:Label></td>
+                <td><asp:Label ID="lblPhoto" runat="server" Text=" Photo " CssClass="label"></asp:Label></td>
                 <td>
-                   <asp:TextBox ID="txtAgreementDate" runat="server" TextMode="Date"></asp:TextBox>
-                   <%--<ajax:CalendarExtender ID="caltxtAgreementDate" runat="server" PopupButtonID="txtAgreementDate" TargetControlID="txtAgreementDate" Format="dd/MM/yyyy" />--%>
-               <%-- </td>
-            </tr>
-            <tr>
-                <td><asp:Label ID="lblDueDate" runat="server" Text=" Due Date " CssClass="label"></asp:Label></td>
-                <td>
-                   <asp:TextBox ID="txtDueDate" runat="server" TextMode="Date"></asp:TextBox>
-                   <%--<ajax:CalendarExtender ID="caltxtDueDate" runat="server" PopupButtonID="txtDueDate" TargetControlID="txtDueDate" Format="dd/MM/yyyy" />--%>
-               <%-- </td>
-            </tr>
-            <tr>
-                <td><asp:Label ID="lblPaymentDetails" runat="server" Text=" Payment Details " CssClass="label"></asp:Label></td>
-                <td>
-                    <asp:CheckBoxList ID="chklistPaymentDetails" runat="server">
-                    <asp:ListItem>Self</asp:ListItem>
-                    <asp:ListItem>Candidate</asp:ListItem>
-                    <asp:ListItem>Both</asp:ListItem>
-                    </asp:CheckBoxList>
-                <asp:Label ID="lblPayment" runat="server" Visible="false"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td><asp:Label ID="lblPaymentTerms" runat="server" Text=" Payment Terms " CssClass="label"></asp:Label></td>
-                <td>
-                   <asp:TextBox ID="txtPaymentTerms" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td><asp:Label ID="lblPercentageAmount" runat="server" Text=" Percentage Amount " CssClass="label"></asp:Label></td>
-                <td>
-                   <asp:TextBox ID="txtPercentageAmount" runat="server"></asp:TextBox>
+                    <asp:FileUpload ID="FileUploadPhoto" runat="server" />
+                    <asp:Image ID="imgPersonalPhoto" runat="server" Height="100px" Width="100px" ImageAlign="Top" Visible="false" />
+                    <asp:LinkButton ID="lnkbtnEdit" runat="server" OnClick="lnkbtnEdit_Click" Visible="false">Edit Photo</asp:LinkButton>
+                    <asp:LinkButton ID="lnkbtnCancel" runat="server" Visible="false" OnClick="lnkbtnCancel_Click">Cancel</asp:LinkButton>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button" OnClick="btnSubmit_Click"/>
                     <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnUpdate_Click" Visible="false"/>
-                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="button" OnClick="btnSubmit_Click" OnClientClick="this.form.reset();return false;"/>
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="button" OnClick="btnCancel_Click" OnClientClick="this.form.reset();return false;"/>
                 </td>  
                 <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
-            </tr>--%>
+            </tr>
         </table>
     </div>
+
+
+    <div id="divView" runat="server" style="min-height: 500px; padding: 10px" visible="false">
+    <h2 style="align-content:center">
+        Employer Details
+    </h2>
+        <table style="margin-left: 10px; width: 350px;">
+           <%-- <asp:HiddenField ID="hfClientId" runat="server" db="<%#Eval("ClientId")%>" />
+            <asp:HiddenField ID="hfHrId" runat="server" db="<%#Eval("HrId")%>" />--%>
+             <asp:Label ID="lblEmployerId" runat="server" Text='<%#Eval("EmployerId")%>' Visible="false" />
+            <asp:Label ID="lblHrId" runat="server" Text='<%#Eval("HrId")%>' Visible="false" />
+            <tr>
+                <td>Company Name</td>
+                <td>
+                    <asp:Label ID="lblViewCompanyName" runat="server" Text='<%#Eval("CompanyName")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+             <tr>
+                <td colspan="1">Employer's HR Full Name</td>
+                <td>
+                    <asp:Label ID="lblViewEmployerHRFullName" runat="server" Text='<%#Eval("EmployerHRFullName")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Company Contact No</td>
+                <td>
+                    <asp:Label ID="lblViewCompanyContactNo" runat="server" Text='<%#Eval("CompanyContactNumber")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td>
+                    <asp:Label ID="lblViewMobileNumber" runat="server" Text='<%#Eval("MobileNumber")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <asp:Label ID="lblViewAddress" runat="server" Text='<%#Eval("Address")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>           
+            <tr>
+                <td>Country</td>
+                <td>
+                    <asp:Label ID="lblViewCountry" runat="server" Text='<%#Eval("CountryName")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>
+                    <asp:Label ID="lblViewState" runat="server" Text='<%#Eval("StateName")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>            
+            <tr>
+                <td>City</td>
+                <td>
+                    <asp:Label ID="lblViewCity" runat="server" Text='<%#Eval("CityName")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Area</td>
+                <td>
+                    <asp:Label ID="lblViewArea" runat="server" Text='<%#Eval("AreaName")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr> 
+            <tr>
+                <td>Pincode</td>
+                <td>
+                    <asp:Label ID="lblViewPincode" runat="server" Text='<%#Eval("Pincode")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+             <tr>
+                <td>Official E-Mail</td>
+                <td>
+                    <asp:Label ID="lblViewOfficialEMail" runat="server" Text='<%#Eval("OfficialEmailId")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>
+                    <asp:Label ID="lblViewStatus" runat="server" Text='<%#Eval("Status")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Photo</td>
+                <td>
+                    <asp:Label ID="lblViewPhoto" runat="server" Text='<%#Eval("Photo")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Created Date</td>
+                <td>
+                    <asp:Label ID="lblViewCreatedDate" runat="server" Text='<%#Eval("CreatedDate")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Modified Date</td>
+                <td>
+                    <asp:Label ID="lblViewModifiedDate" runat="server" Text='<%#Eval("ModifiedDate")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+       </table>
+  </div>
     </form>
 </body>
 </html>

@@ -19,7 +19,7 @@ namespace DAL
             {
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.Text, "select * from State");
             }
-            catch (Exception)
+            catch (Exception) 
             {
                 // throw ;
             }

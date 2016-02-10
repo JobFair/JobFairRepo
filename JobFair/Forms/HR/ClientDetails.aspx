@@ -154,7 +154,7 @@
                 <td colspan="2">
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button" OnClick="btnSubmit_Click"/>
                     <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnUpdate_Click" Visible="false"/>
-                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="button" OnClick="btnSubmit_Click" OnClientClick="this.form.reset();return false;"/>
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="button" OnClick="btnCancel_Click" OnClientClick="this.form.reset();return false;"/>
                 </td>  
                 <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
             </tr>

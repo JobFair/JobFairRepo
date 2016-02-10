@@ -37,6 +37,10 @@
         public static string sp_HR_ViewClientRequirements = "sp_HR_ViewClientRequirements";
         public static string sp_HR_UpdateClientRequirements = "sp_HR_UpdateClientRequirements";
         public static string sp_HR_SelectRecruiter = "sp_HR_SelectRecruiter";
+        public const string sp_HR_ManageEmployerDetails = "sp_HR_ManageEmployerDetails";
+        public static string sp_HR_InsertEmployerDetails = "sp_HR_InsertEmployerDetails";
+        public static string sp_HR_ViewEmployerDetails = "sp_HR_ViewEmployerDetails";
+        public static string sp_HR_UpdateEmployerDetails = "sp_HR_UpdateEmployerDetails";
         public const string sp_Country = "sp_Country";
         public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
         public const string sp_State = "sp_State";

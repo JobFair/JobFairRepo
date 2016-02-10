@@ -7,72 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobFair.Forms.Recruiter {
+namespace JobFair.Forms.HR {
     
     
-    public partial class ForwordEmail {
+    public partial class ManageEmployer {
         
         /// <summary>
-        /// form1 control.
+        /// frmManageEmployer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmManageEmployer;
         
         /// <summary>
-        /// txtTo control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTo;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// txtSubject control.
+        /// divMain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSubject;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMain;
         
         /// <summary>
-        /// txtBody control.
+        /// lnkBtnNewClientDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBody;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnNewClientDetails;
         
         /// <summary>
-        /// fuAttachment control.
+        /// repEmployerDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuAttachment;
-        
-        /// <summary>
-        /// txtEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
-        /// <summary>
-        /// txtPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Repeater repEmployerDetails;
     }
 }

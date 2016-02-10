@@ -105,6 +105,9 @@ namespace JobFair.Forms.JobSeeker
             {
                 //  throw;
             }
+
+
+
         }
 
         /// <summary>
@@ -132,4 +135,4 @@ namespace JobFair.Forms.JobSeeker
 
         
     }
-}
+} 
