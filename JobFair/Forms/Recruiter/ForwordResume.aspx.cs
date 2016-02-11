@@ -77,10 +77,12 @@ namespace JobFair.Forms.Recruiter
             try
             {
                 DataSet dsemailid = new DataSet();
-                Int32 clientid =Convert.ToInt32(ddlclientlist.SelectedValue);
-                ForwordResumeBAL forwardResumeBAL = new ForwordResumeBAL();
+               Int32 clientid =Convert.ToInt32(ddlclientlist.SelectedValue);
+               ForwordResumeBAL forwardResumeBAL = new ForwordResumeBAL();
                dsemailid= forwardResumeBAL.GetEmailId(clientid);
-              txtTo.Text =Convert.ToString( dsemailid.Tables[0].Rows[0]["OfficialEmailId"]);
+               txtTo.Text = Convert.ToString(dsemailid.Tables[0].Rows[0]["EmailId"]);
+             
+               
             }
             catch (Exception)
             {

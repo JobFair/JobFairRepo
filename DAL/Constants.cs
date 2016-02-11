@@ -11,7 +11,7 @@
         public const string sp_FunctionalArea = "sp_FunctionalArea";
         public const string sp_JS_InsertPersonalDetails = "sp_JS_InsertPersonalDetails";
         public const string sp_ForgetPassword = "sp_ForgetPassword";
-        public const string sp_JS_insertfeedback = "sp_JS_insertfeedback";
+        public const string sp_JS_Insertfeedback = "sp_JS_Insertfeedback";
         public const string sp_JS_InsertDesiredJobDetails = "sp_JS_InsertDesiredJobDetails";
         public const string sp_JS_InsertProjectDetails = "sp_JS_InsertProjectDetails";
         public const string SP_Insert_MultipleRows = "SP_Insert_MultipleRows";
@@ -152,5 +152,6 @@
         public static string sp_RE_SelectRoleskills = "sp_RE_SelectRoleskills";
         public static string sp_RE_InsertQuestionnarie="sp_RE_InsertQuestionnarie";
         public static string sp_RE_ViewQuestionnarie = "sp_RE_ViewQuestionnarie";
+        public static string sp_RE_SelectResumeForward = "sp_RE_SelectResumeForward";
     }
 }

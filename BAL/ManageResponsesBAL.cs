@@ -12,12 +12,19 @@ namespace BAL
     public class ManageResponsesBAL
     {
 
-
+        /// <summary>
+        ///   Create Method for active jobs
+        /// </summary>
+        /// <returns></returns>
         public DataSet GetActiveJobs()
         {
             ManageResponsesDAL manageresponsesDAL = new ManageResponsesDAL();
             return manageresponsesDAL.GetActiveJobs();
         }
+        /// <summary>
+        /// Create Method for inactive jobs
+        /// </summary>
+        /// <returns></returns>
 
         public DataSet GetInActiveJobs()
         {

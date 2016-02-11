@@ -22,23 +22,48 @@ namespace JobFair.Forms.Recruiter
 
 
         }
+        /// <summary>
+        /// Bind active jobs to repeater
+        /// </summary>
 
         private void BindInActiveJobs()
         {
-            DataSet dsInActiveJobs = new DataSet();
-            ManageResponsesBAL manageresponsesBAL = new ManageResponsesBAL();
-            dsInActiveJobs = manageresponsesBAL.GetInActiveJobs();
-            rptrinactivejobs.DataSource = dsInActiveJobs;
-            rptrinactivejobs.DataBind();
+            try
+            {
+                DataSet dsInActiveJobs = new DataSet();
+                ManageResponsesBAL manageresponsesBAL = new ManageResponsesBAL();
+                dsInActiveJobs = manageresponsesBAL.GetInActiveJobs();
+                rptrinactivejobs.DataSource = dsInActiveJobs;
+                rptrinactivejobs.DataBind();
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
+        /// <summary>
+        /// Bind inactive jobs to repeater
+        /// </summary>
 
         private void BindActiveJobs()
         {
-            DataSet dsactivejobs = new DataSet();
-            ManageResponsesBAL manageresponsesBAL = new ManageResponsesBAL();
-            dsactivejobs = manageresponsesBAL.GetActiveJobs();
-            rptractivejobs.DataSource = dsactivejobs;
-            rptractivejobs.DataBind();
+            try
+            {
+                DataSet dsactivejobs = new DataSet();
+                ManageResponsesBAL manageresponsesBAL = new ManageResponsesBAL();
+                dsactivejobs = manageresponsesBAL.GetActiveJobs();
+                rptractivejobs.DataSource = dsactivejobs;
+                rptractivejobs.DataBind();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
     }
 

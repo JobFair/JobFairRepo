@@ -11,7 +11,7 @@ namespace JobFair.Forms.Recruiter
 {
     public partial class RejectApplication : System.Web.UI.Page
     {
-        public string candidateId="1";
+        public int candidateId='1';
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -20,15 +20,26 @@ namespace JobFair.Forms.Recruiter
                 BindRejectApplication(candidateId);
             }
         }
-
-        private void BindRejectApplication(string candidateId)
+        /// <summary>
+        ///  Bind Reject  candidate to repeater
+        /// </summary>
+        /// <param name="candidateId"></param>
+        private void BindRejectApplication(int candidateId)
         {
-
-            DataSet dsrejectapplication = new DataSet();
-            RejectApplicationBAL rejectapplicationBAL = new RejectApplicationBAL();
-            dsrejectapplication = rejectapplicationBAL.GetRejectApplication(candidateId);
-            rptrRejectApplication.DataSource = dsrejectapplication;
-            rptrRejectApplication.DataBind();
+            try
+            {
+                DataSet dsrejectapplication = new DataSet();
+                RejectApplicationBAL rejectapplicationBAL = new RejectApplicationBAL();
+                dsrejectapplication = rejectapplicationBAL.GetRejectApplication(candidateId);
+                rptrRejectApplication.DataSource = dsrejectapplication;
+                rptrRejectApplication.DataBind();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+          
         }
     }
 }

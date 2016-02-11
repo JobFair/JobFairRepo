@@ -9,7 +9,12 @@ namespace BAL
 {
     public class AcceptApplicationsBAL
     {
-        public System.Data.DataSet GetAcceptCandidate(string candidateId)
+        /// <summary>
+        ///  Create method for get  accept candidate
+        /// </summary>
+        /// <param name="candidateId"></param>
+        /// <returns></returns>
+        public System.Data.DataSet GetAcceptCandidate(int candidateId)
         {
             AcceptApplicationsDAL acceptapplicationDAL = new AcceptApplicationsDAL();
             return acceptapplicationDAL.GetAcceptCandidate(candidateId);
