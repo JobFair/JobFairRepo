@@ -16,13 +16,13 @@ namespace BAL
             return viewAllJobPostDAL.ViewCandidateProfileForEmail(candidateId);
         }
 
-        public DataSet GetData(string id)
+        public DataSet GetData(Int32 id)
         {
             ViewAllJobPostDAL viewAllJobPostDAL = new ViewAllJobPostDAL();
             return viewAllJobPostDAL.GetData(id);
         }
 
-        public int CheckMailSend(string id, string candidateId)
+        public int CheckMailSend(Int32 id, string candidateId)
         {
             ViewAllJobPostDAL viewAllJobPostDAL = new ViewAllJobPostDAL();
             return viewAllJobPostDAL.CheckMailSend(id, candidateId);
