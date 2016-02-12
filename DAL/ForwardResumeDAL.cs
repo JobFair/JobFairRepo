@@ -37,7 +37,8 @@ namespace DAL
             DataSet dsemailid = new DataSet();
             try
             {
-                dsemailid = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select  OfficialEmailId from HR_ClientDetails  where ClientId=clientid");
+                SqlParameter[] sparams = { new SqlParameter("@clientId", clientid) };
+                dsemailid = SqlHelper.ExecuteDataset(Connection, CommandType.StoredProcedure, Constants.sp_RE_SelectResumeForward, sparams);
             }
             catch (Exception)
             {

@@ -14,8 +14,12 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
-
-        public System.Data.DataSet GetRejectAplication(string candidateId)
+        /// <summary>
+        ///   Create  DAL for rejet Application
+        /// </summary>
+        /// <param name="candidateId"></param>
+        /// <returns></returns>
+        public System.Data.DataSet GetRejectAplication(int candidateId)
         {
             DataSet dsrejectapplication = new DataSet();
             try
