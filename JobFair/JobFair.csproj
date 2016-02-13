@@ -107,6 +107,7 @@
     <Content Include="Forms\JobSeeker\Refference.aspx" />
     <Content Include="Email Templates\RegistrationConfirmation.html" />
     <Content Include="Forms\JobSeeker\RequestEmail.aspx" />
+    <Content Include="Forms\JobSeeker\Search.aspx" />
     <Content Include="Forms\JobSeeker\ViewAllJobPost.aspx" />
     <Content Include="Forms\JobSeeker\ViewJobPost.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
@@ -385,6 +386,13 @@
     </Compile>
     <Compile Include="Forms\JobSeeker\RequestEmail.aspx.designer.cs">
       <DependentUpon>RequestEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobSeeker\UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>

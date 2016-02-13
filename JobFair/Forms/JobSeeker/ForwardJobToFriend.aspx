@@ -24,15 +24,15 @@
                     </td>
                 </tr>
                 <tr>
-                    <td >Friend&#39;s Email</td>
+                    <td >Your Name</td>
                     <td>
-                        <asp:TextBox ID="txtFriendEmail" runat="server" placeholder="Enter Friend's Email"></asp:TextBox>
+                        <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td >Subject</td>
+                    <td >Friend&#39;s Email</td>
                     <td>
-                        <asp:Label ID="lblSubject" runat="server" Text="Your Friend has forwarded you the Job: at LOGOS CORPORATE SOLUTIONS"></asp:Label>
+                        <asp:TextBox ID="txtFriendEmail" runat="server" placeholder="Enter Friend's Email"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
