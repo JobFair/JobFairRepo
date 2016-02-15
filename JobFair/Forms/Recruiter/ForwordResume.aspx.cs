@@ -49,7 +49,8 @@ namespace JobFair.Forms.Recruiter
                subject = txtSubject.Text;
                content = txtBody.Text;
                 MailMessage msg = new MailMessage();
-                msg.From = new MailAddress(from);
+                msg.From = new MailAddress("harshal.logossolutions@gmail.com");
+
                 msg.To.Add(txtTo.Text);
                 if (fuAttachment.HasFile)
                 {
@@ -80,7 +81,7 @@ namespace JobFair.Forms.Recruiter
                Int32 clientid =Convert.ToInt32(ddlclientlist.SelectedValue);
                ForwordResumeBAL forwardResumeBAL = new ForwordResumeBAL();
                dsemailid= forwardResumeBAL.GetEmailId(clientid);
-               txtTo.Text = Convert.ToString(dsemailid.Tables[0].Rows[0]["EmailId"]);
+               txtTo.Text = Convert.ToString(dsemailid.Tables[0].Rows[0]["ClientName"]);
              
                
             }

@@ -21,7 +21,7 @@
         </td>
         <td>
             <asp:DropDownList ID="ddlclientlist" runat="server" OnSelectedIndexChanged="ddlclientlist_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-            <asp:TextBox runat="server" ID="txtTo"></asp:TextBox>
+            <asp:TextBox runat="server" ID="txtTo" ReadOnly="true"></asp:TextBox>
         </td>
     </tr>
     <tr>
