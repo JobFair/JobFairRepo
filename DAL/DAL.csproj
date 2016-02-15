@@ -83,6 +83,7 @@
     <Compile Include="RegisterRecruiterHRDAL.cs" />
     <Compile Include="RejectApplicationDAL.cs" />
     <Compile Include="RequestEmailJSDAL.cs" />
+    <Compile Include="SearchJSDAL.cs" />
     <Compile Include="SearchRecord.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />

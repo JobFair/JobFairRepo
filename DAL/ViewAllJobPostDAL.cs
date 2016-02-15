@@ -24,7 +24,7 @@ namespace DAL
             return ds;
         }
 
-        public DataSet GetData(string id)
+        public DataSet GetData(Int32 id)
         {
             DataSet dsviewpost = new DataSet();
             try
@@ -34,15 +34,13 @@ namespace DAL
             }
             catch (Exception)
             {
-                
                 throw;
             }
             return dsviewpost;
         }
 
-        public int CheckMailSend(string id, string candidateId)
+        public int CheckMailSend(Int32 id, string candidateId)
         {
-           
             try
             {
                 SqlParameter[] sqlparams ={
@@ -50,13 +48,12 @@ namespace DAL
                                                   new SqlParameter("@CandidateId", candidateId),
                                                   new  SqlParameter ("@IsMailSend",1),
                                                   new SqlParameter("@Status","New"),
-                                                  new SqlParameter("@Date", DateTime.Now)                                 
+                                                  new SqlParameter("@Date", DateTime.Now)
                                              };
                 return SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertJobHistory, sqlparams);
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
