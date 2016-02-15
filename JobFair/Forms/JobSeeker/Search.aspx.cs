@@ -54,5 +54,10 @@ namespace JobFair.Forms.JobSeeker
                 throw;
             }
         }
+
+        protected void btnSearchJob_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

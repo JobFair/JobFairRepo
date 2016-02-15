@@ -64,7 +64,7 @@
                         </asp:DropDownList>
                     </td>
                     <td>
-                        <asp:Button ID="btnSearchJob" runat="server" Text="Search Job" />
+                        <asp:Button ID="btnSearchJob" runat="server" Text="Search Job" OnClick="btnSearchJob_Click" />
                     </td>
                 </tr>
             </table>
