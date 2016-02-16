@@ -165,8 +165,8 @@ namespace JobFair.Forms.Recruiter
             {
                 PostNewJobBAL newJobPostBAL = new PostNewJobBAL();
                 ddlquestionnaire.DataSource = newJobPostBAL.GetQuestionsBAL();
-                ddlquestionnaire.DataTextField = "Question";
-                ddlquestionnaire.DataValueField = "QuestionId";
+                ddlquestionnaire.DataTextField = "QuestionnaireName";
+                ddlquestionnaire.DataValueField = "QuestionnaireId";
                 ddlquestionnaire.DataBind();
                 ddlquestionnaire.Items.Insert(0, new ListItem("--Select--", "0"));
             }
@@ -200,7 +200,8 @@ namespace JobFair.Forms.Recruiter
                 addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
                 addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
                 addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
-                addJobPostEntity.WorkExperience = ddlworkexprience.SelectedItem.Text.Trim();
+                addJobPostEntity.WorkExperienceMin = ddlWorkExperienceMin.SelectedItem.Text.Trim();
+                addJobPostEntity.WorkExperienceMax = ddlWorkExperienceMax.SelectedItem.Text.Trim();
                 addJobPostEntity.Gender = ddlgender.SelectedItem.Text.Trim();
                 addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
                 addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);

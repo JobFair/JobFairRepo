@@ -400,22 +400,31 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.Button btnAddTechnicalSkill;
         
         /// <summary>
-        /// lblworkexprience control.
+        /// lblworkxperience control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblworkexprience;
+        protected global::System.Web.UI.WebControls.Label lblworkxperience;
         
         /// <summary>
-        /// ddlworkexprience control.
+        /// ddlWorkExperienceMin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlworkexprience;
+        protected global::System.Web.UI.WebControls.DropDownList ddlWorkExperienceMin;
+        
+        /// <summary>
+        /// ddlWorkExperienceMax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlWorkExperienceMax;
         
         /// <summary>
         /// lblgender control.

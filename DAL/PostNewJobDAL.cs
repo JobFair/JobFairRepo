@@ -56,7 +56,8 @@ namespace DAL
                                             new SqlParameter("@JobDescription",jobpostEntity.JobDescription),
                                             new SqlParameter("@KeywordsRoles",jobpostEntity.KeywordsRoles),
                                             new SqlParameter("@KeywordsTechnical",jobpostEntity.KeywordsTechnical),
-                                            new SqlParameter("@Workexperience",jobpostEntity.WorkExperience),
+                                            new SqlParameter("@WorkExperienceMin",jobpostEntity.WorkExperienceMin),
+                                            new SqlParameter("@WorkExperienceMax",jobpostEntity.WorkExperienceMax),
                                             new SqlParameter("@Gender",jobpostEntity.Gender),
                                             new SqlParameter("@OfferedAnnualSalaryMin",jobpostEntity.OfferedAnnualSalaryMin),
                                             new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),
@@ -94,7 +95,7 @@ namespace DAL
         public DataSet GetQuestionsDAL()
         {
             DataSet ds = new DataSet();
-            ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select * from RE_Questionrie");
+            ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select * from RE_Questionnaire");
             return ds;
         }
 
