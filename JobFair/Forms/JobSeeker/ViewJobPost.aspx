@@ -26,7 +26,8 @@
                                 <tr>
                                     <td>
                                         <div class="divjobtitle">
-                                            <asp:HyperLink ID="HyperLink1" runat="server" Text='<%#Eval("JobTitle")%>' NavigateUrl="ViewAllJobPost.aspx"></asp:HyperLink></div>
+                                            <asp:HyperLink ID="HyperLink1" runat="server" Text='<%#Eval("JobTitle")%>' NavigateUrl="ViewAllJobPost.aspx"></asp:HyperLink>
+                                        </div>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <asp:Label ID="lblid" runat="server" Text='<%#Eval("JobId")%>' Visible="false"></asp:Label>
                                         <asp:Label ID="lblareaname" runat="server" Text='<%#Eval("AreaName")%>'></asp:Label>,
@@ -52,7 +53,8 @@
                                     <table>
                                         <tr>
                                             <td>Work Experience&nbsp;&nbsp;
-                                        <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                                        <asp:Label ID="lblworkexprienceMin" runat="server" Text='<%#Eval("WorkExperienceMin")%>'></asp:Label>-
+                                                 <asp:Label ID="lblWorkExperienceMax" runat="server" Text='<%#Eval("WorkExperienceMax")%>'></asp:Label>&nbsp;Years
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </td>
                                         </tr>

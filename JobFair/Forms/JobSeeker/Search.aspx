@@ -136,7 +136,8 @@
                                     <table>
                                         <tr>
                                             <td>Work Experience&nbsp;&nbsp;
-                                        <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                                        <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperienceMin")%>'></asp:Label>-
+                                                <asp:Label ID="Label1" runat="server" Text='<%#Eval("WorkExperienceMax")%>'></asp:Label>&nbsp;Years
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </td>
                                         </tr>
@@ -184,7 +185,7 @@
                                         <asp:Label ID="lblMaxSalary" runat="server" Text='<%#Eval("OfferedAnnualSalaryMax")%>'></asp:Label>]
                                         </td>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                       <td>Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
+                                       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Posted Date:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("PostedDate","{0:dd MMM yyyy}")%>' /></td>
                                     </tr>
                                 </table>
                             </td>

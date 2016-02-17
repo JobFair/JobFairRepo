@@ -75,7 +75,8 @@ namespace JobFair.Forms.JobSeeker
                     lblTitle.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["JobTitle"]);
                     jobtitle = lblTitle.Text;
                     lblCompanyName.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["CompanyName"]);
-                    lblExperience.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["WorkExperience"]);
+                    lblExperienceMin.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["WorkExperienceMin"]);
+                    lblExperienceMax.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["WorkExperienceMax"]);
                     lblCity.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["CityName"]);
                     lblCompanyLevel.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["CompanyLevel"]);
                     lblVacancies.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["NumberOfVacancies"]);
