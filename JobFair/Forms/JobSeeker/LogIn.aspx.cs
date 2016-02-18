@@ -19,6 +19,7 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                
                 LoginBAL liBAL = new LoginBAL();
                 LoginEnitity logjsEntity = new LoginEnitity();
 
@@ -56,7 +57,7 @@ namespace JobFair.Forms.JobSeeker
                 }
                 Session["Isreffered"] = isreffered;
                 //Session["UserType"] = 1;
-                Response.Redirect("AdvanceSearch.aspx");
+                Response.Redirect("ViewAllJobPost.aspx");
                 //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)
