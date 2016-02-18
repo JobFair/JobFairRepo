@@ -1,5 +1,6 @@
 ﻿using DAL;
 using System.Data;
+using Entities.JobSeeker;
 
 namespace BAL
 {
@@ -15,6 +16,12 @@ namespace BAL
         {
             SearchJSDAL searchDal = new SearchJSDAL();
             return searchDal.GetCity(prefixText);
+        }
+
+        public DataSet JobSearchBAL(AdvanceSearchDetailsEntity searchEntity)
+        {
+            SearchJSDAL searchDal = new SearchJSDAL();
+            return searchDal.JobSearchDAL(searchEntity);
         }
     }
 }

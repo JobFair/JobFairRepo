@@ -154,5 +154,6 @@
         public static string sp_RE_ViewQuestionnarie = "sp_RE_ViewQuestionnarie";
         public static string sp_RE_SelectResumeForward = "sp_RE_SelectResumeForward";
         public static string sp_SelectCity = "sp_SelectCity";
+        public static string sp_JS_JobSearch = "sp_JS_JobSearch";
     }
 }

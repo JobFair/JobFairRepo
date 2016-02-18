@@ -52,7 +52,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="lblExperience" runat="server"></asp:Label>
+                            <asp:Label ID="lblExperienceMin" runat="server"></asp:Label>-
+                            <asp:Label ID="lblExperienceMax" runat="server"></asp:Label>&nbsp;
                             years
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblCity" runat="server"></asp:Label>
