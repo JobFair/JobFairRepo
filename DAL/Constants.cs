@@ -155,5 +155,6 @@
         public static string sp_RE_SelectResumeForward = "sp_RE_SelectResumeForward";
         public static string sp_SelectCity = "sp_SelectCity";
         public static string sp_JS_JobSearch = "sp_JS_JobSearch";
+        public static string sp_RE_SelectJobPost = "sp_RE_SelectJobPost";
     }
 }
