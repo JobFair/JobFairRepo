@@ -11,8 +11,8 @@ namespace JobFair.Forms.Recruiter
     public partial class PostNewJob : System.Web.UI.Page
     {
         private int DegreeId, jobPostId = 4;
-        bool isEdit = true;
-        Int64 recruiterId = 12;
+        private bool isEdit = true;
+        private Int64 recruiterId = 12;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +30,6 @@ namespace JobFair.Forms.Recruiter
                     {
                         BindJobPost(jobPostId, recruiterId);
                     }
-
                 }
                 catch (Exception)
                 {
@@ -70,6 +69,7 @@ namespace JobFair.Forms.Recruiter
                         ddllocation.DataValueField = "AreaId";
                         ddllocation.DataBind();
                     }
+                    ddlRequirementName.Enabled = false;
                     lblClientName.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["ClientName"]);
                     lblPosition.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["Position"]);
                     lblRequirementId.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["RequirementId"]);
@@ -94,17 +94,31 @@ namespace JobFair.Forms.Recruiter
                     txtQualification.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["Qualification"]);
                     txtCandidateProfile.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["DescribeCandidateProfile"]);
                     ddlquestionnaire.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["QuestionnaireId"]);
-
+                    chkjobtype.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["JobType"]);
+                    lblselectedjobtype.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["JobType"]);
+                    chkemploymenttype.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["EmploymentStatus"]);
+                    lblemploymentstatus.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["EmploymentStatus"]);
+                    rdbrecruitmenttype.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["RecruitmentType"]);
+                    if (rdbrecruitmenttype.SelectedValue == "In-House")
+                    {
+                        pnlInHouse.Visible = true;
+                        pnlClient.Visible = false;
+                        pnlCompanyProfile.Visible = false;
+                    }
+                    else
+                    {
+                        pnlInHouse.Visible = false;
+                        pnlClient.Visible = true;
+                        pnlCompanyProfile.Visible = false;
+                    }
+                    rblCompanyName.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["CompanyName"]);
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
-
 
         /// <summary>
         /// Bind requirement name
@@ -258,63 +272,127 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-                PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
-                AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
+                if (!isEdit)
+                {
+                    PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
+                    AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
 
-                addJobPostEntity.RecruiterID = "12";
-                addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
-                addJobPostEntity.JobLocationState = ddlState.SelectedItem.Value;
-                addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Value;
-                addJobPostEntity.JobLocationArea = ddllocation.SelectedItem.Value;
-                addJobPostEntity.CompanyLevel = ddlCompanytype.SelectedItem.Text.Trim();
-                addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
-                addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
-                addJobPostEntity.FunctionalAreaId = Convert.ToInt32(ddlFunArea.SelectedValue);
-                addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
-                addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
-                addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
-                addJobPostEntity.WorkExperienceMin = ddlWorkExperienceMin.SelectedItem.Text.Trim();
-                addJobPostEntity.WorkExperienceMax = ddlWorkExperienceMax.SelectedItem.Text.Trim();
-                addJobPostEntity.Gender = ddlgender.SelectedItem.Text.Trim();
-                addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
-                addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
-                addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
-                addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
-                addJobPostEntity.JobType = lblselectedjobtype.Text;
-                addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
-                addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
-                // Check if recruitmentType is In-House
-                if (addJobPostEntity.RecruitmentType == "In-House")
-                {
-                    addJobPostEntity.CompanyName = rblCompanyName.SelectedItem.Text;
-                }
-                else
-                {
-                    addJobPostEntity.CompanyName = "null";
-                }
-                addJobPostEntity.ClientName = lblClientName.Text.Trim();
-                addJobPostEntity.Position = lblPosition.Text.Trim();
-                addJobPostEntity.RequirementId = Convert.ToInt32(lblRequirementId.Text);
+                    addJobPostEntity.RecruiterID = "12";
+                    addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
+                    addJobPostEntity.JobLocationState = ddlState.SelectedItem.Value;
+                    addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Value;
+                    addJobPostEntity.JobLocationArea = ddllocation.SelectedItem.Value;
+                    addJobPostEntity.CompanyLevel = ddlCompanytype.SelectedItem.Text.Trim();
+                    addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
+                    addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
+                    addJobPostEntity.FunctionalAreaId = Convert.ToInt32(ddlFunArea.SelectedValue);
+                    addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
+                    addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
+                    addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
+                    addJobPostEntity.WorkExperienceMin = ddlWorkExperienceMin.SelectedItem.Text.Trim();
+                    addJobPostEntity.WorkExperienceMax = ddlWorkExperienceMax.SelectedItem.Text.Trim();
+                    addJobPostEntity.Gender = ddlgender.SelectedItem.Text.Trim();
+                    addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
+                    addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
+                    addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
+                    addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
+                    addJobPostEntity.JobType = lblselectedjobtype.Text;
+                    addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
+                    addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
+                    // Check if recruitmentType is In-House
+                    if (addJobPostEntity.RecruitmentType == "In-House")
+                    {
+                        addJobPostEntity.CompanyName = rblCompanyName.SelectedItem.Text;
+                    }
+                    else
+                    {
+                        addJobPostEntity.CompanyName = "null";
+                    }
+                    addJobPostEntity.ClientName = lblClientName.Text.Trim();
+                    addJobPostEntity.Position = lblPosition.Text.Trim();
+                    addJobPostEntity.RequirementId = Convert.ToInt32(lblRequirementId.Text);
 
-                if (addJobPostEntity.CompanyName == "Logos Corporate Solutions")
-                {
-                    addJobPostEntity.CompanyProfile = lblCompanyProfile.Text;
+                    if (addJobPostEntity.CompanyName == "Logos Corporate Solutions")
+                    {
+                        addJobPostEntity.CompanyProfile = lblCompanyProfile.Text;
+                    }
+                    else
+                    {
+                        addJobPostEntity.CompanyProfile = lblCompanyProfileiTech.Text;
+                    }
+                    addJobPostEntity.Qualification = txtQualification.Text;
+                    addJobPostEntity.QueationnareId = Convert.ToInt32(ddlquestionnaire.SelectedValue);
+                    addJobPostEntity.DescribeCandidateProfile = txtCandidateProfile.Text;
+                    int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
+                    if (result > 0)
+                    {
+                        Response.Write("<script language='javascript'>alert('JobPost Done ')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script language='javascript'>alert('Sorry')</script>");
+                    }
                 }
                 else
                 {
-                    addJobPostEntity.CompanyProfile = lblCompanyProfileiTech.Text;
-                }
-                addJobPostEntity.Qualification = txtQualification.Text;
-                addJobPostEntity.QueationnareId = Convert.ToInt32(ddlquestionnaire.SelectedValue);
-                addJobPostEntity.DescribeCandidateProfile = txtCandidateProfile.Text;
-                int result = addJobPostBAL.JobPostBAL(addJobPostEntity);
-                if (result > 0)
-                {
-                    Response.Write("<script language='javascript'>alert('JobPost Done ')</script>");
-                }
-                else
-                {
-                    Response.Write("<script language='javascript'>alert('Sorry')</script>");
+                    PostNewJobBAL addJobPostBAL = new PostNewJobBAL();
+                    AddJobPostEntity addJobPostEntity = new AddJobPostEntity();
+                    addJobPostEntity.JobId = jobPostId;
+                    addJobPostEntity.RecruiterID = "12";
+                    addJobPostEntity.JobTitle = txtJobtitle.Text.Trim();
+                    addJobPostEntity.JobLocationState = ddlState.SelectedItem.Value;
+                    addJobPostEntity.JobLocationCity = ddlCity.SelectedItem.Value;
+                    addJobPostEntity.JobLocationArea = ddllocation.SelectedItem.Value;
+                    addJobPostEntity.CompanyLevel = ddlCompanytype.SelectedItem.Text.Trim();
+                    addJobPostEntity.IndustryId = Convert.ToInt32(ddlIndustry.SelectedValue);
+                    addJobPostEntity.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
+                    addJobPostEntity.FunctionalAreaId = Convert.ToInt32(ddlFunArea.SelectedValue);
+                    addJobPostEntity.JobDescription = txtJobDescription.Text.Trim();
+                    addJobPostEntity.KeywordsRoles = txtKeyRoles.Text.Trim();
+                    addJobPostEntity.KeywordsTechnical = txtKeyTechnical.Text.Trim();
+                    addJobPostEntity.WorkExperienceMin = ddlWorkExperienceMin.SelectedItem.Text.Trim();
+                    addJobPostEntity.WorkExperienceMax = ddlWorkExperienceMax.SelectedItem.Text.Trim();
+                    addJobPostEntity.Gender = ddlgender.SelectedItem.Text.Trim();
+                    addJobPostEntity.OfferedAnnualSalaryMin = Convert.ToString(ddlsalarymin.SelectedItem);
+                    addJobPostEntity.OfferedAnnualSalaryMax = Convert.ToString(ddlsalarymax.SelectedItem);
+                    addJobPostEntity.OtherSalaryDetails = txtsalarydetaills.Text.Trim();
+                    addJobPostEntity.NumberOfVacancies = Convert.ToInt32(txtVacancies.Text.Trim());
+                    addJobPostEntity.JobType = lblselectedjobtype.Text;
+                    addJobPostEntity.EmploymentStatus = lblemploymentstatus.Text;
+                    addJobPostEntity.RecruitmentType = rdbrecruitmenttype.SelectedItem.Text;
+                    // Check if recruitmentType is In-House
+                    if (addJobPostEntity.RecruitmentType == "In-House")
+                    {
+                        addJobPostEntity.CompanyName = rblCompanyName.SelectedItem.Text;
+                    }
+                    else
+                    {
+                        addJobPostEntity.CompanyName = "null";
+                    }
+                    addJobPostEntity.ClientName = lblClientName.Text.Trim();
+                    addJobPostEntity.Position = lblPosition.Text.Trim();
+                    addJobPostEntity.RequirementId = Convert.ToInt32(lblRequirementId.Text);
+
+                    if (addJobPostEntity.CompanyName == "Logos Corporate Solutions")
+                    {
+                        addJobPostEntity.CompanyProfile = lblCompanyProfile.Text;
+                    }
+                    else
+                    {
+                        addJobPostEntity.CompanyProfile = lblCompanyProfileiTech.Text;
+                    }
+                    addJobPostEntity.Qualification = txtQualification.Text;
+                    addJobPostEntity.QueationnareId = Convert.ToInt32(ddlquestionnaire.SelectedValue);
+                    addJobPostEntity.DescribeCandidateProfile = txtCandidateProfile.Text;
+                    int result = addJobPostBAL.UpdateJobPostBAL(addJobPostEntity);
+                    if (result > 0)
+                    {
+                        Response.Write("<script language='javascript'>alert('JobPost Updated ')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script language='javascript'>alert('Sorry')</script>");
+                    }
                 }
             }
             catch (Exception ex)
