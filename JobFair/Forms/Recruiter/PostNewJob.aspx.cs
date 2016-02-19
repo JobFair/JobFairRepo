@@ -10,7 +10,9 @@ namespace JobFair.Forms.Recruiter
 {
     public partial class PostNewJob : System.Web.UI.Page
     {
-        private int DegreeId;
+        private int DegreeId, jobPostId = 4;
+        bool isEdit = true;
+        Int64 recruiterId = 12;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,10 +23,14 @@ namespace JobFair.Forms.Recruiter
                     BindDropDownIndustry();
                     BindDropDownDepartment();
                     BindDropDownFunctionalArea();
-
                     BindQuestions();
                     BindState();
                     BindRequirementName();
+                    if (isEdit)
+                    {
+                        BindJobPost(jobPostId, recruiterId);
+                    }
+
                 }
                 catch (Exception)
                 {
@@ -32,6 +38,73 @@ namespace JobFair.Forms.Recruiter
                 }
             }
         }
+
+        private void BindJobPost(int jobPostId, long recruiterId)
+        {
+            try
+            {
+                Int32 stateId, cityId;
+                DataSet dsViewJobPost = new DataSet();
+                PostNewJobBAL postNewJobBAL = new PostNewJobBAL();
+                dsViewJobPost = postNewJobBAL.ViewJobPostBAL(jobPostId, recruiterId);
+                if (dsViewJobPost != null)
+                {
+                    DataSet dsCity = new DataSet();
+                    stateId = Convert.ToInt32(dsViewJobPost.Tables[0].Rows[0]["JobLocationState"]);
+                    dsCity = PostNewJobBAL.GetCity(stateId);
+                    if (dsCity != null)
+                    {
+                        ddlCity.DataSource = dsCity;
+                        ddlCity.DataTextField = "CityName";
+                        ddlCity.DataValueField = "CityId";
+                        ddlCity.DataBind();
+                    }
+
+                    DataSet dsArea = new DataSet();
+                    cityId = Convert.ToInt32(dsViewJobPost.Tables[0].Rows[0]["JobLocationCity"]);
+                    dsArea = PostNewJobBAL.GetArea(cityId);
+                    if (dsArea != null)
+                    {
+                        ddllocation.DataSource = dsArea;
+                        ddllocation.DataTextField = "AreaName";
+                        ddllocation.DataValueField = "AreaId";
+                        ddllocation.DataBind();
+                    }
+                    lblClientName.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["ClientName"]);
+                    lblPosition.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["Position"]);
+                    lblRequirementId.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["RequirementId"]);
+                    txtJobtitle.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["JobTitle"]);
+                    ddlState.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["JobLocationState"]);
+                    ddlCity.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["JobLocationCity"]);
+                    ddllocation.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["JobLocationArea"]);
+                    ddlCompanytype.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["CompanyLevel"]);
+                    ddlIndustry.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["JobIndustryId"]);
+                    ddlDepartment.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["DepartmentId"]);
+                    ddlFunArea.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["FunctionalAreaId"]);
+                    txtJobDescription.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["JobDescription"]);
+                    txtKeyRoles.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["KeywordsRoles"]);
+                    txtKeyTechnical.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["KeywordsTechnical"]);
+                    ddlWorkExperienceMin.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["WorkExperienceMin"]);
+                    ddlWorkExperienceMax.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["WorkExperienceMax"]);
+                    ddlgender.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["Gender"]);
+                    ddlsalarymin.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["OfferedAnnualSalaryMin"]);
+                    ddlsalarymax.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["OfferedAnnualSalaryMax"]);
+                    txtsalarydetaills.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["OtherSalaryDetails"]);
+                    txtVacancies.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["NumberOfVacancies"]);
+                    txtQualification.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["Qualification"]);
+                    txtCandidateProfile.Text = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["DescribeCandidateProfile"]);
+                    ddlquestionnaire.SelectedValue = Convert.ToString(dsViewJobPost.Tables[0].Rows[0]["QuestionnaireId"]);
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
 
         /// <summary>
         /// Bind requirement name

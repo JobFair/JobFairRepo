@@ -248,5 +248,21 @@ namespace DAL
                 throw;
             }
         }
+
+        public DataSet ViewJobPostDAL(int jobPostId, long recruiterId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@jobPostId", jobPostId),
+                                           new SqlParameter("@recruiterId",recruiterId) };
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.StoredProcedure, Constants.sp_RE_SelectJobPost, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
+        }
     }
 }
