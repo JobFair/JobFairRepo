@@ -20,31 +20,31 @@ namespace DAL
         public string LoginJSDAL(Entities.LoginEnitity logjsEntity)
         {
             string candidateid = "";
-            string isreffered = "";
+            //string isreffered = "";
            
             try
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
-                SqlParameter[] sparams = new SqlParameter[4];
+                SqlParameter[] sparams = new SqlParameter[3];
                 sparams[0] = new SqlParameter("@userid", logjsEntity.UserName);
                 sparams[1] = new SqlParameter("@password", logjsEntity.Password);
                 sparams[2] = new SqlParameter("@candidateid", SqlDbType.Int);
-                sparams[3] = new SqlParameter("@isreffered", false);
+                //sparams[3] = new SqlParameter("@isreffered", false);
                 sparams[2].Direction = ParameterDirection.Output;
-                sparams[3].Direction = ParameterDirection.Output;
+                //sparams[3].Direction = ParameterDirection.Output;
                
                 SqlDataReader dr = SqlHelper.ExecuteReader(connection, CommandType.StoredProcedure, Constants.sp_Login, sparams);
                 candidateid = sparams[2].Value.ToString();
-                isreffered = sparams[3].Value.ToString();
-               
-              
-              
-                if (string.IsNullOrEmpty(candidateid)|| (string.IsNullOrEmpty(isreffered)))
+                //isreffered = sparams[3].Value.ToString();
+
+
+
+                if (string.IsNullOrEmpty(candidateid) )
                 {
                     return null;
                 }
-                return isreffered;
+                //return isreffered;
 
             }
             catch (Exception)

@@ -40,24 +40,24 @@ namespace JobFair.Forms.JobSeeker
                     return;
                 }
                 Session["Candidateid"] = candidateID;
-                string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
-                if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
-                {
-                    Session["Isreffered"] = isreffered;
-                    if (string.IsNullOrEmpty(isreffered))
-                    {
-                        lblmsg.Text = "Wrong username or password";
-                        return;
+                //string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
+                //if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
+                //{
+                //    Session["Isreffered"] = isreffered;
+                //    if (string.IsNullOrEmpty(isreffered))
+                //    {
+                //        lblmsg.Text = "Wrong username or password";
+                //        return;
                     
-                    }
-                    Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssreffered=" + Session["Isreffered"]);
-                    return;
+                //    }
+                //    Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssreffered=" + Session["Isreffered"]);
+                //    return;
 
                 
-                }
-                Session["Isreffered"] = isreffered;
+                //}
+                //Session["Isreffered"] = isreffered;
                 //Session["UserType"] = 1;
-                Response.Redirect("ViewAllJobPost.aspx");
+                Response.Redirect("AdvanceSearch.aspx");
                 //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)

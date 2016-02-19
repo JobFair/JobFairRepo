@@ -56,7 +56,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     chkIndustry.DataSource = dsIndustry;
                     chkIndustry.DataTextField = "IndustryName";
-                    chkIndustry.DataValueField = "JobIndustryId";
+                    chkIndustry.DataValueField = "IndustryId";
                     chkIndustry.DataBind();
                     chkIndustry.Items.Insert(0, new ListItem("--Select--", ""));
                 }
@@ -193,16 +193,27 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.Area = chkarea.SelectedValue.Trim();
                 }
-                if (ddlWorkExperience.SelectedValue == "" || ddlWorkExperience.Text == "--Select--")
+                if (ddlWorkExperienceMin.SelectedValue == "" || ddlWorkExperienceMin.Text == "--Select--")
                 {
-                    advanceSearchEntity.WorkExp = null;
+                    advanceSearchEntity.WorkExpMin = null;
 
                 }
                 else
                 {
-                    advanceSearchEntity.WorkExp = ddlWorkExperience.SelectedValue.Trim();
+                    advanceSearchEntity.WorkExpMin = ddlWorkExperienceMin.SelectedValue.Trim();
 
                 }
+                if (ddlWorkExperienceMax.SelectedValue == "" || ddlWorkExperienceMax.Text == "--Select--")
+                {
+                    advanceSearchEntity.WorkExpMax = null;
+
+                }
+                else
+                {
+                    advanceSearchEntity.WorkExpMax = ddlWorkExperienceMax.SelectedValue.Trim();
+
+                }
+
                 if (ddlMinSalary.SelectedValue == "" || ddlMinSalary.Text == "Min" )
                 {
                     advanceSearchEntity.MinSalary = null;
@@ -336,6 +347,11 @@ namespace JobFair.Forms.JobSeeker
         protected void btnarea_Click(object sender, EventArgs e)
         {
             Panelarea.Visible = true;
+        }
+
+        protected void btnselect_Click(object sender, EventArgs e)
+        {
+            panellindustry.Visible = true;
         }
     }
 }

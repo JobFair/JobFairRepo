@@ -94,7 +94,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@JobLocationState", advanceSearchEntity.State);
                 cmd.Parameters.AddWithValue("@JobLocationCity", advanceSearchEntity.City);
                 cmd.Parameters.AddWithValue("@JobLocationArea", advanceSearchEntity.Area);
-                cmd.Parameters.AddWithValue("@WorkExperience", advanceSearchEntity.WorkExp);
+                cmd.Parameters.AddWithValue("@WorkExperienceMin", advanceSearchEntity.WorkExpMin);
+                cmd.Parameters.AddWithValue("@WorkExperienceMax", advanceSearchEntity.WorkExpMin);
                 cmd.Parameters.AddWithValue("@OfferedAnnualSalaryMin", advanceSearchEntity.MinSalary);
                 cmd.Parameters.AddWithValue("@OfferedAnnualSalaryMax", advanceSearchEntity.MaxSalary);
                 cmd.Parameters.AddWithValue("@JobIndustryId", advanceSearchEntity.Industry);

@@ -77,51 +77,75 @@
                     <td>
                         <asp:Label ID="lblworkexprience" runat="server" Text="Work Exprience"></asp:Label>
                     </td>
-                    <td>&nbsp;<asp:DropDownList ID="ddlWorkExperience" runat="server">
-                        <asp:ListItem Value="">Select </asp:ListItem>
-                        <asp:ListItem>0</asp:ListItem>
-                        <asp:ListItem>1</asp:ListItem>
-                        <asp:ListItem>2</asp:ListItem>
-                        <asp:ListItem>3</asp:ListItem>
-                        <asp:ListItem>4</asp:ListItem>
-                        <asp:ListItem>5</asp:ListItem>
-                        <asp:ListItem>6</asp:ListItem>
-                        <asp:ListItem>7</asp:ListItem>
-                        <asp:ListItem>8</asp:ListItem>
-                        <asp:ListItem>9</asp:ListItem>
-                        <asp:ListItem>11</asp:ListItem>
-                        <asp:ListItem>12</asp:ListItem>
-                        <asp:ListItem>13</asp:ListItem>
-                        <asp:ListItem>14</asp:ListItem>
-                        <asp:ListItem>15</asp:ListItem>
-                        <asp:ListItem>16</asp:ListItem>
-                        <asp:ListItem>17</asp:ListItem>
-                        <asp:ListItem>18</asp:ListItem>
-                        <asp:ListItem>19</asp:ListItem>
-                        <asp:ListItem>20</asp:ListItem>
-                        <asp:ListItem>21</asp:ListItem>
-                        <asp:ListItem>22</asp:ListItem>
-                        <asp:ListItem>23</asp:ListItem>
-                        <asp:ListItem>24</asp:ListItem>
-                        <asp:ListItem>25</asp:ListItem>
-                        <asp:ListItem>26</asp:ListItem>
-                        <asp:ListItem>27</asp:ListItem>
-                        <asp:ListItem>28</asp:ListItem>
-                        <asp:ListItem>29</asp:ListItem>
-                        <asp:ListItem>30</asp:ListItem>
-                        <asp:ListItem>31</asp:ListItem>
-                        <asp:ListItem>32</asp:ListItem>
-                        <asp:ListItem>33</asp:ListItem>
-                        <asp:ListItem>34</asp:ListItem>
-                        <asp:ListItem>35</asp:ListItem>
-                        <asp:ListItem>36</asp:ListItem>
-                        <asp:ListItem>37</asp:ListItem>
-                        <asp:ListItem>38</asp:ListItem>
-                        <asp:ListItem>39</asp:ListItem>
-                    </asp:DropDownList>
-                        &nbsp;&nbsp;
-
-                        &nbsp;</td>
+                    <td>&nbsp;
+                        <asp:DropDownList ID="ddlWorkExperienceMin" runat="server">
+                            <asp:ListItem>0</asp:ListItem>
+                            <asp:ListItem>0.5</asp:ListItem>
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>1.5</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>2.5</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>3.5</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>4.5</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>5.5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>6.5</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>7.5</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>8.5</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>9.5</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>11</asp:ListItem>
+                            <asp:ListItem>12</asp:ListItem>
+                            <asp:ListItem>13</asp:ListItem>
+                            <asp:ListItem>14</asp:ListItem>
+                            <asp:ListItem>15</asp:ListItem>
+                            <asp:ListItem>16</asp:ListItem>
+                            <asp:ListItem>17</asp:ListItem>
+                            <asp:ListItem>18</asp:ListItem>
+                            <asp:ListItem>19</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
+                        </asp:DropDownList>
+                    &nbsp;To
+                        <asp:DropDownList ID="ddlWorkExperienceMax" runat="server">
+                             <asp:ListItem>0</asp:ListItem>
+                            <asp:ListItem>0.5</asp:ListItem>
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>1.5</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>2.5</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>3.5</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>4.5</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>5.5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>6.5</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>7.5</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>8.5</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>9.5</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>11</asp:ListItem>
+                            <asp:ListItem>12</asp:ListItem>
+                            <asp:ListItem>13</asp:ListItem>
+                            <asp:ListItem>14</asp:ListItem>
+                            <asp:ListItem>15</asp:ListItem>
+                            <asp:ListItem>16</asp:ListItem>
+                            <asp:ListItem>17</asp:ListItem>
+                            <asp:ListItem>18</asp:ListItem>
+                            <asp:ListItem>19</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -186,8 +210,8 @@
                             <ContentTemplate>
                         <div>
                             <asp:TextBox ID="txtindusry" runat="server" ReadOnly="True" TextMode="MultiLine"  Width="300px"></asp:TextBox>
-                            <asp:Button ID="btnselect" runat="server" Text="Select" />
-                            <asp:Panel ID="panellindustry" runat="server">
+                            <asp:Button ID="btnselect" runat="server" Text="Select" OnClick="btnselect_Click" />
+                            <asp:Panel ID="panellindustry" runat="server" Visible ="false">
                                 <asp:CheckBoxList ID="chkIndustry" runat="server" RepeatColumns="4" AutoPostBack="True" OnSelectedIndexChanged="chkIndustry_SelectedIndexChanged"></asp:CheckBoxList>
                             </asp:Panel>
 
