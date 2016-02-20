@@ -109,7 +109,7 @@ namespace DAL
         /// Get Recruiter DAL
         /// </summary>
         /// <param name="HrId">HrId</param>
-        /// <returns>datatable</returns>
+        /// <returns>dataset</returns>
         public DataSet GetRecruiterDAL(int HrId)
         {
             DataSet dsRecruiter = new DataSet();
@@ -143,7 +143,7 @@ namespace DAL
         /// </summary>
         /// <param name="HrId">HrId</param>
         /// <param name="ClientId">ClientId</param>
-        /// <returns>datatable</returns>
+        /// <returns>dataset</returns>
         public DataSet ViewClientRequirementDetailsDAL(long HrId, long ClientId)
         {
             DataSet ds = new DataSet();
@@ -155,6 +155,31 @@ namespace DAL
                                          
                                          };
                 ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_ViewClientRequirements, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
+        }
+
+        /// <summary>
+        /// Get SelectClientRequirementsForwardMailDAL
+        /// </summary>
+        /// <param name="HrId">HrId</param>
+        /// <param name="ClientId">ClientId</param>
+        /// <returns>dataset</returns>
+        public DataSet SelectClientRequirementsForwardMailDAL(long HrId, long ClientId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = {
+                                             new SqlParameter("@HrId",HrId),
+                                             new SqlParameter("@clientId", ClientId)
+                                         
+                                         };
+                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_SelectClientRequirementsForwardMail, sparams);
             }
             catch (Exception)
             {

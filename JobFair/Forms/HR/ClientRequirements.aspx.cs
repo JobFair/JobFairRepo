@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using BAL;
 using Entities.HR;
 using System.Data;
+using System.Net.Mail;
 
 namespace JobFair.Forms.HR
 {
@@ -101,14 +102,119 @@ namespace JobFair.Forms.HR
                 clientRequirementsHREntity.Contents = txtContents.Text.Trim();
                 clientRequirementsHREntity.DateOfRequirementSent = Convert.ToDateTime(txtDateofRequirementSent.Text);
                 clientRequirementsHREntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
-                clientRequirementsHREntity.Status = rbtlistStatus.SelectedItem.Value;
+                clientRequirementsHREntity.Status = rbtlistStatus.SelectedItem.Text.Trim();
                 clientRequirementsHREntity.RecruiterID = Convert.ToInt32(ddlRecruiter.SelectedValue);
 
                 // Saving data to the database
                 int result = clientRequirementsHRBAL.SaveClientRequirementsBAL(clientRequirementsHREntity);
                 if (result > 0)
                 {
-                    Response.Write("<script language='javascript'>alert('Saved Client Requirement Successfully')</script>");
+                try
+                {
+                    string strBody = "", ClientName, ClientProfile, Position, IndustryName, FunctionalAreaName, Address, 
+			        CountryName, StateName, CityName, AreaName, Skillsets, Contents, Status, RecruiterName;
+                    int ClientId,Pincode;
+                    DateTime DateOfRequirementSent, DueDate;
+                    ClientId = Convert.ToInt32(ddlClientName.SelectedValue.Trim());
+                    ClientName =  ddlClientName.SelectedItem.Text.Trim();
+                    ClientProfile = txtClientProfile.Text.Trim();
+                    Position = txtPosition.Text.Trim();
+                    IndustryName = ddlIndustry.SelectedItem.Text.Trim();
+                    FunctionalAreaName = ddlFunctionalArea.SelectedItem.Text.Trim();
+                    Address = txtAddress.Text.Trim();
+                    CountryName = ddlCountry.SelectedItem.Text.Trim();
+                    StateName = ddlState.SelectedItem.Text.Trim();
+                    CityName = ddlCity.SelectedItem.Text.Trim();
+                    AreaName = ddlArea.SelectedItem.Text.Trim();
+                    Pincode = Convert.ToInt32(txtPincode.Text.Trim());
+                    Skillsets = txtSkillsets.Text.Trim();
+                    Contents = txtContents.Text.Trim();
+                    DateOfRequirementSent = Convert.ToDateTime(txtDateofRequirementSent.Text);
+                    DueDate = Convert.ToDateTime(txtDueDate.Text);
+                    Status = rbtlistStatus.SelectedItem.Text;
+                    RecruiterName = ddlRecruiter.SelectedItem.Text.Trim();
+
+                    MailMessage msg = new MailMessage();
+                    msg.From = new MailAddress("logos.expertadvice@gmail.com");
+
+                    DataSet dsSelectClientRequirementsForwardMail = new DataSet();
+                    HrId = 1;
+                    ClientId = 1;
+                    string EmailIdJoin = null, EmailId, toemail;
+                    dsSelectClientRequirementsForwardMail = clientRequirementsHRBAL.SelectClientRequirementsForwardMailBAL(HrId, ClientId);
+                    
+                    foreach (DataTable table in dsSelectClientRequirementsForwardMail.Tables)
+                    {
+                        foreach (DataRow dr in table.Rows)
+                        {
+                            EmailId = Convert.ToString(dr["EmailId"]); ;
+                            if (EmailIdJoin == null)
+                            {
+                                EmailIdJoin = string.Concat(EmailId + ",");
+                            }
+                            else
+                                EmailIdJoin = string.Concat(EmailIdJoin + EmailId + ",");
+                        }
+                    }
+
+                    string[] Multi = EmailIdJoin.Split(','); //spiliting input Email id string with comma(,)
+                    foreach (string Multiemailid in Multi)
+                    {
+                        if (Multiemailid != "")
+                        {
+                            msg.To.Add(new MailAddress(Multiemailid)); //adding multi reciver's Email Id
+                        }
+                        else
+                            break;
+                    }
+
+                    //msg.To.Add("avadhoot.logossolutions@gmail.com");
+                    //msg.To.Add("backupinfo.logos@gmail.com");
+                    msg.Subject = "Client Requirements";
+                    // Check if selected value equal to Other Help
+           
+                        strBody = "<html><body><table><tr><td>Client Id </td><td>:</td><td>" + ClientId + "</td></tr> " +
+                            " <tr><td>Client Name  </td><td>:</td><td>" + ClientName + "</td></tr> " +
+                           " <tr><td>Client Profile </td><td>:</td><td>" + ClientProfile + "</td></tr> " +
+                           " <tr><td>Position</td><td>:</td><td>" + Position + "</td></tr> " +
+                           " <tr><td>Industry Name</td><td>:</td><td>" + IndustryName + "</td></tr> " +
+                           " <tr><td>Functional Area Name</td><td>:</td><td>" + FunctionalAreaName + "</td></tr> " +
+                            " <tr><td>Address </td><td>:</td><td>" + Address + "</td></tr><br /> " +
+                            " <tr><td>Country Name</td><td>:</td><td>" + CountryName + "</td></tr><br /> " +
+                             " <tr><td>State Name</td><td>:</td><td>" + StateName + "</td></tr><br /> " +
+                              " <tr><td>City Name </td><td>:</td><td>" + CityName + "</td></tr><br /> " +
+                           " <tr><td>Area Name</td><td>:</td><td>" + AreaName + "</td></tr><br /> " +
+                              " <tr><td>Pincode</td><td>:</td><td>" + Pincode + "</td></tr> " +
+                           " <tr><td>Skillsets</td><td>:</td><td>" + Skillsets + "</td></tr> " +
+                            " <tr><td>Contents</td><td>:</td><td>" + Contents + "</td></tr><br /> " +
+                             " <tr><td>Date Of Requirement Sent</td><td>:</td><td>" + DateOfRequirementSent + "</td></tr><br /> " +
+                              " <tr><td>Due Date</td><td>:</td><td>" + DueDate + "</td></tr><br /> " +
+                               " <tr><td>Status</td><td>:</td><td>" + Status + "</td></tr><br /> " +
+                                " <tr><td>RecruiterName</td><td>:</td><td>" + RecruiterName + "</td></tr><br /> " +
+        						" </table> </body></html>";
+			
+                    msg.Body = strBody;
+                    msg.IsBodyHtml = true;
+                    //"Name :" + name + "\nEmail ID :" + emailId + "\nMobile Number :" + mobileNo + "\nAlternate Mobile Number :" + alternateMobile + "\nTotal Experience :" + totalExperience + "\nPosition Looking for :" + positionLooking + "\nRelevant Experience in the position applied :" + RelevantExpPositionApplied + "\nRelevant Experience in the Mobile Domain :" + RelevantExpMobileDomain + "\nDo you have experience in mobile domain (Android and iPhone) :" + mobileDomain + "\nCurrent / last Employer :" + currentEmployer + "\nWork Tenure :" + workTenture + "\nCurrent Designation :" + currentDesignation + "\nCurrent location :" + currentLocation + "\nCurrent Salary :" + currentSalary + "\nExpected Salary :" + exceptedSalary + "\nNotice Period :" + noticePeriod + "\nSize of organization are you looking for ?" + companyType + "\nReason for the job change :" + reason + "Can you attend face to face interview in weekdays :" + interview + "\nAvailability for the personal interview in Week Days (Monday to Friday) :" + beforeTime + " " + afterTime + "\nPreferable City for Job :" + preferedCity + "\nPreferable areas in the City :" + preferedArea;
+                    //if (resumeUpload.HasFile)
+                    //{
+                    //    string FileName = Path.GetFileName(resumeUpload.PostedFile.FileName);
+                    //    msg.Attachments.Add(new Attachment(resumeUpload.PostedFile.InputStream, FileName));
+                    //}
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 587;
+                    smtp.Credentials = new System.Net.NetworkCredential("logos.expertadvice@gmail.com", "logos@gmail");
+                    smtp.EnableSsl = true;
+                    smtp.Send(msg);
+                    msg = null;
+                  }
+                     catch (Exception)
+                    {
+                        //throw;
+                    }
+                        Response.Write("<script language='javascript'>alert('Client Requirement Successfully Mailed...');</script>");
+                        Response.Write("<script language='javascript'>alert('Saved Client Requirement Successfully')</script>");
                 }
                 else
                 {
@@ -280,7 +386,7 @@ namespace JobFair.Forms.HR
                     clientRequirementsHREntity.Contents = txtContents.Text.Trim();
                     clientRequirementsHREntity.DateOfRequirementSent = Convert.ToDateTime(txtDateofRequirementSent.Text);
                     clientRequirementsHREntity.DueDate = Convert.ToDateTime(txtDueDate.Text);
-                    clientRequirementsHREntity.Status = rbtlistStatus.SelectedItem.Value;
+                    clientRequirementsHREntity.Status = rbtlistStatus.SelectedItem.Text.Trim();
                     clientRequirementsHREntity.RecruiterID = Convert.ToInt32(ddlRecruiter.SelectedValue);
 
                     // Saving data to the database

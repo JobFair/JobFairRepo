@@ -118,5 +118,16 @@ namespace BAL
             ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
             return clientRequirementsHRDAL.UpdateClientRequirementsDAL(clientRequirementsHREntity);
         }
+        /// <summary>
+        /// Get ViewClientRequirementDetailsBAL
+        /// </summary>
+        /// <param name="HrId">HrId</param>
+        /// <param name="ClientId">ClientId</param>
+        /// <returns>dataset</returns>
+        public DataSet SelectClientRequirementsForwardMailBAL(long HrId, long ClientId)
+        {
+            ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
+            return clientRequirementsHRDAL.SelectClientRequirementsForwardMailDAL(HrId, ClientId);
+        }
     }
 }

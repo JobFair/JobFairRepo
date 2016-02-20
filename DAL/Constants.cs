@@ -33,10 +33,12 @@
         public static string sp_HR_InsertClientContactPersonDetails = "sp_HR_InsertClientContactPersonDetails";
         public static string sp_HR_ViewClientContactPersonDetails = "sp_HR_ViewClientContactPersonDetails";
         public static string sp_HR_UpdateClientContactPersonDetails = "sp_HR_UpdateClientContactPersonDetails";
+        public static string sp_HR_DeleteClientContactPersonDetails = "sp_HR_DeleteClientContactPersonDetails";
         public static string sp_HR_InsertClientRequirements = "sp_HR_InsertClientRequirements";
         public static string sp_HR_ViewClientRequirements = "sp_HR_ViewClientRequirements";
         public static string sp_HR_UpdateClientRequirements = "sp_HR_UpdateClientRequirements";
         public static string sp_HR_SelectRecruiter = "sp_HR_SelectRecruiter";
+        public static string sp_HR_SelectClientRequirementsForwardMail = "sp_HR_SelectClientRequirementsForwardMail";
         public const string sp_HR_ManageEmployerDetails = "sp_HR_ManageEmployerDetails";
         public static string sp_HR_InsertEmployerDetails = "sp_HR_InsertEmployerDetails";
         public static string sp_HR_ViewEmployerDetails = "sp_HR_ViewEmployerDetails";
