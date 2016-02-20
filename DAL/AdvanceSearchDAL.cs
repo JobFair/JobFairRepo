@@ -95,7 +95,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@JobLocationCity", advanceSearchEntity.City);
                 cmd.Parameters.AddWithValue("@JobLocationArea", advanceSearchEntity.Area);
                 cmd.Parameters.AddWithValue("@WorkExperienceMin", advanceSearchEntity.WorkExpMin);
-                cmd.Parameters.AddWithValue("@WorkExperienceMax", advanceSearchEntity.WorkExpMin);
+                cmd.Parameters.AddWithValue("@WorkExperienceMax", advanceSearchEntity.WorkExpMax);
                 cmd.Parameters.AddWithValue("@OfferedAnnualSalaryMin", advanceSearchEntity.MinSalary);
                 cmd.Parameters.AddWithValue("@OfferedAnnualSalaryMax", advanceSearchEntity.MaxSalary);
                 cmd.Parameters.AddWithValue("@JobIndustryId", advanceSearchEntity.Industry);
@@ -111,7 +111,7 @@ namespace DAL
             }
             finally
             {
-                connection.Close();
+                ////connection.Close();
             }
             return dsAdvancesearch;
         }
