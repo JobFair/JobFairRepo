@@ -56,7 +56,8 @@ namespace DAL
                                             new SqlParameter("@JobDescription",jobpostEntity.JobDescription),
                                             new SqlParameter("@KeywordsRoles",jobpostEntity.KeywordsRoles),
                                             new SqlParameter("@KeywordsTechnical",jobpostEntity.KeywordsTechnical),
-                                            new SqlParameter("@Workexperience",jobpostEntity.WorkExperience),
+                                            new SqlParameter("@WorkExperienceMin",jobpostEntity.WorkExperienceMin),
+                                            new SqlParameter("@WorkExperienceMax",jobpostEntity.WorkExperienceMax),
                                             new SqlParameter("@Gender",jobpostEntity.Gender),
                                             new SqlParameter("@OfferedAnnualSalaryMin",jobpostEntity.OfferedAnnualSalaryMin),
                                             new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),
@@ -87,6 +88,59 @@ namespace DAL
             }
         }
 
+        public int UpdateJobPostDAL(AddJobPostEntity jobpostEntity)
+        {
+            int result = 0;
+            try
+            {
+                Connection.Open();
+                SqlParameter[] sqlparams ={
+                                            new SqlParameter("@jobId",jobpostEntity.JobId),
+                                            new SqlParameter("@RecruiterID",jobpostEntity.RecruiterID),
+                                            new SqlParameter("@JobTitle",jobpostEntity.JobTitle),
+                                            new SqlParameter("@JobLocationState",jobpostEntity.JobLocationState),
+                                            new SqlParameter("@JobLocationCity",jobpostEntity.JobLocationCity),
+                                            new SqlParameter("@JobLocationArea",jobpostEntity.JobLocationArea),
+                                            new SqlParameter("@CompanyLevel",jobpostEntity.CompanyLevel),
+                                            new SqlParameter("@JobIndustryId",jobpostEntity.IndustryId),
+                                            new SqlParameter("@DepartmentId",jobpostEntity.DepartmentId),
+                                            new SqlParameter("@FunctionalAreaId",jobpostEntity.FunctionalAreaId),
+                                            new SqlParameter("@JobDescription",jobpostEntity.JobDescription),
+                                            new SqlParameter("@KeywordsRoles",jobpostEntity.KeywordsRoles),
+                                            new SqlParameter("@KeywordsTechnical",jobpostEntity.KeywordsTechnical),
+                                            new SqlParameter("@WorkExperienceMin",jobpostEntity.WorkExperienceMin),
+                                            new SqlParameter("@WorkExperienceMax",jobpostEntity.WorkExperienceMax),
+                                            new SqlParameter("@Gender",jobpostEntity.Gender),
+                                            new SqlParameter("@OfferedAnnualSalaryMin",jobpostEntity.OfferedAnnualSalaryMin),
+                                            new SqlParameter("@OfferedAnnualSalaryMax",jobpostEntity.OfferedAnnualSalaryMax),
+                                            new SqlParameter("@OtherSalaryDetails",jobpostEntity.OtherSalaryDetails),
+                                            new SqlParameter("@NumberOfVacancies",jobpostEntity.NumberOfVacancies),
+                                            new SqlParameter("@JobType",jobpostEntity.JobType),
+                                            new SqlParameter("@EmploymentStatus",jobpostEntity.EmploymentStatus),
+                                            new SqlParameter("@RecruitmentType",jobpostEntity.RecruitmentType),
+                                            new SqlParameter("@CompanyName",jobpostEntity.CompanyName),
+                                            new  SqlParameter("@ClientName",jobpostEntity.ClientName),
+                                            new SqlParameter("@Position",jobpostEntity.Position),
+                                            new SqlParameter("@requirementId",jobpostEntity.RequirementId),
+                                            new SqlParameter("@companyProfile",jobpostEntity.CompanyProfile),
+                                            new SqlParameter("@qualification",jobpostEntity.Qualification),
+                                            new SqlParameter("@questionnareId",jobpostEntity.QueationnareId),
+                                            new SqlParameter("@describeCandidateProfile",jobpostEntity.DescribeCandidateProfile)
+                                        };
+
+                result = SqlHelper.ExecuteNonQuery(Connection, CommandType.StoredProcedure, Constants.sp_RE_UpdateJobPost, sqlparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return result;
+        }
+
         /// <summary>
         /// DAL for GetQuestions
         /// </summary>
@@ -94,7 +148,7 @@ namespace DAL
         public DataSet GetQuestionsDAL()
         {
             DataSet ds = new DataSet();
-            ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select * from RE_Questionrie");
+            ds = SqlHelper.ExecuteDataset(Connection, CommandType.Text, "select * from RE_Questionnaire");
             return ds;
         }
 
@@ -246,6 +300,22 @@ namespace DAL
             {
                 throw;
             }
+        }
+
+        public DataSet ViewJobPostDAL(int jobPostId, long recruiterId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sparams = { new SqlParameter("@jobPostId", jobPostId),
+                                           new SqlParameter("@recruiterId",recruiterId) };
+                ds = SqlHelper.ExecuteDataset(Connection, CommandType.StoredProcedure, Constants.sp_RE_SelectJobPost, sparams);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ds;
         }
     }
 }

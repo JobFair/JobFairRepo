@@ -175,13 +175,22 @@ namespace JobFair.Forms.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblworkexprience;
         
         /// <summary>
-        /// ddlWorkExperience control.
+        /// ddlWorkExperienceMin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlWorkExperience;
+        protected global::System.Web.UI.WebControls.DropDownList ddlWorkExperienceMin;
+        
+        /// <summary>
+        /// ddlWorkExperienceMax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlWorkExperienceMax;
         
         /// <summary>
         /// lbsalary control.

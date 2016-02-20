@@ -11,7 +11,12 @@ namespace BAL
 {
     public class RejectApplicationBAL
     {
-        public System.Data.DataSet GetRejectApplication(string candidateId)
+        /// <summary>
+        ///   Create method for  get  reject  appliaction
+        /// </summary>
+        /// <param name="candidateId"></param>
+        /// <returns></returns>
+        public System.Data.DataSet GetRejectApplication(int candidateId)
         {
             RejectApplicationDAL rejectapplicationDAL = new RejectApplicationDAL();
             return rejectapplicationDAL.GetRejectAplication(candidateId);

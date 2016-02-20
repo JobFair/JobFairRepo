@@ -157,5 +157,17 @@ namespace BAL
             PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
             newjobpostDAL.AddTechnicalSkillsDetailsDAL(jobpostEntity);
         }
+
+        public DataSet ViewJobPostBAL(int jobPostId, long recruiterId)
+        {
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
+            return newjobpostDAL.ViewJobPostDAL(jobPostId, recruiterId);
+        }
+
+        public int UpdateJobPostBAL(AddJobPostEntity jobpostEntity)
+        {
+            PostNewJobDAL newjobpostDAL = new PostNewJobDAL();
+            return newjobpostDAL.UpdateJobPostDAL(jobpostEntity);
+        }
     }
 }

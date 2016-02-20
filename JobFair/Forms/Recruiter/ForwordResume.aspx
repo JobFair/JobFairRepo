@@ -5,12 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-    </style>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
     <div style="height: 406px">
@@ -21,7 +16,7 @@
         </td>
         <td>
             <asp:DropDownList ID="ddlclientlist" runat="server" OnSelectedIndexChanged="ddlclientlist_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-            <asp:TextBox runat="server" ID="txtTo"></asp:TextBox>
+            <asp:TextBox runat="server" ID="txtTo" ReadOnly="true"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -57,8 +52,7 @@
     </tr>
     <tr>
         <td valign = "top">
-            Body:
-        </td>
+            Body:</td>
         <td>
             <asp:TextBox ID="txtBody" runat="server" TextMode = "MultiLine" Height = "150" Width = "200"></asp:TextBox>
         </td>

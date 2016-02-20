@@ -129,6 +129,7 @@ namespace JobFair.Forms.JobSeeker
 
                 jobSeekerEntity.UploadResumepath = uploadFolder.ToString();
 
+                jobSeekerEntity.IsReffered = false;
                 result = jobSeekerBAL.SaveRegisterNewJobSeekerBAL(jobSeekerEntity);
                 result = JobSeekerPrefix + result;
                
@@ -150,6 +151,7 @@ namespace JobFair.Forms.JobSeeker
                    
                 }
                bool isMailSent= SendHTMLMail(result);
+                
                if (isMailSent == true)
                {
                    jobSeekerEntity.IsMailSent = isMailSent;

@@ -8,17 +8,19 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
-        private string email, jobtitle, candidateId, id, recruiterName, rId, clientName, requirementId;
+        private string email, jobtitle, candidateId, recruiterName, rId, clientName, requirementId;
         private Int64 cId;
+        Int32 id;
         private DataSet dsviewjobpost = new DataSet();
 
         protected void Page_Load(object sender, EventArgs e)
          {
             try
             {
-                id = Convert.ToString(Request.QueryString["jid"]);
+                id = Convert.ToInt32(Request.QueryString["jid"]);
                 cId = Convert.ToInt64(Request.QueryString["cId"]);
                 candidateId = Convert.ToString(Session["candidateId"]);
+                
                 // Label1.Text = Session["jobid"].ToString();
                 if (!IsPostBack)
                 {
@@ -62,7 +64,7 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        private void GetData(string id)
+        private void GetData(Int32 id)
         {
             try
             {
@@ -73,7 +75,8 @@ namespace JobFair.Forms.JobSeeker
                     lblTitle.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["JobTitle"]);
                     jobtitle = lblTitle.Text;
                     lblCompanyName.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["CompanyName"]);
-                    lblExperience.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["WorkExperience"]);
+                    lblExperienceMin.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["WorkExperienceMin"]);
+                    lblExperienceMax.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["WorkExperienceMax"]);
                     lblCity.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["CityName"]);
                     lblCompanyLevel.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["CompanyLevel"]);
                     lblVacancies.Text = Convert.ToString(dsviewjobpost.Tables[0].Rows[0]["NumberOfVacancies"]);
@@ -183,7 +186,7 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
-        private int CheckMailSend(string id, string candidateId)
+        private int CheckMailSend(Int32 id, string candidateId)
         {
             ViewAllJobPostBAL viewalljobpostBAL = new ViewAllJobPostBAL();
             return viewalljobpostBAL.CheckMailSend(id, candidateId);
@@ -249,6 +252,11 @@ namespace JobFair.Forms.JobSeeker
         protected void btnApplyLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("LogIn.aspx?redirect=" + Request.Url.ToString());
+        }
+
+        protected void ImageButton1_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
+            Response.Redirect("ForwardJobToFriend.aspx?jid="+id);
         }
 
         //private void BindReapetor()

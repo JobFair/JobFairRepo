@@ -18,6 +18,7 @@ namespace JobFair
         protected void Session_Start(object sender, EventArgs e)
         {
             Session["candidateId"] = "";
+            Session["Isreffered"] = "";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

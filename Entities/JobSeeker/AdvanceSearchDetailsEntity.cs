@@ -7,6 +7,8 @@
         public string City { get; set; }
         public string Area { get; set; }
         public string WorkExp { get; set; }
+        public string WorkExpMin { get; set; }
+        public string WorkExpMax { get; set; }
         public string MinSalary { get; set; }
         public string MaxSalary { get; set; }
         public string Industry { get; set; }

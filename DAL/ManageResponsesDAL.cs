@@ -13,7 +13,10 @@ namespace DAL
     public class ManageResponsesDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-
+        /// <summary>
+        ///   Create DAL for Active jobs
+        /// </summary>
+        /// <returns></returns>
 
         public DataSet GetActiveJobs()
         {
@@ -38,7 +41,10 @@ namespace DAL
 
 
         }
-
+        /// <summary>
+        /// Create DAL For Inactive Jobs
+        /// </summary>
+        /// <returns></returns>
         public DataSet GetInActiveJobs()
         {
             DataSet dsinactivejobs = new DataSet();

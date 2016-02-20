@@ -19,12 +19,14 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
+                
                 LoginBAL liBAL = new LoginBAL();
                 LoginEnitity logjsEntity = new LoginEnitity();
 
                 logjsEntity.UserName = txtUserName.Text.Trim();
                 logjsEntity.Password = txtPassword.Text.Trim();
                 string candidateID = liBAL.JobSeekerLogIn(logjsEntity);
+             
                 if (string.IsNullOrEmpty(candidateID) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
                 {
                     Session["Candidateid"] = candidateID;
@@ -34,9 +36,26 @@ namespace JobFair.Forms.JobSeeker
                         return;
                     }
                     Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssid=" + Session["Candidateid"] );
+
                     return;
                 }
                 Session["Candidateid"] = candidateID;
+                //string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
+                //if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
+                //{
+                //    Session["Isreffered"] = isreffered;
+                //    if (string.IsNullOrEmpty(isreffered))
+                //    {
+                //        lblmsg.Text = "Wrong username or password";
+                //        return;
+                    
+                //    }
+                //    Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssreffered=" + Session["Isreffered"]);
+                //    return;
+
+                
+                //}
+                //Session["Isreffered"] = isreffered;
                 //Session["UserType"] = 1;
                 Response.Redirect("AdvanceSearch.aspx");
                 //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");

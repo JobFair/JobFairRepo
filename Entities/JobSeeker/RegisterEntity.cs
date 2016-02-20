@@ -27,5 +27,6 @@
         public string Pincode { get; set; }
 
         public bool IsMailSent { get; set; }
+        public bool IsReffered { get; set; }
     }
 }

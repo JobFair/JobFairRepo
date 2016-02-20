@@ -24,6 +24,10 @@ namespace JobFair.Forms.Recruiter
             }
 
         }
+        /// <summary>
+        /// Bind Client Name to  dropdownist
+        /// </summary>
+        /// 
 
         private void BindClientName()
         {
@@ -38,7 +42,11 @@ namespace JobFair.Forms.Recruiter
 
 
         }
-
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void SendEmail(object sender, EventArgs e)
         {
             string from, subject, content;
@@ -49,8 +57,39 @@ namespace JobFair.Forms.Recruiter
                subject = txtSubject.Text;
                content = txtBody.Text;
                 MailMessage msg = new MailMessage();
-                msg.From = new MailAddress(from);
-                msg.To.Add(txtTo.Text);
+                msg.From = new MailAddress("harshal.logossolutions@gmail.com");
+                DataSet dsemailid = new DataSet();
+                Int32 clientid = Convert.ToInt32(ddlclientlist.SelectedValue);
+                ForwordResumeBAL forwardResumeBAL = new ForwordResumeBAL();
+                dsemailid = forwardResumeBAL.GetEmailId(clientid);
+                string EmailIdJoin = null, EmailId, toemail;
+                foreach (DataTable table in dsemailid.Tables)
+                {
+                    foreach (DataRow dr in table.Rows)
+                    {
+                        EmailId = Convert.ToString(dr["EmailId"]); ;
+                        if (EmailIdJoin == null)
+                        {
+                            EmailIdJoin = string.Concat(EmailId + ",");
+                        }
+                        else
+                            EmailIdJoin = string.Concat(EmailIdJoin + EmailId + ",");
+                    }
+                }
+
+                //msg.To = new MailAddress(EmailIdJoin);
+                //toemail = EmailIdJoin;
+                string[] Multi = EmailIdJoin.Split(','); //spiliting input Email id string with comma(,)
+                foreach (string Multiemailid in Multi)
+                {
+                    if (Multiemailid != "")
+                    {
+                        msg.To.Add(new MailAddress(Multiemailid)); //adding multi reciver's Email Id
+                    }
+                    else
+                        break;
+                }
+
                 if (fuAttachment.HasFile)
                 {
                     string FileName = Path.GetFileName(fuAttachment.PostedFile.FileName);
@@ -67,20 +106,27 @@ namespace JobFair.Forms.Recruiter
             }
 
 
-
+               
 
         }
 
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlclientlist_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             try
             {
                 DataSet dsemailid = new DataSet();
-                Int32 clientid =Convert.ToInt32(ddlclientlist.SelectedValue);
-                ForwordResumeBAL forwardResumeBAL = new ForwordResumeBAL();
+               Int32 clientid =Convert.ToInt32(ddlclientlist.SelectedValue);
+               ForwordResumeBAL forwardResumeBAL = new ForwordResumeBAL();
                dsemailid= forwardResumeBAL.GetEmailId(clientid);
-              txtTo.Text =Convert.ToString( dsemailid.Tables[0].Rows[0]["OfficialEmailId"]);
+               txtTo.Text = Convert.ToString(dsemailid.Tables[0].Rows[0]["ClientName"]);
+             
+               
             }
             catch (Exception)
             {

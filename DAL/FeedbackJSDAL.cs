@@ -26,7 +26,7 @@ namespace DAL
                                              new SqlParameter("@Subject",feedbackEntity.Subject),
                                              new SqlParameter("@Feedback ",feedbackEntity.Feedback)
                                             };
-                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_insertfeedback);
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_Insertfeedback);
             }
             catch (Exception)
             {

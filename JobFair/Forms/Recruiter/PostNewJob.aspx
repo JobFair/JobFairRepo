@@ -164,7 +164,7 @@
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtKeyRoles" MinimumPrefixLength="1"
                             EnableCaching="false" CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetRoles" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true">
                         </cc1:AutoCompleteExtender>
-                        <asp:Button ID="btnAddMoreRoles" runat="server" Text="Add More Skills" OnClick="btnAddMoreRoles_Click"  />
+                        <asp:Button ID="btnAddMoreRoles" runat="server" Text="Add More Skills" OnClick="btnAddMoreRoles_Click" />
                         <asp:Panel ID="Panel1" runat="server" Visible="false">
                             <asp:TextBox ID="txtRoleSkills" runat="server"></asp:TextBox>
                             <asp:Button ID="btnAddRoles" runat="server" Text="Add Skills" OnClick="btnAddRoles_Click" />
@@ -188,29 +188,74 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblworkexprience" runat="server" Text="Work Experience"></asp:Label></td>
+                        <asp:Label ID="lblworkxperience" runat="server" Text="Work Experience"></asp:Label></td>
                     <td>&nbsp;
-                        <asp:DropDownList ID="ddlworkexprience" runat="server">
+                        <asp:DropDownList ID="ddlWorkExperienceMin" runat="server">
+                            <asp:ListItem>0</asp:ListItem>
                             <asp:ListItem>0.5</asp:ListItem>
-                            <asp:ListItem>1.0</asp:ListItem>
+                            <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>1.5</asp:ListItem>
-                            <asp:ListItem>2.0</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>2.5</asp:ListItem>
-                            <asp:ListItem>3.0</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
                             <asp:ListItem>3.5</asp:ListItem>
-                            <asp:ListItem>4.0</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
                             <asp:ListItem>4.5</asp:ListItem>
-                            <asp:ListItem>5.0</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
                             <asp:ListItem>5.5</asp:ListItem>
-                            <asp:ListItem>6.0</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
                             <asp:ListItem>6.5</asp:ListItem>
-                            <asp:ListItem>7.0</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
                             <asp:ListItem>7.5</asp:ListItem>
-                            <asp:ListItem>8.0</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
                             <asp:ListItem>8.5</asp:ListItem>
-                            <asp:ListItem>9.0</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
                             <asp:ListItem>9.5</asp:ListItem>
                             <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>11</asp:ListItem>
+                            <asp:ListItem>12</asp:ListItem>
+                            <asp:ListItem>13</asp:ListItem>
+                            <asp:ListItem>14</asp:ListItem>
+                            <asp:ListItem>15</asp:ListItem>
+                            <asp:ListItem>16</asp:ListItem>
+                            <asp:ListItem>17</asp:ListItem>
+                            <asp:ListItem>18</asp:ListItem>
+                            <asp:ListItem>19</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
+                        </asp:DropDownList>
+                    &nbsp;To
+                        <asp:DropDownList ID="ddlWorkExperienceMax" runat="server">
+                             <asp:ListItem>0</asp:ListItem>
+                            <asp:ListItem>0.5</asp:ListItem>
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>1.5</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>2.5</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>3.5</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>4.5</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>5.5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>6.5</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>7.5</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>8.5</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>9.5</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>11</asp:ListItem>
+                            <asp:ListItem>12</asp:ListItem>
+                            <asp:ListItem>13</asp:ListItem>
+                            <asp:ListItem>14</asp:ListItem>
+                            <asp:ListItem>15</asp:ListItem>
+                            <asp:ListItem>16</asp:ListItem>
+                            <asp:ListItem>17</asp:ListItem>
+                            <asp:ListItem>18</asp:ListItem>
+                            <asp:ListItem>19</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>

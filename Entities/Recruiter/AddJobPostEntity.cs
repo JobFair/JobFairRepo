@@ -11,6 +11,7 @@ namespace Entities.Recruiter
     /// </summary>
     public class AddJobPostEntity
     {
+        public Int32 JobId { get; set; }
         public string RecruiterID { get; set; }
         public string JobTitle { get; set; }
         public string JobLocationState { get; set; }
@@ -23,7 +24,8 @@ namespace Entities.Recruiter
         public string JobDescription { get; set; }
         public string KeywordsRoles { get; set; }
         public string KeywordsTechnical { get; set; }
-        public string WorkExperience { get; set; }
+        public string WorkExperienceMin { get; set; }
+        public string WorkExperienceMax { get; set; }
         public string  Gender { get; set; }
         public string OfferedAnnualSalaryMin { get; set; }
         public string OfferedAnnualSalaryMax { get; set; }

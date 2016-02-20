@@ -99,6 +99,7 @@
     <Content Include="Forms\JobSeeker\CompleteProfile.aspx" />
     <Content Include="Forms\JobSeeker\EditEducationalDetails.aspx" />
     <Content Include="Forms\JobSeeker\Feedback.aspx" />
+    <Content Include="Forms\JobSeeker\ForwardJobToFriend.aspx" />
     <Content Include="Forms\JobSeeker\JobApplications.aspx" />
     <Content Include="Forms\JobSeeker\jobSearch.aspx" />
     <Content Include="Forms\JobSeeker\JSViewProfile.aspx" />
@@ -106,6 +107,7 @@
     <Content Include="Forms\JobSeeker\Refference.aspx" />
     <Content Include="Email Templates\RegistrationConfirmation.html" />
     <Content Include="Forms\JobSeeker\RequestEmail.aspx" />
+    <Content Include="Forms\JobSeeker\Search.aspx" />
     <Content Include="Forms\JobSeeker\ViewAllJobPost.aspx" />
     <Content Include="Forms\JobSeeker\ViewJobPost.aspx" />
     <Content Include="Forms\JobSeeker\ViewProfile.aspx" />
@@ -128,6 +130,7 @@
     <Content Include="Forms\Recruiter\ViewProfile.aspx" />
     <Content Include="Forms\Recruiter\AcceptApplications.aspx" />
     <Content Include="Forms\Recruiter\ViewQuestionnarie.aspx" />
+    <Content Include="Images\email.png" />
     <Content Include="Images\logoitch.jpg" />
     <Content Include="Images\NewFolder1\jquery-1.11.1.min %281%29.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -136,15 +139,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <None Include="Images\Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="Images\Scripts\bootstrap.js" />
-    <Content Include="Images\Scripts\bootstrap.min.js" />
-    <Content Include="Images\Scripts\jquery.min.js" />
-    <Content Include="Images\Scripts\jquery-2.1.4.js" />
-    <Content Include="Images\Scripts\jquery-2.1.4.min.js" />
-    <Content Include="Images\Scripts\jquery.validationEngine-en.js" />
-    <Content Include="Images\Scripts\jquery.validationEngine.js" />
-    <Content Include="Images\Scripts\ValidationAll.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -186,7 +180,6 @@
     <Content Include="Forms\Recruiter\RecruiterHome.Master" />
     <Content Include="Forms\JobSeeker\JobSeekerHome.Master" />
     <Content Include="Forms\Employer\HomePageEmployer.Master" />
-    <Content Include="Images\Scripts\jquery-2.1.4.min.map" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -324,6 +317,13 @@
     <Compile Include="Forms\JobSeeker\Feedback.aspx.designer.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JobSeeker\ForwardJobToFriend.aspx.cs">
+      <DependentUpon>ForwardJobToFriend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\ForwardJobToFriend.aspx.designer.cs">
+      <DependentUpon>ForwardJobToFriend.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeeker\JobApplications.aspx.cs">
       <DependentUpon>JobApplications.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -387,6 +387,13 @@
     <Compile Include="Forms\JobSeeker\RequestEmail.aspx.designer.cs">
       <DependentUpon>RequestEmail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JobSeeker\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeeker\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeeker\UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -438,6 +445,7 @@
     </Compile>
     <Compile Include="Forms\Recruiter\ForwordResume.aspx.cs">
       <DependentUpon>ForwordResume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Recruiter\ForwordResume.aspx.designer.cs">
       <DependentUpon>ForwordResume.aspx</DependentUpon>

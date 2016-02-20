@@ -12,8 +12,14 @@ namespace DAL
     public class AcceptApplicationsDAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
-        public System.Data.DataSet GetAcceptCandidate(string candidateId)
+        /// <summary>
+        /// create DAL method for get  acceppt candidate
+        /// </summary>
+        /// <param name="candidateId"></param>
+        /// <returns></returns>
+        public System.Data.DataSet GetAcceptCandidate(  int candidateId)
         {
+            
             DataSet dsacceptcandidate = new DataSet();
             try
             {
