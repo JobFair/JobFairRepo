@@ -9,9 +9,9 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
-        public Tuple<DataTable, Int32> SaveQuestionnarieDAL(DataTable dtQuestionnarie, string questionnarieName, long recruiterId)
+        public Int32 SaveQuestionnarieDAL( string questionnarieName, long recruiterId)
         {
-            Int32 questionnarieId;
+            Int32 questionnarieId=0;
             try
             {
                 connection.Open();
@@ -22,23 +22,21 @@ namespace DAL
 
                 sparams[0] = new SqlParameter("@recruiterId", recruiterId);
                 sparams[1] = new SqlParameter("@questionnarieName", questionnarieName);
-
                 sparams[2] = new SqlParameter("@questionnarieId", SqlDbType.Int, 200);
                 sparams[2].Direction = ParameterDirection.Output;
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertQuestionnarie, sparams);
                 questionnarieId = Convert.ToInt32(sparams[2].Value);
-                SqlBulkCopy objbulk = new SqlBulkCopy(connection);
-                // Assigning Destination table name
-                objbulk.DestinationTableName = "RE_Questions";
-                // Mapping Table column
+                //SqlBulkCopy objbulk = new SqlBulkCopy(connection);
+                //// Assigning Destination table name
+                //objbulk.DestinationTableName = "RE_Questions";
+                //// Mapping Table column
                 
-                objbulk.ColumnMappings.Add("QuestionName", "QuestionName");
-                objbulk.ColumnMappings.Add("QuestionType", "QuestionType");
-                objbulk.ColumnMappings.Add("AnswerOption", "AnswerOption");
-                objbulk.ColumnMappings.Add("QuestionnarieId", "QuestionnarieId");
-                //objbulk.ColumnMappings.Add("QuestionnaireId", "questionnarieId");
-                // Inserting bulk Records into DataBase
-                objbulk.WriteToServer(dtQuestionnarie);
+                //objbulk.ColumnMappings.Add("QuestionName", "QuestionName");
+                //objbulk.ColumnMappings.Add("QuestionType", "QuestionType");
+                //objbulk.ColumnMappings.Add("AnswerOption", "AnswerOption");
+                //objbulk.ColumnMappings.Add("QuestionnaireId", "QuestionnaireId");
+                //// Inserting bulk Records into DataBase
+                //objbulk.WriteToServer(dtQuestionnarie);
                 //if (string.IsNullOrEmpty(candidateId))
                 //{
                 //    return null;
@@ -53,7 +51,13 @@ namespace DAL
             {
                 connection.Close();
             }
-            return Tuple.Create(dtQuestionnarie, questionnarieId);
+            return questionnarieId;
+        }
+
+        public DataTable SaveQuestionDAL(DataTable dtQuestionnarie)
+        {
+            DataTable dt = new DataTable();
+            return dt;
         }
 
         public DataSet ViewQuestionnarieDAL(Int32 questionnarieId)

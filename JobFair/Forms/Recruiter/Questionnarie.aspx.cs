@@ -7,6 +7,7 @@ namespace JobFair.Forms.Recruiter
     public partial class Questionrie : System.Web.UI.Page
     {
         private string questionnarieName;
+        private int questionnarieId;
         private Int64 recruiterId;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -26,7 +27,7 @@ namespace JobFair.Forms.Recruiter
                 DataRow dr;
                 dt.TableName = "Questionnarie";
                 // Creating columns for DataTable
-                //dt.Columns.Add(new DataColumn("RecruiterId", typeof(Int64)));
+              
                 dt.Columns.Add(new DataColumn("QuestionnaireId", typeof(Int32)));
                 dt.Columns.Add(new DataColumn("QuestionName", typeof(string)));
                 dt.Columns.Add(new DataColumn("QuestionType", typeof(string)));
@@ -67,7 +68,7 @@ namespace JobFair.Forms.Recruiter
                             // Creating new row and assigning values
                             drCurrentRow = dtCurrentTable.NewRow();
                             //drCurrentRow["RecruiterId"] = 12;
-                            
+                            drCurrentRow["QuestionnaireId"] =questionnarieId;
                             drCurrentRow["QuestionName"] = txtQuestion.Text.Trim();
                             drCurrentRow["QuestionType"] = ddlQuestionType.SelectedItem.Text;
                             drCurrentRow["AnswerOption"] = txtAnswer.Text.Trim();
@@ -111,15 +112,32 @@ namespace JobFair.Forms.Recruiter
         {
             try
             {
-                recruiterId = 12;
-                questionnarieName = txtQuestionnarieName.Text.Trim();
                 QuestionnarieREBAL questionnarieBAL = new QuestionnarieREBAL();
                 DataTable dtQuestionnarie = (DataTable)ViewState["Questionnarie"];
-                questionnarieBAL.SaveQuestionnarieBAL(dtQuestionnarie, questionnarieName, recruiterId);
+                questionnarieBAL.SaveQuestionBAL(dtQuestionnarie);
                 grdQuestionnarie.DataSource = null;
                 grdQuestionnarie.DataBind();
                 ViewState["Questionnarie"] = null;
                 Response.Write("<script language='javascript'>alert('Questionnarie created...')</script>");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        protected void btnAddQuestionnarie_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                QuestionnarieREBAL questionnarieBAL = new QuestionnarieREBAL();
+                recruiterId = 12;
+                questionnarieName = txtQuestionnarieName.Text.Trim();
+                questionnarieId = questionnarieBAL.SaveQuestionnarieBAL(questionnarieName, recruiterId);
+                if(questionnarieId!=null)
+                {
+                    pnlQuestion.Visible = true;
+                }
             }
             catch (Exception)
             {

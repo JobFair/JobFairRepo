@@ -1,7 +1,6 @@
 ﻿using BAL;
 using Entities.JobSeeker;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
@@ -85,7 +84,7 @@ namespace JobFair.Forms.JobSeeker
                 }
                 else
                 {
-                    advanceSearchEntity.City = txtLocation.UniqueID.ToString();
+                    advanceSearchEntity.City = txtLocation.Text.Trim();
                 }
 
                 if (ddlExperience.SelectedValue == "" || ddlExperience.Text == "Experience")
