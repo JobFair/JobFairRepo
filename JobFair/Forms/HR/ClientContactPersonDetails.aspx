@@ -7,6 +7,12 @@
     <title></title>    
     <link href="../../Style.css" rel="stylesheet" />
     <link href="../../Css/Common.css" rel="stylesheet" />
+    <script type="text/javascript">
+		function isDelete()
+		{
+			return confirm("Do you want to delete this row ?");
+		}
+	</script>
 </head>
 <body>
     <form id="frmClientContactPersonDetails" runat="server">
@@ -18,12 +24,15 @@
     <div id="divView" style="margin-top: 20px; margin-left: 10px;">
          <asp:GridView ID="grvView" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"
              OnPageIndexChanging="grvView_PageIndexChanging" OnRowCancelingEdit="grvView_RowCancelingEdit"
-             OnRowEditing="grvView_RowEditing" OnRowUpdating="grvView_RowUpdating">
+             OnRowEditing="grvView_RowEditing" OnRowUpdating="grvView_RowUpdating" OnRowDeleting="grvView_RowDeleting">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                             <asp:TemplateField HeaderText="Contact Person Name">
                             <ItemTemplate>
                                 <asp:Label ID="lblContactPersonName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ContactPersonName")%>'></asp:Label>
+                                <asp:Label ID="lblContactPersonId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ContactPersonId")%>' Visible="false"></asp:Label>    
+                                <asp:Label ID="lblHrId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "HrId")%>' Visible="false"></asp:Label>
+                                <asp:Label ID="lblClientId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ClientId")%>' Visible="false"></asp:Label>
                             </ItemTemplate>
                                 <EditItemTemplate>
                                 <asp:Label ID="lblContactPersonId" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ContactPersonId")%>' Visible="false"></asp:Label>    
@@ -164,8 +173,8 @@
         </td>
         <td>
             <asp:RadioButtonList ID="rblistIsActive" runat="server" AutoPostBack="true">
-                <asp:ListItem Text="InActive"></asp:ListItem>
                 <asp:ListItem Text="Active"></asp:ListItem>
+                <asp:ListItem Text="InActive"></asp:ListItem>
             </asp:RadioButtonList>
             <%--<asp:TextBox ID="txtActive" runat="server" onblur="return CheckAlphaNumeric(this.id);"></asp:TextBox>--%>
             <%--<asp:RequiredFieldValidator ID="rfvActive" runat="server" ControlToValidate="txtActive" ValidationGroup="vgClientContactPersonDetails" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>

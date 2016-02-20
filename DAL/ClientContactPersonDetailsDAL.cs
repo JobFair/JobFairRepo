@@ -39,6 +39,7 @@ namespace DAL
                 objbulk.ColumnMappings.Add("EmailId", "EmailId");
                 objbulk.ColumnMappings.Add("ContactNo", "ContactNo");
                 objbulk.ColumnMappings.Add("IsActive", "IsActive");
+                objbulk.ColumnMappings.Add("IsDelete", "IsDelete");
                 //inserting bulk Records into DataBase
                 objbulk.WriteToServer(clientContactPersonDetailsEntity);
             }
@@ -92,8 +93,37 @@ namespace DAL
                                           new SqlParameter("@emailId", clientContactPersonDetailsEntity.EmailId),
                                           new SqlParameter("@contactNo", clientContactPersonDetailsEntity.ContactNo),
                                           new SqlParameter("@isActive", clientContactPersonDetailsEntity.IsActive),
+                                          //new SqlParameter("@isDelete", clientContactPersonDetailsEntity.IsDelete),
                                         };
                 int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_HR_UpdateClientContactPersonDetails, sparam);
+                return result;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /// <summary>
+        /// Method of class ClientContactPersonDetailsDAL for Deleting ClientContactPersonDetails in database
+        /// </summary>
+        /// <param name="clientdetailsEntity">Object of ClientContactPersonDetailsEntity</param>
+        /// <returns>System.Int32</returns>
+        public int DeleteClientContactPersonDetailsDAL(ClientContactPersonDetailsEntity clientContactPersonDetailsEntity)
+        {
+            try
+            {
+                connection.Open();
+                //Add parameter for stored procedure                
+                SqlParameter[] sparam = { 
+                                          new SqlParameter("@contactPersonId", clientContactPersonDetailsEntity.ContactPersonId),
+                                          new SqlParameter("@clientid", clientContactPersonDetailsEntity.ClientId),
+                                          new SqlParameter("@hrid", clientContactPersonDetailsEntity.HrId),
+                                        };
+                int result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_HR_DeleteClientContactPersonDetails, sparam);
                 return result;
             }
             catch (System.Exception)

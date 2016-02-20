@@ -116,8 +116,8 @@
                 <td><asp:Label ID="lblStatus" runat="server" Text=" Status " CssClass="label"></asp:Label></td>
                 <td>
                     <asp:RadioButtonList ID="rbtlistStatus" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Value="0" Text="New"></asp:ListItem>
-                        <asp:ListItem Value="1" Text="Active"></asp:ListItem>
+                        <asp:ListItem Text="New"></asp:ListItem>
+                        <asp:ListItem Text="Active"></asp:ListItem>
                     </asp:RadioButtonList>
 
                 </td>

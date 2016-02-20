@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using Entities.HR;
 
-
 namespace JobFair.Forms.HR
 {
     public partial class ClientContactPersonDetails : System.Web.UI.Page
@@ -80,6 +79,7 @@ namespace JobFair.Forms.HR
                         drCurrentRow["EmailId"] = txtEmail.Text.Trim();
                         drCurrentRow["ContactNo"] = txtContactNo.Text.Trim();
                         drCurrentRow["IsActive"] = rblistIsActive.SelectedItem.Text.Trim();
+                        drCurrentRow["IsDelete"] = "No";
                     }
                     //Removing initial blank row
                     if (dtCurrentTable.Rows[0][0].ToString() == "")
@@ -140,7 +140,7 @@ namespace JobFair.Forms.HR
         {
             try
             {
-                ClientContactPersonDetailsBAL clientContactPersonDetailsBAL = new ClientContactPersonDetailsBAL();
+                ClientContactPersonDetailsBAL UpdateclientContactPersonDetailsBAL = new ClientContactPersonDetailsBAL();
                 ClientContactPersonDetailsEntity clientContactPersonDetailsEntity = new ClientContactPersonDetailsEntity();
                 //ViewRecord(HrId, ClientId);
                 //GridView grView = (GridView)(sender as Control)e.Item.FindControl("grvView");
@@ -171,14 +171,14 @@ namespace JobFair.Forms.HR
                 //Convert.ToInt32(ddlFunctionalArea.SelectedValue);
                 clientContactPersonDetailsEntity.IsActive = UPrblistIsActive;
                 // Saving data to the database
-                int result = clientContactPersonDetailsBAL.UpdateClientContactPersonDetailsBAL(clientContactPersonDetailsEntity);
+                int result = UpdateclientContactPersonDetailsBAL.UpdateClientContactPersonDetailsBAL(clientContactPersonDetailsEntity);
                 if (result > 0)
                 {
                     Response.Write("<script language='javascript'>alert('Update Client Contact Person Details Successfully')</script>");
                 }
                 else
                 {
-                    Response.Write("<script language='javascript'>alert('Client Contact Person Details won't saved')</script>");
+                    Response.Write("<script language='javascript'>alert('Client Contact Person Details won't Saved')</script>");
                 }
             }
             catch (Exception)
@@ -190,8 +190,46 @@ namespace JobFair.Forms.HR
                 grvView.EditIndex = -1;
                 ViewRecord(HrId, ClientId);
             }
-
         }
+        protected void grvView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                ClientContactPersonDetailsBAL DeleteclientContactPersonDetailsBAL = new ClientContactPersonDetailsBAL();
+                ClientContactPersonDetailsEntity clientContactPersonDetailsEntity = new ClientContactPersonDetailsEntity();
+                var lblClientName = ((Label)grvView.Rows[e.RowIndex].FindControl("lblContactPersonName")).Text;
+
+                var DecontactPersonId = ((Label)grvView.Rows[e.RowIndex].FindControl("lblContactPersonId")).Text;
+                var DehrId = ((Label)grvView.Rows[e.RowIndex].FindControl("lblHrId")).Text;
+                var DeclientId = ((Label)grvView.Rows[e.RowIndex].FindControl("lblClientId")).Text;
+                //var contactPersonId = 1;
+                //var hrId = 1;
+                //var clientId = 1;
+                // Assign values to the entities
+                clientContactPersonDetailsEntity.ContactPersonId = Convert.ToInt32(DecontactPersonId);
+                clientContactPersonDetailsEntity.HrId = Convert.ToInt32(DehrId);
+                clientContactPersonDetailsEntity.ClientId = Convert.ToInt32(DeclientId);
+                int result = DeleteclientContactPersonDetailsBAL.DeleteClientContactPersonDetailsBAL(clientContactPersonDetailsEntity);
+                if (result > 0)
+                {
+                    Response.Write("<script language='javascript'>alert('Delete Client Contact Person Details Successfully')</script>");
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Client Contact Person Details won't Deleted')</script>");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                grvView.EditIndex = -1;
+                ViewRecord(HrId, ClientId);
+            }
+        }
+
         private void AddDefaultFirstRecord()
         {
             try
@@ -208,6 +246,7 @@ namespace JobFair.Forms.HR
                 dt.Columns.Add(new DataColumn("EmailId", typeof(string)));
                 dt.Columns.Add(new DataColumn("ContactNo", typeof(string)));
                 dt.Columns.Add(new DataColumn("IsActive", typeof(string)));
+                dt.Columns.Add(new DataColumn("IsDelete", typeof(string)));
                 dr = dt.NewRow();
                 dt.Rows.Add(dr);
 
@@ -224,9 +263,9 @@ namespace JobFair.Forms.HR
         {
             try
             {
-                ClientContactPersonDetailsBAL clientContactPersonDetailsBAL = new ClientContactPersonDetailsBAL();
+                ClientContactPersonDetailsBAL SaveclientContactPersonDetailsBAL = new ClientContactPersonDetailsBAL();
                 DataTable clientContactPersonDetailsEntity = (DataTable)ViewState["ClientContactPersonDetails"];
-                clientContactPersonDetailsBAL.SaveClientContactPersonDetailsBAL(clientContactPersonDetailsEntity);
+                SaveclientContactPersonDetailsBAL.SaveClientContactPersonDetailsBAL(clientContactPersonDetailsEntity);
                 grvAddMore.DataSource = null;
                 grvAddMore.DataBind();
                 ViewRecord(HrId, ClientId);
@@ -234,7 +273,7 @@ namespace JobFair.Forms.HR
             }
             catch (Exception)
             {
-                // throw;
+                 throw;
             }
         }
     }

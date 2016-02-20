@@ -46,5 +46,16 @@ namespace BAL
             ClientContactPersonDetailsDAL clientContactPersonDetailsDAL = new ClientContactPersonDetailsDAL();
             return clientContactPersonDetailsDAL.UpdateClientContactPersonDetailsDAL(clientContactPersonDetailsEntity);
         }
+
+        /// <summary>
+        /// Update client contact person details method in ClientContactPersonDetailsBAL class
+        /// </summary>
+        /// <param name="clientcontactpersondetailsEntity">Object of ClientContactPersonDetailsBAL</param>
+        /// <returns>System.Int32</returns>
+        public int DeleteClientContactPersonDetailsBAL(ClientContactPersonDetailsEntity clientContactPersonDetailsEntity)
+        {
+            ClientContactPersonDetailsDAL clientContactPersonDetailsDAL = new ClientContactPersonDetailsDAL();
+            return clientContactPersonDetailsDAL.DeleteClientContactPersonDetailsDAL(clientContactPersonDetailsEntity);
+        }
     }
 }

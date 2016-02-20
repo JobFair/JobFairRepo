@@ -7,7 +7,6 @@ using Entities.HR;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System;
 
 namespace DAL
 {
