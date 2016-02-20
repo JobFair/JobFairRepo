@@ -180,9 +180,9 @@
                                                 <tr>
                                                <td>
                                             Work Experience&nbsp;&nbsp;
-                                        <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperience")%>'></asp:Label>
+                                        <asp:Label ID="lblworkexprience" runat="server" Text='<%#Eval("WorkExperienceMin")%>'></asp:Label>
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                      
+                                          <asp:Label ID="lblworkexpriencemax" runat="server" Text='<%#Eval("WorkExperienceMax")%>'></asp:Label>
                                                </td>
                                                 </tr>
                                             </table>

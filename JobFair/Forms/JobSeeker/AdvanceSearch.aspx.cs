@@ -193,7 +193,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.Area = chkarea.SelectedValue.Trim();
                 }
-                if (ddlWorkExperienceMin.SelectedValue == "" || ddlWorkExperienceMin.Text == "--Select--")
+                if (ddlWorkExperienceMin.SelectedValue == "" || ddlWorkExperienceMin.Text == "0")
                 {
                     advanceSearchEntity.WorkExpMin = null;
 
@@ -203,7 +203,7 @@ namespace JobFair.Forms.JobSeeker
                     advanceSearchEntity.WorkExpMin = ddlWorkExperienceMin.SelectedValue.Trim();
 
                 }
-                if (ddlWorkExperienceMax.SelectedValue == "" || ddlWorkExperienceMax.Text == "--Select--")
+                if (ddlWorkExperienceMax.SelectedValue == "" || ddlWorkExperienceMax.Text == "0")
                 {
                     advanceSearchEntity.WorkExpMax = null;
 
