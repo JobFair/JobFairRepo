@@ -27,7 +27,7 @@ namespace JobFair.Forms.Recruiter
                 DataRow dr;
                 dt.TableName = "Questionnarie";
                 // Creating columns for DataTable
-              
+
                 dt.Columns.Add(new DataColumn("QuestionnaireId", typeof(Int32)));
                 dt.Columns.Add(new DataColumn("QuestionName", typeof(string)));
                 dt.Columns.Add(new DataColumn("QuestionType", typeof(string)));
@@ -49,6 +49,9 @@ namespace JobFair.Forms.Recruiter
         protected void btnAddQuestion_Click(object sender, EventArgs e)
         {
             AddNewRecordRowToGrid();
+            txtQuestion.Text = "";
+            ddlQuestionType.SelectedIndex = 0;
+            txtAnswer.Text = "";
         }
 
         private void AddNewRecordRowToGrid()
@@ -68,7 +71,7 @@ namespace JobFair.Forms.Recruiter
                             // Creating new row and assigning values
                             drCurrentRow = dtCurrentTable.NewRow();
                             //drCurrentRow["RecruiterId"] = 12;
-                            drCurrentRow["QuestionnaireId"] =questionnarieId;
+                            drCurrentRow["QuestionnaireId"] = ViewState["QuestionnarieId"];
                             drCurrentRow["QuestionName"] = txtQuestion.Text.Trim();
                             drCurrentRow["QuestionType"] = ddlQuestionType.SelectedItem.Text;
                             drCurrentRow["AnswerOption"] = txtAnswer.Text.Trim();
@@ -118,6 +121,7 @@ namespace JobFair.Forms.Recruiter
                 grdQuestionnarie.DataSource = null;
                 grdQuestionnarie.DataBind();
                 ViewState["Questionnarie"] = null;
+                ViewState["QuestionnarieId"] = null;
                 Response.Write("<script language='javascript'>alert('Questionnarie created...')</script>");
             }
             catch (Exception)
@@ -134,14 +138,20 @@ namespace JobFair.Forms.Recruiter
                 recruiterId = 12;
                 questionnarieName = txtQuestionnarieName.Text.Trim();
                 questionnarieId = questionnarieBAL.SaveQuestionnarieBAL(questionnarieName, recruiterId);
-                if(questionnarieId!=null)
+                if (questionnarieId != 0)
                 {
+                    ViewState["QuestionnarieId"] = questionnarieId;
                     pnlQuestion.Visible = true;
+                    pnlQuestionnarie.Visible = false;
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Questionnarie already exists')</script>");
                 }
             }
             catch (Exception)
             {
-                throw;
+               // throw;
             }
         }
     }
