@@ -10,6 +10,11 @@ namespace DAL
     {
         private SqlConnection Connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// Get technical skill DAL
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>DataTable</returns>
         public DataTable GetTechnicalSkill(string prefixText)
         {
             Connection.Open();
@@ -33,6 +38,11 @@ namespace DAL
             return dt;
         }
 
+        /// <summary>
+        /// Get city DAL
+        /// </summary>
+        /// <param name="prefixText">prefixText</param>
+        /// <returns>DataTable</returns>
         public DataTable GetCity(string prefixText)
         {
             Connection.Open();
@@ -56,6 +66,11 @@ namespace DAL
             return dt;
         }
 
+        /// <summary>
+        /// Get jobs from search dal
+        /// </summary>
+        /// <param name="searchEntity">AdvanceSearchDetailsEntity</param>
+        /// <returns>DataSet</returns>
         public DataSet JobSearchDAL(AdvanceSearchDetailsEntity searchEntity)
         {
             DataSet ds = new DataSet();

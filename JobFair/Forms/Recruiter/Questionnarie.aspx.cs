@@ -12,12 +12,16 @@ namespace JobFair.Forms.Recruiter
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check if page is not postback
             if (!IsPostBack)
             {
                 AddDefaultFirstRecord();
             }
         }
 
+        /// <summary>
+        /// Add default record to gridview
+        /// </summary>
         private void AddDefaultFirstRecord()
         {
             try
@@ -46,6 +50,11 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnAddQuestion control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAddQuestion_Click(object sender, EventArgs e)
         {
             AddNewRecordRowToGrid();
@@ -54,6 +63,9 @@ namespace JobFair.Forms.Recruiter
             txtAnswer.Text = "";
         }
 
+        /// <summary>
+        /// Add record to grdQuestionnarie control
+        /// </summary>
         private void AddNewRecordRowToGrid()
         {
             try
@@ -111,6 +123,11 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnSubmit control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -130,6 +147,11 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnAddQuestionnarie control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAddQuestionnarie_Click(object sender, EventArgs e)
         {
             try
@@ -138,6 +160,7 @@ namespace JobFair.Forms.Recruiter
                 recruiterId = 12;
                 questionnarieName = txtQuestionnarieName.Text.Trim();
                 questionnarieId = questionnarieBAL.SaveQuestionnarieBAL(questionnarieName, recruiterId);
+                // Check if questionnarieId is not equal to zero
                 if (questionnarieId != 0)
                 {
                     ViewState["QuestionnarieId"] = questionnarieId;
@@ -151,7 +174,7 @@ namespace JobFair.Forms.Recruiter
             }
             catch (Exception)
             {
-               // throw;
+                // throw;
             }
         }
     }

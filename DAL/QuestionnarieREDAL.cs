@@ -9,6 +9,12 @@ namespace DAL
     {
         private SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["JobPortalCon"].ToString());
 
+        /// <summary>
+        /// Insert questionnarie DAL
+        /// </summary>
+        /// <param name="questionnarieName">questionnarieName</param>
+        /// <param name="recruiterId">recruiterId</param>
+        /// <returns>System.Int32</returns>
         public Int32 SaveQuestionnarieDAL(string questionnarieName, long recruiterId)
         {
             Int32 questionnarieId = 0;
@@ -26,7 +32,7 @@ namespace DAL
                 sparams[2].Direction = ParameterDirection.Output;
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_RE_InsertQuestionnarie, sparams);
                 questionnarieId = Convert.ToInt32(sparams[2].Value);
-                if (questionnarieId==0)
+                if (questionnarieId == 0)
                 {
                     return 0;
                 }
@@ -34,7 +40,7 @@ namespace DAL
             }
             catch (Exception)
             {
-               // throw;
+                // throw;
             }
             finally
             {
@@ -43,6 +49,11 @@ namespace DAL
             return questionnarieId;
         }
 
+        /// <summary>
+        /// Insert questions to database when create questionnarie
+        /// </summary>
+        /// <param name="dtQuestionnarie">for save the bulk of data to database</param>
+        /// <returns>DataTable</returns>
         public DataTable SaveQuestionDAL(DataTable dtQuestionnarie)
         {
             try
@@ -71,6 +82,11 @@ namespace DAL
             return dtQuestionnarie;
         }
 
+        /// <summary>
+        /// View questionnarie DAL
+        /// </summary>
+        /// <param name="questionnarieId">For view questionnarie</param>
+        /// <returns>DataSet</returns>
         public DataSet ViewQuestionnarieDAL(Int32 questionnarieId)
         {
             DataSet ds = new DataSet();
