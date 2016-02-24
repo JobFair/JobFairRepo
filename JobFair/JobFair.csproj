@@ -124,6 +124,7 @@
     <Content Include="Forms\Recruiter\Questionnarie.aspx" />
     <Content Include="Forms\Recruiter\RejectApplication.aspx" />
     <Content Include="Forms\Recruiter\SearchRecord.aspx" />
+    <Content Include="Forms\Recruiter\SearchResume.aspx" />
     <Content Include="Forms\Recruiter\ViewApplications.aspx" />
     <Content Include="Forms\Recruiter\ViewClientRequirementDetails.aspx" />
     <Content Include="Forms\Recruiter\ViewClientRequirements.aspx" />
@@ -512,6 +513,13 @@
     </Compile>
     <Compile Include="Forms\Recruiter\SearchRecord.aspx.designer.cs">
       <DependentUpon>SearchRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Recruiter\SearchResume.aspx.cs">
+      <DependentUpon>SearchResume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Recruiter\SearchResume.aspx.designer.cs">
+      <DependentUpon>SearchResume.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Recruiter\ViewApplications.aspx.cs">
       <DependentUpon>ViewApplications.aspx</DependentUpon>

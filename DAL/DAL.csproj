@@ -85,6 +85,7 @@
     <Compile Include="RequestEmailJSDAL.cs" />
     <Compile Include="SearchJSDAL.cs" />
     <Compile Include="SearchRecord.cs" />
+    <Compile Include="SearchResumeREDAL.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="UpdateJobPostDAL.cs" />
     <Compile Include="ViewAllJobPostDAL.cs" />
