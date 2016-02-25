@@ -69,7 +69,7 @@
         </div>--%>
 
     <div>
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="900px" Height="600px">
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="5" Width="900px" Height="600px">
             <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Profile Summary">
                 <ContentTemplate>
                     <table>
@@ -447,7 +447,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Professional Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer5" runat="server" ActiveTabIndex="1" CssClass="">
+                    <cc1:TabContainer ID="TabContainer5" runat="server" ActiveTabIndex="3" CssClass="">
                         <cc1:TabPanel ID="TabPanel15" runat="server" HeaderText="Professional Summary">
                             <ContentTemplate>
                                 <asp:LinkButton ID="lnkbtnProfessionalSummary" runat="server" OnClick="lnkbtnProfessionalSummary_Click">Edit</asp:LinkButton>
@@ -921,7 +921,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel5" runat="server" HeaderText="Skill Sets">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer3" runat="server" ActiveTabIndex="1" CssClass="" Width="100%">
+                    <cc1:TabContainer ID="TabContainer3" runat="server" ActiveTabIndex="0" CssClass="" Width="100%">
                         <cc1:TabPanel ID="TabPanel10" runat="server" HeaderText="Role skills">
                             <ContentTemplate>
                                 <asp:LinkButton ID="lnkbtnRoleSkillsEdit" runat="server" OnClick="lnkbtnRoleSkillsEdit_Click">Edit</asp:LinkButton>

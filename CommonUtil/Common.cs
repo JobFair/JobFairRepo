@@ -411,6 +411,10 @@ namespace CommonUtil
                 
                 throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

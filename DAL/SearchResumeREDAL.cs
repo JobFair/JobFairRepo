@@ -20,6 +20,10 @@ namespace DAL
             {
                 throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return ds;
         }
 
@@ -34,6 +38,10 @@ namespace DAL
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                connection.Close();
             }
             return ds;
         }
@@ -50,7 +58,57 @@ namespace DAL
             {
                 throw;
             }
+            finally
+            {
+                connection.Close();
+            }
             return requirementId;
+        }
+
+        public DataTable GetRolesDAL(string prefixText)
+        {
+            connection.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(Constants.sp_SelectRoleSkills, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RoleName", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+
+        public DataTable GetTechnicalSkillsDAL(string prefixText)
+        {
+            connection.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(Constants.sp_SelectTechnicalSkills, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TechnicalSkillName", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
         }
     }
 }
