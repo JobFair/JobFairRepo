@@ -41,14 +41,14 @@ namespace DAL
                 candidateid = sparams[2].Value.ToString();
                 isreffered = sparams[3].Value.ToString();
                 Result = candidateid +"/ "+isreffered;
-                
-                
+
+               
 
                 if (string.IsNullOrEmpty(candidateid) )
                 {
                     return null;
                 }
-                return isreffered;
+               // return isreffered;
 
             }
             catch (Exception)

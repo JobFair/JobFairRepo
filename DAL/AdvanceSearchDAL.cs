@@ -59,14 +59,26 @@ namespace DAL
         public DataTable GetRoles(string prefixText)
         {
             DataTable dt = new DataTable();
+           
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("select * from RoleSkills  where RoleName like @RoleName+'%'", connection);
-                cmd.Parameters.AddWithValue("@RoleName", prefixText);
+                SqlCommand cmd = new SqlCommand("select   JobTitle, JobDescription,KeywordsRoles ,KeywordsTechnical from RE_JobPost  where  JobTitle like '%'   +  '" + prefixText + "'+'%' or JobDescription like '%'  + '" + prefixText + "'+'%' or KeywordsRoles like '%'  + '" + prefixText + "'+ '%'  or KeywordsTechnical like '%'  + '" + prefixText + "'+'%'  order by  JobTitle,JobDescription,KeywordsRoles,KeywordsTechnical", connection);
+
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
+               
                 adp.Fill(dt);
+                //string[] items = new string[dt.Rows.Count];
+                //int i = 0;
+                //foreach (DataRow dr in dt.Rows)
+                //{
+                //    items.SetValue(dr["AllName"].ToString(), i);
+                //    i++;
+                //}
+                //return items;  
+                
             }
+
             catch (Exception)
             {
                 // throw;
@@ -75,7 +87,10 @@ namespace DAL
             {
                 connection.Close();
             }
+
             return dt;
+           
+            
         }
         /// <summary>
         /// Search for job
