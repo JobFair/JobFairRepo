@@ -398,7 +398,7 @@
         <tr>
             <td>Current Work Status</td>
             <td>
-                <asp:DropDownList ID="ddlWorkStatus" runat="server">
+                <asp:DropDownList ID="ddlWorkStatus" runat="server" OnSelectedIndexChanged="ddlWorkStatus_SelectedIndexChanged">
                     <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Looking For The Job</asp:ListItem>
                     <asp:ListItem>Offer Accepted</asp:ListItem>

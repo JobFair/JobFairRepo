@@ -54,5 +54,23 @@ namespace BAL
             SearchResumeREDAL searchResumeDAL = new SearchResumeREDAL();
             return searchResumeDAL.GetTechnicalSkillsDAL(prefixText);
         }
+
+        public DataTable GetCountryBAL(string prefixText)
+        {
+            SearchResumeREDAL searchResumeDAL = new SearchResumeREDAL();
+            return searchResumeDAL.GetCountryDAL(prefixText);
+        }
+
+        public DataTable GetStateBAL(string prefixText)
+        {
+            SearchResumeREDAL searchResumeDAL = new SearchResumeREDAL();
+            return searchResumeDAL.GetStateDAL(prefixText);
+        }
+
+        public DataTable GetCityBAL(string prefixText)
+        {
+            SearchResumeREDAL searchResumeDAL = new SearchResumeREDAL();
+            return searchResumeDAL.GetCityDAL(prefixText);
+        }
     }
 }

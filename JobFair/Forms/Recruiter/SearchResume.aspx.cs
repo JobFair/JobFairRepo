@@ -151,6 +151,72 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
+        public static List<string> GetCountry(string prefixText)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SearchResumeREBAL searchResumeBAL = new SearchResumeREBAL();
+                dt = searchResumeBAL.GetCountryBAL(prefixText);
+                List<string> rolename = new List<string>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rolename.Add(dt.Rows[i][1].ToString());
+                }
+                return rolename;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
+        public static List<string> GetState(string prefixText)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SearchResumeREBAL searchResumeBAL = new SearchResumeREBAL();
+                dt = searchResumeBAL.GetStateBAL(prefixText);
+                List<string> rolename = new List<string>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rolename.Add(dt.Rows[i][1].ToString());
+                }
+                return rolename;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
+        public static List<string> GetCity(string prefixText)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SearchResumeREBAL searchResumeBAL = new SearchResumeREBAL();
+                dt = searchResumeBAL.GetCityBAL(prefixText);
+                List<string> rolename = new List<string>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    rolename.Add(dt.Rows[i][1].ToString());
+                }
+                return rolename;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         protected void ddlClientName_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -189,6 +255,11 @@ namespace JobFair.Forms.Recruiter
             {
                 throw;
             }
+        }
+
+        protected void btnFindResume_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

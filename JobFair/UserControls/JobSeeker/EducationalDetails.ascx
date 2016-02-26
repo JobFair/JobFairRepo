@@ -48,7 +48,7 @@
                         <asp:Label ID="lblSSCMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtSSCMedium" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
+                        <asp:TextBox ID="txtSSCMedium" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvSSCMedium" runat="server" ControlToValidate="txtSSCMedium" ValidationGroup="vgEducationalDetails" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>

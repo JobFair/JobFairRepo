@@ -110,5 +110,74 @@ namespace DAL
             }
             return dt;
         }
+
+        public DataTable GetCountryDAL(string prefixText)
+        {
+            connection.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select CountryId,CountryName from Country  where CountryName like @CountryName+'%'", connection);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@CountryName", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+
+        public DataTable GetStateDAL(string prefixText)
+        {
+            connection.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select StateId,StateName from State where StateName like @StateName+'%'", connection);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@StateName", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+
+        public DataTable GetCityDAL(string prefixText)
+        {
+            connection.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select CityId,CityName from City where CityName like @CityName+'%'", connection);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@CityName", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
     }
 }
