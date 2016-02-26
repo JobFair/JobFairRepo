@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DemoEducationalDetails.aspx.cs" Inherits="JobFair.UserControls.JobSeeker.DemoEducationalDetails" %>
 
+<%@ Register Src="~/UserControls/JobSeeker/ProfessionalDetails.ascx" TagPrefix="uc1" TagName="ProfessionalDetails" %>
 
-<%@ Register Src="~/UserControls/JobSeeker/EducationalDetails.ascx" TagPrefix="uc1" TagName="EducationalDetails" %>
+
+
 
 
 <script src="../../Scripts/ValidationAll.js"></script>
@@ -17,7 +19,7 @@
     <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
        <div>
-           <uc1:EducationalDetails runat="server" ID="EducationalDetails" />
+           <uc1:ProfessionalDetails runat="server" ID="ProfessionalDetails" />
        </div>
     </form>
 </body>

@@ -1,19 +1,19 @@
-﻿using System;
-using System.Web.UI.WebControls;
+﻿using BAL;
+using System;
 using System.Data;
-using BAL;
+using System.Web.UI.WebControls;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewJobPost : System.Web.UI.Page
     {
-        Int64 candidateId = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
             DataSet dsJobPost = new DataSet();
-            ViewJobPostBAL viewJobPostBAL=new ViewJobPostBAL();
+            ViewJobPostBAL viewJobPostBAL = new ViewJobPostBAL();
             dsJobPost = viewJobPostBAL.ViewAllJobPostBAL();
-            if(dsJobPost!=null)
+            // Check if dsJobPost is not null
+            if (dsJobPost != null)
             {
                 rptrJobPost.DataSource = dsJobPost;
                 rptrJobPost.DataBind();

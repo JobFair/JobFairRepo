@@ -81,6 +81,7 @@
     <Compile Include="RequestEmailJSBAL.cs" />
     <Compile Include="SearchJSBAL.cs" />
     <Compile Include="searchRecordBAL.cs" />
+    <Compile Include="SearchResumeREBAL.cs" />
     <Compile Include="ViewAllJobPostBAL.cs" />
     <Compile Include="ViewApplicationsBAL.cs" />
     <Compile Include="ViewClientRequirementDetailsREBAL.cs" />

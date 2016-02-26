@@ -10,28 +10,11 @@
     <form id="form1" runat="server">
         <div>
 
-            <table border="1">
-                <tr>
-                    <td>
-                        <%--<asp:Label ID="Label1" runat="server"></asp:Label>--%>
+          
+            <h2>Questionnarie</h2>
+            <br />
                         <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
-                        <asp:CheckBoxList
-                            ID="CheckBoxList1"
-                            runat="server">
-                        </asp:CheckBoxList>
-                        <asp:DropDownList ID="DropDownList1" runat="server" Visible="false"></asp:DropDownList>
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
-                        <br />
-                        <br />
-
-                    </td>
-                </tr>
-            </table>
+                
         </div>
     </form>
 </body>

@@ -20,7 +20,7 @@
     &nbsp;<table id="TableCurrentJob" runat="server">
         <tr>
             <td colspan="2">
-                <h1>&nbsp;Professional Details</h1>
+                <h1>Professional Details</h1>
             </td>
         </tr>
         <tr>
@@ -83,7 +83,7 @@
                     <table>
                         <tr>
                             <td colspan="2">
-                                <h1>&nbsp;Employer Details</h1>
+                                <h1>Employer Details</h1>
                             </td>
                         </tr>
                         <tr>
@@ -398,7 +398,7 @@
         <tr>
             <td>Current Work Status</td>
             <td>
-                <asp:DropDownList ID="ddlWorkStatus" runat="server">
+                <asp:DropDownList ID="ddlWorkStatus" runat="server" OnSelectedIndexChanged="ddlWorkStatus_SelectedIndexChanged">
                     <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Looking For The Job</asp:ListItem>
                     <asp:ListItem>Offer Accepted</asp:ListItem>

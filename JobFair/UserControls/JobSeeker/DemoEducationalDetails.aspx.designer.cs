@@ -31,12 +31,12 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// EducationalDetails control.
+        /// ProfessionalDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JobFair.UserControls.JobSeeker.EducationalDetails EducationalDetails;
+        protected global::JobFair.UserControls.JobSeeker.ProfessionalDetails ProfessionalDetails;
     }
 }

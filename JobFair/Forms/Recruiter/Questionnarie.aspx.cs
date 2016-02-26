@@ -7,16 +7,21 @@ namespace JobFair.Forms.Recruiter
     public partial class Questionrie : System.Web.UI.Page
     {
         private string questionnarieName;
+        private int questionnarieId;
         private Int64 recruiterId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check if page is not postback
             if (!IsPostBack)
             {
                 AddDefaultFirstRecord();
             }
         }
 
+        /// <summary>
+        /// Add default record to gridview
+        /// </summary>
         private void AddDefaultFirstRecord()
         {
             try
@@ -26,7 +31,7 @@ namespace JobFair.Forms.Recruiter
                 DataRow dr;
                 dt.TableName = "Questionnarie";
                 // Creating columns for DataTable
-                //dt.Columns.Add(new DataColumn("RecruiterId", typeof(Int64)));
+
                 dt.Columns.Add(new DataColumn("QuestionnaireId", typeof(Int32)));
                 dt.Columns.Add(new DataColumn("QuestionName", typeof(string)));
                 dt.Columns.Add(new DataColumn("QuestionType", typeof(string)));
@@ -45,11 +50,22 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnAddQuestion control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnAddQuestion_Click(object sender, EventArgs e)
         {
             AddNewRecordRowToGrid();
+            txtQuestion.Text = "";
+            ddlQuestionType.SelectedIndex = 0;
+            txtAnswer.Text = "";
         }
 
+        /// <summary>
+        /// Add record to grdQuestionnarie control
+        /// </summary>
         private void AddNewRecordRowToGrid()
         {
             try
@@ -67,7 +83,7 @@ namespace JobFair.Forms.Recruiter
                             // Creating new row and assigning values
                             drCurrentRow = dtCurrentTable.NewRow();
                             //drCurrentRow["RecruiterId"] = 12;
-                            
+                            drCurrentRow["QuestionnaireId"] = ViewState["QuestionnarieId"];
                             drCurrentRow["QuestionName"] = txtQuestion.Text.Trim();
                             drCurrentRow["QuestionType"] = ddlQuestionType.SelectedItem.Text;
                             drCurrentRow["AnswerOption"] = txtAnswer.Text.Trim();
@@ -107,23 +123,58 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnSubmit control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
-                recruiterId = 12;
-                questionnarieName = txtQuestionnarieName.Text.Trim();
                 QuestionnarieREBAL questionnarieBAL = new QuestionnarieREBAL();
                 DataTable dtQuestionnarie = (DataTable)ViewState["Questionnarie"];
-                questionnarieBAL.SaveQuestionnarieBAL(dtQuestionnarie, questionnarieName, recruiterId);
+                questionnarieBAL.SaveQuestionBAL(dtQuestionnarie);
                 grdQuestionnarie.DataSource = null;
                 grdQuestionnarie.DataBind();
                 ViewState["Questionnarie"] = null;
+                ViewState["QuestionnarieId"] = null;
                 Response.Write("<script language='javascript'>alert('Questionnarie created...')</script>");
             }
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of the btnAddQuestionnarie control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected void btnAddQuestionnarie_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                QuestionnarieREBAL questionnarieBAL = new QuestionnarieREBAL();
+                recruiterId = 12;
+                questionnarieName = txtQuestionnarieName.Text.Trim();
+                questionnarieId = questionnarieBAL.SaveQuestionnarieBAL(questionnarieName, recruiterId);
+                // Check if questionnarieId is not equal to zero
+                if (questionnarieId != 0)
+                {
+                    ViewState["QuestionnarieId"] = questionnarieId;
+                    pnlQuestion.Visible = true;
+                    pnlQuestionnarie.Visible = false;
+                }
+                else
+                {
+                    Response.Write("<script language='javascript'>alert('Questionnarie already exists')</script>");
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
             }
         }
     }
