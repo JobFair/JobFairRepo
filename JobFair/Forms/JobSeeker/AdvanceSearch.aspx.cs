@@ -86,7 +86,8 @@ namespace JobFair.Forms.JobSeeker
                     chkarea.DataTextField = "AreaName";
                     chkarea.DataValueField = "AreaId";
                     chkarea.DataBind();
-                    chkarea.Items.Insert(0, new ListItem("-----select---", ""));
+                    chkarea.Items.Insert(0, new ListItem("--Select--", ""));
+                    
                 }
             }
             catch (Exception)
@@ -169,7 +170,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
                 }
-                if (ddlState.SelectedValue == "" || ddlState.Text == "--Select--") 
+                if (ddlState.SelectedItem.Text == "" || ddlState.SelectedValue.Trim() == "--Select--") 
                 {
                     advanceSearchEntity.State = null;
                 }
@@ -177,7 +178,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.State = ddlState.SelectedValue.Trim();
                 }
-                if (ddlCity.SelectedValue == "" || ddlCity.Text == "--Select--")
+                if (ddlCity.SelectedItem.Text == "" || ddlCity.SelectedValue.Trim() == "--Select--")
                 {
                     advanceSearchEntity.City = null;
                 }
@@ -185,7 +186,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.City = ddlCity.SelectedValue.Trim();
                 }
-                if (chkarea.SelectedValue == "" || chkarea.Text == "--Select--")
+                if (chkarea.SelectedItem.Text == "" || chkarea.SelectedValue.Trim() == "--Select--")
                 {
                     advanceSearchEntity.Area = null;
                 }
@@ -193,7 +194,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.Area = chkarea.SelectedValue.Trim();
                 }
-                if (ddlWorkExperienceMin.SelectedValue == "" || ddlWorkExperienceMin.Text == "0")
+                if (ddlWorkExperienceMin.SelectedValue == "" || ddlWorkExperienceMin.Text == "Select")
                 {
                     advanceSearchEntity.WorkExpMin = null;
 
@@ -203,7 +204,7 @@ namespace JobFair.Forms.JobSeeker
                     advanceSearchEntity.WorkExpMin = ddlWorkExperienceMin.SelectedValue.Trim();
 
                 }
-                if (ddlWorkExperienceMax.SelectedValue == "" || ddlWorkExperienceMax.Text == "0")
+                if (ddlWorkExperienceMax.SelectedValue == "" || ddlWorkExperienceMax.Text == "Select")
                 {
                     advanceSearchEntity.WorkExpMax = null;
 
@@ -232,7 +233,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.MaxSalary = ddlMaxSalary.SelectedValue.Trim();
                 }
-                if (chkIndustry.SelectedValue  == "" || chkIndustry.Text == "---select---")
+                if (chkIndustry.SelectedValue  == "" || chkIndustry.SelectedValue == "---select---")
                 {
                     advanceSearchEntity.Industry =( null);
                 }
@@ -279,7 +280,7 @@ namespace JobFair.Forms.JobSeeker
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
         public static List<string> GetRoles(string prefixText)
-        {
+{
             DataTable dtRoles = new DataTable();
 
             AdvanceJobSearchBAL advanceSearchBAL = new AdvanceJobSearchBAL();
@@ -290,10 +291,12 @@ namespace JobFair.Forms.JobSeeker
                 // Check datatable is not null
                 if (dtRoles != null)
                 {
-                    for (int i = 0; i < dtRoles.Rows.Count; i++)
+                    for (int i = 0; i < dtRoles.Columns.Count; i++)
                     {
                         rolename.Add(dtRoles.Rows[i][1].ToString());
+                       
                     }
+
                 }
             }
             catch (Exception)

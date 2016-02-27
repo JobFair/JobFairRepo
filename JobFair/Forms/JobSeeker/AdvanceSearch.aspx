@@ -79,6 +79,7 @@
                     </td>
                     <td>&nbsp;
                         <asp:DropDownList ID="ddlWorkExperienceMin" runat="server">
+                            <asp:ListItem Value="">Select</asp:ListItem>
                             <asp:ListItem>0</asp:ListItem>
                             <asp:ListItem>0.5</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
@@ -113,6 +114,7 @@
                         </asp:DropDownList>
                     &nbsp;To
                         <asp:DropDownList ID="ddlWorkExperienceMax" runat="server">
+                            <asp:ListItem Value="">Select</asp:ListItem>
                              <asp:ListItem>0</asp:ListItem>
                             <asp:ListItem>0.5</asp:ListItem>
                             <asp:ListItem>1</asp:ListItem>
