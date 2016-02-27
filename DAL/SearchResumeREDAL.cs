@@ -179,5 +179,28 @@ namespace DAL
             }
             return dt;
         }
+
+        public DataTable GetKeywordsDAL(string prefixText)
+        {
+            connection.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(Constants.sp_RE_SelectKeywords, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@searchText", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
     }
 }

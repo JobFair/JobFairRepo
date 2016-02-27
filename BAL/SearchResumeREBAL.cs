@@ -72,5 +72,16 @@ namespace BAL
             SearchResumeREDAL searchResumeDAL = new SearchResumeREDAL();
             return searchResumeDAL.GetCityDAL(prefixText);
         }
+
+        public DataSet GetCountryBAL()
+        {
+            return Utility.GetCountry();
+        }
+
+        public DataTable GetKeywordsBAL(string prefixText)
+        {
+            SearchResumeREDAL searchResumeDAL = new SearchResumeREDAL();
+            return searchResumeDAL.GetKeywordsDAL(prefixText);
+        }
     }
 }

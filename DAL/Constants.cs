@@ -161,5 +161,6 @@
         public static string sp_RE_SelectActiveClientName = "sp_RE_SelectActiveClientName";
         public static string sp_RE_SelectActiveRequirementPosition = "sp_RE_SelectActiveRequirementPosition";
         public static string sp_RE_SelectRequirementId = "sp_RE_SelectRequirementId";
+        public static string sp_RE_SelectKeywords = "sp_RE_SelectKeywords";
     }
 }
