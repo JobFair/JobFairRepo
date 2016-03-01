@@ -194,7 +194,7 @@
                                                 <tr>
                                                    <td> 
                                             Key Skill &nbsp;&nbsp;&nbsp;
-                                   <asp:Label ID="lblkeywordstechnical" runat="server" Text='<%#Eval("KeywordsTechnical")%>'></asp:Label>
+                                   <asp:Label ID="lblkeywordstechnical" runat="server" Text='<%#highlighttext(Eval("KeywordsTechnical").ToString())%>'></asp:Label>
                                                        </td>
                                                 </tr>
                                             </table>

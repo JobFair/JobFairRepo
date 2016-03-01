@@ -162,5 +162,7 @@
         public static string sp_RE_SelectActiveRequirementPosition = "sp_RE_SelectActiveRequirementPosition";
         public static string sp_RE_SelectRequirementId = "sp_RE_SelectRequirementId";
         public static string sp_RE_SelectKeywords = "sp_RE_SelectKeywords";
+
+        public static string sp_JS_SelectKeywords = "sp_JS_SelectKeywords";
     }
 }

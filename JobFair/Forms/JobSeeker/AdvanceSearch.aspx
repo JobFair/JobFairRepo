@@ -7,10 +7,39 @@
 <script  type="text/javascript" src="../../Scripts/ValidationAll.js"></script>
 
 <!DOCTYPE html>
+<link href="../../Css/Style.css" rel="stylesheet" />
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+   <%-- <style>
+        .autocomplit_highlitedItem 
+        {
+
+            background-color:red;
+            color:black;
+            padding :1px;
+            cursor: pointer;
+
+        }
+        .autocomplit_completionListelement {
+
+            margin: 0px !important;
+           background-color: inherit;
+            color: windowtext;
+           border: buttonshadow
+          cursor: 'default';
+          overflow: auto;
+         height: 50px;
+          text-align: left;
+           list-style-type: none;
+           padding-left: 1px;
+        }
+
+
+
+    </style>--%>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -27,12 +56,13 @@
             <table>
                 <tr>
                     <td>
-                        <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill"></asp:Label>
+                        <asp:Label ID="lblkeyskill" runat="server" Text="KeySkill" ></asp:Label>
                     </td>
                     <td>
                         <asp:TextBox ID="txtkeyskill" runat="server"></asp:TextBox>
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
-                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRoles"></cc1:AutoCompleteExtender>
+                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRoles" DelimiterCharacters =","> 
+                        </cc1:AutoCompleteExtender>
                     </td>
                 </tr>
                 <tr>
