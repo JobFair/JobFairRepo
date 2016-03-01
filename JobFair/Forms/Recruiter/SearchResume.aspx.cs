@@ -16,6 +16,29 @@ namespace JobFair.Forms.Recruiter
                 GetIndustry();
                 GetFunctionalArea();
                 GetDepartment();
+                GetCountry();
+            }
+        }
+
+        private void GetCountry()
+        {
+            try
+            {
+                SearchResumeREBAL searchResumeBAL = new SearchResumeREBAL();
+                DataSet dsCountry = new DataSet();
+                dsCountry = searchResumeBAL.GetCountryBAL();
+                if (dsCountry != null)
+                {
+                    ddlWorkPermit.DataSource = dsCountry;
+                    ddlWorkPermit.DataTextField = "CountryName";
+                    ddlWorkPermit.DataValueField = "CountryId";
+                    ddlWorkPermit.DataBind();
+                    ddlWorkPermit.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -217,6 +240,28 @@ namespace JobFair.Forms.Recruiter
             }
         }
 
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod()]
+        public static List<string> GetKeywords(string prefixText)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SearchResumeREBAL searchResumeBAL = new SearchResumeREBAL();
+                dt = searchResumeBAL.GetKeywordsBAL(prefixText);
+                List<string> skillname = new List<string>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    skillname.Add(dt.Rows[i][0].ToString());
+                }
+                return skillname;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         protected void ddlClientName_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -259,7 +304,6 @@ namespace JobFair.Forms.Recruiter
 
         protected void btnFindResume_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

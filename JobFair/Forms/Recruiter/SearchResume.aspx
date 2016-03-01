@@ -52,7 +52,10 @@
                         <tr>
                             <td>Any Keywords</td>
                             <td>
-                                <asp:TextBox ID="txtKeywords" runat="server"></asp:TextBox></td>
+                                <asp:TextBox ID="txtKeywords" runat="server"></asp:TextBox>
+                                <cc1:AutoCompleteExtender ID="autoExtenderKeywords" runat="server" TargetControlID="txtKeywords" MinimumPrefixLength="1"
+                                    EnableCaching="false" CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetKeywords" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true"></cc1:AutoCompleteExtender>
+                            </td>
                         </tr>
                         <tr>
                             <td>All Keywords</td>
