@@ -72,5 +72,10 @@ namespace BAL
             AffirmativeDetailsJSDAL affirmativeDetailsBAL = new AffirmativeDetailsJSDAL();
             return affirmativeDetailsBAL.UpdateLanguageDetailsDAL(languageEntity, candidateId);
         }
+
+        public DataSet GetCountryBAL()
+        {
+            return Utility.GetCountry();
+        }
     }
 }

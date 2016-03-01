@@ -328,13 +328,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblOtherPermit;
         
         /// <summary>
-        /// txtOtherPermit control.
+        /// ddlOtherPermit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOtherPermit;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOtherPermit;
         
         /// <summary>
         /// btnSubmit control.

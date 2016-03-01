@@ -44,7 +44,7 @@
         public static string sp_HR_ViewEmployerDetails = "sp_HR_ViewEmployerDetails";
         public static string sp_HR_UpdateEmployerDetails = "sp_HR_UpdateEmployerDetails";
         public const string sp_Country = "sp_Country";
-        public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
+        public const string sp_JS_InsertOtherDetails = "sp_JS_InsertOtherDetails";
         public const string sp_State = "sp_State";
         public const string sp_City = "sp_City";
         public const string sp_JS_InsertResumeFormatting = "sp_JS_InsertResumeFormatting";

@@ -16,6 +16,7 @@
 </style>
 
 <div>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     &nbsp;
     &nbsp;<table id="TableCurrentJob" runat="server">
         <tr>
@@ -398,7 +399,7 @@
         <tr>
             <td>Current Work Status</td>
             <td>
-                <asp:DropDownList ID="ddlWorkStatus" runat="server" OnSelectedIndexChanged="ddlWorkStatus_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlWorkStatus" runat="server">
                     <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Looking For The Job</asp:ListItem>
                     <asp:ListItem>Offer Accepted</asp:ListItem>

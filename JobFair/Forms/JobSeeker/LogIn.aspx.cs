@@ -19,7 +19,6 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                
                 LoginBAL liBAL = new LoginBAL();
                 LoginEnitity logjsEntity = new LoginEnitity();
 
@@ -29,9 +28,7 @@ namespace JobFair.Forms.JobSeeker
 
                 string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
 
-
-
-               // string format = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]); ;
+                // string format = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]); ;
                 string[] Words = candidateID.Split(new char[] { '/' });
                 int count = 0;
 
@@ -52,14 +49,13 @@ namespace JobFair.Forms.JobSeeker
                             Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssid=" + Session["Candidateid"]);
 
                             return;
+                        }
+                        Session["Candidateid"] = candidateID;
                     }
-                     Session["Candidateid"] = candidateID;
-                    
-                  }
                     if (count == 2)
                     {
                         isreffered = Word;
-                       
+
                         if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
                         {
                             Session["Isreffered"] = isreffered;
@@ -67,31 +63,16 @@ namespace JobFair.Forms.JobSeeker
                             {
                                 lblmsg.Text = "Wrong username or password";
                                 return;
-
                             }
                             Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssreffered=" + Session["Isreffered"]);
                             return;
-
-
                         }
                         Session["Isreffered"] = isreffered;
-
-
                     }
-                   
-               
-
-
-                    
                 }
 
-
-              
-               
-
-                
                 //Session["UserType"] = 1;
-                Response.Redirect("AdvanceSearch.aspx");
+                Response.Redirect("WebForm1.aspx");
                 //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)

@@ -103,6 +103,15 @@ namespace JobFair.Forms.Recruiter {
         protected global::System.Web.UI.WebControls.TextBox txtAllKeywords;
         
         /// <summary>
+        /// autoExtenderAllKeywords control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender autoExtenderAllKeywords;
+        
+        /// <summary>
         /// txtExcludingKeywords control.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,15 @@ namespace JobFair.Forms.Recruiter {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExcludingKeywords;
+        
+        /// <summary>
+        /// autoExtenderExcludeKeywords control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender autoExtenderExcludeKeywords;
         
         /// <summary>
         /// ddlWorkStatus control.

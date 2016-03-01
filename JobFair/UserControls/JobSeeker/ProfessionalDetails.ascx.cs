@@ -13,7 +13,7 @@ namespace JobFair.UserControls.JobSeeker
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
         private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
-        private string candidateId;
+        private string candidateId="1";
         private bool isEdit = true;
 
         /// <summary>
@@ -25,11 +25,11 @@ namespace JobFair.UserControls.JobSeeker
         {
             //isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
             // Check session is not null
-            if (Session["candidateId"] != null)
-            {
-                if (Session["candidateId"].ToString() != "")
-                {
-                    candidateId = Convert.ToString(Session["candidateId"]);
+            //if (Session["candidateId"] != null)
+            //{
+            //    if (Session["candidateId"].ToString() != "")
+            //    {
+            //        candidateId = Convert.ToString(Session["candidateId"]);
                     // Check page is not post back
                     if (!IsPostBack)
                     {
@@ -215,8 +215,8 @@ namespace JobFair.UserControls.JobSeeker
                             BindJobPostLookingGrid();
                         }
                     }
-                }
-            }
+            //    }
+            //}
         }
 
         private void BindJobPostLookingGrid()
@@ -712,7 +712,7 @@ namespace JobFair.UserControls.JobSeeker
             DataTable dt = (DataTable)ViewState["JobDetails"];
             try
             {
-                if (!isEdit)
+                if (isEdit)
                 {
                    
 
