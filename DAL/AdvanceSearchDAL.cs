@@ -63,15 +63,17 @@ namespace DAL
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("select   JobTitle, JobDescription,KeywordsRoles ,KeywordsTechnical from RE_JobPost  where  JobTitle like '%'   +  '" + prefixText + "'+'%' or JobDescription like '%'  + '" + prefixText + "'+'%' or KeywordsRoles like '%'  + '" + prefixText + "'+ '%'  or KeywordsTechnical like '%'  + '" + prefixText + "'+'%'  order by  JobTitle,JobDescription,KeywordsRoles,KeywordsTechnical", connection);
-
-                SqlDataAdapter adp = new SqlDataAdapter(cmd);
-               
-                adp.Fill(dt);
+                SqlCommand cmd = new SqlCommand(Constants.sp_JS_SelectKeywords,connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@searchtext", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+     
                 //string[] items = new string[dt.Rows.Count];
                 //int i = 0;
                 //foreach (DataRow dr in dt.Rows)
                 //{
+                
                 //    items.SetValue(dr["AllName"].ToString(), i);
                 //    i++;
                 //}
@@ -89,6 +91,7 @@ namespace DAL
             }
 
             return dt;
+         
            
             
         }

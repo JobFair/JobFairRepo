@@ -6,19 +6,21 @@ using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 using Entities.JobSeeker;
 using System.Web.UI;
+using System.Text.RegularExpressions;
 
 namespace JobFair.Forms.JobSeeker
 {
     public partial class jobSearch : System.Web.UI.Page
     {
         private EducationalDetailsBAL educationalDetails = null;
-        public string keySkill, city, state, experience, minSalary, maxSalary, candidateId;
+        public string keySkill, city, state, experience, minSalary, maxSalary, candidateId, str;
         public int functionalArea;
 
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
+          
             if (Session["myObject"] != null)
             {
                 DataSet ds = new DataSet();
@@ -46,6 +48,7 @@ namespace JobFair.Forms.JobSeeker
                 ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
                 // Response.Redirect("LogIn.aspx");
             }
+          
 
             //GetDataFromSession();
             if (!Page.IsPostBack)
@@ -65,6 +68,22 @@ namespace JobFair.Forms.JobSeeker
             //    functionalArea = Convert.ToInt32(Request.QueryString["functionalArea"]);
             //    rptr_bind();
             //    rptrJobPost.Visible = true;
+           // string str = Request.QueryString["valuetxt"];
+            str = Convert.ToString(Request.QueryString["valuetxt"]);
+        }
+
+
+        public string highlighttext(string str)
+        {
+            string search_text = str;
+            Regex regexp = new Regex(search_text.Replace(",", "\t").Trim(), RegexOptions.IgnoreCase);
+            return regexp.Replace(str, new MatchEvaluator(ReplaceKeyWords));
+
+        }
+
+        private string ReplaceKeyWords(Match m)
+        {
+            return ("<span class=highlight>" + m.Value + "</span>");
         }
 
         //private void rptr_bind()

@@ -65,7 +65,7 @@ namespace BAL
         /// </summary>
         /// <param name="prefixText">prefixText</param>
         /// <returns>datatable</returns>
-        public   DataTable GetRoles(string prefixText)
+        public DataTable GetRoles(string prefixText)
         {
             AdvanceSearchDAL advancesearchDAL = new AdvanceSearchDAL();
             return advancesearchDAL.GetRoles(prefixText);
