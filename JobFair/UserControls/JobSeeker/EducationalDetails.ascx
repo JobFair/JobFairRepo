@@ -40,7 +40,6 @@
     <asp:Panel ID="pnlCollapsableSSC" runat="server" Visible="False" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblSSCHead" runat="server" Text=" SSC / 10th Details" CssClass="label"></asp:Label>
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -48,8 +47,9 @@
                         <asp:Label ID="lblSSCMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtSSCMedium" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvSSCMedium" runat="server" ControlToValidate="txtSSCMedium" ValidationGroup="vgEducationalDetails" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="ddlSSCMedium" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvSSCMedium" runat="server" ControlToValidate="ddlSSCMedium" ValidationGroup="vgEducationalDetails" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -109,10 +109,9 @@
                     <td>
                         <asp:TextBox ID="txtSSCPercentage" runat="server" onblur="return CheckRange(this.id);" Width="100px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvSSCPercentage" runat="server" ControlToValidate="txtSSCPercentage" ValidationGroup="vgEducationalDetails" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="rvSSCPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtSSCPercentage" ValidationGroup="vgEducationalDetails"></asp:RangeValidator>--%>
+                        <%--<asp:RangeValidator ID="rvSSCPercentage" runat="server" ControlToValidate="txtSSCPercentage" ErrorMessage="Please Enter Percentage Between 35 to 100" ForeColor="Red" MaximumValue="100" MinimumValue="35" ValidationGroup="vgEducationalDetails"></asp:RangeValidator>--%>
                     </td>
                 </tr>
-            </caption>
         </table>
     </asp:Panel>
     <br />
@@ -127,8 +126,9 @@
                     <asp:Label ID="lblHSCMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtHSCMedium" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvHSCMedium" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtHSCMedium" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlHSCMedium" runat="server" AutoPostBack="true">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvHSCMedium" runat="server" ControlToValidate="ddlHSCMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -140,7 +140,7 @@
                         <asp:ListItem>Appeared</asp:ListItem>
                         <asp:ListItem>Completed</asp:ListItem>
                     </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="rfvHSCStat" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rblHSCStat" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvHSCStat" runat="server" ControlToValidate="rblHSCStat" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -150,7 +150,7 @@
                 <td>
                     <asp:DropDownList ID="ddlHSC" runat="server" AutoPostBack="True" Height="16px" Width="100px">
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="rfvHSCSpecialization" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlHSC" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvHSCSpecialization" runat="server" ControlToValidate="ddlHSC" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                     <br />
                     <asp:TextBox ID="txtHSCAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
                     <asp:Button ID="btnHSCAdd" runat="server" Text="Add" Visible="False" CssClass="button" />
@@ -179,7 +179,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtHSCCollege" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvHSCCollege" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtHSCCollege" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvHSCCollege" runat="server" ControlToValidate="txtHSCCollege" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -188,7 +188,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtHSCBoard" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvHSCBoard" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtHSCBoard" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvHSCBoard" runat="server" ControlToValidate="txtHSCBoard" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -197,8 +197,8 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtHSCPercentage" runat="server" Width="100px" onblur="return CheckIsNum(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvHSCPercentage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtHSCPercentage" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                    <%--<asp:RangeValidator ID="rvHSCPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtHSCPercentage"></asp:RangeValidator>--%>
+                    <asp:RequiredFieldValidator ID="rfvHSCPercentage" runat="server" ControlToValidate="txtHSCPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <%--<asp:RangeValidator ID="rvHSCPercentage" runat="server" ControlToValidate="txtHSCPercentage" ErrorMessage="Please Enter Percentage Between 35 to 100" ForeColor="Red" MaximumValue="100" MinimumValue="35"></asp:RangeValidator>--%>
                 </td>
             </tr>
         </table>
@@ -208,7 +208,6 @@
     <asp:Panel ID="pnlCollapsableDip" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblDipHead" runat="server" Text=" UG Diploma Details" CssClass="label"></asp:Label>
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -216,8 +215,9 @@
                         <asp:Label ID="lblDipMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtDipMedium" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvDipMedium" runat="server" ControlToValidate="txtDipMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="ddlDipMedium" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvDipMedium" runat="server" ControlToValidate="ddlDipMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -290,9 +290,8 @@
                     <td>
                         <asp:TextBox ID="txtDipPercentage" runat="server" onblur="return CheckIsNum(this.id);" Width="100px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDipPercentage" runat="server" ControlToValidate="txtDipPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="rvDipPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtDipPercentage"></asp:RangeValidator>--%></td>
+                        <%--<asp:RangeValidator ID="rvDipPercentage" runat="server" ControlToValidate="txtDipPercentage" ErrorMessage="Please Enter Percentage Between 35 to 100" ForeColor="Red" MaximumValue="100" MinimumValue="35"></asp:RangeValidator>--%></td>
                 </tr>
-            </caption>
         </table>
     </asp:Panel>
     <br />
@@ -307,8 +306,9 @@
                     <asp:Label ID="lblBDMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtBDMedium" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvBDMedium" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBDMedium" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlBDMedium" runat="server" AutoPostBack="true">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvBDMedium" runat="server" ControlToValidate="ddlBDMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -320,7 +320,7 @@
                         <asp:ListItem>Appeared</asp:ListItem>
                         <asp:ListItem>Completed</asp:ListItem>
                     </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="rfvBDStat" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rblBDStat" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvBDStat" runat="server" ControlToValidate="rblBDStat" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -333,7 +333,7 @@
                     <br />
                     <asp:TextBox ID="txtBDAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
                     <asp:Button ID="btnBDAdd" runat="server" OnClick="btnBDAdd_Click" Text="Add" Visible="False" CssClass="button" />
-                    <asp:RequiredFieldValidator ID="rfvBDSpecialization" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlBD" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvBDSpecialization" runat="server" ControlToValidate="ddlBD" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
              <tr>
@@ -359,7 +359,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtBDCollege" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvBDCollege" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBDCollege" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvBDCollege" runat="server" ControlToValidate="txtBDCollege" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -368,7 +368,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtBDUniversity" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvBDUniversity" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBDUniversity" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvBDUniversity" runat="server" ControlToValidate="txtBDUniversity" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -377,8 +377,8 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtBDPercentage" runat="server" Width="100px" onblur="return CheckIsNum(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvBDPercentage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBDPercentage" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                    <%--<asp:RangeValidator ID="rvBDPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtBDPercentage"></asp:RangeValidator>--%>
+                    <asp:RequiredFieldValidator ID="rfvBDPercentage" runat="server" ControlToValidate="txtBDPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <%--<asp:RangeValidator ID="rvBDPercentage" runat="server" ControlToValidate="txtBDPercentage" ErrorMessage="Please Enter Percentage Between 35 to 100" ForeColor="Red" MaximumValue="100" MinimumValue="35"></asp:RangeValidator>--%>
                 </td>
             </tr>
         </table>
@@ -389,7 +389,6 @@
     <asp:Panel ID="pnlCollapsableDualBD" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblDualBDHead" runat="server" Text="Dual Bachelors Degree Details" CssClass="label"></asp:Label>
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -397,8 +396,9 @@
                         <asp:Label ID="lblDualBDMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtDualBDMedium" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvDualBDMedium" runat="server" ControlToValidate="txtDualBDMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="ddlDualBDMedium" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvDualBDMedium" runat="server" ControlToValidate="ddlDualBDMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -471,9 +471,8 @@
                     <td>
                         <asp:TextBox ID="txtDualBDPercentage" runat="server" onblur="return CheckIsNum(this.id);" Width="100px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDualBDPercentage" runat="server" ControlToValidate="txtDualBDPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="rvDualBDPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtDualBDPercentage"></asp:RangeValidator>--%></td>
+                        <%--<asp:RangeValidator ID="rvDualBDPercentage" runat="server" ControlToValidate="txtDualBDPercentage" ErrorMessage="Please Enter Percentage Between 35 to 100" ForeColor="Red" MaximumValue="100" MinimumValue="35"></asp:RangeValidator>--%></td>
                 </tr>
-            </caption>
         </table>
     </asp:Panel>
     <br />
@@ -488,8 +487,9 @@
                     <asp:Label ID="lblPgdMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPgdMedium" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvPgdMedium" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPgdMedium" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlPgdMedium" runat="server" AutoPostBack="true">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvPgdMedium" runat="server" ControlToValidate="ddlPgdMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -501,7 +501,7 @@
                         <asp:ListItem>Appeared</asp:ListItem>
                         <asp:ListItem>Completed</asp:ListItem>
                     </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="rfvPgdStat" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rblPgdStat" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPgdStat" runat="server" ControlToValidate="rblPgdStat" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -514,7 +514,7 @@
                     <br />
                     <asp:TextBox ID="txtPgdAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
                     <asp:Button ID="btnPgdAdd" runat="server" OnClick="btnPgdAdd_Click" Text="Add" Visible="False" CssClass="button" />
-                    <asp:RequiredFieldValidator ID="rfvPgdSpecialization" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlPgd" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPgdSpecialization" runat="server" ControlToValidate="ddlPgd" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -540,7 +540,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtPgdCollege" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvPgdCollege" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPgdCollege" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPgdCollege" runat="server" ControlToValidate="txtPgdCollege" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -549,7 +549,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtPgdUniversity" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvPgdUniversity" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPgdUniversity" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPgdUniversity" runat="server" ControlToValidate="txtPgdUniversity" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -558,8 +558,8 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtPgdPercentage" runat="server" Width="100px" onblur="return CheckIsNum(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvPgdPercentage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPgdPercentage" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                    <%--<asp:RangeValidator ID="rvPgdPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtPgdPercentage"></asp:RangeValidator>--%>
+                    <asp:RequiredFieldValidator ID="rfvPgdPercentage" runat="server" ControlToValidate="txtPgdPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <%--<asp:RangeValidator ID="rvPgdPercentage" runat="server" ControlToValidate="txtPgdPercentage" ErrorMessage="Please Enter Percentage Between 35 to 100" ForeColor="Red" MaximumValue="100" MinimumValue="35"></asp:RangeValidator>--%>
                 </td>
             </tr>
         </table>
@@ -576,8 +576,9 @@
                     <asp:Label ID="lblMDMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtMDMedium" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvMDMedium" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMDMedium" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlMDMedium" runat="server" AutoPostBack="true">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvMDMedium" runat="server" ControlToValidate="ddlMDMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -589,7 +590,7 @@
                         <asp:ListItem>Appeared</asp:ListItem>
                         <asp:ListItem>Completed</asp:ListItem>
                     </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="rfvMDStat" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rblMDStat" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvMDStat" runat="server" ControlToValidate="rblMDStat" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -602,7 +603,7 @@
                     <br />
                     <asp:TextBox ID="txtMDAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
                     <asp:Button ID="btnMDAdd" runat="server" OnClick="btnMDAdd_Click" Text="Add" Visible="False" CssClass="button" />
-                    <asp:RequiredFieldValidator ID="rfvMDSpecialization" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlMD" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvMDSpecialization" runat="server" ControlToValidate="ddlMD" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -628,7 +629,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtMDCollege" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvMDCollege" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMDCollege" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvMDCollege" runat="server" ControlToValidate="txtMDCollege" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -637,7 +638,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtMDUniversity" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvMDUniversity" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMDUniversity" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvMDUniversity" runat="server" ControlToValidate="txtMDUniversity" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -646,8 +647,8 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtMDPercentage" runat="server" Width="100px" onblur="return CheckIsNum(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvMDPercentage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMDPercentage" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                    <%--<asp:RangeValidator ID="rvMDPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtMDPercentage"></asp:RangeValidator>--%>
+                    <asp:RequiredFieldValidator ID="rfvMDPercentage" runat="server" ControlToValidate="txtMDPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <%--<asp:RangeValidator ID="rvMDPercentage" runat="server" ControlToValidate="txtMDPercentage" ErrorMessage="Please Enter Percentage Between 35 to 100" ForeColor="Red" MaximumValue="100" MinimumValue="35"></asp:RangeValidator>--%>
                 </td>
             </tr>
         </table>
@@ -658,7 +659,6 @@
     <asp:Panel ID="pnlCollapsableDualMD" runat="server" Visible="false" CssClass="pnlCSS">
         <table>
             <asp:Label ID="lblDualMDHead" runat="server" Text=" Dual Masters Degree Details" CssClass="label"></asp:Label>
-            <caption>
                 <br />
                 <br />
                 <tr>
@@ -666,8 +666,9 @@
                         <asp:Label ID="lblDualMDMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtDualMDMedium" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvDualMDMedium" runat="server" ControlToValidate="txtDualMDMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="ddlDualMDMedium" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvDualMDMedium" runat="server" ControlToValidate="ddlDualMDMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -740,9 +741,8 @@
                     <td>
                         <asp:TextBox ID="txtDualMDPercentage" runat="server" onblur="return CheckIsNum(this.id);" Width="100px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDualMDPercentage" runat="server" ControlToValidate="txtDualMDPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
-                        <%--<asp:RangeValidator ID="rvDualMDPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtDualMDPercentage"></asp:RangeValidator>--%></td>
+                        <%--<asp:RangeValidator ID="rvDualMDPercentage" runat="server" ControlToValidate="txtDualMDPercentage" ErrorMessage="Please Enter Percentage Between 35 to 100" ForeColor="Red" MaximumValue="100" MinimumValue="35"></asp:RangeValidator>--%></td>
                 </tr>
-            </caption>
         </table>
     </asp:Panel>
     <br />
@@ -757,8 +757,9 @@
                     <asp:Label ID="lblPHDMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPHDMedium" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvPHDMedium" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPHDMedium" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlPHDMedium" runat="server" AutoPostBack="true">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvPHDMedium" runat="server" ControlToValidate="ddlPHDMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -770,7 +771,7 @@
                         <asp:ListItem>Appeared</asp:ListItem>
                         <asp:ListItem>Completed</asp:ListItem>
                     </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="rfvPHDStat" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="rblPHDStat" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPHDStat" runat="server" ControlToValidate="rblPHDStat" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -783,7 +784,7 @@
                     <br />
                     <asp:TextBox ID="txtPHDAdd" runat="server" Height="17px" Visible="False" Width="62px"></asp:TextBox>
                     <asp:Button ID="btnPHDAdd" runat="server" OnClick="btnPHDAdd_Click" Text="Add" Visible="False" CssClass="button" />
-                    <asp:RequiredFieldValidator ID="rfvPHDSpecialization" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlPHD" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPHDSpecialization" runat="server" ControlToValidate="ddlPHD" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -809,7 +810,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtPHDCollege" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvPHDCollege" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPHDCollege" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPHDCollege" runat="server" ControlToValidate="txtPHDCollege" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -818,7 +819,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtPHDUniversity" runat="server" Width="100px" onblur="return CheckOnlyChar(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvPHDUniversity" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPHDUniversity" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPHDUniversity" runat="server" ControlToValidate="txtPHDUniversity" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -827,7 +828,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txtPHDPercentage" runat="server" Width="100px" onblur="return CheckIsNum(this.id);"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvPHDPercentage" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPHDPercentage" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvPHDPercentage" runat="server" ControlToValidate="txtPHDPercentage" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEducationalDetails"></asp:RequiredFieldValidator>
                     <%--<asp:RangeValidator ID="rvPHDPercentage" runat="server" ErrorMessage="Please Enter Percentage Between 35 to 100" MaximumValue="100" MinimumValue="35" ForeColor="Red" ControlToValidate="txtPHDPercentage"></asp:RangeValidator>--%>
                 </td>
             </tr>

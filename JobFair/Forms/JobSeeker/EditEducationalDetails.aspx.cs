@@ -59,6 +59,13 @@ namespace JobFair.Forms.JobSeeker
                 List<string> MonthList = CommonUtil.Utility.GetMonths();
                 BindYear(YearList);
                 BindMonth(MonthList);
+
+                //Declration For Medium of Education 
+                DataSet dsLanguageDetails = new DataSet();
+                // Get Language Details
+                EducationalDetailsBAL educationalDetails = new EducationalDetailsBAL();
+                dsLanguageDetails = educationalDetails.GetLanguageBAL();
+                BindDropDownMedium(dsLanguageDetails);
             }
             catch (Exception)
             {
@@ -92,7 +99,8 @@ namespace JobFair.Forms.JobSeeker
                         //dsEducationalDetails = educationalDetails.UpdateEducationalDetailsBAL(CandidateId);
                         lblHead.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["DegreeName"]);
                         EditDetails.DegreeId = Convert.ToInt32(degreeId); ;
-                        txtMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                        //txtMedium.Text = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["MediumOfEducation"]);
+                        ddlMedium.SelectedValue = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["LanguageId"]);
                         string Status = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["Status"]);
                         rblStat.Items.FindByValue(Status).Selected = true;
                         ddlSpecialization.SelectedValue = Convert.ToString(dsEducationalDetails.Tables[0].Rows[0]["SpecializationId"]);
@@ -166,6 +174,28 @@ namespace JobFair.Forms.JobSeeker
                 // throw;
             }
         }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlMedium.DataSource = dsLanguageDetails;
+                    ddlMedium.DataValueField = "LanguageId";
+                    ddlMedium.DataTextField = "LanguageName";
+                    ddlMedium.DataBind();
+
+                    ddlMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
         private void BindYear(List<string> YearList)
         {
             try
@@ -204,7 +234,7 @@ namespace JobFair.Forms.JobSeeker
                 EducationalDetailsEntity educationalDetails = new EducationalDetailsEntity();
                 educationalDetails.CandidateId = candidateId;
                 educationalDetails.DegreeId = Convert.ToInt32(degreeId); ;
-                educationalDetails.MediumOfEducation = txtMedium.Text.Trim();
+                educationalDetails.MediumOfEducation = ddlMedium.SelectedValue.Trim();
                 educationalDetails.OldSpecializationId = Convert.ToInt32(Request.QueryString["sId"]);
                 educationalDetails.SpecializationId = Convert.ToInt32(ddlSpecialization.SelectedValue.Trim());
                 educationalDetails.Status = rblStat.SelectedValue.Trim();

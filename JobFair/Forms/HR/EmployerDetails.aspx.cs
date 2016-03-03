@@ -38,6 +38,22 @@ namespace JobFair.Forms.HR
                 {
                     //throw;
                 }
+                isEdit = Convert.ToBoolean(Request.QueryString["isEdit"]);
+                if (isEdit)
+                {
+                    try
+                    {
+                        EmployerId = Convert.ToInt32(Request.QueryString["EmployerId"]);
+                        HrId = Convert.ToInt32(Request.QueryString["HrId"]);
+                        BindEditEmployer();
+                        btnSubmit.Visible = false;
+                        btnUpdate.Visible = true;
+                    }
+                    catch (Exception)
+                    {
+                        //throw;
+                    }
+                }
             }
             isView = Convert.ToBoolean(Request.QueryString["isView"]);
             if (isView)
@@ -47,22 +63,6 @@ namespace JobFair.Forms.HR
                     EmployerId = Convert.ToInt32(Request.QueryString["EmployerId"]);
                     HrId = Convert.ToInt32(Request.QueryString["HrId"]);
                     BindViewEmployer();
-                }
-                catch (Exception)
-                {
-                    //throw;
-                }
-            }
-            isEdit = Convert.ToBoolean(Request.QueryString["isEdit"]);
-            if (isEdit)
-            {
-                try
-                {
-                    EmployerId = Convert.ToInt32(Request.QueryString["EmployerId"]);
-                    HrId = Convert.ToInt32(Request.QueryString["HrId"]);
-                    BindEditEmployer();
-                    btnSubmit.Visible = false;
-                    btnUpdate.Visible = true;
                 }
                 catch (Exception)
                 {
@@ -81,6 +81,7 @@ namespace JobFair.Forms.HR
                 // Assign values to the entities
                 employerDetailsHREntity.HrId = 1;
                 employerDetailsHREntity.CompanyName = txtCompanyName.Text.Trim();
+                employerDetailsHREntity.CompanyProfile = txtCompanyProfile.Text.Trim();
                 employerDetailsHREntity.EmployerHRFullName = txtEmployerHRFullName.Text.Trim();
                 employerDetailsHREntity.CompanyContactNumber = txtCompanyContactNo.Text.Trim();
                 employerDetailsHREntity.MobileNumber = txtMobileNumber.Text.Trim();
@@ -124,7 +125,10 @@ namespace JobFair.Forms.HR
                 EmployerDetailsHREntity employerDetailsHREntity = new EmployerDetailsHREntity();
                 // Assign values to the entities
                 employerDetailsHREntity.HrId = 1;
+                EmployerId = Convert.ToInt32(Request.QueryString["EmployerId"]);
+                employerDetailsHREntity.EmployerId = EmployerId;
                 employerDetailsHREntity.CompanyName = txtCompanyName.Text.Trim();
+                employerDetailsHREntity.CompanyProfile = txtCompanyProfile.Text.Trim();
                 employerDetailsHREntity.EmployerHRFullName = txtEmployerHRFullName.Text.Trim();
                 employerDetailsHREntity.CompanyContactNumber = txtCompanyContactNo.Text.Trim();
                 employerDetailsHREntity.MobileNumber = txtMobileNumber.Text.Trim();
@@ -173,10 +177,11 @@ namespace JobFair.Forms.HR
             {
                 DataSet dsViewEmployer = new DataSet();
                 dsViewEmployer = employerDetailsHRBAL.ViewEmployerDetailsBAL(EmployerId, HrId);
-
+                  
                 lblEmployerId.Text = dsViewEmployer.Tables[0].Rows[0]["EmployerId"].ToString();
                 lblHrId.Text = dsViewEmployer.Tables[0].Rows[0]["HrId"].ToString();
                 lblViewCompanyName.Text = dsViewEmployer.Tables[0].Rows[0]["CompanyName"].ToString();
+                lblviewCompanyProfile.Text = dsViewEmployer.Tables[0].Rows[0]["CompanyProfile"].ToString();
                 lblViewEmployerHRFullName.Text = dsViewEmployer.Tables[0].Rows[0]["EmployerHRFullName"].ToString();
                 lblViewCompanyContactNo.Text = dsViewEmployer.Tables[0].Rows[0]["CompanyContactNumber"].ToString();
                 lblViewMobileNumber.Text = dsViewEmployer.Tables[0].Rows[0]["MobileNumber"].ToString();
@@ -224,6 +229,7 @@ namespace JobFair.Forms.HR
                             lblEmployerId.Text = dsViewEmployer.Tables[0].Rows[0]["EmployerId"].ToString();
                             lblHrId.Text = dsViewEmployer.Tables[0].Rows[0]["HrId"].ToString();
                             txtCompanyName.Text = dsViewEmployer.Tables[0].Rows[0]["CompanyName"].ToString();
+                            txtCompanyProfile.Text = dsViewEmployer.Tables[0].Rows[0]["CompanyProfile"].ToString();
                             txtEmployerHRFullName.Text = dsViewEmployer.Tables[0].Rows[0]["EmployerHRFullName"].ToString();
                             txtCompanyContactNo.Text = dsViewEmployer.Tables[0].Rows[0]["CompanyContactNumber"].ToString();
                             txtMobileNumber.Text = dsViewEmployer.Tables[0].Rows[0]["MobileNumber"].ToString();

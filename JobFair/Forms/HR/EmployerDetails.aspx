@@ -23,6 +23,12 @@
                 </td>
             </tr>
              <tr>
+                <td><asp:Label ID="lblCompanyProfile" runat="server" Text=" Company Profile " CssClass="label"></asp:Label></td>
+                <td>
+                    <asp:TextBox ID="txtCompanyProfile" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </td>
+            </tr>
+             <tr>
                 <td><asp:Label ID="lblEmployerHRFullName" runat="server" Text=" Employer’s HR Full Name " CssClass="label"></asp:Label></td>
                 <td>
                     <asp:TextBox ID="txtEmployerHRFullName" runat="server" TextMode="MultiLine"></asp:TextBox>
@@ -137,6 +143,12 @@
                 <td>Company Name</td>
                 <td>
                     <asp:Label ID="lblViewCompanyName" runat="server" Text='<%#Eval("CompanyName")%>' CssClass="label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>Company Profile</td>
+                <td>
+                    <asp:Label ID="lblviewCompanyProfile" runat="server" Text='<%#Eval("CompanyProfile")%>' CssClass="label"></asp:Label>
                 </td>
             </tr>
              <tr>

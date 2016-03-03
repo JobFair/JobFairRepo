@@ -57,8 +57,8 @@ namespace JobFair.Forms.JobSeeker
                 //}
                 //Session["Isreffered"] = isreffered;
                 //Session["UserType"] = 1;
-                Response.Redirect("AdvanceSearch.aspx");
-                //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
+                //Response.Redirect("AdvanceSearch.aspx");
+                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)
             {

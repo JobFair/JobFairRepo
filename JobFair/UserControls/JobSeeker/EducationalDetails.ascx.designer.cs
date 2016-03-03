@@ -94,13 +94,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblSSCMedium;
         
         /// <summary>
-        /// txtSSCMedium control.
+        /// ddlSSCMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSSCMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSSCMedium;
         
         /// <summary>
         /// rfvSSCMedium control.
@@ -301,13 +301,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblHSCMedium;
         
         /// <summary>
-        /// txtHSCMedium control.
+        /// ddlHSCMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHSCMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHSCMedium;
         
         /// <summary>
         /// rfvHSCMedium control.
@@ -553,13 +553,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblDipMedium;
         
         /// <summary>
-        /// txtDipMedium control.
+        /// ddlDipMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDipMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDipMedium;
         
         /// <summary>
         /// rfvDipMedium control.
@@ -805,13 +805,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblBDMedium;
         
         /// <summary>
-        /// txtBDMedium control.
+        /// ddlBDMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBDMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBDMedium;
         
         /// <summary>
         /// rfvBDMedium control.
@@ -1066,13 +1066,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblDualBDMedium;
         
         /// <summary>
-        /// txtDualBDMedium control.
+        /// ddlDualBDMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDualBDMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualBDMedium;
         
         /// <summary>
         /// rfvDualBDMedium control.
@@ -1318,13 +1318,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblPgdMedium;
         
         /// <summary>
-        /// txtPgdMedium control.
+        /// ddlPgdMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPgdMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPgdMedium;
         
         /// <summary>
         /// rfvPgdMedium control.
@@ -1570,13 +1570,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblMDMedium;
         
         /// <summary>
-        /// txtMDMedium control.
+        /// ddlMDMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMDMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMDMedium;
         
         /// <summary>
         /// rfvMDMedium control.
@@ -1831,13 +1831,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblDualMDMedium;
         
         /// <summary>
-        /// txtDualMDMedium control.
+        /// ddlDualMDMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDualMDMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDualMDMedium;
         
         /// <summary>
         /// rfvDualMDMedium control.
@@ -2083,13 +2083,13 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.WebControls.Label lblPHDMedium;
         
         /// <summary>
-        /// txtPHDMedium control.
+        /// ddlPHDMedium control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPHDMedium;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPHDMedium;
         
         /// <summary>
         /// rfvPHDMedium control.

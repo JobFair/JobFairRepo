@@ -69,7 +69,7 @@
         </div>--%>
 
     <div>
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="900px" Height="600px">
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="3" Width="900px" Height="600px">
             <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Profile Summary">
                 <ContentTemplate>
                     <table>
@@ -754,7 +754,7 @@
                                                     <tr>
                                                         <td>Medium of Education </td>
                                                         <td>
-                                                            <asp:Label ID="lblEducation" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "MediumOfEducation") %>'></asp:Label>
+                                                            <asp:Label ID="lblEducation" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "LanguageName") %>'></asp:Label>
                                                     </tr>
                                                     <tr>
                                                         <td>Status</td>

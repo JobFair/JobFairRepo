@@ -30,6 +30,7 @@ namespace DAL
                 //Add parameter for stored procedure                
                 SqlParameter[] sparam = { new SqlParameter("@hrid", employerDetailsEntity.HrId),
                                           new SqlParameter("@companyName", employerDetailsEntity.CompanyName),
+                                          new SqlParameter("@companyProfile",employerDetailsEntity.CompanyProfile),
                                           new SqlParameter("@employerHRFullName", employerDetailsEntity.EmployerHRFullName),
                                           new SqlParameter("@companyContactNumber", employerDetailsEntity.CompanyContactNumber),
                                           new SqlParameter("@mobileNumber", employerDetailsEntity.MobileNumber),
@@ -71,6 +72,7 @@ namespace DAL
                 SqlParameter[] sparam = { new SqlParameter("@employerId", employerDetailsEntity.EmployerId),
                                           new SqlParameter("@hrid", employerDetailsEntity.HrId),
                                           new SqlParameter("@companyName", employerDetailsEntity.CompanyName),
+                                          new SqlParameter("@companyProfile",employerDetailsEntity.CompanyProfile),
                                           new SqlParameter("@employerHRFullName", employerDetailsEntity.EmployerHRFullName),
                                           new SqlParameter("@companyContactNumber", employerDetailsEntity.CompanyContactNumber),
                                           new SqlParameter("@mobileNumber", employerDetailsEntity.MobileNumber),
