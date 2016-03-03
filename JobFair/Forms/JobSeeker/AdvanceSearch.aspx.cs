@@ -17,9 +17,6 @@ namespace JobFair.Forms.JobSeeker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-
-
 
             string candidateId;
             // Check session is not null
@@ -178,19 +175,19 @@ namespace JobFair.Forms.JobSeeker
 
             try
             {
-                //string resultCont = string.Empty;
-                //string[] contactNames = txtkeyskill.Text.Trim().Split(',');
+                string resultCont = string.Empty;
+                string[] contactNames = txtkeyskill.Text.Trim().Split(',');
 
-                //foreach (string cont in contactNames)
-                //{
-                //    if (!string.IsNullOrEmpty(cont))
-                //    {
-                //        resultCont = resultCont + ",'" + cont + "'";
-                //    }
-                //}
-                //resultCont = resultCont.Remove(0, 1);
+                foreach (string cont in contactNames)
+                {
+                    if (!string.IsNullOrEmpty(cont))
+                    {
+                        resultCont = resultCont + "\t" + cont + "'";
+                    }
+                }
+                resultCont = resultCont.Remove(0, 1);
                 AdvanceSearchDetailsEntity advanceSearchEntity = new AdvanceSearchDetailsEntity();
-               // advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
+                advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
                 if(txtkeyskill.Text=="")
                 {
                     advanceSearchEntity.KeySkill = null;
@@ -332,7 +329,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     for (int i = 0; i < dtRoles.Rows.Count; i++)
                     {
-                        rolename.Add(dtRoles.Rows[i][1].ToString());
+                        rolename.Add(dtRoles.Rows[i][0].ToString());
                         //string rolenames = string.Join( "\t", rolename.Select(x => x.ToString()).ToArray());
 
 

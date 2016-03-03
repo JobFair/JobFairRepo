@@ -61,7 +61,7 @@
                     <td>
                         <asp:TextBox ID="txtkeyskill" runat="server"></asp:TextBox>
                         <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtkeyskill" MinimumPrefixLength="1"
-                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRoles" DelimiterCharacters =","> 
+                         EnableCaching="true" CompletionSetCount="1" CompletionInterval="1000" ServiceMethod="GetRoles" > 
                         </cc1:AutoCompleteExtender>
                     </td>
                 </tr>
