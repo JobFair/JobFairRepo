@@ -104,7 +104,34 @@ namespace DAL
             }
             return result;
         }
+        /// <summary>
+        /// Get ClientName DAL
+        /// </summary>
+        /// <param name="HrId">HrId</param>
+        /// /// <param name="ClientId">ClientId</param>
+        /// <returns>dataset</returns>
+        public DataSet GetClientNameDAL(long HrId, long ClientId)
+        {
+            DataSet dsClientName = new DataSet();
+            try
+            {
+                connection.Open();
+                SqlParameter[] sparam = { new SqlParameter("@hrId", HrId),
+                                          new SqlParameter("@clientId", ClientId)
+                                        };
 
+                dsClientName = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_HR_SelectClientName, sparam);
+            }
+            catch (Exception)
+            {
+                 //throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dsClientName;
+        }
         /// <summary>
         /// Get Recruiter DAL
         /// </summary>
@@ -137,7 +164,6 @@ namespace DAL
             }
             return dsRecruiter;
         }
-
         /// <summary>
         /// Get ViewClientRequirementDetailsDAL
         /// </summary>

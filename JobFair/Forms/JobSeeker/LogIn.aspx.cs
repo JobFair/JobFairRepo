@@ -26,73 +26,39 @@ namespace JobFair.Forms.JobSeeker
                 logjsEntity.UserName = txtUserName.Text.Trim();
                 logjsEntity.Password = txtPassword.Text.Trim();
                 string candidateID = liBAL.JobSeekerLogIn(logjsEntity);
-
-                string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
-
-
-
-               // string format = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]); ;
-                string[] Words = candidateID.Split(new char[] { '/' });
-                int count = 0;
-
-                foreach (string Word in Words)
+             
+                if (string.IsNullOrEmpty(candidateID) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
                 {
-                    count += 1;
-                    if (count == 1)
+                    Session["Candidateid"] = candidateID;
+                    if (string.IsNullOrEmpty(candidateID))
                     {
-                        candidateID = Word;
-                        if (string.IsNullOrEmpty(candidateID) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
-                        {
-                            Session["Candidateid"] = candidateID;
-                            if (string.IsNullOrEmpty(candidateID))
-                            {
-                                lblmsg.Text = "Wrong username or password";
-                                return;
-                            }
-                            Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssid=" + Session["Candidateid"]);
-
-                            return;
+                        lblmsg.Text = "Wrong username or password";
+                        return;
                     }
-                     Session["Candidateid"] = candidateID;
-                    
-                  }
-                    if (count == 2)
-                    {
-                        isreffered = Word;
-                       
-                        if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
-                        {
-                            Session["Isreffered"] = isreffered;
-                            if (string.IsNullOrEmpty(isreffered))
-                            {
-                                lblmsg.Text = "Wrong username or password";
-                                return;
+                    Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssid=" + Session["Candidateid"] );
 
-                            }
-                            Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssreffered=" + Session["Isreffered"]);
-                            return;
-
-
-                        }
-                        Session["Isreffered"] = isreffered;
-
-
-                    }
-                   
-               
-
-
-                    
+                    return;
                 }
-
-
-              
-               
+                Session["Candidateid"] = candidateID;
+                //string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
+                //if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
+                //{
+                //    Session["Isreffered"] = isreffered;
+                //    if (string.IsNullOrEmpty(isreffered))
+                //    {
+                //        lblmsg.Text = "Wrong username or password";
+                //        return;
+                    
+                //    }
+                //    Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssreffered=" + Session["Isreffered"]);
+                //    return;
 
                 
+                //}
+                //Session["Isreffered"] = isreffered;
                 //Session["UserType"] = 1;
-                Response.Redirect("AdvanceSearch.aspx");
-                //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
+                //Response.Redirect("AdvanceSearch.aspx");
+                Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)
             {

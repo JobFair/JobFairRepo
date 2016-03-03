@@ -70,22 +70,15 @@ namespace BAL
             return Utility.GetFunctionalArea();
         }
         /// <summary>
-        /// Load Client Name
+        /// Get ClientName BAL
         /// </summary>
-        /// <returns></returns>
-        public DataSet GetClientNameBAL()
+        /// <param name="HrId">HrId</param>
+        /// /// <param name="ClientId">ClientId</param>
+        /// <returns>dataset</returns>
+        public DataSet GetClientNameBAL(long HrId, long ClientId)
         {
-            return Utility.GetClientName();
-        }
-
-        /// <summary>
-        /// Save client requirements details method in ClientRequirementsHRBAL class
-        /// </summary>
-        /// <param name="clientRequirementsHREntity">Object of ClientRequirementsHREntity</param>
-        /// <returns>System.Int32</returns>
-        public int SaveClientRequirementsBAL(Entities.HR.ClientRequirementsHREntity clientRequirementsHREntity)
-        {
-            return clientRequirementsHRDAL.SaveClientRequirementsDAL(clientRequirementsHREntity);
+            ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
+            return clientRequirementsHRDAL.GetClientNameDAL(HrId, ClientId);
         }
         /// <summary>
         /// Get Recruiter BAL
@@ -96,6 +89,15 @@ namespace BAL
         {
             ClientRequirementsHRDAL clientRequirementsHRDAL = new ClientRequirementsHRDAL();
             return clientRequirementsHRDAL.GetRecruiterDAL(HrId);
+        }
+        /// <summary>
+        /// Save client requirements details method in ClientRequirementsHRBAL class
+        /// </summary>
+        /// <param name="clientRequirementsHREntity">Object of ClientRequirementsHREntity</param>
+        /// <returns>System.Int32</returns>
+        public int SaveClientRequirementsBAL(Entities.HR.ClientRequirementsHREntity clientRequirementsHREntity)
+        {
+            return clientRequirementsHRDAL.SaveClientRequirementsDAL(clientRequirementsHREntity);
         }
         /// <summary>
         /// Get ViewClientRequirementDetailsBAL

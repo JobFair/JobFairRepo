@@ -52,7 +52,7 @@
                         <tr>
                             <td>Any Keywords</td>
                             <td>
-                                <asp:TextBox ID="txtKeywords" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtKeywords" runat="server" placeholder="Skills,Designation,Role"></asp:TextBox>
                                 <cc1:AutoCompleteExtender ID="autoExtenderKeywords" runat="server" TargetControlID="txtKeywords" MinimumPrefixLength="1"
                                     EnableCaching="false" CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetKeywords" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true"></cc1:AutoCompleteExtender>
                             </td>
@@ -60,12 +60,18 @@
                         <tr>
                             <td>All Keywords</td>
                             <td>
-                                <asp:TextBox ID="txtAllKeywords" runat="server"></asp:TextBox></td>
+                                <asp:TextBox ID="txtAllKeywords" runat="server" placeholder="Skills,Designation,Role"></asp:TextBox>
+                                <cc1:AutoCompleteExtender ID="autoExtenderAllKeywords" runat="server" TargetControlID="txtAllKeywords" MinimumPrefixLength="1"
+                                    EnableCaching="false" CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetKeywords" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true"></cc1:AutoCompleteExtender>
+                            </td>
                         </tr>
                         <tr>
                             <td>Excluding Keywords</td>
                             <td>
-                                <asp:TextBox ID="txtExcludingKeywords" runat="server"></asp:TextBox></td>
+                                <asp:TextBox ID="txtExcludingKeywords" runat="server" placeholder="Skills,Designation,Role"></asp:TextBox>
+                                <cc1:AutoCompleteExtender ID="autoExtenderExcludeKeywords" runat="server" TargetControlID="txtExcludingKeywords" MinimumPrefixLength="1"
+                                    EnableCaching="false" CompletionSetCount="1" CompletionInterval="10" ServiceMethod="GetKeywords" DelimiterCharacters="," FirstRowSelected="false" ShowOnlyCurrentWordInCompletionListItem="true"></cc1:AutoCompleteExtender>
+                            </td>
                         </tr>
                         <tr>
                             <td>Work Status</td>

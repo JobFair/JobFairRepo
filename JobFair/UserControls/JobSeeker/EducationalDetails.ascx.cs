@@ -13,7 +13,7 @@ namespace JobFair.UserControls.JobSeeker
     /// </summary>
     public partial class EducationalDetails : System.Web.UI.UserControl
     {
-        private string candidateId;
+        private string candidateId="1";
         private bool isEdit = true;
         private bool isAddNewEducation = false ;
         private int degreeId;
@@ -24,12 +24,12 @@ namespace JobFair.UserControls.JobSeeker
         protected void Page_Load(object sender, EventArgs e)
         {
             //isEdit = Convert.ToBoolean(Request.QueryString["isCheck"]);
-            if (Session["candidateId"] != null)
-            {
-                if (Session["candidateId"].ToString() != "")
-                {
-                    //CheckAuthorised(candidateId);
-                    candidateId = Convert.ToString(Session["candidateId"]);
+            //if (Session["candidateId"] != null)
+            //{
+            //    if (Session["candidateId"].ToString() != "")
+            //    {
+            //        //CheckAuthorised(candidateId);
+            //        candidateId = Convert.ToString(Session["candidateId"]);
                     
                     if (!IsPostBack)
                     {
@@ -46,8 +46,8 @@ namespace JobFair.UserControls.JobSeeker
                         {
                             // throw;
                         }
-                    }
-                }
+                //    }
+                //}
             }
         }
 
@@ -65,7 +65,7 @@ namespace JobFair.UserControls.JobSeeker
                 BindDropDownDualMasterDegree();
                 BindDropDownDoctorOfPhilosophy();
 
-                //Declration For ALL
+                //Declration For ALL Year & Month
                 List<string> YearList = CommonUtil.Utility.GetYears();
                 List<string> MonthList = CommonUtil.Utility.GetMonths();
                 BindSSCYear(YearList);
@@ -94,6 +94,20 @@ namespace JobFair.UserControls.JobSeeker
 
                 BindPHDYear(YearList);
                 BindPHDMonth(MonthList);
+
+                //Declration For Medium of Education 
+                DataSet dsLanguageDetails = new DataSet();
+                // Get Language Details
+                dsLanguageDetails = educationalDetails.GetLanguageBAL();
+                BindDropDownSSCMedium(dsLanguageDetails);
+                BindDropDownHSCMedium(dsLanguageDetails);
+                BindDropDownDipMedium(dsLanguageDetails);
+                BindDropDownBDMedium(dsLanguageDetails);
+                BindDropDownDualBDMedium(dsLanguageDetails);
+                BindDropDownPgdMedium(dsLanguageDetails);
+                BindDropDownMDMedium(dsLanguageDetails);
+                BindDropDownDualMDMedium(dsLanguageDetails);
+                BindDropDownPHDMedium(dsLanguageDetails);
             }
             catch (Exception)
             {
@@ -423,7 +437,7 @@ namespace JobFair.UserControls.JobSeeker
                             sscDetails.CandidateId = candidateId;
                             sscDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             sscDetails.DegreeId = Convert.ToInt32(item.Value);
-                            sscDetails.MediumOfEducation = txtSSCMedium.Text.Trim();
+                            sscDetails.MediumOfEducation = ddlSSCMedium.SelectedValue.Trim();
                             sscDetails.SpecializationId = 0;
                             sscDetails.Status = rblSSCStat.SelectedValue.Trim();
                             sscDetails.FromYear = ddlSSCMonthFrom.Text + '/' + ddlSSCYearFrom.Text;
@@ -440,7 +454,7 @@ namespace JobFair.UserControls.JobSeeker
                             hscDetails.CandidateId = candidateId;
                             hscDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             hscDetails.DegreeId = Convert.ToInt32(item.Value);
-                            hscDetails.MediumOfEducation = txtHSCMedium.Text.Trim();
+                            hscDetails.MediumOfEducation = ddlHSCMedium.SelectedValue.Trim();
                             hscDetails.SpecializationId = Convert.ToInt32(ddlHSC.SelectedValue.Trim());
                             hscDetails.Status = rblHSCStat.SelectedValue.Trim();
                             hscDetails.FromYear = ddlHSCMonthFrom.Text + '/' + ddlHSCYearFrom.Text;
@@ -457,7 +471,7 @@ namespace JobFair.UserControls.JobSeeker
                             ugDiplomaDetails.CandidateId = candidateId;
                             ugDiplomaDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             ugDiplomaDetails.DegreeId = Convert.ToInt32(item.Value);
-                            ugDiplomaDetails.MediumOfEducation = txtDipMedium.Text.Trim();
+                            ugDiplomaDetails.MediumOfEducation = ddlDipMedium.SelectedValue.Trim();
                             ugDiplomaDetails.SpecializationId = Convert.ToInt32(ddlDip.SelectedValue.Trim());
                             ugDiplomaDetails.Status = rblDipStat.SelectedValue.Trim();
                             ugDiplomaDetails.FromYear = ddlDipMonthFrom.Text + '/' + ddlDipYearFrom.Text;
@@ -474,7 +488,7 @@ namespace JobFair.UserControls.JobSeeker
                             bachelorDegreeDetails.CandidateId = candidateId;
                             bachelorDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             bachelorDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
-                            bachelorDegreeDetails.MediumOfEducation = txtBDMedium.Text.Trim();
+                            bachelorDegreeDetails.MediumOfEducation = ddlBDMedium.SelectedValue.Trim();
                             bachelorDegreeDetails.Status = rblBDStat.SelectedValue.Trim();
                             bachelorDegreeDetails.SpecializationId = Convert.ToInt32(ddlBD.SelectedValue.Trim());
                             bachelorDegreeDetails.FromYear = ddlBDMonthFrom.Text + '/' + ddlBDYearFrom.Text;
@@ -491,7 +505,7 @@ namespace JobFair.UserControls.JobSeeker
                                 dualBachelorDegreeDetails.CandidateId = candidateId;
                                 dualBachelorDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                                 dualBachelorDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
-                                dualBachelorDegreeDetails.MediumOfEducation = txtDualBDMedium.Text.Trim();
+                                dualBachelorDegreeDetails.MediumOfEducation = ddlDualBDMedium.SelectedValue.Trim();
                                 dualBachelorDegreeDetails.Status = rblDualBDStat.SelectedValue.Trim();
                                 dualBachelorDegreeDetails.SpecializationId = Convert.ToInt32(ddlDualBD.SelectedValue.Trim());
                                 dualBachelorDegreeDetails.FromYear = ddlDualBDMonthFrom.Text + '/' + ddlDualBDYearFrom.Text;
@@ -509,7 +523,7 @@ namespace JobFair.UserControls.JobSeeker
                             pgDiplomaDetails.CandidateId = candidateId;
                             pgDiplomaDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             pgDiplomaDetails.DegreeId = Convert.ToInt32(item.Value);
-                            pgDiplomaDetails.MediumOfEducation = txtPgdMedium.Text.Trim();
+                            pgDiplomaDetails.MediumOfEducation = ddlPgdMedium.SelectedValue.Trim();
                             pgDiplomaDetails.Status = rblPgdStat.SelectedValue.Trim();
                             pgDiplomaDetails.SpecializationId = Convert.ToInt32(ddlPgd.SelectedValue.Trim());
                             pgDiplomaDetails.FromYear = ddlPgdMonthFrom.Text + '/' + ddlPgdYearFrom.Text;
@@ -526,7 +540,7 @@ namespace JobFair.UserControls.JobSeeker
                             masterDegreeDetails.CandidateId = candidateId;
                             masterDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             masterDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
-                            masterDegreeDetails.MediumOfEducation = txtMDMedium.Text.Trim();
+                            masterDegreeDetails.MediumOfEducation = ddlMDMedium.SelectedValue.Trim();
                             masterDegreeDetails.SpecializationId = Convert.ToInt32(ddlMD.SelectedValue.Trim());
                             masterDegreeDetails.Status = rblMDStat.SelectedValue.Trim();
                             masterDegreeDetails.FromYear = ddlMDMonthFrom.Text + '/' + ddlMDYearFrom.Text;
@@ -543,7 +557,7 @@ namespace JobFair.UserControls.JobSeeker
                                 dualMasterDegreeDetails.CandidateId = candidateId;
                                 dualMasterDegreeDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                                 dualMasterDegreeDetails.DegreeId = Convert.ToInt32(item.Value);
-                                dualMasterDegreeDetails.MediumOfEducation = txtDualMDMedium.Text.Trim();
+                                dualMasterDegreeDetails.MediumOfEducation = ddlDualMDMedium.SelectedValue.Trim();
                                 dualMasterDegreeDetails.SpecializationId = Convert.ToInt32(ddlDualMD.SelectedValue.Trim());
                                 dualMasterDegreeDetails.Status = rblDualMDStat.SelectedValue.Trim();
                                 dualMasterDegreeDetails.FromYear = ddlDualMDMonthFrom.Text + '/' + ddlDualMDYearFrom.Text;
@@ -561,7 +575,7 @@ namespace JobFair.UserControls.JobSeeker
                             phdDetails.CandidateId = candidateId;
                             phdDetails.HighestQualificationId = ddlHQ.SelectedValue.Trim();
                             phdDetails.DegreeId = Convert.ToInt32(item.Value);
-                            phdDetails.MediumOfEducation = txtPHDMedium.Text.Trim();
+                            phdDetails.MediumOfEducation = ddlPHDMedium.SelectedValue.Trim();
                             phdDetails.SpecializationId = Convert.ToInt32(ddlPHD.SelectedValue.Trim());
                             phdDetails.Status = rblPHDStat.SelectedValue.Trim();
                             phdDetails.FromYear = ddlPHDMonthFrom.Text + '/' + ddlPHDYearFrom.Text;
@@ -957,6 +971,204 @@ namespace JobFair.UserControls.JobSeeker
 
                     ddlPHD.Items.Insert(Convert.ToInt32(ddlPHD.Items.Count), new ListItem("----Other----", ""));
                     ddlPHD.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownSSCMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlSSCMedium.DataSource = dsLanguageDetails;
+                    ddlSSCMedium.DataValueField = "LanguageId";
+                    ddlSSCMedium.DataTextField = "LanguageName";
+                    ddlSSCMedium.DataBind();
+
+                    ddlSSCMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownHSCMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlHSCMedium.DataSource = dsLanguageDetails;
+                    ddlHSCMedium.DataValueField = "LanguageId";
+                    ddlHSCMedium.DataTextField = "LanguageName";
+                    ddlHSCMedium.DataBind();
+
+                    ddlHSCMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownDipMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlDipMedium.DataSource = dsLanguageDetails;
+                    ddlDipMedium.DataValueField = "LanguageId";
+                    ddlDipMedium.DataTextField = "LanguageName";
+                    ddlDipMedium.DataBind();
+
+                    ddlDipMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownBDMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlBDMedium.DataSource = dsLanguageDetails;
+                    ddlBDMedium.DataValueField = "LanguageId";
+                    ddlBDMedium.DataTextField = "LanguageName";
+                    ddlBDMedium.DataBind();
+
+                    ddlBDMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownDualBDMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlDualBDMedium.DataSource = dsLanguageDetails;
+                    ddlDualBDMedium.DataValueField = "LanguageId";
+                    ddlDualBDMedium.DataTextField = "LanguageName";
+                    ddlDualBDMedium.DataBind();
+
+                    ddlDualBDMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownPgdMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlPgdMedium.DataSource = dsLanguageDetails;
+                    ddlPgdMedium.DataValueField = "LanguageId";
+                    ddlPgdMedium.DataTextField = "LanguageName";
+                    ddlPgdMedium.DataBind();
+
+                    ddlPgdMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownMDMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlMDMedium.DataSource = dsLanguageDetails;
+                    ddlMDMedium.DataValueField = "LanguageId";
+                    ddlMDMedium.DataTextField = "LanguageName";
+                    ddlMDMedium.DataBind();
+
+                    ddlMDMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownDualMDMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlDualMDMedium.DataSource = dsLanguageDetails;
+                    ddlDualMDMedium.DataValueField = "LanguageId";
+                    ddlDualMDMedium.DataTextField = "LanguageName";
+                    ddlDualMDMedium.DataBind();
+
+                    ddlDualMDMedium.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+        }
+        /// <summary>
+        /// Method for binding DropDown with Language_Table of Database
+        /// </summary>
+        private void BindDropDownPHDMedium(DataSet dsLanguageDetails)
+        {
+            try
+            {
+                if (dsLanguageDetails != null)
+                {
+                    ddlPHDMedium.DataSource = dsLanguageDetails;
+                    ddlPHDMedium.DataValueField = "LanguageId";
+                    ddlPHDMedium.DataTextField = "LanguageName";
+                    ddlPHDMedium.DataBind();
+
+                    ddlPHDMedium.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)

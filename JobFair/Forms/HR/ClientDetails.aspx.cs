@@ -39,6 +39,23 @@ namespace JobFair.Forms.HR
                         {
                             //throw;
                         }
+                        isEdit = Convert.ToBoolean(Request.QueryString["isEdit"]);
+                        if (isEdit)
+                        {
+                            try
+                            {
+                                ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
+                                HrId = Convert.ToInt32(Request.QueryString["HrId"]);
+                                BindEditClient();
+                                btnSubmit.Visible = false;
+                                btnUpdate.Visible = true;
+
+                            }
+                            catch (Exception)
+                            {
+                                //throw;
+                            }
+                        }
                     }
                 isView = Convert.ToBoolean(Request.QueryString["isView"]);
                 if (isView)
@@ -48,23 +65,6 @@ namespace JobFair.Forms.HR
                         ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
                         HrId = Convert.ToInt32(Request.QueryString["HrId"]);
                         BindViewClient();
-                    }
-                    catch (Exception)
-                    {
-                        //throw;
-                    }
-                }
-                isEdit = Convert.ToBoolean(Request.QueryString["isEdit"]);
-                if (isEdit)
-                {
-                    try
-                    {
-                        ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
-                        HrId = Convert.ToInt32(Request.QueryString["HrId"]);
-                        BindEditClient();
-                        btnSubmit.Visible = false;
-                        btnUpdate.Visible=true;
-
                     }
                     catch (Exception)
                     {
@@ -337,12 +337,19 @@ namespace JobFair.Forms.HR
         /// </summary>
         private void BindFunctionalArea()
         {
-            dsClientDetails = clientDetailsBAL.GetFunctionalArea();
-            ddlFunctionalArea.DataSource = dsClientDetails;
-            ddlFunctionalArea.DataValueField = "FunctionalAreaId";
-            ddlFunctionalArea.DataTextField = "FunctionalArea";
-            ddlFunctionalArea.DataBind();
-            ddlFunctionalArea.Items.Insert(0, new ListItem("--Select--", "0"));
+            DataSet dsFunctionalArea = new DataSet();
+            dsFunctionalArea = null;
+            dsFunctionalArea = clientDetailsBAL.GetFunctionalArea();
+            if (dsFunctionalArea != null)
+                {
+                    ddlFunctionalArea.DataSource = dsFunctionalArea;
+                    ddlFunctionalArea.DataValueField = "FunctionalAreaId";
+                    ddlFunctionalArea.DataTextField = "FunctionalArea";
+                    ddlFunctionalArea.DataBind();
+
+                    ddlFunctionalArea.Items.Insert(Convert.ToInt32(ddlFunctionalArea.Items.Count), new ListItem("----Other----", ""));
+                    ddlFunctionalArea.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
         }
 
         /// <summary>
@@ -439,8 +446,10 @@ namespace JobFair.Forms.HR
             clientDetailsEntity.AddFunctionalArea = txtAddfunctionalarea.Text;
             // Add data to the database 
             clientDetailsBAL.AddFunctionalAreaBAL(clientDetailsEntity);
+            txtAddfunctionalarea.Visible = false;
+            btnAdd.Visible = false;
+            BindFunctionalArea();
             lblmsg2.Text = "Your data is added now";
         }
-
     }
 }

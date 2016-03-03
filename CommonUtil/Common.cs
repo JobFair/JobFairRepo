@@ -188,24 +188,6 @@ namespace CommonUtil
         }
 
         /// <summary>
-        /// Get languages
-        /// </summary>
-        /// <returns>dataset</returns>
-        internal DataSet GetLanguagesDAL()
-        {
-            DataSet ds = new DataSet();
-            try
-            {
-                ds = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "sp_Language");
-            }
-            catch (Exception)
-            {
-                // throw;
-            }
-            return ds;
-        }
-
-        /// <summary>
         /// Get Client Name
         /// </summary>
         /// <returns>dataset</returns>
@@ -415,6 +397,24 @@ namespace CommonUtil
             {
                 connection.Close();
             }
+        }
+
+        /// <summary>
+        /// Get Language
+        /// </summary>
+        /// <returns>dataset</returns>
+        public DataSet GetLanguageDAL()
+        {
+            DataSet dsLanguage = new DataSet();
+            try
+            {
+                dsLanguage = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, Constants.sp_Language);
+            }
+            catch (Exception)
+            {
+                // throw ;
+            }
+            return dsLanguage;
         }
     }
 }

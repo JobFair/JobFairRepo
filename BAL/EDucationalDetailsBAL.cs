@@ -66,6 +66,16 @@ namespace BAL
            {
                return Utility.GetDegreeDetails(DegreeId);
            }
+
+           /// <summary>
+           /// Load Educational Degree Type
+           /// </summary>
+           /// <returns></returns>
+           public DataSet GetLanguageBAL()
+           {
+               return Utility.GetLanguage();
+           }
+
            /// <summary>
            /// To add functional area method in EducationalDetailsBAL class
            /// </summary>

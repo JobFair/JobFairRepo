@@ -29,10 +29,12 @@ namespace JobFair.Forms.HR
                 {
                     try
                     {
+                        ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
+                        HrId = Convert.ToInt32(Request.QueryString["HrId"]);
                         BindFunctionalArea();
                         BindIndustry();
                         BindCountry();
-                        BindClient();
+                        BindClient(HrId, ClientId);
                         BindRecruiter(HrId);
 
                         isView = Convert.ToBoolean(Request.QueryString["isView"]);
@@ -63,10 +65,10 @@ namespace JobFair.Forms.HR
                     {
                         ClientId = Convert.ToInt32(Request.QueryString["ClientId"]);
                         HrId = Convert.ToInt32(Request.QueryString["HrId"]);
+                        BindCountry();
                         //BindEditClient();
                         //btnSubmit.Visible = false;
                         //btnUpdate.Visible = true;
-
                     }
                     catch (Exception)
                     {
@@ -86,8 +88,8 @@ namespace JobFair.Forms.HR
                 ClientRequirementsHREntity clientRequirementsHREntity = new ClientRequirementsHREntity();
                 // Assign values to the entities
                 clientRequirementsHREntity.HrId = 1;
-                clientRequirementsHREntity.ClientId = 1;
-                clientRequirementsHREntity.ClientName = ddlClientName.SelectedValue.Trim();
+                clientRequirementsHREntity.ClientId = Convert.ToInt32(txtClientId.Text.Trim()); ;
+                clientRequirementsHREntity.ClientName = txtClientName.Text.Trim();
                 clientRequirementsHREntity.ClientProfile = txtClientProfile.Text.Trim();
                 clientRequirementsHREntity.Position = txtPosition.Text.Trim();
                 clientRequirementsHREntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
@@ -115,8 +117,8 @@ namespace JobFair.Forms.HR
 			        CountryName, StateName, CityName, AreaName, Skillsets, Contents, Status, RecruiterName;
                     int ClientId,Pincode;
                     DateTime DateOfRequirementSent, DueDate;
-                    ClientId = Convert.ToInt32(ddlClientName.SelectedValue.Trim());
-                    ClientName =  ddlClientName.SelectedItem.Text.Trim();
+                    ClientId = Convert.ToInt32(txtClientId.Text.Trim());
+                    ClientName =  txtClientName.Text.Trim();
                     ClientProfile = txtClientProfile.Text.Trim();
                     Position = txtPosition.Text.Trim();
                     IndustryName = ddlIndustry.SelectedItem.Text.Trim();
@@ -139,7 +141,7 @@ namespace JobFair.Forms.HR
 
                     DataSet dsSelectClientRequirementsForwardMail = new DataSet();
                     HrId = 1;
-                    ClientId = 1;
+                    ClientId = Convert.ToInt32(txtClientId.Text.Trim()); ;
                     string EmailIdJoin = null, EmailId, toemail;
                     dsSelectClientRequirementsForwardMail = clientRequirementsHRBAL.SelectClientRequirementsForwardMailBAL(HrId, ClientId);
                     
@@ -314,11 +316,12 @@ namespace JobFair.Forms.HR
             // Check commond for edit
             if (e.CommandName == "edit")
             {
+                BindRecruiter(HrId);
                 lnkCancel.Visible = true;
                 lnkUpdate.Visible = true;
                 lnkEdit.Visible = false;
 
-                ddlClientName.Visible = true;
+                txtClientName.Visible = true;
                 txtClientProfile.Visible = true;
                 txtPosition.Visible = true;
                 ddlIndustry.Visible = true;
@@ -370,8 +373,8 @@ namespace JobFair.Forms.HR
                     ClientRequirementsHREntity clientRequirementsHREntity = new ClientRequirementsHREntity();
                     // Assign values to the entities
                     clientRequirementsHREntity.HrId = 1;
-                    clientRequirementsHREntity.ClientId = 1;
-                    clientRequirementsHREntity.ClientName = ddlClientName.SelectedValue.Trim();
+                    clientRequirementsHREntity.ClientId = Convert.ToInt32(txtClientId.Text.Trim()); ;
+                    clientRequirementsHREntity.ClientName = txtClientName.Text.Trim();
                     clientRequirementsHREntity.ClientProfile = txtClientProfile.Text.Trim();
                     clientRequirementsHREntity.Position = txtPosition.Text.Trim();
                     clientRequirementsHREntity.Industry = Convert.ToInt32(ddlIndustry.SelectedValue);
@@ -428,32 +431,7 @@ namespace JobFair.Forms.HR
             //rptrddlCountry.SelectedIndexChanged += ddlCountry_SelectedIndexChanged;
         }
         protected void rptrClientDetails_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            DropDownList ddlClientName = (DropDownList)e.Item.FindControl("ddlClientName");
-            DataSet dsClientName = null;
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                try
-                {
-                    ClientRequirementsHRBAL clientRequirementsHRBAL = new ClientRequirementsHRBAL();
-
-                    dsClientName = clientRequirementsHRBAL.GetClientNameBAL();
-                    // Check if dataset is not null
-                    if (dsClientName != null)
-                    {
-                        ddlClientName.DataSource = dsClientName;
-                        ddlClientName.DataTextField = "ClientName";
-                        ddlClientName.DataValueField = "ClientId";
-                        ddlClientName.DataBind();
-                        ddlClientName.SelectedValue = Convert.ToString(DataBinder.Eval(e.Item.DataItem, "ClientId"));
-                    }
-                }
-                catch (Exception)
-                {
-                    // throw;
-                }
-            }
-            
+        {   
             DropDownList ddlIndustry = (DropDownList)e.Item.FindControl("ddlIndustry");
             DataSet dsIndustry = null;
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -627,16 +605,14 @@ namespace JobFair.Forms.HR
         /// <summary>
         /// Method for binding DropDown with Client_table of database
         /// </summary>
-        private void BindClient()
+        private void BindClient(long HrId, long ClientId)
         {
-            dsClientDetails = clientRequirementsHRBAL.GetClientNameBAL();
-            ddlClientName.DataSource = dsClientDetails;
-            ddlClientName.DataTextField = "ClientName";
-            ddlClientName.DataValueField = "ClientId";
-            ddlClientName.DataBind();
+            DataSet dsClientDetails = new DataSet();
+            dsClientDetails = clientRequirementsHRBAL.GetClientNameBAL(HrId,ClientId);
 
-            //txtClientProfile. = "ClientName";
-            //ddlIndustry.Items.Insert(0, new ListItem("--Select--", "0"));
+            txtClientId.Text = dsClientDetails.Tables[0].Rows[0]["ClientId"].ToString();
+            txtClientName.Text = dsClientDetails.Tables[0].Rows[0]["ClientName"].ToString();
+            txtClientProfile.Text = dsClientDetails.Tables[0].Rows[0]["ClientProfile"].ToString();
         }
 
         /// <summary>
@@ -698,17 +674,18 @@ namespace JobFair.Forms.HR
         /// <param name="e">The <see cref="EventArgs"/>containing event data</param>
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if(isEdit)
-            //{
-            //    Repeater rptr = new Repeater();
-            //    int countryId = Convert.ToInt32(rptrddlCountry.SelectedValue);
-            //    dsClientDetails = clientRequirementsHRBAL.GetState(countryId);
-            //    ddlState.DataSource = dsClientDetails;
-            //    ddlState.DataValueField = "StateId";
-            //    ddlState.DataTextField = "StateName";
-            //    ddlState.DataBind();
-            //    ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
-            //}
+            if(isEdit)
+            {
+                Repeater rptr = new Repeater();
+                DropDownList rptrddlCountry = (DropDownList)repClientDetails.Controls[0].Controls[0].FindControl("ddlCountry");
+                int rptrcountryId = Convert.ToInt32(rptrddlCountry.SelectedValue);
+                dsClientDetails = clientRequirementsHRBAL.GetState(rptrcountryId);
+                ddlState.DataSource = dsClientDetails;
+                ddlState.DataValueField = "StateId";
+                ddlState.DataTextField = "StateName";
+                ddlState.DataBind();
+                ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
             int countryId = Convert.ToInt32(ddlCountry.SelectedValue);
             dsClientDetails = clientRequirementsHRBAL.GetState(countryId);
             ddlState.DataSource = dsClientDetails;

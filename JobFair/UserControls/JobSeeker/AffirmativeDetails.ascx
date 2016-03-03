@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AffirmativeDetails.ascx.cs" Inherits="JobFair.UserControls.JobSeeker.AffirmativeDetails" %>
-<table >
+<table>
     <tr>
         <td rowspan="4">
             <asp:Label ID="lblKnownLanguages" runat="server" Text="Languages Known"></asp:Label>
@@ -92,18 +92,19 @@
                 <asp:ListItem Value="1">Yes</asp:ListItem>
                 <asp:ListItem Value="0">No</asp:ListItem>
             </asp:RadioButtonList>
-            <%--<asp:RadioButton ID="rbtYes" runat="server" Text="Yes" GroupName="PhysicallyChallenged" AutoPostBack="true" />
-            &nbsp;&nbsp;
-                <asp:RadioButton ID="rbtNo" runat="server" Text="No" GroupName="PhysicallyChallenged" AutoPostBack="true" />--%>
         </td>
     </tr>
-    <tr>
-         <asp:Panel id="pnlPhysicallyChallenged" runat="server" Visible="false">
-            <asp:Label ID="lblDescription" runat="server" Text="Description" Visible="false"></asp:Label>
-            <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Visible="false"></asp:TextBox>
+    <asp:Panel ID="pnlPhysicallyChallenged" runat="server" Visible="false">
+        <tr>
+            <td>
+
+                <asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label></td>
+            <td>
+                <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+            </td>
+        </tr>
     </asp:Panel>
-    </tr>
-   
+
     <tr>
         <td>
             <asp:Label ID="lblSports" runat="server" Text="Sports"></asp:Label>
@@ -121,22 +122,20 @@
         </td>
     </tr>
     <tr>
-        <td>
-            Hobbies</td>
+        <td>Hobbies</td>
         <td colspan="5">
             <asp:TextBox ID="txtHobbies" runat="server" TextMode="MultiLine"></asp:TextBox>
         </td>
     </tr>
     <tr>
-        <td>
-            Extra Curricular Activity</td>
+        <td>Extra Curricular Activity</td>
         <td colspan="5">
             <asp:TextBox ID="txtExtraActivity" runat="server" TextMode="MultiLine"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td>
-            <asp:Label ID="lblUSAPermit" runat="server" Text=" Permit For Other Countries"></asp:Label>
+            <asp:Label ID="lblUSAPermit" runat="server" Text=" Permit For USA"></asp:Label>
         </td>
         <td colspan="5">
             <asp:RadioButtonList ID="rbtUSAPermit" runat="server" RepeatDirection="Horizontal">
@@ -153,7 +152,7 @@
             <asp:Label ID="lblOtherPermit" runat="server" Text="Other Permit"></asp:Label>
         </td>
         <td colspan="5">
-            <asp:TextBox ID="txtOtherPermit" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="ddlOtherPermit" runat="server"></asp:DropDownList>
         </td>
     </tr>
     <tr>

@@ -40,13 +40,22 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.Label lblClientName;
         
         /// <summary>
-        /// ddlClientName control.
+        /// txtClientId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlClientName;
+        protected global::System.Web.UI.WebControls.TextBox txtClientId;
+        
+        /// <summary>
+        /// txtClientName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtClientName;
         
         /// <summary>
         /// lblClientProfile control.

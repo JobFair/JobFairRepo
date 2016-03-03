@@ -11,6 +11,7 @@ namespace Entities.HR
         public int EmployerId { get; set; }
         public int HrId { get; set; }
         public string CompanyName { get; set; }
+        public string CompanyProfile { get; set; }
         public string EmployerHRFullName { get; set; }
         public string CompanyContactNumber { get; set; }
         public string MobileNumber { get; set; }

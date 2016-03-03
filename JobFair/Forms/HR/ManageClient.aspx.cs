@@ -106,13 +106,16 @@ namespace JobFair.Forms.HR
         }
         protected void lnkBtnClientRequirement_Click(object sender, EventArgs e)
         {
-            //LinkButton button = (LinkButton)sender;
-            //Label label = (Label)button.NamingContainer.FindControl("lblJobID");
-            //int JobId = Convert.ToInt32(label.Text);
+            LinkButton BtnHrId = (LinkButton)sender;
+            Label lblHrId = (Label)BtnHrId.NamingContainer.FindControl("lblHrId");
+            int HrId = Convert.ToInt32(lblHrId.Text);
 
-            //Code for Showing and Hiding Div
-            //bool isCheck = true;
-            Response.Redirect("ClientRequirements.aspx");
+            LinkButton BtnClientId = (LinkButton)sender;
+            Label lblClientId = (Label)BtnClientId.NamingContainer.FindControl("lblClientId");
+            int ClientId = Convert.ToInt32(lblClientId.Text);
+
+            //Code for Redirecting to Next Page
+            Response.Redirect("ClientRequirements.aspx?&HrId=" + HrId + "&ClientId=" + ClientId);
         }
         //protected void lnkBtnEditClientRequirement_Click(object sender, EventArgs e)
         //{
