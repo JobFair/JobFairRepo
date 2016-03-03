@@ -59,14 +59,28 @@ namespace DAL
         public DataTable GetRoles(string prefixText)
         {
             DataTable dt = new DataTable();
+           
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("select * from RoleSkills  where RoleName like @RoleName+'%'", connection);
-                cmd.Parameters.AddWithValue("@RoleName", prefixText);
-                SqlDataAdapter adp = new SqlDataAdapter(cmd);
-                adp.Fill(dt);
+                SqlCommand cmd = new SqlCommand(Constants.sp_JS_SelectKeywords,connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@searchtext", prefixText);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+     
+                //string[] items = new string[dt.Rows.Count];
+                //int i = 0;
+                //foreach (DataRow dr in dt.Rows)
+                //{
+                
+                //    items.SetValue(dr["AllName"].ToString(), i);
+                //    i++;
+                //}
+                //return items;  
+                
             }
+
             catch (Exception)
             {
                 // throw;
@@ -75,7 +89,11 @@ namespace DAL
             {
                 connection.Close();
             }
+
             return dt;
+         
+           
+            
         }
         /// <summary>
         /// Search for job
@@ -95,7 +113,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@JobLocationCity", advanceSearchEntity.City);
                 cmd.Parameters.AddWithValue("@JobLocationArea", advanceSearchEntity.Area);
                 cmd.Parameters.AddWithValue("@WorkExperienceMin", advanceSearchEntity.WorkExpMin);
-                cmd.Parameters.AddWithValue("@WorkExperienceMax", advanceSearchEntity.WorkExpMin);
+                cmd.Parameters.AddWithValue("@WorkExperienceMax", advanceSearchEntity.WorkExpMax);
                 cmd.Parameters.AddWithValue("@OfferedAnnualSalaryMin", advanceSearchEntity.MinSalary);
                 cmd.Parameters.AddWithValue("@OfferedAnnualSalaryMax", advanceSearchEntity.MaxSalary);
                 cmd.Parameters.AddWithValue("@JobIndustryId", advanceSearchEntity.Industry);
@@ -111,7 +129,7 @@ namespace DAL
             }
             finally
             {
-                connection.Close();
+                ////connection.Close();
             }
             return dsAdvancesearch;
         }

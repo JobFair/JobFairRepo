@@ -421,7 +421,7 @@ namespace JobFair.Forms.JobSeeker
                             lblHobbies.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["Hobbies"]);
                             lblActivity.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["ExtraActivity"]);
                             lblUSAPermit.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["USApermit"]);
-                            lblOtherPermit.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["OtherPermits"]);
+                            lblOtherPermit.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["CountryName"]);
                         }
                         else
                         {

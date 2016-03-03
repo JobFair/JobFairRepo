@@ -36,10 +36,9 @@ namespace DAL
                 objbulk.ColumnMappings.Add("ComapnyName", "ComapnyName");
                 objbulk.ColumnMappings.Add("Designation", "Designation");
                 objbulk.ColumnMappings.Add("RolesResponsibilities", "RolesResponsibilities");
-                objbulk.ColumnMappings.Add("FromMonth", "FromMonth");
-                objbulk.ColumnMappings.Add("FromYear", "FromYear");
-                objbulk.ColumnMappings.Add("TillMonth", "TillMonth");
-                objbulk.ColumnMappings.Add("TillYear", "TillYear");
+                objbulk.ColumnMappings.Add("FromDate", "FromDate");
+                objbulk.ColumnMappings.Add("TillDate", "TillDate");
+                objbulk.ColumnMappings.Add("RelevantExperience", "RelevantExperience");
                 objbulk.ColumnMappings.Add("Industry", "Industry");
                 objbulk.ColumnMappings.Add("Department", "Department");
                 objbulk.ColumnMappings.Add("EmploymentStatus", "EmploymentStatus");
@@ -647,6 +646,7 @@ namespace DAL
                 connection.Close();
             }
         }
+
         /// <summary>
         /// Method in CurrentDesiredJobDAL class to add new role skill in table
         /// </summary>
@@ -654,16 +654,17 @@ namespace DAL
         public void AddRoleSkillsDetailsDAL(CurrentDesiredJobEntity currentDesiredJobEntity)
         {
             try
-            {               
+            {
                 connection.Open();
                 SqlParameter[] sparams = { new SqlParameter("@SkillName", currentDesiredJobEntity.RoleSkills) };
                 SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertRoleSkill, sparams);
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
+
         /// <summary>
         /// Method in CurrentDesiredJobDAL class to add new technical skill in table
         /// </summary>
@@ -678,10 +679,10 @@ namespace DAL
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
+
         /// <summary>
         /// Method in CurrentDesiredJobDAL class to update Desired Details in Database
         /// </summary>
@@ -717,7 +718,6 @@ namespace DAL
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
@@ -725,7 +725,7 @@ namespace DAL
         public void DeleteOneRecordOfGridViewExperienceDAL(int ID)
         {
             connection.Open();
-            SqlParameter[] sparams = { new SqlParameter("@id", ID) }; 
+            SqlParameter[] sparams = { new SqlParameter("@id", ID) };
         }
     }
 }

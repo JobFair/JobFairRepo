@@ -393,6 +393,10 @@ namespace CommonUtil
                 
                 throw;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         /// <summary>

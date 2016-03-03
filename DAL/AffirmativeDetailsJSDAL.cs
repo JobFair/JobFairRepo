@@ -85,7 +85,7 @@ namespace DAL
                                           new SqlParameter ("@hobbies",affirmativeDetailsEntity.Hobbies),
                                           new SqlParameter ("@extraActivity",affirmativeDetailsEntity.ExtraActivity)
                                           };
-                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_OtherDetails, sqlparams);
+                result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, Constants.sp_JS_InsertOtherDetails, sqlparams);
                 if (result > 0)
                 {
                     return true;

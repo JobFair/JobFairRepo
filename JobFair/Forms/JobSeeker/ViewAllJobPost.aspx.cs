@@ -8,7 +8,7 @@ namespace JobFair.Forms.JobSeeker
 {
     public partial class ViewAllJobPost : System.Web.UI.Page
     {
-        private string email, jobtitle, candidateId, recruiterName, rId, clientName, requirementId;
+        private string email, jobtitle, candidateId, recruiterName, rId, clientName, requirementId,isreffered;
         private Int64 cId;
         Int32 id;
         private DataSet dsviewjobpost = new DataSet();
@@ -20,6 +20,7 @@ namespace JobFair.Forms.JobSeeker
                 id = Convert.ToInt32(Request.QueryString["jid"]);
                 cId = Convert.ToInt64(Request.QueryString["cId"]);
                 candidateId = Convert.ToString(Session["candidateId"]);
+                isreffered = Convert.ToString(Session["Isreffered"]);
                 
                 // Label1.Text = Session["jobid"].ToString();
                 if (!IsPostBack)

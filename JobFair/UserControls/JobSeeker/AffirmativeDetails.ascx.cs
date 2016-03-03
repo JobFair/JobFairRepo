@@ -29,18 +29,40 @@ namespace JobFair.UserControls.JobSeeker
                     if (!IsPostBack)
                     {
                         BindLanguages();
+                        BindCountry();
                         // Check the isEdit is true for edit
                         if (isEdit)
                         {
                             BindAffirmativeDetails(candidateId);
                         }
                     }
-                   
                 }
             }
             catch (Exception)
             {
                 //  throw;
+            }
+        }
+
+        private void BindCountry()
+        {
+            try
+            {
+                AffirmativeDetailsJSBAL affirmativeDetailsBAL = new AffirmativeDetailsJSBAL();
+                DataSet dsCountry = new DataSet();
+                dsCountry = affirmativeDetailsBAL.GetCountryBAL();
+                if (dsCountry != null)
+                {
+                    ddlOtherPermit.DataSource = dsCountry;
+                    ddlOtherPermit.DataTextField = "CountryName";
+                    ddlOtherPermit.DataValueField = "CountryId";
+                    ddlOtherPermit.DataBind();
+                    ddlOtherPermit.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -191,7 +213,7 @@ namespace JobFair.UserControls.JobSeeker
                             txtExtraActivity.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["ExtraActivity"]);
                             USApermit = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["USApermit"]);
                             rbtUSAPermit.Items.FindByValue(USApermit).Selected = true;
-                            txtOtherPermit.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["OtherPermits"]);
+                            //txtOtherPermit.Text = Convert.ToString(dsAffirmativeDetails.Tables[0].Rows[0]["OtherPermits"]);
                         }
                     }
                 }
@@ -212,7 +234,7 @@ namespace JobFair.UserControls.JobSeeker
             try
             {
                 // Check if isEdit is true for update
-                if (!isEdit)
+                if (isEdit)
                 {
                     List<LanguageEntity> languageDetailsList = new List<LanguageEntity>();
                     AffirmativeDetailsEntity affirmativeDetailsEntity = new AffirmativeDetailsEntity();
@@ -275,7 +297,7 @@ namespace JobFair.UserControls.JobSeeker
                     //else
                     //    affirmativeDetailsEntity.USAPermit = "No";
                     affirmativeDetailsEntity.USAPermit = rbtUSAPermit.SelectedItem.Text;
-                    affirmativeDetailsEntity.OtherPermits = txtOtherPermit.Text.Trim();
+                    affirmativeDetailsEntity.OtherPermits = Convert.ToInt32(ddlOtherPermit.Text.Trim());
 
                     // Save language details
                     bool isLanguageSaved = affirmativeDetailsBAL.UpdateLanguageDetailsBAL(languageDetailsList, candidateId);
@@ -301,7 +323,7 @@ namespace JobFair.UserControls.JobSeeker
 
                     // Set the value of LanguageEntity for first language
                     LanguageEntity firstlanguageEntity = new LanguageEntity();
-                    firstlanguageEntity.CandidateId= candidateId;
+                    firstlanguageEntity.CandidateId = candidateId;
                     firstlanguageEntity.LanguageId = Convert.ToInt32(ddlLanguageFirst.SelectedValue);
                     firstlanguageEntity.ProficiencyLevel = ddlProficiencyFirst.SelectedItem.Text;
                     firstlanguageEntity.Read = chkReadFirst.Checked;
@@ -354,7 +376,7 @@ namespace JobFair.UserControls.JobSeeker
                     //else
                     //    affirmativeDetailsEntity.USAPermit = "No";
                     affirmativeDetailsEntity.USAPermit = rbtUSAPermit.SelectedItem.Text;
-                    affirmativeDetailsEntity.OtherPermits = txtOtherPermit.Text.Trim();
+                    affirmativeDetailsEntity.OtherPermits = Convert.ToInt32(ddlOtherPermit.Text.Trim());
 
                     // Save language details
                     bool isLanguageSaved = affirmativeDetailsBAL.SaveLanguageDetailsBAL(languageDetailsList);

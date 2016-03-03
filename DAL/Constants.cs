@@ -46,7 +46,7 @@
         public static string sp_HR_UpdateEmployerDetails = "sp_HR_UpdateEmployerDetails";
         public static string sp_Language = "sp_Language";
         public const string sp_Country = "sp_Country";
-        public const string sp_JS_OtherDetails = "sp_JS_OtherDetails";
+        public const string sp_JS_InsertOtherDetails = "sp_JS_InsertOtherDetails";
         public const string sp_State = "sp_State";
         public const string sp_City = "sp_City";
         public const string sp_JS_InsertResumeFormatting = "sp_JS_InsertResumeFormatting";
@@ -154,11 +154,17 @@
         public static string sp_RE_DeleteRoleSkills = "sp_RE_DeleteRoleSkills";
         public static string sp_RE_UpdateRoleSkill = "sp_RE_UpdateRoleSkill";
         public static string sp_RE_SelectRoleskills = "sp_RE_SelectRoleskills";
-        public static string sp_RE_InsertQuestionnarie="sp_RE_InsertQuestionnarie";
+        public static string sp_RE_InsertQuestionnarie = "sp_RE_InsertQuestionnarie";
         public static string sp_RE_ViewQuestionnarie = "sp_RE_ViewQuestionnarie";
         public static string sp_RE_SelectResumeForward = "sp_RE_SelectResumeForward";
         public static string sp_SelectCity = "sp_SelectCity";
         public static string sp_JS_JobSearch = "sp_JS_JobSearch";
         public static string sp_RE_SelectJobPost = "sp_RE_SelectJobPost";
+        public static string sp_RE_SelectActiveClientName = "sp_RE_SelectActiveClientName";
+        public static string sp_RE_SelectActiveRequirementPosition = "sp_RE_SelectActiveRequirementPosition";
+        public static string sp_RE_SelectRequirementId = "sp_RE_SelectRequirementId";
+        public static string sp_RE_SelectKeywords = "sp_RE_SelectKeywords";
+
+        public static string sp_JS_SelectKeywords = "sp_JS_SelectKeywords";
     }
 }

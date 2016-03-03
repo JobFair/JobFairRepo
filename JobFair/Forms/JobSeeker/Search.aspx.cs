@@ -1,7 +1,6 @@
 ﻿using BAL;
 using Entities.JobSeeker;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
@@ -58,18 +57,26 @@ namespace JobFair.Forms.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnSearchJob control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void btnSearchJob_Click(object sender, EventArgs e)
         {
             BindRepeater();
         }
 
+        /// <summary>
+        /// Bind data to rptrJobPost control
+        /// </summary>
         private void BindRepeater()
         {
             try
             {
                 AdvanceSearchDetailsEntity advanceSearchEntity = new AdvanceSearchDetailsEntity();
                 SearchJSBAL searchBal = new SearchJSBAL();
-                // advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
+                // Check if txtKeywords is equal to null
                 if (txtKeywords.Text == "")
                 {
                     advanceSearchEntity.KeySkill = null;
@@ -78,16 +85,16 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.KeySkill = txtKeywords.Text.Trim();
                 }
-
+                // Check if txtLocation is equal to null
                 if (txtLocation.Text == "")
                 {
                     advanceSearchEntity.City = null;
                 }
                 else
                 {
-                    advanceSearchEntity.City = txtLocation.UniqueID.ToString();
+                    advanceSearchEntity.City = txtLocation.Text.Trim();
                 }
-
+                // Check if ddlExperience is equal to null
                 if (ddlExperience.SelectedValue == "" || ddlExperience.Text == "Experience")
                 {
                     advanceSearchEntity.WorkExp = null;
@@ -96,7 +103,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.WorkExp = ddlExperience.SelectedValue.Trim();
                 }
-
+                // Check if ddlSalary is equal to null
                 if (ddlSalary.SelectedValue == "" || ddlSalary.Text == "Salary")
                 {
                     advanceSearchEntity.MaxSalary = null;
@@ -105,37 +112,15 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.MaxSalary = ddlSalary.SelectedValue.Trim();
                 }
-                DataSet ds = new DataSet();
-                ds = searchBal.JobSearchBAL(advanceSearchEntity);
-                //rptrJobPost.DataSource = ds;
-                //rptrJobPost.DataBind();
-
-                //PagedDataSource pgitems = new PagedDataSource();
-                ////pgitems.DataSource = ds.DefaultView;
-                //pgitems.AllowPaging = true;
-
-                ////Control page size from here
-                //pgitems.PageSize = 2;
-                //pgitems.CurrentPageIndex = PageNumber;
-                //if (pgitems.PageCount > 1)
-                //{
-                //    rptPaging.Visible = true;
-                //    ArrayList pages = new ArrayList();
-                //    for (int i = 0; i <= pgitems.PageCount - 1; i++)
-                //    {
-                //        pages.Add((i + 1).ToString());
-                //    }
-                //    rptPaging.DataSource = pages;
-                //    rptPaging.DataBind();
-                //}
-                //else
-                //{
-                //    rptPaging.Visible = true;
-                //}
-
-                //Finally, set the datasource of the repeater
-                rptrJobPost.DataSource = ds;
-                rptrJobPost.DataBind();
+                DataSet dsSearch = new DataSet();
+                dsSearch = searchBal.JobSearchBAL(advanceSearchEntity);
+                // Check if dsSearch is not null
+                if (dsSearch != null)
+                {
+                    // Set the datasource of the repeater
+                    rptrJobPost.DataSource = dsSearch;
+                    rptrJobPost.DataBind();
+                }
             }
             catch (Exception)
             {
@@ -145,6 +130,7 @@ namespace JobFair.Forms.JobSeeker
 
         protected void rptrJobPost_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
+            // Check if commandname equal to contact
             if (e.CommandName == "Contact")
             {
                 Label lbl = (Label)e.Item.FindControl("lblid");
