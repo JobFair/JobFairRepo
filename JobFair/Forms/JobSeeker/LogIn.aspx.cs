@@ -27,6 +27,18 @@ namespace JobFair.Forms.JobSeeker
                 logjsEntity.Password = txtPassword.Text.Trim();
                 string candidateID = liBAL.JobSeekerLogIn(logjsEntity);
              
+                string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
+
+                // string format = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]); ;
+                string[] Words = candidateID.Split(new char[] { '/' });
+                int count = 0;
+
+                foreach (string Word in Words)
+                {
+                    count += 1;
+                    if (count == 1)
+                    {
+                        candidateID = Word;
                 if (string.IsNullOrEmpty(candidateID) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
                 {
                     Session["Candidateid"] = candidateID;
@@ -35,23 +47,30 @@ namespace JobFair.Forms.JobSeeker
                         lblmsg.Text = "Wrong username or password";
                         return;
                     }
-                    Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssid=" + Session["Candidateid"] );
+                            Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssid=" + Session["Candidateid"]);
 
                     return;
                 }
                 Session["Candidateid"] = candidateID;
-                //string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
-                //if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
-                //{
-                //    Session["Isreffered"] = isreffered;
-                //    if (string.IsNullOrEmpty(isreffered))
-                //    {
-                //        lblmsg.Text = "Wrong username or password";
-                //        return;
+                    }
+                    if (count == 2)
+                    {
+                        isreffered = Word;
                     
-                //    }
-                //    Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssreffered=" + Session["Isreffered"]);
-                //    return;
+                        if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
+                        {
+                            Session["Isreffered"] = isreffered;
+                            if (string.IsNullOrEmpty(isreffered))
+                            {
+                                lblmsg.Text = "Wrong username or password";
+                                return;
+                            }
+                            Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssreffered=" + Session["Isreffered"]);
+                            return;
+                        }
+                        Session["Isreffered"] = isreffered;
+                    }
+                }
 
                 
                 //}
