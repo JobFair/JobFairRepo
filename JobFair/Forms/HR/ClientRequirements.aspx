@@ -21,14 +21,17 @@
             <tr>
                 <td><asp:Label ID="lblClientName" runat="server" Text=" Client Name " CssClass="label"></asp:Label></td>
                 <td>
-                    <asp:DropDownList ID="ddlClientName" runat="server" AutoPostBack="True" AppendDataBoundItems="true">
-                    </asp:DropDownList>
+                    <asp:TextBox ID="txtClientId" runat="server" Text='<%#Eval("ClientId")%>' ReadOnly="true" Visible="false"></asp:TextBox>
+                    <asp:TextBox ID="txtClientName" runat="server" Text='<%#Eval("ClientName")%>' ReadOnly="true" Enabled="false"></asp:TextBox>
+                    <%--<asp:DropDownList ID="ddlClientName" runat="server" AutoPostBack="True" AppendDataBoundItems="true">
+                    </asp:DropDownList>--%>
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lblClientProfile" runat="server" Text=" Client Profile " CssClass="label"></asp:Label></td>
                 <td>
-                    <asp:TextBox ID="txtClientProfile" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtClientProfile" runat="server" Text='<%#Eval("ClientProfile")%>' ReadOnly="true" Enabled="false"></asp:TextBox>
+                    <%--<asp:TextBox ID="txtClientProfile" runat="server"></asp:TextBox>--%>
                 </td>
             </tr>
             <tr>

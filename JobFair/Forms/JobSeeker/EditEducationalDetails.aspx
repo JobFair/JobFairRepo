@@ -27,8 +27,9 @@
                         <asp:Label ID="lblMedium" runat="server" CssClass="label" Text="Medium of Education"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtMedium" runat="server" onblur="return CheckOnlyChar(this.id);" Width="100px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvMedium" runat="server" ControlToValidate="txtMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEditEducationalDetails"></asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="ddlMedium" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvMedium" runat="server" ControlToValidate="ddlMedium" ErrorMessage="*" ForeColor="Red" ValidationGroup="vgEditEducationalDetails"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>

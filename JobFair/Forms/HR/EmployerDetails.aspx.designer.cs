@@ -40,6 +40,24 @@ namespace JobFair.Forms.HR {
         protected global::System.Web.UI.WebControls.TextBox txtCompanyName;
         
         /// <summary>
+        /// lblCompanyProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyProfile;
+        
+        /// <summary>
+        /// txtCompanyProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyProfile;
+        
+        /// <summary>
         /// lblEmployerHRFullName control.
         /// </summary>
         /// <remarks>
@@ -389,6 +407,15 @@ namespace JobFair.Forms.HR {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblViewCompanyName;
+        
+        /// <summary>
+        /// lblviewCompanyProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblviewCompanyProfile;
         
         /// <summary>
         /// lblViewEmployerHRFullName control.

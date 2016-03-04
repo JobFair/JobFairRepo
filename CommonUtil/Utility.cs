@@ -52,7 +52,6 @@ namespace CommonUtil
         /// GetCountry() Method in Utility class
         /// </summary>
         /// <returns>System.Data.DataSet</returns>
-
         public static DataSet GetCountry()
         {
             try
@@ -185,23 +184,6 @@ namespace CommonUtil
             {
                 Common common = new Common();
                 return common.GetEducationalDegreeTypeDAL(CandidateId);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// GetLanguage() method of Utility class
-        /// </summary>
-        /// <returns>System.Data.DataSet</returns>
-        public static DataSet GetLanguage()
-        {
-            try
-            {
-                Common common = new Common();
-                return common.GetLanguagesDAL();
             }
             catch (Exception)
             {
@@ -392,6 +374,23 @@ namespace CommonUtil
             catch (Exception)
             {
                 
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// GetLanguage() Method in Utility class
+        /// </summary>
+        /// <returns>System.Data.DataSet</returns>
+        public static DataSet GetLanguage()
+        {
+            try
+            {
+                Common common = new Common();
+                return common.GetLanguageDAL();
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }
