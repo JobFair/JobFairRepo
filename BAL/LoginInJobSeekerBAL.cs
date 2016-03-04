@@ -5,7 +5,7 @@ namespace BAL
     /// <summary>
     /// LoginBAL class
     /// </summary>
-    public class LoginBAL
+    public class LoginInJobSeekerBAL
     {
         /// <summary>
         /// Login for jobseeker

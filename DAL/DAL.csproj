@@ -52,6 +52,7 @@
     <Compile Include="EmployerDetailsHRDAL.cs" />
     <Compile Include="JobApplicationDAL.cs" />
     <Compile Include="JobSearchDAL.cs" />
+    <Compile Include="LogInEmployerDAL.cs" />
     <Compile Include="ManageClientHRDAL.cs" />
     <Compile Include="ManageEmployerHRDAL.cs" />
     <Compile Include="ManageResponsesDAL.cs" />

@@ -20,7 +20,7 @@ namespace JobFair.Forms.Recruiter
             try
             {
                 LoginEnitity loginEntity = new LoginEnitity();
-                LoginBAL loginBAL = new LoginBAL();
+                LoginInJobSeekerBAL loginBAL = new LoginInJobSeekerBAL();
                 loginEntity.UserName = txtLoginid.Text.Trim();
                 loginEntity.Password = txtPassword.Text.Trim();
                 string recruiterid = loginBAL.RecruiterLoginBAL(loginEntity);
