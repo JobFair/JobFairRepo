@@ -80,7 +80,7 @@
         <tr>
             <td colspan="2">
 
-                <div id="divCurrentEmployer" runat="server">
+                <div id="divCurrentEmployer" runat="server" visible="false">
                     <table>
                         <tr>
                             <td colspan="2">
@@ -142,7 +142,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>&nbsp;Employment Status</td>
+                            <td>Functional Area</td>
+                            <td>
+                                <asp:DropDownList ID="ddlFunctionalArea" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Employment Status</td>
                             <td>
                                 <asp:RadioButtonList ID="rblEmployeStatus" runat="server">
                                     <asp:ListItem>Full Time</asp:ListItem>
@@ -151,7 +158,7 @@
                                 &nbsp;</td>
                         </tr>
                         <tr>
-                            <td>&nbsp;Job Type</td>
+                            <td>Job Type</td>
                             <td>
                                 <asp:RadioButtonList ID="rblJobType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="rblJobType_SelectedIndexChanged">
                                     <asp:ListItem>Permanent</asp:ListItem>
@@ -179,7 +186,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Reason For JobChange</td>
+                            <td>Reason For the Job Change</td>
                             <td>
                                 <asp:TextBox ID="txtReasonforJobchange" runat="server" TextMode="MultiLine"></asp:TextBox>
                             </td>
@@ -206,8 +213,9 @@
                                         <asp:BoundField HeaderText="FromDate" DataField="FromDate" />
                                         <asp:BoundField HeaderText="TillDate" DataField="TillDate" />
                                         <asp:BoundField HeaderText="RelevantExperience" DataField="RelevantExperience" />
-                                        <asp:BoundField HeaderText="Industry" DataField="Industry" />
-                                        <asp:BoundField HeaderText="Department" DataField="Department" />
+                                        <asp:BoundField HeaderText="Industry" DataField="Industry" Visible="false" />
+                                        <asp:BoundField HeaderText="Department" DataField="Department" Visible="false" />
+                                        <asp:BoundField HeaderText="FunctionalArea" DataField="FunctionalArea" Visible="false" />
                                         <asp:BoundField HeaderText="EmploymentStatus" DataField="EmploymentStatus" />
                                         <asp:BoundField HeaderText="JobType" DataField="JobType" />
                                         <asp:BoundField HeaderText="CompanyType" DataField="CompanyType" />
@@ -442,7 +450,7 @@
                         </tr>
                         <tr>
                             <td>Functional Role</td>
-                            <td>&nbsp;<asp:DropDownList ID="ddlFunctionalRole" runat="server">
+                            <td><asp:DropDownList ID="ddlFunctionalRole" runat="server">
                             </asp:DropDownList>
                             </td>
                         </tr>
@@ -595,11 +603,14 @@
             <td>
                 <asp:DropDownList ID="ddlNoticePeriod" runat="server">
                     <asp:ListItem>Select</asp:ListItem>
-                    <asp:ListItem>1 Months</asp:ListItem>
-                    <asp:ListItem>2 Months</asp:ListItem>
-                    <asp:ListItem>3 Months</asp:ListItem>
-                    <asp:ListItem>6 Months</asp:ListItem>
-                    <asp:ListItem>No</asp:ListItem>
+                    <asp:ListItem>Immediate</asp:ListItem>
+                    <asp:ListItem>7 Days</asp:ListItem>
+                    <asp:ListItem>15 Days</asp:ListItem>
+                    <asp:ListItem>30 Days</asp:ListItem>
+                    <asp:ListItem>45 Days</asp:ListItem>
+                    <asp:ListItem>60 Days</asp:ListItem>
+                    <asp:ListItem>90 Days</asp:ListItem>
+                    <asp:ListItem>No Notice Period</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>

@@ -14,7 +14,7 @@ namespace JobFair.UserControls.JobSeeker
     {
         private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
         private string candidateId = "1";
-        private bool isEdit = true;
+        private bool isEdit = false;
 
         /// <summary>
         /// Handles the Load event of Page
@@ -33,7 +33,7 @@ namespace JobFair.UserControls.JobSeeker
             // Check page is not post back
             if (!IsPostBack)
             {
-                if (!isEdit)
+                if (isEdit)
                 {
                     try
                     {
@@ -373,10 +373,15 @@ namespace JobFair.UserControls.JobSeeker
                 if (ds != null)
                 {
                     ddlFunctionalRole.DataSource = ds;
+                    ddlFunctionalArea.DataSource = ds;
                     ddlFunctionalRole.DataTextField = "FunctionalArea";
                     ddlFunctionalRole.DataValueField = "FunctionalAreaId";
+                    ddlFunctionalArea.DataValueField = "FunctionalAreaId";
+                    ddlFunctionalArea.DataTextField = "FunctionalArea";
+                    ddlFunctionalArea.DataBind();
                     ddlFunctionalRole.DataBind();
                     ddlFunctionalRole.Items.Insert(0, new ListItem("--Select--", "0"));
+                    ddlFunctionalArea.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
             }
             catch (Exception)
@@ -408,6 +413,7 @@ namespace JobFair.UserControls.JobSeeker
                 dt.Columns.Add(new DataColumn("RelevantExperience", typeof(double)));
                 dt.Columns.Add(new DataColumn("Industry", typeof(int)));
                 dt.Columns.Add(new DataColumn("Department", typeof(int)));
+                dt.Columns.Add(new DataColumn("FunctionalArea",typeof(int)));
                 dt.Columns.Add(new DataColumn("EmploymentStatus", typeof(string)));
                 dt.Columns.Add(new DataColumn("JobType", typeof(string)));
                 dt.Columns.Add(new DataColumn("CompanyType", typeof(string)));
@@ -582,6 +588,7 @@ namespace JobFair.UserControls.JobSeeker
                             dr["RelevantExperience"] = experience;
                             dr["Industry"] = ddlIndustry.SelectedItem.Value;
                             dr["Department"] = ddlDepartment.SelectedItem.Value;
+                            dr["FunctionalArea"] = ddlFunctionalArea.SelectedItem.Value;
                             dr["EmploymentStatus"] = rblEmployeStatus.Text;
                             dr["JobType"] = rblJobType.Text;
                             dr["CompanyType"] = rblCompanyType.Text;
@@ -699,7 +706,7 @@ namespace JobFair.UserControls.JobSeeker
                             datatable.Rows[0].Delete();
                             datatable.AcceptChanges();
                         }
-
+                         
                         // Add new record to the datatable
                         datatable.Rows.Add(datarow);
 
@@ -733,7 +740,7 @@ namespace JobFair.UserControls.JobSeeker
             DataTable dt = (DataTable)ViewState["JobDetails"];
             try
             {
-                if (isEdit)
+                if (!isEdit)
                 {
                     currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
                     currentDesiredJobEntity.Objective = txtObjective.Text.Trim();
