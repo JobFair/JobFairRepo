@@ -41,6 +41,7 @@ namespace DAL
                 objbulk.ColumnMappings.Add("RelevantExperience", "RelevantExperience");
                 objbulk.ColumnMappings.Add("Industry", "Industry");
                 objbulk.ColumnMappings.Add("Department", "Department");
+                objbulk.ColumnMappings.Add("FunctionalArea", "FunctionalArea");
                 objbulk.ColumnMappings.Add("EmploymentStatus", "EmploymentStatus");
                 objbulk.ColumnMappings.Add("JobType", "JobType");
                 objbulk.ColumnMappings.Add("CompanyType", "CompanyType");
