@@ -87,7 +87,7 @@
     <Content Include="Forms\HR\HRRegistration.aspx" />
     <Content Include="Forms\Admin\Common\ChangePassword.aspx" />
     <Content Include="Forms\Admin\Common\ForgetPassword.aspx" />
-    <Content Include="Forms\Employer\Register.aspx" />
+    <Content Include="Forms\Employer\EmpLogin.aspx" />
     <Content Include="Forms\HR\ClientContactPersonDetails.aspx" />
     <Content Include="Forms\HR\ClientDetails.aspx" />
     <Content Include="Forms\HR\ClientRequirements.aspx" />
@@ -234,12 +234,12 @@
     <Compile Include="Forms\Employer\HomePageEmployer.Master.designer.cs">
       <DependentUpon>HomePageEmployer.Master</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employer\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="Forms\Employer\EmpLogin.aspx.cs">
+      <DependentUpon>EmpLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Employer\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="Forms\Employer\EmpLogin.aspx.designer.cs">
+      <DependentUpon>EmpLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\HR\ClientContactPersonDetails.aspx.cs">
       <DependentUpon>ClientContactPersonDetails.aspx</DependentUpon>

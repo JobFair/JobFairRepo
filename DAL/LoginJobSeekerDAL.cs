@@ -59,12 +59,7 @@ namespace DAL
             {
                 connection.Close();
             }
-            return  Result;
-           
-             
-
-            
+            return  Result;  
           }
-         
     }
 }

@@ -19,13 +19,14 @@ namespace JobFair.Forms.JobSeeker
         {
             try
             {
-                LoginBAL liBAL = new LoginBAL();
+                
+                LoginInJobSeekerBAL liBAL = new LoginInJobSeekerBAL();
                 LoginEnitity logjsEntity = new LoginEnitity();
 
                 logjsEntity.UserName = txtUserName.Text.Trim();
                 logjsEntity.Password = txtPassword.Text.Trim();
                 string candidateID = liBAL.JobSeekerLogIn(logjsEntity);
-
+             
                 string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
 
                 // string format = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]); ;
@@ -38,24 +39,24 @@ namespace JobFair.Forms.JobSeeker
                     if (count == 1)
                     {
                         candidateID = Word;
-                        if (string.IsNullOrEmpty(candidateID) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
-                        {
-                            Session["Candidateid"] = candidateID;
-                            if (string.IsNullOrEmpty(candidateID))
-                            {
-                                lblmsg.Text = "Wrong username or password";
-                                return;
-                            }
+                if (string.IsNullOrEmpty(candidateID) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
+                {
+                    Session["Candidateid"] = candidateID;
+                    if (string.IsNullOrEmpty(candidateID))
+                    {
+                        lblmsg.Text = "Wrong username or password";
+                        return;
+                    }
                             Response.Redirect(Request.QueryString["redirect"].ToString() + "&ssid=" + Session["Candidateid"]);
 
-                            return;
-                        }
-                        Session["Candidateid"] = candidateID;
+                    return;
+                }
+                Session["Candidateid"] = candidateID;
                     }
                     if (count == 2)
                     {
                         isreffered = Word;
-
+                    
                         if (string.IsNullOrEmpty(isreffered) || !string.IsNullOrEmpty(Request.QueryString["redirect"]))
                         {
                             Session["Isreffered"] = isreffered;
@@ -71,8 +72,11 @@ namespace JobFair.Forms.JobSeeker
                     }
                 }
 
-               
-                Response.Redirect("AdvanceSearch.aspx");
+                
+                //}
+                //Session["Isreffered"] = isreffered;
+                //Session["UserType"] = 1;
+                Response.Redirect("JSViewProfile.aspx");
                 //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)
