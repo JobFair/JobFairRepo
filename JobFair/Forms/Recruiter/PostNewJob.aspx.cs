@@ -11,7 +11,7 @@ namespace JobFair.Forms.Recruiter
     public partial class PostNewJob : System.Web.UI.Page
     {
         private int DegreeId, jobPostId = 4;
-        private bool isEdit = true;
+        private bool isEdit = false;
         private Int64 recruiterId = 12;
 
         protected void Page_Load(object sender, EventArgs e)

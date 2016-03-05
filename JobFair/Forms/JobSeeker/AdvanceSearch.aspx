@@ -292,6 +292,10 @@
                     <td colspan="2">
                         <asp:Button ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Width="97px" />
                         <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" />
+                         <asp:DropDownCheckBoxes ID="ddlLocation" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLocation_SelectedIndexChanged">
+                             <Style SelectBoxWidth="230" DropDownBoxBoxWidth="230" />
+                        </asp:DropDownCheckBoxes>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                     </td>
                 </tr>
             </table>

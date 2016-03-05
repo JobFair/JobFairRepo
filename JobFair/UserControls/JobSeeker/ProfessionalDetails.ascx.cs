@@ -199,6 +199,7 @@ namespace JobFair.UserControls.JobSeeker
                 }
                 else
                 {
+                    CalendarExtender2.EndDate = DateTime.Now;
                     BindCountry();
                     //BindMonth();
                     //BindYear();
@@ -420,6 +421,7 @@ namespace JobFair.UserControls.JobSeeker
                 dt.Columns.Add(new DataColumn("Reason", typeof(string)));
                 dt.Columns.Add(new DataColumn("ClientName", typeof(string)));
                 dt.Columns.Add(new DataColumn("ClientSite", typeof(string)));
+                dt.Columns.Add(new DataColumn("Location", typeof(string)));
                 dr = dt.NewRow();
                 dt.Rows.Add(dr);
                 ViewState["ProfessionalDetails"] = dt;
@@ -476,6 +478,7 @@ namespace JobFair.UserControls.JobSeeker
                 {
                     ddlIndustry.DataSource = ds;
                     ddlIndustry123.DataSource = ds;
+                   
                     ddlIndustry.DataTextField = "IndustryName";
                     ddlIndustry.DataValueField = "IndustryId";
                     ddlIndustry123.DataTextField = "IndustryName";
@@ -501,29 +504,29 @@ namespace JobFair.UserControls.JobSeeker
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected void btnSaveCurrentJob_Click(object sender, EventArgs e)
-        {
-            CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-            Entities.JobSeeker.CurrentDesiredJobEntity currentDesiredJobEntity = new Entities.JobSeeker.CurrentDesiredJobEntity();
-            currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
+        //protected void btnSaveCurrentJob_Click(object sender, EventArgs e)
+        //{
+        //    CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
+        //    Entities.JobSeeker.CurrentDesiredJobEntity currentDesiredJobEntity = new Entities.JobSeeker.CurrentDesiredJobEntity();
+        //    currentDesiredJobEntity.Candidateid = hfCandidateId.Value.Trim();
 
-            DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
-            try
-            {
-                currentDesiredJobBAL.SaveExperienceDetailsBAL(dt);
+        //    DataTable dt = (DataTable)ViewState["ProfessionalDetails"];
+        //    try
+        //    {
+        //        currentDesiredJobBAL.SaveExperienceDetailsBAL(dt);
 
-                Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
-            }
-            catch (Exception)
-            {
-                //  throw;
-            }
-            finally
-            {
-                dt = null;
-                currentDesiredJobBAL = null;
-            }
-        }
+        //        Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
+        //    }
+        //    catch (Exception)
+        //    {
+        //        //  throw;
+        //    }
+        //    finally
+        //    {
+        //        dt = null;
+        //        currentDesiredJobBAL = null;
+        //    }
+        //}
 
         /// <summary>
         /// Handles Click event of btnAddExperience control
@@ -594,7 +597,8 @@ namespace JobFair.UserControls.JobSeeker
                             dr["CompanyType"] = rblCompanyType.Text;
                             dr["Reason"] = txtReasonforJobchange.Text.Trim();
                             dr["ClientName"] = txtClientName.Text.Trim();
-                            dr["ClientSite"] = txtClientSite.Text.Trim();
+                            dr["ClientSite"] = chkJobType.Checked.ToString();
+                            dr["Location"] = txtLocation.Text.Trim();
                         }
                         // Removing initial row
                         if (dt.Rows[0][0].ToString() == "")
@@ -737,7 +741,8 @@ namespace JobFair.UserControls.JobSeeker
             var selectedcity = chklCity.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             var selectedarea = chklArea.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
             var selectedstate = chklState.Items.Cast<ListItem>().Where(li => li.Selected).ToList();
-            DataTable dt = (DataTable)ViewState["JobDetails"];
+            DataTable dtJobDetails = (DataTable)ViewState["JobDetails"];
+            DataTable dtAddExperience = (DataTable)ViewState["ProfessionalDetails"];
             try
             {
                 if (!isEdit)
@@ -779,8 +784,8 @@ namespace JobFair.UserControls.JobSeeker
                     currentDesiredJobEntity.BeforeTime = ddlBeforeHours.SelectedItem.Text + ":" + ddlBeforeMinutes.SelectedItem.Text + ":" + ddlBeforeTime.SelectedItem.Text;
 
                     currentDesiredJobEntity.AfterTime = ddlAfterHours.SelectedItem.Text + ":" + ddlAfterMinutes.SelectedItem.Text + ":" + ddlAfterTime.SelectedItem.Text + ":" + ddlISTETE.SelectedItem.Text;
-
-                    currentDesiredJobBAL.SaveJobLookingDetailsBAL(dt);
+                    currentDesiredJobBAL.SaveExperienceDetailsBAL(dtAddExperience);
+                    currentDesiredJobBAL.SaveJobLookingDetailsBAL(dtJobDetails);
                     currentDesiredJobBAL.SaveDesiredJobDetailsBAL(currentDesiredJobEntity);
                     currentDesiredJobBAL.SaveJobDetailsBAL(currentDesiredJobEntity);
                     Response.Write("<script language='javascript'>alert('Details saved successfully')</script>");
@@ -835,7 +840,8 @@ namespace JobFair.UserControls.JobSeeker
             }
             finally
             {
-                dt = null;
+                dtJobDetails = null;
+                dtAddExperience = null;
                 currentDesiredJobBAL = null;
             }
         }
@@ -1312,7 +1318,7 @@ namespace JobFair.UserControls.JobSeeker
                     chklState.DataTextField = "StateName";
                     chklState.DataValueField = "StateId";
                     chklState.DataBind();
-                    chklState.Items.Insert(0, new ListItem("--Select--", "0"));
+                    //chklState.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
 
                 //}
@@ -1400,6 +1406,10 @@ namespace JobFair.UserControls.JobSeeker
             if (rblJobType.SelectedItem.Text == "Temporary" && chkCurrentYes.Checked)
             {
                 divTemporary.Visible = true;
+            }
+            else
+            {
+                divTemporary.Visible = false;
             }
         }
 

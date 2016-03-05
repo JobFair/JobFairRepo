@@ -9,12 +9,6 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>
 
-<style type="text/css">
-    .auto-style3 {
-        width: 404px;
-    }
-</style>
-
 <div>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     &nbsp;
@@ -31,6 +25,7 @@
             <td>Resume Headline</td>
             <td>
                 <asp:TextBox ID="txtResumeHeadline" runat="server"></asp:TextBox>
+              
             </td>
         </tr>
         <tr>
@@ -119,8 +114,7 @@
                                 <%--<asp:DropDownList ID="ddlFromMonth" runat="server">
                                 </asp:DropDownList>
                                 <asp:DropDownList ID="ddlFromYear" runat="server">
-                                </asp:DropDownList>--%>
-                                &nbsp;Till&nbsp;
+                                </asp:DropDownList>--%>&nbsp;Till&nbsp;
                                  <asp:TextBox ID="ToYearTxt" runat="server"></asp:TextBox>
                                 <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Enabled="True"
                                     TargetControlID="ToYearTxt" Format="MM/yyyy" />
@@ -157,24 +151,34 @@
                                 </asp:RadioButtonList>
                                 &nbsp;</td>
                         </tr>
+
                         <tr>
+
                             <td>Job Type</td>
+
                             <td>
-                                <asp:RadioButtonList ID="rblJobType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="rblJobType_SelectedIndexChanged">
-                                    <asp:ListItem>Permanent</asp:ListItem>
-                                    <asp:ListItem>Temporary</asp:ListItem>
-                                    <asp:ListItem>Freelancing</asp:ListItem>
-                                </asp:RadioButtonList>
-                                <br />
-                                <div id="divTemporary" runat="server" visible="false">
-                                    <asp:Panel ID="PanelTemporary" runat="server">
-                                        Client Name<asp:TextBox ID="txtClientName" runat="server"></asp:TextBox>
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                        <asp:RadioButtonList ID="rblJobType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="rblJobType_SelectedIndexChanged">
+                                            <asp:ListItem>Permanent</asp:ListItem>
+                                            <asp:ListItem>Temporary</asp:ListItem>
+                                            <asp:ListItem>Freelancing</asp:ListItem>
+                                        </asp:RadioButtonList>
+                                        <asp:CheckBox ID="chkJobType" runat="server" Text="On Client Site" />
                                         <br />
-                                        Client Site<asp:TextBox ID="txtClientSite" runat="server"></asp:TextBox>
-                                    </asp:Panel>
-                                </div>
+
+                                        <div id="divTemporary" runat="server" visible="false">
+                                            <asp:Panel ID="PanelTemporary" runat="server">
+                                                Client Name<asp:TextBox ID="txtClientName" runat="server"></asp:TextBox>
+                                                <br />
+                                                Location<asp:TextBox ID="txtLocation" runat="server"></asp:TextBox>
+                                            </asp:Panel>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </td>
                         </tr>
+
                         <tr>
                             <td>Company Type</td>
                             <td>
@@ -193,7 +197,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Button ID="btnAddExperience" runat="server" Text="Add Experience" OnClick="btnAddExperience_Click" />
+                                <asp:Button ID="btnAddExperience" runat="server" Text="Save And Add More" OnClick="btnAddExperience_Click" />
                             </td>
                             <td>
                                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
@@ -241,11 +245,11 @@
                             <td colspan="2"></td>
                         </tr>
                         <tr>
-                            <td>&nbsp;</td>
+                            <td>   &nbsp;</td>
                             <td>
-                                <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSaveCurrentJob_Click" />
+                                <%-- <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSaveCurrentJob_Click" />
                                 <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
-                                <asp:Label ID="lblmsgsave" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="lblmsgsave" runat="server" Text="Label"></asp:Label>--%>
                             </td>
                         </tr>
                         <tr>
@@ -450,12 +454,13 @@
                         </tr>
                         <tr>
                             <td>Functional Role</td>
-                            <td><asp:DropDownList ID="ddlFunctionalRole" runat="server">
-                            </asp:DropDownList>
+                            <td>
+                                <asp:DropDownList ID="ddlFunctionalRole" runat="server">
+                                </asp:DropDownList>
                             </td>
                         </tr>
                         <tr>
-                            <td>Relevant Experience</td>
+                            <td>Relevant Experience In Mention Post</td>
                             <td>
                                 <asp:TextBox ID="txtRelevantExp" runat="server"></asp:TextBox>
                             </td>
@@ -653,20 +658,20 @@
                     <ContentTemplate>
                         <table style="width: 688px">
                             <tr>
-                                <td class="auto-style3">Preferred Country</td>
+                                <td >Preferred Country</td>
                                 <td>
                                     <asp:DropDownList ID="ddlPreferredCountry" OnSelectedIndexChanged="ddlPreferredCountry_SelectedIndexChanged" runat="server">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style3">Preferred State</td>
+                                <td >Preferred State</td>
                                 <td>
                                     <br />
                                     <asp:TextBox ID="txtPreferredState" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
                                     <asp:Button ID="btnState" runat="server" Text="Select State" OnClick="btnState_Click" />
-                                    <asp:Panel ID="PanelState" runat="server" Visible="false" Width="444px">
-                                        <asp:CheckBoxList ID="chklState" runat="server" OnSelectedIndexChanged="chklState_SelectedIndexChanged" AutoPostBack="True">
+                                    <asp:Panel ID="PanelState" runat="server" Visible="false" Width="600px">
+                                        <asp:CheckBoxList ID="chklState" runat="server" RepeatColumns="4" OnSelectedIndexChanged="chklState_SelectedIndexChanged" AutoPostBack="True">
                                         </asp:CheckBoxList>
                                     </asp:Panel>
                                 </td>
@@ -678,8 +683,8 @@
                                     <br />
                                     <asp:TextBox ID="txtCity" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
                                     <asp:Button ID="btnCity" runat="server" Text="Select City" OnClick="btnCity_Click" />
-                                    <asp:Panel ID="Panelcity" runat="server" Visible="false" Width="444px">
-                                        <asp:CheckBoxList ID="chklCity" runat="server" OnSelectedIndexChanged="chklCity_SelectedIndexChanged" AutoPostBack="True">
+                                    <asp:Panel ID="Panelcity" runat="server" Visible="false" Width="600px" Height="400px" ScrollBars="Auto">
+                                        <asp:CheckBoxList ID="chklCity" runat="server" RepeatColumns="5" OnSelectedIndexChanged="chklCity_SelectedIndexChanged" AutoPostBack="True">
                                         </asp:CheckBoxList>
                                     </asp:Panel>
                                 </td>
@@ -690,8 +695,8 @@
                                 <td>
                                     <asp:TextBox ID="txtarea" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
                                     <asp:Button runat="server" ID="btnarea" Text="Select Area" OnClick="btnarea_Click" />
-                                    <asp:Panel ID="PanelArea" runat="server" Visible="false" Width="444px">
-                                        <asp:CheckBoxList ID="chklArea" runat="server" AutoPostBack="true" RepeatColumns="6" OnSelectedIndexChanged="chklArea_SelectedIndexChanged"></asp:CheckBoxList>
+                                    <asp:Panel ID="PanelArea" runat="server" Visible="false" Width="600px" Height="400px" ScrollBars="Auto">
+                                        <asp:CheckBoxList ID="chklArea" runat="server" AutoPostBack="true" RepeatColumns="4" OnSelectedIndexChanged="chklArea_SelectedIndexChanged"></asp:CheckBoxList>
                                     </asp:Panel>
                                 </td>
                             </tr>

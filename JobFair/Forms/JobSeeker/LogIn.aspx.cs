@@ -72,7 +72,7 @@ namespace JobFair.Forms.JobSeeker
                 }
 
                
-                Response.Redirect("JSViewProfile.aspx");
+                Response.Redirect("AdvanceSearch.aspx");
                 //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)
