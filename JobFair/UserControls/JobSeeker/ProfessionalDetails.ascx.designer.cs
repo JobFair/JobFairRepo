@@ -238,15 +238,6 @@ namespace JobFair.UserControls.JobSeeker {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// rblJobType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblJobType;
-        
-        /// <summary>
         /// chkJobType control.
         /// </summary>
         /// <remarks>
@@ -254,6 +245,15 @@ namespace JobFair.UserControls.JobSeeker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkJobType;
+        
+        /// <summary>
+        /// rblJobType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblJobType;
         
         /// <summary>
         /// divTemporary control.

@@ -14,7 +14,7 @@ namespace JobFair.UserControls.JobSeeker
     {
         private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
         private string candidateId = "1";
-        private bool isEdit = false;
+        private bool isEdit = true;
 
         /// <summary>
         /// Handles the Load event of Page
@@ -262,7 +262,6 @@ namespace JobFair.UserControls.JobSeeker
                 if (ds != null)
                 {
                     rptrPastCurrentJobDetails.DataSource = ds;
-
                     rptrPastCurrentJobDetails.DataBind();
                 }
             }
@@ -282,7 +281,6 @@ namespace JobFair.UserControls.JobSeeker
                 if (ds != null)
                 {
                     rptrJobPostLookinFor.DataSource = ds;
-
                     rptrJobPostLookinFor.DataBind();
                 }
             }
@@ -1403,7 +1401,7 @@ namespace JobFair.UserControls.JobSeeker
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void rblJobType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblJobType.SelectedItem.Text == "Temporary" && chkCurrentYes.Checked)
+            if ((rblJobType.SelectedItem.Text == "Temporary" || rblJobType.SelectedItem.Text == "Permanent") && chkJobType.Checked)
             {
                 divTemporary.Visible = true;
             }

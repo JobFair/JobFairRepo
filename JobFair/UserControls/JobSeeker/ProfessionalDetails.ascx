@@ -25,7 +25,6 @@
             <td>Resume Headline</td>
             <td>
                 <asp:TextBox ID="txtResumeHeadline" runat="server"></asp:TextBox>
-              
             </td>
         </tr>
         <tr>
@@ -159,12 +158,13 @@
                             <td>
                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                     <ContentTemplate>
+                                        <asp:CheckBox ID="chkJobType" runat="server" Text="On Client Site" />
                                         <asp:RadioButtonList ID="rblJobType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="rblJobType_SelectedIndexChanged">
                                             <asp:ListItem>Permanent</asp:ListItem>
                                             <asp:ListItem>Temporary</asp:ListItem>
                                             <asp:ListItem>Freelancing</asp:ListItem>
                                         </asp:RadioButtonList>
-                                        <asp:CheckBox ID="chkJobType" runat="server" Text="On Client Site" />
+
                                         <br />
 
                                         <div id="divTemporary" runat="server" visible="false">
@@ -222,10 +222,11 @@
                                         <asp:BoundField HeaderText="FunctionalArea" DataField="FunctionalArea" Visible="false" />
                                         <asp:BoundField HeaderText="EmploymentStatus" DataField="EmploymentStatus" />
                                         <asp:BoundField HeaderText="JobType" DataField="JobType" />
+                                        <asp:BoundField HeaderText="Client Site" DataField="ClientSite" />
                                         <asp:BoundField HeaderText="CompanyType" DataField="CompanyType" />
                                         <asp:BoundField HeaderText="Reason" DataField="Reason" />
                                         <asp:BoundField HeaderText="ClientName" DataField="ClientName" />
-                                        <asp:BoundField HeaderText="ClientSite" DataField="ClientSite" />
+                                        <asp:BoundField HeaderText="Location" DataField="Location" />
                                         <asp:CommandField ShowDeleteButton="true" />
                                     </Columns>
                                     <EditRowStyle BackColor="#2461BF" />
@@ -245,7 +246,7 @@
                             <td colspan="2"></td>
                         </tr>
                         <tr>
-                            <td>   &nbsp;</td>
+                            <td>&nbsp;</td>
                             <td>
                                 <%-- <asp:Button ID="btnSaveCurrentJob" runat="server" Text="Save" OnClick="btnSaveCurrentJob_Click" />
                                 <asp:Button ID="btncancelCurrentJob" runat="server" Text=" Cancel" />
@@ -298,11 +299,11 @@
                                         </tr>
                                         <tr>
                                             <td><b>Duration</b>
-                                                <asp:Label ID="lblFromMonth" runat="server" Text='<%#Eval("FromMonth") %>' />
-                                                <asp:Label ID="lblFromYear" runat="server" Text='<%#Eval("FromYear") %>'></asp:Label>
+                                                <asp:Label ID="lblFromMonth" runat="server" Text='<%#Eval("FromDate") %>' />
+
                                                 Till
-                                                            <asp:Label ID="lblTillMonth" runat="server" Text='<%#Eval("TillMonth") %>' />
-                                                <asp:Label ID="lblTillYear" runat="server" Text='<%#Eval("TillYear") %>'></asp:Label>
+                                                            <asp:Label ID="lblTillMonth" runat="server" Text='<%#Eval("TillDate") %>' />
+
                                                 <asp:DropDownList ID="ddlFromMonth0" runat="server" Visible="false">
                                                 </asp:DropDownList>
                                                 <asp:DropDownList ID="ddlFromYear0" runat="server" Visible="false">
@@ -658,14 +659,14 @@
                     <ContentTemplate>
                         <table style="width: 688px">
                             <tr>
-                                <td >Preferred Country</td>
+                                <td>Preferred Country</td>
                                 <td>
                                     <asp:DropDownList ID="ddlPreferredCountry" OnSelectedIndexChanged="ddlPreferredCountry_SelectedIndexChanged" runat="server">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
-                                <td >Preferred State</td>
+                                <td>Preferred State</td>
                                 <td>
                                     <br />
                                     <asp:TextBox ID="txtPreferredState" runat="server" ReadOnly="true" TextMode="MultiLine" Width="300px"></asp:TextBox>
