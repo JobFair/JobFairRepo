@@ -48,6 +48,7 @@
     <Compile Include="ClientRequirementsHRDAL.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ContactDetailsREDAL.cs" />
+    <Compile Include="EmployerpdfDAL.cs" />
     <Compile Include="ForwardResumeDAL.cs" />
     <Compile Include="EmployerDetailsHRDAL.cs" />
     <Compile Include="JobApplicationDAL.cs" />
