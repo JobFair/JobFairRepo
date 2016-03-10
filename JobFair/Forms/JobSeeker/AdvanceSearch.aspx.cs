@@ -175,17 +175,7 @@ namespace JobFair.Forms.JobSeeker
 
             try
             {
-                string resultCont = string.Empty;
-                string[] contactNames = txtkeyskill.Text.Trim().Split(',');
-
-                foreach (string cont in contactNames)
-                {
-                    if (!string.IsNullOrEmpty(cont))
-                    {
-                        resultCont = resultCont + "\t" + cont + "'";
-                    }
-                }
-                resultCont = resultCont.Remove(0, 1);
+              
                 AdvanceSearchDetailsEntity advanceSearchEntity = new AdvanceSearchDetailsEntity();
                 advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
                 if(txtkeyskill.Text=="")
@@ -196,7 +186,7 @@ namespace JobFair.Forms.JobSeeker
                 {
                     advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
                 }
-                if (ddlState.SelectedItem.Text == "" || ddlState.SelectedValue.Trim() == "--Select--") 
+                if (ddlState.SelectedItem.Text == "" || ddlState.SelectedValue.Trim()== "--Select--") 
                 {
                     advanceSearchEntity.State = null;
                 }

@@ -25,7 +25,6 @@ namespace JobFair.Forms.JobSeeker
                 logjsEntity.UserName = txtUserName.Text.Trim();
                 logjsEntity.Password = txtPassword.Text.Trim();
                 string candidateID = liBAL.JobSeekerLogIn(logjsEntity);
-
                 string isreffered = liBAL.JobSeekerLogIn(logjsEntity);
 
                 // string format = Convert.ToString(dsPersonalDetails.Tables[0].Rows[0]["PassportValidity"]); ;
@@ -43,6 +42,7 @@ namespace JobFair.Forms.JobSeeker
                             Session["Candidateid"] = candidateID;
                             if (string.IsNullOrEmpty(candidateID))
                             {
+
                                 lblmsg.Text = "Wrong username or password";
                                 return;
                             }
@@ -71,8 +71,8 @@ namespace JobFair.Forms.JobSeeker
                     }
                 }
 
-               
-                Response.Redirect("JSViewProfile.aspx");
+
+                Response.Redirect("AdvanceSearch.aspx");
                 //Response.Redirect("~/UserControls/JobSeeker/DemoEducationalDetails.aspx");
             }
             catch (Exception ex)
