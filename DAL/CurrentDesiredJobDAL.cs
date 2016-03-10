@@ -46,6 +46,9 @@ namespace DAL
                 objbulk.ColumnMappings.Add("JobType", "JobType");
                 objbulk.ColumnMappings.Add("CompanyType", "CompanyType");
                 objbulk.ColumnMappings.Add("Reason", "Reason");
+                objbulk.ColumnMappings.Add("ClientName", "ClientName");
+                objbulk.ColumnMappings.Add("ClientSite", "ClientSite");
+                objbulk.ColumnMappings.Add("Location", "Location");
 
                 // Inserting bulk Records into DataBase
                 objbulk.WriteToServer(dt);

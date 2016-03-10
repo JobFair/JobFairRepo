@@ -3,21 +3,15 @@ using Entities.JobSeeker;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
-using System.Net.Mail;
-using System.Web.Mail;
 using System.Web.UI.WebControls;
-using System.Text.RegularExpressions;
-using System.Web;
+
 namespace JobFair.Forms.JobSeeker
 {
     public partial class AdvanceSearch : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             string candidateId;
             // Check session is not null
             if (Session["candidateId"] != null)
@@ -27,10 +21,7 @@ namespace JobFair.Forms.JobSeeker
                     candidateId = Convert.ToString(Session["candidateId"]);
                     // Check page is not post back
                     if (!IsPostBack)
-
-
                     {
-
                         //txtkeyskill.Text = Request.QueryString["txtvalue"];
                         try
                         {
@@ -48,11 +39,7 @@ namespace JobFair.Forms.JobSeeker
             {
                 Response.Redirect("LogIn.aspx");
             }
-
-           
         }
-
-       
 
         /// <summary>
         /// Bind industry to chkIndustry
@@ -67,6 +54,10 @@ namespace JobFair.Forms.JobSeeker
                 if (dsIndustry != null)
                 {
                     chkIndustry.DataSource = dsIndustry;
+                    ddlLocation.DataSource = dsIndustry;
+                    ddlLocation.DataTextField = "IndustryName";
+                    ddlLocation.DataValueField = "IndustryId";
+                    ddlLocation.DataBind();
                     chkIndustry.DataTextField = "IndustryName";
                     chkIndustry.DataValueField = "IndustryId";
                     chkIndustry.DataBind();
@@ -99,7 +90,6 @@ namespace JobFair.Forms.JobSeeker
                     chkarea.DataValueField = "AreaId";
                     chkarea.DataBind();
                     chkarea.Items.Insert(0, new ListItem("--Select--", ""));
-                    
                 }
             }
             catch (Exception)
@@ -168,25 +158,34 @@ namespace JobFair.Forms.JobSeeker
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// 
-          
+        ///
+
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-
             try
             {
-              
+                string resultCont = string.Empty;
+                string[] contactNames = txtkeyskill.Text.Trim().Split(',');
+
+                foreach (string cont in contactNames)
+                {
+                    if (!string.IsNullOrEmpty(cont))
+                    {
+                        resultCont = resultCont + "\t" + cont + "'";
+                    }
+                }
+                resultCont = resultCont.Remove(0, 1);
                 AdvanceSearchDetailsEntity advanceSearchEntity = new AdvanceSearchDetailsEntity();
                 advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
-                if(txtkeyskill.Text=="")
+                if (txtkeyskill.Text == "")
                 {
                     advanceSearchEntity.KeySkill = null;
-                } 
+                }
                 else
                 {
                     advanceSearchEntity.KeySkill = txtkeyskill.Text.Trim();
                 }
-                if (ddlState.SelectedItem.Text == "" || ddlState.SelectedValue.Trim()== "--Select--") 
+                if (ddlState.SelectedItem.Text == "" || ddlState.SelectedValue.Trim() == "--Select--")
                 {
                     advanceSearchEntity.State = null;
                 }
@@ -213,45 +212,39 @@ namespace JobFair.Forms.JobSeeker
                 if (ddlWorkExperienceMin.SelectedValue == "" || ddlWorkExperienceMin.Text == "Select")
                 {
                     advanceSearchEntity.WorkExpMin = null;
-
                 }
                 else
                 {
                     advanceSearchEntity.WorkExpMin = ddlWorkExperienceMin.SelectedValue.Trim();
-
                 }
                 if (ddlWorkExperienceMax.SelectedValue == "" || ddlWorkExperienceMax.Text == "Select")
                 {
                     advanceSearchEntity.WorkExpMax = null;
-
                 }
                 else
                 {
                     advanceSearchEntity.WorkExpMax = ddlWorkExperienceMax.SelectedValue.Trim();
-
                 }
 
-                if (ddlMinSalary.SelectedValue == "" || ddlMinSalary.Text == "Min" )
+                if (ddlMinSalary.SelectedValue == "" || ddlMinSalary.Text == "Min")
                 {
                     advanceSearchEntity.MinSalary = null;
                 }
                 else
                 {
                     advanceSearchEntity.MinSalary = ddlMinSalary.SelectedValue.Trim();
-
                 }
                 if (ddlMaxSalary.SelectedValue == "" || ddlMaxSalary.Text == "Max")
                 {
-
                     advanceSearchEntity.MaxSalary = null;
                 }
                 else
                 {
                     advanceSearchEntity.MaxSalary = ddlMaxSalary.SelectedValue.Trim();
                 }
-                if (chkIndustry.SelectedValue  == "" || chkIndustry.SelectedValue == "---select---")
+                if (chkIndustry.SelectedValue == "" || chkIndustry.SelectedValue == "---select---")
                 {
-                    advanceSearchEntity.Industry =( null);
+                    advanceSearchEntity.Industry = (null);
                 }
                 else
                 {
@@ -264,7 +257,6 @@ namespace JobFair.Forms.JobSeeker
                 else
                 {
                     {
-                    
                         advanceSearchEntity.EmpStatus = chkEmploymentStatus.SelectedValue.Trim();
                     }
                     if (chkJobType.SelectedValue == "" || chkJobType.Text == "select")
@@ -285,19 +277,17 @@ namespace JobFair.Forms.JobSeeker
                 AdvanceSearchDetailsEntity search = new AdvanceSearchDetailsEntity();
                 Session["myObject"] = advanceSearchEntity;
                 Response.Redirect("jobSearch.aspx");
-               
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
         public static List<string> GetRoles(string prefixText)
-            {
+        {
             DataTable dtRoles = new DataTable();
             AdvanceJobSearchBAL advanceSearchBAL = new AdvanceJobSearchBAL();
             dtRoles = advanceSearchBAL.GetRoles(prefixText);
@@ -313,7 +303,7 @@ namespace JobFair.Forms.JobSeeker
 
             try
             {
-            //     Check datatable is not null
+                //     Check datatable is not null
 
                 if (dtRoles != null)
                 {
@@ -321,18 +311,14 @@ namespace JobFair.Forms.JobSeeker
                     {
                         rolename.Add(dtRoles.Rows[i][0].ToString());
                         //string rolenames = string.Join( "\t", rolename.Select(x => x.ToString()).ToArray());
-
-
                     }
-
                 }
             }
             catch (Exception)
             {
-                  throw;
+                throw;
             }
             return rolename;
-           
         }
 
         protected void btnReset_Click(object sender, EventArgs e)
@@ -385,7 +371,29 @@ namespace JobFair.Forms.JobSeeker
         {
             panellindustry.Visible = true;
         }
+
+        protected void ddlLocation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            {
+                //SqlConnection con = new SqlConnection(strConnString);
+                //con.Open();
+
+                for (int i = 0; i < ddlLocation.Items.Count; i++)
+                {
+                    if (ddlLocation.Items[i].Selected == true)
+                    {
+                        string str = ddlLocation.Items[i].Value;
+                        var sdd = string.Join(",", str);
+                        //TextBox1.Text = item.Value;
+                    }
+
+                    //com = new SqlCommand(str, con);
+                    //com.ExecuteNonQuery();
+                    //Response.Write("<script>alert('Items Inserted');</script>");
+                }
+            }
+        }
+
+     
     }
 }
-
-

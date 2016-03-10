@@ -51,6 +51,7 @@
     <Compile Include="ForwordResumeBAL.cs" />
     <Compile Include="EmployerDetailsHRBAL.cs" />
     <Compile Include="JobapplicationsBAL.cs" />
+    <Compile Include="LogInEmployerBAL.cs" />
     <Compile Include="ManageClientHRBAL.cs" />
     <Compile Include="ManageEmployerHRBAL.cs" />
     <Compile Include="ManageJobsBAL.cs" />
@@ -61,7 +62,7 @@
     <Compile Include="EducationalDetailsBAL.cs" />
     <Compile Include="FeedbackBAL.cs" />
     <Compile Include="JobSearchBAL.cs" />
-    <Compile Include="LoginBAL.cs" />
+    <Compile Include="LoginInJobSeekerBAL.cs" />
     <Compile Include="ManageResponsesBAL.cs" />
     <Compile Include="MoreCertificationBAL.cs" />
     <Compile Include="MoreWorkshopBAL.cs" />
