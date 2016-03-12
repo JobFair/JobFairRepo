@@ -34,6 +34,7 @@ namespace JobFair.Forms.JobSeeker
                 foreach (string Word in Words)
                 {
                     count += 1;
+
                     if (count == 1)
                     {
                         candidateID = Word;

@@ -20,6 +20,7 @@ namespace JobFair.Forms.Employer
   
 
 {
+
     public partial class EmployerPDF : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -33,6 +34,8 @@ namespace JobFair.Forms.Employer
             }
 
         }
+
+
 
         private void Bindrepeater()
         {
@@ -71,5 +74,6 @@ namespace JobFair.Forms.Employer
             Response.Write(pdfDoc);
             Response.End();
         }
+
     }
 }
