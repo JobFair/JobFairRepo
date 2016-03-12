@@ -69,7 +69,7 @@
         </div>--%>
 
     <div>
-        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="3" Width="900px" Height="600px">
+        <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="2" Width="900px" Height="600px">
             <cc1:TabPanel ID="TabPanel1" runat="server" HeaderText="Profile Summary">
                 <ContentTemplate>
                     <table>
@@ -447,7 +447,7 @@
             </cc1:TabPanel>
             <cc1:TabPanel ID="TabPanel3" runat="server" HeaderText="Professional Details">
                 <ContentTemplate>
-                    <cc1:TabContainer ID="TabContainer5" runat="server" ActiveTabIndex="3" CssClass="">
+                    <cc1:TabContainer ID="TabContainer5" runat="server" ActiveTabIndex="1" CssClass="">
                         <cc1:TabPanel ID="TabPanel15" runat="server" HeaderText="Professional Summary">
                             <ContentTemplate>
                                 <asp:LinkButton ID="lnkbtnProfessionalSummary" runat="server" OnClick="lnkbtnProfessionalSummary_Click">Edit</asp:LinkButton>
@@ -530,7 +530,7 @@
                                                     <tr>
                                                         <td>Duration</td>
                                                         <td>
-                                                            <asp:Label ID="lblDuration" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FromYear")%>'></asp:Label></td>
+                                                            <asp:Label ID="lblDuration" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FromDate")%>'></asp:Label></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Industry </td>
@@ -960,7 +960,7 @@
                         </cc1:TabPanel>
                         <cc1:TabPanel ID="TabPanel11" runat="server" HeaderText="Technical Skills">
                             <ContentTemplate>
-                                <span>ulgljgljkglglk</span>
+                                <span></span>
                                 <asp:LinkButton ID="LinkButton1" runat="server">Edit</asp:LinkButton>
                                 <asp:Repeater ID="rptrTechnicalSkills" runat="server">
                                     <HeaderTemplate>

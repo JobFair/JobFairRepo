@@ -300,11 +300,11 @@
                                         <tr>
                                             <td><b>Duration</b>
                                                 <asp:Label ID="lblFromMonth" runat="server" Text='<%#Eval("FromDate") %>' />
-
+                                                <asp:TextBox ID="txtFromDate" runat="server" Visible="false"></asp:TextBox>
                                                 Till
                                                             <asp:Label ID="lblTillMonth" runat="server" Text='<%#Eval("TillDate") %>' />
-
-                                                <asp:DropDownList ID="ddlFromMonth0" runat="server" Visible="false">
+                                                <asp:TextBox ID="txtTillDate" runat="server" Visible="false"></asp:TextBox>
+                                              <%--  <asp:DropDownList ID="ddlFromMonth0" runat="server" Visible="false">
                                                 </asp:DropDownList>
                                                 <asp:DropDownList ID="ddlFromYear0" runat="server" Visible="false">
                                                 </asp:DropDownList>
@@ -312,7 +312,7 @@
                                                 <asp:DropDownList ID="ddlTillMonth0" runat="server" Visible="false">
                                                 </asp:DropDownList>
                                                 <asp:DropDownList ID="ddlTillYear0" runat="server" Visible="false">
-                                                </asp:DropDownList>
+                                                </asp:DropDownList>--%>
                                             </td>
                                         </tr>
                                         <tr>
@@ -371,8 +371,15 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td>Relevant Experience</td>
+                                            <td>
+                                                <asp:Label ID="lblRelevantExperience" runat="server" Text='<%#Eval("RelevantExperience") %>'></asp:Label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td><b>Reason For JobChange </b>
-                                                <asp:Label ID="lblReasonforjobchange" runat="server"></asp:Label>
+                                                <asp:Label ID="lblReasonforjobchange" runat="server" Text='<%#Eval("Reason") %>'></asp:Label>
                                                 <asp:TextBox ID="txtReasonforJobchange0" runat="server" Text='<%#Eval("Reason") %>' TextMode="MultiLine" Visible="false"></asp:TextBox>
                                             </td>
                                         </tr>
@@ -885,12 +892,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Min&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Min</td>
         </tr>
 
-        <tr>
-            <td>Why are you changing your current job? Reason</td>
-            <td>
-                <asp:TextBox ID="txtDesiredReason" runat="server" TextMode="MultiLine"></asp:TextBox>
-            </td>
-        </tr>
+        
         <tr>
             <td colspan="2">
                 <div id="divJobPostLookingFor" runat="server">

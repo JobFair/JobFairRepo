@@ -13,8 +13,8 @@ namespace JobFair.UserControls.JobSeeker
     public partial class ProfessionalDetails : System.Web.UI.UserControl
     {
         private string JobSeekerPrefix = ConfigurationManager.AppSettings["JobSeekerPrefix"];
-        private string candidateId = "1";
-        private bool isEdit = true;
+        private string candidateId = "36";
+        private bool isEdit =true;
 
         /// <summary>
         /// Handles the Load event of Page
@@ -256,12 +256,12 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DataSet ds = new DataSet();
+                DataSet dsCurrentPastExperience = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                ds = currentDesiredJobBAL.ViewCurrentPastJobDetailsBAL(candidateId);
-                if (ds != null)
+                dsCurrentPastExperience = currentDesiredJobBAL.ViewCurrentPastJobDetailsBAL(candidateId);
+                if (dsCurrentPastExperience != null)
                 {
-                    rptrPastCurrentJobDetails.DataSource = ds;
+                    rptrPastCurrentJobDetails.DataSource = dsCurrentPastExperience;
                     rptrPastCurrentJobDetails.DataBind();
                 }
             }
@@ -275,13 +275,13 @@ namespace JobFair.UserControls.JobSeeker
         {
             try
             {
-                DataSet ds = new DataSet();
+                DataSet dsJobPostLooking = new DataSet();
                 CurrentDesiredJobBAL currentDesiredJobBAL = new CurrentDesiredJobBAL();
-                ds = currentDesiredJobBAL.ViewJobPostLookingBAL(candidateId);
-                if (ds != null)
+                dsJobPostLooking = currentDesiredJobBAL.ViewJobPostLookingBAL(candidateId);
+                if (dsJobPostLooking != null)
                 {
-                    rptrJobPostLookinFor.DataSource = ds;
-                    rptrJobPostLookinFor.DataBind();
+                    rptrJobPostLookinFor.DataSource = dsJobPostLooking;
+                     rptrJobPostLookinFor.DataBind();
                 }
             }
             catch (Exception)
