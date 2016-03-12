@@ -10,6 +10,8 @@ namespace JobFair.Forms.JobSeeker
         {
         }
 
+
+
         /// <summary>
         /// Handles the Click event of the btnLogin control.
         /// </summary>
