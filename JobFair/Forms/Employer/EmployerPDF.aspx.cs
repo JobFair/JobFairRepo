@@ -43,8 +43,7 @@ namespace JobFair.Forms.Employer
                 ds = employerpdf.GetEmployerDetails();
                 rptremployerdetails.DataSource = ds;
                 rptremployerdetails.DataBind();
-                    
-
+               
             }
             catch (Exception)
             {
